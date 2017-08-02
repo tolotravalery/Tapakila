@@ -9,7 +9,7 @@ return [
     'port' => env('MAIL_PORT', 587),
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS','valery@trustylabs.mg'),
+        'address' => env('MAIL_FROM_ADDRESS','contact@trustylabs.mg'),
         'name' => env('MAIL_FROM_NAME','Tapakila'),
     ],
 
