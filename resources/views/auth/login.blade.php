@@ -111,7 +111,7 @@
                             <div class="col-md-6 col-xs-12">
 
                                 <a href="{{ url('/register') }}"><p class="red4">S'inscrire</p></a>
-                                <a href="#"><p class="red3">Réinitialiser mots de passe</p></a>
+                                <a href="{{ url('/password/reset') }}"><p class="red3">Réinitialiser mots de passe</p></a>
 
                             </div>
                         </div>

@@ -1,8 +1,294 @@
 /* mediaqueris css  
 Team trustylabs */
 /*-----------------<200-400>---------------------------*/
+@media screen and (min-width:300px) and (max-width: 325px)  {
+.descript{
+margin-top: 55px ! important;
+padding-left: 19% ! important;
+}
+}
+@media screen and (min-width:380px) and (max-width: 390px)  {
+	.spacerwhite {
+    margin-top: 0  ! important;
+}
 
-@media screen and (max-width:365px) {
+	.red3 {
+    margin-left: 31% ! important;
+    color: red ! important;
+}
+	.red4 {
+    margin-left: 47% ! important;
+    color: red;
+    padding-top: 24px ! important;
+}
+	.reinitialise {
+    font-size: 38px ! important;
+    margin-left: 96px ! important;
+    margin-top: 20px ! important;
+}
+.sinscrire {
+    margin-left: 65px;
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: #ff1d1d;
+    background-image: none;
+    background-origin: padding-box;
+    background-position: 0% 0%;
+    background-position-x: 0%;
+    background-position-y: 0%;
+    background-repeat: repeat;
+    background-size: auto auto;
+    border-bottom-color: rgb(255, 255, 255);
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-bottom-style: none;
+    border-bottom-width: 0px;
+    border-image-outset: 0 0 0 0;
+    border-image-repeat: stretch stretch;
+    border-image-slice: 100% 100% 100% 100%;
+    border-image-source: none;
+    border-image-width: 1 1 1 1;
+    border-left-color: rgb(255, 255, 255);
+    border-left-style: none;
+    border-left-width: 0px;
+    border-right-color: rgb(255, 255, 255);
+    border-right-style: none;
+    border-right-width: 0px;
+    border-top-color: rgb(255, 255, 255);
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-top-style: none;
+    border-top-width: 0px;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    display: inline-block;
+    font-family: roboto;
+    font-size: 16px;
+    padding-bottom: 7px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 7px;
+    text-align: center;
+    width: 240px;
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    margin-left: 104px  ! important;
+}
+.champs{
+width: 110% ! important;
+padding-left:0 ! important;
+padding-right: 15px ! important;
+padding-top: 40px ! important;
+}	
+.inscript{
+font-size: 38px ! important;
+margin-left:90px ! important;
+margin-top: 20px ! important;
+}
+.inscripto {
+background-attachment: scroll;
+background-clip: border-box;
+background-color: #ff1d1d;
+background-image: none;
+background-origin: padding-box;
+background-position: 0% 0%;
+background-position-x: 0%;
+background-position-y: 0%;
+background-repeat: repeat;
+background-size: auto auto;
+border-bottom-color: rgb(255, 255, 255);
+border-bottom-left-radius: 3px;
+border-bottom-right-radius: 3px;
+border-bottom-style: none;
+border-bottom-width: 0px;
+border-image-outset: 0 0 0 0;
+border-image-repeat: stretch stretch;
+border-image-slice: 100% 100% 100% 100%;
+border-image-source: none;
+border-image-width: 1 1 1 1;
+border-left-color: rgb(255, 255, 255);
+border-left-style: none;
+border-left-width: 0px;
+border-right-color: rgb(255, 255, 255);
+border-right-style: none;
+border-right-width: 0px;
+border-top-color: rgb(255, 255, 255);
+border-top-left-radius: 3px;
+border-top-right-radius: 3px;
+border-top-style: none;
+border-top-width: 0px;
+color: rgb(255, 255, 255);
+cursor: pointer;
+display: inline-block;
+font-family: roboto;
+font-size: 16px;
+padding-bottom: 7px;
+padding-left: 10px;
+padding-right: 10px;
+padding-top: 7px;
+text-align: center;
+/* width: 240px; */
+-moz-border-bottom-colors: none;
+-moz-border-left-colors: none;
+-moz-border-right-colors: none;
+-moz-border-top-colors: none;
+margin-left:65px  ! important;
+margin-top: 40px;
+width: 168px;
+height: 54px;
+}
+
+}
+
+@media screen and (min-width:365px) and (max-width: 377px)  {
+	.spacerwhite {
+    margin-top: 0  ! important;
+}
+	.red3 {
+    margin-left: 29%  ! important;
+    color: red  ! important;
+}
+	.red4 {
+    margin-left: 45%  ! important;
+    color: red  ! important;
+    padding-top: 17px  ! important;
+}
+	.sinscrire {
+    margin-left: 65px;
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: #ff1d1d;
+    background-image: none;
+    background-origin: padding-box;
+    background-position: 0% 0%;
+    background-position-x: 0%;
+    background-position-y: 0%;
+    background-repeat: repeat;
+    background-size: auto auto;
+    border-bottom-color: rgb(255, 255, 255);
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-bottom-style: none;
+    border-bottom-width: 0px;
+    border-image-outset: 0 0 0 0;
+    border-image-repeat: stretch stretch;
+    border-image-slice: 100% 100% 100% 100%;
+    border-image-source: none;
+    border-image-width: 1 1 1 1;
+    border-left-color: rgb(255, 255, 255);
+    border-left-style: none;
+    border-left-width: 0px;
+    border-right-color: rgb(255, 255, 255);
+    border-right-style: none;
+    border-right-width: 0px;
+    border-top-color: rgb(255, 255, 255);
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-top-style: none;
+    border-top-width: 0px;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    display: inline-block;
+    font-family: roboto;
+    font-size: 16px;
+    padding-bottom: 7px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 7px;
+    text-align: center;
+    width: 240px;
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    margin-left: 96px ! important;
+}
+.champs2 {
+    width: 101% ! important;
+    padding-left: 7px ! important;
+    padding-right: 10px ! important;
+}
+.reinitialise {
+    font-size: 38px ! important;
+    margin-left: 92px ! important;
+    margin-top: 13px ! important;
+}
+.inscript{
+font-size: 38px ! important;
+margin-left:90px ! important;
+margin-top: 20px ! important;
+}
+.champs{
+width: 110% ! important;
+padding-left:0 ! important;
+padding-right: 15px ! important;
+padding-top: 40px ! important;
+}
+.inscripto {
+background-attachment: scroll;
+background-clip: border-box;
+background-color: #ff1d1d;
+background-image: none;
+background-origin: padding-box;
+background-position: 0% 0%;
+background-position-x: 0%;
+background-position-y: 0%;
+background-repeat: repeat;
+background-size: auto auto;
+border-bottom-color: rgb(255, 255, 255);
+border-bottom-left-radius: 3px;
+border-bottom-right-radius: 3px;
+border-bottom-style: none;
+border-bottom-width: 0px;
+border-image-outset: 0 0 0 0;
+border-image-repeat: stretch stretch;
+border-image-slice: 100% 100% 100% 100%;
+border-image-source: none;
+border-image-width: 1 1 1 1;
+border-left-color: rgb(255, 255, 255);
+border-left-style: none;
+border-left-width: 0px;
+border-right-color: rgb(255, 255, 255);
+border-right-style: none;
+border-right-width: 0px;
+border-top-color: rgb(255, 255, 255);
+border-top-left-radius: 3px;
+border-top-right-radius: 3px;
+border-top-style: none;
+border-top-width: 0px;
+color: rgb(255, 255, 255);
+cursor: pointer;
+display: inline-block;
+font-family: roboto;
+font-size: 16px;
+padding-bottom: 7px;
+padding-left: 10px;
+padding-right: 10px;
+padding-top: 7px;
+text-align: center;
+/* width: 240px; */
+-moz-border-bottom-colors: none;
+-moz-border-left-colors: none;
+-moz-border-right-colors: none;
+-moz-border-top-colors: none;
+margin-left:65px  ! important;
+margin-top: 40px;
+width: 168px;
+height: 54px;
+}
+
+
+}
+
+
+@media screen and (max-width:320px) {
+	.champs2 {
+    width: 95% ! important;
+    padding-left: 25px ! important;
+    padding-right: 10px ! important;
+}
 .oo{
 margin-left: 10% ! important;
 margin-top: -28px ! important;
@@ -16,11 +302,11 @@ margin-left: 7% !important;
 }
 .reinitialise{
 font-size: 38px ! important;
-margin-left:95px ! important;
+margin-left:69px ! important;
 margin-top:20px ! important;
 }
 .sinscrire{
-margin-left: 65px ! important;
+margin-left: 41px ! important;
 background-attachment: scroll ! important;
 background-clip: border-box ! important;
 background-color:#ff1d1d ! important;
@@ -89,7 +375,7 @@ margin-top: 0 ! important;
 }
 .inscript{
 font-size: 38px ! important;
-margin-left:60px ! important;
+margin-left:66px ! important;
 margin-top: 20px ! important;
 }
 .inscripto {
@@ -139,7 +425,7 @@ text-align: center;
 -moz-border-left-colors: none;
 -moz-border-right-colors: none;
 -moz-border-top-colors: none;
-margin-left:50px  ! important;
+margin-left:46px  ! important;
 margin-top: 40px;
 width: 168px;
 height: 54px;
@@ -149,6 +435,127 @@ width: 120% ! important;
 padding-left:0 ! important;
 padding-right: 15px ! important;
 padding-top: 40px ! important;
+}
+
+}
+@media screen  and (min-width:320px) and (max-width:365px) {
+	.white {
+    background-color: #ffffff !important;
+    padding-top: 50px !important;
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+    padding-bottom: 47px !important;
+}
+  .fa {
+    text-align: center;
+    margin-left: -4px;
+}
+
+	
+	.btn {
+  background: #0054a6 !important;
+color: white !important;
+width: 278px !important;
+margin-left: 21px !important;
+height: 50px !important;
+}
+.oo{
+margin-left: 10% ! important;
+margin-top: -28px ! important;
+}
+.o{
+margin-left: -10% ! important;
+margin-top: -27px ! important;
+}
+.mot{
+margin-left: 7% !important;
+}
+
+
+.red4 {
+margin-left: 47% ! important;
+color: red ! important;
+padding-top: 20px ! important;
+}
+.red3{
+margin-left: 26%  ! important;
+color:red  ! important;
+}
+.fbk{
+margin-left: 38px ! important;
+font-size: 16px ! important;
+text-align: center;
+
+}
+.spacerwhite {
+margin-top: 0 ! important;
+}
+.inscript{
+font-size: 38px ! important;
+margin-left:82px ! important;
+margin-top: 20px ! important;
+}
+.inscripto {
+background-attachment: scroll;
+background-clip: border-box;
+background-color: #ff1d1d;
+background-image: none;
+background-origin: padding-box;
+background-position: 0% 0%;
+background-position-x: 0%;
+background-position-y: 0%;
+background-repeat: repeat;
+background-size: auto auto;
+border-bottom-color: rgb(255, 255, 255);
+border-bottom-left-radius: 3px;
+border-bottom-right-radius: 3px;
+border-bottom-style: none;
+border-bottom-width: 0px;
+border-image-outset: 0 0 0 0;
+border-image-repeat: stretch stretch;
+border-image-slice: 100% 100% 100% 100%;
+border-image-source: none;
+border-image-width: 1 1 1 1;
+border-left-color: rgb(255, 255, 255);
+border-left-style: none;
+border-left-width: 0px;
+border-right-color: rgb(255, 255, 255);
+border-right-style: none;
+border-right-width: 0px;
+border-top-color: rgb(255, 255, 255);
+border-top-left-radius: 3px;
+border-top-right-radius: 3px;
+border-top-style: none;
+border-top-width: 0px;
+color: rgb(255, 255, 255);
+cursor: pointer;
+display: inline-block;
+font-family: roboto;
+font-size: 16px;
+padding-bottom: 7px;
+padding-left: 10px;
+padding-right: 10px;
+padding-top: 7px;
+text-align: center;
+/* width: 240px; */
+-moz-border-bottom-colors: none;
+-moz-border-left-colors: none;
+-moz-border-right-colors: none;
+-moz-border-top-colors: none;
+margin-left:69px  ! important;
+margin-top: 40px;
+width: 168px;
+height: 54px;
+}
+.champs{
+width: 120% ! important;
+padding-left:0 ! important;
+padding-right: 15px ! important;
+padding-top: 40px ! important;
+}
+.descript{
+margin-top: 23px ! important;
+padding-left: 23% ! important;
 }
 
 }
@@ -414,8 +821,9 @@ width: 240px ! important;
 margin-left: 91px ! important;
 }
 .red4 {
-margin-left: 50% ! important;
-color: red ! important;
+margin-left: 46% !important;
+color: red !important;
+padding-top: 16px !important;
 }
 .red3{
 margin-left: 34%  ! important;
@@ -534,10 +942,23 @@ margin: 0
 
 }
 
-/ -------------------------500-600------------------------ /
-@media screen and (min-width:550px) and (max-width:600px) {
 
-
+@media screen and (min-width:350px) and (max-width:361px) {
+.reinitialise {
+    font-size: 38px ! important;
+    margin-left: 83px ! important;
+    margin-top: 12px ! important;
+}
+.champs2 {
+    width: 100% ! important;
+    padding-left: 16px ! important;
+    padding-right: 10px ! important;
+}
+red4 {
+    margin-left: 42% !important;
+    color: red !important;
+    padding-top: 20px !important;
+}
 }
 @media screen and (min-width:603px) {
 
@@ -641,8 +1062,77 @@ padding-left: 37% ! important;
 }
 
 
-@media screen and (min-width:800px) and (max-width:990px){
-
+@media screen and (min-width:900px) and (max-width:990px){
+	.red3 {
+    margin-left: 75%  ! important;
+    color: red  ! important;
+	}
+	.red4 {
+    margin-left: 86%  ! important;
+    color: red;
+    margin-top: -48px  ! important;
+}
+.inscript{
+font-size: 38px ! important;
+margin-left:39% ! important;
+margin-top: 20px ! important;
+}
+.descript{
+margin-top: -41px !important;
+padding-left: 69% !important;
+}
+.inscripto {
+background-attachment: scroll;
+background-clip: border-box;
+background-color: #ff1d1d;
+background-image: none;
+background-origin: padding-box;
+background-position: 0% 0%;
+background-position-x: 0%;
+background-position-y: 0%;
+background-repeat: repeat;
+background-size: auto auto;
+border-bottom-color: rgb(255, 255, 255);
+border-bottom-left-radius: 3px;
+border-bottom-right-radius: 3px;
+border-bottom-style: none;
+border-bottom-width: 0px;
+border-image-outset: 0 0 0 0;
+border-image-repeat: stretch stretch;
+border-image-slice: 100% 100% 100% 100%;
+border-image-source: none;
+border-image-width: 1 1 1 1;
+border-left-color: rgb(255, 255, 255);
+border-left-style: none;
+border-left-width: 0px;
+border-right-color: rgb(255, 255, 255);
+border-right-style: none;
+border-right-width: 0px;
+border-top-color: rgb(255, 255, 255);
+border-top-left-radius: 3px;
+border-top-right-radius: 3px;
+border-top-style: none;
+border-top-width: 0px;
+color: rgb(255, 255, 255);
+cursor: pointer;
+display: inline-block;
+font-family: roboto;
+font-size: 16px;
+padding-bottom: 7px;
+padding-left: 10px;
+padding-right: 10px;
+padding-top: 7px;
+text-align: center;
+/* width: 240px; */
+-moz-border-bottom-colors: none;
+-moz-border-left-colors: none;
+-moz-border-right-colors: none;
+-moz-border-top-colors: none;
+margin-left: -370px !important;
+margin-top: 54% !important;
+width: 168px;
+height: 54px;
+}
 }
 
 
