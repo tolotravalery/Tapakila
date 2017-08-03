@@ -55,8 +55,14 @@
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
-                            <li {{ Request::is('profile/'.Auth::user()->name, 'profile/'.Auth::user()->name . '/edit') ? 'class=active' : null }}>
-                                {!! HTML::link(url('/profile/'.Auth::user()->name), trans('titles.profile')) !!}
+                            <li {{ Request::is('profile/'.Auth::user()->name, 'profile/'.Auth::user()->name ) ? 'class=active' : null }}>
+                              {!! HTML::link(url('/profile/'.Auth::user()->name), trans('titles.profile')) !!}
+                            </li>
+                            <li {{ Request::is('profile/'.Auth::user()->name, 'profile/'.Auth::user()->name . '/edit') ?  : null }}>
+                              <!--  {!! HTML::link(url('/profile/'.Auth::user()->name), trans('titles.profile')) !!} -->
+                                  {!! HTML::link(url('/profile/'.Auth::user()->name.'/edit'), trans('profile.editAccountTitle')) !!}
+                                  <!--{!! HTML::icon_link(URL::to('/profile/'.Auth::user()->name.'/edit'), 'fa fa-fw fa-cog', trans('titles.editProfile'), array('class' => 'btn btn-small btn-info btn-block')) !!}
+                                  {{ trans('profile.editAccountTitle') }}-->
                             </li>
                             <li>
                                 <a href="{{ route('logout') }}"

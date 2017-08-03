@@ -59,7 +59,7 @@
 
 								<div class="tab-content">
 
-									<div class="tab-pane fade in active edit_profile">
+									<div class="tab-pane fade  edit_profile">
 
 										<div class="row">
 											<div class="col-sm-12">
@@ -205,14 +205,14 @@
 
 									</div>
 
-									<div class="tab-pane fade edit_settings">
+									<div class="tab-pane fade in active edit_settings">
 
 										{!! Form::model($user, array('action' => array('ProfilesController@updateUserAccount', $user->id), 'method' => 'PUT', 'id' => 'user_basics_form')) !!}
 
 											{!! csrf_field() !!}
 
 								            <div class="form-group has-feedback row {{ $errors->has('name') ? ' has-error ' : '' }}">
-								                {!! Form::label('name', 'Username' , array('class' => 'col-md-3 control-label')); !!}
+								                {!! Form::label('name', 'Name' , array('class' => 'col-md-3 control-label')); !!}
 								                <div class="col-md-9">
 								                  	<div class="input-group">
 								                    	{!! Form::text('name', old('name'), array('id' => 'name', 'class' => 'form-control', 'placeholder' => trans('forms.ph-username'))) !!}
@@ -220,6 +220,21 @@
 								                  	</div>
 								                </div>
 								            </div>
+
+											<div class="form-group has-feedback row {{ $errors->has('first_name') ? ' has-error ' : '' }}">
+												{!! Form::label('first_name', trans('forms.create_user_label_firstname'), array('class' => 'col-md-3 control-label')); !!}
+												<div class="col-md-9">
+													<div class="input-group">
+														{!! Form::text('first_name', NULL, array('id' => 'first_name', 'class' => 'form-control', 'placeholder' => trans('forms.create_user_ph_firstname'))) !!}
+														<label class="input-group-addon" for="first_name"><i class="fa fa-fw {{ trans('forms.create_user_icon_firstname') }}" aria-hidden="true"></i></label>
+													</div>
+													@if ($errors->has('first_name'))
+														<span class="help-block">
+																<strong>{{ $errors->first('first_name') }}</strong>
+															</span>
+													@endif
+												</div>
+											</div>
 
 								            <div class="form-group has-feedback row {{ $errors->has('email') ? ' has-error ' : '' }}">
 								                {!! Form::label('email', 'E-mail' , array('class' => 'col-md-3 control-label')); !!}
@@ -231,21 +246,8 @@
 								                </div>
 								            </div>
 
-								            <div class="form-group has-feedback row {{ $errors->has('first_name') ? ' has-error ' : '' }}">
-								                {!! Form::label('first_name', trans('forms.create_user_label_firstname'), array('class' => 'col-md-3 control-label')); !!}
-								                <div class="col-md-9">
-								                  	<div class="input-group">
-								                    	{!! Form::text('first_name', NULL, array('id' => 'first_name', 'class' => 'form-control', 'placeholder' => trans('forms.create_user_ph_firstname'))) !!}
-								                    	<label class="input-group-addon" for="first_name"><i class="fa fa-fw {{ trans('forms.create_user_icon_firstname') }}" aria-hidden="true"></i></label>
-								                  	</div>
-								                  	@if ($errors->has('first_name'))
-								                    	<span class="help-block">
-								                        	<strong>{{ $errors->first('first_name') }}</strong>
-								                    	</span>
-								                  	@endif
-								                </div>
-								            </div>
 
+											<!--
 								            <div class="form-group has-feedback row {{ $errors->has('last_name') ? ' has-error ' : '' }}">
 								                {!! Form::label('last_name', trans('forms.create_user_label_lastname'), array('class' => 'col-md-3 control-label')); !!}
 								                <div class="col-md-9">
@@ -260,6 +262,38 @@
 								                  	@endif
 								                </div>
 								            </div>
+											-->
+											<!--autre-->
+
+											<div class="pw-change-container margin-bottom-2">
+
+												<div class="form-group has-feedback row {{ $errors->has('password') ? ' has-error ' : '' }}">
+													{!! Form::label('password', trans('forms.create_user_label_password'), array('class' => 'col-md-3 control-label')); !!}
+													<div class="col-md-9">
+														{!! Form::password('password', array('id' => 'password', 'class' => 'form-control ', 'placeholder' => trans('forms.create_user_ph_password'), 'autocomplete' => 'new-password')) !!}
+														@if ($errors->has('password'))
+															<span class="help-block">
+																			<strong>{{ $errors->first('password') }}</strong>
+																		</span>
+														@endif
+													</div>
+												</div>
+
+												<div class="form-group has-feedback row {{ $errors->has('password_confirmation') ? ' has-error ' : '' }}">
+													{!! Form::label('password_confirmation', trans('forms.create_user_label_pw_confirmation'), array('class' => 'col-md-3 control-label')); !!}
+													<div class="col-md-9">
+														{!! Form::password('password_confirmation', array('id' => 'password_confirmation', 'class' => 'form-control', 'placeholder' => trans('forms.create_user_ph_pw_confirmation'))) !!}
+														<span id="pw_status"></span>
+														@if ($errors->has('password_confirmation'))
+															<span class="help-block">
+																			<strong>{{ $errors->first('password_confirmation') }}</strong>
+																		</span>
+														@endif
+													</div>
+												</div>
+											</div>
+
+										<!--autre-->
 
 										    <div class="form-group row">
 											    <div class="col-md-9 col-md-offset-3">
@@ -279,6 +313,7 @@
 													)) !!}
 												</div>
 											</div>
+
 
 										{!! Form::close() !!}
 
@@ -469,8 +504,20 @@
 			$('.panel').alterClass('panel-*', 'panel-danger');
 		});
 
+        $("#password, #password_confirmation").keyup(function() {
+            enableSubmitPWCheck();
+        });
+
 		$('#user_basics_form').on('keyup change', 'input, select, textarea', function(){
-		    $('#account_save_trigger').attr('disabled', false);
+		    //$('#account_save_trigger').attr('disabled', false);
+            var password = $("#password").val();
+            var confirmPassword = $("#password_confirmation").val();
+            if (password != confirmPassword) {
+                $('#account_save_trigger').attr('disabled', true);
+            }
+            else if  (password == confirmPassword) {
+                $('#account_save_trigger').attr('disabled', false);
+            }
 		});
 
 		$('#checkConfirmDelete').change(function() {
@@ -489,9 +536,7 @@
 			checkPasswordMatch();
 		});
 
-		$("#password, #password_confirmation").keyup(function() {
-			enableSubmitPWCheck();
-		});
+
 
 		$('#password, #password_confirmation').hidePassword(true);
 
@@ -525,11 +570,12 @@
 		function enableSubmitPWCheck() {
 		    var password = $("#password").val();
 		    var confirmPassword = $("#password_confirmation").val();
-		    var submitChange = $('#pw_save_trigger');
+		    //var submitChange = $('#pw_save_trigger');
+            var submitChange = $('#account_save_trigger');
 		    if (password != confirmPassword) {
 		       	submitChange.attr('disabled', true);
 		    }
-		    else {
+		    else if  (password == confirmPassword) {
 		        submitChange.attr('disabled', false);
 		    }
 		}

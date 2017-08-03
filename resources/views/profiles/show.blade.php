@@ -59,7 +59,7 @@
 							<dd>
 								{{ $user->email }}
 							</dd>
-
+							<!--
 							@if ($user->profile)
 
 								@if ($user->profile->theme_id)
@@ -111,7 +111,7 @@
 									</dd>
 								@endif
 							@endif
-
+							-->
 						</dl>
 
 						@if ($user->profile)

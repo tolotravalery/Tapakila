@@ -201,7 +201,7 @@ class ProfilesController extends Controller
     public function updateUserAccount(Request $request, $id)
     {
 
-        $currentUser = \Auth::user();
+        /*$currentUser = \Auth::user();
         $user        = User::findOrFail($id);
         $emailCheck  = ($request->input('email') != '') && ($request->input('email') != $user->email);
         $ipAddress   = new CaptureIpTrait;
@@ -238,18 +238,61 @@ class ProfilesController extends Controller
 
         $user->save();
 
+        return redirect('profile/'.$user->name.'/edit')->with('success', trans('profile.updateAccountSuccess'));*/
+
+        $currentUser = \Auth::user();
+        $user        = User::findOrFail($id);
+        $emailCheck  = ($request->input('email') != '') && ($request->input('email') != $user->email);
+        $ipAddress   = new CaptureIpTrait;
+
+        $validator = Validator::make($request->all(), [
+            'name'      => 'required|max:255',
+            'password'              => 'required|min:6|max:20|confirmed',
+            'password_confirmation' => 'required|same:password',
+        ],
+        [
+            [
+                'password.required'     => trans('auth.passwordRequired'),
+                'password.min'          => trans('auth.PasswordMin'),
+                'password.max'          => trans('auth.PasswordMax'),
+            ]
+        ]);
+
+        $rules = [];
+
+        if ($emailCheck) {
+            $rules = [
+                'email'     => 'email|max:255|unique:users'
+            ];
+        }
+
+        $validator = $this->validator($request->all(), $rules);
+
+        if ($validator->fails()) {
+            $this->throwValidationException(
+                $request, $validator
+            );
+        }
+
+        $user->name         = $request->input('name');
+        $user->first_name   = $request->input('first_name');
+        $user->last_name    = $request->input('last_name');
+
+        if ($emailCheck ) {
+            $user->email = $request->input('email');
+        }
+        if ($request->input('password') != null) {
+            $user->password = bcrypt($request->input('password'));
+        }
+
+        $user->updated_ip_address = $ipAddress->getClientIp();
+
+        $user->save();
+
         return redirect('profile/'.$user->name.'/edit')->with('success', trans('profile.updateAccountSuccess'));
 
     }
 
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function updateUserPassword(Request $request, $id)
     {
 
