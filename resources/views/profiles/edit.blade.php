@@ -583,3 +583,4 @@
 	</script>
 
 @endsection
+@include('auth.includefooter')

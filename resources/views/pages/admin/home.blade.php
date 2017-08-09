@@ -14,8 +14,10 @@
 
                 @include('panels.welcome-panel')
 
+
             </div>
         </div>
     </div>
 
 @endsection
+

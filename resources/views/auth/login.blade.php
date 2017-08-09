@@ -5,130 +5,81 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Tapakila</title>
-    <link rel="stylesheet" href="{{ URL::asset('tapakila_assets/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ URL::asset('tapakila_assets/css/mediaquery.css') }}">
-    <link rel="stylesheet" href="{{ URL::asset('tapakila_assets/css/style.css') }}">
-    <link rel="stylesheet" href="{{ URL::asset('tapakila_assets/css/font_awesome.min.css') }}">
-    <script type="text/javascript" src="{{ URL::asset('tapakila_assets/js/javascripts.js') }}"></script>
-    <script type="text/javascript" src="{{ URL::asset('tapakila_assets/js/js1.js') }}"></script>
-    <script type="text/javascript" src="{{ URL::asset('tapakila_assets/js/js2.js') }}"></script>
-    <script src="{{ URL::asset('tapakila_assets/js/jquery.min.js') }}"></script>
-    <script src="{{ URL::asset('tapakila_assets/js/bootstrap.min.js') }}"></script>
+    <link rel="stylesheet" href="{{ url('/') }}/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url('/') }}/css/style.css">
+    <link rel="stylesheet" href="{{ url('/') }}/css/mediaqueries.css">
+    <link rel="stylesheet" href="{{ url('/') }}/css/animate.css">
+    <script type="text/javascript" src="{{ url('/') }}/js/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ url('/') }}/js/bootstrap.min.js"></script>
 
 </head>
 <body>
-<header>
-    <div id="site-header">
-        <div class="site-advertisement">
-            <div class="containers">
-                <div class="col-sm-3">
-                    <p class="site-logo ">
-                        <a href="index.html">
-                            <img src="{{ URL::asset('tapakila_assets/img/logo.png')}}">
-                        </a>
-                    </p>
-                </div>
-                <div class="col-sm-6">
-                    <div class="header-search-box">
-                        <form action="./page/recherche.html" method="get">
-                            <input type="text" name="query" placeholder="Search..." autocomplete="off">
-                            <input type="submit" value="Search">
-                        </form>
-                    </div>
-                </div>
-                <div class="col-lg-10">
-                    <div id="tapakila-menu">
+<!-- header start -->
+@include('auth.includeheader')
+<!-- header end -->
+    <div class="container">
+        <form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
+            {{ csrf_field() }}
+            <p class="reinitialise">Connexion</p>
+            <div class="white">
+                <div class="champs2">
+                    <p><strong>Mail</strong></p>
+                    <input id="email" type="placeholde" placeholder="name@domaine.com" class="form-control"
+                           name="email" value="{{ old('email') }}" required autofocus>
 
-
-                        <ul>
-                            <div class="col-sm-6 col-xs-6 oo">
-                                <li><a href="#">
-                                <li><br/><a href="#"><img class="compte"
-                                                          src="{{ URL::asset('tapakila_assets/img/moncompte.png')}}"></a>
-                                </li>
-                                <div class="mot">Connexion/<br>
-                                    inscritpion
-                                </div>
-                                </a></li>
-                            </div>
-                            <div class="col-sm-2 col-xs-6 o">
-                                <li><a href="./page/indexcartvide.html">
-                                <li><br/><a href="#"><img class="compte"
-                                                          src="{{ URL::asset('tapakila_assets/img/panier.png')}}"></a>
-                                </li>
-                                <div class="mot">Panier</div>
-                                </a></li>
-                            </div>
-                            <div class="col-sm-10">
-                                <li class="mot"><a href="page/Add-events.html">
-                                        <div class="bouton"><span class="ico"><img class="compte"
-                                                                                   src="{{ URL::asset('tapakila_assets/img/add-event.png')}}"></span><span
-                                                    class="">AJOUTER VOTRE EVENEMENT</span></div>
-                                    </a></li>
-                            </div>
-
-                        </ul>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-        <header>
-
-            <div class="containers">
-                <form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
-                    {{ csrf_field() }}
-                    <p class="reinitialise">Connexion</p>
-                    <div class="white">
-                        <div class="champs2">
-                            <p><strong>Mail</strong></p>
-                            <input id="email" type="placeholde" placeholder="name@domaine.com" class="form-control"
-                                   name="email" value="{{ old('email') }}" required autofocus>
-
-                            @if ($errors->has('email'))
-                                <span class="red">
+                    @if ($errors->has('email'))
+                        <span class="red">
                                     <strong>{{ $errors->first('email') }}</strong>
                             </span>
-                            @endif
-                            <p class="mdpt"><strong>Mots de passe</strong></p>
-                            <input id="password" type="password" class="placeholde" name="password"
-                                   placeholder="********" required>
+                    @endif
+                    <p class="mdpt"><strong>Mots de passe</strong></p>
+                    <input id="password" type="password" class="placeholde" name="password"
+                           placeholder="********" required>
 
-                            @if ($errors->has('password'))
-                                <span class="red">
+                    @if ($errors->has('password'))
+                        <span class="red">
                                         <strong>{{ $errors->first('password') }}</strong>
                             </span>
-                            @endif
+                    @endif
 
-                        </div>
-                    </div>
-                    <div class="customcolor">
-                        <div class="row divider">
-                            <div class="col-md-6 col-xs-12">
-                                <input class="sinscrire input-submit" type="submit" name="s'inscrire'"
-                                       value="Se Connecter" style="margin-left: 80px;width: 180px;height: 56px;">
-                            </div>
-                            <div class="col-md-6 col-xs-12">
-
-                                <a href="{{ url('/register') }}"><p class="red4">S'inscrire</p></a>
-                                <a href="#"><p class="red3">Réinitialiser mots de passe</p></a>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="spacerwhite"></div>
-                    <div class="white2">
-                        <p class="fbk"><strong>vous êtes vous connecté avec votre compte facebook?</strong></p>
-                        <a class="btn btn-block btn-social btn-fb"
-                           href="{{route('social.redirect',['provider' => 'facebook'])}}">
-                            <span class="fa fa-facebook"></span> Connexion avec Facebook</a>
-
-                    </div>
-                </form>
+                </div>
             </div>
-        </header>
-    </div>
-</header>
+            <div class="customcolor">
+                <div class="row divider">
+                    <div class="col-md-6 col-xs-12">
+                        <input class="sinscrire input-submit" type="submit" name="s'inscrire'"
+                               value="Se Connecter" style="margin-left: 80px;width: 180px;height: 56px;">
+                    </div>
+                    <div class="col-md-6 col-xs-12">
 
+                        <a href="{{ url('/register') }}"><p class="red4">S'inscrire</p></a>
+                        <a href="#"><p class="red3">Réinitialiser mots de passe</p></a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="spacerwhite"></div>
+            <div class="white2">
+                <p class="fbk"><strong>vous êtes vous connecté avec votre compte facebook?</strong></p>
+                <a class="btn btn-block btn-social btn-fb"
+                   href="{{route('social.redirect',['provider' => 'facebook'])}}">
+                    <span class="fa fa-facebook"></span> Connexion avec Facebook</a>
+
+            </div>
+        </form>
+    </div>
+    <!--/content goes here -->
+</section>
+
+@include('auth.includefooter')
+
+<script typae="text/javascript">
+    $('.dropdown-menu ul li a').click(function(event){
+        event.stopPropagation();
+        $(this).parent().toggleClass('active').siblings().removeClass('active');
+        var target=$(this).attr('href');
+        $('ul li .tab-content '+target).toggleClass(active in);
+    });
+</script>
 </body>
 </html>

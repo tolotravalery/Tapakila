@@ -139,3 +139,5 @@
 	@include('scripts.google-maps-geocode-and-map')
 
 @endsection
+
+@include('auth.includefooter')

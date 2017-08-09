@@ -23,3 +23,5 @@
 
 @section('footer_scripts')
 @endsection
+
+@include('auth.includefooter')
