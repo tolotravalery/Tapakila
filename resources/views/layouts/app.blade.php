@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{{ url('/') }}/css/style.css">
     <link rel="stylesheet" href="{{ url('/') }}/css/mediaqueries.css">
     <link rel="stylesheet" href="{{ url('/') }}/css/animate.css">
+    <link rel="stylesheet" href="{{ url('/') }}/css/font-awesome.css">
     <script type="text/javascript" src="{{ url('/') }}/js/jquery.min.js"></script>
     <script type="text/javascript" src="{{ url('/') }}/js/bootstrap.min.js"></script>
 
