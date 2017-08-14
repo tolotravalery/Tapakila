@@ -178,11 +178,7 @@
             }
         }
         $('#account_save_trigger').click(function () {
-            if ($('#password').val().length > 6)
-                $('#user_basics_form').submit();
-            else
-                $("#pw_status").html("Les mots de passe est très courts!");
-
+            $("#pw_status").html("Les mots de passe est très courts!");
         })
     </script>
 @endsection

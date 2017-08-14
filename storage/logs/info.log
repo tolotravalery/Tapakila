@@ -470,3 +470,23 @@ Log Entry Details:
 Log Entry Details:
 ["[object] (App\\Models\\User: {\"id\":51,\"name\":\"Tolotra\",\"first_name\":\"RAZAFINDRABE\",\"last_name\":null,\"email\":\"tolotrarazafindrabe@gmail.com\",\"signup_ip_address\":\"::1\",\"signup_confirmation_ip_address\":\"::1\",\"signup_sm_ip_address\":null,\"admin_ip_address\":null,\"updated_ip_address\":\"::1\",\"deleted_ip_address\":null,\"created_at\":\"2017-08-14 07:21:02\",\"updated_at\":\"2017-08-14 12:10:14\",\"deleted_at\":null,\"profile\":{\"id\":16,\"user_id\":51,\"theme_id\":1,\"location\":null,\"bio\":null,\"twitter_username\":null,\"github_username\":null,\"avatar\":null,\"avatar_status\":0,\"created_at\":\"2017-08-14 07:29:24\",\"updated_at\":\"2017-08-14 07:29:24\"}})"]
 []
+[2017-08-14 12:47:16] local.INFO: CheckCurrentUser middlware was used: profile.edit.  
+Log Entry Details:
+["[object] (App\\Models\\User: {\"id\":51,\"name\":\"Tolotra\",\"first_name\":\"RAZAFINDRABE\",\"last_name\":null,\"email\":\"tolotrarazafindrabe@gmail.com\",\"signup_ip_address\":\"::1\",\"signup_confirmation_ip_address\":\"::1\",\"signup_sm_ip_address\":null,\"admin_ip_address\":null,\"updated_ip_address\":\"::1\",\"deleted_ip_address\":null,\"created_at\":\"2017-08-14 07:21:02\",\"updated_at\":\"2017-08-14 12:10:14\",\"deleted_at\":null,\"profile\":{\"id\":16,\"user_id\":51,\"theme_id\":1,\"location\":null,\"bio\":null,\"twitter_username\":null,\"github_username\":null,\"avatar\":null,\"avatar_status\":0,\"created_at\":\"2017-08-14 07:29:24\",\"updated_at\":\"2017-08-14 07:29:24\"}})"]
+[]
+[2017-08-14 12:48:18] local.INFO: CheckCurrentUser middlware was used: profile.edit.  
+Log Entry Details:
+["[object] (App\\Models\\User: {\"id\":51,\"name\":\"Tolotra\",\"first_name\":\"RAZAFINDRABE\",\"last_name\":null,\"email\":\"tolotrarazafindrabe@gmail.com\",\"signup_ip_address\":\"::1\",\"signup_confirmation_ip_address\":\"::1\",\"signup_sm_ip_address\":null,\"admin_ip_address\":null,\"updated_ip_address\":\"::1\",\"deleted_ip_address\":null,\"created_at\":\"2017-08-14 07:21:02\",\"updated_at\":\"2017-08-14 12:10:14\",\"deleted_at\":null,\"profile\":{\"id\":16,\"user_id\":51,\"theme_id\":1,\"location\":null,\"bio\":null,\"twitter_username\":null,\"github_username\":null,\"avatar\":null,\"avatar_status\":0,\"created_at\":\"2017-08-14 07:29:24\",\"updated_at\":\"2017-08-14 07:29:24\"}})"]
+[]
+[2017-08-14 12:48:56] local.INFO: CheckCurrentUser middlware was used: profile.edit.  
+Log Entry Details:
+["[object] (App\\Models\\User: {\"id\":51,\"name\":\"Tolotra\",\"first_name\":\"RAZAFINDRABE\",\"last_name\":null,\"email\":\"tolotrarazafindrabe@gmail.com\",\"signup_ip_address\":\"::1\",\"signup_confirmation_ip_address\":\"::1\",\"signup_sm_ip_address\":null,\"admin_ip_address\":null,\"updated_ip_address\":\"::1\",\"deleted_ip_address\":null,\"created_at\":\"2017-08-14 07:21:02\",\"updated_at\":\"2017-08-14 12:10:14\",\"deleted_at\":null,\"profile\":{\"id\":16,\"user_id\":51,\"theme_id\":1,\"location\":null,\"bio\":null,\"twitter_username\":null,\"github_username\":null,\"avatar\":null,\"avatar_status\":0,\"created_at\":\"2017-08-14 07:29:24\",\"updated_at\":\"2017-08-14 07:29:24\"}})"]
+[]
+[2017-08-14 12:49:33] local.INFO: CheckCurrentUser middlware was used: profile.edit.  
+Log Entry Details:
+["[object] (App\\Models\\User: {\"id\":51,\"name\":\"Tolotra\",\"first_name\":\"RAZAFINDRABE\",\"last_name\":null,\"email\":\"tolotrarazafindrabe@gmail.com\",\"signup_ip_address\":\"::1\",\"signup_confirmation_ip_address\":\"::1\",\"signup_sm_ip_address\":null,\"admin_ip_address\":null,\"updated_ip_address\":\"::1\",\"deleted_ip_address\":null,\"created_at\":\"2017-08-14 07:21:02\",\"updated_at\":\"2017-08-14 12:10:14\",\"deleted_at\":null,\"profile\":{\"id\":16,\"user_id\":51,\"theme_id\":1,\"location\":null,\"bio\":null,\"twitter_username\":null,\"github_username\":null,\"avatar\":null,\"avatar_status\":0,\"created_at\":\"2017-08-14 07:29:24\",\"updated_at\":\"2017-08-14 07:29:24\"}})"]
+[]
+[2017-08-14 12:53:18] local.INFO: User Logged Out.  
+Log Entry Details:
+["[object] (App\\Models\\User: {\"id\":51,\"name\":\"Tolotra\",\"first_name\":\"RAZAFINDRABE\",\"last_name\":null,\"email\":\"tolotrarazafindrabe@gmail.com\",\"signup_ip_address\":\"::1\",\"signup_confirmation_ip_address\":\"::1\",\"signup_sm_ip_address\":null,\"admin_ip_address\":null,\"updated_ip_address\":\"::1\",\"deleted_ip_address\":null,\"created_at\":\"2017-08-14 07:21:02\",\"updated_at\":\"2017-08-14 12:10:14\",\"deleted_at\":null})"]
+[]

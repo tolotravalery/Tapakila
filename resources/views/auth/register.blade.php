@@ -10,10 +10,10 @@
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-6">
-                                    <a href="#" class="active" id="login-form-link">Connexion</a>
+                                    <a href="#"id="login-form-link">Connexion</a>
                                 </div>
                                 <div class="col-xs-6">
-                                    <a href="#" id="register-form-link" class="">S'inscrire</a>
+                                    <a href="#"  class="active"  id="register-form-link" class="">S'inscrire</a>
                                 </div>
                             </div>
                             <hr>
@@ -25,7 +25,7 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <!-- connexion start -->
-                                    <form id="login-form" style="display: block;" role="form" method="POST"
+                                    <form id="login-form" style="display: none;" role="form" method="POST"
                                           action="{{ route('login') }}">
                                         {{ csrf_field() }}
                                         <div class="form-group">
@@ -99,7 +99,7 @@
 
                                     <!-- inscription start -->
 
-                                    {!! Form::open(['id' => 'register-form', 'route' => 'register','style' =>'display:none;', 'role' => 'form', 'method' => 'POST'] ) !!}
+                                    {!! Form::open(['id' => 'register-form', 'route' => 'register','style' =>'display:block;', 'role' => 'form', 'method' => 'POST'] ) !!}
                                     {{ csrf_field() }}
                                     <div class="form-group">
                                         <label for="email">Nom:</label>
@@ -168,7 +168,7 @@
             event.stopPropagation();
             $(this).parent().toggleClass('active').siblings().removeClass('active');
             var target = $(this).attr('href');
-            $('ul li .tab-content ' + target).toggleClass(active in);
+            $('ul li .tab-content ' + target).toggleClass(active);
         });
     </script>
     <script typae="text/javascript">
@@ -176,13 +176,11 @@
             event.stopPropagation();
             $(this).parent().toggleClass('active').siblings().removeClass('active');
             var target = $(this).attr('href');
-            $('ul li .tab-content ' + target).toggleClass(active in);
+            $('ul li .tab-content ' + target).toggleClass(active);
         });
     </script>
     <script>
         $(function () {
-
-
             $('#register-form-link').click(function (e) {
                 $("#register-form").delay(100).fadeIn(100);
                 $("#login-form").fadeOut(100);
