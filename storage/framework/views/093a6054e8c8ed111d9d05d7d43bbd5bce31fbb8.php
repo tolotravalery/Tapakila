@@ -9,7 +9,7 @@
 				<span class="icon-bar"></span>
 			</button>
 			<a class="navbar-brand" href="#">
-				<img src="{{ url('/img/logo.png') }}" title="tapakila">
+				<img src="<?php echo e(url('/img/logo.png')); ?>" title="tapakila">
 			</a>
 		</div>
 		<div id="navbar" class="navbar-collapse collapse">

@@ -38,4 +38,26 @@ class UserController extends Controller
 
     }
 
+    public function editUser($userId)
+    {
+        try {
+            $user = $this->getUserByUsername($userId);
+        } catch (ModelNotFoundException $exception) {
+            return view('pages.status')
+                ->with('error', trans('profile.notYourProfile'))
+                ->with('error_title', trans('profile.notYourProfileTitle'));
+        }
+        $themes = Theme::where('status', 1)
+            ->orderBy('name', 'asc')
+            ->get();
+        $currentTheme = Theme::find($user->profile->theme_id);
+        $data = [
+            'user' => $user,
+            'themes' => $themes,
+            'currentTheme' => $currentTheme
+
+        ];
+        return view('profiles.edit')->with($data);
+    }
+
 }

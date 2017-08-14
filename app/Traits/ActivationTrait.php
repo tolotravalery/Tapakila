@@ -12,10 +12,8 @@ trait ActivationTrait
     public function initiateEmailActivation(User $user)
     {
 
-        if ( !config('settings.activation')  || !$this->validateEmail($user)) {
-
+        if (!config('settings.activation') || !$this->validateEmail($user)) {
             return true;
-
         }
 
         $activationRepostory = new ActivationRepository();

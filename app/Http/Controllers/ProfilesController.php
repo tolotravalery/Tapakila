@@ -24,8 +24,8 @@ use View;
 class ProfilesController extends Controller
 {
 
-    protected $idMultiKey     = '618423'; //int
-    protected $seperationKey  = '****';
+    protected $idMultiKey = '618423'; //int
+    protected $seperationKey = '****';
 
     /**
      * Create a new controller instance.
@@ -40,19 +40,19 @@ class ProfilesController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
+     * @param  array $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
     public function profile_validator(array $data)
     {
         return Validator::make($data, [
-            'theme_id'          => '',
-            'location'          => '',
-            'bio'               => 'max:500',
-            'twitter_username'  => 'max:50',
-            'github_username'   => 'max:50',
-            'avatar'            => '',
-            'avatar_status'     => '',
+            'theme_id' => '',
+            'location' => '',
+            'bio' => 'max:500',
+            'twitter_username' => 'max:50',
+            'github_username' => 'max:50',
+            'avatar' => '',
+            'avatar_status' => '',
         ]);
     }
 
@@ -116,15 +116,15 @@ class ProfilesController extends Controller
         }
 
         $themes = Theme::where('status', 1)
-                       ->orderBy('name', 'asc')
-                       ->get();
+            ->orderBy('name', 'asc')
+            ->get();
 
         $currentTheme = Theme::find($user->profile->theme_id);
 
         $data = [
-            'user'          => $user,
-            'themes'        => $themes,
-            'currentTheme'  => $currentTheme
+            'user' => $user,
+            'themes' => $themes,
+            'currentTheme' => $currentTheme
 
         ];
 
@@ -155,7 +155,7 @@ class ProfilesController extends Controller
                 $request, $profile_validator
             );
 
-            return redirect('profile/'.$user->name.'/edit')->withErrors($validator)->withInput();
+            return redirect('profile/' . $user->name . '/edit')->withErrors($validator)->withInput();
         }
 
         if ($user->profile == null) {
@@ -174,28 +174,28 @@ class ProfilesController extends Controller
 
         $user->save();
 
-        return redirect('profile/'.$user->name.'/edit')->with('success', trans('profile.updateSuccess'));
+        return redirect('profile/' . $user->name . '/edit')->with('success', trans('profile.updateSuccess'));
 
     }
 
     /**
      * Get a validator for an incoming update user request.
      *
-     * @param  array  $data
+     * @param  array $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
     public function validator(array $data)
     {
         return Validator::make($data, [
-            'name'              => 'required|max:255',
+            'name' => 'required|max:255',
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function updateUserAccount(Request $request, $id)
@@ -241,28 +241,28 @@ class ProfilesController extends Controller
         return redirect('profile/'.$user->name.'/edit')->with('success', trans('profile.updateAccountSuccess'));*/
 
         $currentUser = \Auth::user();
-        $user        = User::findOrFail($id);
-        $emailCheck  = ($request->input('email') != '') && ($request->input('email') != $user->email);
-        $ipAddress   = new CaptureIpTrait;
+        $user = User::findOrFail($id);
+        $emailCheck = ($request->input('email') != '') && ($request->input('email') != $user->email);
+        $ipAddress = new CaptureIpTrait;
 
         $validator = Validator::make($request->all(), [
-            'name'      => 'required|max:255',
-            'password'              => 'required|min:6|max:20|confirmed',
+            'name' => 'required|max:255',
+            'password' => 'required|min:6|max:20|confirmed',
             'password_confirmation' => 'required|same:password',
         ],
-        [
             [
-                'password.required'     => trans('auth.passwordRequired'),
-                'password.min'          => trans('auth.PasswordMin'),
-                'password.max'          => trans('auth.PasswordMax'),
-            ]
-        ]);
+                [
+                    'password.required' => trans('auth.passwordRequired'),
+                    'password.min' => trans('auth.PasswordMin'),
+                    'password.max' => trans('auth.PasswordMax'),
+                ]
+            ]);
 
         $rules = [];
 
         if ($emailCheck) {
             $rules = [
-                'email'     => 'email|max:255|unique:users'
+                'email' => 'email|max:255|unique:users'
             ];
         }
 
@@ -274,11 +274,11 @@ class ProfilesController extends Controller
             );
         }
 
-        $user->name         = $request->input('name');
-        $user->first_name   = $request->input('first_name');
-        $user->last_name    = $request->input('last_name');
+        $user->name = $request->input('name');
+        $user->first_name = $request->input('first_name');
+        $user->last_name = $request->input('last_name');
 
-        if ($emailCheck ) {
+        if ($emailCheck) {
             $user->email = $request->input('email');
         }
         if ($request->input('password') != null) {
@@ -289,7 +289,7 @@ class ProfilesController extends Controller
 
         $user->save();
 
-        return redirect('profile/'.$user->name.'/edit')->with('success', trans('profile.updateAccountSuccess'));
+        return redirect('profile/' . $user->name . '/edit')->with('success', trans('profile.updateAccountSuccess'));
 
     }
 
@@ -297,18 +297,18 @@ class ProfilesController extends Controller
     {
 
         $currentUser = \Auth::user();
-        $user        = User::findOrFail($id);
-        $ipAddress   = new CaptureIpTrait;
+        $user = User::findOrFail($id);
+        $ipAddress = new CaptureIpTrait;
 
         $validator = Validator::make($request->all(),
             [
-                'password'              => 'required|min:6|max:20|confirmed',
+                'password' => 'required|min:6|max:20|confirmed',
                 'password_confirmation' => 'required|same:password',
             ],
             [
-                'password.required'     => trans('auth.passwordRequired'),
-                'password.min'          => trans('auth.PasswordMin'),
-                'password.max'          => trans('auth.PasswordMax'),
+                'password.required' => trans('auth.passwordRequired'),
+                'password.min' => trans('auth.PasswordMin'),
+                'password.max' => trans('auth.PasswordMax'),
             ]
         );
 
@@ -326,7 +326,7 @@ class ProfilesController extends Controller
 
         $user->save();
 
-        return redirect('profile/'.$user->name.'/edit')->with('success', trans('profile.updatePWSuccess'));
+        return redirect('profile/' . $user->name . '/edit')->with('success', trans('profile.updatePWSuccess'));
 
     }
 
@@ -336,31 +336,32 @@ class ProfilesController extends Controller
      * @param $file
      * @return mixed
      */
-    public function upload() {
-        if(Input::hasFile('file')) {
+    public function upload()
+    {
+        if (Input::hasFile('file')) {
 
-          $currentUser  = \Auth::user();
-          $avatar       = Input::file('file');
-          $filename     = 'avatar.' . $avatar->getClientOriginalExtension();
-          $save_path    = storage_path() . '/users/id/' . $currentUser->id . '/uploads/images/avatar/';
-          $path         = $save_path . $filename;
-          $public_path  = '/images/profile/' . $currentUser->id . '/avatar/' . $filename;
+            $currentUser = \Auth::user();
+            $avatar = Input::file('file');
+            $filename = 'avatar.' . $avatar->getClientOriginalExtension();
+            $save_path = storage_path() . '/users/id/' . $currentUser->id . '/uploads/images/avatar/';
+            $path = $save_path . $filename;
+            $public_path = '/images/profile/' . $currentUser->id . '/avatar/' . $filename;
 
-          // Make the user a folder and set permissions
-          File::makeDirectory($save_path, $mode = 0755, true, true);
+            // Make the user a folder and set permissions
+            File::makeDirectory($save_path, $mode = 0755, true, true);
 
-          // Save the file to the server
-          Image::make($avatar)->resize(300, 300)->save($save_path . $filename);
+            // Save the file to the server
+            Image::make($avatar)->resize(300, 300)->save($save_path . $filename);
 
             // Save the public image path
             $currentUser->profile->avatar = $public_path;
             $currentUser->profile->save();
 
-          return response()->json(array('path'=> $path), 200);
+            return response()->json(array('path' => $path), 200);
 
         } else {
 
-          return response()->json(false, 200);
+            return response()->json(false, 200);
 
         }
     }
@@ -380,23 +381,23 @@ class ProfilesController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function deleteUserAccount(Request $request, $id)
     {
 
         $currentUser = \Auth::user();
-        $user        = User::findOrFail($id);
-        $ipAddress   = new CaptureIpTrait;
+        $user = User::findOrFail($id);
+        $ipAddress = new CaptureIpTrait;
 
         $validator = Validator::make($request->all(),
             [
-                'checkConfirmDelete'            => 'required',
+                'checkConfirmDelete' => 'required',
             ],
             [
-                'checkConfirmDelete.required'   => trans('profile.confirmDeleteRequired'),
+                'checkConfirmDelete.required' => trans('profile.confirmDeleteRequired'),
             ]
         );
 
@@ -408,23 +409,23 @@ class ProfilesController extends Controller
 
         if ($user->id != $currentUser->id) {
 
-            return redirect('profile/'.$user->name.'/edit')->with('error', trans('profile.errorDeleteNotYour'));
+            return redirect('profile/' . $user->name . '/edit')->with('error', trans('profile.errorDeleteNotYour'));
 
         }
 
         // Create and encrypt user account restore token
-        $sepKey       = $this->getSeperationKey();
-        $userIdKey    = $this->getIdMultiKey();
-        $restoreKey   = config('settings.restoreKey');
-        $encrypter    = config('settings.restoreUserEncType');
-        $level1       = $user->id * $userIdKey;
-        $level2       = urlencode(Uuid::generate(4) . $sepKey . $level1);
-        $level3       = base64_encode($level2);
-        $level4       = openssl_encrypt($level3, $encrypter, $restoreKey);
-        $level5       = base64_encode($level4);
+        $sepKey = $this->getSeperationKey();
+        $userIdKey = $this->getIdMultiKey();
+        $restoreKey = config('settings.restoreKey');
+        $encrypter = config('settings.restoreUserEncType');
+        $level1 = $user->id * $userIdKey;
+        $level2 = urlencode(Uuid::generate(4) . $sepKey . $level1);
+        $level3 = base64_encode($level2);
+        $level4 = openssl_encrypt($level3, $encrypter, $restoreKey);
+        $level5 = base64_encode($level4);
 
         // Save Restore Token and Ip Address
-        $user->token  = $level5;
+        $user->token = $level5;
         $user->deleted_ip_address = $ipAddress->getClientIp();
         $user->save();
 
@@ -449,7 +450,8 @@ class ProfilesController extends Controller
      * @param string $token
      * @return void
      */
-    public static function sendGoodbyEmail(User $user, $token) {
+    public static function sendGoodbyEmail(User $user, $token)
+    {
         $user->notify(new SendGoodbyeEmail($token));
     }
 
@@ -458,7 +460,8 @@ class ProfilesController extends Controller
      *
      * @return string
      */
-    public function getIdMultiKey() {
+    public function getIdMultiKey()
+    {
         return $this->idMultiKey;
     }
 
@@ -467,7 +470,8 @@ class ProfilesController extends Controller
      *
      * @return string
      */
-    public function getSeperationKey() {
+    public function getSeperationKey()
+    {
         return $this->seperationKey;
     }
 

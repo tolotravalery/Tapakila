@@ -1,8 +1,4 @@
-@extends('layouts.app')
-
-@section('template_title')
-	{{ Lang::get('titles.activation') }}
-@endsection
+@extends("template")
 
 @section('content')
 	<div class="container">

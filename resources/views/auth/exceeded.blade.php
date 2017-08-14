@@ -1,9 +1,4 @@
-@extends('layouts.app')
-
-@section('template_title')
-	{!! trans('titles.exceeded') !!}
-@endsection
-
+@extends("template")
 @section('content')
 	<div class="container">
 		<div class="row">
