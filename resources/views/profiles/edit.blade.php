@@ -178,7 +178,7 @@
             }
         }
         $('#account_save_trigger').click(function () {
-            $("#pw_status").html("Les mots de passe est très courts!");
+            $('#user_basics_form').submit();
         })
     </script>
 @endsection
