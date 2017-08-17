@@ -32,10 +32,7 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
 
-                <li>
-                    <button type="" class="btn btn-success event"><span class="ico"></span><span
-                                class="descr">AJOUTER<br/> VOTRE EVENEMENT</span></button>
-                </li>
+                <li><button type="" class="btn btn-success event"><span class="ico"></span><span class="descr">AJOUTER<br/> VOTRE EVENEMENT</span></button></li>
                 <li><a href="#">Panier</a></li>
                 <li role="presentation" class="dropdown">
                     <a href="#" class="dropdown-toggle" id="drop6" data-toggle="dropdown" role="button"
@@ -51,7 +48,8 @@
                     </ul>
                 </li>
                 @if (Auth::guest())
-                    <li><a href="{{ route('login') }}">{!! trans('titles.login') !!}</a></li>
+                    <!--<li><a href="{{ route('login') }}">{!! trans('titles.login') !!}</a></li>-->
+                        <li><a href="#" class="dropdown-toggle" id="drop7"> Connexion  <span class="caret"></span></a></li>
                 @else
                     <li role="presentation" class="dropdown">
                         <a href="#" class="dropdown-toggle" id="drop6" data-toggle="dropdown" role="button"
@@ -93,6 +91,7 @@
         </div>
     </div>
 </nav>
+
 <!-- header end -->
 
 @yield('content')
@@ -132,12 +131,9 @@
                     </ul>
                 </div>
                 <div class="col-sm-2 col-xs-6 ">
-                    <a class="fb-link-icon" href="https://www.facebook.com/tapakila/" target="_blank"><i
-                                class="fa fa-facebook-square" aria-hidden="true"></i></a>
+                    <a class="fb-link-icon" href="https://www.facebook.com/tapakila/" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
                     <div id="fb-root"></div>
-                    <div class="fb-like" data-href="https://www.facebook.com/tapakila/" data-layout="button"
-                         data-action="like" data-size="small" data-show-faces="false" data-colorscheme="dark"
-                         data-share="false"></div>
+                    <div class="fb-like" data-href="https://www.facebook.com/tapakila/" data-layout="button" data-action="like" data-size="small" data-show-faces="false" data-colorscheme="dark" data-share="false"></div>
 
                 </div>
             </div> <!-- row -->
