@@ -9,6 +9,7 @@
         "barryvdh/laravel-debugbar": "^2.3",
         "creativeorange/gravatar": "~1.0",
         "doctrine/dbal": "^2.5",
+        "gloudemans/shoppingcart": "^2.3",
         "google/recaptcha": "^1.1",
         "intervention/image": "^2.3",
         "jeremykenedy/laravel-exception-notifier": "^1.0",

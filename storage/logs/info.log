@@ -490,3 +490,39 @@ Log Entry Details:
 Log Entry Details:
 ["[object] (App\\Models\\User: {\"id\":51,\"name\":\"Tolotra\",\"first_name\":\"RAZAFINDRABE\",\"last_name\":null,\"email\":\"tolotrarazafindrabe@gmail.com\",\"signup_ip_address\":\"::1\",\"signup_confirmation_ip_address\":\"::1\",\"signup_sm_ip_address\":null,\"admin_ip_address\":null,\"updated_ip_address\":\"::1\",\"deleted_ip_address\":null,\"created_at\":\"2017-08-14 07:21:02\",\"updated_at\":\"2017-08-14 12:10:14\",\"deleted_at\":null})"]
 []
+[2017-08-14 13:08:39] local.INFO: CheckCurrentUser middlware was used: profile.edit.  
+Log Entry Details:
+["[object] (App\\Models\\User: {\"id\":52,\"name\":\"Koera\",\"first_name\":\"Sam Mikorana\",\"last_name\":null,\"email\":\"missingvC8O42HAvG@test.com\",\"signup_ip_address\":null,\"signup_confirmation_ip_address\":null,\"signup_sm_ip_address\":\"::1\",\"admin_ip_address\":null,\"updated_ip_address\":\"::1\",\"deleted_ip_address\":null,\"created_at\":\"2017-08-14 08:02:51\",\"updated_at\":\"2017-08-14 11:27:02\",\"deleted_at\":null,\"profile\":{\"id\":17,\"user_id\":52,\"theme_id\":1,\"location\":null,\"bio\":null,\"twitter_username\":null,\"github_username\":null,\"avatar\":null,\"avatar_status\":0,\"created_at\":\"2017-08-14 08:02:51\",\"updated_at\":\"2017-08-14 08:02:51\"}})"]
+[]
+[2017-08-14 13:11:28] local.INFO: CheckCurrentUser middlware was used: profile.edit.  
+Log Entry Details:
+["[object] (App\\Models\\User: {\"id\":52,\"name\":\"Koera\",\"first_name\":\"Sam Mikorana\",\"last_name\":null,\"email\":\"missingvC8O42HAvG@test.com\",\"signup_ip_address\":null,\"signup_confirmation_ip_address\":null,\"signup_sm_ip_address\":\"::1\",\"admin_ip_address\":null,\"updated_ip_address\":\"::1\",\"deleted_ip_address\":null,\"created_at\":\"2017-08-14 08:02:51\",\"updated_at\":\"2017-08-14 11:27:02\",\"deleted_at\":null,\"profile\":{\"id\":17,\"user_id\":52,\"theme_id\":1,\"location\":null,\"bio\":null,\"twitter_username\":null,\"github_username\":null,\"avatar\":null,\"avatar_status\":0,\"created_at\":\"2017-08-14 08:02:51\",\"updated_at\":\"2017-08-14 08:02:51\"}})"]
+[]
+[2017-08-14 13:11:34] local.INFO: CheckCurrentUser middlware was used: {username}.  
+Log Entry Details:
+["[object] (App\\Models\\User: {\"id\":52,\"name\":\"Koera\",\"first_name\":\"Sam Mikorana\",\"last_name\":null,\"email\":\"missingvC8O42HAvG@test.com\",\"signup_ip_address\":null,\"signup_confirmation_ip_address\":null,\"signup_sm_ip_address\":\"::1\",\"admin_ip_address\":null,\"updated_ip_address\":\"::1\",\"deleted_ip_address\":null,\"created_at\":\"2017-08-14 08:02:51\",\"updated_at\":\"2017-08-14 11:27:02\",\"deleted_at\":null})"]
+[]
+[2017-08-14 13:11:34] local.INFO: CheckCurrentUser middlware was used: profile.edit.  
+Log Entry Details:
+["[object] (App\\Models\\User: {\"id\":52,\"name\":\"Koera\",\"first_name\":\"Sam Mikorana\",\"last_name\":null,\"email\":\"missingvC8O42HAvG@test.com\",\"signup_ip_address\":null,\"signup_confirmation_ip_address\":null,\"signup_sm_ip_address\":\"::1\",\"admin_ip_address\":null,\"updated_ip_address\":\"::1\",\"deleted_ip_address\":null,\"created_at\":\"2017-08-14 08:02:51\",\"updated_at\":\"2017-08-14 11:27:02\",\"deleted_at\":null,\"profile\":{\"id\":17,\"user_id\":52,\"theme_id\":1,\"location\":null,\"bio\":null,\"twitter_username\":null,\"github_username\":null,\"avatar\":null,\"avatar_status\":0,\"created_at\":\"2017-08-14 08:02:51\",\"updated_at\":\"2017-08-14 08:02:51\"}})"]
+[]
+[2017-08-16 11:02:06] local.INFO: Registered user successfully activated. authenticated.activate.  
+Log Entry Details:
+["[object] (App\\Models\\User: {\"id\":1,\"name\":\"Koera\",\"first_name\":\"Koera\",\"last_name\":null,\"email\":\"tolotrarazafindrabe@gmail.com\",\"signup_ip_address\":\"::1\",\"signup_confirmation_ip_address\":\"::1\",\"signup_sm_ip_address\":null,\"admin_ip_address\":null,\"updated_ip_address\":null,\"deleted_ip_address\":null,\"created_at\":\"2017-08-16 11:01:19\",\"updated_at\":\"2017-08-16 11:02:06\",\"deleted_at\":null})"]
+[]
+[2017-08-16 11:02:11] local.INFO: User Logged Out.  
+Log Entry Details:
+["[object] (App\\Models\\User: {\"id\":1,\"name\":\"Koera\",\"first_name\":\"Koera\",\"last_name\":null,\"email\":\"tolotrarazafindrabe@gmail.com\",\"signup_ip_address\":\"::1\",\"signup_confirmation_ip_address\":\"::1\",\"signup_sm_ip_address\":null,\"admin_ip_address\":null,\"updated_ip_address\":null,\"deleted_ip_address\":null,\"created_at\":\"2017-08-16 11:01:19\",\"updated_at\":\"2017-08-16 11:02:06\",\"deleted_at\":null})"]
+[]
+[2017-08-17 06:20:05] local.INFO: CheckCurrentUser middlware was used: profile.edit.  
+Log Entry Details:
+["[object] (App\\Models\\User: {\"id\":2,\"name\":\"KoeraSamMikorana\",\"first_name\":\"Koera\",\"last_name\":\"Sam\",\"email\":\"missingv9yQ3zcfLo@test.com\",\"signup_ip_address\":null,\"signup_confirmation_ip_address\":null,\"signup_sm_ip_address\":\"::1\",\"admin_ip_address\":null,\"updated_ip_address\":null,\"deleted_ip_address\":null,\"created_at\":\"2017-08-17 06:19:59\",\"updated_at\":\"2017-08-17 06:19:59\",\"deleted_at\":null,\"profile\":{\"id\":2,\"user_id\":2,\"theme_id\":1,\"location\":null,\"bio\":null,\"twitter_username\":null,\"github_username\":null,\"avatar\":null,\"avatar_status\":0,\"created_at\":\"2017-08-17 06:20:00\",\"updated_at\":\"2017-08-17 06:20:00\"}})"]
+[]
+[2017-08-17 06:20:22] local.INFO: CheckCurrentUser middlware was used: {username}.  
+Log Entry Details:
+["[object] (App\\Models\\User: {\"id\":2,\"name\":\"KoeraSamMikorana\",\"first_name\":\"Koera\",\"last_name\":\"Sam\",\"email\":\"missingv9yQ3zcfLo@test.com\",\"signup_ip_address\":null,\"signup_confirmation_ip_address\":null,\"signup_sm_ip_address\":\"::1\",\"admin_ip_address\":null,\"updated_ip_address\":null,\"deleted_ip_address\":null,\"created_at\":\"2017-08-17 06:19:59\",\"updated_at\":\"2017-08-17 06:19:59\",\"deleted_at\":null})"]
+[]
+[2017-08-17 06:20:23] local.INFO: CheckCurrentUser middlware was used: profile.edit.  
+Log Entry Details:
+["[object] (App\\Models\\User: {\"id\":2,\"name\":\"Koera Sam Mikorana\",\"first_name\":\"KSM\",\"last_name\":null,\"email\":\"missingv9yQ3zcfLo@test.com\",\"signup_ip_address\":null,\"signup_confirmation_ip_address\":null,\"signup_sm_ip_address\":\"::1\",\"admin_ip_address\":null,\"updated_ip_address\":\"::1\",\"deleted_ip_address\":null,\"created_at\":\"2017-08-17 06:19:59\",\"updated_at\":\"2017-08-17 06:20:22\",\"deleted_at\":null,\"profile\":{\"id\":2,\"user_id\":2,\"theme_id\":1,\"location\":null,\"bio\":null,\"twitter_username\":null,\"github_username\":null,\"avatar\":null,\"avatar_status\":0,\"created_at\":\"2017-08-17 06:20:00\",\"updated_at\":\"2017-08-17 06:20:00\"}})"]
+[]
