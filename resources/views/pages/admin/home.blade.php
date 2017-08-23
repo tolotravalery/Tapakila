@@ -1,11 +1,4 @@
-@extends('layouts.app')
-
-@section('template_title')
-    Welcome {{ Auth::user()->name }}
-@endsection
-
-@section('head')
-@endsection
+@extends("template")
 
 @section('content')
     <div class="container">
@@ -19,3 +12,4 @@
     </div>
 
 @endsection
+

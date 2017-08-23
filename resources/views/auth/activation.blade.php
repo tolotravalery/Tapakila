@@ -1,8 +1,4 @@
-@extends('layouts.app')
-
-@section('template_title')
-	{{ Lang::get('titles.activation') }}
-@endsection
+@extends("template")
 
 @section('content')
 	<div class="container">
@@ -14,7 +10,7 @@
 						<p>{{ Lang::get('auth.regThanks') }}</p>
 						<p>{{ Lang::get('auth.anEmailWasSent',['email' => $email, 'date' => $date ] ) }}</p>
 						<p>{{ Lang::get('auth.clickInEmail') }}</p>
-						<p><a href='/activation' class="btn btn-primary">{{ Lang::get('auth.clickHereResend') }}</a></p>
+						<p><a href='{{ url('/') }}/activation' class="btn btn-primary">{{ Lang::get('auth.clickHereResend') }}</a></p>
 					</div>
 				</div>
 			</div>

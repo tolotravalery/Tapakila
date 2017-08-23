@@ -23,7 +23,7 @@ class SocialController extends Controller
 
     use ActivationTrait;
 
-    public function getSocialRedirect( $provider )
+    public function getSocialRedirect($provider)
     {
 
         $providerKey = Config::get('services.' . $provider);
@@ -35,11 +35,11 @@ class SocialController extends Controller
 
         }
 
-        return Socialite::driver( $provider )->redirect();
+        return Socialite::driver($provider)->redirect();
 
     }
 
-    public function getSocialHandle( $provider )
+    public function getSocialHandle($provider)
     {
 
         if (Input::get('denied') != '') {
@@ -50,42 +50,40 @@ class SocialController extends Controller
 
         }
 
-        $socialUserObject = Socialite::driver( $provider )->user();
+        $socialUserObject = Socialite::driver($provider)->user();
 
 
-       // dd($socialUserObject);
+        // dd($socialUserObject);
         $socialUser = null;
 
         // Check if email is already registered
-       $userCheck = User::where('email', '=', $socialUserObject->email)->first();
-
-
+        $userCheck = User::where('email', '=', $socialUserObject->email)->first();
 
 
         $email = $socialUserObject->email;
 
 
         if (!$socialUserObject->email) {
-            $email = 'missing' . str_random(10).'@test.com';
+            $email = 'missing' . str_random(10) . '@test.com';
 
         }
 
         if (empty($userCheck)) {
 
             $sameSocialId = Social::where('social_id', '=', $socialUserObject->id)
-                ->where('provider', '=', $provider )
+                ->where('provider', '=', $provider)
                 ->first();
 
             if (empty($sameSocialId)) {
 
-                $ipAddress  = new CaptureIpTrait;
+                $ipAddress = new CaptureIpTrait;
                 $socialData = new Social;
-                $profile    = new Profile;
-                $role       = Role::where('slug', '=', 'user')->first();
-                $fullname   = explode(' ', $socialUserObject->name);
+                $profile = new Profile;
+                $role = Role::where('slug', '=', 'user')->first();
+                $fullname = explode(' ', $socialUserObject->name);
 
                 $username = $socialUserObject->nickname;
-               // $username = $socialUserObject->name;
+                // $username = $socialUserObject->name;
 
                 if ($username == null) {
                     foreach ($fullname as $name) {
@@ -93,21 +91,21 @@ class SocialController extends Controller
                     }
                 }
 
-                $user =  User::create([
-                    'name'                  => $username,
-                    'first_name'            => $fullname[0],
-                    'last_name'             => $fullname[1],
-                    'email'                 => $email,
-                    'password'              => bcrypt(str_random(40)),
-                    'token'                 => str_random(64),
-                    'activated'             => true,
-                    'signup_sm_ip_address'  => $ipAddress->getClientIp(),
+                $user = User::create([
+                    'name' => $username,
+                    'first_name' => $fullname[0],
+                    'last_name' => $fullname[1],
+                    'email' => $email,
+                    'password' => bcrypt(str_random(40)),
+                    'token' => str_random(64),
+                    'activated' => true,
+                    'signup_sm_ip_address' => $ipAddress->getClientIp(),
 
                 ]);
 
                 //$socialData->social_id  = $user->id;
-                $socialData->social_id  = $socialUserObject->id;
-                $socialData->provider   = $provider;
+                $socialData->social_id = $socialUserObject->id;
+                $socialData->provider = $provider;
                 $user->social()->save($socialData);
                 $user->attachRole($role);
                 $user->activated = true;
@@ -125,11 +123,9 @@ class SocialController extends Controller
 
                 $socialUser = $user;
 
-            }
-            else {
+            } else {
 
                 $socialUser = $sameSocialId->user;
-
 
 
             }

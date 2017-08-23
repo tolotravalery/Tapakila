@@ -21,9 +21,9 @@ class ActivateController extends Controller
 
     use ActivationTrait;
 
-    private static $userHomeRoute   = 'public.home';
-    private static $adminHomeRoute   = 'public.home';
-    private static $activationView  = 'auth.activation';
+    private static $userHomeRoute = 'public.home';
+    private static $adminHomeRoute = 'public.home';
+    private static $activationView = 'auth.activation';
     private static $activationRoute = 'activation-required';
 
     /**
@@ -36,31 +36,36 @@ class ActivateController extends Controller
         $this->middleware('auth');
     }
 
-    public static function getUserHomeRoute() {
+    public static function getUserHomeRoute()
+    {
 
         return self::$userHomeRoute;
 
     }
 
-    public static function getAdminHomeRoute() {
+    public static function getAdminHomeRoute()
+    {
 
         return self::$adminHomeRoute;
 
     }
 
-    public static function getActivationView() {
+    public static function getActivationView()
+    {
 
         return self::$activationView;
 
     }
 
-    public static function getActivationRoute() {
+    public static function getActivationRoute()
+    {
 
         return self::$activationRoute;
 
     }
 
-    public static function activeRedirect($user, $currentRoute) {
+    public static function activeRedirect($user, $currentRoute)
+    {
 
         if ($user->activated) {
 
@@ -68,8 +73,8 @@ class ActivateController extends Controller
 
             if ($user->isAdmin()) {
                 return redirect()->route(self::getAdminHomeRoute())
-                ->with('status', 'info')
-                ->with('message', trans('auth.alreadyActivated'));
+                    ->with('status', 'info')
+                    ->with('message', trans('auth.alreadyActivated'));
             }
 
             return redirect()->route(self::getUserHomeRoute())
@@ -81,11 +86,12 @@ class ActivateController extends Controller
 
     }
 
-    public function initial() {
+    public function initial()
+    {
 
-        $user           = Auth::user();
+        $user = Auth::user();
         $lastActivation = Activation::where('user_id', $user->id)->get()->last();
-        $currentRoute   = Route::currentRouteName();
+        $currentRoute = Route::currentRouteName();
 
         $rCheck = $this->activeRedirect($user, $currentRoute);
         if ($rCheck) {
@@ -94,18 +100,19 @@ class ActivateController extends Controller
 
         $data = [
             'email' => $user->email,
-            'date'  => $lastActivation->created_at->format('m/d/Y'),
+            'date' => $lastActivation->created_at->format('m/d/Y'),
         ];
 
         return view($this->getActivationView())->with($data);
 
     }
 
-    public function activationRequired() {
+    public function activationRequired()
+    {
 
-        $user           = Auth::user();
+        $user = Auth::user();
         $lastActivation = Activation::where('user_id', $user->id)->get()->last();
-        $currentRoute   = Route::currentRouteName();
+        $currentRoute = Route::currentRouteName();
 
         $rCheck = $this->activeRedirect($user, $currentRoute);
         if ($rCheck) {
@@ -136,7 +143,7 @@ class ActivateController extends Controller
 
         $data = [
             'email' => $user->email,
-            'date'  => $lastActivation->created_at->format('m/d/Y'), //
+            'date' => $lastActivation->created_at->format('m/d/Y'), //
         ];
 
         return view($this->getActivationView())->with($data);
@@ -146,11 +153,11 @@ class ActivateController extends Controller
     public function activate($token)
     {
 
-        $user           = Auth::user();
-        $currentRoute   = Route::currentRouteName();
-        $ipAddress      = new CaptureIpTrait;
-        $role           = Role::where('slug', '=', 'user')->first();
-        $profile        = new Profile;
+        $user = Auth::user();
+        $currentRoute = Route::currentRouteName();
+        $ipAddress = new CaptureIpTrait;
+        $role = Role::where('slug', '=', 'user')->first();
+        $profile = new Profile;
 
         $rCheck = $this->activeRedirect($user, $currentRoute);
         if ($rCheck) {
@@ -186,8 +193,8 @@ class ActivateController extends Controller
 
         if ($user->isAdmin()) {
             return redirect()->route(self::$getAdminHomeRoute())
-            ->with('status', 'success')
-            ->with('message', trans('auth.successActivated'));
+                ->with('status', 'success')
+                ->with('message', trans('auth.successActivated'));
         }
 
         return redirect()->route(self::getUserHomeRoute())
@@ -199,9 +206,9 @@ class ActivateController extends Controller
     public function resend()
     {
 
-        $user           = Auth::user();
+        $user = Auth::user();
         $lastActivation = Activation::where('user_id', $user->id)->get()->last();
-        $currentRoute   = Route::currentRouteName();
+        $currentRoute = Route::currentRouteName();
 
         if ($user->activated == false) {
 
@@ -239,11 +246,12 @@ class ActivateController extends Controller
 
     }
 
-    public function exceeded() {
+    public function exceeded()
+    {
 
-        $user           = Auth::user();
-        $currentRoute   = Route::currentRouteName();
-        $timePeriod     = config('settings.timePeriod');
+        $user = Auth::user();
+        $currentRoute = Route::currentRouteName();
+        $timePeriod = config('settings.timePeriod');
         $lastActivation = Activation::where('user_id', $user->id)->get()->last();
         $activationsCount = Activation::where('user_id', $user->id)
             ->where('created_at', '>=', Carbon::now()->subHours($timePeriod))
@@ -256,7 +264,7 @@ class ActivateController extends Controller
             $data = [
                 'hours' => config('settings.timePeriod'),
                 'email' => $user->email,
-                'lastDate'  => $lastActivation->created_at->format('m/d/Y'),
+                'lastDate' => $lastActivation->created_at->format('m/d/Y'),
             ];
 
             return view('auth.exceeded')->with($data);

@@ -1,0 +1,421 @@
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  /* Styles */
+   body::before {
+    content:  "Smartphones (portrait and landscape) fired";
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    background: rgba(255, 255, 0, 0.9); /* Semi-transparent yellow */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+  }
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen and (min-width: 321px) {
+  /* Styles */
+  body::before {
+    content:  "Smartphones (portrait and landscape) fired";
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    background: rgba(255, 255, 0, 0.9); /* Semi-transparent yellow */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+  }
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width: 320px) {
+  /* Styles */
+  body::before {
+    content:  "Smartphones (portrait and landscape) fired";
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    background: rgba(255, 255, 0, 0.9); /* Semi-transparent yellow */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+  }
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  /* Styles */
+  body::before {
+    content:  "Smartphones (portrait and landscape) fired";
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    background: rgba(255, 255, 0, 0.9); /* Semi-transparent yellow */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+  }
+}
+
+/* iPads (landscape) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  /* Styles */
+  body::before {
+    content:  "Smartphones (portrait and landscape) fired";
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    background: rgba(255, 255, 0, 0.9); /* Semi-transparent yellow */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+  }
+}
+
+/* iPads (portrait) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+  /* Styles */
+  body::before {
+    content:  "Smartphones (portrait and landscape) fired";
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    background: rgba(255, 255, 0, 0.9); /* Semi-transparent yellow */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+  }
+}
+
+/* iPad 3 (landscape) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+  /* Styles */
+  body::before {
+    content:  "Smartphones (portrait and landscape) fired";
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    background: rgba(255, 255, 0, 0.9); /* Semi-transparent yellow */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+  }
+}
+
+/* iPad 3 (portrait) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
+  /* Styles */
+  body::before {
+    content:  "Smartphones (portrait and landscape) fired";
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    background: rgba(255, 255, 0, 0.9); /* Semi-transparent yellow */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+  }
+}
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+body::before {
+    content:  "Smartphones (portrait and landscape) fired";
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    background: rgba(255, 255, 0, 0.9); /* Semi-transparent yellow */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+  }
+    }
+/* Desktops and laptops ----------- */
+@media only screen and (min-width: 1224px) {
+  /* Styles */
+  body::before {
+    content:  "Smartphones (portrait and landscape) fired";
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    background: rgba(255, 255, 0, 0.9); /* Semi-transparent yellow */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+  }
+}
+
+/* Large screens ----------- */
+@media only screen and (min-width: 1824px) {
+  /* Styles */
+  body::before {
+    content:  "Smartphones (portrait and landscape) fired";
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    background: rgba(255, 255, 0, 0.9); /* Semi-transparent yellow */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+  }
+}
+
+/* iPhone 4 (landscape) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+  /* Styles */
+  body::before {
+    content:  "Smartphones (portrait and landscape) fired";
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    background: rgba(255, 255, 0, 0.9); /* Semi-transparent yellow */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+  }
+}
+
+/* iPhone 4 (portrait) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
+  /* Styles */
+  body::before {
+    content:  "Smartphones (portrait and landscape) fired";
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    background: rgba(255, 255, 0, 0.9); /* Semi-transparent yellow */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+  }
+}
+
+/* iPhone 5 (landscape) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-height: 568px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2) {
+  /* Styles */
+  body::before {
+    content:  "Smartphones (portrait and landscape) fired";
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    background: rgba(255, 255, 0, 0.9); /* Semi-transparent yellow */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+  }
+}
+
+/* iPhone 5 (portrait) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-height: 568px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2) {
+  /* Styles */
+  body::before {
+    content:  "Smartphones (portrait and landscape) fired";
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    background: rgba(255, 255, 0, 0.9); /* Semi-transparent yellow */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+  }
+}
+
+/* iPhone 6 (landscape) ----------- */
+@media only screen and (min-device-width: 375px) and (max-device-height: 667px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2) {
+  /* Styles */
+  body::before {
+    content:  "Smartphones (portrait and landscape) fired";
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    background: rgba(255, 255, 0, 0.9); /* Semi-transparent yellow */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+  }
+}
+
+/* iPhone 6 (portrait) ----------- */
+@media only screen and (min-device-width: 375px) and (max-device-height: 667px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2) {
+  /* Styles */
+  body::before {
+    content:  "Smartphones (portrait and landscape) fired";
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    background: rgba(255, 255, 0, 0.9); /* Semi-transparent yellow */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+  }
+}
+
+/* iPhone 6+ (landscape) ----------- */
+@media only screen and (min-device-width: 414px) and (max-device-height: 736px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2) {
+  /* Styles */
+  body::before {
+    content:  "Smartphones (portrait and landscape) fired";
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    background: rgba(255, 255, 0, 0.9); /* Semi-transparent yellow */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+  }
+}
+
+/* iPhone 6+ (portrait) ----------- */
+@media only screen and (min-device-width: 414px) and (max-device-height: 736px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2) {
+  /* Styles */
+  body::before {
+    content:  "Smartphones (portrait and landscape) fired";
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    background: rgba(255, 255, 0, 0.9); /* Semi-transparent yellow */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+  }
+}
+
+/* Samsung Galaxy S3 (landscape) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-height: 640px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2) {
+  /* Styles */
+  body::before {
+    content:  "Smartphones (portrait and landscape) fired";
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    background: rgba(255, 255, 0, 0.9); /* Semi-transparent yellow */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+  }
+}
+
+/* Samsung Galaxy S3 (portrait) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-height: 640px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2) {
+  /* Styles */
+  body::before {
+    content:  "Smartphones (portrait and landscape) fired";
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    background: rgba(255, 255, 0, 0.9); /* Semi-transparent yellow */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+  }
+}
+
+/* Samsung Galaxy S4 (landscape) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-height: 640px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3) {
+  /* Styles */
+  body::before {
+    content:  "Smartphones (portrait and landscape) fired";
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    background: rgba(255, 255, 0, 0.9); /* Semi-transparent yellow */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+  }
+}
+
+/* Samsung Galaxy S4 (portrait) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-height: 640px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3) {
+  /* Styles */
+  body::before {
+    content:  "Smartphones (portrait and landscape) fired";
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    background: rgba(255, 255, 0, 0.9); /* Semi-transparent yellow */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+  }
+}
+
+/* Samsung Galaxy S5 (landscape) ----------- */
+@media only screen and (min-device-width: 360px) and (max-device-height: 640px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3) {
+  /* Styles */
+  body::before {
+    content:  "Smartphones (portrait and landscape) fired";
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    background: rgba(255, 255, 0, 0.9); /* Semi-transparent yellow */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+  }
+}
+
+/* Samsung Galaxy S5 (portrait) ----------- */
+@media only screen and (min-device-width: 360px) and (max-device-height: 640px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3) {
+  /* Styles */
+  body::before {
+    content:  "Smartphones (portrait and landscape) fired";
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    background: rgba(255, 255, 0, 0.9); /* Semi-transparent yellow */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+  }
+}

@@ -1,0 +1,437 @@
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  /* Styles */
+   .connexion{
+   clear:both;
+   }
+   footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 370px;
+    width: 100%;
+    overflow:hidden;
+}
+}
+
+@media only screen and (min-device-width: 400px) and (max-device-width: 450px) {
+  /* Styles */
+.btn-facebooksign {
+    background-color: #3c5999;
+    color: white;
+    margin-bottom: 12px;
+    padding: 14px 10px 14px 10px;
+    margin-left: 11%;
+}
+}
+
+@media only screen and (min-device-width:500px) and (max-device-width:615px) {
+  /* Styles */
+.btn-facebooksign {
+    background-color: #3c5999;
+    color: white;
+    margin-bottom: 12px;
+    padding: 14px 10px 14px 10px;
+    margin-left: 25%;
+}
+}
+
+@media only screen and (min-device-width:616px) and (max-device-width:767px) {
+  /* Styles */
+.btn-facebooksign {
+    background-color: #3c5999;
+    color: white;
+    margin-bottom: 12px;
+    padding: 14px 10px 14px 10px;
+    margin-left: 32%;
+}
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width: 320px) {
+  /* Styles */
+  .connexion{
+   clear:both;
+   }
+   footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 370px;
+    width: 100%;
+    overflow:hidden;
+}
+/*------Mon Compte--------*/
+
+/*------Mon Compte--------*/
+.activeee {
+    display: inline-block;
+    position: relative;
+    background-color: white;
+    color: red !important;
+    padding: 6px;
+        width: 243px !important;
+    padding-left: 80px !important;
+    text-align:center;
+  }
+
+  .activeee::after {
+    content: '';
+    display: none;
+    position: absolute;
+    left: 100%;
+    top: 0;
+    border-top: 18px solid transparent;
+    border-bottom: 18px solid transparent;
+    border-left: 22px solid white;
+  }
+  .s_menu div p {
+    padding-bottom: 3px !important;
+    color: #9e9b9b;
+    text-align: center;
+  }
+  #sary {
+    width: 70px;
+    margin-top: 14%;
+    margin-left: 36%;
+  }
+  #bonjour {
+    margin-left: 38%;
+    font-size: medium;
+  }
+  .btio2 {
+    border-radius: 2% !important;
+    margin-bottom: 3% !important;
+    margin-top: 2% !important;
+    margin-left: 5%;
+    width: 31%;
+  }
+
+  .compte2{
+    margin-left: 75px;
+  }
+  img.compte {
+    width: 32px;
+    height: 32px;
+    margin-left: 32%;
+    border: 5px;
+    padding: 4px;
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  /*-------Mon Compte End------------*/
+
+  /*-------Mon Compte End------------*/
+.btn-facebooksign {
+    background-color: #3c5999;
+    color: white;
+    margin-bottom: 10px;
+    padding: 14px 10px 14px 10px;
+    margin-left: -14%;
+}
+
+}
+@media only screen and (max-width: 768px) {
+  /* Styles */
+.facenookconexion {
+    color: #6b6b6b;
+    text-align: center;
+}
+  .connexion{
+   clear:both;
+   }
+   footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 370px;
+    width: 100%;
+    overflow:hidden;
+}
+/*------------------Mon Compte------------------*/
+  .compte2 {
+    width: 50px;
+    margin-left: 184px;
+  }
+
+  img.compte {
+    width: 32px;
+    height: 32px;
+    margin-left: 38%;
+    border: 5px;
+    padding: 4px;
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  #sary {
+    width: 70px;
+    margin-top: 14%;
+    margin-left: 41%;
+  }
+  #bonjour {
+    margin-left: 42%;
+    font-size: medium;
+  }
+  .s_menu div {
+    padding: 2px;
+    font-size: 16px !important;
+    margin-top: 8px;
+    text-align: left;
+    color: #93a1a1;
+  }
+  .activeee {
+    /* display: inline-block; */
+    position: relative;
+    background-color: white;
+    color: red !important;
+    width: 300px;
+    margin-left: 15px;
+    /* padding-right: 10px; */
+    text-align: right;
+  }
+  .activeee:after{
+    display: none;
+  }
+  .un li{
+    display: block;
+  }
+  .btio2 {
+    border-radius: 2% !important;
+    margin-bottom: 3% !important;
+    margin-top: 2% !important;
+    margin-left: 5%;
+    width: 30%;
+  }
+  /*------------------Mon Compte end--------------------*/
+}
+
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+.facenookconexion {
+    color: #6b6b6b;
+    text-align: center;
+}
+.btn-facebooksign {
+    background-color: #3c5999;
+    color: white;
+    margin-bottom: 12px;
+    padding: 14px 10px 14px 10px;
+    margin-left: 33%;
+}
+  /* Styles */
+  .connexion{
+   clear:both;
+   }
+/**---------------Mon Compte-------------------*/
+    .activeee {
+    display: inline-block;
+    position: relative;
+    background-color: white;
+    color: red !important;
+    padding: 6px;
+    width: 135px;
+    padding-left: 30px !important;
+    margin-left: -15px;
+    text-align: right;
+  }
+  .activeee::after {
+    content: '';
+    display: none;
+    position: absolute;
+    left: 100%;
+    top: 0;
+    border-top: 18px solid transparent;
+    border-bottom: 18px solid transparent;
+    border-left: 22px solid white;
+  }
+    #sary {
+    width: 70px;
+    margin-top: 14%;
+    margin-left: 16%;
+  }
+  #bonjour {
+    margin-left: 24%;
+    font-size: medium;
+  }
+
+  .compte{
+    padding-left: 2px;
+  }
+
+  .compte2{
+    width: 40px;
+    margin-bottom: 15px;
+    padding-top: 19px;
+  }
+  img.compte {
+    width: 32px;
+    height: 32px;
+    margin-left: 43%;
+    border: 5px;
+    padding: 4px;
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  /*-------------Mon Compte end------------------*/
+}
+
+/* iPads (landscape) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  /* Styles */
+  .connexion{
+   clear:both;
+   }
+}
+
+/* iPads (portrait) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+  /* Styles */
+  .connexion{
+   clear:both;
+   }
+}
+
+/* iPad 3 (landscape) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+  /* Styles */
+ .connexion{
+   clear:both;
+   }
+}
+
+/* iPad 3 (portrait) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
+  /* Styles */
+  .connexion{
+   clear:both;
+   }
+}
+/* iPhone 4 (landscape) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+  /* Styles */
+  .connexion{
+   clear:both;
+   }
+}
+
+/* iPhone 4 (portrait) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
+  /* Styles */
+  .connexion{
+   clear:both;
+   }
+}
+
+/* iPhone 5 (landscape) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-height: 568px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2) {
+  /* Styles */
+  .connexion{
+   clear:both;
+   }
+}
+
+/* iPhone 5 (portrait) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-height: 568px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2) {
+  /* Styles */
+  .connexion{
+   clear:both;
+   }
+}
+
+/* iPhone 6 (landscape) ----------- */
+@media only screen and (min-device-width: 375px) and (max-device-height: 667px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2) {
+  /* Styles */
+  .connexion{
+   clear:both;
+   }
+}
+
+/* iPhone 6 (portrait) ----------- */
+@media only screen and (min-device-width: 375px) and (max-device-height: 667px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2) {
+  /* Styles */
+  .connexion{
+   clear:both;
+   }
+}
+
+/* iPhone 6+ (landscape) ----------- */
+@media only screen and (min-device-width: 414px) and (max-device-height: 736px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2) {
+  /* Styles */
+  .connexion{
+   clear:both;
+   }
+}
+
+/* iPhone 6+ (portrait) ----------- */
+@media only screen and (min-device-width: 414px) and (max-device-height: 736px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2) {
+  /* Styles */
+ .connexion{
+   clear:both;
+   }
+}
+
+/* Samsung Galaxy S3 (landscape) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-height: 640px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2) {
+  /* Styles */
+ .connexion{
+   clear:both;
+   }
+}
+
+/* Samsung Galaxy S3 (portrait) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-height: 640px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2) {
+  /* Styles */
+.connexion{
+   clear:both;
+   }
+}
+
+/* Samsung Galaxy S4 (landscape) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-height: 640px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3) {
+  /* Styles */
+  .connexion{
+   clear:both;
+   }
+}
+
+/* Samsung Galaxy S4 (portrait) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-height: 640px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3) {
+  /* Styles */
+  .connexion{
+   clear:both;
+   }
+}
+
+/* Samsung Galaxy S5 (landscape) ----------- */
+@media only screen and (min-device-width: 360px) and (max-device-height: 640px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3) {
+  /* Styles */
+ .connexion{
+   clear:both;
+   }
+}
+
+/* Samsung Galaxy S5 (portrait) ----------- */
+@media only screen and (min-device-width: 360px) and (max-device-height: 640px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3) {
+  /* Styles */
+ .connexion{
+   clear:both;
+   }
+}
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+
+    
+    }
+/* Desktops and laptops ----------- */
+@media only screen and (min-width: 1224px) {
+  /* Styles */
+ 
+}
+
+/* Large screens ----------- */
+@media only screen and (min-width: 1824px) {
+  /* Styles */
+ 
+}
+
