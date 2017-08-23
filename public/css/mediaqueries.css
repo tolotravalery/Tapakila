@@ -12,6 +12,46 @@
     width: 100%;
     overflow:hidden;
 }
+    /*------------commande_event_------------------*/
+    .com_contenu {
+        padding-left: 22px;
+        padding-right: 22px;
+        margin-top: 41px;
+        padding-top: 28px;
+    }
+    /*-----------commande_events_end-----------------------*/
+    /*--------------Type_ticket------------------*/
+    .com_contenu_type {
+        background-color: white;
+        padding-left: 18px;
+        padding-right: 18px;
+        margin-top: 40px;
+        padding-top: 28px;
+        padding-bottom: 36px;
+    }
+    .com_contenu_type1 {
+        background-color: white;
+        padding-left: 18px;
+        padding-right: 18px;
+        margin-top: 40px;
+        padding-top: 28px;
+        padding-bottom: 36px;
+    }
+    .com_contenu_type2 {
+        background-color: white;
+        padding-left: 18px;
+        padding-right: 18px;
+        margin-top: 40px;
+        padding-top: 28px;
+        padding-bottom: 36px;
+    }
+    .bout {
+        margin: 35px 0px 35px 116px;
+        background-color: #d70506;
+    }
+
+
+    /*--------------Type_ticket-end-----------------*/
 }
 
 @media only screen and (min-device-width: 400px) and (max-device-width: 450px) {
@@ -23,6 +63,11 @@
     padding: 14px 10px 14px 10px;
     margin-left: 11%;
 }
+.bout {
+    margin: 35px 0px 35px 137px;
+    background-color: #d70506;
+}
+
 }
 
 @media only screen and (min-device-width:500px) and (max-device-width:615px) {
@@ -128,6 +173,16 @@
     margin-bottom: 10px;
     padding: 14px 10px 14px 10px;
     margin-left: -14%;
+}
+/*site_web */
+	input[type="file"] {
+    width: 100%;
+    height: 100%;
+    margin-top: -77px;
+}
+.bout {
+    margin: 35px 0px 35px 92px;
+    background-color: #d70506;
 }
 
 }

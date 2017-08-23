@@ -14,6 +14,7 @@
 */
 
 // Homepage Route
+Route::get('event', 'EventController@showEventForm')->name('event');
 Route::get('/', 'WelcomeController@welcome')->name('welcome');
 
 // Authentication Routes

@@ -4,7 +4,7 @@ h1, h2, h3, h4, h5, li, p {
 word-wrap: break-word;
 }
 a{
-	color:black;
+	color:#428bca;
 }
 .nav > li > a:focus, .nav > li > a:hover {
     text-decoration: none;
@@ -425,6 +425,32 @@ color: white;
 
 
 /* create event start */
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+    background-color: white;
+    opacity: 1;
+}
+.image-preview-input {
+    position: relative;
+	overflow: hidden;
+	margin: 0px;    
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;    
+}
+.image-preview-input input[type=file] {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 0;
+	padding: 0;
+	font-size: 20px;
+	cursor: pointer;
+	opacity: 0;
+	filter: alpha(opacity=0);
+}
+.image-preview-input-title {
+    margin-left:2px;
+}
 .categorimenu{
 margin-bottom: 16px;
 margin-top: 16px;
@@ -697,4 +723,490 @@ border-color: #fff;
 }
 
 /* retour mail end */
+/*--------------------------contenu_eventes---------------------------------*/
+#exTab1 .tab-content {
+    color : white;
+    background-color: red;
+    padding : 5px 15px;
+}
 
+#exTab2 h3 {
+    color : white;
+    background-color: #428bca;
+    padding : 5px 15px;
+}
+
+/* remove border radius for the tab */
+
+#exTab1 .nav-pills > li > a {
+    border-radius: 0;
+}
+
+/* change border radius for the tab , apply corners on top*/
+
+#exTab3 .nav-pills > li > a {
+    border-radius: 4px 4px 0 0 ;
+}
+
+#exTab3 .tab-content {
+    color : white;
+    background-color: #428bca;
+    padding : 5px 15px;
+}
+
+.pane1{
+    background-color: #f5f5f5;
+}
+.choix1{
+   margin-top: 55px;
+    margin-bottom: 45px;
+
+}
+.choix2{
+    margin-top: 55px;
+    margin-bottom: 5px;
+
+}
+.counter_number{
+    font-size: 50px;
+}
+.counter-label{
+    font-size: 20px;
+}
+.rapporter{
+    background-color: white;
+}
+#sel1{
+    background-color: #f5f5f5;
+}
+
+/*--------------------------rapport_eventes---------------------------------*/
+#exTab1 .tab-content {
+    color : white;
+    background-color: red;
+    padding : 5px 15px;
+}
+
+#exTab2 h3 {
+    color : white;
+    background-color: #428bca;
+    padding : 5px 15px;
+}
+
+/* remove border radius for the tab */
+
+#exTab1 .nav-pills > li > a {
+    border-radius: 0;
+}
+
+/* change border radius for the tab , apply corners on top*/
+
+#exTab3 .nav-pills > li > a {
+    border-radius: 4px 4px 0 0 ;
+}
+
+#exTab3 .tab-content {
+    color : white;
+    background-color: #428bca;
+    padding : 5px 15px;
+}
+
+.pane1{
+    background-color: #f5f5f5;
+}
+.choix1{
+   margin-top: 55px;
+    margin-bottom: 45px;
+
+}
+.choix2{
+    margin-top: 55px;
+    margin-bottom: 5px;
+
+}
+.counter_number{
+    font-size: 50px;
+    color: grey;
+}
+.counter-label{
+    font-size: 20px;
+}
+.rapporter{
+    background-color: white;
+}
+#rapport{
+    background-color: white;
+}
+#sel1{
+    background-color: #f5f5f5;
+}
+.nav-tabs1>li.active>a, .nav-tabs1>li.active>a:focus, .nav-tabs1>li.active>a:hover {
+    color: #d70506;
+    cursor: default;
+    background-color: transparent ;
+    border-bottom: 2px double #d70506;
+}
+.ct-octave>svg {
+    display: block;
+    position:inherit;
+    top: 0;
+    left: 0;
+}
+svg:not(:root) {
+    overflow: hidden;
+}
+.ct-grid {
+    stroke: rgba(0,0,0,.2);
+    stroke-width: 1px;
+    stroke-dasharray: 2px;
+}
+.ct-octave:before {
+    display: block;
+    float: left;
+    content: "";
+    width: 0;
+    height: 0;
+    padding-bottom: 50%;
+}
+.ct-octave:after {
+    display: table;
+}
+html|* > svg {
+    transform-origin: 50% 50% 0px;
+
+}
+.c1{
+    margin-top: -43px;
+}.c2{
+     margin-top: -27px;
+ }
+/*--------------------------rapport_eventes-end---------------------------------*/
+
+/*--------------------Commande-events----------------------------------*/
+#commande{
+    background-color: white;
+}
+.com_contenu{
+    padding-left: 60px;
+    padding-right: 60px;
+    margin-top: 18px;
+    padding-top: 28px;
+    padding-bottom: 36px;
+}
+.com_contenu a{
+
+}
+.num{
+    width: 78px;
+}
+
+/*--------------------Commande-events-end---------------------------------*/
+
+/*--------------------billet-events----------------------------------*/
+#billet{
+    background-color: white;
+}
+.h14{
+    margin-top: 14px;
+}
+.a1{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+/*------------------Type_ticket----------------------------*/
+
+.ticket_type_contenu{
+    background-color:  #eeeeee;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top:15px;
+    margin-bottom: 20px;
+}
+.menu_type{
+    background-color: white !important;
+}
+.com_contenu_type{
+    background-color: white;
+    padding-left: 60px;
+    padding-right: 60px;
+    margin-top: 41px;
+    padding-top: 28px;
+    padding-bottom: 36px;
+}
+.primary {
+    color: #d70506;
+    background-color: transparent;
+    border-color: #d70506;
+}
+.primary:hover{
+    background-color:  #d70506;
+    border-color: #d70506;
+}
+.com_contenu_type_foot{
+    background-color: #f5f5f5;
+}
+.com_contenu_type_foot:hover{
+    background-color: #f5f5f5;
+}
+.bout {
+    margin: 35px 0px 35px 63px;
+    background-color: #d70506;
+}
+.group{
+    margin-bottom: 33px;
+}
+
+
+/*----------------------Type_ticket-end--------------------------*/
+
+.dropify-wrapper {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    width: 100%;
+    max-width: 100%;
+    height: 200px;
+    padding: 5px 10px;
+    font-size: 14px;
+    line-height: 22px;
+    color: #777;
+    background-color: #FFF;
+    background-image: none;
+    text-align: -webkit-center;
+    border: 2px solid #E5E5E5;
+    -webkit-transition: border-color .15s linear;
+    transition: border-color .15s linear;
+}
+/*.dropify-wrapper input {
+    position: relative;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 9;
+}
+.dropify-wrapper .dropify-errors-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+    background: rgba(243,65,65,.8);
+    text-align: left;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: visibility 0s linear .15s,opacity .15s linear;
+    transition: visibility 0s linear .15s,opacity .15s linear;
+}
+.dropify-wrapper .dropify-message {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    text-align: center;
+}
+.dropify-wrapper .dropify-clear {
+    display: none;
+    position: absolute;
+    opacity: 0;
+    z-index: 7;
+    top: 10px;
+    right: 10px;
+    background: 0 0;
+    border: 2px solid #FFF;
+    text-transform: uppercase;
+    font-size: 11px;
+    padding: 4px 8px;
+    font-weight: 700;
+    color: #FFF;
+    -webkit-transition: all .15s linear;
+    transition: all .15s linear;
+}*/
+/*input[type="hidden" i] {
+    display: none;
+}
+input[type="hidden" i], input[type="image" i], input[type="file" i] {
+    -webkit-appearance: initial;
+    background-color: initial;
+    padding: initial;
+    border: initial;
+}*/
+#dropify-wrapper {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    width: 100%;
+    max-width: 100%;
+    height: 200px;
+    padding: 5px 10px;
+    font-size: 14px;
+    line-height: 22px;
+    color: #777;
+    background-color: #FFF;
+    background-image: none;
+    text-align: -webkit-center;
+   border: 1px solid #ccc;
+   border-radius:2px;
+    -webkit-transition: border-color .15s linear;
+    transition: border-color .15s linear;
+}
+
+.dropify-wrapper .dropify-loader::after {
+    display: block;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    -webkit-animation: rotate .6s linear infinite;
+    animation: rotate .6s linear infinite;
+    border-radius: 100%;
+    border-top: 1px solid #CCC;
+    border-bottom: 1px solid #777;
+    border-left: 1px solid #CCC;
+    border-right: 1px solid #777;
+    content: '';
+}
+.dropify-wrapper .dropify-message {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    text-align: center;
+}
+#output:hover {
+    opacity: 0.3;
+    background-color: red;
+}
+
+#output:hover{
+    opacity: 1;
+}
+.form-group-translation input[type=file] {
+    display: block;
+    position: relative;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 9;
+
+}
+inputimage input[type=file] {
+float:right;
+}
+input[type="file" i] {
+    align-items: baseline;
+    color: inherit;
+    text-align: start;
+}
+input[type="file"]{
+    width:100%;
+    height:100%;
+	margin-top: -55px;
+}
+#output{
+    max-width: 100%;
+    height: 100%;
+}
+#button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: white;
+    background-color: red;
+    border: unset;
+}
+.hide{
+    display: none;
+}
+.show{
+    display: initial;
+}
+
+.com_contenu_type_ticket {
+    background-color: white;
+    padding-left: 60px;
+    padding-right: 60px;
+    margin-top: -40px;
+    padding-top: 69px;
+    padding-bottom: 15px;
+    border-top: 1px inset;
+}
+.menu_int1{
+    border: 1px solid grey;
+    background-color: #eeeeee;
+    margin-top: 60px;
+}
+.menu_int2 {
+    background-color: white;
+    margin: 40px 20px 0px 20px;
+}
+.menu_int3{
+    background-color: white;
+    margin: 20px 20px 20px 20px;
+    border: 1px solid grey;
+}
+.menu_int4{
+    background-color: white;
+    border-bottom: 1px solid grey;
+}
+#menu_right{
+    display: inline-block;
+    padding-left: 50px;
+
+
+}
+#menu_left{
+    display: inline-block;
+    padding-bottom: 30px;
+    padding-left: 28px;
+
+}
+.qt{
+    width: 150px;
+    height: 150px;
+}
+/*----------------------------------------WebSite----------------------------------*/
+
+.com_contenu_type1{
+    background-color: white;
+    padding-left: 60px;
+    padding-right: 60px;
+    margin-top: 41px;
+    padding-top: 28px;
+    padding-bottom: 36px;
+    border-bottom: 2px solid #f5f5f5;
+}
+.com_contenu_type2{
+    background-color: white;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-top: 28px;
+    padding-bottom: 36px;
+    border-bottom: 2px solid #f5f5f5;
+}
+
+/*----------------------------------------WebSite-end---------------------------------*/
+
+/*----------------------------------categorie--------------------------------------*/
+.categorie_center{
+	border-bottom: 3px solid #d70506;
+}
+
+.thumbnail a>img, .thumbnail>img {
+
+	height: 200px;
+	width: 350px;
+
+}
+/*----------------------------------categorie-end-------------------------------------*/

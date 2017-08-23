@@ -10,8 +10,12 @@
     <link rel="stylesheet" href="{{ url('/') }}/css/mediaqueries.css">
     <link rel="stylesheet" href="{{ url('/') }}/css/animate.css">
     <link rel="stylesheet" href="{{ url('/') }}/css/font-awesome.css">
+    <link href="{{ url('/') }}/css/datepicker.css" rel="stylesheet">
+    <link href="{{ url('/') }}/css/clockpiker.css" rel="stylesheet">
     <script type="text/javascript" src="{{ url('/') }}/js/jquery.min.js"></script>
     <script type="text/javascript" src="{{ url('/') }}/js/bootstrap.min.js"></script>
+    <script src="{{ url('/') }}/js/datepicker.js"></script>
+    <script src="{{ url('/') }}/js/clockpicker.js"></script>
 </head>
 <body>
 <!-- header start -->
@@ -131,7 +135,7 @@
                     </ul>
                 </div>
                 <div class="col-sm-2 col-xs-6 ">
-                    <a class="fb-link-icon" href="https://www.facebook.com/tapakila/" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+                    <a class="fb-link-icon" href="https://www.facebook.com/tapakila/" target="_blank"><i class="fa fa-facebook-square facebookico" aria-hidden="true"></i></a>
                     <div id="fb-root"></div>
                     <div class="fb-like" data-href="https://www.facebook.com/tapakila/" data-layout="button" data-action="like" data-size="small" data-show-faces="false" data-colorscheme="dark" data-share="false"></div>
 
