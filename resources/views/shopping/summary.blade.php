@@ -70,10 +70,12 @@
                     @endif
                 </div>
             </div>
-            <button class="btn btn-default">
-                Confirmer
-            </button>
-
+            <form action="{{url('/shopping/checkout/save',['checkout' => 'checkout'])}}" method="post">
+                {!! csrf_field() !!}
+                <button type="submit" class="btn btn-default">
+                    Confirmer
+                </button>
+            </form>
         </div>
         <br/><br/>
     </div>

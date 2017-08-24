@@ -95,9 +95,8 @@ class User extends Authenticatable
 
     public function hasProfile($name)
     {
-        foreach($this->profiles as $profile)
-        {
-            if($profile->name == $name) return true;
+        foreach ($this->profiles as $profile) {
+            if ($profile->name == $name) return true;
         }
 
         return false;
@@ -111,6 +110,11 @@ class User extends Authenticatable
     public function removeProfile($profile)
     {
         return $this->profiles()->detach($profile);
+    }
+
+    public function products()
+    {
+        return $this->belongsToMany('App\Models\Product')->withPivot('number');;
     }
 
 }

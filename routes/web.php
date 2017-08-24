@@ -139,4 +139,5 @@ Route::group(['prefix' => 'shopping'], function () {
     Route::post('switchToCart/{id}', 'Shopping\WishlistController@switchToCart');
     Route::get('checkout/{montant}', 'Shopping\CheckoutController@index');
     Route::post('checkout/store', 'Shopping\CheckoutController@store');
+    Route::post('checkout/save/{checkout}', 'Shopping\CheckoutController@save');
 });

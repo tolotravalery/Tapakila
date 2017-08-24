@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Shopping;
 
+use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Checkout;
 use \Cart as Cart;
@@ -19,7 +21,8 @@ class CheckoutController extends Controller
         $products = array();
         $i = 0;
         foreach (Cart::content() as $item) {
-            $products[$i] = array("id" => $item->id,
+            $products[$i] = array(
+                "id" => $item->id,
                 "qty" => $item->qty,
                 "name" => $item->name,
                 "price" => $item->price);
@@ -40,5 +43,20 @@ class CheckoutController extends Controller
         $checkout = new Checkout($adresseFacturation, $adresseLivraison, $payement_method, $products);
         //dd($checkout);
         return view('shopping.summary')->with('checkout', $checkout);
+    }
+
+    function save(Request $request)
+    {
+        foreach (Cart::content() as $item) {
+            // save from database
+            $product = Product::findOrFail($item->id);
+            //$product = User::findOrFail(1);
+            //dd($product->users());
+            $product->users()->attach(1, ['number' => $item->qty]);
+        }
+        Cart::destroy();
+        // checkout users
+        $user = User::findOrFail(1);
+        return view('shopping.after_checkot')->with('user', $user);
     }
 }
