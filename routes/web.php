@@ -14,6 +14,14 @@
 */
 
 // Homepage Route
+Route::get('category', 'CategoryController@showCategoryForm')->name('category');
+Route::get('/categories', 'CategoryController@index')->name('categories');
+$this->post('category', 'CategoryController@store');
+
+Route::get('souscategory', 'SouscategoryController@showSouscategoryForm')->name('souscategory');
+Route::get('/souscategories', 'SouscategoryController@index')->name('souscategories');
+Route::post('souscategory', 'SouscategoryController@store');
+
 Route::get('event', 'EventController@showEventForm')->name('event');
 Route::get('/', 'WelcomeController@welcome')->name('welcome');
 

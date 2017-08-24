@@ -76,6 +76,7 @@
                             </li>
                             <li><a href="{{url('/')}}/category">Categories</a></li>
                             <li><a href="{{url('/')}}/event">Events</a></li>
+                            <li><a href="{{url('/')}}/souscategory">Sous categories</a></li>
                             <li>
                                 <a href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
