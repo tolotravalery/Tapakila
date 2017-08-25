@@ -74,9 +74,9 @@
                             <!--{!! HTML::icon_link(URL::to('/profile/'.Auth::user()->name.'/edit'), 'fa fa-fw fa-cog', trans('titles.editProfile'), array('class' => 'btn btn-small btn-info btn-block')) !!}
                             {{ trans('profile.editAccountTitle') }}-->
                             </li>
-                            <li><a href="{{url('/')}}/category">Categories</a></li>
-                            <li><a href="{{url('/')}}/souscategory">Sous categories</a></li>
-                            <li><a href="{{url('/')}}/event">Events</a></li>
+                            <li><a href="{{url('/')}}/admin/menu">Menus</a></li>
+                            <li><a href="{{url('/')}}/admin/sousmenu">Sous menus</a></li>
+                            <li><a href="{{url('/')}}/admin/event">Events</a></li>
                             <li>
                                 <a href="{{ route('logout') }}"
                                    onclick="event.preventDefault();

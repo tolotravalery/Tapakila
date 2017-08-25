@@ -53,7 +53,28 @@
                 </li>
                 @if (Auth::guest())
                     <!--<li><a href="{{ route('login') }}">{!! trans('titles.login') !!}</a></li>-->
-                        <li><a href="#" class="dropdown-toggle" id="drop7"> Connexion  <span class="caret"></span></a></li>
+                        <li>
+                            <a href="#" class="dropdown-toggle" id="drop6" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Connexion  <span class="caret"></span></a>
+                            <ul class="dropdown-menu search" id="menu3" aria-labelledby="drop6">
+
+
+                                        @if (Route::has('login'))
+
+                                                @if (Auth::check())
+                                                    <li><a href="{{ url('/home') }}">Home</a></li>
+                                                @else
+                                                    <li><a href="{{ url('/login') }}">Login</a></li>
+                                                    <li><a href="{{ url('/register') }}">Register</a></li>
+                                                    <li><a href="{{ url('/admin') }}">Admin</a></li>
+                                                @endif
+
+                                        @endif
+
+
+                            </ul>
+
+                        </li>
+
                 @else
                     <li role="presentation" class="dropdown">
                         <a href="#" class="dropdown-toggle" id="drop6" data-toggle="dropdown" role="button"
@@ -74,9 +95,7 @@
                             <!--{!! HTML::icon_link(URL::to('/profile/'.Auth::user()->name.'/edit'), 'fa fa-fw fa-cog', trans('titles.editProfile'), array('class' => 'btn btn-small btn-info btn-block')) !!}
                             {{ trans('profile.editAccountTitle') }}-->
                             </li>
-                            <li><a href="{{url('/')}}/category">Categories</a></li>
-                            <li><a href="{{url('/')}}/event">Events</a></li>
-                            <li><a href="{{url('/')}}/souscategory">Sous categories</a></li>
+
                             <li>
                                 <a href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
