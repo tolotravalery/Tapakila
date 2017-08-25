@@ -75,7 +75,7 @@
                             {{ trans('profile.editAccountTitle') }}-->
                             </li>
                             <li><a href="{{url('/')}}/admin/menu">Menus</a></li>
-                            <li><a href="{{url('/')}}/admin/sousmenu">Sous menus</a></li>
+                            <li><a href="{{url('/')}}/admin/sousmenu">Sous Menus</a></li>
                             <li><a href="{{url('/')}}/admin/event">Events</a></li>
                             <li>
                                 <a href="{{ route('logout') }}"

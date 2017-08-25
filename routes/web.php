@@ -133,6 +133,8 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin'], 'prefix' => '
     Route::get('sousmenu', 'SousmenuController@showSousmenuForm')->name('sousmenu');
     Route::get('/sousmenus', 'SousmenuController@index')->name('sousmenus');
     Route::post('sousmenu', 'SousmenuController@store');
+
+    Route::get('event', 'EventController@showEventForm')->name('event');
     /*-------------------*/
 
 
