@@ -105,15 +105,18 @@
                 </div>
                 <div id="menu3" class="tab-pane fade">
                     <h3>Payement</h3>
-                    <p>On a deux modes de Payement : </p>
+                    {{--<p>On a deux modes de Payement : </p>
                     <div class="radio">
                         <input type="radio" name="radio" id="radio_mvola" value="mvola">
                         <span><img src="{{url('/img/mvola.jpg')}}" style="width: 100px; height: 50px;"></span>
-                    </div>
+                    </div>--}}
                     <div class="radio">
-                        <input type="radio" name="radio" id="radio_paypal" value="paypal">
-                        <span><img src="{{url('/img/paypal.png')}}" style="width: 100px; height: 50px;"></span>
-
+                        @foreach($payement_mode as $pay)
+                            {{--<input type="radio" name="radio" id="radio_paypal" value="paypal">
+                            <span><img src="{{url('/img/paypal.png')}}" style="width: 100px; height: 50px;"></span>--}}
+                            <input type="radio" name="radio" id="radio_paypal" value="{{$pay->id}}"> {{$pay->value}}
+                            <br/>
+                        @endforeach
                     </div>
                     <br/>
                     <center>

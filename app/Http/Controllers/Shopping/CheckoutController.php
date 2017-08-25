@@ -7,12 +7,14 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Checkout;
 use \Cart as Cart;
+use App\Models\Payement_mode;
 
 class CheckoutController extends Controller
 {
     function index($montant)
     {
-        return view('shopping.checkout');
+        $payement_mode = Payement_mode::get();
+        return view('shopping.checkout', array('payement_mode' => $payement_mode));
     }
 
     function store(Request $request)
@@ -52,7 +54,7 @@ class CheckoutController extends Controller
             $product = Product::findOrFail($item->id);
             //$product = User::findOrFail(1);
             //dd($product->users());
-            $product->users()->attach(1, ['number' => $item->qty]);
+            $product->users()->sync(array(1 => array('number' => $item->qty)));
         }
         Cart::destroy();
         // checkout users
