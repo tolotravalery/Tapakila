@@ -112,5 +112,9 @@ class User extends Authenticatable
     {
         return $this->profiles()->detach($profile);
     }
+    public function roles()
+    {
+        return $this->belongsToMany('jeremykenedy\LaravelRoles\Models\Role');
+    }
 
 }

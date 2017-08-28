@@ -14,13 +14,16 @@
 */
 
 // Homepage Route
+
+
+Route::get('event', 'EventController@showEventForm')->name('event');
 Route::get('/', 'WelcomeController@welcome')->name('welcome');
 
 // Authentication Routes
 Auth::routes();
 
 // Public Routes
-Route::group(['middleware' => 'web'], function() {
+Route::group(['middleware' => 'web'], function () {
 
     // Activation Routes
     Route::get('/activate', ['as' => 'activate', 'uses' => 'Auth\ActivateController@initial']);
@@ -39,31 +42,31 @@ Route::group(['middleware' => 'web'], function() {
 });
 
 // Registered and Activated User Routes
-Route::group(['middleware' => ['auth', 'activated']], function() {
+Route::group(['middleware' => ['auth', 'activated']], function () {
 
     // Activation Routes
     Route::get('/activation-required', ['uses' => 'Auth\ActivateController@activationRequired'])->name('activation-required');
     Route::get('/logout', ['uses' => 'Auth\LoginController@logout'])->name('logout');
 
     //  Homepage Route - Redirect based on user role is in controller.
-    Route::get('/home', ['as' => 'public.home',   'uses' => 'UserController@index']);
+    Route::get('/home', ['as' => 'public.home', 'uses' => 'UserController@index']);
 
     // Show users profile - viewable by other users.
     Route::get('profile/{username}', [
-        'as'        => '{username}',
-        'uses'      => 'ProfilesController@show'
+        'as' => '{username}',
+        'uses' => 'ProfilesController@show'
     ]);
 
 });
 
 // Registered, activated, and is current user routes.
-Route::group(['middleware'=> ['auth', 'activated', 'currentUser']], function () {
+Route::group(['middleware' => ['auth', 'activated', 'currentUser']], function () {
 
     // User Profile and Account Routes
     Route::resource(
         'profile',
         'ProfilesController', [
-            'only'  => [
+            'only' => [
                 'show',
                 'edit',
                 'update',
@@ -72,21 +75,21 @@ Route::group(['middleware'=> ['auth', 'activated', 'currentUser']], function () 
         ]
     );
     Route::put('profile/{username}/updateUserAccount', [
-        'as'        => '{username}',
-        'uses'      => 'ProfilesController@updateUserAccount'
+        'as' => '{username}',
+        'uses' => 'ProfilesController@updateUserAccount'
     ]);
     Route::put('profile/{username}/updateUserPassword', [
-        'as'        => '{username}',
-        'uses'      => 'ProfilesController@updateUserPassword'
+        'as' => '{username}',
+        'uses' => 'ProfilesController@updateUserPassword'
     ]);
     Route::delete('profile/{username}/deleteUserAccount', [
-        'as'        => '{username}',
-        'uses'      => 'ProfilesController@deleteUserAccount'
+        'as' => '{username}',
+        'uses' => 'ProfilesController@deleteUserAccount'
     ]);
 
     // Route to show user avatar
     Route::get('images/profile/{id}/avatar/{image}', [
-        'uses'      => 'ProfilesController@userProfileAvatar'
+        'uses' => 'ProfilesController@userProfileAvatar'
     ]);
 
     // Route to upload user avatar.
@@ -95,7 +98,7 @@ Route::group(['middleware'=> ['auth', 'activated', 'currentUser']], function () 
 });
 
 // Registered, activated, and is admin routes.
-Route::group(['middleware'=> ['auth', 'activated', 'role:admin']], function () {
+Route::group(['middleware' => ['auth', 'activated', 'role:admin'], 'prefix' => 'admin'], function () {
 
     Route::resource('/users/deleted', 'SoftDeletesController', [
         'only' => [
@@ -120,8 +123,45 @@ Route::group(['middleware'=> ['auth', 'activated', 'role:admin']], function () {
         ]
     ]);
 
+    Route::get('home', 'UserController@index')->name('/admin/home');
+
+    /*-------------------*/
+    Route::get('menu', 'MenuController@showMenuForm')->name('menu');
+    Route::get('/menus', 'MenuController@index')->name('menus');
+    $this->post('menu', 'MenuController@store');
+
+    Route::get('sousmenu', 'SousmenuController@showSousmenuForm')->name('sousmenu');
+    Route::get('/sousmenus', 'SousmenuController@index')->name('sousmenus');
+    Route::post('sousmenu', 'SousmenuController@store');
+
+    Route::get('event', 'EventController@showEventForm')->name('event');
+
+    Route::resource('menus', 'MenuController', [
+        'names' => [
+            'index' => 'menus',
+            'destroy' => 'menu.destroy'
+        ],
+        'except' => [
+            'deleted'
+        ]
+    ]);
+
+    Route::resource('sousmenus', 'SousmenuController', [
+        'names' => [
+            'index' => 'sousmenus',
+            'destroy' => 'sousmenu.destroy'
+        ],
+        'except' => [
+            'deleted'
+        ]
+    ]);
+    /*-------------------*/
+
+
     Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
     Route::get('php', 'AdminDetailsController@listPHPInfo');
     Route::get('routes', 'AdminDetailsController@listRoutes');
+
+
 
 });
