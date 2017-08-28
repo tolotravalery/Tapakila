@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePayementModeTable extends Migration
+class CreateMenusTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CreatePayementModeTable extends Migration
      */
     public function up()
     {
-        Schema::create('payement_mode', function (Blueprint $table) {
+        Schema::create('menus', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('value')->unique();
+            $table->string('name')->unique();
+            $table->timestamps();
         });
+
     }
 
     /**
@@ -26,6 +28,6 @@ class CreatePayementModeTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('payement_mode');
+        Schema::dropIfExists('menus');
     }
 }

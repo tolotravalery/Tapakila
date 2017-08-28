@@ -141,3 +141,8 @@ Route::group(['prefix' => 'shopping'], function () {
     Route::post('checkout/store', 'Shopping\CheckoutController@store');
     Route::post('checkout/save/{checkout}', 'Shopping\CheckoutController@save');
 });
+
+
+Route::group(['prefix' => 'events'], function () {
+    Route::get('show/{events_id}', 'DetailEventController@show');
+});
