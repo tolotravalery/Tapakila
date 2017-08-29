@@ -11,7 +11,7 @@ use App\Models\Payement_mode;
 
 class CheckoutController extends Controller
 {
-    function index($montant)
+    function index()
     {
         $payement_mode = Payement_mode::get();
         return view('shopping.checkout', array('payement_mode' => $payement_mode));

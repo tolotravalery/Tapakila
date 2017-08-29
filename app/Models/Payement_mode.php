@@ -8,4 +8,9 @@ class Payement_mode extends Model
 {
     //
     protected $table = 'payement_mode';
+
+    public function tickets()
+    {
+        return $this->belongsToMany('App\Models\Ticket');
+    }
 }

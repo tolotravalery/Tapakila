@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Tapakila</title>
     <link rel="stylesheet" href="{{ url('/') }}/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ url('/') }}/css/style.css">
@@ -12,6 +13,7 @@
     <link rel="stylesheet" href="{{ url('/') }}/css/font-awesome.css">
     <script type="text/javascript" src="{{ url('/') }}/js/jquery.min.js"></script>
     <script type="text/javascript" src="{{ url('/') }}/js/bootstrap.min.js"></script>
+
 </head>
 <body>
 <!-- header start -->
@@ -36,7 +38,9 @@
                     <button type="" class="btn btn-success event"><span class="ico"></span><span
                                 class="descr">AJOUTER<br/> VOTRE EVENEMENT</span></button>
                 </li>
-                <li><a href="#">Panier</a></li>
+                <li><a href="{{ url('/shopping/cart') }}">Panier @if (!Auth::guest())
+                            ({{ Cart::instance('default')->count(false) }}) @endif</a>
+                </li>
                 <li role="presentation" class="dropdown">
                     <a href="#" class="dropdown-toggle" id="drop6" data-toggle="dropdown" role="button"
                        aria-haspopup="true" aria-expanded="false"> Rechercher

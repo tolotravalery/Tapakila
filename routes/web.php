@@ -54,6 +54,12 @@ Route::group(['middleware' => ['auth', 'activated']], function () {
         'uses' => 'ProfilesController@show'
     ]);
 
+
+    Route::group(['prefix' => 'events'], function () {
+        Route::get('show/{events_id}', 'DetailEventController@show');
+    });
+
+
 });
 
 // Registered, activated, and is current user routes.
@@ -92,6 +98,22 @@ Route::group(['middleware' => ['auth', 'activated', 'currentUser']], function ()
     // Route to upload user avatar.
     Route::post('avatar/upload', ['as' => 'avatar.upload', 'uses' => 'ProfilesController@upload']);
 
+    Route::group(['prefix' => 'shopping'], function () {
+
+        Route::resource('shop', 'Shopping\ProductController', ['only' => ['index', 'show']]);
+
+        Route::resource('cart', 'Shopping\CartController');
+        Route::delete('emptyCart', 'Shopping\CartController@emptyCart');
+        Route::post('switchToWishlist/{id}', 'Shopping\CartController@switchToWishlist');
+
+        Route::resource('wishlist', 'Shopping\WishlistController');
+        Route::delete('emptyWishlist', 'Shopping\WishlistController@emptyWishlist');
+        Route::post('switchToCart/{id}', 'Shopping\WishlistController@switchToCart');
+        Route::get('checkout', 'Shopping\CheckoutController@index');
+        Route::post('checkout/store', 'Shopping\CheckoutController@store');
+        Route::post('checkout/save/{checkout}', 'Shopping\CheckoutController@save');
+    });
+
 });
 
 // Registered, activated, and is admin routes.
@@ -126,23 +148,4 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin']], function () 
 
 });
 
-Route::group(['prefix' => 'shopping'], function () {
 
-    Route::resource('shop', 'Shopping\ProductController', ['only' => ['index', 'show']]);
-
-    Route::resource('cart', 'Shopping\CartController');
-    Route::delete('emptyCart', 'Shopping\CartController@emptyCart');
-    Route::post('switchToWishlist/{id}', 'Shopping\CartController@switchToWishlist');
-
-    Route::resource('wishlist', 'Shopping\WishlistController');
-    Route::delete('emptyWishlist', 'Shopping\WishlistController@emptyWishlist');
-    Route::post('switchToCart/{id}', 'Shopping\WishlistController@switchToCart');
-    Route::get('checkout/{montant}', 'Shopping\CheckoutController@index');
-    Route::post('checkout/store', 'Shopping\CheckoutController@store');
-    Route::post('checkout/save/{checkout}', 'Shopping\CheckoutController@save');
-});
-
-
-Route::group(['prefix' => 'events'], function () {
-    Route::get('show/{events_id}', 'DetailEventController@show');
-});

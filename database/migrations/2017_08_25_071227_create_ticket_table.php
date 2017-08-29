@@ -36,7 +36,7 @@ class CreateTicketTable extends Migration
             $table->foreign('payement_mode_id')->references('id')->on('payement_mode')->onDelete('cascade');
         });
 
-        Schema::create('ticket_payement_mode', function (Blueprint $table) {
+        Schema::create('payement_mode_ticket', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('ticket_id')->unsigned()->index();
             $table->integer('payement_mode_id')->unsigned()->index();

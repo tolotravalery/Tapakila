@@ -1,148 +1,337 @@
-@extends('shopping.master')
+@extends('template')
 
 @section('content')
-    <div class="container">
-        <ul class="list-inline">
-            <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
-            <li><a data-toggle="tab" href="#menu1">Adresse</a></li>
-            <li><a data-toggle="tab" href="#menu2">Delivery</a></li>
-            <li><a data-toggle="tab" href="#menu3">Payement</a></li>
-            <li><a data-toggle="tab" href="#menu4">Summary</a></li>
-        </ul>
-        <form action="{{url('/shopping/checkout/store')}}" method="POST">
-            {!! csrf_field() !!}
-            <div class="tab-content">
-                <div id="home" class="tab-pane fade in active">
-                    <h3>HOME</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                        labore
-                        et dolore magna aliqua.</p>
-                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat.</p>
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
-                        totam rem aperiam.</p>
-                    <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
-                        explicabo.</p>
+    <section style="background:#efefe9;">
+        <div class="container">
+            <div class="row">
+                <div class="board">
+                    <div class="board-inner">
+                        <ul class="nav nav-tabs" id="myTab">
+                            <li class="active">
+                                <a href="#home" data-toggle="tab" title="Acceuil">
+								<span class="round-tabs one">
+								<i class="glyphicon glyphicon-home"></i>
+								</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#profile" data-toggle="tab" title="Adresse de Facturation">
+								<span class="round-tabs two">
+								<i class="glyphicon glyphicon-map-marker "></i>
+								</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#messages" data-toggle="tab" title="Adresse de Livraison">
+								<span class="round-tabs three">
+								<i class="glyphicon glyphicon-send"></i>
+								</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#settings" data-toggle="tab" title="Paiment">
+								<span class="round-tabs four">
+								<i class="glyphicon glyphicon-link"></i>
+								</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#doner" data-toggle="tab" title="Résumer">
+								<span class="round-tabs five">
+								<i class="glyphicon glyphicon-ok"></i>
+								</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
 
-                    <br/>
-                    <center>
-                        <button class="btn btn-primary"><< Previous</button>
-                        <button class="btn btn-primary" onclick="goToAdresse()" type="button">Next >></button>
-                    </center>
-                    <br/>
-                </div>
+                    <div class="tab-content">
 
-                <div id="menu1" class="tab-pane fade">
-                    <h3>Adresse de Facturation</h3>
+                        <div class="tab-pane fade in active" id="home">
+                            <div class="bgwhite">
+                                <h1 class="head text-center titre">Accueil</h1>
+                                <p class="narrow text-center">
+                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget
+                                    dolor.
+                                    Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
+                                    ridiculus mus.
+                                    Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat
+                                    massa quis enim.
+                                    Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo,
+                                    rhoncus ut, imperdiet a, venenatis vitae, justo.
+                                    Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus
+                                    elementum semper nisi.
+                                    Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae,
+                                    eleifend ac, enim.
+                                    Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra
+                                    nulla
+                                    ut metus varius laoreet.
 
-                    <div class="form-group">
-                        <label for="email">Nom et prénom:</label>
-                        <input type="text" class="form-control" name="fact_name" id="fact_name">
-                    </div>
-                    <div class="form-group">
-                        <label for="pwd">Adresse</label>
-                        <input type="text" class="form-control" name="fact_adress" id="fact_adress">
-                    </div>
-                    <div class="form-group">
-                        <label for="pwd">Ville</label>
-                        <input type="text" class="form-control" id="fact_city" name="fact_city">
-                    </div>
-                    <div class="form-group">
-                        <label for="pwd">Téléphone</label>
-                        <input type="tel" class="form-control" id="fact_phone" name="fact_phone">
-                    </div>
-                    <div class="form-group">
-                        <label for="pwd">E-mail</label>
-                        <input type="email" class="form-control" id="fact_mail" name="fact_mail">
-                    </div>
-                    <br/>
-                    <center>
-                        <button class="btn btn-primary"><< Previous</button>
-                        <button class="btn btn-primary" onclick="goToDelivery()" type="button">Next >></button>
-                    </center>
-                    <br/>
-
-                    <br/>
-                </div>
-                <div id="menu2" class="tab-pane fade">
-                    <h3>Adresse de livraison</h3>
-                    <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <div class="checkbox">
-                                <label><input type="checkbox" id="checkbox"> Comme adresse de Facturation</label>
-                            </div>
-                        </div>
-                        <br/>
-                        <div id="form">
-                            <div class="form-group">
-                                <label for="email">Nom et prénom:</label>
-                                <input type="text" class="form-control" id="livr_name" name="livr_name">
-                            </div>
-                            <div class="form-group">
-                                <label for="pwd">Adresse</label>
-                                <input type="text" class="form-control" id="livr_adress" name="livr_adress">
-                            </div>
-                            <div class="form-group">
-                                <label for="pwd">Ville</label>
-                                <input type="text" class="form-control" id="livr_city" name="livr_city">
-                            </div>
-                            <div class="form-group">
-                                <label for="pwd">Téléphone</label>
-                                <input type="tel" class="form-control" id="livr_phone" name="livr_phone">
-                            </div>
-                            <div class="form-group">
-                                <label for="pwd">E-mail</label>
-                                <input type="email" class="form-control" id="livr_mail" name="livr_mail">
+                                </p>
+                                <p class="text-center">
+                                    <a href="#home" data-toggle="tab" title="Acceuil"
+                                       class="btn btn-success btn-outline-rounded green"><span style="margin-left:10px;"
+                                                                                               class="glyphicon glyphicon-circle-arrow-left"></span>
+                                        Précédent </a>
+                                    <a href="#profile" data-toggle="tab"
+                                       class="btn btn-success btn-outline-rounded green">Suivant<span
+                                                style="margin-left:10px;"
+                                                class="glyphicon glyphicon-circle-arrow-right"></span></a>
+                                </p>
                             </div>
                         </div>
 
-                        <br/>
-                        <center>
-                            <button class="btn btn-primary"><< Previous</button>
-                            <button class="btn btn-primary" onclick="goToPayement()" type="button">Next >></button>
-                        </center>
+                        <div class="tab-pane fade" id="profile">
+                            <div class="bgwhite">
+                                <h1 class="head text-center titre">Adresse de Facturation</h1>
+                                <div class="container">
+                                    <div class="resume">
+                                        <form>
+                                            <div class="form-group">
+                                                <label for="name">Nom et prénom:</label>
+                                                <input type="name" class="form-control" id="nom">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="pwd">Adresse:</label>
+                                                <input type="adresse" class="form-control" id="adresse">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="pwd">Ville:</label>
+                                                <input type="town" class="form-control" id="ville">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="pwd">Télephone:</label>
+                                                <input type="phone" class="form-control" id="phone">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="pwd">Adresse E-mail:</label>
+                                                <input type="mail" class="form-control" id="email">
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <p class="text-center">
+                                    <a href="#home" data-toggle="tab"
+                                       class="btn btn-success btn-outline-rounded green "><span
+                                                style="margin-left:10px;"
+                                                class="glyphicon glyphicon-circle-arrow-left"></span>
+                                        Précédent </a>
+                                    <a href="#messages" data-toggle="tab" title="Adresse de Livraison"
+                                       class="btn btn-success btn-outline-rounded green">Suivant<span
+                                                style="margin-left:10px;"
+                                                class="glyphicon glyphicon-circle-arrow-right"></span></a>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="messages">
+                            <div class="bgwhite">
+                                <h1 class="head text-center">Adresse de livraison</h1>
+                                <div class="container">
+                                    <div class="resume">
+                                        <form>
+                                            <div class="form-group">
+                                                <label for="mail">Adresse e-mail</label>
+                                                <input type="mail" class="form-control" id="e-mail">
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <p class="text-center">
+                                    <a href="#profile" data-toggle="tab" data-toggle="tab"
+                                       class="btn btn-success btn-outline-rounded green"><span style="margin-left:10px;"
+                                                                                               class="glyphicon glyphicon-circle-arrow-left"></span>
+                                        Précédent </a>
+                                    <a href="#settings" data-toggle="tab" title="Paiment"
+                                       class="btn btn-success btn-outline-rounded green">Suivant<span
+                                                style="margin-left:10px;"
+                                                class="glyphicon glyphicon-circle-arrow-right"></span></a>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="settings">
+                            <div class="bgwhite">
+                                <h1 class="head text-center titre">Paiement</h1>
+                                <p class="narrow text-center">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="paymentCont">
+                                            <div class="headingWrap">
+                                                <h3 class="headingTop text-center">Sélectionnez votre méthode de
+                                                    paiement
+                                                    :</h3>
+                                            </div>
+                                            <div class="paymentWrap">
+                                                <div class="btn-group paymentBtnGroup btn-group-justified"
+                                                     data-toggle="buttons">
+                                                    <label class="btn paymentMethod active">
+                                                        <div class="method visa"></div>
+                                                        <input type="radio" name="options" checked>
+                                                    </label>
+                                                    <label class="btn paymentMethod">
+                                                        <div class="method master-card"></div>
+                                                        <input type="radio" name="options">
+                                                    </label>
+                                                    <label class="btn paymentMethod">
+                                                        <div class="method amex"></div>
+                                                        <input type="radio" name="options">
+                                                    </label>
+                                                    <label class="btn paymentMethod">
+                                                        <div class="method vishwa"></div>
+                                                        <input type="radio" name="options">
+                                                    </label>
+                                                    <label class="btn paymentMethod">
+                                                        <div class="method ez-cash"></div>
+                                                        <input type="radio" name="options">
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </p>
+                                <p class="text-center">
+                                    <a href="#messages" data-toggle="tab"
+                                       class="btn btn-success btn-outline-rounded green"><span
+                                                style="margin-left:10px;"
+                                                class="glyphicon glyphicon-circle-arrow-left"></span>
+                                        Précédent </a>
+                                    <a href="#doner" data-toggle="tab"
+                                       class="btn btn-success btn-outline-rounded green">Suivant<span
+                                                style="margin-left:10px;"
+                                                class="glyphicon glyphicon-circle-arrow-right"></span></a>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="doner">
+                            <div class="bgwhite">
+                                <div class="text-center">
+                                    <i class="img-intro icon-checkmark-circle"></i>
+                                </div>
+                                <h1 class="head text-center titre">Résumer</h1>
+                                <div class="container">
+                                    <div class="resume-paiment">
+                                        <section id="product">
+                                            <div class="row">
+                                                <div class="panel panel-primary filterable">
+                                                    <div class="panel-heading">
+                                                        <h3 class="panel-title">Produit</h3>
+                                                    </div>
+                                                    <div class="table-responsive">
+                                                        <table class="table">
+                                                            <tbody>
+                                                            <tr>
+                                                                <td>Produit</td>
+                                                                <td>Quantité</td>
+                                                                <td>Prix</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Mahaleo</td>
+                                                                <td>3</td>
+                                                                <td>12.000 Ar</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Samoela</td>
+                                                                <td>2</td>
+                                                                <td>15.000 AR</td>
+                                                            </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </section>
+
+                                        <section id="Adresse-facturation">
+                                            <div class="row">
+                                                <div class="panel panel-primary filterable">
+                                                    <div class="panel-heading">
+                                                        <h3 class="panel-title">Adresse de Facturation</h3>
+                                                    </div>
+                                                    <div class="table-responsive">
+                                                        <table class="table">
+                                                            <tbody>
+                                                            <tr>
+                                                                <td>Mr Rakotoniaina</td>
+                                                            </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </section>
+
+                                        <section id="adresse-livrason">
+                                            <div class="row">
+                                                <div class="panel panel-primary filterable">
+                                                    <div class="panel-heading">
+                                                        <h3 class="panel-title">Adresse de Livraison</h3>
+                                                    </div>
+                                                    <div class="table-responsive">
+                                                        <table class="table">
+                                                            <tbody>
+                                                            <tr>
+                                                                <td>Mr Rakotoniaina</td>
+                                                            </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </section>
+
+                                        <section id="mode-paiement">
+                                            <div class="row">
+                                                <div class="panel panel-primary filterable">
+                                                    <div class="panel-heading">
+                                                        <h3 class="panel-title">Produit</h3>
+                                                    </div>
+                                                    <div class="table-responsive">
+                                                        <table class="table">
+                                                            <tbody>
+                                                            <tr>
+                                                                <td><img class="mode" src="img/mvola.png"></td>
+                                                            </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <p class="text-center">
+                                                <a href="#settings" data-toggle="tab"
+                                                   class="btn btn-success btn-outline-rounded green"><span
+                                                            style="margin-left:10px;"
+                                                            class="glyphicon glyphicon-circle-arrow-left"></span>
+                                                    Précédent </a>
+                                                <a href="#"
+                                                   class="btn btn-success btn-outline-rounded green">Continuer<span
+                                                            style="margin-left:10px;"
+                                                            class="glyphicon glyphicon-circle-arrow-right"></span></a>
+                                            </p>
+                                        </section>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
                     </div>
-                </div>
-                <div id="menu3" class="tab-pane fade">
-                    <h3>Payement</h3>
-                    {{--<p>On a deux modes de Payement : </p>
-                    <div class="radio">
-                        <input type="radio" name="radio" id="radio_mvola" value="mvola">
-                        <span><img src="{{url('/img/mvola.jpg')}}" style="width: 100px; height: 50px;"></span>
-                    </div>--}}
-                    <div class="radio">
-                        @foreach($payement_mode as $pay)
-                            {{--<input type="radio" name="radio" id="radio_paypal" value="paypal">
-                            <span><img src="{{url('/img/paypal.png')}}" style="width: 100px; height: 50px;"></span>--}}
-                            <input type="radio" name="radio" id="radio_paypal" value="{{$pay->id}}"> {{$pay->value}}
-                            <br/>
-                        @endforeach
-                    </div>
-                    <br/>
-                    <center>
-                        <button class="btn btn-primary"><< Previous</button>
-                        <button class="btn btn-primary" type="submit">Next >></button>
-                    </center>
-                    <br/>
                 </div>
             </div>
-        </form>
-        <script type="text/javascript">
-            function goToAdresse() {
-                $('.list-inline a[href="#menu1"]').tab('show');
-            }
-            function goToDelivery() {
-                $('.list-inline a[href="#menu2"]').tab('show');
-            }
-            function goToPayement() {
-                $('.list-inline a[href="#menu3"]').tab('show');
-            }
-
-        </script>
-    </div>
+        </div>
+    </section>
 @endsection
-@section('extra-js')
+@section('specificScript')
     <script type="text/javascript">
+
+        $('.dropdown-menu ul li a').click(function (event) {
+            event.stopPropagation();
+            $(this).parent().toggleClass('active').siblings().removeClass('active');
+            var target = $(this).attr('href');
+            $('ul li .tab-content ' + target).toggleClass(active in);
+        });
+
         $('#checkbox').change(function () {
             this.checked ? checkboxIsChecked() : checkboxIsNotChecked;
         });
@@ -157,5 +346,9 @@
         function checkboxIsNotChecked() {
             $('#form').removeClass("hidden");
         }
+
+        $(function () {
+            $('a[title]').tooltip();
+        });
     </script>
 @endsection
