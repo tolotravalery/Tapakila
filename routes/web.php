@@ -13,7 +13,10 @@
 |
 */
 
-// Homepage Route
+Route::get('admin', 'Auth\LoginController@showLoginAdminForm')->name('admin');
+Route::post('admin', 'Auth\LoginController@login');
+// Homepage Route;
+Route::get('event', 'EventController@showEventForm')->name('event');
 Route::get('/', 'WelcomeController@welcome')->name('welcome');
 
 // Authentication Routes
@@ -117,7 +120,7 @@ Route::group(['middleware' => ['auth', 'activated', 'currentUser']], function ()
 });
 
 // Registered, activated, and is admin routes.
-Route::group(['middleware' => ['auth', 'activated', 'role:admin']], function () {
+Route::group(['middleware' => ['auth', 'activated', 'role:admin'], 'prefix' => 'admin'], function () {
 
     Route::resource('/users/deleted', 'SoftDeletesController', [
         'only' => [
@@ -142,9 +145,46 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin']], function () 
         ]
     ]);
 
+    Route::get('home', 'UserController@index')->name('/admin/home');
+
+    /*-------------------*/
+    Route::get('menu', 'MenuController@showMenuForm')->name('menu');
+    Route::get('/menus', 'MenuController@index')->name('menus');
+    $this->post('menu', 'MenuController@store');
+
+    Route::get('sousmenu', 'SousmenuController@showSousmenuForm')->name('sousmenu');
+    Route::get('/sousmenus', 'SousmenuController@index')->name('sousmenus');
+    Route::post('sousmenu', 'SousmenuController@store');
+
+    Route::get('event', 'EventController@showEventForm')->name('event');
+
+    Route::resource('menus', 'MenuController', [
+        'names' => [
+            'index' => 'menus',
+            'destroy' => 'menu.destroy'
+        ],
+        'except' => [
+            'deleted'
+        ]
+    ]);
+
+    Route::resource('sousmenus', 'SousmenuController', [
+        'names' => [
+            'index' => 'sousmenus',
+            'destroy' => 'sousmenu.destroy'
+        ],
+        'except' => [
+            'deleted'
+        ]
+    ]);
+    /*-------------------*/
+
+
     Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
     Route::get('php', 'AdminDetailsController@listPHPInfo');
     Route::get('routes', 'AdminDetailsController@listRoutes');
+
+
 
 });
 

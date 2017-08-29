@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Menus;
+use App\Models\Sousmenu;
 
 class WelcomeController extends Controller
 {
@@ -14,7 +16,10 @@ class WelcomeController extends Controller
      */
     public function welcome()
     {
-        return view('welcome');
+        $menus = Menus::orderBy('id','desc')->take(8)->get();
+        $sousmenus= Sousmenu::orderBy('id','desc')->take(20)->get();
+
+        return View('/welcome', compact('menus','sousmenus'));
     }
 
 }

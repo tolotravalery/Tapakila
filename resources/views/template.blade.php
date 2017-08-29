@@ -11,8 +11,12 @@
     <link rel="stylesheet" href="{{ url('/') }}/css/mediaqueries.css">
     <link rel="stylesheet" href="{{ url('/') }}/css/animate.css">
     <link rel="stylesheet" href="{{ url('/') }}/css/font-awesome.css">
+    <link href="{{ url('/') }}/css/datepicker.css" rel="stylesheet">
+    <link href="{{ url('/') }}/css/clockpiker.css" rel="stylesheet">
     <script type="text/javascript" src="{{ url('/') }}/js/jquery.min.js"></script>
     <script type="text/javascript" src="{{ url('/') }}/js/bootstrap.min.js"></script>
+    <script src="{{ url('/') }}/js/datepicker.js"></script>
+    <script src="{{ url('/') }}/js/clockpicker.js"></script>
 
 </head>
 <body>
@@ -54,8 +58,33 @@
                         </li>
                     </ul>
                 </li>
-                @if (Auth::guest())
-                    <li><a href="{{ route('login') }}">{!! trans('titles.login') !!}</a></li>
+            @if (Auth::guest())
+                <!--<li><a href="{{ route('login') }}">{!! trans('titles.login') !!}</a></li>-->
+                    <li>
+                        <a href="#" class="dropdown-toggle" id="drop6" data-toggle="dropdown" role="button"
+                           aria-haspopup="true" aria-expanded="false"> Connexion <span class="caret"></span></a>
+                        <ul class="dropdown-menu search" id="menu3" aria-labelledby="drop6">
+
+
+                            @if (Route::has('login'))
+
+                                @if (Auth::check())
+                                    <li><a href="{{ url('/home') }}">Home</a></li>
+                                @else
+                                    <li><a href="{{ url('/login') }}">Login</a></li>
+                                    <li><a href="{{ url('/register') }}">Register</a></li>
+                                    <li><a href="{{ url('/admin') }}">Admin</a></li>
+                                    <li><a href="{{url('/shopping/shop')}}">Shopping</a></li>
+                                @endif
+
+
+                            @endif
+
+
+                        </ul>
+
+                    </li>
+
                 @else
                     <li role="presentation" class="dropdown">
                         <a href="#" class="dropdown-toggle" id="drop6" data-toggle="dropdown" role="button"
@@ -71,13 +100,16 @@
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu search" id="menu3" aria-labelledby="drop6">
+
+                            @role('admin')
+                            <li><a href="{{ url('/admin/users') }}"> Admin</a></li>
+                            @endrole
                             <li {{ Request::is('profile/'.Auth::user()->name, 'profile/'.Auth::user()->name . '/edit') ?  : null }}>
                             {!! HTML::link(url('/profile/'.Auth::user()->name.'/edit'), trans('titles.profile')) !!}
                             <!--{!! HTML::icon_link(URL::to('/profile/'.Auth::user()->name.'/edit'), 'fa fa-fw fa-cog', trans('titles.editProfile'), array('class' => 'btn btn-small btn-info btn-block')) !!}
                             {{ trans('profile.editAccountTitle') }}-->
                             </li>
-                            <li><a href="{{url('/')}}/category">Categories</a></li>
-                            <li><a href="{{url('/')}}/event">Events</a></li>
+
                             <li>
                                 <a href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
@@ -137,7 +169,7 @@
                 </div>
                 <div class="col-sm-2 col-xs-6 ">
                     <a class="fb-link-icon" href="https://www.facebook.com/tapakila/" target="_blank"><i
-                                class="fa fa-facebook-square" aria-hidden="true"></i></a>
+                                class="fa fa-facebook-square facebookico" aria-hidden="true"></i></a>
                     <div id="fb-root"></div>
                     <div class="fb-like" data-href="https://www.facebook.com/tapakila/" data-layout="button"
                          data-action="like" data-size="small" data-show-faces="false" data-colorscheme="dark"

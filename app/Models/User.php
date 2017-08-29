@@ -116,5 +116,8 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Models\Product')->withPivot('number');;
     }
-
+    public function roles()
+    {
+        return $this->belongsToMany('jeremykenedy\LaravelRoles\Models\Role');
+    }
 }

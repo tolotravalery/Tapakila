@@ -79,10 +79,7 @@
 }
 /*---------------------site_web_end-------------------------*/
 /*-----------------details------------------------*/
-.detail_picture {
-    max-height: 312px;
-    max-width: 308px;
-}
+
 .plan{
 	width: 312px;
 	
@@ -104,10 +101,7 @@
     margin: 35px 0px 35px 137px;
     background-color: #d70506;
 }
-.detail_picture {
-    height: 268px;
-    width: 360px;
-}
+
 .hier1 {
     margin-left: -14px;
     margin-right: -14px;
@@ -262,10 +256,7 @@
     background-color: white;
     margin-left: -2px;
 }
-.detail_picture {
-    height: 221px;
-    width: 292px;
-}
+
 .plan{
 	width : 250px;
 }

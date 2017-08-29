@@ -30,7 +30,7 @@ class LoginController extends Controller
      * @var string
      */
 
-    protected $redirectAfterLogout = '/login';
+    protected $redirectAfterLogout = '/';
 
     /**
      * Create a new controller instance.
@@ -55,6 +55,11 @@ class LoginController extends Controller
         Auth::logout();
         Session::flush();
         return redirect(property_exists($this, 'redirectAfterLogout') ? $this->redirectAfterLogout : '/');
+    }
+
+    public function showLoginAdminForm()
+    {
+        return view('auth.loginAdmin');
     }
 
 }
