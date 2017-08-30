@@ -1,7 +1,8 @@
-<nav  id="background" class="navbar navbar-default navbar-static-top">
+<nav id="background" class="navbar navbar-default navbar-static-top">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">{!! trans('titles.toggleNav') !!}</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -14,9 +15,10 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 @role('admin')
-                <li role="presentation" class="dropdown connexion" >
+                <li role="presentation" class="dropdown connexion">
 
-                    <a href="#" class="dropdown-toggle" id="drop6" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Admin
+                    <a href="#" class="dropdown-toggle" id="drop6" data-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false"> Admin
                         <span class="caret"></span>
                     </a>
 
@@ -35,10 +37,14 @@
 
             <ul class="nav navbar-nav navbar-right">
 
-                <li><button type="" class="btn btn-success event"><span class="ico"></span><span class="descr">AJOUTER<br/> VOTRE EVENEMENT</span></button></li>
+                <li>
+                    <button type="" class="btn btn-success event"><span class="ico"></span><span
+                                class="descr">AJOUTER<br/> VOTRE EVENEMENT</span></button>
+                </li>
                 <li><a href="#">Panier</a></li>
                 <li role="presentation" class="dropdown">
-                    <a href="#" class="dropdown-toggle" id="drop6" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Rechercher
+                    <a href="#" class="dropdown-toggle" id="drop6" data-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false"> Rechercher
                         <span class="caret"></span> </a>
                     <ul class="dropdown-menu search" id="menu3" aria-labelledby="drop6">
                         <li>
@@ -54,10 +60,12 @@
                     <li><a href="{{ route('register') }}">{!! trans('titles.register') !!}</a></li>
                 @else
                     <li role="presentation" class="dropdown">
-                        <a href="#" class="dropdown-toggle" id="drop6" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <a href="#" class="dropdown-toggle" id="drop6" data-toggle="dropdown" role="button"
+                           aria-haspopup="true" aria-expanded="false">
 
-                        @if ((Auth::User()->profile) && Auth::user()->profile->avatar_status == 1)
-                                <img src="{{ Auth::user()->profile->avatar }}" alt="{{ Auth::user()->name }}" class="user-avatar-nav">
+                            @if ((Auth::User()->profile) && Auth::user()->profile->avatar_status == 1)
+                                <img src="{{ Auth::user()->profile->avatar }}" alt="{{ Auth::user()->name }}"
+                                     class="user-avatar-nav">
                             @else
                                 <div class="user-avatar-nav"></div>
                             @endif
@@ -74,7 +82,8 @@
                             <!--{!! HTML::icon_link(URL::to('/profile/'.Auth::user()->name.'/edit'), 'fa fa-fw fa-cog', trans('titles.editProfile'), array('class' => 'btn btn-small btn-info btn-block')) !!}
                             {{ trans('profile.editAccountTitle') }}-->
                             </li>
-                            <li><a href="{{url('/')}}/category">Categories</a></li>
+                            <li><a href="{{url('/')}}/admin/menu">Menus</a></li>
+                            <li><a href="{{url('/')}}/admin/sousmenu">Sous menus</a></li>
                             <li><a href="{{url('/')}}/event">Events</a></li>
                             <li>
                                 <a href="{{ route('logout') }}"
@@ -83,7 +92,8 @@
                                     {!! trans('titles.logout') !!}
                                 </a>
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                      style="display: none;">
                                     {{ csrf_field() }}
                                 </form>
                             </li>
