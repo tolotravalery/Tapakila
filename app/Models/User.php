@@ -98,7 +98,6 @@ class User extends Authenticatable
         foreach ($this->profiles as $profile) {
             if ($profile->name == $name) return true;
         }
-
         return false;
     }
 
@@ -112,12 +111,18 @@ class User extends Authenticatable
         return $this->profiles()->detach($profile);
     }
 
-    public function products()
+    /*public function products()
     {
         return $this->belongsToMany('App\Models\Product')->withPivot('number');;
-    }
+    }*/
+
     public function roles()
     {
         return $this->belongsToMany('jeremykenedy\LaravelRoles\Models\Role');
+    }
+
+    public function tickets()
+    {
+        return $this->belongsToMany('App\Models\Ticket')->withPivot('number')->withPivot('date_achat');
     }
 }

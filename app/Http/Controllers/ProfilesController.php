@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Profile;
 use App\Models\Theme;
+use App\Models\Ticket;
 use App\Models\User;
 use App\Notifications\SendGoodbyeEmail;
 use App\Traits\CaptureIpTrait;
@@ -127,6 +128,7 @@ class ProfilesController extends Controller
             'currentTheme' => $currentTheme
 
         ];
+        //dd($user);
 
         return view('profiles.edit')->with($data);
 
