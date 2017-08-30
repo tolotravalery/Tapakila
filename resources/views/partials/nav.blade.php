@@ -23,12 +23,12 @@
                     </a>
 
                     <ul class="dropdown-menu search" id="menu3" aria-labelledby="drop6">
-                        <li {{ Request::is('users', 'users/' . Auth::user()->id, 'users/' . Auth::user()->id . '/edit') ? 'class=active' : null }}>{!! HTML::link(url('/users'), Lang::get('titles.adminUserList')) !!}</li>
-                        <li {{ Request::is('users/create') ? 'class=active' : null }}>{!! HTML::link(url('/users/create'), Lang::get('titles.adminNewUser')) !!}</li>
-                        <li {{ Request::is('themes','themes/create') ? 'class=active' : null }}>{!! HTML::link(url('/themes'), Lang::get('titles.adminThemesList')) !!}</li>
-                        <li {{ Request::is('logs') ? 'class=active' : null }}>{!! HTML::link(url('/logs'), Lang::get('titles.adminLogs')) !!}</li>
-                        <li {{ Request::is('php') ? 'class=active' : null }}>{!! HTML::link(url('/php'), Lang::get('titles.adminPHP')) !!}</li>
-                        <li {{ Request::is('routes') ? 'class=active' : null }}>{!! HTML::link(url('/routes'), Lang::get('titles.adminRoutes')) !!}</li>
+                        <li {{ Request::is('users', 'users/' . Auth::user()->id, 'users/' . Auth::user()->id . '/edit') ? 'class=active' : null }}>{!! HTML::link(url('/admin/users'), Lang::get('titles.adminUserList')) !!}</li>
+                        <li {{ Request::is('users/create') ? 'class=active' : null }}>{!! HTML::link(url('/admin/users/create'), Lang::get('titles.adminNewUser')) !!}</li>
+                        <li {{ Request::is('themes','themes/create') ? 'class=active' : null }}>{!! HTML::link(url('/admin/themes'), Lang::get('titles.adminThemesList')) !!}</li>
+                        <li {{ Request::is('logs') ? 'class=active' : null }}>{!! HTML::link(url('/admin/logs'), Lang::get('titles.adminLogs')) !!}</li>
+                        <li {{ Request::is('php') ? 'class=active' : null }}>{!! HTML::link(url('/admin/php'), Lang::get('titles.adminPHP')) !!}</li>
+                        <li {{ Request::is('routes') ? 'class=active' : null }}>{!! HTML::link(url('/admin/routes'), Lang::get('titles.adminRoutes')) !!}</li>
                     </ul>
 
                 </li>
@@ -72,18 +72,18 @@
 
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
+
                         <ul class="dropdown-menu search" id="menu3" aria-labelledby="drop6">
-                            <li {{ Request::is('profile/'.Auth::user()->name, 'profile/'.Auth::user()->name . '/edit') ? 'class=active' : null }}>
-                                {!! HTML::link(url('/profile/'.Auth::user()->name), trans('titles.profile')) !!}
-                            </li>
                             <li {{ Request::is('profile/'.Auth::user()->name, 'profile/'.Auth::user()->name . '/edit') ?  : null }}>
                             <!--  {!! HTML::link(url('/profile/'.Auth::user()->name), trans('titles.profile')) !!} -->
                             {!! HTML::link(url('/profile/'.Auth::user()->name.'/edit'), trans('profile.editAccountTitle')) !!}
                             <!--{!! HTML::icon_link(URL::to('/profile/'.Auth::user()->name.'/edit'), 'fa fa-fw fa-cog', trans('titles.editProfile'), array('class' => 'btn btn-small btn-info btn-block')) !!}
                             {{ trans('profile.editAccountTitle') }}-->
                             </li>
+                            @role('admin')
                             <li><a href="{{url('/')}}/admin/menu">Menus</a></li>
                             <li><a href="{{url('/')}}/admin/sousmenu">Sous menus</a></li>
+                            @endrole
                             <li><a href="{{url('/')}}/event">Events</a></li>
                             <li>
                                 <a href="{{ route('logout') }}"

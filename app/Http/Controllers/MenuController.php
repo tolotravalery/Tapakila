@@ -8,7 +8,7 @@ use Response;
 use Illuminate\Http\Request;
 use Illuminate\Auth\Events\Registered;
 use App\Models\Menus;
-use App\Models\Sousmenu;
+use App\Models\Sous_menus;
 
 class MenuController extends Controller
 {
@@ -118,14 +118,19 @@ class MenuController extends Controller
         return back()->with('error', trans('usersmanagement.deleteSelfError'));
         */
 
-        $sousmenus = Sousmenu::all()->where('menu_id',$id);
-        $count=Sousmenu::count();
+        $sousmenus = Sous_menus::all()->where('menus_id',$id);
+        $count=$sousmenus->count();
+        //dd($sousmenus);break;
         $i=0;
-        for ($i=0;$i<$count;$i++){
-            //echo $sousmenus[$i]->name;
-            $sousmenus[$i]->delete();
+        if($count==0){}
+        else{
+            for ($i=0;$i<$count;$i++){
+                //echo $sousmenus[$i]->name;
+                $sousmenus[$i]->delete();
+            }
         }
         $menu= Menus::find($id);
+       // dd($menu);break;
         $menu->delete();
         //dd($sousmenus);
         //return back()->with('error', trans('usersmanagement.deleteSelfError'));

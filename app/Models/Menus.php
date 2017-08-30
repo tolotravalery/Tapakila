@@ -16,7 +16,8 @@ class Menus extends Model
         'name'
     ];
 
-    public function sousmenus(){
+    public function sousmenus()
+    {
         return $this->hasMany('App\Models\Sousmenu');
     }
 }
