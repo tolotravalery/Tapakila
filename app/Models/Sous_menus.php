@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Sousmenu extends Model
+class Sous_menus extends Model
 {
     protected $table = 'sous_menus';
 
@@ -21,5 +21,10 @@ class Sousmenu extends Model
     public function menus()
     {
         return $this->belongsTo('App\Models\Menus');
+    }
+
+    public function events()
+    {
+        return $this->hasMany('App\Models\Events');
     }
 }

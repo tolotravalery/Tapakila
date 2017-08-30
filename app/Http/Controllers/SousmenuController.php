@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 
-use App\Models\Sousmenu;
+use App\Models\Sous_menus;
 use Auth;
 use App\Data;
 use Validator;
@@ -34,7 +34,7 @@ class SousmenuController extends Controller
     {
 
       //  $categories = Category::all();
-        $sousmenus = Sousmenu::all();
+        $sousmenus = Sous_menus::all();
 
         return View('/pages.admin.listesousmenus', compact('sousmenus'));
 
@@ -48,7 +48,7 @@ class SousmenuController extends Controller
 
         return Validator::make($data,
             [
-                'name' => 'required|max:255|unique:sousmenus',
+                'name' => 'required|max:255|unique:sous_menus',
             ]
         );
 
@@ -63,7 +63,7 @@ class SousmenuController extends Controller
     protected function create(array $data)
     {
 
-        $sousmenu = Sousmenu::create([
+        $sousmenu = Sous_menus::create([
             'name' => $data['name'],
             'menus_id'        => $data['menu']
         ]);
@@ -77,7 +77,7 @@ class SousmenuController extends Controller
         $menus = Menus::all();
         $this->validator($request->all())->validate();
 
-        $sousmenu = Sousmenu::create([
+        $sousmenu = Sous_menus::create([
             'name' => $request->input('name'),
             'menus_id'  => $request->input('menu')
         ]);
@@ -88,7 +88,7 @@ class SousmenuController extends Controller
 
     public function destroy($id)
     {
-        $sousmenu= Sousmenu::find($id);
+        $sousmenu= Sous_menus::find($id);
         $sousmenu->delete();
 
        // return View('/pages.admin.listesousmenus', compact('sousmenus'));

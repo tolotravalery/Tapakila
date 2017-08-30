@@ -11,11 +11,11 @@
     <div class="container">
         <form class="form-horizontal" role="form" method="POST" action="{{ route('sousmenu') }}">
             {{ csrf_field() }}
-            <p class="reinitialise">Create new sous category</p>
+            <p class="reinitialise">Create new sous menu</p>
             <div class="white">
                 <div class="champs2">
                     <p><strong>Title</strong></p>
-                    <input id="title" type="placeholde" placeholder="title" class="form-control"  name="title"  required autofocus>
+                    <input id="name" type="placeholde" placeholder="name" class="form-control"  name="name"  required autofocus>
 
                     @if ($errors->has('email'))
                         <span class="red">
