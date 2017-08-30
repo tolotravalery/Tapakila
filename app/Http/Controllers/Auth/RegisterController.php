@@ -63,7 +63,7 @@ class RegisterController extends Controller {
 
 		return Validator::make($data,
 			[
-				'name'                  => 'required|max:255|unique:users',
+				'name'                  => 'required|max:255',
 				'first_name'            => '',
 				'last_name'             => '',
 				'email'                 => 'required|email|max:255|unique:users',
@@ -73,7 +73,7 @@ class RegisterController extends Controller {
 				//'captcha'               => 'required|min:1'
 			],
 			[
-				'name.unique'                   => trans('auth.userNameTaken'),
+				//'name.unique'                   => trans('auth.userNameTaken'),
 				'name.required'                 => trans('auth.userNameRequired'),
 				'first_name.required'           => trans('auth.fNameRequired'),
 				'last_name.required'            => trans('auth.lNameRequired'),
