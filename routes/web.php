@@ -14,7 +14,7 @@
 */
 
 Route::get('admin', 'Auth\LoginController@showLoginAdminForm')->name('admin');
-Route::post('admin', 'Auth\LoginController@login');
+Route::post('admin', 'Auth\LoginController@loginAdmin');
 // Homepage Route;
 Route::get('event', 'EventController@showEventForm')->name('event');
 Route::get('/', 'WelcomeController@welcome')->name('welcome');
@@ -39,6 +39,10 @@ Route::group(['middleware' => 'web'], function () {
     // Route to for user to reactivate their user deleted account.
     Route::get('/re-activate/{token}', ['as' => 'user.reactivate', 'uses' => 'RestoreUserController@userReActivate']);
 
+    Route::group(['prefix' => 'events'], function () {
+        Route::get('show/{events_id}', 'DetailEventController@show');
+    });
+
 });
 
 // Registered and Activated User Routes
@@ -56,13 +60,6 @@ Route::group(['middleware' => ['auth', 'activated']], function () {
         'as' => '{username}',
         'uses' => 'ProfilesController@show'
     ]);
-
-
-    Route::group(['prefix' => 'events'], function () {
-        Route::get('show/{events_id}', 'DetailEventController@show');
-    });
-
-
 });
 
 // Registered, activated, and is current user routes.
@@ -183,7 +180,6 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin'], 'prefix' => '
     Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
     Route::get('php', 'AdminDetailsController@listPHPInfo');
     Route::get('routes', 'AdminDetailsController@listRoutes');
-
 
 
 });

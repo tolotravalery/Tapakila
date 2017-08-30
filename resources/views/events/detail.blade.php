@@ -46,14 +46,14 @@
                             <img src="img/telma-logo.jpeg" class="image_logo">
                             <img src="img/orange.png" class="image_logo">
                     </div>
-
-
                 </div>
                 <div class="col-lg-10 ">
                     <div>
                         <div class="row hier1">
                             <div class="col-lg-6 ">
-                                <img src="{{ url('img/'.$event->image) }}" class="detail_picture">
+                                <div class="thumbnail det-picture">
+                                    <img src="{{ url('img/'.$event->image) }}">
+                                </div>
                             </div>
                             <div class="col-lg-6">
                                 <h2>{{ $event->title }}</h2>

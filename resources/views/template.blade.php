@@ -102,7 +102,7 @@
                         <ul class="dropdown-menu search" id="menu3" aria-labelledby="drop6">
 
                             @role('admin')
-                            <li><a href="{{ url('/admin/users') }}"> Admin</a></li>
+                            <li><a href="{{ url('/admin/home') }}"> Admin</a></li>
                             @endrole
                             <li {{ Request::is('profile/'.Auth::user()->name, 'profile/'.Auth::user()->name . '/edit') ?  : null }}>
                             {!! HTML::link(url('/profile/'.Auth::user()->name.'/edit'), trans('titles.profile')) !!}
