@@ -17,4 +17,10 @@ class Ticket extends Model
     {
         return $this->belongsToMany('App\Models\Payement_mode');
     }
+
+    public function users()
+    {
+        return $this->belongsToMany('App\Models\User');
+    }
+
 }
