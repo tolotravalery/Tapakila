@@ -38,6 +38,7 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
 
+
                 <li>
                     <button type="" class="btn btn-success event"><span class="ico"></span><span
                                 class="descr">AJOUTER<br/> VOTRE EVENEMENT</span></button>
@@ -45,6 +46,7 @@
                 <li><a href="{{ url('/shopping/cart') }}">Panier @if (!Auth::guest())
                             ({{ Cart::instance('default')->count(false) }}) @endif</a>
                 </li>
+
                 <li role="presentation" class="dropdown">
                     <a href="#" class="dropdown-toggle" id="drop6" data-toggle="dropdown" role="button"
                        aria-haspopup="true" aria-expanded="false"> Rechercher
@@ -58,6 +60,7 @@
                         </li>
                     </ul>
                 </li>
+
             @if (Auth::guest())
                 <!--<li><a href="{{ route('login') }}">{!! trans('titles.login') !!}</a></li>-->
                     <li>
@@ -84,6 +87,7 @@
                         </ul>
 
                     </li>
+
 
                 @else
                     <li role="presentation" class="dropdown">
@@ -129,6 +133,7 @@
         </div>
     </div>
 </nav>
+
 <!-- header end -->
 
 @yield('content')
@@ -168,12 +173,12 @@
                     </ul>
                 </div>
                 <div class="col-sm-2 col-xs-6 ">
+
                     <a class="fb-link-icon" href="https://www.facebook.com/tapakila/" target="_blank"><i
                                 class="fa fa-facebook-square facebookico" aria-hidden="true"></i></a>
+
                     <div id="fb-root"></div>
-                    <div class="fb-like" data-href="https://www.facebook.com/tapakila/" data-layout="button"
-                         data-action="like" data-size="small" data-show-faces="false" data-colorscheme="dark"
-                         data-share="false"></div>
+                    <div class="fb-like" data-href="https://www.facebook.com/tapakila/" data-layout="button" data-action="like" data-size="small" data-show-faces="false" data-colorscheme="dark" data-share="false"></div>
 
                 </div>
             </div> <!-- row -->
