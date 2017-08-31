@@ -44,17 +44,17 @@
                                             <h3>
                                                 <a href="{{url('events/show',[$event->id])}}">{{$event->title}}</a>
                                             </h3>
-                                            <p><a href="{{url('events/show',[$event->id])}}">{{$event->additional_note}}</a></p><br/>
+                                            <p>{{$event->additional_note}}</p><br/>
                                             <div>
-                                                <a href="{{url('events/show',[$event->id])}}">
-                                                    <div class="price"><i
-                                                                class="glyphicon glyphicon-time time"></i>
-                                                        {{ \Carbon\Carbon::parse($event->date_debut_envent)->format('d M Y')}}
-                                                    </div>
-                                                    <div class="date"><i
-                                                                class="glyphicon glyphicon-map-marker position"></i> {{ $event->localisation_nom }} {{ $event->localisation_adresse }}
-                                                    </div>
-                                                </a>
+
+                                                <div class="price"><i
+                                                            class="glyphicon glyphicon-time time"></i>
+                                                    {{ \Carbon\Carbon::parse($event->date_debut_envent)->format('d M Y')}}
+                                                </div>
+                                                <div class="date"><i
+                                                            class="glyphicon glyphicon-map-marker position"></i> {{ $event->localisation_nom }} {{ $event->localisation_adresse }}
+                                                </div>
+
                                             </div>
                                         </div>
                                     </div>

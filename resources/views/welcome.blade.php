@@ -78,39 +78,44 @@
                     <div class="categorie-item">
                         <h2 class="couleur_mot">{{$sm->menus->name}} : {{$sm->name}}</h2>
                         <div class="row">
-                            @foreach($sm->events as $event)
-                                @if($event->publie == true && \Carbon\Carbon::parse($event->date_debut_envent)->isFuture() )
-                                    <div class="col-sm-6 col-md-4">
-                                        <div class="thumbnail">
-                                            <a href="{{url('events/show',[$event->id])}}">
-                                                <div class="mg-image">
-                                                    <img src="{{ url('img/'.$event->image.'') }}">
-                                                </div>
-                                                <div class="caption">
-                                                    <h3>
-                                                        <a href="{{url('events/show',[$event->id])}}">{{$event->title}}</a>
-                                                    </h3>
-                                                    <p><a href="#">{{$event->additional_note}}</a></p><br/>
-                                                    <div>
-                                                        <a href="indexnonvide.html">
-                                                            <div class="price"><i class="glyphicon glyphicon-time time"></i>
+                            @if($sm->events == null)
+                                <h1>Aucun évenement pour ce catégorie</h1>
+                                <p>N'hesitez pas de l'ajouter, veuillez s'inscrire</p>
+                            @else
+                                @foreach($sm->events as $event)
+                                    @if($event->publie == true && \Carbon\Carbon::parse($event->date_debut_envent)->isFuture() )
+                                        <div class="col-sm-6 col-md-4">
+                                            <div class="thumbnail">
+                                                <a href="{{url('events/show',[$event->id])}}">
+                                                    <div class="mg-image">
+                                                        <img src="{{ url('img/'.$event->image.'') }}">
+                                                    </div>
+                                                    <div class="caption">
+                                                        <h3>
+                                                            <a href="{{url('events/show',[$event->id])}}">{{$event->title}}</a>
+                                                        </h3>
+                                                        <p>{{$event->additional_note}}</p><br/>
+                                                        <div>
+
+                                                            <div class="price"><i
+                                                                        class="glyphicon glyphicon-time time"></i>
                                                                 {{ \Carbon\Carbon::parse($event->date_debut_envent)->format('d M Y')}}
                                                             </div>
                                                             <div class="date"><i
                                                                         class="glyphicon glyphicon-map-marker position"></i> {{ $event->localisation_nom }} {{ $event->localisation_adresse }}
                                                             </div>
-                                                        </a>
+
+
+                                                        </div>
 
                                                     </div>
+                                                </a>
 
-                                                </div>
-                                            </a>
-
+                                            </div>
                                         </div>
-                                    </div>
-                                @endif
-                            @endforeach
-
+                                    @endif
+                                @endforeach
+                            @endif
                         </div>
                     </div>
                 @endif
