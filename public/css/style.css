@@ -35,6 +35,7 @@ height: 32px;
 display: block;
 float:left;
 margin-right: 5px;
+margin-top: -5px;
 }
 
 .descr{
@@ -42,6 +43,7 @@ display: block;
 float:left;
 line-height: 17px;
 text-align: left;
+margin-top: -8px;
 }
 .navbar-inverse{
 background-color:none!important;}
@@ -187,7 +189,11 @@ font-size: 12px;}
 .event{
 font-size: 10px;
 letter-spacing: 1px;
+height: 47px;
 margin-right: 15px;
+}
+.event:hover{
+	background-color:#5cb85c !important;
 }
 .navbar ul{
 list-style:none;
@@ -1378,8 +1384,8 @@ background: #e5e5e5;
 /* carousel-end */
 /* categories item start */
 .categorie-item{
-border-top: 2px solid #d70506;
-border-bottom: 1px solid #d70506;
+border-top: 3px solid #d70506;
+border-bottom: 3px solid #d70506;
 }
 /* categories item end */
 /* s'inscrire start */
@@ -1645,8 +1651,44 @@ margin-top: 6%;
 	width: 100px;
 }
 .couleur_mot{
-	color:red
+	color:#b91027;
 }
 
 
 /*----------------------------------details-end-------------------------------------*/
+
+/*----------------categorie----------------*/
+.categorie-dj{
+	border-bottom: 3px solid #d70506;
+}
+
+/*--------------------categorie-end---------------------------------*/
+
+/*----------------------------panier-vide--------------------------*/
+.cote{
+	background-color: white;
+	
+}
+.panier{
+	width: 22%;
+}
+.panier1{
+	border: none;
+}
+.mot_h2{
+	text-align: center;
+}
+.mot_ha{
+	text-align: center;
+	color : #428bca !important;
+}
+.panier_3{
+	margin-top: 35px;
+}
+.panier_4{
+	background-color: white;
+	margin: 80px 32px 35px;
+padding: 35px 25px 25px 25px;
+
+}
+/*----------------------------panier-vide-end-------------------------*/

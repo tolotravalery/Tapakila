@@ -25,6 +25,7 @@
             </ul>
         </div>
     </section>
+
     <section id="carousel-slide">
         <div class="container">
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -70,90 +71,50 @@
     <section id="categorie-concert">
         <div class="container">
 
-            <div class="categorie-item">
-                <h2>huhu</h2>
-                <div class="row">
-                    @foreach($eventspopulaire as $event)
-                        @if($event->publie == true )
-                            <div class="col-sm-6 col-md-4">
-                                <div class="thumbnail">
-                                    <div class="mg-image">
-                                        <img src="{{ url('img/'.$event->image.'') }}">
-                                    </div>
-                                    <div class="caption">
-                                        <h3>
-                                            <a href="{{url('events/show',[$event->id])}}">{{$event->title}}</a>
-                                        </h3>
-                                        <p><a href="#">{{$event->additional_note}}</a></p><br/>
-                                        <div>
-                                            <a href="indexnonvide.html">
-                                                <div class="price"><i class="glyphicon glyphicon-time time"></i>
-                                                    {{ \Carbon\Carbon::parse($event->date_debut_envent)->format('d M Y')}}
-                                                </div>
-                                                <div class="date"><i
-                                                            class="glyphicon glyphicon-map-marker position"></i> {{ $event->localisation_nom }} {{ $event->localisation_adresse }}
-                                                </div>
-                                            </a>
-                                        </div>
 
-                                    </div>
-                                </div>
-                            </div>
-                        @endif
-                    @endforeach
-                    {{--<div class="col-sm-6 col-md-4">
-                        <div class="thumbnail">
-                            <div class="mg-image">
-                                <img src="img/tence.jpg" alt="tence_mena">
-                            </div>
-                            <div class="caption">
-                                <h3><a href="#">Lorem ipsum dolor sit amet, vitae enim ultrices</a></h3>
-                                <p><a href="#">Pellentesque amet vitae suscipit metus, massa at donec ultrices
-                                        mauris at
-                                        leo, in aenean, aliquet</a></p><br/>
-                                <div>
-                                    <a href="indexnonvide.html">
-                                        <div class="price"><i class="glyphicon glyphicon-time time"></i> Apr 1,
-                                            100rmb
-                                        </div>
-                                        <div class="date"><i class="glyphicon glyphicon-map-marker position"></i>Andreas
-                                            Ottensamer has captured audiences
-                                        </div>
-                                    </a>
-                                </div>
+            @foreach($sousmenus as $sm)
+                @if($sm->events()->count()==0)
+                @else
+                    <div class="categorie-item">
+                        <h2 class="couleur_mot">{{$sm->menus->name}} : {{$sm->name}}</h2>
+                        <div class="row">
+                            @foreach($sm->events as $event)
+                                @if($event->publie == true )
+                                    <div class="col-sm-6 col-md-4">
+                                        <div class="thumbnail">
+                                            <div class="mg-image">
+                                                <img src="{{ url('img/'.$event->image.'') }}">
+                                            </div>
+                                            <div class="caption">
+                                                <h3>
+                                                    <a href="{{url('events/show',[$event->id])}}">{{$event->title}}</a>
+                                                </h3>
+                                                <p><a href="#">{{$event->additional_note}}</a></p><br/>
+                                                <div>
+                                                    <a href="indexnonvide.html">
+                                                        <div class="price"><i class="glyphicon glyphicon-time time"></i>
+                                                            {{ \Carbon\Carbon::parse($event->date_debut_envent)->format('d M Y')}}
+                                                        </div>
+                                                        <div class="date"><i
+                                                                    class="glyphicon glyphicon-map-marker position"></i> {{ $event->localisation_nom }} {{ $event->localisation_adresse }}
+                                                        </div>
+                                                    </a>
 
-                            </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
+                            @endforeach
 
                         </div>
                     </div>
-                    <div class="col-sm-6 col-md-4">
-                        <div class="thumbnail">
-                            <div class="mg-image">
-                                <img src="img/dubuald3.jpg">
-                            </div>
-                            <div class="caption">
-                                <h3><a href="#">Lorem ipsum dolor sit amet, vitae enim ultrices</a></h3>
-                                <p><a href="#">Pellentesque amet vitae suscipit metus, massa at donec ultrices
-                                        mauris at
-                                        leo, in aenean, aliquet</a></p><br/>
-                                <div>
-                                    <a href="indexnonvide.html">
-                                        <div class="price"><i class="glyphicon glyphicon-time time"></i> Apr 1,
-                                            100rmb
-                                        </div>
-                                        <div class="date"><i class="glyphicon glyphicon-map-marker position"></i>Andreas
-                                            Ottensamer has captured audiences
-                                        </div>
-                                    </a>
-                                </div>
+                @endif
 
-                            </div>
 
-                        </div>
-                    </div>--}}
-                </div>
-            </div>
 
+            @endforeach
         </div>
     </section>
     <section>
@@ -191,26 +152,7 @@
             </div>
         </div>
     </section>
-    <section id="sectionpartenaire">
-        <div class="container">
-            <h2 class="text-center">Nos partenaires</h2>
-            <div class="row">
-                <div class="col-md-3">
-                    <a href="#"><img class="partenaire" src="{{ url('/') }}/img/partenaire1.jpg"></a>
-                </div>
-                <div class="col-md-3">
-                    <a href="#"><img class="partenaire" src="{{ url('/') }}/img/partenaire2.jpg"></a>
-                </div>
-                <div class="col-md-3">
-                    <a href="#"><img class="partenaire" src="{{ url('/') }}/img/telma-logo.jpeg"></a>
-                </div>
-                <div class="col-md-3">
-                    <a href="#"><img class="partenaire" src="{{ url('/') }}/img/partenaire4.jpeg"></a>
-                </div>
-            </div>
 
-        </div>
-    </section>
 @endsection
 
 
