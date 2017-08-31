@@ -57,7 +57,12 @@ class EventController extends Controller
 
     public function showEventForm()
     {
-        return view('pages.admin.createevent');
+        $menus = Menus::orderBy('id', 'desc')->take(8)->get();
+        $sousmenus = Sous_menus::orderBy('id', 'desc')->take(20)->get();
+        //$events=Events::find(1)->sous_menus()->;
+        //dd($events);
+        //return View('/welcome', compact('menus', 'sousmenus'));
+        return view('pages.admin.createevent',compact('menus', 'sousmenus'));
     }
 
     public function addEvent(Request $request)

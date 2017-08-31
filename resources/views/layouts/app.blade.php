@@ -13,9 +13,12 @@
     <link rel="stylesheet" href="{{ url('/') }}/css/mediaqueries.css">
     <link rel="stylesheet" href="{{ url('/') }}/css/animate.css">
     <link rel="stylesheet" href="{{ url('/') }}/css/font-awesome.css">
+    <link href="{{ url('/') }}/css/datepicker.css" rel="stylesheet">
+    <link href="{{ url('/') }}/css/clockpiker.css" rel="stylesheet">
     <script type="text/javascript" src="{{ url('/') }}/js/jquery.min.js"></script>
     <script type="text/javascript" src="{{ url('/') }}/js/bootstrap.min.js"></script>
-
+    <script src="{{ url('/') }}/js/datepicker.js"></script>
+    <script src="{{ url('/') }}/js/clockpicker.js"></script>
 
     @if (Auth::User() && (Auth::User()->profile) && $theme->link != null && $theme->link != 'null')
         <link rel="stylesheet" type="text/css" href="{{ $theme->link }}">
@@ -25,7 +28,7 @@
 
 </head>
 <body>
-<div id="app">
+
 
     @include('partials.nav')
 
@@ -38,7 +41,7 @@
     @yield('content')
     @include('partials.footer')
 
-</div>
+
 
 {{-- Scripts --}}
 <script src="{{ mix('/js/app.js') }}"></script>

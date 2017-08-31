@@ -8,6 +8,31 @@
 @endsection
 
 @section('content')
+    <section id="sectioncategorie" class="clearfix">
+        <div class="container">
+            <ul class="clearfix">
+                <li><a href="#">TOUS</a></li>
+                @foreach($menus as $menu)
+                    <li><a href="{{url('/events/list/categorie',[$menu->id])}}">{{$menu->name}}</a></li>
+                @endforeach
+
+            </ul>
+            <a href="#" class="menupull" id="pull"><strong>Catégories</strong></a>
+        </div>
+    </section>
+
+    <section id="sectionevenement" role="navigation">
+        <div class="container">
+            <ul>
+                @foreach($sousmenus as $sousmenu)
+                    <li>
+                        <a href="{{url('/events/list/categorie/sous_categorie',[$sousmenu->id])}}">{{$sousmenu->name}}</a>
+                    </li>
+                @endforeach
+
+            </ul>
+        </div>
+    </section>
     <section id="detail">
         <div class="container">
             <div class="page-menu row">
@@ -61,29 +86,25 @@
                                     </div>
 
 
-                                    <!-- image-preview-filename input [CUT FROM HERE]-->
                                     <label class="control-label ">
                                         <span>Image : </span>
                                     </label>
                                     <div class="input-group image-preview">
                                         <input type="text" class="form-control image-preview-filename"
                                                disabled="disabled">
-                                        <!-- don't give a name === doesn't send on POST/GET -->
                                         <span class="input-group-btn">
-												<!-- image-preview-clear button -->
 												<button type="button" class="btn btn-default image-preview-clear"
                                                         style="display:none;">
 													<span class="glyphicon glyphicon-remove"></span> Suprimer
 												</button>
-                                            <!-- image-preview-input -->
 												<div class="btn btn-default image-preview-input">
 													<span class="glyphicon glyphicon-folder-open"></span>
 													<span class="image-preview-input-title"></span>
 													<input type="file" accept="image/png, image/jpeg, image/gif"
-                                                           name="input-file-preview"/> <!-- rename it -->
+                                                           name="input-file-preview"/>
 												</div>
 											</span>
-                                    </div><!-- /input-group image-preview [TO HERE]-->
+                                    </div>
 
 
                                 </div>
@@ -264,6 +285,8 @@
 
                     </div>
 
+                    <!------------------------------------Commandes--------------------------------------------------------------------------->
+
                     <div id="div_commandes" class="hide">
                         <div id="commande">
                             <div class="com_contenu">
@@ -297,6 +320,10 @@
 
                         </div>
                     </div>
+
+                    <!------------------------------------Commande-end--------------------------------------------------------------------------->
+
+                    <!-------------------------------------rapport------------------------------------------------------------------------->
 
                     <div id="div_rapport" class="hide">
                         <div id="rapport">
@@ -823,6 +850,9 @@
 
                         </div>
                     </div>
+                    <!------------------------------------Rapport-end--------------------------------------------------------------------------->
+
+                    <!------------------------------------type-ticket-------------------------------------------------------------------------->
 
                     <div id="div_type" class="hide">
                         <div id="type_ticket">
@@ -916,8 +946,8 @@
                                     <p>Nombre de billets: 100</p>
 
                                 </div>
-                                <a href=#" class="btn btn-primary btn-outline text-center center-block primary"
-                                   role="button">
+                                <a class="btn btn-primary btn-outline text-center center-block primary" role="button"
+                                   onClick="changePage('div_ticket','a_type')">
                                     <i aria-hidden="true"></i> <span class="glyphicon glyphicon-plus"
                                                                      aria-hidden="true"></span> Ajouter
                                     le type de ticket
@@ -964,6 +994,9 @@
 
                         </div>
                     </div>
+                    <!------------------------------------type-ticket-end--------------------------------------------------------------------------->
+
+                    <!------------------------------------Ticket validé--------------------------------------------------------------------------->
 
                     <div id="div_valideTicket" class="hide">
                         <div id="billet">
@@ -992,6 +1025,11 @@
 
                         </div>
                     </div>
+
+                    <!------------------------------------Ticket validé-end------------------------------------------------------------------------->
+
+
+                    <!------------------------------------Site web-------------------------------------------------------------------------->
 
                     <div id="div_siteweb" class="hide">
                         <div class="com_contenu_type">
@@ -1044,6 +1082,9 @@
 
                         </div>
                     </div>
+                    <!------------------------------------Site web-end--------------------------------------------------------------------------->
+
+                    <!------------------------------------PDF--------------------------------------------------------------------------->
 
                     <div id="div_pdf" class="hide">
 
@@ -1060,20 +1101,20 @@
                                 <label class="control-label" for="en[image_pdf_file]">
                                     <span>Image</span>
                                 </label>
-                                <div class="dropify-wrapper" onmouseover="mouseOverFunction()"
-                                     onmouseout="mouseOutFunction()">
+                                <div class="dropify-wrapper" onmouseover="mouse1OverFunction()"
+                                     onmouseout="mouse1OutFunction()">
 
-                                    <div class="dropify-message" id="mot"><span class="file-icon"></span>
+                                    <div class="dropify-message" id="mot1"><span class="file-icon"></span>
                                         <i class="glyphicon glyphicon-open"></i>
                                         <p>Cliquez ou faites glisser votre fichier ici</p>
                                     </div>
 
-                                    <input type="file" id="input" type="file" accept="image/*"
-                                           onchange="loadFile(event)">
-                                    <img id="output" class="hide"/>
+                                    <input type="file" id="input1" type="file" accept="image/*"
+                                           onchange="loadFile1(event)">
+                                    <img id="output1" class="hide"/>
 
-                                    <button id="button" type="button" class="btn btn-danger hide"
-                                            onclick="buttonClick()">Supprimer
+                                    <button id="button1" type="button" class="btn btn-danger hide"
+                                            onclick="button1Click()">Supprimer
                                     </button>
 
 
@@ -1197,6 +1238,10 @@
                         </div>
 
                     </div>
+                    <!------------------------------------PDF-end--------------------------------------------------------------------------->
+
+
+                    <!------------------------------------Champ additionel--------------------------------------------------------------------------->
 
                     <div id="div_cpersonalize" class="hide">
                         <div class="com_contenu_type1">
@@ -1225,6 +1270,10 @@
                         </div>
 
                     </div>
+                    <!------------------------------------Champ additionel-end--------------------------------------------------------------------------->
+
+
+                    <!------------------------------------Methode des payements--------------------------------------------------------------------------->
 
                     <div id="div_paiement" class="hide">
                         <div class="com_contenu_type1">
@@ -1330,6 +1379,153 @@
 
 
                     </div>
+                    <!------------------------------------Methode de payement-end--------------------------------------------------------------------------->
+
+
+                    <!---------------------------ticket---------------------------------------------------------------------------------------->
+
+                    <!----------------------------------création-ticket------------------------------------->
+                    <div id="div_ticket" class="hide">
+
+                        <div class="com_contenu_type1">
+                            <div class="ticket_details">
+                                <h2>Détails du type de ticket</h2><br/>
+                                <form>
+                                    <div class="form-group">
+                                        <label for="usr">Nom du type de ticket:*</label>
+                                        <input type="text" class="form-control" id="usr">
+                                        <span class="help-block">
+					  Par exemple. "Ticket régulier", "Early Bird", "Student"
+					  </span>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="usr">La description</label>
+                                        <input type="text" class="form-control" id="usr">
+                                        <span class="help-block">
+					  Par exemple. "Vendu jusqu'au 23 juin" ou "Préparez-vous à montrer votre carte étudiante"
+					  </span><br/>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <label>
+                                                    Nombre maximum de billets</label>
+                                                <div class="input-group group chiffre1">
+                                                    <input type="number" name="ticket_limit" value="0.01"
+                                                           id="ticket_limit" class="form-control" placeholder="∞"
+                                                           min="0" step="0.01">
+                                                    <span class="input-group-addon">AR</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                            </div>
+                                        </div>
+                                        <p class="help-block">Prix ​​de l'utilisateur final par billet incluant <a
+                                                    href="index.html" target="_blank" class="aa">Frais Tapakila</a> Et
+                                            TVA, le cas échéant</p>
+
+
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+                        <div class="com_contenu_type2">
+                            <h2>Avancée</h2><br/>
+                            <form>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <label>
+                                            Nombre maximum de billets</label>
+                                        <div class="input-group group chiffre1">
+                                            <input type="number" name="ticket_limit"
+                                                   id="ticket_limit" class="form-control" placeholder=""
+                                                   min="0">
+                                            <span class="input-group-addon">Tickets</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                    </div>
+                                </div>
+                                <p class="help-block">Le nombre maximum de tickets pour l'événement entier est défini
+                                    sur "15".</p>
+                                <p class="help-block">Ici, vous pouvez définir une limite supplémentaire pour ce type de
+                                    ticket uniquement. Il sera caché à partir de la page d'achat une fois épuisé</p>
+                                <br/>
+                                <label>Disponible entre les dates, y compris:</label>
+                                <div class="row" id="event-duration">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-calendar"></i></div>
+                                                    <input class="form-control" id="date" name="date"
+                                                           placeholder="MM/DD/YYYY" type="text"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">
+                                                        <i>à</i></div>
+                                                    <input class="form-control" id="date" name="date"
+                                                           placeholder="MM/DD/YYYY" type="text"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <p class="help-block">Toute la vente de billets d'événement commence "Quand je publie
+                                    cet événement" et finit "Seulement lorsque tous les billets ont été vendus"</p>
+                                <p class="help-block">Ici, vous pouvez définir une limite supplémentaire pour ce type de
+                                    ticket uniquement.</p><br/>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="usr">Code de réduction</label>
+                                            <input type="text" class="form-control" id="usr">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <label>Prix ​​discount</label>
+                                        <div class="input-group group chiffre">
+                                            <input type="number" name="ticket_limit"
+                                                   id="ticket_limit" class="form-control" placeholder=""
+                                                   min="0" step="0.01">
+                                            <span class="input-group-addon">AR</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="usr">Prix ​​discount</label>
+                                    <input type="text" class="form-control" id="usr">
+                                </div>
+                                <label>Commande manuelle</label>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" value="">Ce type de billet est temporairement non
+                                        vendu</label>
+                                </div>
+
+
+                        </div>
+                        <div class="com_contenu_type_foot">
+                            <button type="button" class="btn btn-danger bout"
+                                    onClick="changePage('div_type', 'a_type')">Enregistrer
+                            </button>
+                            <button type="button" class="btn btn-danger bout1"
+                                    onClick="changePage('div_type', 'a_type')">Annuler
+                            </button>
+
+                        </div>
+                        </form>
+
+
+                    </div>
+                    <!----------------------------------création ticket-end------------------------------------->
+
+                    <!---------------------------ticket-end--------------------------------------------------------------------------------------->
                 </div>
 
                 <!-- menu droit start -->
@@ -1350,15 +1546,19 @@
                         <li><a href="#" id="a_siteweb" onClick="changePage('div_siteweb', 'a_siteweb')">Site web</a>
                         </li>
                         <li><a href="#" id="a_pdf" onClick="changePage('div_pdf', 'a_pdf')">PDF</a></li>
-                        <li><a href="#" id="a_cpersonalize" onClick="changePage('div_cpersonalize', 'a_cpersonalize')">Champ
-                                additionelles</a></li>
+                        <li><a href="#" id="a_cpersonalize" onClick="changePage('div_cpersonalize', 'a_cpersonalize')">Champs
+                                additioneles</a></li>
                         <li class="categorimenu"><strong>Paramètre</strong></li>
                         <li><a href="#" id="a_paiement" onClick="changePage('div_paiement', 'a_paiement')">Méthodes de
                                 payements</a></li>
                     </ul>
                 </div>
+
             </div>
+
+
             <!-- End Page -->
+
     </section>
 @endsection
 
@@ -1373,6 +1573,7 @@
     </script>
     <script>
         function changePage(id, aId) {
+            console.log('fghhgfhgfhg');
             document.getElementById("div_details").className = "hide";
             document.getElementById("div_commandes").className = "hide";
             document.getElementById("div_rapport").className = "hide";
@@ -1382,6 +1583,7 @@
             document.getElementById("div_pdf").className = "hide";
             document.getElementById("div_cpersonalize").className = "hide";
             document.getElementById("div_paiement").className = "hide";
+            document.getElementById("div_ticket").className = "hide";
             document.getElementById(id).className = "show";
 
             document.getElementById("a_details").className = "";
@@ -1396,6 +1598,7 @@
             document.getElementById(aId).className = "select";
         }
     </script>
+
 
     <script>
 
@@ -1448,6 +1651,33 @@
             input.className = "show";
             output.className = "hide";
             button.className = "hide";
+        }
+    </script>
+
+    <script>
+        var output1 = document.getElementById('output1');
+        var button1 = document.getElementById('button1');
+        var input1 = document.getElementById('input1');
+        var loadFile1 = function (event) {
+            $('#mot1').addClass('hide');
+            output1.src = URL.createObjectURL(event.target.files[0]);
+            input1.className = "hide";
+            output1.className = "show";
+        };
+        function mouse1OverFunction() {
+            if (output1.className == "show") {
+                button1.className = "show";
+            }
+        }
+        function mouse1OutFunction() {
+            button1.className = "hide";
+        }
+        function button1Click() {
+            $('#mot1').removeClass('hide');
+            input1.value = null;
+            input1.className = "show";
+            output1.className = "hide";
+            button1.className = "hide";
         }
     </script>
 
