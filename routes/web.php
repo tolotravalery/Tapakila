@@ -41,6 +41,8 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::group(['prefix' => 'events'], function () {
         Route::get('show/{events_id}', 'DetailEventController@show');
+        Route::get('list/categorie/{menu}', 'DetailEventController@listEventMenu');
+        Route::get('list/categorie/sous_categorie/{sous_menu}', 'DetailEventController@listEventSousMenu');
     });
 
 });

@@ -18,6 +18,6 @@ class Menus extends Model
 
     public function sousmenus()
     {
-        return $this->hasMany('App\Models\Sousmenu');
+        return $this->hasMany('App\Models\Sous_menus');
     }
 }

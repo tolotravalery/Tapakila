@@ -1,14 +1,11 @@
 @extends('template')
-
-
-
 @section('content')
     <section id="sectioncategorie" class="clearfix">
         <div class="container">
             <ul class="clearfix">
                 <li><a href="#">TOUS</a></li>
                 @foreach($menus as $menu)
-                    <li><a href="#">{{$menu->name}}</a></li>
+                    <li><a href="{{url('/events/list/categorie',[$menu->id])}}">{{$menu->name}}</a></li>
                 @endforeach
 
             </ul>
@@ -20,7 +17,9 @@
         <div class="container">
             <ul>
                 @foreach($sousmenus as $sousmenu)
-                    <li><a href="#">{{$sousmenu->name}}</a></li>
+                    <li>
+                        <a href="{{url('/events/list/categorie/sous_categorie',[$sousmenu->id])}}">{{$sousmenu->name}}</a>
+                    </li>
                 @endforeach
 
             </ul>
@@ -74,7 +73,6 @@
             <div class="categorie-item">
                 <h2>huhu</h2>
                 <div class="row">
-
                     @foreach($eventspopulaire as $event)
                         @if($event->publie == true )
                             <div class="col-sm-6 col-md-4">
