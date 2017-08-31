@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Menus;
+use App\Models\Sous_menus;
 use Auth;
 use App\Data;
 use Validator;
@@ -66,5 +68,4 @@ class EventController extends Controller
 
         return view('pages.admin.event');
     }
-
 }
