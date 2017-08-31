@@ -79,7 +79,7 @@
                         <h2 class="couleur_mot">{{$sm->menus->name}} : {{$sm->name}}</h2>
                         <div class="row">
                             @foreach($sm->events as $event)
-                                @if($event->publie == true && \Carbon\Carbon::parse($event->date_debut_envent)->isFuture() ))
+                                @if($event->publie == true && \Carbon\Carbon::parse($event->date_debut_envent)->isFuture() )
                                     <div class="col-sm-6 col-md-4">
                                         <div class="thumbnail">
                                             <a href="{{url('events/show',[$event->id])}}">
