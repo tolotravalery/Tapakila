@@ -1,25 +1,45 @@
 @extends('template')
 
 @section('content')
+    <section id="sectioncategorie" class="clearfix">
+        <div class="container">
+            <ul class="clearfix">
+                @foreach($menus as $menu)
+                    <li><a href="{{url('/events/list/categorie',[$menu->id])}}">{{$menu->name}}</a></li>
+                @endforeach
+            </ul>
+            <a href="#" class="menupull" id="pull"><strong>Catégories</strong></a>
+        </div>
+    </section>
+
+    <section id="sectionevenement" role="navigation">
+        <div class="container">
+            <ul>
+                @foreach($sousmenus as $sousmenu)
+                    <li>
+                        <a href="{{url('/events/list/categorie/sous_categorie',[$sousmenu->id])}}">{{$sousmenu->name}}</a>
+                    </li>
+                @endforeach
+            </ul>
+        </div>
+    </section>
     <section>
         <div class="container">
-            <div id="custom-white">
-                <h1>Votre Panier</h1>
-                <div class="panier"></div>
+            @if (sizeof(Cart::content()) > 0)
+                <div id="custom-white">
+                    <h1>Votre Panier</h1>
+                    <div class="panier"></div>
+                    @if (session()->has('success_message'))
+                        <div class="alert alert-success">
+                            {{ session()->get('success_message') }}
+                        </div>
+                    @endif
 
-                @if (session()->has('success_message'))
-                    <div class="alert alert-success">
-                        {{ session()->get('success_message') }}
-                    </div>
-                @endif
-
-                @if (session()->has('error_message'))
-                    <div class="alert alert-danger">
-                        {{ session()->get('error_message') }}
-                    </div>
-                @endif
-
-                @if (sizeof(Cart::content()) > 0)
+                    @if (session()->has('error_message'))
+                        <div class="alert alert-danger">
+                            {{ session()->get('error_message') }}
+                        </div>
+                    @endif
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
@@ -83,7 +103,7 @@
                     <div class="row">
                         <div id="footer-btn">
                             <div class="col-md-10 col-sm-10 col-xs-12">
-                                <button type="button" class="btn btn-primary achat">Continuer vos achats</button>
+                                <a href="{{url('/')}}" class="btn btn-primary achat">Continuer vos achats</a>
                                 <a href="{{url('shopping/checkout')}}" class="btn btn-success caisse">Commander</a>
                             </div>
                             <div class="col-md-2 col-sm-2 col-xs-12">
@@ -95,11 +115,36 @@
                             </div>
                         </div>
                     </div>
-                @else
-                    <h3>Vous n'avez pas des tickets dans votre panier</h3>
-                    <a href="{{ url('/shopping/shop') }}" class="btn btn-primary btn-lg">Continue Shopping</a>
-                @endif
-            </div>
+                </div>
+            @else
+                <section>
+                    <div class="container">
+                        <div id="custom-white">
+                            <h1 class="couleur_mot">Votre Panier</h1>
+                            <div class="panier"></div>
+                            <div class="alert alert-success">
+                                <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la
+                                    mise en page avant
+                                    impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis
+                                    les
+                                    années 1500 </p>
+                            </div>
+                            <div class="row panier_3">
+                                <div class="col-lg-6 col-lg-offset-3">
+                                    <div class="thumbnail panier1">
+                                        <img src="{{url('img/pan.jpg')}}" class="panier0">
+                                        <div class="caption">
+                                            <h3 class="mot_h2">Votre panier est vide</h3>
+                                            <h5 class="mot_h2"><a href="{{url('/')}}" class="mot_ha">Remplir vos
+                                                    panier</a></h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            @endif
         </div>
     </section>
 

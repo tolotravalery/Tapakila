@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Shopping;
 
+use App\Models\Menus;
+use App\Models\Sous_menus;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -18,7 +20,9 @@ class CartController extends Controller
      */
     public function index()
     {
-        return view('shopping.cart');
+        $menus = Menus::orderBy('id', 'desc')->get();
+        $sousmenus = Sous_menus::orderBy('id', 'desc')->get();
+        return view('shopping.cart', array('menus' => $menus, 'sousmenus' => $sousmenus));
     }
 
     /**
@@ -34,7 +38,7 @@ class CartController extends Controller
         });
 
         if (!$duplicates->isEmpty()) {
-            return redirect('shopping/cart')->withSuccessMessage('Item is already in your cart!');
+            return redirect('shopping/cart')->withSuccessMessage('Ce ticket est déjà dans votre panier');
         }
 
         Cart::add($request->id, $request->type, 1, $request->price)->associate('App\Models\Ticket');
