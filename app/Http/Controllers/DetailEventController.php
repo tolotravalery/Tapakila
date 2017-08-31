@@ -11,11 +11,12 @@ class DetailEventController extends Controller
 {
     public function show($events_id)
     {
-//        /**/->random(3)
-
-        $interested = Events::where('id', '!=', $events_id)->where('publie', '=', '1')->get();
+        $menus = Menus::orderBy('id', 'desc')->get();
+        $sousmenus = Sous_menus::orderBy('id', 'desc')->get();
+        $date_now = date('Y-m-d H:i:s');
+        $interested = Events::where('id', '!=', $events_id)->where('publie', '=', '1')->where('date_debut_envent', '>', $date_now)->get();;
         if ($interested->count() > 3) $interested = $interested->random(3);
-        return view('events.detail', array('event' => Events::find($events_id), 'interested' => $interested));
+        return view('events.detail', array('event' => Events::find($events_id), 'interested' => $interested, 'menus' => $menus, 'sousmenus' => $sousmenus));
     }
 
     public function listEventMenu($menu)

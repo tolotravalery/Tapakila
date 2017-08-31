@@ -1384,7 +1384,7 @@ background: #e5e5e5;
 /* carousel-end */
 /* categories item start */
 .categorie-item{
-border-top: 3px solid #d70506;
+/*border-top: 3px solid #d70506;*/
 border-bottom: 3px solid #d70506;
 }
 /* categories item end */
@@ -1665,12 +1665,9 @@ margin-top: 6%;
 /*--------------------categorie-end---------------------------------*/
 
 /*----------------------------panier-vide--------------------------*/
-.cote{
-	background-color: white;
-	
-}
-.panier{
-	width: 22%;
+
+.panier0{
+	width: 30%;
 }
 .panier1{
 	border: none;
@@ -1685,10 +1682,5 @@ margin-top: 6%;
 .panier_3{
 	margin-top: 35px;
 }
-.panier_4{
-	background-color: white;
-	margin: 80px 32px 35px;
-padding: 35px 25px 25px 25px;
 
-}
 /*----------------------------panier-vide-end-------------------------*/

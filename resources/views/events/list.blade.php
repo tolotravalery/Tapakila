@@ -41,19 +41,23 @@
                                     <p>N'hesitez pas de l'ajouter, veuillez s'inscrire</p>
                                 @else
                                     @foreach($sousMenu->events as $event)
-                                        @if($event->publie == true )
+                                        @if($event->publie == true && \Carbon\Carbon::parse($event->date_debut_envent)->isFuture() )
                                             <div class="col-sm-6 col-md-4">
                                                 <div class="thumbnail">
-                                                    <div class="mg-image">
-                                                        <img src="{{ url('img/'.$event->image.'') }}">
-                                                    </div>
+                                                    <a href="{{url('events/show',[$event->id])}}">
+                                                        <div class="mg-image">
+                                                            <img src="{{ url('img/'.$event->image.'') }}">
+                                                        </div>
+                                                    </a>
                                                     <div class="caption">
                                                         <h3>
                                                             <a href="{{url('events/show',[$event->id])}}">{{$event->title}}</a>
                                                         </h3>
-                                                        <p><a href="#">{{$event->additional_note}}</a></p><br/>
+                                                        <p>
+                                                            <a href="{{url('events/show',[$event->id])}}">{{$event->additional_note}}</a>
+                                                        </p><br/>
                                                         <div>
-                                                            <a href="#">
+                                                            <a href="{{url('events/show',[$event->id])}}">
                                                                 <div class="price"><i
                                                                             class="glyphicon glyphicon-time time"></i>
                                                                     {{ \Carbon\Carbon::parse($event->date_debut_envent)->format('d M Y')}}
