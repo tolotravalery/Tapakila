@@ -10,7 +10,6 @@ use Validator;
 use Response;
 use Illuminate\Http\Request;
 use Illuminate\Auth\Events\Registered;
-//use App\Models\Category;
 use App\Models\Event;
 
 class EventController extends Controller
