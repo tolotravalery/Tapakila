@@ -8,6 +8,9 @@ class Ticket extends Model
 {
     protected $table = "ticket";
 
+    protected $fillable = ['type', 'price', 'number', 'date_debut_vente', 'date_fin_vente', 'events_id'];
+    public $timestamps = false;
+
     public function events()
     {
         return $this->belongsTo('App\Models\Events');
