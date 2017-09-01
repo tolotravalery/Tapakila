@@ -1589,6 +1589,7 @@ input[type="file"] {
 
 /* carousel-end */
 /* categories item start */
+
 .categorie-item {
     border-top: 3px solid #d70506;
     /*border-bottom: 3px solid #d70506;*/
@@ -1932,3 +1933,47 @@ input[type="file"] {
 }
 
 /*----------------------------panier-vide-end-------------------------*/
+
+
+/* sansitem start */
+
+hr.couvert {
+    padding: 0;
+    border: none;
+    border-top: 5px solid #d4d4d4;
+    text-align: center;
+}
+hr.couvert:after {
+    content: "Tapakila vous a couvert";
+    display: inline-block;
+    position: relative;
+    top: -0.7em;
+    font-size: 1.2em;
+    padding: 0 0.25em;
+    background: #fff;
+}
+.replik >ul>li{
+	display:inline-block;
+	margin-left:15px;
+}
+.replik{
+	padding: 25px 0 0 11%;
+}
+.topvente{
+	border-top:3px solid #d70506;;
+}
+.ctgori{
+	text-align:center;
+}
+.bg-custom{
+	background-color:white;
+	padding: 20px 20px 20px 21px;
+	margin-bottom:40px;
+}
+/* sans item end */
+
+/*----------recherche_no_result--------*/
+.recherche_no{
+	background-color: white;
+}
+/*--------rechrche_no_recherche_end--------*/
