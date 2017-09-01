@@ -76,7 +76,7 @@
                 @if($sm->events()->count()==0)
                 @else
                     <div class="categorie-item">
-                        <h2 class="couleur_mot">{{$sm->menus->name}} : {{$sm->name}}</h2>
+                        <h2 class="couleur_mot">{{$sm->name}}</h2>
                         <div class="row">
                             @if($sm->events == null)
                                 <h1>Aucun évenement pour ce catégorie</h1>
