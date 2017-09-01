@@ -3,7 +3,7 @@
     <section id="sectioncategorie" class="clearfix">
         <div class="container">
             <ul class="clearfix">
-                <li><a href="#">TOUS</a></li>
+                <li><a href="{{url('/')}}">TOUS</a></li>
                 @foreach($menus as $menu)
                     <li><a href="{{url('/events/list/categorie',[$menu->id])}}">{{strtoupper($menu->name)}}</a></li>
                 @endforeach
@@ -76,7 +76,7 @@
                 @if($sm->events()->count()==0)
                 @else
                     <div class="categorie-item">
-                        <h2 class="couleur_mot">{{$sm->menus->name}} : {{$sm->name}}</h2>
+                        <h2 class="couleur_mot">{{$sm->name}}</h2>
                         <div class="row">
                             @if($sm->events == null)
                                 <h1>Aucun évenement pour ce catégorie</h1>
