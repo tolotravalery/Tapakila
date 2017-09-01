@@ -11,9 +11,9 @@
     <section id="sectioncategorie" class="clearfix">
         <div class="container">
             <ul class="clearfix">
-                <li><a href="#">TOUS</a></li>
+                <li><a href="{{url('/')}}">TOUS</a></li>
                 @foreach($menus as $menu)
-                    <li><a href="{{url('/events/list/categorie',[$menu->id])}}">{{$menu->name}}</a></li>
+                    <li><a href="{{url('/events/list/categorie',[$menu->id])}}">{{strtoupper($menu->name)}}</a></li>
                 @endforeach
 
             </ul>
@@ -26,7 +26,7 @@
             <ul>
                 @foreach($sousmenus as $sousmenu)
                     <li>
-                        <a href="{{url('/events/list/categorie/sous_categorie',[$sousmenu->id])}}">{{$sousmenu->name}}</a>
+                        <a href="{{url('/events/list/categorie/sous_categorie',[$sousmenu->id])}}">{{ucfirst($sousmenu->name)}}</a>
                     </li>
                 @endforeach
 
@@ -77,10 +77,9 @@
                                         </label>
                                         <div class="form-group">
                                             <select class="form-control">
-                                                <option> catégorie 1</option>
-                                                <option>catégorie 2</option>
-                                                <option>catégorie 3</option>
-                                                <option>catégorie 4</option>
+                                                @foreach($sousmenus as $sousmenu)
+                                                    <option>{{$sousmenu->name}}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                     </div>
