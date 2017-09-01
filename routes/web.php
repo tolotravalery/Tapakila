@@ -17,6 +17,8 @@ Route::get('admin', 'Auth\LoginController@showLoginAdminForm')->name('admin');
 Route::post('admin', 'Auth\LoginController@loginAdmin');
 // Homepage Route;
 Route::get('event', 'EventController@showEventForm')->name('event');
+Route::post('event', 'EventController@store')->name('event');
+
 Route::get('/', 'WelcomeController@welcome')->name('welcome');
 
 // Authentication Routes
@@ -155,7 +157,7 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin'], 'prefix' => '
     Route::get('/sousmenus', 'SousmenuController@index')->name('sousmenus');
     Route::post('sousmenu', 'SousmenuController@store');
 
-    Route::get('event', 'EventController@showEventForm')->name('event');
+    //Route::get('event', 'EventController@showEventForm')->name('event');
 
     Route::resource('menus', 'MenuController', [
         'names' => [

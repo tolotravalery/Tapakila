@@ -60,7 +60,9 @@
             <div class="row">
                 <div class="col-lg-9 col-sm-9">
                     <div id="div_details">
-                        <form method="POST" action="#">
+                        <form enctype="multipart/form-data" class="form-horizontal" role="form" method="POST"
+                              action="{{ route('event') }}">
+                            {{ csrf_field() }}
                             <div class="panel panel-content">
                                 <div class="panel-body border-bottom">
                                     <h2>Details</h2>
@@ -69,22 +71,21 @@
                                         <label class="control-label ">
                                             <span>Titre : *</span>
                                         </label>
-                                        <input type="text" name="titre]" id="titre" class="form-control">
+                                        <input type="text" name="title" id="titre" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label ">
                                             <span>Catégories : </span>
                                         </label>
                                         <div class="form-group">
-                                            <select class="form-control">
+                                            <select class="form-control" name="sousmenu">
+                                                <option>--------choisir-----------</option>
                                                 @foreach($sousmenus as $sousmenu)
-                                                    <option>{{$sousmenu->name}}</option>
+                                                    <option value="{{$sousmenu->id}}">{{$sousmenu->name}}</option>
                                                 @endforeach
                                             </select>
                                         </div>
                                     </div>
-
-
                                     <label class="control-label ">
                                         <span>Image : </span>
                                     </label>
@@ -94,13 +95,13 @@
                                         <span class="input-group-btn">
 												<button type="button" class="btn btn-default image-preview-clear"
                                                         style="display:none;">
-													<span class="glyphicon glyphicon-remove"></span> Suprimer
+													<span class="glyphicon glyphicon-remove"></span> Supprimer
 												</button>
 												<div class="btn btn-default image-preview-input">
 													<span class="glyphicon glyphicon-folder-open"></span>
 													<span class="image-preview-input-title"></span>
 													<input type="file" accept="image/png, image/jpeg, image/gif"
-                                                           name="input-file-preview"/>
+                                                           name="image"/>
 												</div>
 											</span>
                                     </div>
@@ -108,9 +109,6 @@
 
                                 </div>
                                 <hr>
-                                <!-- detail end -->
-
-                                <!-- heure start -->
                                 <div class="panel-body border-bottom">
                                     <h2>Heures</h2>
                                     <div class="row" id="event-duration">
@@ -122,8 +120,7 @@
                                                         <div class="input-group">
                                                             <div class="input-group-addon">
                                                                 <i class="fa fa-calendar"></i></div>
-                                                            <input class="form-control" id="date" name="date"
-                                                                   placeholder="MM/DD/YYYY" type="text"/>
+                                                            <input class="form-control" id="date" name="date_debut" placeholder="MM/DD/YYYY" type="text"/>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -132,7 +129,7 @@
 														<span class="input-group-addon">
 															<span class="glyphicon glyphicon-time"></span>
 															</span>
-                                                        <input type="text" class="form-control" value="23:30">
+                                                        <input type="text" class="form-control" value="23:30" name="heure_debut">
 
                                                     </div>
                                                 </div>
@@ -146,7 +143,7 @@
                                                         <div class="input-group">
                                                             <div class="input-group-addon">
                                                                 <i class="fa fa-calendar"></i></div>
-                                                            <input class="form-control" id="date" name="date"
+                                                            <input class="form-control" id="date" name="date_fin"
                                                                    placeholder="MM/DD/YYYY" type="text"/>
                                                         </div>
                                                     </div>
@@ -156,7 +153,7 @@
 														<span class="input-group-addon">
 															<span class="glyphicon glyphicon-time"></span>
 															</span>
-                                                        <input type="text" class="form-control" value="23:30">
+                                                        <input type="text" class="form-control" value="23:30" name="heure_fin">
 
                                                     </div>
                                                 </div>
@@ -168,8 +165,8 @@
                                         <label class="control-label">
                                             <span>Notes additionnel sur l'heure</span>
                                         </label>
-                                        <textarea class="form-control " " word-wrap: break-word; resize: horizontal;
-                                        height: 54px;"></textarea>
+                                        <textarea class="form-control" style=" word-wrap: break-word; resize: horizontal;
+                                        height: 54px;" name="note"></textarea>
                                     </div>
                                     <hr>
                                     <div class="row">
@@ -249,12 +246,14 @@
                                     <form>
                                         <div class="form-group">
                                             <label for="email">Nom:*</label>
-                                            <input type="email" class="form-control" id="email">
+                                            <input type="Adresse" class="form-control" id="email"
+                                                   name="localisation_nom">
                                             <p>E.X:Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
                                         </div>
                                         <div class="form-group">
                                             <label for="adresses">Adresse:</label>
-                                            <input type="Adresse" class="form-control" id="adress">
+                                            <input type="Adresse" class="form-control" id="adress"
+                                                   name="localisation_adresse">
                                             <em>Entrer l'adresse exact pour l'affichage des directions sur la carte</em>
                                             <p>E.X:Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
                                         </div>
@@ -269,7 +268,7 @@
                                 <div class="panel-body">
                                     <h2>Organisateur</h2>
                                     <div class="form-group">
-                                        User
+                                        {{ Auth::user()->name }}
                                         <a class="btn btn-default editer" target="_blank" href="#">Editer</a>
                                     </div>
                                 </div>
@@ -1602,10 +1601,10 @@
     <script>
 
         $(document).ready(function () {
-            var date_input = $('input[name="date"]'); //our date input has the name "date"
+            var date_input = $('input[id="date"]'); //our date input has the name "date"
             var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
             date_input.datepicker({
-                format: 'mm/dd/yyyy',
+                format: 'dd-mm-yyyy',
                 container: container,
                 todayHighlight: true,
                 autoclose: true,
