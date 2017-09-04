@@ -90,7 +90,15 @@ class EventController extends Controller
 
     public function store(Request $request)
     {
+        $huhu=$request->input('publie');
+        $tmp=true;
+        if (strcmp("true", $huhu) == 0) {
+            $tmp=true;
+        } else {
+            $tmp=false;
+        }
 
+        //echo $request->input('publie');break;
         $this->validator($request->all())->validate();
 
         $image = $request->file('image');
@@ -109,7 +117,8 @@ class EventController extends Controller
             'additional_note' => $request->input('note'),
             'localisation_nom' => $request->input('localisation_nom'),
             'localisation_adresse' => $request->input('localisation_adresse'),
-            'users_id' => Auth::user()->id
+            'users_id' => Auth::user()->id,
+            'publie' => $tmp
         ]);
 
         return redirect('event');
