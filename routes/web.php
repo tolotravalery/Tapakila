@@ -47,6 +47,7 @@ Route::group(['middleware' => 'web'], function () {
         Route::get('list/categorie/sous_categorie/{sous_menu}', 'DetailEventController@listEventSousMenu');
     });
 
+
 });
 
 // Registered and Activated User Routes
@@ -118,6 +119,8 @@ Route::group(['middleware' => ['auth', 'activated', 'currentUser']], function ()
         Route::post('checkout/save/{checkout}', 'Shopping\CheckoutController@save');
     });
 
+    Route::resource('ticket', 'TicketController');
+
 });
 
 // Registered, activated, and is admin routes.
@@ -179,6 +182,7 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin'], 'prefix' => '
             'deleted'
         ]
     ]);
+
     /*-------------------*/
 
 

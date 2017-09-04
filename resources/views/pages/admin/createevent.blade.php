@@ -67,6 +67,10 @@
                                 <div class="panel-body border-bottom">
                                     <h2>Details</h2>
                                     <div class="clearfix"></div>
+                                    @if(isset($event))
+                                        <p>{{$event[0]->title}}</p>
+                                    @endif
+
                                     <div class="form-group ">
                                         <label class="control-label ">
                                             <span>Titre : *</span>
@@ -105,9 +109,8 @@
 												</div>
 											</span>
                                     </div>
-
-
                                 </div>
+                                de
                                 <hr>
                                 <div class="panel-body border-bottom">
                                     <h2>Heures</h2>
@@ -120,7 +123,8 @@
                                                         <div class="input-group">
                                                             <div class="input-group-addon">
                                                                 <i class="fa fa-calendar"></i></div>
-                                                            <input class="form-control" id="date" name="date_debut" placeholder="MM/DD/YYYY" type="text"/>
+                                                            <input class="form-control" id="date" name="date_debut"
+                                                                   placeholder="MM/DD/YYYY" type="text"/>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -129,7 +133,8 @@
 														<span class="input-group-addon">
 															<span class="glyphicon glyphicon-time"></span>
 															</span>
-                                                        <input type="text" class="form-control" value="23:30" name="heure_debut">
+                                                        <input type="text" class="form-control" value="23:30"
+                                                               name="heure_debut">
 
                                                     </div>
                                                 </div>
@@ -153,7 +158,8 @@
 														<span class="input-group-addon">
 															<span class="glyphicon glyphicon-time"></span>
 															</span>
-                                                        <input type="text" class="form-control" value="23:30" name="heure_fin">
+                                                        <input type="text" class="form-control" value="23:30"
+                                                               name="heure_fin">
 
                                                     </div>
                                                 </div>
@@ -856,52 +862,59 @@
                         <div id="type_ticket">
                             <div class="com_contenu_type">
                                 <h2>Type des tickets</h2>
-                                <div class="ticket_type_contenu">
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <h2>Ticket régulier</h2>
-                                        </div>
-                                        <div class="col-lg-2">
-                                            <h2>10.00</h2>
-                                            <p>EUR</p>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <h2>
-                                                <div class="btn-group pull-right">
-                                                    <button type="button" class="btn btn-default">
+                                @if(isset($event))
+                                    @foreach($event[0]->tickets as $ticket)
+                                        <div class="ticket_type_contenu">
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <h2>{{$ticket->type}}</h2>
+                                                </div>
+                                                <div class="col-lg-2">
+                                                    <h2>{{$ticket->price}}</h2>
+                                                    <p>AR</p>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <h2>
+                                                        <div class="btn-group pull-right">
+                                                            <button type="button" class="btn btn-default">
                                                         <span class="glyphicon glyphicon-edit"
                                                               aria-hidden="true"></span>
-                                                        Edit
-                                                    </button>
-                                                    <button type="button"
-                                                            class="btn btn-default dropdown-toggle pull-right"
-                                                            data-toggle="dropdown" aria-haspopup="true"
-                                                            aria-expanded="false">
-                                                        <span class="caret"></span>
-                                                        <span class="sr-only">Toggle Dropdown</span>
-                                                    </button>
-                                                    <ul class="dropdown-menu menu_type">
-                                                        <li><a href="#"><span class="glyphicon glyphicon-chevron-up"
-                                                                              aria-hidden="true"></span> Déplacer vers
-                                                                le haut</a></li>
-                                                        <li><a href="#"><span class="glyphicon glyphicon-chevron-down"
-                                                                              aria-hidden="true"></span> Déplacer vers
-                                                                le bat</a></li>
-                                                        <li role="separator" class="divider"></li>
-                                                        <li><a href="#"><span class="glyphicon glyphicon-duplicate"
-                                                                              aria-hidden="true"></span> Dupliquer</a>
-                                                        </li>
-                                                    </ul>
+                                                                Edit
+                                                            </button>
+                                                            <button type="button"
+                                                                    class="btn btn-default dropdown-toggle pull-right"
+                                                                    data-toggle="dropdown" aria-haspopup="true"
+                                                                    aria-expanded="false">
+                                                                <span class="caret"></span>
+                                                                <span class="sr-only">Toggle Dropdown</span>
+                                                            </button>
+                                                            <ul class="dropdown-menu menu_type">
+                                                                <li><a href="#"><span
+                                                                                class="glyphicon glyphicon-chevron-up"
+                                                                                aria-hidden="true"></span> Déplacer
+                                                                        vers
+                                                                        le haut</a></li>
+                                                                <li><a href="#"><span
+                                                                                class="glyphicon glyphicon-chevron-down"
+                                                                                aria-hidden="true"></span> Déplacer vers
+                                                                        le bat</a></li>
+                                                                <li role="separator" class="divider"></li>
+                                                                <li><a href="#"><span
+                                                                                class="glyphicon glyphicon-duplicate"
+                                                                                aria-hidden="true"></span>
+                                                                        Dupliquer</a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </h2>
                                                 </div>
-                                            </h2>
+                                            </div>
+                                            <p>Nombre de billets: {{$ticket->number}}</p>
                                         </div>
-                                    </div>
-                                    <p>0 sold</p>
+                                    @endforeach
+                                @endif
 
-
-                                </div>
-
-                                <div class="ticket_type_contenu">
+                                {{--<div class="ticket_type_contenu">
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <h2>Régulier</h2>
@@ -943,7 +956,7 @@
                                     </div>
                                     <p>Nombre de billets: 100</p>
 
-                                </div>
+                                </div>--}}
                                 <a class="btn btn-primary btn-outline text-center center-block primary" role="button"
                                    onClick="changePage('div_ticket','a_type')">
                                     <i aria-hidden="true"></i> <span class="glyphicon glyphicon-plus"
@@ -1384,148 +1397,140 @@
 
                     <!----------------------------------création-ticket------------------------------------->
                     <div id="div_ticket" class="hide">
-
+                        {!! Form::open(['id' => 'ticket-form', 'route' => 'ticket.store','role' => 'ticket', 'method' => 'POST'] ) !!}
                         <div class="com_contenu_type1">
                             <div class="ticket_details">
                                 <h2>Détails du type de ticket</h2><br/>
-                                <form>
-                                    <div class="form-group">
-                                        <label for="usr">Nom du type de ticket:*</label>
-                                        <input type="text" class="form-control" id="usr">
-                                        <span class="help-block">
+
+                                {{ csrf_field() }}
+                                <div class="form-group">
+                                    <label for="usr">Nom du type de ticket:*</label>
+                                    {!! Form::text('type', null, ['class' => 'form-control', 'id' => 'ticket_type', 'required', 'autofocus']) !!}
+                                    <span class="help-block">
 					  Par exemple. "Ticket régulier", "Early Bird", "Student"
 					  </span>
 
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="usr">La description</label>
-                                        <input type="text" class="form-control" id="usr">
-                                        <span class="help-block">
-					  Par exemple. "Vendu jusqu'au 23 juin" ou "Préparez-vous à montrer votre carte étudiante"
-					  </span><br/>
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <label>
-                                                    Nombre maximum de billets</label>
-                                                <div class="input-group group chiffre1">
-                                                    <input type="number" name="ticket_limit" value="0.01"
-                                                           id="ticket_limit" class="form-control" placeholder="∞"
-                                                           min="0" step="0.01">
-                                                    <span class="input-group-addon">AR</span>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6">
+                                </div>
+                                <div class="form-group">
+                                    <label for="usr">La description</label>
+                                    <input type="text" class="form-control" id="usr">
+                                    <span class="help-block">
+					                    Par exemple. "Vendu jusqu'au 23 juin" ou "Préparez-vous à montrer votre carte étudiante"
+					                </span>
+                                    <br/>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <label>
+                                                Nombre maximum de billets</label>
+                                            <div class="input-group group chiffre1">
+                                                {!! Form::number('price', null, ['class' => 'form-control', 'id' => 'ticket_price','placeholder'=>'∞','step'=>'0.01','required', 'autofocus']) !!}
+                                                <span class="input-group-addon">AR</span>
                                             </div>
                                         </div>
-                                        <p class="help-block">Prix ​​de l'utilisateur final par billet incluant <a
-                                                    href="index.html" target="_blank" class="aa">Frais Tapakila</a> Et
-                                            TVA, le cas échéant</p>
-
-
+                                        <div class="col-lg-6">
+                                        </div>
                                     </div>
-                                </form>
-
+                                    <p class="help-block">Prix ​​de l'utilisateur final par billet incluant <a
+                                                href="index.html" target="_blank" class="aa">Frais Tapakila</a> Et
+                                        TVA, le cas échéant</p>
+                                </div>
                             </div>
                         </div>
                         <div class="com_contenu_type2">
                             <h2>Avancée</h2><br/>
-                            <form>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <label>
-                                            Nombre maximum de billets</label>
-                                        <div class="input-group group chiffre1">
-                                            <input type="number" name="ticket_limit"
-                                                   id="ticket_limit" class="form-control" placeholder=""
-                                                   min="0">
-                                            <span class="input-group-addon">Tickets</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <label>
+                                        Nombre maximum de billets
+                                    </label>
+                                    <div class="input-group group chiffre1">
+                                        {!! Form::number('number', null, ['class' => 'form-control', 'id' => 'ticket_number', 'min' => '0','required', 'autofocus']) !!}
+                                        <span class="input-group-addon">Tickets</span>
                                     </div>
                                 </div>
-                                <p class="help-block">Le nombre maximum de tickets pour l'événement entier est défini
-                                    sur "15".</p>
-                                <p class="help-block">Ici, vous pouvez définir une limite supplémentaire pour ce type de
-                                    ticket uniquement. Il sera caché à partir de la page d'achat une fois épuisé</p>
-                                <br/>
-                                <label>Disponible entre les dates, y compris:</label>
-                                <div class="row" id="event-duration">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <div class="input-group">
-                                                    <div class="input-group-addon">
-                                                        <i class="fa fa-calendar"></i></div>
-                                                    <input class="form-control" id="date" name="date"
-                                                           placeholder="MM/DD/YYYY" type="text"/>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <div class="input-group">
-                                                    <div class="input-group-addon">
-                                                        <i>à</i></div>
-                                                    <input class="form-control" id="date" name="date"
-                                                           placeholder="MM/DD/YYYY" type="text"/>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
+                                <div class="col-lg-6">
                                 </div>
-                                <p class="help-block">Toute la vente de billets d'événement commence "Quand je publie
-                                    cet événement" et finit "Seulement lorsque tous les billets ont été vendus"</p>
-                                <p class="help-block">Ici, vous pouvez définir une limite supplémentaire pour ce type de
-                                    ticket uniquement.</p><br/>
+                            </div>
+                            <p class="help-block">Le nombre maximum de tickets pour l'événement entier est défini sur
+                                "15".</p>
+                            <p class="help-block">Ici, vous pouvez définir une limite supplémentaire pour ce type de
+                                ticket uniquement. Il sera caché à partir de la page d'achat une fois épuisé</p>
+                            <br/>
+                            <label>Disponible entre les dates, y compris:</label>
+                            <div class="row" id="event-duration">
                                 <div class="row">
-                                    <div class="col-lg-6">
+                                    <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="usr">Code de réduction</label>
-                                            <input type="text" class="form-control" id="usr">
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-calendar"></i>
+                                                </div>
+                                                {!! Form::text('date_debut_vente', null, ['class' => 'form-control', 'id' => 'date','placeholder'=>'MM/DD/YYYY','required', 'autofocus']) !!}
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6">
-                                        <label>Prix ​​discount</label>
-                                        <div class="input-group group chiffre">
-                                            <input type="number" name="ticket_limit"
-                                                   id="ticket_limit" class="form-control" placeholder=""
-                                                   min="0" step="0.01">
-                                            <span class="input-group-addon">AR</span>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <i>à</i>
+                                                </div>
+                                                {!! Form::text('date_fin_vente', null, ['class' => 'form-control', 'id' => 'date','placeholder'=>'MM/DD/YYYY','required', 'autofocus']) !!}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="usr">Prix ​​discount</label>
-                                    <input type="text" class="form-control" id="usr">
+                            </div>
+                            <p class="help-block">Toute la vente de billets d'événement commence "Quand je publie
+                                cet événement" et finit "Seulement lorsque tous les billets ont été vendus"</p>
+                            <p class="help-block">Ici, vous pouvez définir une limite supplémentaire pour ce type de
+                                ticket uniquement.</p>
+                            <br/>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="usr">Code de réduction</label>
+                                        <input type="text" class="form-control" id="usr">
+                                    </div>
                                 </div>
-                                <label>Commande manuelle</label>
-                                <div class="checkbox">
-                                    <label><input type="checkbox" value="">Ce type de billet est temporairement non
-                                        vendu</label>
+                                <div class="col-lg-6">
+                                    <label>Prix ​​discount</label>
+                                    <div class="input-group group chiffre">
+                                        <input type="number" name="ticket_limit"
+                                               id="ticket_limit" class="form-control" placeholder=""
+                                               min="0" step="0.01">
+                                        <span class="input-group-addon">AR</span>
+                                    </div>
                                 </div>
-
-
+                            </div>
+                            <div class="form-group">
+                                <label for="usr">Prix ​​discount</label>
+                                <input type="text" class="form-control" id="usr">
+                            </div>
+                            <label>Commande manuelle</label>
+                            <div class="checkbox">
+                                <label><input type="checkbox" value="">Ce type de billet est temporairement non
+                                    vendu</label>
+                            </div>
                         </div>
                         <div class="com_contenu_type_foot">
-                            <button type="button" class="btn btn-danger bout"
-                                    onClick="changePage('div_type', 'a_type')">Enregistrer
+                            <button type="submit" class="btn btn-danger bout"
+                            {{--onClick="changePage('div_type', 'a_type')--}}">Enregistrer
                             </button>
                             <button type="button" class="btn btn-danger bout1"
                                     onClick="changePage('div_type', 'a_type')">Annuler
                             </button>
-
                         </div>
-                        </form>
-
-
                     </div>
-                    <!----------------------------------création ticket-end------------------------------------->
+                    @if(isset($event))
+                        {!! Form::hidden('events_id', $event[0]->id, ['class' => 'form-control']) !!}
+                    @endif
 
-                    <!---------------------------ticket-end--------------------------------------------------------------------------------------->
+                    {!! Form::close() !!}
                 </div>
+                <!----------------------------------création ticket-end------------------------------------->
 
+                <!---------------------------ticket-end--------------------------------------------------------------------------------------->
                 <!-- menu droit start -->
                 <div class="col-lg-3 col-sm-3">
                     <ul class="navtab">
@@ -1534,29 +1539,33 @@
                         </li>
                         <li><a href="#" id="a_commandes"
                                onClick="changePage('div_commandes', 'a_commandes')">Commandes</a></li>
-                        <li><a href="#" id="a_valideTicket" onClick="changePage('div_valideTicket', 'a_valideTicket')">Tickets
+                        <li><a href="#" id="a_valideTicket"
+                               onClick="changePage('div_valideTicket', 'a_valideTicket')">Tickets
                                 Validés</a></li>
                         <li class="categorimenu"><strong>Editer</strong></li>
-                        <li><a href="#" id="a_details" class="select" onClick="changePage('div_details', 'a_details')">Détails</a>
+                        <li><a href="#" id="a_details" class="select"
+                               onClick="changePage('div_details', 'a_details')">Détails</a>
                         </li>
                         <li><a href="#" id="a_type" onClick="changePage('div_type', 'a_type')">Types de Ticket &amp;
                                 prix</a></li>
                         <li><a href="#" id="a_siteweb" onClick="changePage('div_siteweb', 'a_siteweb')">Site web</a>
                         </li>
                         <li><a href="#" id="a_pdf" onClick="changePage('div_pdf', 'a_pdf')">PDF</a></li>
-                        <li><a href="#" id="a_cpersonalize" onClick="changePage('div_cpersonalize', 'a_cpersonalize')">Champs
+                        <li><a href="#" id="a_cpersonalize"
+                               onClick="changePage('div_cpersonalize', 'a_cpersonalize')">Champs
                                 additioneles</a></li>
                         <li class="categorimenu"><strong>Paramètre</strong></li>
-                        <li><a href="#" id="a_paiement" onClick="changePage('div_paiement', 'a_paiement')">Méthodes de
+                        <li><a href="#" id="a_paiement" onClick="changePage('div_paiement', 'a_paiement')">Méthodes
+                                de
                                 payements</a></li>
                     </ul>
                 </div>
 
             </div>
 
-
-            <!-- End Page -->
-
+        </div>
+        </div>
+        <!-- End Page -->
     </section>
 @endsection
 

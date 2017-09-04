@@ -4,6 +4,7 @@
     <section id="sectioncategorie" class="clearfix">
         <div class="container">
             <ul class="clearfix">
+                <li><a href="{{url('/')}}">TOUS</a></li>
                 @foreach($menus as $menu)
                     <li><a href="{{url('/events/list/categorie',[$menu->id])}}">{{strtoupper($menu->name)}}</a></li>
                 @endforeach
@@ -226,21 +227,26 @@
                     @foreach ($interested as $event)
                         <div class="col-sm-6 col-md-4">
                             <div class="thumbnail">
-                                <img src="{{ url('img/'.$event->image) }}" alt="{{$event->title}}">
+                                <a href="{{url('events/show',[$event->id])}}">
+                                    <div class="mg-image">
+                                        <img src="{{ url('img/'.$event->image.'') }}">
+                                    </div>
+                                </a>
                                 <div class="caption">
-                                    <h3><a href="{{ url('events/show',[$event->id]) }}">{{$event->title}}</a></h3>
-                                    <p>{{$event->additional_note}}</p><br/>
+                                    <h3>
+                                        <a href="{{url('events/show',[$event->id])}}">{{ucfirst($event->title)}}</a>
+                                    </h3>
+                                    <p>
+                                        {{ucfirst($event->additional_note)}}
+                                    </p><br/>
                                     <div>
-                                        <a href="indexnonvide.html">
-                                            <div class="price"><i class="glyphicon glyphicon-time time"></i>
-                                                {{ \Carbon\Carbon::parse($event->date_debut_envent)->format('d M Y')}}
-                                                à partir
-                                                de {{ \Carbon\Carbon::parse($event->date_debut_envent)->format('H:i')}}
-                                            </div>
-                                            <div class="date"><i class="glyphicon glyphicon-map-marker position"></i>
-                                                {{$event->localisation_nom}} {{$event->localisation_adresse}}
-                                            </div>
-                                        </a>
+                                        <div class="price"><i
+                                                    class="glyphicon glyphicon-time time"></i>
+                                            {{ \Carbon\Carbon::parse($event->date_debut_envent)->format('d M Y')}}
+                                        </div>
+                                        <div class="date"><i
+                                                    class="glyphicon glyphicon-map-marker position"></i> {{ ucfirst($event->localisation_nom) }} {{ ucfirst($event->localisation_adresse) }}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
