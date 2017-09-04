@@ -83,6 +83,7 @@
                             @role('admin')
                             <li><a href="{{url('/')}}/admin/menu">Menus</a></li>
                             <li><a href="{{url('/')}}/admin/sousmenu">Sous menus</a></li>
+                            <li><a href="{{url('/')}}/admin/listevent">List events</a></li>
                             @endrole
                             <li><a href="{{url('/')}}/event">Events</a></li>
                             <li>

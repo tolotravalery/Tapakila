@@ -66,6 +66,27 @@ class EventController extends Controller
         //return View('/welcome', compact('menus', 'sousmenus'));
         return view('pages.admin.createevent', compact('menus', 'sousmenus'));
     }
+    public function listEvent()
+    {
+        $events = Events::all();
+        return view('pages.admin.listeevent1', compact( 'events'));
+    }
+    public function updatePublie(Request $request){
+        $ev=Events::find($request->input('id'));
+        //$ev->publie=$request->input('active');
+        //$this->listEvent();
+        $rep=$request->input('active');
+        if(strcmp("on",$rep)==0){
+            $ev->publie=true;
+        }
+        else{
+            $ev->publie=false;
+        }
+        $ev->save();
+        $events = Events::all();
+        return view('pages.admin.listeevent1', compact( 'events'));
+
+    }
 
     public function store(Request $request)
     {
