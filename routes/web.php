@@ -160,7 +160,8 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin'], 'prefix' => '
     Route::get('/sousmenus', 'SousmenuController@index')->name('sousmenus');
     Route::post('sousmenu', 'SousmenuController@store');
 
-    //Route::get('event', 'EventController@showEventForm')->name('event');
+    Route::get('listevent', 'EventController@listEvent')->name('listevent');
+    Route::post('updatePublie', 'EventController@updatePublie')->name('updatePublie');
 
     Route::resource('menus', 'MenuController', [
         'names' => [
