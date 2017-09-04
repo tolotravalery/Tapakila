@@ -22,6 +22,7 @@ class Events extends Model
         'localisation_nom',
         'localisation_adresse',
         'publie',
+        'users_id',
     ];
 
     public function tickets()
@@ -32,5 +33,9 @@ class Events extends Model
     public function sous_menus()
     {
         return $this->belongsTo('App\Models\Sous_menus');
+    }
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
     }
 }
