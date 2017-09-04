@@ -14,7 +14,7 @@ class TicketController extends Controller
             'number' => $request->input('number'),
             'date_debut_vente' => new \DateTime($request->input('date_debut_vente')),
             'date_fin_vente' => new \DateTime($request->input('date_fin_vente')),
-            'events_id' => 32]);
+            'events_id' => $request->input('events_id')]);
         return redirect('event');
     }
 }

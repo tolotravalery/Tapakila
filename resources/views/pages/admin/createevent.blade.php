@@ -67,6 +67,10 @@
                                 <div class="panel-body border-bottom">
                                     <h2>Details</h2>
                                     <div class="clearfix"></div>
+                                    @if(isset($event))
+                                        <p>{{$event[0]->title}}</p>
+                                    @endif
+
                                     <div class="form-group ">
                                         <label class="control-label ">
                                             <span>Titre : *</span>
@@ -105,9 +109,8 @@
 												</div>
 											</span>
                                     </div>
-
-
                                 </div>
+                                de
                                 <hr>
                                 <div class="panel-body border-bottom">
                                     <h2>Heures</h2>
@@ -120,7 +123,8 @@
                                                         <div class="input-group">
                                                             <div class="input-group-addon">
                                                                 <i class="fa fa-calendar"></i></div>
-                                                            <input class="form-control" id="date" name="date_debut" placeholder="MM/DD/YYYY" type="text"/>
+                                                            <input class="form-control" id="date" name="date_debut"
+                                                                   placeholder="MM/DD/YYYY" type="text"/>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -129,7 +133,8 @@
 														<span class="input-group-addon">
 															<span class="glyphicon glyphicon-time"></span>
 															</span>
-                                                        <input type="text" class="form-control" value="23:30" name="heure_debut">
+                                                        <input type="text" class="form-control" value="23:30"
+                                                               name="heure_debut">
 
                                                     </div>
                                                 </div>
@@ -153,7 +158,8 @@
 														<span class="input-group-addon">
 															<span class="glyphicon glyphicon-time"></span>
 															</span>
-                                                        <input type="text" class="form-control" value="23:30" name="heure_fin">
+                                                        <input type="text" class="form-control" value="23:30"
+                                                               name="heure_fin">
 
                                                     </div>
                                                 </div>
@@ -856,52 +862,59 @@
                         <div id="type_ticket">
                             <div class="com_contenu_type">
                                 <h2>Type des tickets</h2>
-                                <div class="ticket_type_contenu">
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <h2>Ticket régulier</h2>
-                                        </div>
-                                        <div class="col-lg-2">
-                                            <h2>10.00</h2>
-                                            <p>EUR</p>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <h2>
-                                                <div class="btn-group pull-right">
-                                                    <button type="button" class="btn btn-default">
+                                @if(isset($event))
+                                    @foreach($event[0]->tickets as $ticket)
+                                        <div class="ticket_type_contenu">
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <h2>{{$ticket->type}}</h2>
+                                                </div>
+                                                <div class="col-lg-2">
+                                                    <h2>{{$ticket->price}}</h2>
+                                                    <p>AR</p>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <h2>
+                                                        <div class="btn-group pull-right">
+                                                            <button type="button" class="btn btn-default">
                                                         <span class="glyphicon glyphicon-edit"
                                                               aria-hidden="true"></span>
-                                                        Edit
-                                                    </button>
-                                                    <button type="button"
-                                                            class="btn btn-default dropdown-toggle pull-right"
-                                                            data-toggle="dropdown" aria-haspopup="true"
-                                                            aria-expanded="false">
-                                                        <span class="caret"></span>
-                                                        <span class="sr-only">Toggle Dropdown</span>
-                                                    </button>
-                                                    <ul class="dropdown-menu menu_type">
-                                                        <li><a href="#"><span class="glyphicon glyphicon-chevron-up"
-                                                                              aria-hidden="true"></span> Déplacer vers
-                                                                le haut</a></li>
-                                                        <li><a href="#"><span class="glyphicon glyphicon-chevron-down"
-                                                                              aria-hidden="true"></span> Déplacer vers
-                                                                le bat</a></li>
-                                                        <li role="separator" class="divider"></li>
-                                                        <li><a href="#"><span class="glyphicon glyphicon-duplicate"
-                                                                              aria-hidden="true"></span> Dupliquer</a>
-                                                        </li>
-                                                    </ul>
+                                                                Edit
+                                                            </button>
+                                                            <button type="button"
+                                                                    class="btn btn-default dropdown-toggle pull-right"
+                                                                    data-toggle="dropdown" aria-haspopup="true"
+                                                                    aria-expanded="false">
+                                                                <span class="caret"></span>
+                                                                <span class="sr-only">Toggle Dropdown</span>
+                                                            </button>
+                                                            <ul class="dropdown-menu menu_type">
+                                                                <li><a href="#"><span
+                                                                                class="glyphicon glyphicon-chevron-up"
+                                                                                aria-hidden="true"></span> Déplacer
+                                                                        vers
+                                                                        le haut</a></li>
+                                                                <li><a href="#"><span
+                                                                                class="glyphicon glyphicon-chevron-down"
+                                                                                aria-hidden="true"></span> Déplacer vers
+                                                                        le bat</a></li>
+                                                                <li role="separator" class="divider"></li>
+                                                                <li><a href="#"><span
+                                                                                class="glyphicon glyphicon-duplicate"
+                                                                                aria-hidden="true"></span>
+                                                                        Dupliquer</a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </h2>
                                                 </div>
-                                            </h2>
+                                            </div>
+                                            <p>Nombre de billets: {{$ticket->number}}</p>
                                         </div>
-                                    </div>
-                                    <p>0 sold</p>
+                                    @endforeach
+                                @endif
 
-
-                                </div>
-
-                                <div class="ticket_type_contenu">
+                                {{--<div class="ticket_type_contenu">
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <h2>Régulier</h2>
@@ -943,7 +956,7 @@
                                     </div>
                                     <p>Nombre de billets: 100</p>
 
-                                </div>
+                                </div>--}}
                                 <a class="btn btn-primary btn-outline text-center center-block primary" role="button"
                                    onClick="changePage('div_ticket','a_type')">
                                     <i aria-hidden="true"></i> <span class="glyphicon glyphicon-plus"
@@ -1502,13 +1515,17 @@
                         </div>
                         <div class="com_contenu_type_foot">
                             <button type="submit" class="btn btn-danger bout"
-                                    {{--onClick="changePage('div_type', 'a_type')--}}">Enregistrer
+                            {{--onClick="changePage('div_type', 'a_type')--}}">Enregistrer
                             </button>
                             <button type="button" class="btn btn-danger bout1"
                                     onClick="changePage('div_type', 'a_type')">Annuler
                             </button>
                         </div>
                     </div>
+                    @if(isset($event))
+                        {!! Form::hidden('events_id', $event[0]->id, ['class' => 'form-control']) !!}
+                    @endif
+
                     {!! Form::close() !!}
                 </div>
                 <!----------------------------------création ticket-end------------------------------------->

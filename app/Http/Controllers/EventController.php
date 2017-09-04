@@ -61,69 +61,57 @@ class EventController extends Controller
     {
         $menus = Menus::orderBy('id', 'desc')->take(8)->get();
         $sousmenus = Sous_menus::orderBy('id', 'desc')->take(20)->get();
-        //$events=Events::find(1)->sous_menus()->;
-        //dd($events);
-        //return View('/welcome', compact('menus', 'sousmenus'));
-        return view('pages.admin.createevent', compact('menus', 'sousmenus'));
+        $event = Events::orderBy('id', 'desc')->take(1)->get();
+        return view('pages.admin.createevent', compact('menus', 'sousmenus', 'event'));
     }
+
     public function listEvent()
     {
         $events = Events::all();
-        return view('pages.admin.listeevent1', compact( 'events'));
+        return view('pages.admin.listeevent1', compact('events'));
     }
-    public function updatePublie(Request $request){
-        $ev=Events::find($request->input('id'));
+
+    public function updatePublie(Request $request)
+    {
+        $ev = Events::find($request->input('id'));
         //$ev->publie=$request->input('active');
         //$this->listEvent();
-        $rep=$request->input('active');
-        if(strcmp("on",$rep)==0){
-            $ev->publie=true;
-        }
-        else{
-            $ev->publie=false;
+        $rep = $request->input('active');
+        if (strcmp("on", $rep) == 0) {
+            $ev->publie = true;
+        } else {
+            $ev->publie = false;
         }
         $ev->save();
         $events = Events::all();
-        return view('pages.admin.listeevent1', compact( 'events'));
+        return view('pages.admin.listeevent1', compact('events'));
 
     }
 
     public function store(Request $request)
     {
-        $menus = Menus::orderBy('id', 'desc')->take(8)->get();
-        $sousmenus = Sous_menus::orderBy('id', 'desc')->take(20)->get();
-        $this->validator($request->all())->validate();
 
+        $this->validator($request->all())->validate();
 
         $image = $request->file('image');
         $filename = $image->getClientOriginalExtension();
-        $input['image'] = time().'.'.$image->getClientOriginalExtension();
+        $input['image'] = time() . '.' . $image->getClientOriginalExtension();
         $destinationPath = public_path('/img');
         $image->move($destinationPath, $input['image']);
-
-
-        $format = 'Y-m-d H:i:s';
-       // $datestring=$request->input('date_debut')." ".$request->input('heure_debut');
-       // dd($datestring);
-
-       // $daty= new \DateTime($datestring);
-
-       // $daty1= new \DateTime($datestring);
 
 
         $event = Events::create([
             'title' => $request->input('title'),
             'sous_menus_id' => $request->input('sousmenu'),
             'image' => $input['image'],
-            'date_debut_envent' =>  new \DateTime($request->input('date_debut')." ".$request->input('heure_debut')),
-            'date_fin_event' => new \DateTime($request->input('date_fin')." ".$request->input('heure_fin')),
+            'date_debut_envent' => new \DateTime($request->input('date_debut') . " " . $request->input('heure_debut')),
+            'date_fin_event' => new \DateTime($request->input('date_fin') . " " . $request->input('heure_fin')),
             'additional_note' => $request->input('note'),
             'localisation_nom' => $request->input('localisation_nom'),
             'localisation_adresse' => $request->input('localisation_adresse'),
             'users_id' => Auth::user()->id
         ]);
 
-        return view('pages.admin.createevent', compact('menus', 'sousmenus'));
-        //return response()->json(array('path' => $path), 200);
+        return redirect('event');
     }
 }
