@@ -42,14 +42,18 @@
                 <div class="col-md-3">
                     <div class="btn-group margin-bottom-5">
                         <div class="btn-group" role="group">
-                            <button type="button" class="btn btn-sm nonpublier dropdown-toggle" data-toggle="dropdown"
+                            <!--<button type="button" class="btn btn-sm nonpublier dropdown-toggle" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">
                                 Non publié
                                 <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu">
                                 <li><a class="btn-sm" href="#">Publié</a></li>
-                            </ul>
+                            </ul>-->
+                            <select class="form-control" id="publie" name="publie">
+                                <option value="false">Non publié</option>
+                                <option value="true">Publié</option>
+                            </select>
                         </div>
                     </div>
                     <a class="btn btn-sm btn-default btn-aperçu " href="#" target="_blank">Aperçu</a>
@@ -60,16 +64,13 @@
             <div class="row">
                 <div class="col-lg-9 col-sm-9">
                     <div id="div_details">
-                        <form enctype="multipart/form-data" class="form-horizontal" role="form" method="POST"
-                              action="{{ route('event') }}">
+                        <form enctype="multipart/form-data" class="form-horizontal" role="form" method="POST" action="{{ route('event') }}">
                             {{ csrf_field() }}
                             <div class="panel panel-content">
                                 <div class="panel-body border-bottom">
                                     <h2>Details</h2>
+                                    <input type="hidden" id="huhu" name="publie">
                                     <div class="clearfix"></div>
-                                    @if(isset($event))
-                                        <p>{{$event[0]->title}}</p>
-                                    @endif
 
                                     <div class="form-group ">
                                         <label class="control-label ">
@@ -110,7 +111,6 @@
 											</span>
                                     </div>
                                 </div>
-                                de
                                 <hr>
                                 <div class="panel-body border-bottom">
                                     <h2>Heures</h2>
@@ -275,7 +275,7 @@
                                     <h2>Organisateur</h2>
                                     <div class="form-group">
                                         {{ Auth::user()->name }}
-                                        <a class="btn btn-default editer" target="_blank" href="#">Editer</a>
+                                        <a class="btn btn-default editer" target="_blank" href="{{url('/')}}/profile/{{ Auth::user()->name }}/edit">Editer</a>
                                     </div>
                                 </div>
                                 <!-- organisateur end -->
@@ -1570,12 +1570,32 @@
 @endsection
 
 @section('footer_scripts')
-    <script typae="text/javascript">
-        $('.dropdown-menu ul li a').click(function (event) {
-            event.stopPropagation();
-            $(this).parent().toggleClass('active').siblings().removeClass('active');
-            var target = $(this).attr('href');
-            $('ul li .tab-content ' + target).toggleClass(active in);
+    <script>
+        $(document).ready(function() {
+
+            $('#publie').change(function() {
+                valeur = $(this).val();
+               /* var huhu= $('#publie').val( valeur );
+                console.log(huhu);*/
+                var huhu = $('#publie').val(valeur);
+                //console.log(huhu);
+
+            });
+
+        });
+
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            $('#publie').change(function() {
+                var valeur = $(this).val();
+                $('#publie').val( valeur );
+                //console.log(valeur);
+                document.getElementById("huhu").value = valeur;
+            });
+
         });
     </script>
     <script>
