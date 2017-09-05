@@ -90,11 +90,11 @@
                                                     <div class="mg-image">
                                                         <img src="{{ url('img/'.$event->image.'') }}">
                                                     </div>
-                                                    <div class="caption">
+                                                    <div class="caption taille">
                                                         <h3>
                                                             <a href="{{url('events/show',[$event->id])}}">{{$event->title}}</a>
                                                         </h3>
-                                                        <p style="text-align: justify">
+                                                        <p style="text-align: justify;">
                                                             {{ str_limit(ucfirst($event->additional_note), $limit = 40, $end = '...') }}
                                                         </p>
                                                         <div>
@@ -112,7 +112,6 @@
 
                                                     </div>
                                                 </a>
-
                                             </div>
                                         </div>
                                     @endif
