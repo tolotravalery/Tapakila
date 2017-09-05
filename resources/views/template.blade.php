@@ -41,8 +41,7 @@
 
 
                 <li>
-                    <button type="" class="btn btn-success event"><span class="ico"></span><span
-                                class="descr">AJOUTER<br/> VOTRE EVENEMENT</span></button>
+                    <button type="" class="btn btn-success event" onclick="javascript:location.href='{{url('/')}}/event'"><span class="ico"></span><span class="descr">AJOUTER<br/> VOTRE EVENEMENT</span></button>
                 </li>
                 <li><a href="{{ url('/shopping/cart') }}">Panier @if (!Auth::guest())
                             ({{ Cart::instance('default')->count(false) }}) @endif</a>
