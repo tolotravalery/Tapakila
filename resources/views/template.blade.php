@@ -105,7 +105,11 @@
                         <ul class="dropdown-menu search" id="menu3" aria-labelledby="drop6">
 
                             @role('admin')
-                            <li><a href="{{ url('/admin/home') }}"> Admin</a></li>
+                            <li {{ Request::is('users', 'users/' . Auth::user()->id, 'users/' . Auth::user()->id . '/edit') ? 'class=active' : null }}>{!! HTML::link(url('/admin/users'), Lang::get('titles.adminUserList')) !!}</li>
+                            <li {{ Request::is('users/create') ? 'class=active' : null }}>{!! HTML::link(url('/admin/users/create'), Lang::get('titles.adminNewUser')) !!}</li>
+                            <li><a href="{{url('/')}}/admin/menu">Menus</a></li>
+                            <li><a href="{{url('/')}}/admin/sousmenu">Sous menus</a></li>
+                            <li><a href="{{url('/')}}/admin/listevent">List events</a></li>
                             @endrole
                             <li {{ Request::is('profile/'.Auth::user()->name, 'profile/'.Auth::user()->name . '/edit') ?  : null }}>
                             {!! HTML::link(url('/profile/'.Auth::user()->name.'/edit'), trans('titles.profile')) !!}

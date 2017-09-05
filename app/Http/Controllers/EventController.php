@@ -118,7 +118,7 @@ class EventController extends Controller
             'localisation_nom' => $request->input('localisation_nom'),
             'localisation_adresse' => $request->input('localisation_adresse'),
             'users_id' => Auth::user()->id,
-            'publie' => $tmp
+            'publie_organisateur' => $tmp
         ]);
 
         return redirect('event');
