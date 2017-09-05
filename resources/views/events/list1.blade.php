@@ -31,7 +31,38 @@
                 <div class="categorie-item">
                     <h2 class="couleur_mot">{{ucfirst($sous_menu_event->name)}}</h2>
                     <div class="row">
-                        @if($sous_menu_event->events()->count() ==0)
+                        @if($events->count() > 0)
+                            @foreach($events as $event)
+                                <div class="col-sm-6 col-md-4">
+                                    <div class="thumbnail">
+                                        <a href="{{url('events/show',[$event->id])}}">
+                                            <div class="mg-image">
+                                                <img src="{{ url('img/'.$event->image.'') }}">
+                                            </div>
+                                        </a>
+                                        <div class="caption">
+                                            <h3>
+                                                <a href="{{url('events/show',[$event->id])}}">{{ucfirst($event->title)}}</a>
+                                            </h3>
+                                            <p style="text-align: justify;">
+                                                {{ str_limit(ucfirst($event->additional_note), $limit = 40, $end = '...') }}
+                                            </p>
+                                            <div>
+
+                                                <div class="price"><i
+                                                            class="glyphicon glyphicon-time time"></i>
+                                                    {{ \Carbon\Carbon::parse($event->date_debut_envent)->format('d M Y')}}
+                                                </div>
+                                                <div class="date"><i
+                                                            class="glyphicon glyphicon-map-marker position"></i> {{ ucfirst($event->localisation_nom) }} {{ ucfirst($event->localisation_adresse) }}
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        @else
                             <div class="bg-custom">
                                 <h2 class="text-center"><strong>Pas d'évènement ajoutés récements</strong></h2>
                                 <p class="text-center"><strong>Inscrivez-vous dès maintenant, pour ne pas rater
@@ -96,37 +127,6 @@
                                     </ul>
                                 </div>
                             </div>
-                        @else
-                            @foreach($sous_menu_event->events as $event)
-                                @if($event->publie == true && \Carbon\Carbon::parse($event->date_debut_envent)->isFuture() )
-                                    <div class="col-sm-6 col-md-4">
-                                        <div class="thumbnail">
-                                            <a href="{{url('events/show',[$event->id])}}">
-                                                <div class="mg-image">
-                                                    <img src="{{ url('img/'.$event->image.'') }}">
-                                                </div>
-                                            </a>
-                                            <div class="caption">
-                                                <h3>
-                                                    <a href="{{url('events/show',[$event->id])}}">{{ucfirst($event->title)}}</a>
-                                                </h3>
-                                                <p>{{ucfirst($event->additional_note)}}</p><br/>
-                                                <div>
-
-                                                    <div class="price"><i
-                                                                class="glyphicon glyphicon-time time"></i>
-                                                        {{ \Carbon\Carbon::parse($event->date_debut_envent)->format('d M Y')}}
-                                                    </div>
-                                                    <div class="date"><i
-                                                                class="glyphicon glyphicon-map-marker position"></i> {{ ucfirst($event->localisation_nom) }} {{ ucfirst($event->localisation_adresse) }}
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endif
-                            @endforeach
                         @endif
                     </div>
                 </div>

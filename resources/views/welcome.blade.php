@@ -94,7 +94,9 @@
                                                         <h3>
                                                             <a href="{{url('events/show',[$event->id])}}">{{$event->title}}</a>
                                                         </h3>
-                                                        <p>{{$event->additional_note}}</p><br/>
+                                                        <p style="text-align: justify">
+                                                            {{ str_limit(ucfirst($event->additional_note), $limit = 40, $end = '...') }}
+                                                        </p>
                                                         <div>
 
                                                             <div class="price"><i
