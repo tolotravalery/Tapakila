@@ -53,13 +53,13 @@
                                     <th class="hidden-sm hidden-xs hidden-md">Date début</th>
                                     <th class="hidden-sm hidden-xs hidden-md">Date fin</th>
                                     <th class="hidden-sm hidden-xs hidden-md">Localisation</th>
+                                    <th class="hidden-sm hidden-xs hidden-md">Publié par l'organisateur</th>
                                     <th class="hidden-sm hidden-xs hidden-md">Publié</th>
                                     <th>Actions</th>
-                                    <th></th>
-                                    <th></th>
 
                                 </tr>
                                 </thead>
+                                <tbody>
                                 @foreach($events as $ev)
 
                                     <tr>
@@ -70,14 +70,22 @@
                                         <td class="hidden-sm hidden-xs hidden-md">{{$ev->sous_menus->name}}</td>
                                         <td class="hidden-sm hidden-xs hidden-md">{{$ev->date_debut_envent}}</td>
                                         <td class="hidden-sm hidden-xs hidden-md">{{$ev->date_fin_event}}</td>
-                                        <td class="hidden-sm hidden-xs hidden-md">{{$ev->localisation_nom}};{{$ev->localisation_adresse}}</td>
+                                        <td class="hidden-sm hidden-xs hidden-md">{{$ev->localisation_nom}}
+                                            ;{{$ev->localisation_adresse}}</td>
+                                        <td class="hidden-sm hidden-xs hidden-md">
+                                            <?php
+                                            if (strcmp($ev->publie_organisateur, "0") == 0) echo "Non publié";
+                                            else echo "Publié";
+                                            ?>
+                                        </td>
                                         <?php if($ev->publie == true):?>
                                         <td><input type="checkbox" name="active" checked></td>
                                         <?php else: ?>
                                         <td><input type="checkbox" name="active"></td>
                                         <?php endif;?>
                                         <td>
-                                            <button class="btn btn-sm btn-success btn-block" data-toggle="tooltip"title="Show">
+                                            <button class="btn btn-sm btn-success btn-block" data-toggle="tooltip"
+                                                    title="Show">
                                                 <span class="hidden-xs hidden-sm">Update</span>
                                             </button>
                                         </td>
@@ -86,9 +94,9 @@
 
 
 
-                                    @endforeach
+                                @endforeach
 
-                                    </tbody>
+                                </tbody>
                             </table>
                         </div>
                     </div>
@@ -96,11 +104,12 @@
             </div>
         </div>
     </div>
-
     @include('modals.modal-delete')
-    @if (($ev->count()) > 10)
+    @if (count($events) > 10)
         @include('scripts.datatables')
     @endif
     @include('scripts.delete-modal-script')
     @include('scripts.save-modal-script')
+@endsection
+@section('footer')
 @endsection

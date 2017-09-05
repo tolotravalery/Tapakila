@@ -15,7 +15,7 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 @role('admin')
-                <li role="presentation" class="dropdown connexion">
+                <!--<li role="presentation" class="dropdown connexion">
 
                     <a href="#" class="dropdown-toggle" id="drop6" data-toggle="dropdown" role="button"
                        aria-haspopup="true" aria-expanded="false"> Admin
@@ -31,7 +31,7 @@
                         <li {{ Request::is('routes') ? 'class=active' : null }}>{!! HTML::link(url('/admin/routes'), Lang::get('titles.adminRoutes')) !!}</li>
                     </ul>
 
-                </li>
+                </li>-->
                 @endrole
             </ul>
 
@@ -81,6 +81,8 @@
                             {{ trans('profile.editAccountTitle') }}-->
                             </li>
                             @role('admin')
+                            <li {{ Request::is('users', 'users/' . Auth::user()->id, 'users/' . Auth::user()->id . '/edit') ? 'class=active' : null }}>{!! HTML::link(url('/admin/users'), Lang::get('titles.adminUserList')) !!}</li>
+                            <li {{ Request::is('users/create') ? 'class=active' : null }}>{!! HTML::link(url('/admin/users/create'), Lang::get('titles.adminNewUser')) !!}</li>
                             <li><a href="{{url('/')}}/admin/menu">Menus</a></li>
                             <li><a href="{{url('/')}}/admin/sousmenu">Sous menus</a></li>
                             <li><a href="{{url('/')}}/admin/listevent">List events</a></li>

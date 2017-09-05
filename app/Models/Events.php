@@ -21,8 +21,9 @@ class Events extends Model
         'additional_note',
         'localisation_nom',
         'localisation_adresse',
-        'publie',
+        'publie_organisateur',
         'users_id',
+        'publie',
     ];
 
     public function tickets()

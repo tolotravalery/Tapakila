@@ -1,8 +1,12 @@
-@extends("template")
+@extends('layouts.app')
 
-@section('template_linked_css')
-
+@section('template_title')
+    Welcome {{ Auth::user()->name }}
 @endsection
+
+@section('head')
+@endsection
+
 
 @section('content')
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css">
@@ -123,7 +127,7 @@
                                         </td>
                                         <td>
                                             <a class="btn btn-sm btn-success btn-block"
-                                               href="{{ URL::to('users/' . $user->id) }}" data-toggle="tooltip"
+                                               href="{{ URL::to('admin/users/' . $user->id) }}" data-toggle="tooltip"
                                                title="Show">
                                                 <i class="fa fa-eye fa-fw" aria-hidden="true"></i> <span
                                                         class="hidden-xs hidden-sm">Show</span><span
@@ -132,7 +136,7 @@
                                         </td>
                                         <td>
                                             <a class="btn btn-sm btn-info btn-block"
-                                               href="{{ URL::to('users/' . $user->id . '/edit') }}"
+                                               href="{{ URL::to('admin/users/' . $user->id . '/edit') }}"
                                                data-toggle="tooltip" title="Edit">
                                                 <i class="fa fa-pencil fa-fw" aria-hidden="true"></i> <span
                                                         class="hidden-xs hidden-sm">Edit</span><span
@@ -156,4 +160,6 @@
     @endif
     @include('scripts.delete-modal-script')
     @include('scripts.save-modal-script')
+@endsection
+@section('footer')
 @endsection
