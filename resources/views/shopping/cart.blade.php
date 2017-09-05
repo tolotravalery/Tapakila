@@ -23,6 +23,15 @@
             </ul>
         </div>
     </section>
+    <br>
+    <section  class="clearfix">
+        <div class="container">
+            <ul id="breadcrumbs-one">
+                <li><a href="">Acceuil</a></li>
+                <li><a href="">Panier</a></li>
+            </ul>
+        </div>
+    </section>
     <section>
         <div class="container">
             @if (sizeof(Cart::content()) > 0)
