@@ -109,9 +109,10 @@
                                                         <h3>
                                                             <a href="{{url('events/show',[$event->id])}}">{{ucfirst($event->title)}}</a>
                                                         </h3>
-                                                        <p>
-                                                            {{ucfirst($event->additional_note)}}
-                                                        </p><br/>
+                                                        <p style="text-align: justify;">
+                                                            {{ str_limit(ucfirst($event->additional_note), $limit = 40, $end = '...') }}
+                                                        </p>
+
                                                         <div>
                                                             <div class="price"><i
                                                                         class="glyphicon glyphicon-time time"></i>

@@ -74,7 +74,7 @@
                         <div class="row hier1">
                             <div class="col-lg-6 ">
                                 <div class="thumbnail det-picture">
-                                    <img src="{{ url('img/'.$event->image) }}">
+                                    <img src="{{ url('img/'.$event->image) }}" class="detail_picture">
                                 </div>
                             </div>
                             <div class="col-lg-6">

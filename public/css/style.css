@@ -1654,7 +1654,8 @@ input[type="file"] {
     -o-transition: all 1s ease; /* IE 9 */
     -ms-transition: all 1s ease; /* Opera */
     transition: all 1s ease;
-    max-width: 100%;
+    width: 100%;
+    height: 200px;
 }
 
 .mg-image:hover img {
@@ -1777,6 +1778,10 @@ input[type="file"] {
     margin-top: 27px;
     border: none;
 }
+.detail_picture{
+    width: 438px;
+    height: 225px !important;
+}
 
 .div_style {
     border-top: 1px solid #bfabab;
@@ -1868,6 +1873,9 @@ input[type="file"] {
 .remarque_details {
     background-color: #fefcdb;
     margin-left: 5px;
+    margin-right: 2px;
+    padding-left: 17px;
+    padding-right: 18px;
 }
 
 .plan_detail {
