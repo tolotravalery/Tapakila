@@ -38,8 +38,7 @@
             <ul class="nav navbar-nav navbar-right">
 
                 <li>
-                    <button type="" class="btn btn-success event"><span class="ico"></span><span
-                                class="descr">AJOUTER<br/> VOTRE EVENEMENT</span></button>
+                    <button type="" class="btn btn-success event" onclick="javascript:location.href='{{url('/')}}/event'"><span class="ico"></span><span class="descr">AJOUTER<br/> VOTRE EVENEMENT</span></button>
                 </li>
                 <li><a href="#">Panier</a></li>
                 <li role="presentation" class="dropdown">
