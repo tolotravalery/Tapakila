@@ -92,7 +92,7 @@
                     </div>
                 @else
                     @foreach($menu_event->sousmenus as $sousMenu)
-                        @if($sousMenu->events()->count() > 0)
+                        @if($sousMenu->events()->where('publie','=','1')->where('date_debut_envent','>',date('Y-m-d H:i:s'))->count() > 0)
                             <div class="categorie-item">
                                 <h2 class="couleur_mot">{{ucfirst($sousMenu->name)}}</h2>
                                 <div class="row">
@@ -112,7 +112,6 @@
                                                         <p style="text-align: justify;">
                                                             {{ str_limit(ucfirst($event->additional_note), $limit = 40, $end = '...') }}
                                                         </p>
-
                                                         <div>
                                                             <div class="price"><i
                                                                         class="glyphicon glyphicon-time time"></i>
