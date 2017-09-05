@@ -162,6 +162,7 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin'], 'prefix' => '
 
     Route::get('listevent', 'EventController@listEvent')->name('listevent');
     Route::post('updatePublie', 'EventController@updatePublie')->name('updatePublie');
+    Route::post('updatePublieAll', 'EventController@updatePublieAll')->name('updatePublieAll');
 
     Route::resource('menus', 'MenuController', [
         'names' => [

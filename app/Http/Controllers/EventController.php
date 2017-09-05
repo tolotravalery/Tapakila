@@ -87,6 +87,14 @@ class EventController extends Controller
         return view('pages.admin.listeevent1', compact('events'));
 
     }
+    public function updatePublieAll(Request $request)
+    {
+        $events = Events::all();
+        foreach ($events as $event){
+            echo "huhu".$request->input('id'.$event->id);
+        }
+        //dd($request->input('id'));
+    }
 
     public function store(Request $request)
     {

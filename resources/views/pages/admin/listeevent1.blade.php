@@ -44,6 +44,7 @@
                     <div class="panel-body">
 
                         <div class="table-responsive users-table">
+                            {{ Form::open(array('url' => 'admin/updatePublieAll') ) }}
                             <table class="table table-striped table-condensed data-table">
                                 <thead>
                                 <tr>
@@ -51,10 +52,10 @@
                                     <th>Title</th>
                                     <th class="hidden-sm hidden-xs hidden-md">Sous menus</th>
                                     <th class="hidden-sm hidden-xs hidden-md">Date début</th>
-                                    <th class="hidden-sm hidden-xs hidden-md">Date fin</th>
                                     <th class="hidden-sm hidden-xs hidden-md">Localisation</th>
                                     <th class="hidden-sm hidden-xs hidden-md">Publié par l'organisateur</th>
                                     <th class="hidden-sm hidden-xs hidden-md">Publié</th>
+                                    <th class="hidden-sm hidden-xs hidden-md">Disponibilité</th>
                                     <th>Actions</th>
 
                                 </tr>
@@ -64,12 +65,11 @@
 
                                     <tr>
                                         {{ Form::open(array('url' => 'admin/updatePublie') ) }}
-                                        <input type="hidden" name="id" value="{{$ev->id}}">
+                                        <input type="hidden" name="id{{$ev->id}}" value="{{$ev->id}}">
                                         <td>{{$ev->id}}</td>
                                         <td>{{$ev->title}} </td>
                                         <td class="hidden-sm hidden-xs hidden-md">{{$ev->sous_menus->name}}</td>
                                         <td class="hidden-sm hidden-xs hidden-md">{{$ev->date_debut_envent}}</td>
-                                        <td class="hidden-sm hidden-xs hidden-md">{{$ev->date_fin_event}}</td>
                                         <td class="hidden-sm hidden-xs hidden-md">{{$ev->localisation_nom}}
                                             ;{{$ev->localisation_adresse}}</td>
                                         <td class="hidden-sm hidden-xs hidden-md">
@@ -84,6 +84,27 @@
                                         <td><input type="checkbox" name="active"></td>
                                         <?php endif;?>
                                         <td>
+                                            <?php
+                                            $number = 0;
+                                            ?>
+                                            @if($ev->tickets()->count() > 0)
+                                                <?php
+                                                for ($i = 0; $i < $ev->tickets()->count(); $i++) {
+                                                    $number = $number + $ev->tickets[$i]->number;
+                                                }
+                                                if ($number > 0) {
+                                                    echo "Disponible";
+                                                } else {
+                                                    echo "Epuisé";
+                                                }
+
+                                                ?>
+
+                                            @elseif($ev->tickets()->count()== 0)
+                                                Les tickets de cette évènement n'est pas encore disponible.
+                                            @endif
+                                        </td>
+                                        <td>
                                             <button class="btn btn-sm btn-success btn-block" data-toggle="tooltip"
                                                     title="Show">
                                                 <span class="hidden-xs hidden-sm">Update</span>
@@ -91,13 +112,13 @@
                                         </td>
                                         {{ Form::close() }}
                                     </tr>
-
-
-
                                 @endforeach
-
                                 </tbody>
                             </table>
+                            <div class="Confirme">
+                                <button type="submit" class="btn btn-default">Update all</button>
+                            </div>
+                            {{ Form::close() }}
                         </div>
                     </div>
                 </div>
