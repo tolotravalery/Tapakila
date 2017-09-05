@@ -40,7 +40,7 @@
                                                 <img src="{{ url('img/'.$event->image.'') }}">
                                             </div>
                                         </a>
-                                        <div class="caption">
+                                        <div class="caption taille">
                                             <h3>
                                                 <a href="{{url('events/show',[$event->id])}}">{{ucfirst($event->title)}}</a>
                                             </h3>

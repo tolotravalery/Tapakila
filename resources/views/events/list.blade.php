@@ -91,7 +91,8 @@
                         </div>
                     </div>
                 @else
-                    @foreach($menu_event->sousmenus as $sousMenu)
+                    {{--{{dd($menu_event->sousmenus()->orderBy('name','asc')->get())}}--}}
+                    @foreach($menu_event->sousmenus()->orderBy('name','asc')->get() as $sousMenu)
                         @if($sousMenu->events()->where('publie','=','1')->where('date_debut_envent','>',date('Y-m-d H:i:s'))->count() > 0)
                             <div class="categorie-item">
                                 <h2 class="couleur_mot">{{ucfirst($sousMenu->name)}}</h2>
@@ -105,7 +106,7 @@
                                                             <img src="{{ url('img/'.$event->image.'') }}">
                                                         </div>
                                                     </a>
-                                                    <div class="caption">
+                                                    <div class="caption taille">
                                                         <h3>
                                                             <a href="{{url('events/show',[$event->id])}}">{{ucfirst($event->title)}}</a>
                                                         </h3>

@@ -75,6 +75,7 @@
                     <div class="categorie-item">
                         <h2 class="couleur_mot">{{$sm->name}}</h2>
                         <div class="row">
+
                             @foreach($sm->events as $event)
                                 @if($event->publie == true && \Carbon\Carbon::parse($event->date_debut_envent)->isFuture() )
                                     <div class="col-sm-6 col-md-4">
@@ -98,13 +99,15 @@
                                                         </div>
                                                         <div class="date"><i
                                                                     class="glyphicon glyphicon-map-marker position"></i> {{ $event->localisation_nom }} {{ $event->localisation_adresse }}
+
                                                         </div>
 
 
                                                     </div>
 
-                                                </div>
-                                            </a>
+                                                </a>
+                                            </div>
+
                                         </div>
                                     </div>
                                 @endif
