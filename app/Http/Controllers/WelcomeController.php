@@ -18,10 +18,9 @@ class WelcomeController extends Controller
     public function welcome()
     {
         $menus = Menus::orderBy('id', 'desc')->take(8)->get();
-        $sousmenus = Sous_menus::orderBy('id', 'desc')->take(20)->get();
-        //$events=Events::find(1)->sous_menus()->;
-        //dd($events);
+        $sousmenus = Sous_menus::orderBy('name', 'asc')->take(20)->get();
         return View('/welcome', compact('menus', 'sousmenus'));
+
     }
 
 }
