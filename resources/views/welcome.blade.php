@@ -75,7 +75,6 @@
                     <div class="categorie-item">
                         <h2 class="couleur_mot">{{$sm->name}}</h2>
                         <div class="row">
-
                             @foreach($sm->events as $event)
                                 @if($event->publie == true && \Carbon\Carbon::parse($event->date_debut_envent)->isFuture() )
                                     <div class="col-sm-6 col-md-4">
@@ -89,25 +88,19 @@
                                                         <a href="{{url('events/show',[$event->id])}}">{{$event->title}}</a>
                                                     </h3>
                                                     <p style="text-align: justify;">
-                                                        {{ str_limit(ucfirst($event->additional_note), $limit = 40, $end = '...') }}
+                                                        {{ str_limit(ucfirst($event->additional_note), $limit = 140, $end = '...') }}
                                                     </p>
                                                     <div>
-
                                                         <div class="price"><i
                                                                     class="glyphicon glyphicon-time time"></i>
                                                             {{ \Carbon\Carbon::parse($event->date_debut_envent)->format('d M Y')}}
                                                         </div>
                                                         <div class="date"><i
                                                                     class="glyphicon glyphicon-map-marker position"></i> {{ $event->localisation_nom }} {{ $event->localisation_adresse }}
-
                                                         </div>
-
-
                                                     </div>
-
-                                                </a>
-                                            </div>
-
+                                                </div>
+                                            </a>
                                         </div>
                                     </div>
                                 @endif
