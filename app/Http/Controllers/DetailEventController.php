@@ -23,7 +23,7 @@ class DetailEventController extends Controller
     {
         $menu_id = Menus::find($menu);
         $menus = Menus::orderBy('id', 'desc')->get();
-        $sousmenus = Sous_menus::orderBy('id', 'desc')->get();
+        $sousmenus = Sous_menus::orderBy('name', 'asc')->take(20)->get();
         return view('events.list')->with(array('menu_event' => $menu_id, 'menus' => $menus, 'sousmenus' => $sousmenus));
     }
 
