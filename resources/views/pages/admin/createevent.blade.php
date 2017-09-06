@@ -913,50 +913,6 @@
                                         </div>
                                     @endforeach
                                 @endif
-
-                                {{--<div class="ticket_type_contenu">
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <h2>Régulier</h2>
-                                        </div>
-                                        <div class="col-lg-2">
-                                            <h2>0.00</h2>
-                                            <p>EUR</p>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <h2>
-                                                <div class="btn-group pull-right">
-                                                    <button type="button" class="btn btn-default">
-                                                        <span class="glyphicon glyphicon-edit"
-                                                              aria-hidden="true"></span>
-                                                        Edit
-                                                    </button>
-                                                    <button type="button"
-                                                            class="btn btn-default dropdown-toggle pull-right"
-                                                            data-toggle="dropdown" aria-haspopup="true"
-                                                            aria-expanded="false">
-                                                        <span class="caret"></span>
-                                                        <span class="sr-only">Toggle Dropdown</span>
-                                                    </button>
-                                                    <ul class="dropdown-menu menu_type">
-                                                        <li><a href="#"><span class="glyphicon glyphicon-chevron-up"
-                                                                              aria-hidden="true"></span> Déplacer vers
-                                                                le haut</a></li>
-                                                        <li><a href="#"><span class="glyphicon glyphicon-chevron-down"
-                                                                              aria-hidden="true"></span> Déplacer vers
-                                                                le bat</a></li>
-                                                        <li role="separator" class="divider"></li>
-                                                        <li><a href="#"><span class="glyphicon glyphicon-duplicate"
-                                                                              aria-hidden="true"></span> Dupliquer</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </h2>
-                                        </div>
-                                    </div>
-                                    <p>Nombre de billets: 100</p>
-
-                                </div>--}}
                                 <a class="btn btn-primary btn-outline text-center center-block primary" role="button"
                                    onClick="changePage('div_ticket','a_type')">
                                     <i aria-hidden="true"></i> <span class="glyphicon glyphicon-plus"

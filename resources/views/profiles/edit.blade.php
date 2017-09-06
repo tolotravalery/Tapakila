@@ -31,6 +31,9 @@
                             {!! Form::text('first_name', old('first_name'), array('id' => 'first_name', 'class' => 'form-control forme', 'placeholder' => trans('forms.create_user_ph_firstname'))) !!}
                             {!! Form::label('email', 'E-mail') !!}
                             {!! Form::text('email', old('email'), array('id' => 'email', 'class' => 'form-control forme', 'placeholder' => trans('forms.ph-useremail'))) !!}
+                            {{--{!! Form::label('isOrganisateur', 'Nom') !!}--}}
+                            {{--{!! Form::text('name', old('name'), array('id' => 'name', 'class' => 'form-control forme', 'placeholder' => trans('forms.ph-username'))) !!}--}}
+                            {!!  Form::checkbox('isOrganisateur', old('isOrganisateur')) !!} {!! Form::label('isOrganisateur', 'Je suis un organisateur d\'évènement') !!}<br><br>
                             <label for="usr">Changer mot de passe</label>
                             {!! Form::password('password', array('id' => 'password', 'class' => 'form-control forme ', 'placeholder' => trans('forms.create_user_ph_password'), 'autocomplete' => 'new-password')) !!}
                             @if ($errors->has('password'))

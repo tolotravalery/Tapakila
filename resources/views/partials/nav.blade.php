@@ -13,34 +13,16 @@
             </a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                @role('admin')
-                <!--<li role="presentation" class="dropdown connexion">
-
-                    <a href="#" class="dropdown-toggle" id="drop6" data-toggle="dropdown" role="button"
-                       aria-haspopup="true" aria-expanded="false"> Admin
-                        <span class="caret"></span>
-                    </a>
-
-                    <ul class="dropdown-menu search" id="menu3" aria-labelledby="drop6">
-                        <li {{ Request::is('users', 'users/' . Auth::user()->id, 'users/' . Auth::user()->id . '/edit') ? 'class=active' : null }}>{!! HTML::link(url('/admin/users'), Lang::get('titles.adminUserList')) !!}</li>
-                        <li {{ Request::is('users/create') ? 'class=active' : null }}>{!! HTML::link(url('/admin/users/create'), Lang::get('titles.adminNewUser')) !!}</li>
-                        <li {{ Request::is('themes','themes/create') ? 'class=active' : null }}>{!! HTML::link(url('/admin/themes'), Lang::get('titles.adminThemesList')) !!}</li>
-                        <li {{ Request::is('logs') ? 'class=active' : null }}>{!! HTML::link(url('/admin/logs'), Lang::get('titles.adminLogs')) !!}</li>
-                        <li {{ Request::is('php') ? 'class=active' : null }}>{!! HTML::link(url('/admin/php'), Lang::get('titles.adminPHP')) !!}</li>
-                        <li {{ Request::is('routes') ? 'class=active' : null }}>{!! HTML::link(url('/admin/routes'), Lang::get('titles.adminRoutes')) !!}</li>
-                    </ul>
-
-                </li>-->
-                @endrole
-            </ul>
-
             <ul class="nav navbar-nav navbar-right">
-
                 <li>
-                    <button type="" class="btn btn-success event" onclick="javascript:location.href='{{url('/')}}/event'"><span class="ico"></span><span class="descr">AJOUTER<br/> VOTRE EVENEMENT</span></button>
+                    <button type="" class="btn btn-success event"
+                            onclick="javascript:location.href='{{url('/')}}/event'"><span class="ico"></span><span
+                                class="descr">AJOUTER<br/> VOTRE EVENEMENT</span></button>
                 </li>
-                <li><a href="#">Panier</a></li>
+                <li><a href="{{ url('/shopping/cart') }}">Panier @if (!Auth::guest())
+                            ({{ Cart::instance('default')->count(false) }}) @endif</a>
+                </li>
+
                 <li role="presentation" class="dropdown">
                     <a href="#" class="dropdown-toggle" id="drop6" data-toggle="dropdown" role="button"
                        aria-haspopup="true" aria-expanded="false"> Rechercher
@@ -54,9 +36,23 @@
                         </li>
                     </ul>
                 </li>
-                @if (Auth::guest())
-                    <li><a href="{{ route('login') }}">{!! trans('titles.login') !!}</a></li>
-                    <li><a href="{{ route('register') }}">{!! trans('titles.register') !!}</a></li>
+
+            @if (Auth::guest())
+                <!--<li><a href="{{ route('login') }}">{!! trans('titles.login') !!}</a></li>-->
+                    <li>
+                        <a href="#" class="dropdown-toggle" id="drop6" data-toggle="dropdown" role="button"
+                           aria-haspopup="true" aria-expanded="false"> Connexion <span class="caret"></span></a>
+                        <ul class="dropdown-menu search" id="menu3" aria-labelledby="drop6">
+                            @if (Route::has('login'))
+                                @if (Auth::check())
+                                    <li><a href="{{ url('/home') }}">Home</a></li>
+                                @else
+                                    <li><a href="{{ url('/login') }}">Login</a></li>
+                                    <li><a href="{{ url('/register') }}">Register</a></li>
+                                @endif
+                            @endif
+                        </ul>
+                    </li>
                 @else
                     <li role="presentation" class="dropdown">
                         <a href="#" class="dropdown-toggle" id="drop6" data-toggle="dropdown" role="button"
@@ -71,14 +67,8 @@
 
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
-
                         <ul class="dropdown-menu search" id="menu3" aria-labelledby="drop6">
-                            <li {{ Request::is('profile/'.Auth::user()->name, 'profile/'.Auth::user()->name . '/edit') ?  : null }}>
-                            <!--  {!! HTML::link(url('/profile/'.Auth::user()->name), trans('titles.profile')) !!} -->
-                            {!! HTML::link(url('/profile/'.Auth::user()->name.'/edit'), trans('profile.editAccountTitle')) !!}
-                            <!--{!! HTML::icon_link(URL::to('/profile/'.Auth::user()->name.'/edit'), 'fa fa-fw fa-cog', trans('titles.editProfile'), array('class' => 'btn btn-small btn-info btn-block')) !!}
-                            {{ trans('profile.editAccountTitle') }}-->
-                            </li>
+
                             @role('admin')
                             <li {{ Request::is('users', 'users/' . Auth::user()->id, 'users/' . Auth::user()->id . '/edit') ? 'class=active' : null }}>{!! HTML::link(url('/admin/users'), Lang::get('titles.adminUserList')) !!}</li>
                             <li {{ Request::is('users/create') ? 'class=active' : null }}>{!! HTML::link(url('/admin/users/create'), Lang::get('titles.adminNewUser')) !!}</li>
@@ -86,7 +76,14 @@
                             <li><a href="{{url('/')}}/admin/sousmenu">Sous menus</a></li>
                             <li><a href="{{url('/')}}/admin/listevent">List events</a></li>
                             @endrole
-                            <li><a href="{{url('/')}}/event">Events</a></li>
+                            <li {{ Request::is('profile/'.Auth::user()->name, 'profile/'.Auth::user()->name . '/edit') ?  : null }}>
+                            {!! HTML::link(url('/profile/'.Auth::user()->name.'/edit'), trans('titles.profile')) !!}
+                            <!--{!! HTML::icon_link(URL::to('/profile/'.Auth::user()->name.'/edit'), 'fa fa-fw fa-cog', trans('titles.editProfile'), array('class' => 'btn btn-small btn-info btn-block')) !!}
+                            {{ trans('profile.editAccountTitle') }}-->
+                            </li>
+                            @role('organisateur')
+                            <li><a href="{{url('/')}}/organisateur/event">Events</a></li>
+                            @endrole
                             <li>
                                 <a href="{{ route('logout') }}"
                                    onclick="event.preventDefault();

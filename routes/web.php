@@ -15,10 +15,8 @@
 
 Route::get('admin', 'Auth\LoginController@showLoginAdminForm')->name('admin');
 Route::post('admin', 'Auth\LoginController@loginAdmin');
-// Homepage Route;
-Route::get('event', 'EventController@showEventForm')->name('event');
-Route::post('event', 'EventController@store')->name('event');
 
+// Homepage Route;
 Route::get('/', 'WelcomeController@welcome')->name('welcome');
 
 // Authentication Routes
@@ -103,7 +101,7 @@ Route::group(['middleware' => ['auth', 'activated', 'currentUser']], function ()
     // Route to upload user avatar.
     Route::post('avatar/upload', ['as' => 'avatar.upload', 'uses' => 'ProfilesController@upload']);
 
-    Route::group(['prefix' => 'shopping'], function () {
+    /*Route::group(['prefix' => 'shopping'], function () {
 
         Route::resource('shop', 'Shopping\ProductController', ['only' => ['index', 'show']]);
 
@@ -117,9 +115,7 @@ Route::group(['middleware' => ['auth', 'activated', 'currentUser']], function ()
         Route::get('checkout', 'Shopping\CheckoutController@index');
         Route::post('checkout/store', 'Shopping\CheckoutController@store');
         Route::post('checkout/save/{checkout}', 'Shopping\CheckoutController@save');
-    });
-
-    Route::resource('ticket', 'TicketController');
+    });*/
 
 });
 
@@ -192,6 +188,10 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin'], 'prefix' => '
     Route::get('routes', 'AdminDetailsController@listRoutes');
 
 
+});// Organisateur
+Route::group(['middleware' => ['auth', 'activated', 'role:organisateur'], 'prefix' => 'organisateur'], function () {
+    Route::get('event', 'EventController@showEventForm')->name('event');
+    Route::post('event', 'EventController@store')->name('event');
+//    Route::get('index', 'OrganisateurController@index');
+    Route::resource('ticket', 'TicketController');
 });
-
-

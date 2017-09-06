@@ -90,8 +90,6 @@
                                                 </div>
                                             </div>
                                         </div>
-
-                                        <!-- connexion facebook end -->
                                     </form>
 
 

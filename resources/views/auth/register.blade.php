@@ -10,10 +10,10 @@
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-6">
-                                    <a href="#"id="login-form-link">Connexion</a>
+                                    <a href="#" id="login-form-link">Connexion</a>
                                 </div>
                                 <div class="col-xs-6">
-                                    <a href="#"  class="active"  id="register-form-link" class="">S'inscrire</a>
+                                    <a href="#" class="active" id="register-form-link" class="">S'inscrire</a>
                                 </div>
                             </div>
                             <hr>
@@ -124,8 +124,8 @@
                                         {!! Form::email('email', null, ['class' => 'form-control', 'id' => 'email', 'placeholder' => 'E-Mail', 'required','tabindex' => '1']) !!}
                                         @if ($errors->has('email'))
                                             <span class="red">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
+                                                <strong>{{ $errors->first('email') }}</strong>
+                                            </span>
                                         @endif
                                     </div>
                                     <div class="form-group">
@@ -139,6 +139,18 @@
                                     </div>
                                     <div class="form-group">
                                         {!! Form::password('password_confirmation', ['class' => 'form-control', 'id' => 'confirm-password', 'placeholder' => '*******', 'required']) !!}
+                                    </div>
+
+                                    <div class="form-group">
+
+                                        {{--{!! Form::email('email', null, ['class' => 'form-control', 'id' => 'email', 'placeholder' => 'E-Mail', 'required','tabindex' => '1']) !!}--}}
+                                        {!!  Form::checkbox('isOrganisateur', null, false) !!} <label>Je suis un
+                                            organisateur d'évènement</label>
+                                        @if ($errors->has('email'))
+                                            <span class="red">
+                                                <strong>{{ $errors->first('email') }}</strong>
+                                            </span>
+                                        @endif
                                     </div>
                                     <div class="form-group">
                                         <div class="row">
