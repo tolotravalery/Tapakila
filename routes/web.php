@@ -101,7 +101,7 @@ Route::group(['middleware' => ['auth', 'activated', 'currentUser']], function ()
     // Route to upload user avatar.
     Route::post('avatar/upload', ['as' => 'avatar.upload', 'uses' => 'ProfilesController@upload']);
 
-    /*Route::group(['prefix' => 'shopping'], function () {
+    Route::group(['prefix' => 'shopping'], function () {
 
         Route::resource('shop', 'Shopping\ProductController', ['only' => ['index', 'show']]);
 
@@ -115,7 +115,7 @@ Route::group(['middleware' => ['auth', 'activated', 'currentUser']], function ()
         Route::get('checkout', 'Shopping\CheckoutController@index');
         Route::post('checkout/store', 'Shopping\CheckoutController@store');
         Route::post('checkout/save/{checkout}', 'Shopping\CheckoutController@save');
-    });*/
+    });
 
 });
 

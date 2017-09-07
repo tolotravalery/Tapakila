@@ -16,7 +16,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <button type="" class="btn btn-success event"
-                            onclick="javascript:location.href='{{url('/')}}/event'"><span class="ico"></span><span
+                            onclick="javascript:location.href='{{url('/')}}/organisateur/event'"><span class="ico"></span><span
                                 class="descr">AJOUTER<br/> VOTRE EVENEMENT</span></button>
                 </li>
                 <li><a href="{{ url('/shopping/cart') }}">Panier @if (!Auth::guest())
