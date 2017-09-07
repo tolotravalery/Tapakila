@@ -139,6 +139,17 @@
                                         {!! Form::password('password_confirmation', ['class' => 'form-control', 'id' => 'confirm-password', 'placeholder' => '*******', 'required']) !!}
                                     </div>
                                     <div class="form-group">
+
+                                        {{--{!! Form::email('email', null, ['class' => 'form-control', 'id' => 'email', 'placeholder' => 'E-Mail', 'required','tabindex' => '1']) !!}--}}
+                                        {!!  Form::checkbox('isOrganisateur', null, false) !!} <label>Je suis un
+                                            organisateur d'évènement</label>
+                                        @if ($errors->has('email'))
+                                            <span class="red">
+                                                <strong>{{ $errors->first('email') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                    <div class="form-group">
                                         <div class="row">
                                             <div class="col-sm-6 col-md-offset-0 ">
                                                 <input name="register-submit" id="register-submit" tabindex="4"
