@@ -24,6 +24,16 @@
             </ul>
         </div>
     </section>
+    <br/>
+    <section  class="clearfix">
+        <div class="container">
+            <ul id="breadcrumbs-one">
+                <li><a href="">Acceuil</a></li>
+                <li><a href="{{url('/')}}">Evenement</a></li>
+                <li><a href="">{{strtoupper($menu_event->name)}}</a></li>
+            </ul>
+        </div>
+    </section>
 
     <section id="categorie-concert">
         <div class="container">

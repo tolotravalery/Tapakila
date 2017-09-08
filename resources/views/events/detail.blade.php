@@ -24,6 +24,18 @@
             </ul>
         </div>
     </section>
+    <br>
+    <section  class="clearfix">
+        <div class="container">
+            <ul id="breadcrumbs-one">
+                <li><a href="">Acceuil</a></li>
+                <li><a href="{{url('/')}}">Evenement</a></li>
+                <li><a href="{{url('/events/list/categorie',[$event->sous_menus->menus->id])}}">{{strtoupper($event->sous_menus->menus->name)}}</a></li>
+                <li><a href="{{url('/events/list/categorie/sous_categorie',[$event->sous_menus->id])}}">{{ucfirst($event->sous_menus->name)}}</a></li>
+                <li><a href="">{{ ucfirst($event->title) }}</a></li>
+            </ul>
+        </div>
+    </section>
     <section>
         <div class="container">
             <div class="row haut">
@@ -236,9 +248,9 @@
                                     <h3>
                                         <a href="{{url('events/show',[$event->id])}}">{{ucfirst($event->title)}}</a>
                                     </h3>
-                                    <p>
-                                        {{ucfirst($event->additional_note)}}
-                                    </p><br/>
+                                    <p style="text-align: justify;">
+                                        {{ str_limit(ucfirst($event->additional_note), $limit = 140, $end = '...') }}
+                                    </p>
                                     <div>
                                         <div class="price"><i
                                                     class="glyphicon glyphicon-time time"></i>

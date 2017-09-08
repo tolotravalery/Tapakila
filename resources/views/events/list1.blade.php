@@ -24,7 +24,17 @@
             </ul>
         </div>
     </section>
-
+    <br>
+    <section  class="clearfix">
+        <div class="container">
+            <ul id="breadcrumbs-one">
+                <li><a href="">Acceuil</a></li>
+                <li><a href="{{url('/')}}">Evenement</a></li>
+                <li><a href="{{url('/events/list/categorie',[$sous_menu_event->menus->id])}}">{{strtoupper($sous_menu_event->menus->name)}}</a></li>
+                <li><a href="">{{ucfirst($sous_menu_event->name)}}</a></li>
+            </ul>
+        </div>
+    </section>
     <section id="categorie-concert">
         <div class="container">
             @if($sous_menu_event)
