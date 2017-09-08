@@ -53,8 +53,8 @@
                                     <th class="hidden-sm hidden-xs hidden-md">Date début</th>
                                     <th class="hidden-sm hidden-xs hidden-md">Localisation</th>
                                     <th class="hidden-sm hidden-xs hidden-md">Publié par l'organisateur</th>
-                                    <th class="hidden-sm hidden-xs hidden-md">Publié</th>
-                                    <th class="hidden-sm hidden-xs hidden-md">Disponibilité</th>
+                                    <th class="hidden-sm hidden-xs hidden-md">Activé</th>
+                                    <th class="hidden-sm hidden-xs hidden-md">Billets</th>
                                     <th>Actions</th>
 
                                 </tr>
