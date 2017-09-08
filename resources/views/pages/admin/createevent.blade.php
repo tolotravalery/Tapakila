@@ -42,14 +42,6 @@
                 <div class="col-md-3">
                     <div class="btn-group margin-bottom-5">
                         <div class="btn-group" role="group">
-                            <!--<button type="button" class="btn btn-sm nonpublier dropdown-toggle" data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false">
-                                Non publié
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a class="btn-sm" href="#">Publié</a></li>
-                            </ul>-->
                             <select class="form-control" id="publie" name="publie">
                                 <option value="false">Non publié</option>
                                 <option value="true">Publié</option>
@@ -64,7 +56,8 @@
             <div class="row">
                 <div class="col-lg-9 col-sm-9">
                     <div id="div_details">
-                        <form enctype="multipart/form-data" class="form-horizontal" role="form" method="POST" action="{{ route('event') }}">
+                        <form enctype="multipart/form-data" class="form-horizontal" role="form" method="POST"
+                              action="{{ route('event') }}">
                             {{ csrf_field() }}
                             <div class="panel panel-content">
                                 <div class="panel-body border-bottom">
@@ -275,7 +268,8 @@
                                     <h2>Organisateur</h2>
                                     <div class="form-group">
                                         {{ Auth::user()->name }}
-                                        <a class="btn btn-default editer" target="_blank" href="{{url('/')}}/profile/{{ Auth::user()->name }}/edit">Editer</a>
+                                        <a class="btn btn-default editer" target="_blank"
+                                           href="{{url('/')}}/profile/{{ Auth::user()->name }}/edit">Editer</a>
                                     </div>
                                 </div>
                                 <!-- organisateur end -->
@@ -1527,12 +1521,12 @@
 
 @section('footer_scripts')
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
 
-            $('#publie').change(function() {
+            $('#publie').change(function () {
                 valeur = $(this).val();
-               /* var huhu= $('#publie').val( valeur );
-                console.log(huhu);*/
+                /* var huhu= $('#publie').val( valeur );
+                 console.log(huhu);*/
                 var huhu = $('#publie').val(valeur);
                 //console.log(huhu);
 
@@ -1543,11 +1537,11 @@
     </script>
 
     <script type="text/javascript">
-        $(document).ready(function() {
+        $(document).ready(function () {
 
-            $('#publie').change(function() {
+            $('#publie').change(function () {
                 var valeur = $(this).val();
-                $('#publie').val( valeur );
+                $('#publie').val(valeur);
                 //console.log(valeur);
                 document.getElementById("huhu").value = valeur;
             });

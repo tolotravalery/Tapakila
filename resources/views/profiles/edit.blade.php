@@ -22,6 +22,10 @@
                 <div class="col-sm-10 droite">
                     <div id="div_compte">
                         <h1 id="compte">Mon compte</h1>
+                        @role('user')
+                        <p>Vous devriez changer votre profile en organisateur d'évèmenet si vous voulez ajouter un
+                            évènement.</p>
+                        @endrole
                         {!! Form::model($user, array('action' => array('ProfilesController@updateUserAccount', $user->id), 'method' => 'PUT', 'id' => 'user_basics_form')) !!}
                         {!! csrf_field() !!}
                         <div class="form-group contre">
@@ -33,7 +37,8 @@
                             {!! Form::text('email', old('email'), array('id' => 'email', 'class' => 'form-control forme', 'placeholder' => trans('forms.ph-useremail'))) !!}
                             {{--{!! Form::label('isOrganisateur', 'Nom') !!}--}}
                             {{--{!! Form::text('name', old('name'), array('id' => 'name', 'class' => 'form-control forme', 'placeholder' => trans('forms.ph-username'))) !!}--}}
-                            {!!  Form::checkbox('isOrganisateur', old('isOrganisateur')) !!} {!! Form::label('isOrganisateur', 'Je suis un organisateur d\'évènement') !!}<br><br>
+                            {!!  Form::checkbox('isOrganisateur', old('isOrganisateur')) !!} {!! Form::label('isOrganisateur', 'Je suis un organisateur d\'évènement') !!}
+                            <br><br>
                             <label for="usr">Changer mot de passe</label>
                             {!! Form::password('password', array('id' => 'password', 'class' => 'form-control forme ', 'placeholder' => trans('forms.create_user_ph_password'), 'autocomplete' => 'new-password')) !!}
                             @if ($errors->has('password'))
