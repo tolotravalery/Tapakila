@@ -92,17 +92,16 @@
                                             $number = 0;
                                             ?>
                                             @if($ev->tickets()->count() > 0)
-                                                <?php
-                                                for ($i = 0; $i < $ev->tickets()->count(); $i++) {
-                                                    $number = $number + $ev->tickets[$i]->number;
-                                                }
-                                                if ($number > 0) {
-                                                    echo "Disponible";
-                                                } else {
-                                                    echo "Epuisé";
-                                                }
-
-                                                ?>
+                                                @php
+                                                    for ($counter = 0; $$counter < $ev->tickets()->count(); $counter++) {
+                                                        $number = $number + $ev->tickets[$counter]->number;
+                                                    }
+                                                    if ($number > 0) {
+                                                        echo "Disponible";
+                                                    } else {
+                                                        echo "Epuisé";
+                                                    }
+                                                @endphp
                                             @elseif($ev->tickets()->count()== 0)
                                                 Les tickets de cette évènement n'est pas encore disponible.
                                             @endif

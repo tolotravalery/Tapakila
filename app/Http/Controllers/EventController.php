@@ -57,7 +57,7 @@ class EventController extends Controller
 
     }
 
-    public function showEventForm()
+    public function showEventForm(Request $request)
     {
         $menus = Menus::orderBy('id', 'desc')->take(8)->get();
         $sousmenus = Sous_menus::orderBy('id', 'desc')->take(20)->get();
@@ -127,6 +127,6 @@ class EventController extends Controller
             'publie_organisateur' => $tmp
         ]);
 
-        return redirect('event');
+        return redirect(url('organisateur/event'));
     }
 }
