@@ -172,3 +172,7 @@
     @include('scripts.save-modal-script')
     @include('scripts.check-changed')
 @endsection
+
+<script>
+
+</script>

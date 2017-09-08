@@ -44,7 +44,6 @@
                     <div class="panel-body">
 
                         <div class="table-responsive users-table">
-                            {{ Form::open(array('url' => 'admin/updatePublieAll') ) }}
                             <table class="table table-striped table-condensed data-table">
                                 <thead>
                                 <tr>
@@ -61,11 +60,13 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+                                @php
+                                    $i=0;
+                                @endphp
                                 @foreach($events as $ev)
-
                                     <tr>
                                         {{ Form::open(array('url' => 'admin/updatePublie') ) }}
-                                        <input type="hidden" name="id{{$ev->id}}" value="{{$ev->id}}">
+                                        <input type="hidden" name="id" value="{{$ev->id}}">
                                         <td>{{$ev->id}}</td>
                                         <td>{{$ev->title}} </td>
                                         <td class="hidden-sm hidden-xs hidden-md">{{$ev->sous_menus->name}}</td>
@@ -73,16 +74,19 @@
                                         <td class="hidden-sm hidden-xs hidden-md">{{$ev->localisation_nom}}
                                             ;{{$ev->localisation_adresse}}</td>
                                         <td class="hidden-sm hidden-xs hidden-md">
-                                            <?php
-                                            if (strcmp($ev->publie_organisateur, "0") == 0) echo "Non publié";
-                                            else echo "Publié";
-                                            ?>
+                                            @if(strcmp($ev->publie_organisateur,"0") == 0)
+                                                Non publié
+                                            @else
+                                                Publié
+                                            @endif
                                         </td>
-                                        <?php if($ev->publie == true):?>
-                                        <td><input type="checkbox" name="active" checked></td>
-                                        <?php else: ?>
-                                        <td><input type="checkbox" name="active"></td>
-                                        <?php endif;?>
+                                        @if($ev->publie == true)
+                                            <td><input type="checkbox" name="active" id="checkbox{{$i}}"
+                                                       value="{{$ev->id}}" checked></td>
+                                        @else
+                                            <td><input type="checkbox" id="checkbox{{$i}}" value="{{$ev->id}}"
+                                                       name="active"></td>
+                                        @endif
                                         <td>
                                             <?php
                                             $number = 0;
@@ -99,7 +103,6 @@
                                                 }
 
                                                 ?>
-
                                             @elseif($ev->tickets()->count()== 0)
                                                 Les tickets de cette évènement n'est pas encore disponible.
                                             @endif
@@ -110,15 +113,19 @@
                                                 <span class="hidden-xs hidden-sm">Update</span>
                                             </button>
                                         </td>
+
+                                        @php
+                                            $i++;
+                                        @endphp
                                         {{ Form::close() }}
                                     </tr>
                                 @endforeach
                                 </tbody>
                             </table>
+                            <input type="hidden" id="isanCheckbox" value="{{$i}}">
                             <div class="Confirme">
-                                <button type="submit" class="btn btn-default">Update all</button>
+                                <button type="button" id="buttonUpdate" class="btn btn-default">Update all</button>
                             </div>
-                            {{ Form::close() }}
                         </div>
                     </div>
                 </div>
@@ -131,6 +138,54 @@
     @endif
     @include('scripts.delete-modal-script')
     @include('scripts.save-modal-script')
+    <script>
+        (function () {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $('#buttonUpdate').click(function () {
+                var isanCheckbox = $('#isanCheckbox').val();
+                for (var i = 0; i < (isanCheckbox);) {
+                    if ($('#checkbox' + i).prop('checked') == true) {
+                        var update = 1;
+                        var id = $('#checkbox' + i).val();
+//                    console.log('id:' + $('#checkbox' + i).val() + " update :" + update);
+                        $.ajax({
+                            type: "GET",
+                            url: '{{ url("/admin/updatePublieAll") }}',
+                            data: {
+                                'id': id,
+                                'active': update
+                            },
+                            success: function (data) {
+                                console.log(data);
+                            }
+                        });
+                    } else {
+                        var update = 0;
+                        var id = $('#checkbox' + i).val();
+//                    console.log('id:' + $('#checkbox' + i).val() + " update :" + update);
+                        $.ajax({
+                            type: "GET",
+                            url: '{{ url("/admin/updatePublieAll") }}',
+                            data: {
+                                'id': id,
+                                'active': update,
+                            },
+                            success: function (data) {
+                                console.log(data);
+                            }
+                        });
+                    }
+                    i++;
+                }
+                location.reload();
+            });
+        })();
+
+    </script>
 @endsection
 @section('footer')
 @endsection

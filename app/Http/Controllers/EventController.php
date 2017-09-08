@@ -74,36 +74,35 @@ class EventController extends Controller
     public function updatePublie(Request $request)
     {
         $ev = Events::find($request->input('id'));
-        //$ev->publie=$request->input('active');
-        //$this->listEvent();
         $rep = $request->input('active');
         if (strcmp("on", $rep) == 0) {
             $ev->publie = true;
         } else {
             $ev->publie = false;
         }
+        dd($request->input());
+        dd($ev);
         $ev->save();
         $events = Events::all();
         return view('pages.admin.listeevent1', compact('events'));
-
     }
+
     public function updatePublieAll(Request $request)
     {
-        $events = Events::all();
-        foreach ($events as $event){
-            echo "huhu".$request->input('id'.$event->id);
-        }
-        //dd($request->input('id'));
+        $ev = Events::find($request->input('id'));
+        $ev->publie = $request->input('active');
+        $ev->save();
+        return "update " . $request->input('id') . "to " . $request->input('active') . " finished";
     }
 
     public function store(Request $request)
     {
-        $huhu=$request->input('publie');
-        $tmp=true;
+        $huhu = $request->input('publie');
+        $tmp = true;
         if (strcmp("true", $huhu) == 0) {
-            $tmp=true;
+            $tmp = true;
         } else {
-            $tmp=false;
+            $tmp = false;
         }
 
         //echo $request->input('publie');break;
