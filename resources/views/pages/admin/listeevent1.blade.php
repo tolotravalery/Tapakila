@@ -93,7 +93,7 @@
                                             ?>
                                             @if($ev->tickets()->count() > 0)
                                                 @php
-                                                    for ($counter = 0; $$counter < $ev->tickets()->count(); $counter++) {
+                                                    for ($counter = 0; $counter < $ev->tickets()->count(); $counter++) {
                                                         $number = $number + $ev->tickets[$counter]->number;
                                                     }
                                                     if ($number > 0) {
@@ -103,7 +103,7 @@
                                                     }
                                                 @endphp
                                             @elseif($ev->tickets()->count()== 0)
-                                                Les tickets de cette évènement n'est pas encore disponible.
+                                                Non disponible
                                             @endif
                                         </td>
                                         <td>
