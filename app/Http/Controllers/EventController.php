@@ -80,11 +80,10 @@ class EventController extends Controller
         } else {
             $ev->publie = false;
         }
-        dd($request->input());
-        dd($ev);
+//        dd($request->input());
+//        dd($ev);
         $ev->save();
-        $events = Events::all();
-        return view('pages.admin.listeevent1', compact('events'));
+        return redirect(url('admin/listevent'));
     }
 
     public function updatePublieAll(Request $request)
