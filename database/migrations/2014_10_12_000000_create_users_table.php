@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique()->nullable();
             $table->string('password');
             $table->rememberToken();
+            $table->boolean('isOrganisateur')->default(false);
             $table->boolean('activated')->default(false);
             $table->string('token');
             $table->ipAddress('signup_ip_address')->nullable();

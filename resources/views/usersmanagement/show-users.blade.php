@@ -51,13 +51,13 @@
 
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a href="/users/create">
+                                        <a href="{{url('')}}/admin/users/create">
                                             <i class="fa fa-fw fa-user-plus" aria-hidden="true"></i>
                                             Create New User
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="/users/deleted">
+                                        <a href="{{url('')}}/admin/users/deleted">
                                             <i class="fa fa-fw fa-group" aria-hidden="true"></i>
                                             Show Deleted User
                                         </a>
@@ -120,7 +120,7 @@
                                         <td class="hidden-sm hidden-xs hidden-md">{{$user->created_at}}</td>
                                         <td class="hidden-sm hidden-xs hidden-md">{{$user->updated_at}}</td>
                                         <td>
-                                            {!! Form::open(array('url' => 'users/' . $user->id, 'class' => '', 'data-toggle' => 'tooltip', 'title' => 'Delete')) !!}
+                                            {!! Form::open(array('url' => 'admin/users/' . $user->id, 'class' => '', 'data-toggle' => 'tooltip', 'title' => 'Delete')) !!}
                                             {!! Form::hidden('_method', 'DELETE') !!}
                                             {!! Form::button('<i class="fa fa-trash-o fa-fw" aria-hidden="true"></i> <span class="hidden-xs hidden-sm">Delete</span><span class="hidden-xs hidden-sm hidden-md"> User</span>', array('class' => 'btn btn-danger btn-sm','type' => 'button', 'style' =>'width: 100%;' ,'data-toggle' => 'modal', 'data-target' => '#confirmDelete', 'data-title' => 'Delete User', 'data-message' => 'Are you sure you want to delete this user ?')) !!}
                                             {!! Form::close() !!}

@@ -30,7 +30,7 @@
 
                             Showing Deleted Users
 
-                            <a href="/users/" class="btn btn-primary btn-xs pull-right">
+                            <a href="{{url('')}}/admin/users" class="btn btn-primary btn-xs pull-right">
                                 <i class="fa fa-fw fa-reply" aria-hidden="true"></i>
                                 <span class="hidden-xs">Back to Users</span>
                             </a>
@@ -107,7 +107,7 @@
                                             </td>
                                             <td>
                                                 <a class="btn btn-sm btn-info btn-block"
-                                                   href="{{ URL::to('users/deleted/' . $user->id) }}"
+                                                   href="{{ URL::to('/admin/users/deleted/' . $user->id) }}"
                                                    data-toggle="tooltip" title="Show User">
                                                     <i class="fa fa-eye fa-fw" aria-hidden="true"></i>
                                                 </a>

@@ -15,13 +15,13 @@
 
                         <strong>Editing User:</strong> {{ $user->name }}
 
-                        <a href="/users/{{$user->id}}" class="btn btn-primary btn-xs pull-right"
+                        <a href="{{url('')}}/admin/users/{{$user->id}}" class="btn btn-primary btn-xs pull-right"
                            style="margin-left: 1em;">
                             <i class="fa fa-fw fa-mail-reply" aria-hidden="true"></i>
                             Back <span class="hidden-xs">to User</span>
                         </a>
 
-                        <a href="/users" class="btn btn-info btn-xs pull-right">
+                        <a href="{{url('')}}/admin/users" class="btn btn-info btn-xs pull-right">
                             <i class="fa fa-fw fa-mail-reply" aria-hidden="true"></i>
                             <span class="hidden-xs">Back to </span>Users
                         </a>
@@ -172,3 +172,7 @@
     @include('scripts.save-modal-script')
     @include('scripts.check-changed')
 @endsection
+
+<script>
+
+</script>

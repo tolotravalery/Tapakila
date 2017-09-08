@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
 use Image;
+use jeremykenedy\LaravelRoles\Models\Role;
 use Webpatser\Uuid\Uuid;
 use Validator;
 use View;
@@ -275,11 +276,21 @@ class ProfilesController extends Controller
                 $request, $validator
             );
         }
+        $isOrganisateur = false;
+        if ($request->input('isOrganisateur')) $isOrganisateur = true;
 
         $user->name = $request->input('name');
         $user->first_name = $request->input('first_name');
         $user->last_name = $request->input('last_name');
+        $user->isOrganisateur = $isOrganisateur;
 
+        if ($isOrganisateur == false) {
+            $role = Role::where('slug', '=', 'user')->first();
+        } elseif ($isOrganisateur == true) {
+            $role = Role::where('slug', '=', 'organisateur')->first();
+        }
+        $user->detachAllRoles();
+        $user->attachRole($role);
         if ($emailCheck) {
             $user->email = $request->input('email');
         }

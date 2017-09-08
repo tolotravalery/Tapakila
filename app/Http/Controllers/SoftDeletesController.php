@@ -22,6 +22,8 @@ class SoftDeletesController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('actived');
+        $this->middleware('role:admin');
     }
 
     /**
@@ -33,7 +35,7 @@ class SoftDeletesController extends Controller
     {
         $user = User::onlyTrashed()->where('id', $id)->get();
         if (count($user) != 1) {
-            return redirect('/users/deleted/')->with('error', trans('usersmanagement.errorUserNotFound'));
+            return redirect('admin/users/deleted/')->with('error', trans('usersmanagement.errorUserNotFound'));
         }
         return $user[0];
     }
@@ -73,7 +75,7 @@ class SoftDeletesController extends Controller
     {
         $user = self::getDeletedUser($id);
         $user->restore();
-        return redirect('/users/')->with('success', trans('usersmanagement.successRestore'));
+        return redirect('/admin/users/')->with('success', trans('usersmanagement.successRestore'));
     }
 
     /**
@@ -86,7 +88,7 @@ class SoftDeletesController extends Controller
     {
         $user = self::getDeletedUser($id);
         $user->forceDelete();
-        return redirect('/users/deleted/')->with('success', trans('usersmanagement.successDestroy'));
+        return redirect('/admin/users/deleted/')->with('success', trans('usersmanagement.successDestroy'));
     }
 
 }

@@ -40,6 +40,7 @@ class User extends Authenticatable
         'email',
         'password',
         'activated',
+        'isOrganisateur',
         'token',
         'signup_ip_address',
         'signup_confirmation_ip_address',
@@ -125,6 +126,7 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Models\Ticket')->withPivot('number')->withPivot('date_achat');
     }
+
     public function events()
     {
         return $this->hasMany('App\Models\Events');

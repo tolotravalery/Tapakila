@@ -25,21 +25,20 @@
     @endif
 
 
-
 </head>
 <body>
 
 
-    @include('partials.nav')
+@include('partials.nav')
 
-    <div class="container">
+<div class="container">
 
-        @include('partials.form-status')
+    @include('partials.form-status')
 
-    </div>
+</div>
 
-    @yield('content')
-    @include('partials.footer')
+@yield('content')
+@include('partials.footer')
 
 
 

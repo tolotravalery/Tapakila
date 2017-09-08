@@ -15,10 +15,8 @@
 
 Route::get('admin', 'Auth\LoginController@showLoginAdminForm')->name('admin');
 Route::post('admin', 'Auth\LoginController@loginAdmin');
-// Homepage Route;
-Route::get('event', 'EventController@showEventForm')->name('event');
-Route::post('event', 'EventController@store')->name('event');
 
+// Homepage Route;
 Route::get('/', 'WelcomeController@welcome')->name('welcome');
 
 // Authentication Routes
@@ -119,8 +117,6 @@ Route::group(['middleware' => ['auth', 'activated', 'currentUser']], function ()
         Route::post('checkout/save/{checkout}', 'Shopping\CheckoutController@save');
     });
 
-    Route::resource('ticket', 'TicketController');
-
 });
 
 // Registered, activated, and is admin routes.
@@ -162,7 +158,7 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin'], 'prefix' => '
 
     Route::get('listevent', 'EventController@listEvent')->name('listevent');
     Route::post('updatePublie', 'EventController@updatePublie')->name('updatePublie');
-    Route::post('updatePublieAll', 'EventController@updatePublieAll')->name('updatePublieAll');
+    Route::get('updatePublieAll', 'EventController@updatePublieAll')->name('updatePublieAll');
 
     Route::resource('menus', 'MenuController', [
         'names' => [
@@ -192,6 +188,10 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin'], 'prefix' => '
     Route::get('routes', 'AdminDetailsController@listRoutes');
 
 
+});// Organisateur
+Route::group(['middleware' => ['auth', 'activated', 'role:organisateur'], 'prefix' => 'organisateur'], function () {
+    Route::get('event', 'EventController@showEventForm')->name('event');
+    Route::post('event', 'EventController@store')->name('event');
+//    Route::get('index', 'OrganisateurController@index');
+    Route::resource('ticket', 'TicketController');
 });
-
-
