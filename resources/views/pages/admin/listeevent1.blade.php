@@ -61,7 +61,7 @@
                                 </thead>
                                 <tbody>
                                 @php
-                                    $i=0;
+                                    $j=0;
                                 @endphp
                                 @foreach($events as $ev)
                                     <tr>
@@ -81,10 +81,10 @@
                                             @endif
                                         </td>
                                         @if($ev->publie == true)
-                                            <td><input type="checkbox" name="active" id="checkbox{{$i}}"
+                                            <td><input type="checkbox" name="active" id="checkbox{{$j}}"
                                                        value-item="{{$ev->id}}" checked></td>
                                         @else
-                                            <td><input type="checkbox" id="checkbox{{$i}}" value-item="{{$ev->id}}"
+                                            <td><input type="checkbox" id="checkbox{{$j}}" value-item="{{$ev->id}}"
                                                        name="active"></td>
                                         @endif
                                         <td class="hidden-sm hidden-xs hidden-md">
@@ -115,14 +115,14 @@
                                         </td>
 
                                         @php
-                                            $i++;
+                                            $j++;
                                         @endphp
                                         {{ Form::close() }}
                                     </tr>
                                 @endforeach
                                 </tbody>
                             </table>
-                            <input type="hidden" id="isanCheckbox" value="{{$i}}">
+                            <input type="hidden" id="isanCheckbox" value="{{$j}}">
                             <div class="Confirme">
                                 <button type="button" id="buttonUpdate" class="btn btn-default">Update all</button>
                             </div>
@@ -181,7 +181,7 @@
                     }
                     i++;
                 }
-                location.reload();
+               // window.location.reload();
             });
         })();
 
