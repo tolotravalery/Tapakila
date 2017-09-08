@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
@@ -105,17 +106,21 @@ class ProfilesController extends Controller
      * @param $username
      * @return mixed
      */
-    public function edit($username)
+    public function edit($userid)
     {
+        if ($userid != Auth::user()->id) {
+            abort(403);
+        }
         try {
 
-            $user = $this->getUserByUsername($username);
+            $user = User::find($userid);
 
         } catch (ModelNotFoundException $exception) {
             return view('pages.status')
                 ->with('error', trans('profile.notYourProfile'))
                 ->with('error_title', trans('profile.notYourProfileTitle'));
         }
+
 
         $themes = Theme::where('status', 1)
             ->orderBy('name', 'asc')
@@ -302,7 +307,7 @@ class ProfilesController extends Controller
 
         $user->save();
 
-        return redirect('profile/' . $user->name . '/edit')->with('success', trans('profile.updateAccountSuccess'));
+        return redirect('profile/' . $user->id . '/edit')->with('success', trans('profile.updateAccountSuccess'));
 
     }
 

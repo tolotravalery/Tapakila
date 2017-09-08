@@ -82,12 +82,12 @@
                                         </td>
                                         @if($ev->publie == true)
                                             <td><input type="checkbox" name="active" id="checkbox{{$i}}"
-                                                       value="{{$ev->id}}" checked></td>
+                                                       value-item="{{$ev->id}}" checked></td>
                                         @else
-                                            <td><input type="checkbox" id="checkbox{{$i}}" value="{{$ev->id}}"
+                                            <td><input type="checkbox" id="checkbox{{$i}}" value-item="{{$ev->id}}"
                                                        name="active"></td>
                                         @endif
-                                        <td>
+                                        <td class="hidden-sm hidden-xs hidden-md">
                                             <?php
                                             $number = 0;
                                             ?>
@@ -150,7 +150,7 @@
                 for (var i = 0; i < (isanCheckbox);) {
                     if ($('#checkbox' + i).prop('checked') == true) {
                         var update = 1;
-                        var id = $('#checkbox' + i).val();
+                        var id = $('#checkbox' + i).attr('value-item');
 //                    console.log('id:' + $('#checkbox' + i).val() + " update :" + update);
                         $.ajax({
                             type: "GET",
@@ -165,7 +165,7 @@
                         });
                     } else {
                         var update = 0;
-                        var id = $('#checkbox' + i).val();
+                        var id = $('#checkbox' + i).attr('value-item');
 //                    console.log('id:' + $('#checkbox' + i).val() + " update :" + update);
                         $.ajax({
                             type: "GET",
