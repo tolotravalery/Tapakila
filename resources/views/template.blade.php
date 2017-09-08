@@ -148,13 +148,6 @@
 @yield('content')
 
 @yield('specificScript')
-<script>
-    function addEventSimpleUsers() {
-        if (confirm('Vous avez un évènement à ajouter?')) {
-            document.location.href = "{{url('/profile/'.Auth::user()->id.'/edit')}}";
-        }
-    }
-</script>
 <!-- footer -->
 <footer class="footer">
     <div class="footer-top">

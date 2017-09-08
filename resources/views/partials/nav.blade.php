@@ -15,9 +15,24 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li>
+                    @role('organisateur')
                     <button type="" class="btn btn-success event"
-                            onclick="javascript:location.href='{{url('/')}}/organisateur/event'"><span class="ico"></span><span
+                            onclick="javascript:location.href='{{url('/')}}/organisateur/event'"><span
+                                class="ico"></span><span
                                 class="descr">AJOUTER<br/> VOTRE EVENEMENT</span></button>
+                    @endrole
+                    @role('user')
+                    <button type="" class="btn btn-success event"
+                            onclick="addEventSimpleUsers()"><span
+                                class="ico"></span><span
+                                class="descr">AJOUTER<br/> VOTRE EVENEMENT</span></button>
+                    @endrole
+                    @if (Auth::guest())
+                        <button type="" class="btn btn-success event"
+                                onclick="javascript:location.href='{{url('/')}}/organisateur/event'"><span
+                                    class="ico"></span><span
+                                    class="descr">AJOUTER<br/> VOTRE EVENEMENT</span></button>
+                    @endif
                 </li>
                 <li><a href="{{ url('/shopping/cart') }}">Panier @if (!Auth::guest())
                             ({{ Cart::instance('default')->count(false) }}) @endif</a>
@@ -103,3 +118,11 @@
         </div>
     </div>
 </nav>
+
+<script>
+    function addEventSimpleUsers() {
+        if (confirm('Vous avez un évènement à ajouter?')) {
+            document.location.href = "{{url('/profile/'.Auth::user()->id.'/edit')}}";
+        }
+    }
+</script>
