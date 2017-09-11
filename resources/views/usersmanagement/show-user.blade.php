@@ -16,7 +16,7 @@
                 <div class="panel @if ($user->activated == 1) panel-success @else panel-danger @endif">
 
                     <div class="panel-heading">
-                        <a href="/users/" class="btn btn-primary btn-xs pull-right">
+                        <a href="{{url('')}}/admin/users" class="btn btn-primary btn-xs pull-right">
                             <i class="fa fa-fw fa-mail-reply" aria-hidden="true"></i>
                             <span class="hidden-xs">{{ trans('usersmanagement.usersBackBtn') }}</span>
                         </a>
@@ -47,12 +47,14 @@
                                     @if ($user->profile)
                                         <div class="text-center text-left-tablet margin-bottom-1">
 
-                                            <a href="{{ url('/profile/'.$user->name) }}" class="btn btn-sm btn-info">
+                                            <a href="{{ url('').'/admin/profile/'.$user->id }}"
+                                               class="btn btn-sm btn-info">
                                                 <i class="fa fa-eye fa-fw" aria-hidden="true"></i> <span
                                                         class="hidden-xs hidden-sm hidden-md"> {{ trans('usersmanagement.viewProfile') }}</span>
                                             </a>
 
-                                            <a href="/users/{{$user->id}}/edit" class="btn btn-sm btn-warning">
+                                            <a href="{{url('').'/admin/users/'.$user->id.'/edit'}}"
+                                               class="btn btn-sm btn-warning">
                                                 <i class="fa fa-pencil fa-fw" aria-hidden="true"></i> <span
                                                         class="hidden-xs hidden-sm hidden-md"> {{ trans('usersmanagement.editUser') }} </span>
                                             </a>
@@ -180,12 +182,12 @@
                         <div class="col-sm-7">
                             @if ($user->activated == 1)
                                 <span class="label label-success">
-                  Activated
-                </span>
+                                  Activated
+                                </span>
                             @else
                                 <span class="label label-danger">
-                  Not-Activated
-                </span>
+                                  Not-Activated
+                                </span>
                             @endif
                         </div>
 
@@ -233,25 +235,25 @@
 
                         <div class="col-sm-7">
                             @if($user->canViewUsers())
-                                <span class="label label-primary margin-half margin-left-0"">
+                                <span class="label label-primary margin-half margin-left-0">
                                 {{ trans('permsandroles.permissionView') }}
                                 </span>
                             @endif
 
                             @if($user->canCreateUsers())
-                                <span class="label label-info margin-half margin-left-0"">
+                                <span class="label label-info margin-half margin-left-0">
                                 {{ trans('permsandroles.permissionCreate') }}
                                 </span>
                             @endif
 
                             @if($user->canEditUsers())
-                                <span class="label label-warning margin-half margin-left-0"">
+                                <span class="label label-warning margin-half margin-left-0">
                                 {{ trans('permsandroles.permissionEdit') }}
                                 </span>
                             @endif
 
                             @if($user->canDeleteUsers())
-                                <span class="label label-danger margin-half margin-left-0"">
+                                <span class="label label-danger margin-half margin-left-0">
                                 {{ trans('permsandroles.permissionDelete') }}
                                 </span>
                             @endif
@@ -378,7 +380,44 @@
                             <div class="border-bottom"></div>
 
                         @endif
-
+                        @if($user->hasRole('organisateur'))
+                            <br/>
+                            <h4>Liste des évènements de {{$user->name}}</h4>
+                            <div class="table-responsive tableau_detail">
+                                <table class="table table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th>Event id</th>
+                                        <th>Date</th>
+                                        <th>Heure</th>
+                                        <th>Lieu</th>
+                                        <th>Avatar</th>
+                                        <th>Titre</th>
+                                        <th>Status</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach($user->events as $event)
+                                        <tr>
+                                            <td>{{$event->id}}</td>
+                                            <td>{{ \Carbon\Carbon::parse($event->date_debut_envent)->format('d M Y')}}</td>
+                                            <td>{{ \Carbon\Carbon::parse($event->date_debut_envent)->format('H:i')}}</td>
+                                            <td>{{$event->localisation_nom}} {{$event->localisation_adresse}}</td>
+                                            <td><img src="{{ url('img/'.$event->image) }}" class="detail_picture1"></td>
+                                            <td>{{$event->title}}</td>
+                                            <td>
+                                                @if(\Carbon\Carbon::parse($event->date_debut_envent)->isFuture() )
+                                                    En attendant
+                                                @else
+                                                    Passé
+                                                @endif
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        @endif
                     </div>
 
                 </div>

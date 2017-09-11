@@ -44,8 +44,13 @@ Route::group(['middleware' => 'web'], function () {
         Route::get('list/categorie/{menu}', 'DetailEventController@listEventMenu');
         Route::get('list/categorie/sous_categorie/{sous_menu}', 'DetailEventController@listEventSousMenu');
         Route::get('{event_name}','DetailEventController@show_par_name');
+
     });
 
+    Route::group(['prefix' => 'shopping'], function () {
+        Route::resource('cart', 'Shopping\CartController');
+        Route::delete('emptyCart', 'Shopping\CartController@emptyCart');
+    });
 
 });
 
@@ -103,16 +108,6 @@ Route::group(['middleware' => ['auth', 'activated', 'currentUser']], function ()
     Route::post('avatar/upload', ['as' => 'avatar.upload', 'uses' => 'ProfilesController@upload']);
 
     Route::group(['prefix' => 'shopping'], function () {
-
-        Route::resource('shop', 'Shopping\ProductController', ['only' => ['index', 'show']]);
-
-        Route::resource('cart', 'Shopping\CartController');
-        Route::delete('emptyCart', 'Shopping\CartController@emptyCart');
-        Route::post('switchToWishlist/{id}', 'Shopping\CartController@switchToWishlist');
-
-        Route::resource('wishlist', 'Shopping\WishlistController');
-        Route::delete('emptyWishlist', 'Shopping\WishlistController@emptyWishlist');
-        Route::post('switchToCart/{id}', 'Shopping\WishlistController@switchToCart');
         Route::get('checkout', 'Shopping\CheckoutController@index');
         Route::post('checkout/store', 'Shopping\CheckoutController@store');
         Route::post('checkout/save/{checkout}', 'Shopping\CheckoutController@save');

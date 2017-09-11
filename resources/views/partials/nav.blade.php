@@ -14,13 +14,15 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                @role('organisateur')
+
                 <li>
+                    @role('organisateur')
+
                     <button type="" class="btn btn-success event"
                             onclick="javascript:location.href='{{url('/')}}/organisateur/event'"><span
                                 class="ico"></span><span
                                 class="descr">AJOUTER<br/> VOTRE EVENEMENT</span></button>
-                </li>
+
 
                 <li><a href="{{ url('/shopping/cart') }}">Panier @if (!Auth::guest())
                             ({{ Cart::instance('default')->count(false) }}) @endif</a>
@@ -64,6 +66,29 @@
                     </ul>
                 </li>
                 @endrole
+
+                @if (Auth::guest())
+                    <button type="" class="btn btn-success event"
+                            onclick="javascript:location.href='{{url('/')}}/organisateur/event'"><span
+                                class="ico"></span><span
+                                class="descr">AJOUTER<br/> VOTRE EVENEMENT</span></button>
+                    <li><a href="{{ url('/shopping/cart') }}">Panier @if (!Auth::guest())
+                                ({{ Cart::instance('default')->count(false) }}) @endif</a>
+                    </li>
+                    <li role="presentation" class="dropdown">
+                        <a href="#" class="dropdown-toggle" id="drop6" data-toggle="dropdown" role="button"
+                           aria-haspopup="true" aria-expanded="false"> Rechercher
+                            <span class="caret"></span> </a>
+                        <ul class="dropdown-menu search" id="menu3" aria-labelledby="drop6">
+                            <li>
+                                <form action="./page/recherche.html" method="get">
+                                    <input type="text" name="query" placeholder="Search..." autocomplete="off">
+                                    <input type="submit" value="Search">
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
+                @endif
 
                 @if (Auth::guest())
                 <!--<li><a href="{{ route('login') }}">{!! trans('titles.login') !!}</a></li>-->
