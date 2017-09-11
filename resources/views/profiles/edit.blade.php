@@ -67,41 +67,77 @@
                     </div>
                     <div id="div_commandes" class="hide">
                         <h1 id="compte">Mes commandes</h1>
-                        {{--<p class="contre5">
-
-                        </p>--}}
-                        <table>
-                            <tbody>
-                            @foreach($user->tickets as $ticket)
-                                <tr>
-                                    {{--{{ $ticket->id }}<br/>--}}
-                                    <td>{{$ticket->events->title}}</td>
-                                    <td>{{$ticket->type}}</td>
-                                    <td>{{$ticket->pivot->number}}</td>
-                                    <td>{{ \Carbon\Carbon::parse($ticket->pivot->date_achat)->format('d M Y')}}
-                                        à
-                                        de {{ \Carbon\Carbon::parse($ticket->pivot->date_achat)->format('H:i')}}</td>
-                                </tr>
-
-                            @endforeach
-                            </tbody>
-                        </table>
+                        <div class="contre">
+                            <div class="table-responsive tableau_detail">
+                                <table class="table table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th>Titre</th>
+                                        <th>Date</th>
+                                        <th>Heure</th>
+                                        <th>Lieu</th>
+                                        <th>Avatar</th>
+                                        <th>Type de billet</th>
+                                        <th>Nombre</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach($user->tickets as $ticket)
+                                        @if(\Carbon\Carbon::parse($ticket->events->date_debut_envent)->isFuture() )
+                                            <tr>
+                                                <td>{{$ticket->events->title}}</td>
+                                                <td>{{ \Carbon\Carbon::parse($ticket->pivot->date_achat)->format('d M Y')}}</td>
+                                                <td>{{ \Carbon\Carbon::parse($ticket->pivot->date_achat)->format('H:i')}}</td>
+                                                <td>{{$ticket->events->localisation_nom}} {{$ticket->events->localisation_adresse}}</td>
+                                                <td><img src="{{ url('img/'.$ticket->events->image) }}"
+                                                         class="detail_picture1"></td>
+                                                <td>{{$ticket->type}}</td>
+                                                <td>{{$ticket->pivot->number}}</td>
+                                            </tr>
+                                        @endif
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                     <div id="div_ev" class="hide">
-                        <h1 id="compte">Mes Evènements</h1>
-                        <p class="contre5">"At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
-                            praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint
-                            occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia
-                            animi,
-                            id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.
-                            Nam
-                            libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod
-                            maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
-                            Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut
-                            et
-                            voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a
-                            sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis
-                            doloribus asperiores repellat."</p>
+                        <h1 id="compte">Mes Evènements passés</h1>
+                        <div class="contre5">
+                            <div class="contre">
+                                <div class="table-responsive tableau_detail">
+                                    <table class="table table-hover">
+                                        <thead>
+                                        <tr>
+                                            <th>Titre</th>
+                                            <th>Date</th>
+                                            <th>Heure</th>
+                                            <th>Lieu</th>
+                                            <th>Avatar</th>
+                                            <th>Type de billet</th>
+                                            <th>Nombre</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @foreach($user->tickets as $ticket)
+                                            @if(\Carbon\Carbon::parse($ticket->events->date_debut_envent)->isPast() )
+                                                <tr>
+                                                    <td>{{$ticket->events->title}}</td>
+                                                    <td>{{ \Carbon\Carbon::parse($ticket->pivot->date_achat)->format('d M Y')}}</td>
+                                                    <td>{{ \Carbon\Carbon::parse($ticket->pivot->date_achat)->format('H:i')}}</td>
+                                                    <td>{{$ticket->events->localisation_nom}} {{$ticket->events->localisation_adresse}}</td>
+                                                    <td><img src="{{ url('img/'.$ticket->events->image) }}"
+                                                             class="detail_picture1"></td>
+                                                    <td>{{$ticket->type}}</td>
+                                                    <td>{{$ticket->pivot->number}}</td>
+                                                </tr>
+                                            @endif
+                                        @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div id="div_favoris" class="hide">
                         <h1 id="compte">Mes Favoris</h1>
