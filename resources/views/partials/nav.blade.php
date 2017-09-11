@@ -15,10 +15,13 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
                 @role('organisateur')
-                <button type="" class="btn btn-success event"
-                        onclick="javascript:location.href='{{url('/')}}/organisateur/event'"><span
-                            class="ico"></span><span
-                            class="descr">AJOUTER<br/> VOTRE EVENEMENT</span></button>
+                <li>
+                    <button type="" class="btn btn-success event"
+                            onclick="javascript:location.href='{{url('/')}}/organisateur/event'"><span
+                                class="ico"></span><span
+                                class="descr">AJOUTER<br/> VOTRE EVENEMENT</span></button>
+                </li>
+
                 <li><a href="{{ url('/shopping/cart') }}">Panier @if (!Auth::guest())
                             ({{ Cart::instance('default')->count(false) }}) @endif</a>
                 </li>
@@ -37,10 +40,13 @@
                 </li>
                 @endrole
                 @role('user')
-                <button type="" class="btn btn-success event"
-                        onclick="addEventSimpleUsers()"><span
-                            class="ico"></span><span
-                            class="descr">AJOUTER<br/> VOTRE EVENEMENT</span></button>
+                <li>
+                    <button type="" class="btn btn-success event"
+                            onclick="addEventSimpleUsers()"><span
+                                class="ico"></span><span
+                                class="descr">AJOUTER<br/> VOTRE EVENEMENT</span></button>
+                </li>
+
                 <li><a href="{{ url('/shopping/cart') }}">Panier @if (!Auth::guest())
                             ({{ Cart::instance('default')->count(false) }}) @endif</a>
                 </li>
@@ -59,7 +65,7 @@
                 </li>
                 @endrole
 
-            @if (Auth::guest())
+                @if (Auth::guest())
                 <!--<li><a href="{{ route('login') }}">{!! trans('titles.login') !!}</a></li>-->
                     <li>
                         <a href="#" class="dropdown-toggle" id="drop6" data-toggle="dropdown" role="button"

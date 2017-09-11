@@ -93,7 +93,19 @@ class EventController extends Controller
         $ev->save();
         return "update " . $request->input('id') . "to " . $request->input('active') . " finished";
     }
-
+    public function edit($id){
+        $menus = Menus::orderBy('id', 'desc')->take(8)->get();
+        $sousmenus = Sous_menus::orderBy('id', 'desc')->take(20)->get();
+        $event = Events::find($id);
+        return view('events.edit', compact( 'event','menus','sousmenus'));
+    }
+    public function update_website(Request $request){
+        $image = $request->file('image');
+        $filename = $image->getClientOriginalExtension();
+        $input['image'] = time() . '.' . $image->getClientOriginalExtension();
+        $destinationPath = public_path('/img');
+        $image->move($destinationPath, $input['image']);
+    }
     public function store(Request $request)
     {
         $huhu = $request->input('publie');
@@ -127,6 +139,7 @@ class EventController extends Controller
             'publie_organisateur' => $tmp
         ]);
 
-        return redirect(url('organisateur/event'));
+       // dd($event->id);
+        return redirect(url('organisateur/evenement/'.$event->id.'/edit'));
     }
 }

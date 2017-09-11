@@ -43,6 +43,7 @@ Route::group(['middleware' => 'web'], function () {
         Route::get('show/{events_id}', 'DetailEventController@show');
         Route::get('list/categorie/{menu}', 'DetailEventController@listEventMenu');
         Route::get('list/categorie/sous_categorie/{sous_menu}', 'DetailEventController@listEventSousMenu');
+        Route::get('{event_name}','DetailEventController@show_par_name');
     });
 
 
@@ -194,4 +195,12 @@ Route::group(['middleware' => ['auth', 'activated', 'role:organisateur'], 'prefi
     Route::post('event', 'EventController@store')->name('event');
 //    Route::get('index', 'OrganisateurController@index');
     Route::resource('ticket', 'TicketController');
+    Route::resource(
+        'evenement',
+        'EventController', [
+            'only' => [
+                'edit'
+            ]
+        ]
+    );
 });
