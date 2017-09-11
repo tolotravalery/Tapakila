@@ -75,7 +75,7 @@
                                         <label class="control-label ">
                                             <span>Catégories : </span>
                                         </label>
-                                        <div class="form-group">
+                                        <div class="form-group" style="margin-left: 0px!important;margin-right: 0px!important;">
                                             <select class="form-control" name="sousmenu">
                                                 <option>--------choisir-----------</option>
                                                 @foreach($sousmenus as $sousmenu)
