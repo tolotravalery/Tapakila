@@ -137,20 +137,20 @@
                                             {{$ticket->type}}
                                             / <b>{{$ticket->price}} Ar</b></td>
                                         {{--<td>--}}
-                                        {{--<div class="row">--}}
-                                        {{--<div class="col-lg-8 col-lg-offset-2">--}}
-                                        {{--<form>--}}
-                                        {{--<div class="form-group">--}}
-                                        {{--<select class="form-control selec" id="sel1">--}}
-                                        {{--<option>1</option>--}}
-                                        {{--<option>2</option>--}}
-                                        {{--<option>3</option>--}}
-                                        {{--<option>4</option>--}}
-                                        {{--</select>--}}
-                                        {{--</div>--}}
-                                        {{--</form>--}}
-                                        {{--</div>--}}
-                                        {{--</div>--}}
+                                            {{--<div class="row">--}}
+                                                {{--<div class="col-lg-8 col-lg-offset-2">--}}
+                                                    {{--<form>--}}
+                                                        {{--<div class="form-group">--}}
+                                                            {{--<select class="form-control selec" id="sel1">--}}
+                                                                {{--<option>1</option>--}}
+                                                                {{--<option>2</option>--}}
+                                                                {{--<option>3</option>--}}
+                                                                {{--<option>4</option>--}}
+                                                            {{--</select>--}}
+                                                        {{--</div>--}}
+                                                    {{--</form>--}}
+                                                {{--</div>--}}
+                                            {{--</div>--}}
                                         {{--</td>--}}
                                         <td>
                                             <form action="{{ url('shopping/cart') }}" method="POST"

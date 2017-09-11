@@ -27,13 +27,13 @@ class DetailEventController extends Controller
         return view('events.list')->with(array('menu_event' => $menu_id, 'menus' => $menus, 'sousmenus' => $sousmenus));
     }
 
-    public function listEventSousMenu($sous_menu)
+    public function listEventSousMenu($sous_menu_name, $sous_menu)
     {
         $sous_menu_id = Sous_menus::find($sous_menu);
         $menus = Menus::orderBy('id', 'desc')->get();
         $sousmenus = Sous_menus::orderBy('name', 'asc')->take(20)->get();
         $date_now = date('Y-m-d H:i:s');
         $events = Events::where('sous_menus_id', '=', $sous_menu)->where('publie', '=', '1')->where('date_debut_envent', '>', $date_now)->get();
-        return view('events.list1')->with(array('sous_menu_event' => $sous_menu_id, 'menus' => $menus, 'sousmenus' => $sousmenus,'events'=>$events));
+        return view('events.list1')->with(array('sous_menu_event' => $sous_menu_id, 'menus' => $menus, 'sousmenus' => $sousmenus, 'events' => $events));
     }
 }
