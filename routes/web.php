@@ -45,6 +45,7 @@ Route::group(['middleware' => 'web'], function () {
         Route::get('list/categorie/{sous_menu_name}/{sous_menu}', 'DetailEventController@listEventSousMenu');
         Route::get('{event_name}', 'DetailEventController@show_par_name');
 
+
     });
 
     Route::group(['prefix' => 'shopping'], function () {
