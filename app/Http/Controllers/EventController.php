@@ -100,11 +100,20 @@ class EventController extends Controller
         return view('events.edit', compact( 'event','menus','sousmenus'));
     }
     public function update_website(Request $request){
+        $ev = Events::find($request->input('id'));
+        $ev->siteweb=$request->input('slug');
         $image = $request->file('image');
-        $filename = $image->getClientOriginalExtension();
-        $input['image'] = time() . '.' . $image->getClientOriginalExtension();
-        $destinationPath = public_path('/img');
-        $image->move($destinationPath, $input['image']);
+        if ($image==null){
+
+        } else {
+            $filename = $image->getClientOriginalExtension();
+            $input['image'] = time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('/img');
+            $image->move($destinationPath, $input['image']);
+            $ev->image_background = $input['image'];
+        }
+        $ev->save();
+        return redirect(url('organisateur/evenement/'.$ev->id.'/edit'));
     }
     public function store(Request $request)
     {
@@ -124,7 +133,9 @@ class EventController extends Controller
         $input['image'] = time() . '.' . $image->getClientOriginalExtension();
         $destinationPath = public_path('/img');
         $image->move($destinationPath, $input['image']);
-
+        $titre=$request->input('title');
+        $split= explode(" ",$titre);
+        $titre=$split[0];
 
         $event = Events::create([
             'title' => $request->input('title'),
@@ -136,7 +147,8 @@ class EventController extends Controller
             'localisation_nom' => $request->input('localisation_nom'),
             'localisation_adresse' => $request->input('localisation_adresse'),
             'users_id' => Auth::user()->id,
-            'publie_organisateur' => $tmp
+            'publie_organisateur' => $tmp,
+            'siteweb' => $titre,
         ]);
 
        // dd($event->id);
