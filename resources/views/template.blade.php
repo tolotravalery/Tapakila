@@ -75,7 +75,7 @@
                         <span class="caret"></span> </a>
                     <ul class="dropdown-menu search" id="menu3" aria-labelledby="drop6">
                         <li>
-                            <form action="./page/recherche.html" method="get">
+                            <form action="  {{url('/')}}/find/q" method="get">
                                 <input type="text" name="query" placeholder="Search..." autocomplete="off">
                                 <input type="submit" value="Search">
                             </form>

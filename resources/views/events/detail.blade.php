@@ -1,59 +1,22 @@
 @extends('template')
 
 @section('content')
-    {{--<section id="sectioncategorie" class="clearfix">--}}
-    {{--<div class="container">--}}
-    {{--<ul class="clearfix">--}}
-    {{--<li><a href="{{url('/')}}">TOUS</a></li>--}}
-    {{--@foreach($menus as $menu)--}}
-    {{--<li><a href="{{url('/events/list/categorie',[$menu->id])}}">{{strtoupper($menu->name)}}</a></li>--}}
-    {{--@endforeach--}}
-    {{--</ul>--}}
-    {{--<a href="#" class="menupull" id="pull"><strong>Catégories</strong></a>--}}
-    {{--</div>--}}
-    {{--</section>--}}
-
-    {{--<section id="sectionevenement" role="navigation">--}}
-    {{--<div class="container">--}}
-    {{--<ul>--}}
-    {{--@foreach($sousmenus as $sousmenu)--}}
-    {{--<li>--}}
-    {{--<a href="{{url('/events/list/categorie/sous_categorie',[$sousmenu->id])}}">{{ucfirst($sousmenu->name)}}</a>--}}
-    {{--</li>--}}
-    {{--@endforeach--}}
-    {{--</ul>--}}
-    {{--</div>--}}
-    {{--</section>--}}
-    {{--<br>--}}
-    {{--<section  class="clearfix">--}}
-    {{--<div class="container">--}}
-    {{--<ul id="breadcrumbs-one">--}}
-    {{--<li><a href="">Acceuil</a></li>--}}
-    {{--<li><a href="{{url('/')}}">Evenement</a></li>--}}
-    {{--<li><a href="{{url('/events/list/categorie',[$event->sous_menus->menus->id])}}">{{strtoupper($event->sous_menus->menus->name)}}</a></li>--}}
-    {{--<li><a href="{{url('/events/list/categorie/sous_categorie',[$event->sous_menus->id])}}">{{ucfirst($event->sous_menus->name)}}</a></li>--}}
-    {{--<li><a href="">{{ ucfirst($event->title) }}</a></li>--}}
-    {{--</ul>--}}
-    {{--</div>--}}
-    {{--</section>--}}
     <div id="background-detail">
-
         <?php
-            $img="";
-        if($event->image_background == null){
-            $img="back_defaut.jpg";
-        }
-        else{
+        $img = "";
+        if ($event->image_background == null) {
+            $img = "back_defaut.jpg";
+        } else {
             $img = $event->image_background;
         }
         ?>
-            <img src="{{url('/')}}/img/{{$img}}"  style="width:100%;">
+        <img src="{{url('/')}}/img/{{$img}}" style="width:100%;">
     </div>
     <div class="container">
         <div class="box1">
             <h2 class="text-center">Detail sur l'événement</h2>
             <div class="Pcenter">
-                 <img class="imgdetails" src="{{url('/')}}/img/{{$img}}" style="width:100%;">
+                <img class="imgdetails" src="{{url('/')}}/img/{{$img}}" style="width:100%;">
             </div>
             <div class="descriptionevent">
                 <h3>Descritpion</h3>
