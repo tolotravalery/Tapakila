@@ -93,17 +93,21 @@ class EventController extends Controller
         $ev->save();
         return "update " . $request->input('id') . "to " . $request->input('active') . " finished";
     }
-    public function edit($id){
+
+    public function edit($id)
+    {
         $menus = Menus::orderBy('id', 'desc')->take(8)->get();
         $sousmenus = Sous_menus::orderBy('id', 'desc')->take(20)->get();
         $event = Events::find($id);
-        return view('events.edit', compact( 'event','menus','sousmenus'));
+        return view('events.edit', compact('event', 'menus', 'sousmenus'));
     }
-    public function update_website(Request $request){
+
+    public function update_website(Request $request)
+    {
         $ev = Events::find($request->input('id'));
-        $ev->siteweb=$request->input('slug');
+        $ev->siteweb = $request->input('slug');
         $image = $request->file('image');
-        if ($image==null){
+        if ($image == null) {
 
         } else {
             $filename = $image->getClientOriginalExtension();
@@ -113,8 +117,9 @@ class EventController extends Controller
             $ev->image_background = $input['image'];
         }
         $ev->save();
-        return redirect(url('organisateur/evenement/'.$ev->id.'/edit'));
+        return redirect(url('organisateur/evenement/' . $ev->id . '/edit'));
     }
+
     public function store(Request $request)
     {
         $huhu = $request->input('publie');
@@ -133,9 +138,9 @@ class EventController extends Controller
         $input['image'] = time() . '.' . $image->getClientOriginalExtension();
         $destinationPath = public_path('/img');
         $image->move($destinationPath, $input['image']);
-        $titre=$request->input('title');
-        $split= explode(" ",$titre);
-        $titre=$split[0];
+        $titre = $request->input('title');
+        $split = explode(" ", $titre);
+        $titre = $split[0];
 
         $event = Events::create([
             'title' => $request->input('title'),
@@ -151,7 +156,7 @@ class EventController extends Controller
             'siteweb' => $titre,
         ]);
 
-       // dd($event->id);
-        return redirect(url('organisateur/evenement/'.$event->id.'/edit'));
+        // dd($event->id);
+        return redirect(url('organisateur/evenement/' . $event->id . '/edit'));
     }
 }
