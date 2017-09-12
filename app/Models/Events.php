@@ -24,6 +24,8 @@ class Events extends Model
         'publie_organisateur',
         'users_id',
         'publie',
+        'siteweb',
+        'image_background',
     ];
 
     public function tickets()

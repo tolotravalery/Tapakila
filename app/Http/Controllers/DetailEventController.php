@@ -20,16 +20,10 @@ class DetailEventController extends Controller
     }
     public function show_par_name($event_name)
     {
-        /*$menus = Menus::orderBy('id', 'desc')->get();
-        $sousmenus = Sous_menus::orderBy('name', 'asc')->take(20)->get();
-        $date_now = date('Y-m-d H:i:s');
-        $interested = Events::where('id', '!=', $event_name)->where('publie', '=', '1')->where('date_debut_envent', '>', $date_now)->get();;
-        if ($interested->count() > 3) $interested = $interested->random(3);
-        return view('events.detail', array('event' => Events::find($event_name), 'interested' => $interested, 'menus' => $menus, 'sousmenus' => $sousmenus));*/
         $menus = Menus::orderBy('id', 'desc')->get();
         $sousmenus = Sous_menus::orderBy('name', 'asc')->take(20)->get();
         $date_now = date('Y-m-d H:i:s');
-        $events = Events::where('title', 'like', '%'.$event_name.'%')->where('publie', '=', '1')->where('date_debut_envent', '>', $date_now)->get();
+        $events = Events::where('siteweb', 'like', '%'.$event_name.'%')->where('publie', '=', '1')->where('date_debut_envent', '>', $date_now)->get();
         $event=$events[0];
         //dd($event->id);
         $interested = Events::where('id', '!=', $event->id)->where('publie', '=', '1')->where('date_debut_envent', '>', $date_now)->get();;;

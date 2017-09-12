@@ -188,6 +188,7 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin'], 'prefix' => '
 Route::group(['middleware' => ['auth', 'activated', 'role:organisateur'], 'prefix' => 'organisateur'], function () {
     Route::get('event', 'EventController@showEventForm')->name('event');
     Route::post('event', 'EventController@store')->name('event');
+    Route::post('event_siteweb', 'EventController@update_website')->name('event_siteweb');
 //    Route::get('index', 'OrganisateurController@index');
     Route::resource('ticket', 'TicketController');
     Route::resource(
