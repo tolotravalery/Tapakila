@@ -43,13 +43,18 @@ Route::group(['middleware' => 'web'], function () {
         Route::get('show/{events_id}', 'DetailEventController@show');
         Route::get('list/categorie/{menu}', 'DetailEventController@listEventMenu');
         Route::get('list/categorie/{sous_menu_name}/{sous_menu}', 'DetailEventController@listEventSousMenu');
-        Route::get('{event_name}','DetailEventController@show_par_name');
+        Route::get('{event_name}', 'DetailEventController@show_par_name');
+
 
     });
 
     Route::group(['prefix' => 'shopping'], function () {
         Route::resource('cart', 'Shopping\CartController');
         Route::delete('emptyCart', 'Shopping\CartController@emptyCart');
+    });
+    Route::group(['prefix' => 'find'], function () {
+        Route::get('q', 'RechercheController@find');
+        Route::get('filtered', 'RechercheController@filtered');
     });
 
 });
