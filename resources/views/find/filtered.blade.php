@@ -69,9 +69,6 @@
                             <div class="row">
                                 <div class="col-sm-6 col-md-4">
                                     <div class="thumbnail">
-                                        {{--@php--}}
-                                        {{--$replace = array(''.$queries.'' => '<span style="background-color: yellow;">'.$queries.'</span>');--}}
-                                        {{--@endphp--}}
                                         <a href="{{url('events/show',[$event->id])}}">
                                             <div class="mg-image">
                                                 <img src="{{ url('img/'.$event->image.'') }}">
@@ -94,6 +91,7 @@
                                                         {!! str_replace($queries,'<span style="background-color: yellow;">'.$queries.'</span>',$event->localisation_adresse) !!}
                                                         {{--{{ $event->localisation_nom }} {{ $event->localisation_adresse }}--}}
                                                     </div>
+                                                    {{$event->sous_menus_id}}
                                                 </div>
                                             </div>
                                         </a>

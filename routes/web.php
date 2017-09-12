@@ -52,7 +52,8 @@ Route::group(['middleware' => 'web'], function () {
         Route::delete('emptyCart', 'Shopping\CartController@emptyCart');
     });
     Route::group(['prefix' => 'find'], function () {
-        Route::get('q','RechercheController@find');
+        Route::get('q', 'RechercheController@find');
+        Route::get('filtered', 'RechercheController@filtered');
     });
 
 });
