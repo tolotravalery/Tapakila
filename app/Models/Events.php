@@ -22,7 +22,7 @@ class Events extends Model
         'localisation_nom',
         'localisation_adresse',
         'publie_organisateur',
-        'users_id',
+        'user_id',
         'publie',
         'siteweb',
         'image_background',
