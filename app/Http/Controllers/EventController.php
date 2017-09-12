@@ -146,7 +146,7 @@ class EventController extends Controller
             'additional_note' => $request->input('note'),
             'localisation_nom' => $request->input('localisation_nom'),
             'localisation_adresse' => $request->input('localisation_adresse'),
-            'users_id' => Auth::user()->id,
+            'user_id' => Auth::user()->id,
             'publie_organisateur' => $tmp,
             'siteweb' => $titre,
         ]);
