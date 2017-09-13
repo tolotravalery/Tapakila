@@ -2271,7 +2271,7 @@ ul.herb li {
    display: inline;
    float: left;
    margin: -5px 0px 0px 00px;
-   font-family: 'Nunito', sans-serif;
+
       height:auto;
       width:auto;
 }
@@ -2284,7 +2284,6 @@ ul.herb li a {
    -webkit-border-radius: 4px;
    -moz-border-radius: 4px;
    border-bottom: none;
-   text-transform: lowercase;
    text-decoration: none;
    -webkit-transition: all .25s ease-in-out;
    -moz-transition: all .25s ease-in-out;

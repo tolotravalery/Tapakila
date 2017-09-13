@@ -24,20 +24,11 @@
         </div>
     </section>
     <br>
-   <!-- <section  class="clearfix">
-        <div class="container">
-            <ul id="breadcrumbs-one">
-                <li><a href="">Acceuil</a></li>
-                <li><a href="">Panier</a></li>
-            </ul>
-        </div>
-    </section>
-	-->
 	<section  class="clearfix">
         <div class="container">
             <ul class="herb">    
 				   <li  class=" bounce animated2 zoomIn"><a href="#"><b>Acceuil</b></a></li>   
-				   <li  class=" bounce animated2 zoomIn dernier"><a href="#">Panier</a></li> 
+				   <li  class=" bounce animated2 zoomIn dernier"><a href="#"><b>Panier</b></a></li>
 			</ul>
         </div>
     </section>
