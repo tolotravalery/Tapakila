@@ -33,15 +33,17 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
+        //echo $request->input('type');exit;
         $duplicates = Cart::search(function ($cartItem, $rowId) use ($request) {
-            return $cartItem->id === $request->id;
+            //return $cartItem->id === $request->id;
+            return $cartItem->id === $request->input('id');
         });
 
         if (!$duplicates->isEmpty()) {
             return redirect('shopping/cart')->withSuccessMessage('Ce ticket est déjà dans votre panier');
         }
-
-        Cart::add($request->id, $request->type, 1, $request->price)->associate('App\Models\Ticket');
+        Cart::add($request->input('id'), $request->input('type'), $request->input('nombre'), $request->input('price'))->associate('App\Models\Ticket');
+        // Cart::add($request->id, $request->type, 1, $request->price)->associate('App\Models\Ticket');
         return redirect('shopping/cart')->withSuccessMessage('Ce ticket est ajouté dans votre panier');
     }
 
