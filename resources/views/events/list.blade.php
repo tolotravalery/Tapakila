@@ -25,13 +25,23 @@
         </div>
     </section>
     <br/>
-    <section class="clearfix">
+   <!-- <section class="clearfix">
         <div class="container">
             <ul id="breadcrumbs-one">
                 <li><a href="">Acceuil</a></li>
                 <li><a href="{{url('/')}}">Evenement</a></li>
                 <li><a href="">{{strtoupper($menu_event->name)}}</a></li>
             </ul>
+        </div>
+    </section>
+	-->
+	<section  class="clearfix">
+        <div class="container">
+            <ul class="herb">    
+				   <li  class=" bounce animated2 zoomIn"><a href="#"><b>Acceuil</b></a></li>  
+				   <li  class=" bounce animated2 zoomIn"><a href="{{url('/')}}">Evenement</a></li>  
+				   <li  class=" bounce animated2 zoomIn dernier"><a href="">{{strtoupper($menu_event->name)}}</a></li> 
+			</ul>
         </div>
     </section>
 
