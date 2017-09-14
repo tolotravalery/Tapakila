@@ -31,29 +31,37 @@
         @if($events->count() > 0)
 
             <div class="container">
-                <div class="search-bg">
+                <div class="search-bg hidden-xs">
                     <h1 class="text-center">Filtrer votre recherche</h1>
                     <form class="form-horizontal" action="{{url('/')}}/find/filtered" method="get">
                         <div class="form-group">
                             <label class="col-md-3 control-label">Mot clé</label>
                             <div class="col-md-7">
-                                <input type="text" name="query" class="form-control">
+                                <input type="text" name="query" class="form-control" value="{{$queries}}">
                             </div>
                         </div>
-
                         <div class="form-group">
-                            <label class="col-md-3 control-label"> Catégories</label>
-                            <div class="col-md-7">
-                                <select class="form-control" placeholder="Categories" name="categorie">
-                                    <option value="all">Tous</option>
-                                    @foreach($sousmenus as $sousmenu)
-                                        <option value="{{$sousmenu->id}}">{{$sousmenu->name}}</option>
-                                    @endforeach
-                                </select>
+                            {{--<label class="col-md-2 control-label">Catégorie</label>--}}
+                            <div class="col-lg-10 col-lg-offset-3">
+                                {{--<div class="thumbnail">--}}
+                                <div class="table-responsive">
+                                    <table>
+                                        @php $i = 0; @endphp
+                                        @foreach($sousmenus as $sousmenu)
+                                            @if($i % 6 == 0)
+                                                <tr>
+                                                </tr>
+                                            @endif
+                                            <td><input type="checkbox" name="categorie[]"
+                                                       value="{{$sousmenu->id}}"/>{{$sousmenu->name}}</td>
+                                            @php $i++; @endphp
+                                        @endforeach
+                                    </table>
+                                </div>
                             </div>
+                            <button type="submit" class=" col-md-3 col-md-offset-5 btn btn-success btn-search">Recherche
+                            </button>
                         </div>
-                        <button type="submit" class=" col-md-3 col-md-offset-5 btn btn-success btn-search">Recherche
-                        </button>
                     </form>
                 </div>
                 <h2>Résultats de votre Recherche : " {{$queries}} "</h2>
