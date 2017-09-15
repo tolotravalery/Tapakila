@@ -1,5 +1,7 @@
 @extends('template')
-
+@section('specificCss')
+    <link rel="stylesheet" href="{{ url('/') }}/css/mediaqueries_sample.css">
+@endsection
 @section('content')
 
     <!-- header end -->

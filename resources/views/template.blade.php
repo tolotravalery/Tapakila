@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{ url('/') }}/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ url('/') }}/css/style.css">
     <link rel="stylesheet" href="{{ url('/') }}/css/mediaqueries.css">
-    <link rel="stylesheet" href="{{ url('/') }}/css/mediaqueries_sample.css">
+    @yield('specificCss')
     <link rel="stylesheet" href="{{ url('/') }}/css/animate.css">
     <link rel="stylesheet" href="{{ url('/') }}/css/font-awesome.css">
     <link href="{{ url('/') }}/css/datepicker.css" rel="stylesheet">
@@ -196,9 +196,9 @@
                 <div class="col-sm-3 col-xs-6">
                     <p class="titled"><strong>Acheter des tickets</strong></p>
                     <ul class="list-unstyled">
-                        <li><a href="#">Comment acheter</a></li>
-                        <li><a href="#">Foire aux questions</a></li>
-                        <li><a href="#">Terms of service</a></li>
+                        <li><a href="{{url('')}}/tapakila/faq">Comment acheter</a></li>
+                        <li><a href="{{url('')}}/tapakila/shop">Foire aux questions</a></li>
+                        <li><a href="{{url('')}}/tapakila/term">Terms of service</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-3 col-xs-6">
@@ -228,15 +228,15 @@
     <div class="footer-bottom">
         <div class="container small">
             <ul>
-                <li><a href="#">A propos de nous</a></li>
+                <li><a href="{{url('')}}/tapakila/about">A propos de nous</a></li>
                 |
-                <li><a href="#">Contact</a></li>
+                <li><a href="{{url('')}}/tapakila/contact">Contact</a></li>
                 |
                 <li><a href="#">Ajouter votre evenement</a></li>
                 |
                 <li><a href="#">Publicite</a></li>
                 |
-                <li><a href="#">FAQ</a></li>
+                <li><a href="{{url('')}}/tapakila/shop/ticket">FAQ</a></li>
                 |
                 <li><a href="#">Vie privee</a></li>
                 |
