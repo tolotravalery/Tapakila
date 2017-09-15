@@ -106,20 +106,31 @@ class RegisterController extends Controller
         $role = Role::where('slug', '=', 'unverified')->first();
         $isOrganisateur = false;
         if (isset($data['isOrganisateur'])) $isOrganisateur = true;
-        $user = User::create([
-            'name' => $data['name'],
-            'first_name' => $data['first_name'],
-            'last_name' => null,
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-            'isOrganisateur' => $isOrganisateur,
-            'token' => str_random(64),
-            'signup_ip_address' => $ipAddress->getClientIp(),
-            'activated' => !config('settings.activation')
-        ]);
+//        $user = User::create([
+//            'name' => $data['name'],
+//            'first_name' => $data['first_name'],
+//            'last_name' => null,
+//            'email' => $data['email'],
+//            'password' => bcrypt($data['password']),
+//            'isOrganisateur' => $isOrganisateur,
+//            'token' => str_random(64),
+//            'signup_ip_address' => $ipAddress->getClientIp(),
+//            'activated' => !config('settings.activation')
+//        ]);
+        $user = new User();
+        $user->name = $data['name'];
+        $user->first_name = $data['first_name'];
+        $user->email = $data['email'];
+        $user->password = bcrypt($data['password']);
+        $user->isOrganisateur = $isOrganisateur;
+        $user->token = str_random(64);
+        $user->signup_ip_address = $ipAddress->getClientIp();
+        $user->activated = !config('settings.activation');
 
         $user->attachRole($role);
         $this->initiateEmailActivation($user);
+
+        $user->save();
 
         return $user;
 
