@@ -25,13 +25,14 @@
         </div>
     </section>
     <br/>
-	<section  class="clearfix">
+    <section class="clearfix">
         <div class="container">
-            <ul class="herb">    
-				   <li  class=" bounce animated2 zoomIn"><a href="#"><b>Acceuil</b></a></li>  
-				   <li  class=" bounce animated2 zoomIn"><a href="{{url('/')}}"><b>Evenement</b></a></li>
-				   <li  class=" bounce animated2 zoomIn dernier"><a href=""><b>{{ucfirst(strtolower($menu_event->name))}}</b></a></li>
-			</ul>
+            <ul class="herb">
+                <li class=" bounce animated2 zoomIn"><a href="#"><b>Acceuil</b></a></li>
+                <li class=" bounce animated2 zoomIn"><a href="{{url('/')}}"><b>Evenement</b></a></li>
+                <li class=" bounce animated2 zoomIn dernier"><a
+                            href=""><b>{{ucfirst(strtolower($menu_event->name))}}</b></a></li>
+            </ul>
         </div>
     </section>
     <section id="categorie-concert">
@@ -118,21 +119,42 @@
                                                         </div>
                                                     </a>
                                                     <div class="caption taille">
-                                                        <h3>
-                                                            <a href="{{url('events/show',[$event->id])}}">{{ucfirst($event->title)}}</a>
-                                                        </h3>
-                                                        <p style="text-align: justify;">
-                                                            {{ str_limit(ucfirst($event->additional_note), $limit = 140, $end = '...') }}
-                                                        </p>
-                                                        <div>
-                                                            <div class="price"><i
-                                                                        class="glyphicon glyphicon-time time"></i>
-                                                                {{ \Carbon\Carbon::parse($event->date_debut_envent)->format('d M Y')}}
+                                                        <a href="{{url('events/show',[$event->id])}}">
+                                                            <h3>
+                                                                <a href="{{url('events/show',[$event->id])}}">{{$event->title}}</a>
+                                                            </h3>
+                                                            <a href="#"><p
+                                                                        style="text-align: justify">{{ str_limit(ucfirst($event->additional_note), $limit = 140, $end = '...') }}</p>
+                                                            </a><br/>
+                                                            <div class="row cbg">
+                                                                <div class="col-md-3 col-xs-3">
+                                                                    <div class="calendar">
+                                                                        <h1 class="month">{{ \Carbon\Carbon::parse($event->date_debut_envent)->format('M')}}</h1>
+                                                                        <label class="jour">{{ \Carbon\Carbon::parse($event->date_debut_envent)->format('D')}}</label>
+                                                                        <p class="day">{{ \Carbon\Carbon::parse($event->date_debut_envent)->format('d')}}</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-9 col-xs-9 ">
+                                                                    <a href="#">
+                                                                        <div class="prixfx"><i
+                                                                                    class="fa fa-tag prices"></i>A
+                                                                            partir de <b
+                                                                                    class="prx">6000</b> AR
+                                                                        </div>
+                                                                    </a>
+                                                                    <a href="#">
+                                                                        <div class="price"><i
+                                                                                    class="glyphicon glyphicon-time time"></i>{{ \Carbon\Carbon::parse($event->date_debut_envent)->format('H:i')}}
+                                                                        </div>
+                                                                    </a>
+                                                                    <a href="#">
+                                                                        <div class="date"><i
+                                                                                    class="glyphicon glyphicon-map-marker position"></i>{{ $event->localisation_nom }} {{ $event->localisation_adresse }}
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
                                                             </div>
-                                                            <div class="date"><i
-                                                                        class="glyphicon glyphicon-map-marker position"></i> {{ ucfirst($event->localisation_nom) }} {{ ucfirst($event->localisation_adresse) }}
-                                                            </div>
-                                                        </div>
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>
