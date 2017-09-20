@@ -8,54 +8,57 @@
 @endsection
 
 @section('content')
-    <div class="container">
-        <form class="form-horizontal" role="form" method="POST" action="{{ route('sousmenu') }}">
-            {{ csrf_field() }}
-            <p class="reinitialise">Create new sous menu</p>
-            <div class="white">
-                <div class="champs2">
-                    <p><strong>Title</strong></p>
-                    <input id="name" type="placeholde" placeholder="name" class="form-control"  name="name"  required autofocus>
 
-                    @if ($errors->has('email'))
+    <section id="detail">
+        <div class="container">
+            <div class="page-menu row">
+                <div class="col-md-9">
+                    <h1>Créér un sous-menu</h1>
+                </div>
+                
+            </div>
+            <form class="form-horizontal" role="form" method="POST" action="{{ route('sousmenu') }}">
+            {{ csrf_field() }}
+            <div class="panel panel-content">
+                <div class="panel-body border-bottom">
+                    <div class="clearfix"></div>
+                    <div class="form-group ">
+                        <label class="control-label ">
+                            <span>Name : *</span>
+                        </label>
+                        
+                        <input id="name" type="placeholde" placeholder="name" class="form-control"  name="name"  required autofocus>
+                        @if ($errors->has('email'))
                         <span class="red">
                                     <strong>{{ $errors->first('email') }}</strong>
-                            </span>
-                    @endif
-
-
-                </div>
-            </div>
-            <div class="form-group has-feedback row ">
-                <div class="col-md-9">
-                    <div class="input-group">
-
+                        </span>
+                        @endif
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label ">
+                        <span>Menus : </span>
+                        </label>
+                        <div class="form-group" style="margin-left: 0px!important;margin-right: 0px!important;">
                             <select class="form-control" name="menu">
-                                @foreach($menus as $menu)
-                                <option value="{{$menu->id}}">{{$menu->name}}</option>
-                                @endforeach
-                            </select>
-
-
+                                <option>--------choisir-----------</option>
+                                     @foreach($menus as $menu)
+                                     <option value="{{$menu->id}}">{{$menu->name}}</option>
+                                     @endforeach
+                           </select>
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        
+                            <button type="submit" class="btn btn-default enregistrer ">Enregistrer</button>
+                        
                     </div>
                 </div>
             </div>
+            </form>
+            <li><a href="{{url('/')}}/admin/sousmenus">Sous Menus</a></li>
+    </section>
 
-
-
-
-            <div class="customcolor">
-                <div class="row divider">
-                    <div class="col-md-6 col-xs-12">
-                        <input class="sinscrire input-submit" type="submit" name="s'inscrire'"  value="Add" style="margin-left: 80px;width: 180px;height: 56px;">
-                    </div>
-
-                </div>
-            </div>
-
-        </form>
-        <li><a href="{{url('/')}}/admin/sousmenus">Sous Menus</a></li>
-    </div>
+    
 
 @endsection
 
