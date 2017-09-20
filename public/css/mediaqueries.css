@@ -34,7 +34,7 @@
     height: 370px;
     width: 100%;
     overflow:hidden;
-}
+   }
     /*------------commande_event_------------------*/
     .com_contenu {
         padding-left: 22px;
@@ -98,6 +98,24 @@
 	
 }
 /*-------------------deatails-end------------------------------*/
+
+.mot_recherche {
+  text-align: center;
+  padding-top: 6px;
+}
+.form_recherche {
+  border-radius: 11px;
+  width: 90%;
+  margin-left: 18px;
+}
+
+  .select_recherche{
+    margin-left: 22px;
+    width: 94%;
+  }
+  .col_bout{
+    text-align: center;
+  }
 }
 
 
@@ -110,6 +128,11 @@
     padding: 14px 10px 14px 10px;
     margin-left: 11%;
 }
+.mot_recherche {
+  text-align: center;
+  padding-top: 6px;
+}
+
 .bout {
     margin: 35px 0px 35px 137px;
     background-color: #d70506;
@@ -134,12 +157,21 @@
     margin-left: -14px;
     margin-right: -14px;
 }
-
-
-
+.form_recherche {
+  border-radius: 11px;
+  width: 90%;
+  margin-left: 18px;
+}
+.select_recherche{
+  margin-left: 22px;
+  width: 94%;
+}
+.col_bout{
+  text-align: center;
 }
 
 
+}
 
 @media only screen and (min-device-width:500px) and (max-device-width:615px) {
   /* Styles */
@@ -150,6 +182,19 @@
     padding: 14px 10px 14px 10px;
     margin-left: 25%;
 }
+.form_recherche {
+  border-radius: 11px;
+  width: 95%;
+  margin-left: 15px;
+}
+
+  .select_recherche{
+    margin-left: 22px;
+    width: 94%;
+  }
+  .col_bout{
+    text-align: center;
+  }
 }
 
 @media only screen and (min-device-width:616px) and (max-device-width:767px) {
@@ -160,6 +205,14 @@
     margin-bottom: 12px;
     padding: 14px 10px 14px 10px;
     margin-left: 32%;
+}
+.form_recherche {
+  border-radius: 11px;
+  width: 89%;
+  margin-left: 15px;;
+}
+.select_recherche{
+  margin-left: 22px;
 }
 }
 
@@ -184,6 +237,11 @@
     width: 100%;
     overflow:hidden;
 }
+.mot_recherche {
+  text-align: center !important;
+  padding-top: 6px;
+}
+
 /*------Mon Compte--------*/
 
 /*------Mon Compte--------*/
@@ -314,14 +372,47 @@
   margin-left: 54px;
 }
 /*-------detail_catalog--end-----*/
+.form_recherche {
+  border-radius: 11px;
+  width: 89%;
+  margin-left: 15px;;
+}
+.select_recherche{
+  margin-left: 22px;
+}
+}
+
+@media only screen and (max-width: 950px){
+	.custom-container{
+	padding :0 15px !important;
+}
+}
+
+@media only screen and (max-width: 990px) {
+
+.contactpg , .infoline h2 , .message {
+   text-align:center;
+}
+	.important{
+margin-top: 10px !important;
 
 }
-@media only screen and (max-width: 990px) {
-	.search-bg {
-    height: 424px ! important;
-   
+		.slogan {
+    text-align: left;
+    margin-bottom: 35px !important;
 }
+.message {
+    margin-top: 35px ! important;
+
 }
+.form_recherche {
+  border-radius: 11px;
+  width: 90%;
+  margin-left: 17px;
+}
+
+}
+
 @media only screen and (max-width: 850px) {
 	/* detailup start */
 .box1{
@@ -330,6 +421,8 @@
 }
 /* detail end */
 @media only screen and (max-width: 768px) {
+
+
 	.Pcenter {
     padding: 10px 10px 10px 10px !important;
 }
@@ -405,6 +498,13 @@
     margin-left: 5%;
     width: 30%;
   }
+  .select_recherche{
+    margin-left: 22px;
+    width: 94%;
+  }
+  .col_bout{
+    text-align: center;
+  }
   /*------------------Mon Compte end--------------------*/
 }
 
@@ -422,6 +522,11 @@
     padding: 14px 10px 14px 10px;
     margin-left: 33%;
 }
+.mot_recherche {
+  text-align: center;
+  padding-top: 6px;
+}
+
   /* Styles */
   .connexion{
    clear:both;
@@ -476,6 +581,18 @@
     font-weight: bold;
     margin-right: 10px;
   }
+  .form_recherche {
+    border-radius: 11px;
+    width: 95%;
+    margin-left: 18px;
+}
+.select_recherche{
+  margin-left: 22px;
+  width: 94%;
+}
+.col_bout{
+  text-align: center;
+}
   /*-------------Mon Compte end------------------*/
 }
 
@@ -485,7 +602,22 @@
   .connexion{
    clear:both;
    }
+.select_recherche{
+  margin-left: 22px;
+  width: 94%;
 }
+.col_bout{
+  text-align: center;
+}
+.form_recherche {
+  border-radius: 11px;
+  width: 90%;
+  margin-left: 18px;
+}
+.col_bout{
+text-align: center;
+}
+} 
 
 /* iPads (portrait) ----------- */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
@@ -603,7 +735,7 @@
 /* Samsung Galaxy S4 (portrait) ----------- */
 @media only screen and (min-device-width: 320px) and (max-device-height: 640px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3) {
   /* Styles */
-  .connexion{
+  .connexion {
    clear:both;
    }
 
@@ -627,17 +759,38 @@
 /* Medium Devices, Desktops */
 @media only screen and (min-width : 992px) {
 
-    
+
     }
 /* Desktops and laptops ----------- */
-@media only screen and (min-width: 1224px) {
-  /* Styles */
+@media only screen and (max-width: 1199px) {
+
+.spaceconect {
+    height: 0 ! important;
+}
+.infoline {
+    margin-bottom: 0 ! important;
+}
+.spacemessage {
+    height: 28px ! important;
+}
+
  
 }
 
 /* Large screens ----------- */
 @media only screen and (min-width: 1824px) {
   /* Styles */
- 
+  .col_bout{
+    text-align: center !important;
+    }
 }
-
+@media only screen and (max-width: 1824px) {
+  /* Styles */
+  .col_bout{
+    text-align: center !important;
+    }
+    .mot_recherche {
+      text-align: center;
+      padding-top: 6px;
+    }
+}

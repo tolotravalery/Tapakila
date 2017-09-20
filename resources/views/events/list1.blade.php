@@ -1,7 +1,7 @@
 @extends('template')
 @section('content')
     <section id="sectioncategorie" class="clearfix">
-        <div class="container">
+        <div class="container custom-container">
             <ul class="clearfix">
                 <li><a href="{{url('/')}}">TOUS</a></li>
                 @foreach($menus as $menu)
@@ -14,7 +14,7 @@
     </section>
 
     <section id="sectionevenement" role="navigation">
-        <div class="container">
+        <div class="container custom-container">
             <ul>
                 @foreach($sousmenus as $sousmenu)
                     <li>
@@ -26,7 +26,7 @@
     </section>
     <br/>
     <section class="clearfix">
-        <div class="container">
+        <div class="container custom-container">
             <ul class="herb">
                 <li class=" bounce animated2 zoomIn"><a href="#"><b>Acceuil</b></a></li>
                 <li class=" bounce animated2 zoomIn"><a href="{{url('/')}}"><b>Evenement</b></a></li>
@@ -40,7 +40,7 @@
     </section>
 
     <section id="categorie-concert">
-        <div class="container">
+        <div class="container custom-container">
             @if($sous_menu_event)
                 @php $count_id = 0 @endphp
                 <div class="categorie-item">

@@ -56,6 +56,14 @@ Route::group(['middleware' => 'web'], function () {
         Route::get('q', 'RechercheController@find');
         Route::get('filtered', 'RechercheController@filtered');
     });
+    Route::group(['prefix' => 'tapakila'], function () {
+        Route::get('faq', 'AproposController@faq');
+        Route::get('about', 'AproposController@apropos');
+        Route::get('contact', 'AproposController@contact');
+        Route::get('term', 'AproposController@term');
+        Route::get('shop', 'AproposController@achat');
+        Route::get('shop/ticket', 'AproposController@achatBillet');
+    });
 
 });
 

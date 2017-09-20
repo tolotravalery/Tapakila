@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{ url('/') }}/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ url('/') }}/css/style.css">
     <link rel="stylesheet" href="{{ url('/') }}/css/mediaqueries.css">
-    <link rel="stylesheet" href="{{ url('/') }}/css/mediaqueries_sample.css">
+    @yield('specificCss')
     <link rel="stylesheet" href="{{ url('/') }}/css/animate.css">
     <link rel="stylesheet" href="{{ url('/') }}/css/font-awesome.css">
     <link href="{{ url('/') }}/css/datepicker.css" rel="stylesheet">
@@ -23,7 +23,7 @@
 <body>
 <!-- header start -->
 <nav id="background" class="navbar navbar-default navbar-static-top">
-    <div class="container">
+    <div class="container custom-container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
                     aria-expanded="false" aria-controls="navbar">
@@ -180,7 +180,7 @@
 <!-- footer -->
 <footer class="footer">
     <div class="footer-top">
-        <div class="container">
+        <div class="container custom-container">
             <div class="row">
                 <div class="col-sm-4 col-xs-6">
                     <img class="footer-logo" alt="tapakila" src="{{ url('/') }}/img/logo.png">
@@ -196,9 +196,9 @@
                 <div class="col-sm-3 col-xs-6">
                     <p class="titled"><strong>Acheter des tickets</strong></p>
                     <ul class="list-unstyled">
-                        <li><a href="#">Comment acheter</a></li>
-                        <li><a href="#">Foire aux questions</a></li>
-                        <li><a href="#">Terms of service</a></li>
+                        <li><a href="{{url('')}}/tapakila/faq">Comment acheter</a></li>
+                        <li><a href="{{url('')}}/tapakila/shop">Foire aux questions</a></li>
+                        <li><a href="{{url('')}}/tapakila/term">Terms of service</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-3 col-xs-6">
@@ -226,17 +226,17 @@
 
     <!-- footer -->
     <div class="footer-bottom">
-        <div class="container small">
+        <div class="container small custom-container">
             <ul>
-                <li><a href="#">A propos de nous</a></li>
+                <li><a href="{{url('')}}/tapakila/about">A propos de nous</a></li>
                 |
-                <li><a href="#">Contact</a></li>
+                <li><a href="{{url('')}}/tapakila/contact">Contact</a></li>
                 |
                 <li><a href="#">Ajouter votre evenement</a></li>
                 |
                 <li><a href="#">Publicite</a></li>
                 |
-                <li><a href="#">FAQ</a></li>
+                <li><a href="{{url('')}}/tapakila/shop/ticket">FAQ</a></li>
                 |
                 <li><a href="#">Vie privee</a></li>
                 |

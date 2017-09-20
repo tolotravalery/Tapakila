@@ -2,7 +2,7 @@
 
 @section('content')
     <section id="sectioncategorie" class="clearfix">
-        <div class="container">
+        <div class="container custom-container">
             <ul class="clearfix">
                 @foreach($menus as $menu)
                     <li><a href="{{url('/events/list/categorie',[$menu->id])}}">{{$menu->name}}</a></li>
@@ -13,7 +13,7 @@
     </section>
 
     <section id="sectionevenement" role="navigation">
-        <div class="container">
+        <div class="container custom-container">
             <ul>
                 @foreach($sousmenus as $sousmenu)
                     <li>
@@ -25,7 +25,7 @@
     </section>
     <br>
 	<section  class="clearfix">
-        <div class="container">
+        <div class="container custom-container">
             <ul class="herb">    
 				   <li  class=" bounce animated2 zoomIn"><a href="#"><b>Acceuil</b></a></li>   
 				   <li  class=" bounce animated2 zoomIn dernier"><a href="#"><b>Panier</b></a></li>
@@ -33,7 +33,7 @@
         </div>
     </section>
     <section>
-        <div class="container">
+        <div class="container custom-container">
             @if (sizeof(Cart::content()) > 0)
                 <div id="custom-white">
                     <h1>Votre Panier</h1>
@@ -127,7 +127,7 @@
                 </div>
             @else
                 <section>
-                    <div class="container">
+                    <div class="container custom-container">
                         <div id="custom-white">
                             <h1 class="couleur_mot">Votre Panier</h1>
                             <div class="panier"></div>

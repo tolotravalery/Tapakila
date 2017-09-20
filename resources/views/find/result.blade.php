@@ -2,7 +2,7 @@
 @extends("template")
 @section("content")
     <section id="sectioncategorie" class="clearfix">
-        <div class="container">
+        <div class="container custom-container">
             <ul class="clearfix">
                 <li><a href="{{url('/')}}">TOUS</a></li>
                 @foreach($menus as $menu)
@@ -15,7 +15,7 @@
     </section>
 
     <section id="sectionevenement" role="navigation">
-        <div class="container">
+        <div class="container custom-container">
             <ul>
                 @foreach($sousmenus as $sousmenu)
                     <li>
@@ -30,7 +30,7 @@
     <section>
         @if($events->count() > 0)
 
-            <div class="container">
+            <div class="container custom-container">
                 <div class="search-bg hidden-xs">
                     <h1 class="text-center">Filtrer votre recherche</h1>
                     <form class="form-horizontal" action="{{url('/')}}/find/filtered" method="get">
@@ -69,7 +69,7 @@
             </div>
         @endif
         <section id="categorie-concert">
-            <div class="container">
+            <div class="container custom-container">
                 @if($events->count() > 0)
                     @foreach($events as $event)
                         <div class="categorie-item">
