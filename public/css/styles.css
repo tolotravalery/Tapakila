@@ -64,7 +64,7 @@
 }
 #cssmenu > ul > li:last-child > a,
 #cssmenu > ul > li.last > a {
-  border-bottom: 1px solid #1682ba;
+  /* border-bottom: 1px solid #1682ba; */
 }
 .holder {
   width: 0;
@@ -87,6 +87,34 @@
   -ms-transform: rotate(-135deg);
   -o-transform: rotate(-135deg);
   transform: rotate(-135deg);
+}
+/*.generale .holder::after,
+.generale .holder::before {
+  display: block;
+  position: absolute;
+
+  width: 6px;
+  height: 6px;
+  right: 20px;
+  z-index: 10;
+  -webkit-transform: rotate(-135deg);
+  -moz-transform: rotate(-135deg);
+  -ms-transform: rotate(-135deg);
+  -o-transform: rotate(-135deg);
+  transform: rotate(-135deg);
+} */
+.holder::before > .generale {
+    display: block;
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    right: 20px;
+    z-index: 10;
+    -webkit-transform: rotate(-135deg);
+    -moz-transform: rotate(-135deg);
+    -ms-transform: rotate(-135deg);
+    -o-transform: rotate(-135deg);
+    transform: rotate(-135deg);
 }
 .holder::after {
   top: 17px;

@@ -19,9 +19,11 @@ $('#cssmenu li.has-sub>a').on('click', function(){
 			element.siblings('li').find('ul').slideUp();
 			document.getElementById(aId).className = "activy";
 		}
+		
 	});
 
 	$('#cssmenu>ul>li.has-sub>a').append('<span class="holder"></span>');
+	$('#cssmenu>ul>li.generale>a>span.holder').removeClass('holder');
 
 	(function getColor() {
 		var r, g, b;

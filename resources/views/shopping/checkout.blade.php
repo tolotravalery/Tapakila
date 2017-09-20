@@ -1,10 +1,12 @@
 @extends('template')
-
+@section('specificCss')
+    <link rel="stylesheet" href="{{ url('/') }}/css/mediaqueries_sample.css">
+@endsection
 @section('content')
 
     <!-- header end -->
     <section style="background:#efefe9;">
-        <div class="container">
+        <div class="container custom-container">
             <div class="row">
                 <div class="board">
                     <div class="board-inner">
@@ -91,7 +93,7 @@
                             <div class="tab-pane fade" id="profile">
                                 <div class="bgwhite">
                                     <h1 class="head text-center titre">Adresse de Facturation</h1>
-                                    <div class="container">
+                                    <div class="container custom-container">
                                         <div class="resume">
                                             <div class="form-group">
                                                 <label for="name">Nom et prénom:</label>
@@ -135,7 +137,7 @@
                             <div class="tab-pane fade" id="messages">
                                 <div class="bgwhite">
                                     <h1 class="head text-center">Adresse de livraison</h1>
-                                    <div class="container">
+                                    <div class="container custom-container">
                                         <div class="resume">
                                             <div class="form-group">
                                                 <label for="mail">Adresse e-mail</label>
@@ -162,7 +164,7 @@
                                 <div class="bgwhite">
                                     <h1 class="head text-center titre">Paiement</h1>
                                     <p class="narrow text-center">
-                                    <div class="container">
+                                    <div class="container custom-container">
                                         <div class="row">
                                             <div class="paymentCont">
                                                 <div class="headingWrap">
@@ -237,7 +239,7 @@
                                         <i class="img-intro icon-checkmark-circle"></i>
                                     </div>
                                     <h1 class="head text-center titre">Résumer</h1>
-                                    <div class="container">
+                                    <div class="container custom-container">
                                         <div class="resume-paiment">
                                             <section id="product">
                                                 <div class="row">

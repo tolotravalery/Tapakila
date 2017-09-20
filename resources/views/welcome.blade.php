@@ -1,7 +1,7 @@
 @extends('template')
 @section('content')
     <section id="sectioncategorie" class="clearfix">
-        <div class="container">
+        <div class="container custom-container">
             <ul class="clearfix">
                 <li><a href="{{url('/')}}">TOUS</a></li>
                 @foreach($menus as $menu)
@@ -14,7 +14,7 @@
     </section>
 
     <section id="sectionevenement" role="navigation">
-        <div class="container">
+        <div class="container custom-container">
             <ul>
                 @foreach($sousmenus as $sousmenu)
                     <li>
@@ -27,7 +27,7 @@
     </section>
 
     <section id="carousel-slide">
-        <div class="container">
+        <div class="container custom-container">
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
                 <!-- Indicators -->
                 <ol class="carousel-indicators">
@@ -66,7 +66,8 @@
     </section>
 
     <section id="categorie-concert">
-        <div class="container">
+        <div class="container custom-container">
+            @php $count_id = 0 @endphp
             @foreach($sousmenus as $sm)
                 @if($sm->events()->where('publie','=','1')->where('date_debut_envent','>',date('Y-m-d H:i:s'))->count() > 0)
                     <div class="categorie-item">
@@ -75,32 +76,47 @@
                             @foreach($sm->events as $event)
                                 @if($event->publie == true && \Carbon\Carbon::parse($event->date_debut_envent)->isFuture() )
                                     <div class="col-sm-6 col-md-4">
-                                        <div class="thumbnail">
+                                        <div class="thumbnail"
+                                             onmouseover="mouseover('month{{$count_id}}','title{{$count_id}}')"
+                                             onmouseleave="mouseleave('month{{$count_id}}','title{{$count_id}}')">
                                             <a href="{{url('events/show',[$event->id])}}">
                                                 <div class="mg-image">
                                                     <img src="{{ url('img/'.$event->image.'') }}">
                                                 </div>
                                                 <div class="caption taille">
                                                     <a href="{{url('events/show',[$event->id])}}">
-                                                        <h3>
-                                                            <a href="{{url('events/show',[$event->id])}}">{{$event->title}}</a>
-                                                        </h3>
-                                                        <a href="#"><p
-                                                                    style="text-align: justify">{{ str_limit(ucfirst($event->additional_note), $limit = 140, $end = '...') }}</p>
-                                                        </a><br/>
+                                                        <div class="limitelengh">
+                                                            <h3>
+                                                                <a href="{{url('events/show',[$event->id])}}"
+                                                                   id="title{{$count_id}}">{{$event->title}}</a>
+                                                            </h3>
+                                                        </div>
+                                                        <div class="limite">
+                                                            <a href="#"><p
+                                                                        style="text-align: justify">{{ str_limit(ucfirst($event->additional_note), $limit = 140, $end = ' ...') }}</p>
+                                                            </a><br/>
+                                                        </div>
                                                         <div class="row cbg">
                                                             <div class="col-md-3 col-xs-3">
                                                                 <div class="calendar">
-                                                                    <h1 class="month">{{ \Carbon\Carbon::parse($event->date_debut_envent)->format('M')}}</h1>
+                                                                    <h1 class="month"
+                                                                        id="month{{$count_id}}">{{ \Carbon\Carbon::parse($event->date_debut_envent)->format('M')}}</h1>
                                                                     <label class="jour">{{ \Carbon\Carbon::parse($event->date_debut_envent)->format('D')}}</label>
                                                                     <p class="day">{{ \Carbon\Carbon::parse($event->date_debut_envent)->format('d')}}</p>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-9 col-xs-9 ">
-                                                                <a href="#">
-                                                                    <div class="prixfx"><i class="fa fa-tag prices"></i>A
-                                                                        partir de <b
-                                                                                class="prx">6000</b> AR
+                                                                <a>
+                                                                    <div class="prixfx">
+                                                                        @if($event->tickets()->count() > 0)
+                                                                            <i class="fa fa-tag prices"></i>A
+                                                                            partir de <b
+                                                                                    class="prx">{{ (int) $event->tickets()->orderBy('price','asc')->take(1)->get()[0]->price  }}</b>
+                                                                            AR
+                                                                        @else
+                                                                            <i class="fa fa-tag prices"></i>Non
+                                                                            disponible
+                                                                        @endif
                                                                     </div>
                                                                 </a>
                                                                 <a href="#">
@@ -110,7 +126,7 @@
                                                                 </a>
                                                                 <a href="#">
                                                                     <div class="date"><i
-                                                                                class="glyphicon glyphicon-map-marker position"></i>{{ $event->localisation_nom }} {{ $event->localisation_adresse }}
+                                                                                class="glyphicon glyphicon-map-marker position"></i>{{ $event->localisation_adresse }}
                                                                     </div>
                                                                 </a>
                                                             </div>
@@ -137,6 +153,7 @@
                                             </a>
                                         </div>
                                     </div>
+                                    @php $count_id++ @endphp
                                 @endif
                             @endforeach
                         </div>
@@ -146,7 +163,7 @@
         </div>
     </section>
     <section>
-        <div class="container ">
+        <div class="container custom-container">
             <div class="sinscrire">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
@@ -180,8 +197,16 @@
             </div>
         </div>
     </section>
-
 @endsection
-
-
-
+@section('specificScript')
+    <script type="text/javascript">
+        function mouseover(element, title) {
+            $('#' + title + '').css('color', '#d70506');
+            $('#' + element + '').css('background', '#d70506');
+        }
+        function mouseleave(element, title) {
+            $('#' + title + '').css('color', '#000');
+            $('#' + element + '').css('background', '#5cb85c');
+        }
+    </script>
+@endsection

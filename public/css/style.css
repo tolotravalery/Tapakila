@@ -1,5 +1,9 @@
 /* team trustylabs */
 
+.custom-container {
+    padding: 0 60px
+}
+
 /* header start */
 .conexion {
     font-size: 14px;
@@ -687,9 +691,17 @@ a:hover {
 }
 
 /* create event end */
-
 .taille {
-    height: 255px;
+    height: 262px;
+    position: relative;
+}
+
+.limite {
+    height: 90px;
+}
+
+.limitelengh {
+    height: 60px;
 }
 
 /* mon compte start */
@@ -2966,6 +2978,7 @@ input[type=submit] {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
+
 /*ariane*/
 
 ul.herb {
@@ -2982,15 +2995,15 @@ ul.herb li {
     float: left;
     margin: -5px 0px 0px 00px;
 
-    height:auto;
-    width:auto;
+    height: auto;
+    width: auto;
 }
 
 ul.herb li a {
-    margin-left:0px;
+    margin-left: 0px;
     color: #c80e07;
-    padding-left:2px;
-    padding-right:2px;
+    padding-left: 2px;
+    padding-right: 2px;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-bottom: none;
@@ -3002,26 +3015,24 @@ ul.herb li a {
     transition: all .25s ease-in-out;
 }
 
-
-ul.herb li a::after{
-    content:">";
+ul.herb li a::after {
+    content: ">";
     font-size: 10px;
     padding-left: 5px;
 }
-ul.herb  >.dernier a::after{
-    content:"";
+
+ul.herb > .dernier a::after {
+    content: "";
     font-size: 10px;
     padding-left: 10px;
 }
-
-
-
 
 ul.herb li a:active,
 ul.herb li a:visited {
     color: #c80e07;
 }
-ul.herb li a:hover{
+
+ul.herb li a:hover {
     color: #0e7be6;
 }
 
@@ -3029,17 +3040,21 @@ ul.herb li a:hover{
 .animated {
     animation-duration: 1s;
     animation-fill-mode: both;
-    animation-iteration-count:infinite;
-
+    animation-iteration-count: infinite;
 
 }
 
 @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-    40% {transform: translateY(-05px);}
-    60% {transform: translateY(-06px);}
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-05px);
+    }
+    60% {
+        transform: translateY(-06px);
+    }
 }
-
 
 /* zoom */
 .animated2 {
@@ -3056,6 +3071,7 @@ ul.herb li a:hover{
         opacity: 1;
     }
 }
+
 .zoomIn:active {
     animation-name: zoomIn;
 }

@@ -1,5 +1,5 @@
 <nav id="background" class="navbar navbar-default navbar-static-top">
-    <div class="container">
+    <div class="container custom-container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
                     aria-expanded="false" aria-controls="navbar">
@@ -58,7 +58,7 @@
                         <span class="caret"></span> </a>
                     <ul class="dropdown-menu search" id="menu3" aria-labelledby="drop6">
                         <li>
-                            <form action="./page/recherche.html" method="get">
+                            <form action="{{url('/')}}/find/q" method="get">
                                 <input type="text" name="query" placeholder="Search..." autocomplete="off">
                                 <input type="submit" value="Search">
                             </form>
