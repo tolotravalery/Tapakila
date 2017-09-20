@@ -1,48 +1,45 @@
-@extends('layouts.app')
+{{--@extends('layouts.app')--}}
 
-@section('template_title')
-    Welcome {{ Auth::user()->name }}
-@endsection
+{{--@section('template_title')--}}
+{{--Welcome {{ Auth::user()->name }}--}}
+{{--@endsection--}}
 
-@section('head')
-@endsection
-
+{{--@section('head')--}}
+{{--@endsection--}}
+@extends("template-admin")
 @section('content')
-    
-    <section id="detail">
-        <div class="container">
-            <div class="page-menu row">
-                <div class="col-md-9">
-                    <h1>Créér un menu</h1>
+    <br><br>
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+
+                    Create New Categorie
+
+                    <a href="{{url('/')}}/admin/menus" class="btn btn-info btn-xs pull-right">
+                        <i class="fa fa-fw fa-mail-reply" aria-hidden="true"></i>
+                        Back <span class="hidden-xs">to</span><span class="hidden-xs"> list</span>
+                    </a>
+
                 </div>
-                
-            </div>
-            <form class="form-horizontal" role="form" method="POST" action="{{ route('menu') }}">
-            {{ csrf_field() }}
-            <div class="panel panel-content">
-                <div class="panel-body border-bottom">
-                    <div class="clearfix"></div>
-                    <div class="form-group ">
-                        <label class="control-label ">
-                            <span>Name : *</span>
-                        </label>
-                        
-                        <input id="name" type="placeholde" placeholder="name" class="form-control"  name="name"  required autofocus>
-                        @if ($errors->has('email'))
-                        <span class="red">
-                                    <strong>{{ $errors->first('email') }}</strong>
-                        </span>
-                        @endif
-                    </div>
-                    <div class="form-group ">
-                        
-                            <button type="submit" class="btn btn-default enregistrer ">Enregistrer</button>
-                        
-                    </div>
+                <div class="panel-body">
+
+                    <form class="form-horizontal" role="form" method="POST" action="{{ route('menu') }}">
+                        {!! csrf_field() !!}
+                        <div class="form-group has-feedback row {{ $errors->has('name') ? ' has-error ' : '' }}">
+                            {!! Form::label('name', 'Name (*)', array('class' => 'col-md-3 control-label')) !!}
+                            <div class="col-md-9">
+                                <div class="input-group">
+                                    {!! Form::text('name', NULL, array('id' => 'name', 'class' => 'form-control', 'placeholder' => 'category name')) !!}
+                                </div>
+                            </div>
+                        </div>
+                        {!! Form::button('Créer', array('class' => 'btn btn-success btn-flat margin-bottom-1 pull-right','type' => 'submit', )) !!}
+
+                    </form>
                 </div>
             </div>
-            </form>
-            <li><a href="{{url('/')}}/admin/menus">Menus</a></li>
-    </section>
+        </div>
+    </div>
 @endsection
 

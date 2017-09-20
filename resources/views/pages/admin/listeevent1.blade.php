@@ -1,12 +1,12 @@
-@extends('layouts.app')
+{{--@extends('layouts.app')--}}
 
-@section('template_title')
-    Welcome {{ Auth::user()->name }}
-@endsection
+{{--@section('template_title')--}}
+{{--Welcome {{ Auth::user()->name }}--}}
+{{--@endsection--}}
 
-@section('head')
-@endsection
-
+{{--@section('head')--}}
+{{--@endsection--}}
+@extends("template-admin")
 @section('content')
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css">
     <style type="text/css" media="screen">
@@ -28,6 +28,7 @@
         }
 
     </style>
+    <br><br>
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
@@ -180,7 +181,7 @@
                     }
                     i++;
                 }
-               // window.location.reload();
+                // window.location.reload();
             });
         })();
 

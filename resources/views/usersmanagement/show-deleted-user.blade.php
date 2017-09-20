@@ -1,4 +1,4 @@
-@extends("template")
+@extends("template-admin")
 
 @php
     $levelAmount = 'Level:';
@@ -10,6 +10,7 @@
 @endphp
 
 @section('content')
+    <br/><br/>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
