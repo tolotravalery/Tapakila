@@ -2,21 +2,19 @@
 
 @section('content')
     <div id="background-detail">
-        <?php
-        $img = "";
-        if ($event->image_background == null) {
-            $img = "back_defaut.jpg";
-        } else {
-            $img = $event->image_background;
-        }
-        ?>
-        <img src="{{url('/')}}/img/{{$img}}" style="width:100%;">
+        @php $img = ""; @endphp
+        @if(is_null($event->image_backgroun))
+            @php  $img = "back_defaut.jpg"; @endphp
+        @else
+            @php $img = $event->image_background; @endphp
+        @endif
+        <img src="{{url('/')}}/public/img/{{$img}}" style="width:100%;">
     </div>
     <div class="container">
         <div class="box1">
             <h2 class="text-center">Detail sur l'événement</h2>
             <div class="Pcenter">
-                <img class="imgdetails" src="{{url('/')}}/img/{{$img}}" style="width:100%;">
+                <img class="imgdetails" src="{{url('/')}}/public/img/{{$img}}" style="width:100%;">
             </div>
             <div class="descriptionevent">
                 <h3>Descritpion</h3>

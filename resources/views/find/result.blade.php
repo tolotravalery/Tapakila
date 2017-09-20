@@ -1,4 +1,3 @@
-{{--{{ dd($events) }}--}}
 @extends("template")
 @section("content")
     <section id="sectioncategorie" class="clearfix">
@@ -82,7 +81,7 @@
                                          onmouseleave="mouseleave('month{{$count_id}}','title{{$count_id}}')">
                                         <a href="{{url('events/show',[$event->id])}}">
                                             <div class="mg-image">
-                                                <img src="{{ url('img/'.$event->image.'') }}">
+                                                <img src="{{ url('/public/img/'.$event->image.'') }}">
                                             </div>
                                             <div class="caption taille">
                                                 <a href="{{url('events/show',[$event->id])}}">
@@ -94,7 +93,7 @@
                                                     </div>
                                                     <div class="limite">
                                                         <a href="#"><p
-                                                                    style="text-align: justify">{!! str_limit(ucfirst(str_replace($queries,'<span style="background-color: yellow;">'.$queries.'</span>',$event->additional_note)), $limit = 100, $end = ' ...') !!}</p>
+                                                                    style="text-align: justify">{!! str_limit(ucfirst(str_replace($queries,'<span style="background-color: yellow;">'.$queries.'</span>',$event->additional_note)), $limit = 140, $end = ' ...') !!}</p>
                                                         </a><br/>
                                                     </div>
                                                     <div class="row cbg">
@@ -147,7 +146,7 @@
                         <div class="row panier_3">
                             <div class="col-lg-6 col-lg-offset-3">
                                 <div class="thumbnail panier1">
-                                    <img src="{{url('/')}}/img/Search-icon.png" class="panier0">
+                                    <img src="{{url('/')}}/public/img/Search-icon.png" class="panier0">
                                     <div class="caption">
                                         <h3 class="mot_h2">Aucun resultat trouvé</h3>
                                         <h5 class="mot_h2"><a href="{{url('/')}}" class="mot_ha">Retour à l'accueil</a>
@@ -161,21 +160,21 @@
 
                     <div class="replik">
                         <ul>
-                            <li><a href="#"><img src="{{url('/')}}/img/items1.png"></a>
+                            <li><a href="#"><img src="{{url('/')}}/public/img/items1.png"></a>
                                 <p class="ctgori"><strong><a href="#">Concert</a></strong></p></li>
-                            <li><a href="#"><img src="{{url('/')}}/img/items2.png"></a>
+                            <li><a href="#"><img src="{{url('/')}}/public/img/items2.png"></a>
                                 <p class="ctgori"><strong><a href="#">Kabaret</a></strong></p></li>
-                            <li><a href="#"><img src="{{url('/')}}/img/items3.png"></a>
+                            <li><a href="#"><img src="{{url('/')}}/public/img/items3.png"></a>
                                 <p class="ctgori"><strong><a href="#">Sport</a></strong></p></li>
-                            <li><a href="#"><img src="{{url('/')}}/img/items4.png"></a>
+                            <li><a href="#"><img src="{{url('/')}}/public/img/items4.png"></a>
                                 <p class="ctgori"><strong><a href="#">Soiré</a></strong></p></li>
-                            <li><a href="#"><img src="{{url('/')}}/img/items5.png"></a>
+                            <li><a href="#"><img src="{{url('/')}}/public/img/items5.png"></a>
                                 <p class="ctgori"><strong><a href="#">Danse</a></strong></p></li>
-                            <li><a href="#"><img src="{{url('/')}}/img/items6.png"></a>
+                            <li><a href="#"><img src="{{url('/')}}/public/img/items6.png"></a>
                                 <p class="ctgori"><strong><a href="#">Cinema</a></strong></p></li>
-                            <li><a href="#"><img src="{{url('/')}}/img/items7.png"></a>
+                            <li><a href="#"><img src="{{url('/')}}/public/img/items7.png"></a>
                                 <p class="ctgori"><strong><a href="#">Festivals</a></strong></p></li>
-                            <li><a href="#"><img src="{{url('/')}}/img/items8.png"></a>
+                            <li><a href="#"><img src="{{url('/')}}/public/img/items8.png"></a>
                                 <p class="ctgori"><strong><a href="#">Dj</a></strong></p></li>
                         </ul>
                     </div>

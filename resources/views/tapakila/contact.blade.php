@@ -90,11 +90,11 @@
 
             <div class="row ico-social">
                 <div class="col-lg-6 footer-social">
-                    <a href="#" target="_blank"><img class="social" src="{{url('/')}}/img/facebook.png"></a>
+                    <a href="#" target="_blank"><img class="social" src="{{url('/')}}/public/img/facebook.png"></a>
                     <a href="#" target="_blank"><img class="social" style="border-radius: 16px;"
-                                                     src="{{url('/')}}/img/twit.png"></a>
-                    <a href="#" target="_blank"><img class="social" src="{{url('/')}}/img/google-plus.png"></a>
-                    <a href="#" target="_blank"><img class="social" src="{{url('/')}}/img/dribbble.png"></a>
+                                                     src="{{url('/')}}/public/img/twit.png"></a>
+                    <a href="#" target="_blank"><img class="social" src="{{url('/')}}/public/img/google-plus.png"></a>
+                    <a href="#" target="_blank"><img class="social" src="{{url('/')}}/public/img/dribbble.png"></a>
                 </div>
 
 
