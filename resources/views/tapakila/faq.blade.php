@@ -3641,7 +3641,7 @@
                             <div class="thumbnail thumb1">
                                 <a href="detailup.html">
                                     <div class="mg-image">
-                                        <img src="img/motocross.jpg" alt="tence_mena">
+                                        <img src="{{url('/')}}/img/motocross.jpg" alt="tence_mena">
                                     </div>
                                     <div class="caption">
                                         <h3><a href="detailup.html">Lorem ipsum dolor sit amet, vitae enim ultrices</a>
@@ -3676,7 +3676,7 @@
                                 <div class="thumbnail thumb1">
                                     <a href="detailup.html">
                                         <div class="mg-image">
-                                            <img src="img/motocross.jpg" alt="tence_mena">
+                                            <img src="{{url('/')}}/img/motocross.jpg" alt="tence_mena">
                                         </div>
                                         <div class="caption">
                                             <h3><a href="detailup.html">Lorem ipsum dolor sit amet, vitae enim
@@ -3710,7 +3710,7 @@
                                 <div class="thumbnail">
                                     <a href="detailup.html">
                                         <div class="mg-image">
-                                            <img src="img/motocross.jpg" alt="tence_mena">
+                                            <img src="{{url('/')}}/img/motocross.jpg" alt="tence_mena">
                                         </div>
                                         <div class="caption">
                                             <h3><a href="detailup.html">Lorem ipsum dolor sit amet, vitae enim
