@@ -59,13 +59,17 @@
                                         </a>
                                         <div class="caption taille">
                                             <a href="{{url('events/show',[$event->id])}}">
-                                                <h3>
-                                                    <a href="{{url('events/show',[$event->id])}}"
-                                                       id="title{{$count_id}}">{{$event->title}}</a>
-                                                </h3>
-                                                <a href="#"><p
-                                                            style="text-align: justify">{{ str_limit(ucfirst($event->additional_note), $limit = 140, $end = '...') }}</p>
-                                                </a><br/>
+                                                <div class="limitelengh">
+                                                    <h3>
+                                                        <a href="{{url('events/show',[$event->id])}}"
+                                                           id="title{{$count_id}}">{{str_limit($event->title,$limit=60, $end = ' ...')}}</a>
+                                                    </h3>
+                                                </div>
+                                                <div class="limite">
+                                                    <a href="#"><p
+                                                                style="text-align: justify">{{ str_limit(ucfirst($event->additional_note), $limit = 100, $end = ' ...') }}</p>
+                                                    </a><br/>
+                                                </div>
                                                 <div class="row cbg">
                                                     <div class="col-md-3 col-xs-3">
                                                         <div class="calendar">
@@ -96,7 +100,7 @@
                                                         </a>
                                                         <a href="#">
                                                             <div class="date"><i
-                                                                        class="glyphicon glyphicon-map-marker position"></i>{{ $event->localisation_nom }} {{ $event->localisation_adresse }}
+                                                                        class="glyphicon glyphicon-map-marker position"></i>{{ $event->localisation_adresse }}
                                                             </div>
                                                         </a>
                                                     </div>

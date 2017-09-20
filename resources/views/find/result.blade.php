@@ -71,51 +71,37 @@
         <section id="categorie-concert">
             <div class="container custom-container">
                 @if($events->count() > 0)
+                    @php $count_id = 0 @endphp
                     @foreach($events as $event)
                         <div class="categorie-item">
                             <h2 class="couleur_mot">{{$event->sous_menus->name}}</h2>
                             <div class="row">
                                 <div class="col-sm-6 col-md-4">
-                                    <div class="thumbnail">
-                                        {{--@php--}}
-                                        {{--$replace = array(''.$queries.'' => '<span style="background-color: yellow;">'.$queries.'</span>');--}}
-                                        {{--@endphp--}}
+                                    <div class="thumbnail"
+                                         onmouseover="mouseover('month{{$count_id}}','title{{$count_id}}')"
+                                         onmouseleave="mouseleave('month{{$count_id}}','title{{$count_id}}')">
                                         <a href="{{url('events/show',[$event->id])}}">
                                             <div class="mg-image">
                                                 <img src="{{ url('img/'.$event->image.'') }}">
                                             </div>
-                                            {{--<div class="caption taille">--}}
-                                                {{--<h3>--}}
-                                                    {{--<a href="{{url('events/show',[$event->id])}}">{!! str_replace($queries,'<span style="background-color: yellow;">'.$queries.'</span>',$event->title) !!}</a>--}}
-                                                {{--</h3>--}}
-                                                {{--<p style="text-align: justify;">--}}
-                                                    {{--{!! str_limit(ucfirst(str_replace($queries,'<span style="background-color: yellow;">'.$queries.'</span>',$event->additional_note)), $limit = 140, $end = '...') !!}--}}
-                                                {{--</p>--}}
-                                                {{--<div>--}}
-                                                    {{--<div class="price"><i--}}
-                                                                {{--class="glyphicon glyphicon-time time"></i>--}}
-                                                        {{--{{ \Carbon\Carbon::parse($event->date_debut_envent)->format('d M Y')}}--}}
-                                                    {{--</div>--}}
-                                                    {{--<div class="date"><i--}}
-                                                                {{--class="glyphicon glyphicon-map-marker position"></i>--}}
-                                                        {{--{!! str_replace($queries,'<span style="background-color: yellow;">'.$queries.'</span>',$event->localisation_nom) !!}--}}
-                                                        {{--{!! str_replace($queries,'<span style="background-color: yellow;">'.$queries.'</span>',$event->localisation_adresse) !!}--}}
-                                                        {{--{{ $event->localisation_nom }} {{ $event->localisation_adresse }}--}}
-                                                    {{--</div>--}}
-                                                {{--</div>--}}
-                                            {{--</div>--}}
                                             <div class="caption taille">
                                                 <a href="{{url('events/show',[$event->id])}}">
-                                                    <h3>
-                                                        <a href="{{url('events/show',[$event->id])}}">{!! str_replace($queries,'<span style="background-color: yellow;">'.$queries.'</span>',$event->title) !!}</a>
-                                                    </h3>
-                                                    <a href="#"><p
-                                                                style="text-align: justify">{!! str_limit(ucfirst(str_replace($queries,'<span style="background-color: yellow;">'.$queries.'</span>',$event->additional_note)), $limit = 140, $end = '...') !!}</p>
-                                                    </a><br/>
+                                                    <div class="limitelengh">
+                                                        <h3>
+                                                            <a href="{{url('events/show',[$event->id])}}"
+                                                               id="title{{$count_id}}">{!! str_limit(str_replace($queries,'<span style="background-color: yellow;">'.$queries.'</span>',$event->title),$limit = 60, $end = ' ...') !!}</a>
+                                                        </h3>
+                                                    </div>
+                                                    <div class="limite">
+                                                        <a href="#"><p
+                                                                    style="text-align: justify">{!! str_limit(ucfirst(str_replace($queries,'<span style="background-color: yellow;">'.$queries.'</span>',$event->additional_note)), $limit = 140, $end = ' ...') !!}</p>
+                                                        </a><br/>
+                                                    </div>
                                                     <div class="row cbg">
                                                         <div class="col-md-3 col-xs-3">
                                                             <div class="calendar">
-                                                                <h1 class="month">{{ \Carbon\Carbon::parse($event->date_debut_envent)->format('M')}}</h1>
+                                                                <h1 class="month"
+                                                                    id="month{{$count_id}}">{{ \Carbon\Carbon::parse($event->date_debut_envent)->format('M')}}</h1>
                                                                 <label class="jour">{{ \Carbon\Carbon::parse($event->date_debut_envent)->format('D')}}</label>
                                                                 <p class="day">{{ \Carbon\Carbon::parse($event->date_debut_envent)->format('d')}}</p>
                                                             </div>
@@ -134,7 +120,7 @@
                                                             </a>
                                                             <a href="#">
                                                                 <div class="date"><i
-                                                                            class="glyphicon glyphicon-map-marker position"></i>{!! str_replace($queries,'<span style="background-color: yellow;">'.$queries.'</span>',$event->localisation_nom) !!} {!! str_replace($queries,'<span style="background-color: yellow;">'.$queries.'</span>',$event->localisation_adresse) !!}
+                                                                            class="glyphicon glyphicon-map-marker position"></i>{!! str_replace($queries,'<span style="background-color: yellow;">'.$queries.'</span>',$event->localisation_adresse) !!}
                                                                 </div>
                                                             </a>
                                                         </div>
@@ -146,6 +132,7 @@
                                 </div>
                             </div>
                         </div>
+                        @php $count_id++ @endphp
                     @endforeach
                 @else
                     <div id="custom-white">
@@ -196,4 +183,17 @@
             </div>
         </section>
     </section>
+@endsection
+
+@section('specificScript')
+    <script type="text/javascript">
+        function mouseover(element, title) {
+            $('#' + title + '').css('color', '#d70506');
+            $('#' + element + '').css('background', '#d70506');
+        }
+        function mouseleave(element, title) {
+            $('#' + title + '').css('color', '#000');
+            $('#' + element + '').css('background', '#5cb85c');
+        }
+    </script>
 @endsection
