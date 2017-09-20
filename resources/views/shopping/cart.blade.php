@@ -63,7 +63,7 @@
                             <tbody>
                             @foreach (Cart::content() as $item)
                                 <tr>
-                                    <td><img src="{{url('img/logo.png')}}"></td>
+                                    <td><img src="{{url('/public/img/logo.png')}}"></td>
                                     <td>{{$item->name}}</td>
                                     <td>
                                         <select class="selectpicker quantity" data-id="{{ $item->rowId }}">
@@ -141,7 +141,7 @@
                             <div class="row panier_3">
                                 <div class="col-lg-6 col-lg-offset-3">
                                     <div class="thumbnail panier1">
-                                        <img src="{{url('img/pan.jpg')}}" class="panier0">
+                                        <img src="{{url('/public/img/pan.jpg')}}" class="panier0">
                                         <div class="caption">
                                             <h3 class="mot_h2">Votre panier est vide</h3>
                                             <h5 class="mot_h2"><a href="{{url('/')}}" class="mot_ha">Remplir vos

@@ -320,7 +320,7 @@
                                                             <table class="table">
                                                                 <tbody>
                                                                 <tr>
-                                                                    <td><img class="mode" src="img/mvola.png"></td>
+                                                                    <td><img class="mode" src="/public/img/mvola.png"></td>
                                                                 </tr>
                                                                 </tbody>
                                                             </table>

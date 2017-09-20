@@ -12,7 +12,7 @@
                         barres unique et différent pour chaque billet. Chaque e-ticket est scanné à l’entrée de la salle
                         et sa validité est contrôlée. Donc, si vous achetez deux billets électroniques, vous imprimerez
                         deux billets sur du papier format A4 blanc et vierge recto/verso.</p><br>
-                    <img src="./img/ticket.png"><br>
+                    <img src="{{url('/')}}/public/img/ticket.png"><br>
 
                     <!-- QUEL EST L'AVANTAGE PRINCIPAL DU E-TICKET ? -->
                     <h4><strong>Quel est l'avantage principal du E-ticket ?</strong></h4>
@@ -121,7 +121,7 @@
 
                     <!-- Pourquoi choisir le e-billet ? -->
                     <h5><strong>Pourquoi choisir le e-billet ?</strong></h5>
-                    <img src="./img/ebillet.png">
+                    <img src="{{url('/')}}/public/img/ebillet.png">
                 </div>
             </div>
 

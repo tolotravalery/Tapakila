@@ -81,21 +81,21 @@
                         <hr class="couvert">
                         <div class="replik">
                             <ul>
-                                <li><a href="#"><img src="{{url('img/items1.png')}}"></a>
+                                <li><a href="#"><img src="{{url('/public/img/items1.png')}}"></a>
                                     <p class="ctgori"><strong><a href="#">Concert</a></strong></p></li>
-                                <li><a href="#"><img src="{{url('img/items2.png')}}"></a>
+                                <li><a href="#"><img src="{{url('/public/img/items2.png')}}"></a>
                                     <p class="ctgori"><strong><a href="#">Kabaret</a></strong></p></li>
-                                <li><a href="#"><img src="{{url('img/items3.png')}}"></a>
+                                <li><a href="#"><img src="{{url('/public/img/items3.png')}}"></a>
                                     <p class="ctgori"><strong><a href="#">Sport</a></strong></p></li>
-                                <li><a href="#"><img src="{{url('img/items4.png')}}"></a>
+                                <li><a href="#"><img src="{{url('/public/img/items4.png')}}"></a>
                                     <p class="ctgori"><strong><a href="#">Soiré</a></strong></p></li>
-                                <li><a href="#"><img src="{{url('img/items5.png')}}"></a>
+                                <li><a href="#"><img src="{{url('/public/img/items5.png')}}"></a>
                                     <p class="ctgori"><strong><a href="#">Danse</a></strong></p></li>
-                                <li><a href="#"><img src="{{url('img/items6.png')}}"></a>
+                                <li><a href="#"><img src="{{url('/public/img/items6.png')}}"></a>
                                     <p class="ctgori"><strong><a href="#">Cinema</a></strong></p></li>
-                                <li><a href="#"><img src="{{url('img/items7.png')}}"></a>
+                                <li><a href="#"><img src="{{url('/public/img/items7.png')}}"></a>
                                     <p class="ctgori"><strong><a href="#">Festivals</a></strong></p></li>
-                                <li><a href="#"><img src="{{url('img/items8.png')}}"></a>
+                                <li><a href="#"><img src="{{url('/public/img/items8.png')}}"></a>
                                     <p class="ctgori"><strong><a href="#">Dj</a></strong></p></li>
                             </ul>
                         </div>
@@ -118,7 +118,7 @@
                                                      onmouseleave="mouseleave('month{{$count_id}}','title{{$count_id}}')">
                                                     <a href="{{url('events/show',[$event->id])}}">
                                                         <div class="mg-image">
-                                                            <img src="{{ url('img/'.$event->image.'') }}">
+                                                            <img src="{{ url('public/img/'.$event->image.'') }}">
                                                         </div>
                                                     </a>
                                                     <div class="caption taille">
@@ -225,21 +225,21 @@
                             <hr class="couvert">
                             <div class="replik">
                                 <ul>
-                                    <li><a href="#"><img src="{{url('img/items1.png')}}"></a>
+                                    <li><a href="#"><img src="{{url('/public/img/items1.png')}}"></a>
                                         <p class="ctgori"><strong><a href="#">Concert</a></strong></p></li>
-                                    <li><a href="#"><img src="{{url('img/items2.png')}}"></a>
+                                    <li><a href="#"><img src="{{url('/public/img/items2.png')}}"></a>
                                         <p class="ctgori"><strong><a href="#">Kabaret</a></strong></p></li>
-                                    <li><a href="#"><img src="{{url('img/items3.png')}}"></a>
+                                    <li><a href="#"><img src="{{url('/public/img/items3.png')}}"></a>
                                         <p class="ctgori"><strong><a href="#">Sport</a></strong></p></li>
-                                    <li><a href="#"><img src="{{url('img/items4.png')}}"></a>
+                                    <li><a href="#"><img src="{{url('/public/img/items4.png')}}"></a>
                                         <p class="ctgori"><strong><a href="#">Soiré</a></strong></p></li>
-                                    <li><a href="#"><img src="{{url('img/items5.png')}}"></a>
+                                    <li><a href="#"><img src="{{url('/public/img/items5.png')}}"></a>
                                         <p class="ctgori"><strong><a href="#">Danse</a></strong></p></li>
-                                    <li><a href="#"><img src="{{url('img/items6.png')}}"></a>
+                                    <li><a href="#"><img src="{{url('/public/img/items6.png')}}"></a>
                                         <p class="ctgori"><strong><a href="#">Cinema</a></strong></p></li>
-                                    <li><a href="#"><img src="{{url('img/items7.png')}}"></a>
+                                    <li><a href="#"><img src="{{url('/public/img/items7.png')}}"></a>
                                         <p class="ctgori"><strong><a href="#">Festivals</a></strong></p></li>
-                                    <li><a href="#"><img src="{{url('img/items8.png')}}"></a>
+                                    <li><a href="#"><img src="{{url('/public/img/items8.png')}}"></a>
                                         <p class="ctgori"><strong><a href="#">Dj</a></strong></p></li>
                                 </ul>
                             </div>
