@@ -113,7 +113,8 @@
                                     @foreach($sousMenu->events as $event)
                                         @if($event->publie == true && \Carbon\Carbon::parse($event->date_debut_envent)->isFuture() )
                                             <div class="col-sm-6 col-md-4">
-                                                <div class="thumbnail" onmouseover="mouseover('month{{$count_id}}','title{{$count_id}}')"
+                                                <div class="thumbnail"
+                                                     onmouseover="mouseover('month{{$count_id}}','title{{$count_id}}')"
                                                      onmouseleave="mouseleave('month{{$count_id}}','title{{$count_id}}')">
                                                     <a href="{{url('events/show',[$event->id])}}">
                                                         <div class="mg-image">
@@ -122,12 +123,17 @@
                                                     </a>
                                                     <div class="caption taille">
                                                         <a href="{{url('events/show',[$event->id])}}">
-                                                            <h3>
-                                                                <a href="{{url('events/show',[$event->id])}}" id="title{{$count_id}}">{{$event->title}}</a>
-                                                            </h3>
-                                                            <a href="#"><p
-                                                                        style="text-align: justify">{{ str_limit(ucfirst($event->additional_note), $limit = 140, $end = '...') }}</p>
-                                                            </a><br/>
+                                                            <div class="limitelengh">
+                                                                <h3>
+                                                                    <a href="{{url('events/show',[$event->id])}}"
+                                                                       id="title{{$count_id}}">{{str_limit($event->title,$limit=60, $end = ' ...')}}</a>
+                                                                </h3>
+                                                            </div>
+                                                            <div class="limite">
+                                                                <a href="#"><p
+                                                                            style="text-align: justify">{{ str_limit(ucfirst($event->additional_note), $limit = 100, $end = ' ...') }}</p>
+                                                                </a><br/>
+                                                            </div>
                                                             <div class="row cbg">
                                                                 <div class="col-md-3 col-xs-3">
                                                                     <div class="calendar">
@@ -159,7 +165,7 @@
                                                                     </a>
                                                                     <a href="#">
                                                                         <div class="date"><i
-                                                                                    class="glyphicon glyphicon-map-marker position"></i>{{ $event->localisation_nom }} {{ $event->localisation_adresse }}
+                                                                                    class="glyphicon glyphicon-map-marker position"></i>{{ $event->localisation_adresse }}
                                                                         </div>
                                                                     </a>
                                                                 </div>
@@ -246,11 +252,11 @@
 @endsection
 @section('specificScript')
     <script type="text/javascript">
-        function mouseover(element,title) {
+        function mouseover(element, title) {
             $('#' + title + '').css('color', '#d70506');
             $('#' + element + '').css('background', '#d70506');
         }
-        function mouseleave(element,title) {
+        function mouseleave(element, title) {
             $('#' + title + '').css('color', '#000');
             $('#' + element + '').css('background', '#5cb85c');
         }

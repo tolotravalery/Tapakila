@@ -88,12 +88,12 @@
                                                         <div class="limitelengh">
                                                             <h3>
                                                                 <a href="{{url('events/show',[$event->id])}}"
-                                                                   id="title{{$count_id}}">{{$event->title}}</a>
+                                                                   id="title{{$count_id}}">{{str_limit($event->title,$limit=60, $end = ' ...')}}</a>
                                                             </h3>
                                                         </div>
                                                         <div class="limite">
                                                             <a href="#"><p
-                                                                        style="text-align: justify">{{ str_limit(ucfirst($event->additional_note), $limit = 140, $end = ' ...') }}</p>
+                                                                        style="text-align: justify">{{ str_limit(ucfirst($event->additional_note), $limit = 100, $end = ' ...') }}</p>
                                                             </a><br/>
                                                         </div>
                                                         <div class="row cbg">

@@ -35,7 +35,8 @@ class RechercheController extends Controller
             ->get();
         $event = $events->where('publie', '=', '1')
             ->where('date_debut_envent', '>', date('Y-m-d H:i:s'));
-        $event = $event->whereIn('sous_menus_id', $sous_categories, false);
+        if ($sous_categories)
+            $event = $event->whereIn('sous_menus_id', $sous_categories, false);
         $menus = Menus::orderBy('id', 'desc')->take(8)->get();
         $sousmenus = Sous_menus::orderBy('name', 'asc')->take(20)->get();
         return view('find.result', compact('menus', 'sousmenus'))->with('events', $event)->with('queries', $queries);
