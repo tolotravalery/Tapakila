@@ -94,7 +94,7 @@
                                                     </div>
                                                     <div class="limite">
                                                         <a href="#"><p
-                                                                    style="text-align: justify">{!! str_limit(ucfirst(str_replace($queries,'<span style="background-color: yellow;">'.$queries.'</span>',$event->additional_note)), $limit = 140, $end = ' ...') !!}</p>
+                                                                    style="text-align: justify">{!! str_limit(ucfirst(str_replace($queries,'<span style="background-color: yellow;">'.$queries.'</span>',$event->additional_note)), $limit = 100, $end = ' ...') !!}</p>
                                                         </a><br/>
                                                     </div>
                                                     <div class="row cbg">
