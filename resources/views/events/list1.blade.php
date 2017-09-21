@@ -54,18 +54,22 @@
                                          onmouseleave="mouseleave('month{{$count_id}}','title{{$count_id}}')">
                                         <a href="{{url('events/show',[$event->id])}}">
                                             <div class="mg-image">
-                                                <img src="{{ url('img/'.$event->image.'') }}">
+                                                <img src="{{ url('/public/img/'.$event->image.'') }}">
                                             </div>
                                         </a>
                                         <div class="caption taille">
                                             <a href="{{url('events/show',[$event->id])}}">
-                                                <h3>
-                                                    <a href="{{url('events/show',[$event->id])}}"
-                                                       id="title{{$count_id}}">{{$event->title}}</a>
-                                                </h3>
-                                                <a href="#"><p
-                                                            style="text-align: justify">{{ str_limit(ucfirst($event->additional_note), $limit = 140, $end = '...') }}</p>
-                                                </a><br/>
+                                                <div class="limitelengh">
+                                                    <h3>
+                                                        <a href="{{url('events/show',[$event->id])}}"
+                                                           id="title{{$count_id}}">{{str_limit($event->title,$limit=60, $end = ' ...')}}</a>
+                                                    </h3>
+                                                </div>
+                                                <div class="limite">
+                                                    <a href="#"><p
+                                                                style="text-align: justify">{{ str_limit(ucfirst($event->additional_note), $limit = 100, $end = ' ...') }}</p>
+                                                    </a><br/>
+                                                </div>
                                                 <div class="row cbg">
                                                     <div class="col-md-3 col-xs-3">
                                                         <div class="calendar">
@@ -96,7 +100,7 @@
                                                         </a>
                                                         <a href="#">
                                                             <div class="date"><i
-                                                                        class="glyphicon glyphicon-map-marker position"></i>{{ $event->localisation_nom }} {{ $event->localisation_adresse }}
+                                                                        class="glyphicon glyphicon-map-marker position"></i>{{ $event->localisation_adresse }}
                                                             </div>
                                                         </a>
                                                     </div>
@@ -152,22 +156,22 @@
                                 <hr class="couvert">
                                 <div class="replik">
                                     <ul>
-                                        <li><a href="#"><img src="{{url('img/items1.png')}}"></a>
+                                        <li><a href="#"><img src="{{url('/public/img/items1.png')}}"></a>
                                             <p class="ctgori"><strong><a href="#">Concert</a></strong></p></li>
-                                        <li><a href="#"><img src="{{url('img/items2.png')}}"></a>
+                                        <li><a href="#"><img src="{{url('/public/img/items2.png')}}"></a>
                                             <p class="ctgori"><strong><a href="#">Kabaret</a></strong></p></li>
-                                        <li><a href="#"><img src="{{url('img/items3.png')}}"></a>
+                                        <li><a href="#"><img src="{{url('/public/img/items3.png')}}"></a>
                                             <p class="ctgori"><strong><a href="#">Sport</a></strong></p></li>
-                                        <li><a href="#"><img src="{{url('img/items4.png')}}"></a>
+                                        <li><a href="#"><img src="{{url('/public/img/items4.png')}}"></a>
                                             <p class="ctgori"><strong><a href="#">Soiré</a></strong></p></li>
-                                        <li><a href="#"><img src="{{url('img/items5.png')}}"></a>
+                                        <li><a href="#"><img src="{{url('/public/img/items5.png')}}"></a>
                                             <p class="ctgori"><strong><a href="#">Danse</a></strong></p></li>
-                                        <li><a href="#"><img src="{{url('img/items6.png')}}"></a>
+                                        <li><a href="#"><img src="{{url('/public/img/items6.png')}}"></a>
                                             <p class="ctgori"><strong><a href="#">Cinema</a></strong></p></li>
-                                        <li><a href="#"><img src="{{url('img/items7.png')}}"></a>
+                                        <li><a href="#"><img src="{{url('/public/img/items7.png')}}"></a>
                                             <p class="ctgori"><strong><a href="#">Festivals</a></strong></p>
                                         </li>
-                                        <li><a href="#"><img src="{{url('img/items8.png')}}"></a>
+                                        <li><a href="#"><img src="{{url('/public/img/items8.png')}}"></a>
                                             <p class="ctgori"><strong><a href="#">Dj</a></strong></p></li>
                                     </ul>
                                 </div>

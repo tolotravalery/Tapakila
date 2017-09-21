@@ -40,15 +40,15 @@
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner">
                     <div class="item active">
-                        <img src="{{ url('/') }}/img/stephani.jpg" style="width:100%;">
+                        <img src="{{ url('/') }}/public/img/stephani.jpg" style="width:100%;">
                     </div>
 
                     <div class="item">
-                        <img src="{{ url('/') }}/img/prod-trusty.jpg" style="width:100%;">
+                        <img src="{{ url('/') }}/public/img/prod-trusty.jpg" style="width:100%;">
                     </div>
 
                     <div class="item">
-                        <img src="{{ url('/') }}/img/mahaleo.jpg" style="width:100%;">
+                        <img src="{{ url('/') }}/public/img/mahaleo.jpg" style="width:100%;">
                     </div>
                 </div>
 
@@ -81,19 +81,19 @@
                                              onmouseleave="mouseleave('month{{$count_id}}','title{{$count_id}}')">
                                             <a href="{{url('events/show',[$event->id])}}">
                                                 <div class="mg-image">
-                                                    <img src="{{ url('img/'.$event->image.'') }}">
+                                                    <img src="{{ url('public/img/'.$event->image.'') }}">
                                                 </div>
                                                 <div class="caption taille">
                                                     <a href="{{url('events/show',[$event->id])}}">
                                                         <div class="limitelengh">
                                                             <h3>
                                                                 <a href="{{url('events/show',[$event->id])}}"
-                                                                   id="title{{$count_id}}">{{$event->title}}</a>
+                                                                   id="title{{$count_id}}">{{str_limit($event->title,$limit=60, $end = ' ...')}}</a>
                                                             </h3>
                                                         </div>
                                                         <div class="limite">
                                                             <a href="#"><p
-                                                                        style="text-align: justify">{{ str_limit(ucfirst($event->additional_note), $limit = 140, $end = ' ...') }}</p>
+                                                                        style="text-align: justify">{{ str_limit(ucfirst($event->additional_note), $limit = 100, $end = ' ...') }}</p>
                                                             </a><br/>
                                                         </div>
                                                         <div class="row cbg">

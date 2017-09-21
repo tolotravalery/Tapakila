@@ -4,7 +4,7 @@
         <div class="row performe">
             <div class="col-md-9">
                 <div class="about-bg">
-                    <img src="./img/aboutus.png">
+                    <img src="{{url('/')}}/public/img/aboutus.png">
                     <h3>QUI SOMMES-NOUS ?</h3>
                     <p>Tapakila est un service de réservation indépendant proposant un accès exclusif aux meilleures
                         manifestations culturelles ou sportives, en Afrique.</p>

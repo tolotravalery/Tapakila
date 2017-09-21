@@ -6,18 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Tapakila</title>
-    <link rel="stylesheet" href="{{ url('/') }}/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ url('/') }}/css/style.css">
-    <link rel="stylesheet" href="{{ url('/') }}/css/mediaqueries.css">
+    <link rel="stylesheet" href="{{ url('/') }}/public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url('/') }}/public/css/style.css">
+    <link rel="stylesheet" href="{{ url('/') }}/public/css/mediaqueries.css">
     @yield('specificCss')
-    <link rel="stylesheet" href="{{ url('/') }}/css/animate.css">
-    <link rel="stylesheet" href="{{ url('/') }}/css/font-awesome.css">
-    <link href="{{ url('/') }}/css/datepicker.css" rel="stylesheet">
-    <link href="{{ url('/') }}/css/clockpiker.css" rel="stylesheet">
-    <script type="text/javascript" src="{{ url('/') }}/js/jquery.min.js"></script>
-    <script type="text/javascript" src="{{ url('/') }}/js/bootstrap.min.js"></script>
-    <script src="{{ url('/') }}/js/datepicker.js"></script>
-    <script src="{{ url('/') }}/js/clockpicker.js"></script>
+    <link rel="stylesheet" href="{{ url('/') }}/public/css/animate.css">
+    <link rel="stylesheet" href="{{ url('/') }}/public/css/font-awesome.css">
+    <link href="{{ url('/') }}/public/css/datepicker.css" rel="stylesheet">
+    <link href="{{ url('/') }}/public/css/clockpiker.css" rel="stylesheet">
+    <script type="text/javascript" src="{{ url('/') }}/public/js/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ url('/') }}/public/js/bootstrap.min.js"></script>
+    <script src="{{ url('/') }}/public/js/datepicker.js"></script>
+    <script src="{{ url('/') }}/public/js/clockpicker.js"></script>
 
 </head>
 <body>
@@ -33,7 +33,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="{{url('/')}}">
-                <img src="{{ url('/') }}/img/logo.png" title="tapakila">
+                <img src="{{ url('/') }}/public/img/logo.png" title="tapakila">
             </a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
