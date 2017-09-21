@@ -9,7 +9,7 @@
 
 @section('content')
     <section id="sectioncategorie" class="clearfix">
-        <div class="container">
+        <div class="container custom-container">
             <ul class="clearfix">
                 <li><a href="{{url('/')}}">TOUS</a></li>
                 @foreach($menus as $menu)
@@ -22,7 +22,7 @@
     </section>
 
     <section id="sectionevenement" role="navigation">
-        <div class="container">
+        <div class="container custom-container">
             <ul>
                 @foreach($sousmenus as $sousmenu)
                     <li>
@@ -34,7 +34,7 @@
         </div>
     </section>
     <section id="detail">
-        <div class="container">
+        <div class="container custom-container">
             <div class="page-menu row">
                 <div class="col-md-9">
                     <h1>Créér un évènement</h1>

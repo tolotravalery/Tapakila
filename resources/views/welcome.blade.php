@@ -126,7 +126,7 @@
                                                                 </a>
                                                                 <a href="#">
                                                                     <div class="date"><i
-                                                                                class="glyphicon glyphicon-map-marker position"></i>{{ $event->localisation_adresse }}
+                                                                                class="glyphicon glyphicon-map-marker position"></i>{{ str_limit($event->localisation_adresse, $limit = 15, $end = ' ...')}}
                                                                     </div>
                                                                 </a>
                                                             </div>

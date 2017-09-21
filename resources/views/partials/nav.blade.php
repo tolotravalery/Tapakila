@@ -9,7 +9,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="{{ url('/') }}">
-                <img src={{ url('/img/logo.png') }} title="tapakila">
+                <img src={{ url('/public/img/logo.png') }} title="tapakila">
             </a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
@@ -107,7 +107,7 @@
                         </ul>
                     </li>
                 @else
-                    <li role="presentation" class="dropdown">
+                    <li role="presentation" class="dropdown cn">
                         <a href="#" class="dropdown-toggle" id="drop6" data-toggle="dropdown" role="button"
                            aria-haspopup="true" aria-expanded="false">
 

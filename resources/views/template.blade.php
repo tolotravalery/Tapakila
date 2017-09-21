@@ -49,7 +49,7 @@
                 </li>
                 <li role="presentation" class="dropdown">
                     <a href="#" class="dropdown-toggle" id="drop6" data-toggle="dropdown" role="button"
-                       aria-haspopup="true" aria-expanded="false"> Rechercher
+                       aria-haspopup="true" aria-expanded="true"> Rechercher
                         <span class="caret"></span> </a>
                     <ul class="dropdown-menu search" id="menu3" aria-labelledby="drop6">
                         <li>
@@ -71,7 +71,7 @@
                 </li>
                 <li role="presentation" class="dropdown">
                     <a href="#" class="dropdown-toggle" id="drop6" data-toggle="dropdown" role="button"
-                       aria-haspopup="true" aria-expanded="false"> Rechercher
+                       aria-haspopup="true" aria-expanded="true"> Rechercher
                         <span class="caret"></span> </a>
                     <ul class="dropdown-menu search" id="menu3" aria-labelledby="drop6">
                         <li>
@@ -93,7 +93,7 @@
                     </li>
                     <li role="presentation" class="dropdown">
                         <a href="#" class="dropdown-toggle" id="drop6" data-toggle="dropdown" role="button"
-                           aria-haspopup="true" aria-expanded="false"> Rechercher
+                           aria-haspopup="true" aria-expanded="true"> Rechercher
                             <span class="caret"></span> </a>
                         <ul class="dropdown-menu search" id="menu3" aria-labelledby="drop6">
                             <li>
@@ -122,7 +122,7 @@
                         </ul>
                     </li>
                 @else
-                    <li role="presentation" class="dropdown">
+                    <li role="presentation" class="dropdown cn">
                         <a href="#" class="dropdown-toggle" id="drop6" data-toggle="dropdown" role="button"
                            aria-haspopup="true" aria-expanded="false">
 
@@ -245,3 +245,22 @@
         </div>
     </div>
 </footer>
+<script>
+		$(function() {
+		var pull 		= $('#pull');
+		menu 		= $('#sectioncategorie ul');
+		menuHeight	= menu.height();
+
+		$(pull).on('click', function(e) {
+		e.preventDefault();
+		menu.slideToggle();
+		});
+
+		$(window).resize(function(){
+		var w = $(window).width();
+		if(w > 320 && menu.is(':hidden')) {
+		menu.removeAttr('style');
+		}
+		});
+		});
+</script>

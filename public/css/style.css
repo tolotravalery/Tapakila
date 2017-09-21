@@ -148,7 +148,7 @@ body {
 }
 
 #navbar form input[type=submit] {
-
+    margin-bottom: 15px;
     height: 40px;
     width: 40px;
     display: block;
@@ -2837,6 +2837,9 @@ table caption {
 }
 
 @media screen and (max-width: 767px) {
+    .cn{
+        clear: both;
+    }
     table caption {
         border-bottom: 1px solid #ddd;
     }
@@ -2966,13 +2969,13 @@ table caption {
     outline-width: 0;
 }
 
-input[type=submit] {
+/*input[type=submit] {
     padding: 10px;
     background-color: #000;
     border: none;
     color: #fff;
     margin: 10px 0;
-}
+}*/
 
 * {
     margin: 0;
