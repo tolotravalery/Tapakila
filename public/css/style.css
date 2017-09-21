@@ -691,19 +691,17 @@ a:hover {
 }
 
 /* create event end */
-.taille {
-    height: 262px;
+.taille{
+    height:262px;
     position: relative;
 }
-
-.limite {
-    height: 90px;
+.limite{
+    height: 83px;
 }
+.limitelengh{
+    height: 70px;
 
-.limitelengh {
-    height: 60px;
 }
-
 /* mon compte start */
 .activeee {
     /* display: inline-block; */
@@ -1437,23 +1435,22 @@ input[type="file"] {
 /*----------------------------------------WebSite-end---------------------------------*/
 
 /*----------------------------------index start--------------------------------------*/
-
+/* commit */
 div.calendar {
-    height: 66px;
-    width: 73px;
-    background-color: white;
+    height: 64px;
+    width: 70px;
+    background-color:white;
     text-align: center;
 
 }
-
-div.calendar:hover {
+/* commit */
+div.calendar:hover{
     box-shadow: 0 0 20px rgba(122, 122, 122, 0.6);
-    background-image: -webkit-radial-gradient(center, #eee, #fff);
-    background-image: -moz-radial-gradient(center, #eee, #fff);
-    -webkit-backface-visibility: hidden;
+    background-image:	-webkit-radial-gradient(center, #eee, #fff);
+    background-image:	-moz-radial-gradient(center, #eee, #fff);
+    -webkit-backface-visibility:hidden;
 
 }
-
 .jour {
     font-weight: 500;
     margin-bottom: 0
@@ -1767,16 +1764,16 @@ div.calendar p {
     padding-left: 40px !important;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-
-.time {
-    margin-right: 10px;
+/* commit */
+.time{
+    margin-right: 5px;
     color: #d70506;
 }
-
-.position {
-    margin-right: 11px;
+.position{
+    margin-right: 5px;
     color: #d70506;
 }
+/* commit */
 
 /* zoom */
 .mg-image img {
@@ -1905,9 +1902,13 @@ div.calendar p {
 /* search end */
 
 /*----------------------------------------details---------------------------------*/
-.det-picture {
+/* commit */
+.det-picture{
     margin-top: 27px;
     border: none;
+}
+.image_detail{
+    width: 617px;
 }
 
 .div_style {
@@ -2196,21 +2197,21 @@ hr.couvert:after {
     text-align: center;
 }
 
-.price {
-    padding-left: 13px;
+/* commit */
+.prices{
+    margin-right: 6px;
+    color: #d70506;
 }
 
+.date{
+    padding-left: 13px;
+}
 .prixfx {
     padding-left: 13px;
     margin-top: 5px;
 }
 
-.prices {
-    margin-right: 14px;
-    color: #d70506;
-}
-
-.date {
+.price{
     padding-left: 13px;
 }
 
