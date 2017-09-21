@@ -63,7 +63,8 @@ class MenuController extends Controller
 
     public function showMenuForm()
     {
-        return view('pages.admin.createmenu');
+        $alert = Alert::where('vu', '=', '0')->get();
+        return view('pages.admin.createmenu', compact('alert'));
     }
 
     public function store(Request $request)

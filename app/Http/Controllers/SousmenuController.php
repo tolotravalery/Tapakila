@@ -58,7 +58,8 @@ class SousmenuController extends Controller
     public function showSousmenuForm()
     {
         $menus = Menus::all();
-        return view('pages.admin.createsousmenu', compact('menus'));
+        $alert = Alert::where('vu', '=', '0')->get();
+        return view('pages.admin.createsousmenu', compact('menus', 'alert'));
     }
 
     protected function create(array $data)
