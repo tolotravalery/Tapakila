@@ -72,9 +72,6 @@
                                     <th class="hidden-sm hidden-xs hidden-md">Created</th>
                                     <th class="hidden-sm hidden-xs hidden-md">Updated</th>
                                     <th>Actions</th>
-                                    <th></th>
-                                    <th></th>
-
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -91,8 +88,6 @@
                                             {!! Form::button('<i class="fa fa-trash-o fa-fw" aria-hidden="true"></i> <span class="hidden-xs hidden-sm">Delete</span><span class="hidden-xs hidden-sm hidden-md"> Menu</span>', array('class' => 'btn btn-danger btn-sm','type' => 'button', 'style' =>'width: 100%;' ,'data-toggle' => 'modal', 'data-target' => '#confirmDelete', 'data-title' => 'Delete Menu', 'data-message' => 'Are you sure you want to delete this menu ?')) !!}
                                             {!! Form::close() !!}
                                         </td>
-
-
                                     </tr>
 
                                 @endforeach
@@ -105,9 +100,10 @@
             </div>
         </div>
     </div>
-
+@endsection
+@section('specificScript')
     @include('modals.modal-delete')
-    @if (count($menu) > 10)
+    @if (count($menus) > 10)
         @include('scripts.datatables')
     @endif
     @include('scripts.delete-modal-script')

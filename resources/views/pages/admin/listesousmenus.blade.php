@@ -73,9 +73,6 @@
                                     <th class="hidden-sm hidden-xs hidden-md">Created</th>
                                     <th class="hidden-sm hidden-xs hidden-md">Updated</th>
                                     <th>Actions</th>
-                                    <th></th>
-                                    <th></th>
-
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -105,9 +102,10 @@
             </div>
         </div>
     </div>
-
+@endsection
+@section('specificScript')
     @include('modals.modal-delete')
-    @if (count($sousmenu) > 10)
+    @if (count($sousmenus) > 10)
         @include('scripts.datatables')
     @endif
     @include('scripts.delete-modal-script')

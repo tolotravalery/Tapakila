@@ -132,6 +132,8 @@
             </div>
         </div>
     </div>
+@endsection
+@section('specificScript')
     @include('modals.modal-delete')
     @if (count($events) > 10)
         @include('scripts.datatables')
@@ -186,6 +188,4 @@
         })();
 
     </script>
-@endsection
-@section('footer')
 @endsection
