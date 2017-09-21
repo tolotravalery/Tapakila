@@ -1592,7 +1592,7 @@ div.calendar p {
 }
 
 /*Styles for screen 700px > 1000*/
-@media screen and (min-width: 500px) and (max-width: 1000px) {
+@media screen and (min-width: 500px) and (max-width: 1200px) {
     #sectioncategorie {
         height: 100px;
         width: 100%;
@@ -2073,6 +2073,7 @@ hr.couvert {
     border: none;
     border-top: 5px solid #d4d4d4;
     text-align: center;
+    width: 100%;
 }
 
 hr.couvert:after {
@@ -2091,7 +2092,8 @@ hr.couvert:after {
 }
 
 .replik {
-    padding: 25px 0 0 11%;
+    padding: 23px 0 0 0;
+    text-align: center;
 }
 
 .topvente {
