@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Alert;
 use Auth;
 use App\Data;
 use Validator;
@@ -21,10 +23,11 @@ class MenuController extends Controller
     {
 
         $menus = Menus::all();
-
-        return View('/pages.admin.listemenus', compact('menus'));
+        $alert = Alert::where('vu', '=', '0')->get();
+        return View('/pages.admin.listemenus', compact('menus', 'alert'));
 
     }
+
     /*public function welcome()
     {
 
@@ -36,27 +39,32 @@ class MenuController extends Controller
 
     protected $redirectTo = '/listemenus';
 
-    protected function validator(array $data) {
+    protected function validator(array $data)
+    {
 
         return Validator::make($data,
             [
-                'name'  => 'required|max:255|unique:menus',
+                'name' => 'required|max:255|unique:menus',
             ]
         );
 
     }
-    protected function create(array $data) {
+
+    protected function create(array $data)
+    {
 
         $menu = Menus::create([
-            'name'              => $data['name']
+            'name' => $data['name']
         ]);
 
         return $menu;
 
     }
+
     public function showMenuForm()
     {
-        return view('pages.admin.createmenu');
+        $alert = Alert::where('vu', '=', '0')->get();
+        return view('pages.admin.createmenu', compact('alert'));
     }
 
     public function store(Request $request)
@@ -64,13 +72,12 @@ class MenuController extends Controller
         $this->validator($request->all())->validate();
 
         event(new Registered($user = $this->create($request->all())));
-
-        return view('pages.admin.createmenu');
+        $alert = Alert::where('vu', '=', '0')->get();
+        return view('pages.admin.createmenu', compact('alert'));
     }
 
 
     /*-----------------*/
-
 
 
     public function edit($id)
@@ -79,7 +86,7 @@ class MenuController extends Controller
         $menu = Menus::findOrFail($id);
 
         $data = [
-            'menu'          => $menu
+            'menu' => $menu
         ];
 
         return view('pages.admin.edit-menu')->with($data);
@@ -87,18 +94,19 @@ class MenuController extends Controller
 
     public function update(Request $request, $id)
     {
-        $menu= Menus::find($id);
+        $menu = Menus::find($id);
         $menu->name = $request->input('name');
         $menu->save();
         //return back()->with('success', trans('usersmanagement.updateSuccess'));
-        return view('pages.admin.createmenu');
+        $alert = Alert::where('vu', '=', '0')->get();
+        return view('pages.admin.createmenu', compact('alert'));
 
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -118,26 +126,25 @@ class MenuController extends Controller
         return back()->with('error', trans('usersmanagement.deleteSelfError'));
         */
 
-        $sousmenus = Sous_menus::all()->where('menus_id',$id);
-        $count=$sousmenus->count();
+        $sousmenus = Sous_menus::all()->where('menus_id', $id);
+        $count = $sousmenus->count();
         //dd($sousmenus);break;
-        $i=0;
-        if($count==0){}
-        else{
-            for ($i=0;$i<$count;$i++){
+        $i = 0;
+        if ($count == 0) {
+        } else {
+            for ($i = 0; $i < $count; $i++) {
                 //echo $sousmenus[$i]->name;
                 $sousmenus[$i]->delete();
             }
         }
-        $menu= Menus::find($id);
-       // dd($menu);break;
+        $menu = Menus::find($id);
+        // dd($menu);break;
         $menu->delete();
         //dd($sousmenus);
         //return back()->with('error', trans('usersmanagement.deleteSelfError'));
         return view('pages.admin.createmenu');
 
     }
-
 
 
 }

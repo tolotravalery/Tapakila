@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Alert;
 use Auth;
 use Illuminate\Http\Request;
 
@@ -29,8 +30,8 @@ class UserController extends Controller
         $user = Auth::user();
 
         if ($user->isAdmin()) {
-
-            return view('pages.admin.home');
+            $alert = Alert::where('vu', '=', '0')->get();
+            return view('pages.admin.home', compact('alert'));
 
         }
 

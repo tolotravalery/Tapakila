@@ -3022,7 +3022,7 @@ ul.herb li a::after {
 }
 
 ul.herb > .dernier a::after {
-    content: "";
+    content: " ";
     font-size: 10px;
     padding-left: 10px;
 }

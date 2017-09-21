@@ -4,27 +4,20 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    {{-- CSRF Token --}}
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Tapakila</title>
-    <link rel="stylesheet" href="{{ url('/') }}/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ url('/') }}/css/style.css">
-    <link rel="stylesheet" href="{{ url('/') }}/css/mediaqueries.css">
-    <link rel="stylesheet" href="{{ url('/') }}/css/animate.css">
-    <link rel="stylesheet" href="{{ url('/') }}/css/font-awesome.css">
-    <link href="{{ url('/') }}/css/datepicker.css" rel="stylesheet">
-    <link href="{{ url('/') }}/css/clockpiker.css" rel="stylesheet">
-    <script type="text/javascript" src="{{ url('/') }}/js/jquery.min.js"></script>
-    <script type="text/javascript" src="{{ url('/') }}/js/bootstrap.min.js"></script>
-    <script src="{{ url('/') }}/js/datepicker.js"></script>
-    <script src="{{ url('/') }}/js/clockpicker.js"></script>
-
-    @if (Auth::User() && (Auth::User()->profile) && $theme->link != null && $theme->link != 'null')
-        <link rel="stylesheet" type="text/css" href="{{ $theme->link }}">
-    @endif
-
-
+    <link rel="stylesheet" href="{{ url('/') }}/public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url('/') }}/public/css/style.css">
+    <link rel="stylesheet" href="{{ url('/') }}/public/css/mediaqueries.css">
+    @yield('specificCss')
+    <link rel="stylesheet" href="{{ url('/') }}/public/css/animate.css">
+    <link rel="stylesheet" href="{{ url('/') }}/public/css/font-awesome.css">
+    <link href="{{ url('/') }}/public/css/datepicker.css" rel="stylesheet">
+    <link href="{{ url('/') }}/public/css/clockpiker.css" rel="stylesheet">
+    <script type="text/javascript" src="{{ url('/') }}/public/js/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ url('/') }}/public/js/bootstrap.min.js"></script>
+    <script src="{{ url('/') }}/public/js/datepicker.js"></script>
+    <script src="{{ url('/') }}/public/js/clockpicker.js"></script>
 </head>
 <body>
 

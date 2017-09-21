@@ -1,4 +1,4 @@
-@extends("template")
+@extends("template-admin")
 
 @section('content')
     <style type="text/css">
@@ -7,6 +7,7 @@
             display: none;
         }
     </style>
+    <br/><br/>
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-offset-1">

@@ -1,4 +1,4 @@
-@extends("template")
+@extends("template-admin")
 
 @php
     $levelAmount = trans('usersmanagement.labelUserLevel');
@@ -8,7 +8,7 @@
 @endphp
 
 @section('content')
-
+    <br><br/>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -46,12 +46,6 @@
 
                                     @if ($user->profile)
                                         <div class="text-center text-left-tablet margin-bottom-1">
-
-                                            <a href="{{ url('').'/admin/profile/'.$user->id }}"
-                                               class="btn btn-sm btn-info">
-                                                <i class="fa fa-eye fa-fw" aria-hidden="true"></i> <span
-                                                        class="hidden-xs hidden-sm hidden-md"> {{ trans('usersmanagement.viewProfile') }}</span>
-                                            </a>
 
                                             <a href="{{url('').'/admin/users/'.$user->id.'/edit'}}"
                                                class="btn btn-sm btn-warning">

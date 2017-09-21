@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Alert;
 use App\Models\Menus;
 use App\Models\Sous_menus;
 use Auth;
@@ -68,7 +69,8 @@ class EventController extends Controller
     public function listEvent()
     {
         $events = Events::all();
-        return view('pages.admin.listeevent1', compact('events'));
+        $alert = Alert::where('vu', '=', '0')->get();
+        return view('pages.admin.listeevent1', compact('events', 'alert'));
     }
 
     public function updatePublie(Request $request)
@@ -155,8 +157,11 @@ class EventController extends Controller
             'publie_organisateur' => $tmp,
             'siteweb' => $titre,
         ]);
-
-        // dd($event->id);
+        $message = 'Nouveau event ' . $event->title . ' (event id : ' . $event->id . ') ajouté par ' . Auth::user()->name . ' . Veuillez l\'activé';
+        $alertAdmin = Alert::create([
+            'message' => $message,
+            'vu' => 0
+        ]);
         return redirect(url('organisateur/evenement/' . $event->id . '/edit'));
     }
 }

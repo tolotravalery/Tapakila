@@ -1,12 +1,46 @@
-@extends('layouts.app')
+{{--@extends('layouts.app')--}}
 
-@section('template_title')
-    Welcome {{ Auth::user()->name }}
+{{--@section('template_title')--}}
+{{--Welcome {{ Auth::user()->name }}--}}
+{{--@endsection--}}
+
+{{--@section('head')--}}
+{{--@endsection--}}
+@extends("template-admin")
+
+@section('message')
+    @if(count($alert) > 0)
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-envelope-o"></i>
+            <span class="label label-success">{{count($alert)}}</span>
+        </a>
+        <ul class="dropdown-menu">
+            <li class="header">You have {{count($alert)}} messages</li>
+            <li>
+                <!-- inner menu: contains the actual data -->
+                <ul class="menu">
+                    @foreach($alert as $a)
+                        <li><!-- start message -->
+                            <a href="{{url('admin/message/read',[$a->id])}}">
+                                <div class="pull-left">
+                                    <img src="{{url('/')}}/public/admin-assets/dist/img/user2-160x160.jpg"
+                                         class="img-circle"
+                                         alt="User Image">
+                                </div>
+                                <h4>
+                                    New event
+                                    <small><i class="fa fa-clock-o"></i> {{$a->created_at->diffForHumans() }}</small>
+                                </h4>
+                                <p>{{ str_limit($a->message,$limit = 35 ,$end = ' ...') }}</p>
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
+            </li>
+            {{--<li class="footer"><a href="#">See All Messages</a></li>--}}
+        </ul>
+    @endif
 @endsection
-
-@section('head')
-@endsection
-
 @section('content')
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css">
     <style type="text/css" media="screen">
@@ -28,6 +62,7 @@
         }
 
     </style>
+    <br><br>
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
@@ -131,6 +166,8 @@
             </div>
         </div>
     </div>
+@endsection
+@section('specificScript')
     @include('modals.modal-delete')
     @if (count($events) > 10)
         @include('scripts.datatables')
@@ -180,11 +217,9 @@
                     }
                     i++;
                 }
-               // window.location.reload();
+                // window.location.reload();
             });
         })();
 
     </script>
-@endsection
-@section('footer')
 @endsection

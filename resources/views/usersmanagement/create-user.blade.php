@@ -1,6 +1,6 @@
-@extends("template")
+@extends("template-admin")
 @section('content')
-
+    <br/><br>
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
@@ -9,7 +9,7 @@
 
                         Create New User
 
-                        <a href="/users" class="btn btn-info btn-xs pull-right">
+                        <a href="{{url('/')}}/admin/users" class="btn btn-info btn-xs pull-right">
                             <i class="fa fa-fw fa-mail-reply" aria-hidden="true"></i>
                             Back <span class="hidden-xs">to</span><span class="hidden-xs"> Users</span>
                         </a>

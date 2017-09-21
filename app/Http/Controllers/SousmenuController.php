@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Models\Alert;
 use App\Models\Sous_menus;
 use Auth;
 use App\Data;
@@ -33,10 +34,10 @@ class SousmenuController extends Controller
     public function index()
     {
 
-      //  $categories = Category::all();
+        //  $categories = Category::all();
         $sousmenus = Sous_menus::all();
-
-        return View('/pages.admin.listesousmenus', compact('sousmenus'));
+        $alert = Alert::where('vu', '=', '0')->get();
+        return View('/pages.admin.listesousmenus', compact('sousmenus', 'alert'));
 
     }
 
@@ -57,7 +58,8 @@ class SousmenuController extends Controller
     public function showSousmenuForm()
     {
         $menus = Menus::all();
-        return view('pages.admin.createsousmenu',compact('menus'));
+        $alert = Alert::where('vu', '=', '0')->get();
+        return view('pages.admin.createsousmenu', compact('menus', 'alert'));
     }
 
     protected function create(array $data)
@@ -65,7 +67,7 @@ class SousmenuController extends Controller
 
         $sousmenu = Sous_menus::create([
             'name' => $data['name'],
-            'menus_id'        => $data['menu']
+            'menus_id' => $data['menu']
         ]);
 
         return $sousmenu;
@@ -79,21 +81,22 @@ class SousmenuController extends Controller
 
         $sousmenu = Sous_menus::create([
             'name' => $request->input('name'),
-            'menus_id'  => $request->input('menu')
+            'menus_id' => $request->input('menu')
         ]);
+        $alert = Alert::where('vu', '=', '0')->get();
 
-
-        return view('pages.admin.createsousmenu',compact('menus'));
+        return view('pages.admin.createsousmenu', compact('menus', 'alert'));
     }
 
     public function destroy($id)
     {
-        $sousmenu= Sous_menus::find($id);
+        $sousmenu = Sous_menus::find($id);
         $sousmenu->delete();
 
-       // return View('/pages.admin.listesousmenus', compact('sousmenus'));
+        // return View('/pages.admin.listesousmenus', compact('sousmenus'));
         $menus = Menus::all();
-        return view('pages.admin.createsousmenu',compact('menus'));
+        $alert = Alert::where('vu', '=', '0')->get();
+        return view('pages.admin.createsousmenu', compact('menus', 'alert'));
 
     }
 }

@@ -30,8 +30,8 @@
             <ul class="herb">
                 <li class=" bounce animated2 zoomIn"><a href="#"><b>Acceuil</b></a></li>
                 <li class=" bounce animated2 zoomIn"><a href="{{url('/')}}"><b>Evenement</b></a></li>
-                <li class=" bounce animated2 zoomIn dernier"><a
-                            href=""><b>{{ucfirst(strtolower($menu_event->name))}}</b></a></li>
+                <li class=" bounce animated2 zoomIn dernier"><a href=""><b>{{ucfirst(strtolower($menu_event->name))}}</b></a>
+                </li>
             </ul>
         </div>
     </section>
