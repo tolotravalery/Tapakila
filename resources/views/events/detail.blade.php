@@ -48,7 +48,15 @@
                     <div class="table-responsive ">
                         <table class="table table-hover">
                             <tbody>
+                            <form action="{{ url('shopping/cart') }}" method="POST"  class="side-by-side">
                             @foreach($event->tickets as $ticket)
+                            
+                                            {!! csrf_field() !!}
+                                            <input type="hidden" name="id[]" value="{{ $ticket->id }}">
+                                            <input type="hidden" name="type[]" value="{{ $ticket->type }}">
+                                            <input type="hidden" name="price[]" value="{{ $ticket->price }}">
+                                           
+                            
                                 <tr>
                                     <td><strong>{{$ticket->type}}</strong>
                                         <p>Description tickets</p></td>
@@ -62,7 +70,7 @@
                                                                             data-dir="dwn"><span
                                                                                 class="fa fa-minus"></span></button>
                                                                 </span>
-                                                    <input type="text" class="form-control text-center" value="1">
+                                                    <input type="text" class="form-control text-center" value="1" name="nombre[]">
                                                     <span class="input-group-btn">
                                                                     <button class="btn btn-default btn-circle splus "
                                                                             data-dir="up"><span
@@ -73,15 +81,7 @@
                                         </div>
                                     </td>
                                     <td>
-                                        <form action="{{ url('shopping/cart') }}" method="POST"
-                                              class="side-by-side">
-                                            {!! csrf_field() !!}
-                                            <input type="hidden" name="id" value="{{ $ticket->id }}">
-                                            <input type="hidden" name="type" value="{{ $ticket->type }}">
-                                            <input type="hidden" name="price" value="{{ $ticket->price }}">
-                                            <input name="addtocart" value="Choisir" class="addtocartbutton"
-                                                   type="submit">
-                                        </form>
+                                        
 
                                     </td>
                                     <td>
@@ -93,6 +93,7 @@
 
                                     </td>
                                 </tr>
+                            
                             @endforeach
                             <tr>
                                 <td></td>
@@ -103,13 +104,14 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <button type="button" class="btn btn-validé">Valider</button>
+                                    <button type="submit" class="btn btn-validé">Valider</button>
                                 </td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
                             </tr>
+                            </form>
                             </tbody>
                         </table>
                     </div>
