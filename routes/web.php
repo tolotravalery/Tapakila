@@ -65,6 +65,8 @@ Route::group(['middleware' => 'web'], function () {
         Route::get('shop/ticket', 'AproposController@achatBillet');
     });
 
+//    Route::get('code/qr/{text}', ['as' => 'qr_code', 'uses' => 'QRCodeController@generate']);
+    Route::get('code/pdf/{text}/{event_id}', 'QRCodeController@getPdf');
 });
 
 // Registered and Activated User Routes

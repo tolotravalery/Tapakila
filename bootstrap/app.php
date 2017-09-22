@@ -47,7 +47,6 @@ $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
     App\Exceptions\Handler::class
 );
-
 /*
 |--------------------------------------------------------------------------
 | Move the various types of error messages to different log files
