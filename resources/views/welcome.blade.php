@@ -92,8 +92,10 @@
                                                             </h3>
                                                         </div>
                                                         <div class="limite">
-                                                            <a href="#"><p
-                                                                        style="text-align: justify">{{ str_limit(ucfirst($event->additional_note), $limit = 100, $end = ' ...') }}</p>
+                                                            <a href="#">
+                                                                <?php  if($event->additional_note==null){ echo "<br/>";}?>
+
+                                                                <p style="text-align: justify">{{ str_limit(ucfirst($event->additional_note), $limit = 100, $end = ' ...') }}</p>
                                                             </a><br/>
                                                         </div>
                                                         <div class="row cbg">
