@@ -26,6 +26,7 @@ class Events extends Model
         'publie',
         'siteweb',
         'image_background',
+        'additional_note_time',
     ];
 
     public function tickets()
