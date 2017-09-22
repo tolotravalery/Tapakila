@@ -104,7 +104,15 @@
 												</div>
 											</span>
                                     </div>
+                                    <div class="form-group form-group-translation et">
+                                        <label class="control-label">
+                                            <span>Description</span>
+                                        </label>
+                                        <textarea class="form-control" style=" word-wrap: break-word; resize: horizontal;
+                                        height: 54px;" name="note"></textarea>
+                                    </div>
                                 </div>
+                                
                                 <hr>
                                 <div class="panel-body border-bottom">
                                     <h2>Heures</h2>
@@ -166,7 +174,7 @@
                                             <span>Notes additionnel sur l'heure</span>
                                         </label>
                                         <textarea class="form-control" style=" word-wrap: break-word; resize: horizontal;
-                                        height: 54px;" name="note"></textarea>
+                                        height: 54px;" name="note_time"></textarea>
                                     </div>
                                     <hr>
                                     <div class="row">

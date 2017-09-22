@@ -156,6 +156,7 @@ class EventController extends Controller
             'user_id' => Auth::user()->id,
             'publie_organisateur' => $tmp,
             'siteweb' => $titre,
+            'additional_note_time' => $request->input('note_time'),
         ]);
         $message = 'Nouveau event ' . $event->title . ' (event id : ' . $event->id . ') ajouté par ' . Auth::user()->name . ' . Veuillez l\'activé';
         $alertAdmin = Alert::create([
