@@ -33,120 +33,138 @@
                             Heure :</strong> {{ \Carbon\Carbon::parse($event->date_debut_envent)->format('H:i')}}
                     </div>
                     <div class="div_style">
-                        <strong class="couleur_mot zav"> Partagez sur :</strong> <img
-                                src="{{url('/')}}/public/img/facebook.png"
-                                style="width: 22px;">
+                        <strong class="couleur_mot zav"> Partagez sur :</strong>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u={{url()->current()}}"><img
+                                    src="{{url('/')}}/public/img/facebook.png" style="width: 22px;"></a>
                     </div>
                 </div>
             </div>
 
             <div class="men1">
                 <ul class="nav nav-tabs tabl" role="tablist">
+                    @php
+                        $c = 0;
+                        $interval = new DateInterval('P1D');
+                        $daterange = new DatePeriod(\Carbon\Carbon::parse($event->date_debut_envent), $interval ,\Carbon\Carbon::parse($event->date_fin_event));
+                    @endphp
 
-                    <li class=" active">
-                        <a href="#date1" role="tab"
-                           data-toggle="tab">{{\Carbon\Carbon::parse($event->date_debut_envent)->format('d M')}}</a>
-                    </li>
-
-                    {{--<li>
-                        <a href="#date2" role="tab" data-toggle="tab">23 dec</a>
-                    </li>
-
-                    <li>
-                        <a href="#date3" role="tab" data-toggle="tab">24 dec</a>
-                    </li>
-
-                    <li>
-                        <a href="#date4" role="tab" data-toggle="tab">25 dec</a>
-                    </li>--}}
+                    @foreach($daterange as $date)
+                        <li class="@php if($c==0) echo "active" ; else echo "" ;@endphp ">
+                            <a href="#date{{$c}}" role="tab"
+                               data-toggle="tab">{{$date->format('d M')}}</a>
+                        </li>
+                        @php $c++; @endphp
+                    @endforeach
                 </ul>
 
                 <section>
                     <div class="tab-content">
-                        <div class="tab-pane tabulation  fade active in" id="date1">
-                            <div class="table-responsive tableau_detail">
-                                <table class="table table-hover">
-                                    <thead>
-                                    <tr>
-                                        <th>Type de ticket</th>
-                                        <th>Disponiblité</th>
-                                        <th>Quantité</th>
-                                        <th>Prix unitaire</th>
-                                        <th>Totale</th>
-                                    </tr>
-                                    </thead>
+                        @php
+                            $d = 0;
+                            $interval = new DateInterval('P1D');
+                            $daterange = new DatePeriod(\Carbon\Carbon::parse($event->date_debut_envent), $interval ,\Carbon\Carbon::parse($event->date_fin_event));
+                        @endphp
 
-                                    <tbody>
-                                    <form action="{{ url('shopping/cart') }}" method="POST" class="side-by-side">
-                                    @php $count_id_price = 0; @endphp
-                                    <!-- prixunit1 -->
-                                        @foreach($event->tickets as $ticket)
-                                            {!! csrf_field() !!}
-                                            <input type="hidden" name="id[]" value="{{ $ticket->id }}">
-                                            <input type="hidden" name="type[]" value="{{ $ticket->type }}">
-                                            <input type="hidden" name="price[]" value="{{ $ticket->price }}">
-                                            <tr>
-                                                <td><strong>{{$ticket->type}}</strong>
-                                                    <p>Description here</p>
-                                                </td>
-                                                <td><i class="fa fa-unlock fa-2x clock{{$count_id_price}}"
-                                                       aria-hidden="true"></i>
-                                                    <p id="tickets{{$count_id_price}}">{{$ticket->number}}</p> tickets
-                                                </td>
-                                                <td>
-                                                    <div class="row postions">
-                                                        <div class="col-md-4 col-md-offset-2  ">
-                                                            <div class="input-group number-spinner{{$count_id_price}}">
+                        @foreach($daterange as $date)
+                            <div class="tab-pane tabulation  fade @php if($d == 0)  echo "active in"; else ""; @endphp"
+                                 id="date{{$d}}">
+                                <div class="table-responsive tableau_detail">
+                                    <table class="table table-hover">
+                                        <thead>
+                                        <tr>
+                                            <th>Type de ticket</th>
+                                            <th>Disponiblité</th>
+                                            <th>Quantité</th>
+                                            <th>Prix unitaire</th>
+                                            <th>Totale</th>
+                                        </tr>
+                                        </thead>
+
+                                        <tbody>
+                                        <form action="{{ url('shopping/cart') }}" method="POST" class="side-by-side">
+                                        @php $count_id_price = 0; @endphp
+                                        <!-- prixunit1 -->
+                                            @foreach($event->tickets as $ticket)
+                                                {!! csrf_field() !!}
+                                                <input type="hidden" name="id[]" value="{{ $ticket->id }}">
+                                                <input type="hidden" name="type[]" value="{{ $ticket->type }}">
+                                                <input type="hidden" name="price[]" value="{{ $ticket->price }}">
+                                                <tr>
+                                                    <td><strong>{{$ticket->type}}</strong>
+                                                        <p>Description here</p>
+                                                    </td>
+                                                    @if($ticket->number > 0)
+                                                        <td><i class="fa fa-unlock fa-2x clock{{$count_id_price}}"
+                                                               aria-hidden="true"></i>
+                                                            <p id="tickets{{$count_id_price}}">{{$ticket->number}}</p>
+                                                            tickets
+                                                        </td>
+                                                    @else
+                                                        <td><i class="fa fa-close fa-2x" aria-hidden="true"></i>
+                                                            <p>Non disponible</p>
+                                                        </td>
+                                                    @endif
+                                                    <td>
+                                                        <div class="row postions">
+                                                            <div class="col-md-4 col-md-offset-2  ">
+                                                                <div class="input-group number-spinner{{$count_id_price}}">
                                                             <span class="input-group-btn">
-																		<button class="btn btn-default btn-circle smoins"
+																		<button type="button"
+                                                                                class="btn btn-default btn-circle smoins"
                                                                                 data-dir="dwn"
                                                                                 id="btn-down{{$count_id_price}}"><span
                                                                                     class="fa fa-minus"></span></button>
                                                             </span>
-                                                                <input class="form-control text-center ui" value="0"
-                                                                       type="text" name="nombre[]">
-                                                                <span class="input-group-btn">
-																		<button type="button" class="btn btn-default btn-circle splus "
+                                                                    <input class="form-control text-center ui" value="0"
+                                                                           type="text" name="nombre[]">
+                                                                    <span class="input-group-btn">
+																		<button type="button"
+                                                                                class="btn btn-default btn-circle splus "
                                                                                 data-dir="up"
                                                                                 id="btn-up{{$count_id_price}}"><span
                                                                                     class="fa fa-plus"></span></button>
                                                             </span>
+                                                                </div>
                                                             </div>
+                                                            <div class="col-md-4 col-md-offset-1"></div>
                                                         </div>
-                                                        <div class="col-md-4 col-md-offset-1"></div>
-                                                    </div>
-                                                </td>
-                                                <td><b>{{(int)$ticket->price}}</b> Ar</td>
-                                                <td><b id="prixUnit{{$count_id_price}}">0</b> Ar</td>
+                                                    </td>
+                                                    <td><b>{{(int)$ticket->price}}</b> Ar</td>
+                                                    <td><b id="prixUnit{{$count_id_price}}">0</b> Ar</td>
+                                                </tr>
+                                                @php $count_id_price++; @endphp
+                                            @endforeach
+                                            <tr>
+                                                <td class="td_detail"></td>
+                                                <td class="td_detail"></td>
+                                                <td class="td_detail"></td>
+                                                <td><strong>Total</strong></td>
+                                                <td><b id="total">0</b> Ar</td>
                                             </tr>
-                                            @php $count_id_price++; @endphp
-                                        @endforeach
-
-                                        <tr>
-                                            <td class="td_detail"></td>
-                                            <td class="td_detail"></td>
-                                            <td class="td_detail"></td>
-                                            <td><strong>Total</strong></td>
-                                            <td><b id="total">0</b> Ar</td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td>
-                                                <button type="submit" class=" btn btn-danger btn_reset">Reset</button>
-                                            </td>
-                                            <td>
-                                                <button type="submit" class=" btn btn-success btn_acheterr">Acheter
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <input type="hidden" id="nombre_id" value="{{$count_id_price}}"/>
-                                    </form>
-                                    </tbody>
-                                </table>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>
+                                                    <button type="submit" class=" btn btn-danger btn_reset">Reset
+                                                    </button>
+                                                </td>
+                                                <td>
+                                                    <button type="submit" class=" btn btn-success btn_acheterr">Acheter
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <input type="hidden" id="nombre_id" value="{{$count_id_price}}"/>
+                                        </form>
+                                        </tbody>
+                                        @if($event->tickets->count() == 0)
+                                            <p>(*) Les tickets de cette évènements ne sont pas encore disponible</p>
+                                        @endif
+                                    </table>
+                                </div>
                             </div>
-                        </div>
+                            @php $d++ @endphp
+                        @endforeach
                     </div>
                 </section>
             </div>
@@ -225,6 +243,7 @@
 @endsection
 
 @section('specificScript')
+
     <script type="text/javascript">
         function mouseover(element, title) {
             $('#' + title + '').css('color', '#d70506');
@@ -293,6 +312,7 @@
                 }
             });
         </script>
-    @endfor
 
+    @endfor
+    <script type="text/javascript" src="{{ url('/') }}/public/js/share.js"></script>
 @endsection

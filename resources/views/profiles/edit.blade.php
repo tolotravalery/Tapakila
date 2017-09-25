@@ -6,7 +6,7 @@
                 <div class="col-sm-2 gauche">
                     <div class="row">
                         <div class="col-md-6 col-md-offset-3">
-                            <img src="{{ url('/') }}/img/user.png" id="sary">
+                            <img src="{{ url('/') }}/public/img/user.png" id="sary">
                             <strong>{{ Auth::user()->name }}</strong>
                         </div>
                     </div>

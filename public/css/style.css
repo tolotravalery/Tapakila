@@ -2667,9 +2667,12 @@ sup {
 .imgdetails {
     border: 3px solid;
 }
+
 .image_detail {
     width: 617px;
+    height: 347px !important;
 }
+
 .descriptionevent {
     margin-top: 35px;
     margin-bottom: 35px;
@@ -2746,6 +2749,7 @@ sup {
 .icos {
     margin-right: 17px;
 }
+
 .zav {
     color: #d70506;
     margin-right: 15px;
@@ -2762,6 +2766,7 @@ sup {
 .Pcenter {
     padding: 10px 100px 10px 100px;
 }
+
 .Pcenter {
     padding: 10px 100px 10px 100px;
 }
@@ -2856,9 +2861,10 @@ table caption {
 }
 
 @media screen and (max-width: 767px) {
-    .cn{
+    .cn {
         clear: both;
     }
+
     table caption {
         border-bottom: 1px solid #ddd;
     }
@@ -3102,7 +3108,6 @@ ul.herb li a:hover {
 
 /* end_ariane */
 
-
 .tabulation {
     padding: 0px;
     height: 200%;
@@ -3146,7 +3151,7 @@ div.tests .number-spinner .test2 .test3 {
     font-weight: 600;
     color: #858585;
     position: relative;
-    padding: 20px 40px!important;
+    padding: 20px 40px !important;
     font-size: 16px;
     border: none !important;
     cursor: default;
