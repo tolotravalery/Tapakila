@@ -77,424 +77,76 @@
                                     </thead>
 
                                     <tbody>
+                                    <form action="{{ url('shopping/cart') }}" method="POST" class="side-by-side">
                                     @php $count_id_price = 0; @endphp
                                     <!-- prixunit1 -->
-                                    @foreach($event->tickets as $ticket)
-                                        <tr>
-                                            <td><strong>{{$ticket->type}}</strong>
-                                                <p>Description here</p>
-                                            </td>
-                                            <td class="clock"><i class="fa fa-unlock fa-2x" aria-hidden="true"></i>
-                                                <p id="tickets{{$count_id_price}}">{{$ticket->number}}</p> tickets
-                                            </td>
-                                            <td>
-                                                <div class="row postions">
-                                                    <div class="col-md-4 col-md-offset-2  ">
-                                                        <div class="input-group number-spinner">
+                                        @foreach($event->tickets as $ticket)
+                                            {!! csrf_field() !!}
+                                            <input type="hidden" name="id[]" value="{{ $ticket->id }}">
+                                            <input type="hidden" name="type[]" value="{{ $ticket->type }}">
+                                            <input type="hidden" name="price[]" value="{{ $ticket->price }}">
+                                            <tr>
+                                                <td><strong>{{$ticket->type}}</strong>
+                                                    <p>Description here</p>
+                                                </td>
+                                                <td><i class="fa fa-unlock fa-2x clock{{$count_id_price}}"
+                                                       aria-hidden="true"></i>
+                                                    <p id="tickets{{$count_id_price}}">{{$ticket->number}}</p> tickets
+                                                </td>
+                                                <td>
+                                                    <div class="row postions">
+                                                        <div class="col-md-4 col-md-offset-2  ">
+                                                            <div class="input-group number-spinner{{$count_id_price}}">
                                                             <span class="input-group-btn">
 																		<button class="btn btn-default btn-circle smoins"
                                                                                 data-dir="dwn"
                                                                                 id="btn-down{{$count_id_price}}"><span
                                                                                     class="fa fa-minus"></span></button>
                                                             </span>
-                                                            <input class="form-control text-center ui" value="0"
-                                                                   type="text">
-                                                            <span class="input-group-btn">
-																		<button class="btn btn-default btn-circle splus "
+                                                                <input class="form-control text-center ui" value="0"
+                                                                       type="text" name="nombre[]">
+                                                                <span class="input-group-btn">
+																		<button type="button" class="btn btn-default btn-circle splus "
                                                                                 data-dir="up"
                                                                                 id="btn-up{{$count_id_price}}"><span
                                                                                     class="fa fa-plus"></span></button>
                                                             </span>
+                                                            </div>
                                                         </div>
+                                                        <div class="col-md-4 col-md-offset-1"></div>
                                                     </div>
-                                                    <div class="col-md-4 col-md-offset-1"></div>
-                                                </div>
-                                            </td>
-                                            <td><b>{{(int)$ticket->price}}</b> Ar</td>
-                                            <td><b id="prixUnit{{$count_id_price}}">0</b> Ar</td>
-                                        </tr>
-                                        @php $count_id_price++; @endphp
-                                    @endforeach
+                                                </td>
+                                                <td><b>{{(int)$ticket->price}}</b> Ar</td>
+                                                <td><b id="prixUnit{{$count_id_price}}">0</b> Ar</td>
+                                            </tr>
+                                            @php $count_id_price++; @endphp
+                                        @endforeach
 
-                                    <tr>
-                                        <td class="td_detail"></td>
-                                        <td class="td_detail"></td>
-                                        <td class="td_detail"></td>
-                                        <td><strong>Total</strong></td>
-                                        <td><b id="grand_total">0</b> Ar</td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td>
-                                            <button type="submit" class=" btn btn-danger btn_reset">Reset</button>
-                                        </td>
-                                        <td>
-                                            <button type="submit" class=" btn btn-success btn_acheterr">Acheter
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <input type="hidden" id="nombre_id" value="{{$count_id_price}}"/>
+                                        <tr>
+                                            <td class="td_detail"></td>
+                                            <td class="td_detail"></td>
+                                            <td class="td_detail"></td>
+                                            <td><strong>Total</strong></td>
+                                            <td><b id="total">0</b> Ar</td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>
+                                                <button type="submit" class=" btn btn-danger btn_reset">Reset</button>
+                                            </td>
+                                            <td>
+                                                <button type="submit" class=" btn btn-success btn_acheterr">Acheter
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <input type="hidden" id="nombre_id" value="{{$count_id_price}}"/>
+                                    </form>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
-
-                    {{--<!-- date 2 -->--}}
-                    {{--<div class="tab-pane tabulation fade" id="date2">--}}
-                    {{--<div class="table-responsive tableau_detail">--}}
-                    {{--<table class="table table-hover">--}}
-                    {{--<thead>--}}
-                    {{--<tr>--}}
-                    {{--<th>Type de ticket</th>--}}
-                    {{--<th>Disponiblité</th>--}}
-                    {{--<th>Quantité</th>--}}
-                    {{--<th>Prix unitaire</th>--}}
-                    {{--<th>Totale</th>--}}
-                    {{--</tr>--}}
-                    {{--</thead>--}}
-
-                    {{--<tbody>--}}
-                    {{--<!-- prixunit1 -->--}}
-                    {{--<tr>--}}
-                    {{--<td><strong>VIP</strong>--}}
-                    {{--<p>Description</p>--}}
-                    {{--</td>--}}
-                    {{--<td class="clock"><i class="fa fa-unlock fa-2x" aria-hidden="true"></i>--}}
-                    {{--<p id="tickets3">20</p> tickets--}}
-                    {{--</td>--}}
-                    {{--<td>--}}
-                    {{--<div class="row postions">--}}
-                    {{--<div class="col-md-4 col-md-offset-2  ">--}}
-                    {{--<div class="input-group number-spinner3">--}}
-                    {{--<span class="input-group-btn">--}}
-                    {{--<button class="btn btn-default btn-circle smoins"--}}
-                    {{--data-dir="dwn" id="btn-down"><span--}}
-                    {{--class="fa fa-minus"></span></button>--}}
-                    {{--</span>--}}
-                    {{--<input class="form-control text-center ui" value="0"--}}
-                    {{--type="text">--}}
-                    {{--<span class="input-group-btn">--}}
-                    {{--<button class="btn btn-default btn-circle splus "--}}
-                    {{--data-dir="up" id="btn-up3"><span--}}
-                    {{--class="fa fa-plus"></span></button>--}}
-                    {{--</span>--}}
-                    {{--</div>--}}
-                    {{--</div>--}}
-                    {{--<div class="col-md-4 col-md-offset-1"></div>--}}
-                    {{--</div>--}}
-                    {{--</td>--}}
-                    {{--<td><b>4000</b> Ar</td>--}}
-                    {{--<td><b id="prixUnit3">0</b> Ar</td>--}}
-                    {{--</tr>--}}
-                    {{--<!-- prixunit1 -->--}}
-
-                    {{--<!-- prixunit2 -->--}}
-                    {{--<tr>--}}
-                    {{--<td><strong>Standard</strong>--}}
-                    {{--<p>Description</p>--}}
-                    {{--</td>--}}
-                    {{--<td class="unlock"><i class="fa fa-unlock fa-2x" aria-hidden="true"></i>--}}
-                    {{--<p id="tickets4">20</p> tickets--}}
-                    {{--</td>--}}
-                    {{--<td>--}}
-                    {{--<div class="row postions">--}}
-                    {{--<div class="col-md-4 col-md-offset-2 ">--}}
-                    {{--<div class="input-group number-spinner4">--}}
-                    {{--<span class="input-group-btn">--}}
-                    {{--<button class="btn btn-default btn-circle smoins"--}}
-                    {{--data-dir="dwn" id="btn-down"><span--}}
-                    {{--class="fa fa-minus"></span></button>--}}
-                    {{--</span>--}}
-                    {{--<input class="form-control text-center ui" value="0"--}}
-                    {{--type="text">--}}
-                    {{--<span class="input-group-btn">--}}
-                    {{--<button class="btn btn-default btn-circle splus "--}}
-                    {{--data-dir="up" id="btn-up4"><span--}}
-                    {{--class="fa fa-plus"></span></button>--}}
-                    {{--</span>--}}
-                    {{--</div>--}}
-                    {{--</div>--}}
-                    {{--<div class="col-md-4 col-md-offset-1"></div>--}}
-                    {{--</div>--}}
-                    {{--</td>--}}
-                    {{--<td><b>4000</b> Ar</td>--}}
-                    {{--<td><b id="prixUnit4">0</b> Ar</td>--}}
-                    {{--</tr>--}}
-                    {{--<!-- prixunit2 -->--}}
-
-                    {{--<tr>--}}
-                    {{--<td><strong>Standard</strong>--}}
-                    {{--<p>Description</p>--}}
-                    {{--</td>--}}
-                    {{--<td><i class="fa fa-close fa-2x" aria-hidden="true"></i>--}}
-                    {{--<p>Non disponible</p>--}}
-                    {{--</td>--}}
-                    {{--<td></td>--}}
-                    {{--<td><b>4000</b> Ar</td>--}}
-                    {{--<td></td>--}}
-                    {{--</tr>--}}
-                    {{--<tr>--}}
-                    {{--<td class="td_detail"></td>--}}
-                    {{--<td class="td_detail"></td>--}}
-                    {{--<td class="td_detail"></td>--}}
-                    {{--<td><strong>Total</strong></td>--}}
-                    {{--<td><b id="total2">0</b> Ar</td>--}}
-                    {{--</tr>--}}
-                    {{--<tr>--}}
-                    {{--<td></td>--}}
-                    {{--<td></td>--}}
-                    {{--<td></td>--}}
-                    {{--<td>--}}
-                    {{--<button type="submit" class=" btn btn-danger btn_reset">Reset</button>--}}
-                    {{--</td>--}}
-                    {{--<td>--}}
-                    {{--<button type="submit" class=" btn btn-success btn_acheterr">Acheter</button>--}}
-                    {{--</td>--}}
-                    {{--</tr>--}}
-                    {{--</tbody>--}}
-
-                    {{--</table>--}}
-                    {{--</div>--}}
-
-                    {{--</div>--}}
-
-                    {{--<!-- date3 -->--}}
-                    {{--<div class="tab-pane  tabulation fade" id="date3">--}}
-                    {{--<div class="table-responsive tableau_detail">--}}
-                    {{--<table class="table table-hover">--}}
-                    {{--<thead>--}}
-                    {{--<tr>--}}
-                    {{--<th>Type de ticket</th>--}}
-                    {{--<th>Disponiblité</th>--}}
-                    {{--<th>Quantité</th>--}}
-                    {{--<th>Prix unitaire</th>--}}
-                    {{--<th>Totale</th>--}}
-                    {{--</tr>--}}
-                    {{--</thead>--}}
-
-                    {{--<tbody>--}}
-                    {{--<!-- prixunit1 -->--}}
-                    {{--<tr>--}}
-                    {{--<td><strong>VIP</strong>--}}
-                    {{--<p>Description</p>--}}
-                    {{--</td>--}}
-                    {{--<td class="clock"><i class="fa fa-unlock fa-2x" aria-hidden="true"></i>--}}
-                    {{--<p id="tickets5">20</p> tickets--}}
-                    {{--</td>--}}
-                    {{--<td>--}}
-                    {{--<div class="row postions">--}}
-                    {{--<div class="col-md-4 col-md-offset-2  ">--}}
-                    {{--<div class="input-group number-spinner5">--}}
-                    {{--<span class="input-group-btn">--}}
-                    {{--<button class="btn btn-default btn-circle smoins"--}}
-                    {{--data-dir="dwn" id="btn-down"><span--}}
-                    {{--class="fa fa-minus"></span></button>--}}
-                    {{--</span>--}}
-                    {{--<input class="form-control text-center ui" value="0"--}}
-                    {{--type="text">--}}
-                    {{--<span class="input-group-btn">--}}
-                    {{--<button class="btn btn-default btn-circle splus "--}}
-                    {{--data-dir="up" id="btn-up5"><span--}}
-                    {{--class="fa fa-plus"></span></button>--}}
-                    {{--</span>--}}
-                    {{--</div>--}}
-                    {{--</div>--}}
-                    {{--<div class="col-md-4 col-md-offset-1"></div>--}}
-                    {{--</div>--}}
-                    {{--</td>--}}
-                    {{--<td><b>4000</b> Ar</td>--}}
-                    {{--<td><b id="prixUnit5">0</b> Ar</td>--}}
-                    {{--</tr>--}}
-                    {{--<!-- prixunit1 -->--}}
-
-                    {{--<!-- prixunit2 -->--}}
-                    {{--<tr>--}}
-                    {{--<td><strong>Standard</strong>--}}
-                    {{--<p>Description</p>--}}
-                    {{--</td>--}}
-                    {{--<td class="unlock"><i class="fa fa-unlock fa-2x" aria-hidden="true"></i>--}}
-                    {{--<p id="tickets6">20</p> tickets--}}
-                    {{--</td>--}}
-                    {{--<td>--}}
-                    {{--<div class="row postions">--}}
-                    {{--<div class="col-md-4 col-md-offset-2 ">--}}
-                    {{--<div class="input-group number-spinner6">--}}
-                    {{--<span class="input-group-btn">--}}
-                    {{--<button class="btn btn-default btn-circle smoins"--}}
-                    {{--data-dir="dwn" id="btn-down"><span--}}
-                    {{--class="fa fa-minus"></span></button>--}}
-                    {{--</span>--}}
-                    {{--<input class="form-control text-center ui" value="0"--}}
-                    {{--type="text">--}}
-                    {{--<span class="input-group-btn">--}}
-                    {{--<button class="btn btn-default btn-circle splus "--}}
-                    {{--data-dir="up" id="btn-up6"><span--}}
-                    {{--class="fa fa-plus"></span></button>--}}
-                    {{--</span>--}}
-                    {{--</div>--}}
-                    {{--</div>--}}
-                    {{--<div class="col-md-4 col-md-offset-1"></div>--}}
-                    {{--</div>--}}
-                    {{--</td>--}}
-                    {{--<td><b>4000</b> Ar</td>--}}
-                    {{--<td><b id="prixUnit6">0</b> Ar</td>--}}
-                    {{--</tr>--}}
-                    {{--<!-- prixunit2 -->--}}
-
-                    {{--<tr>--}}
-                    {{--<td><strong>Standard</strong>--}}
-                    {{--<p>Description</p>--}}
-                    {{--</td>--}}
-                    {{--<td><i class="fa fa-close fa-2x" aria-hidden="true"></i>--}}
-                    {{--<p>Non disponible</p>--}}
-                    {{--</td>--}}
-                    {{--<td></td>--}}
-                    {{--<td><b>4000</b> Ar</td>--}}
-                    {{--<td></td>--}}
-                    {{--</tr>--}}
-                    {{--<tr>--}}
-                    {{--<td class="td_detail"></td>--}}
-                    {{--<td class="td_detail"></td>--}}
-                    {{--<td class="td_detail"></td>--}}
-                    {{--<td><strong>Total</strong></td>--}}
-                    {{--<td><b id="total3">0</b> Ar</td>--}}
-                    {{--</tr>--}}
-                    {{--<tr>--}}
-                    {{--<td></td>--}}
-                    {{--<td></td>--}}
-                    {{--<td></td>--}}
-                    {{--<td>--}}
-                    {{--<button type="submit" class=" btn btn-danger btn_reset">Reset</button>--}}
-                    {{--</td>--}}
-                    {{--<td>--}}
-                    {{--<button type="submit" class=" btn btn-success btn_acheterr">Acheter</button>--}}
-                    {{--</td>--}}
-                    {{--</tr>--}}
-                    {{--</tbody>--}}
-
-                    {{--</table>--}}
-                    {{--</div>--}}
-                    {{--</div>--}}
-
-                    <!-- date4 -->
-                        {{--<div class="tab-pane tabulation fade" id="date4">--}}
-                        {{--<div class="table-responsive tableau_detail">--}}
-                        {{--<table class="table table-hover">--}}
-                        {{--<thead>--}}
-                        {{--<tr>--}}
-                        {{--<th>Type de ticket</th>--}}
-                        {{--<th>Disponiblité</th>--}}
-                        {{--<th>Quantité</th>--}}
-                        {{--<th>Prix unitaire</th>--}}
-                        {{--<th>Totale</th>--}}
-                        {{--</tr>--}}
-                        {{--</thead>--}}
-
-                        {{--<tbody>--}}
-                        {{--<!-- prixunit1 -->--}}
-                        {{--<tr>--}}
-                        {{--<td><strong>VIP</strong>--}}
-                        {{--<p>Description</p>--}}
-                        {{--</td>--}}
-                        {{--<td class="clock"><i class="fa fa-unlock fa-2x" aria-hidden="true"></i>--}}
-                        {{--<p id="tickets7">20</p> tickets--}}
-                        {{--</td>--}}
-                        {{--<td>--}}
-                        {{--<div class="row postions">--}}
-                        {{--<div class="col-md-4 col-md-offset-2  ">--}}
-                        {{--<div class="input-group number-spinner7">--}}
-                        {{--<span class="input-group-btn">--}}
-                        {{--<button class="btn btn-default btn-circle smoins"--}}
-                        {{--data-dir="dwn" id="btn-down"><span--}}
-                        {{--class="fa fa-minus"></span></button>--}}
-                        {{--</span>--}}
-                        {{--<input class="form-control text-center ui" value="0"--}}
-                        {{--type="text">--}}
-                        {{--<span class="input-group-btn">--}}
-                        {{--<button class="btn btn-default btn-circle splus "--}}
-                        {{--data-dir="up" id="btn-up7"><span--}}
-                        {{--class="fa fa-plus"></span></button>--}}
-                        {{--</span>--}}
-                        {{--</div>--}}
-                        {{--</div>--}}
-                        {{--<div class="col-md-4 col-md-offset-1"></div>--}}
-                        {{--</div>--}}
-                        {{--</td>--}}
-                        {{--<td><b>4000</b> Ar</td>--}}
-                        {{--<td><b id="prixUnit7">0</b> Ar</td>--}}
-                        {{--</tr>--}}
-                        {{--<!-- prixunit1 -->--}}
-
-                        {{--<!-- prixunit2 -->--}}
-                        {{--<tr>--}}
-                        {{--<td><strong>Standard</strong>--}}
-                        {{--<p>Description</p>--}}
-                        {{--</td>--}}
-                        {{--<td class="unlock"><i class="fa fa-unlock fa-2x" aria-hidden="true"></i>--}}
-                        {{--<p id="tickets8">20</p> tickets--}}
-                        {{--</td>--}}
-                        {{--<td>--}}
-                        {{--<div class="row postions">--}}
-                        {{--<div class="col-md-4 col-md-offset-2 ">--}}
-                        {{--<div class="input-group number-spinner8">--}}
-                        {{--<span class="input-group-btn">--}}
-                        {{--<button class="btn btn-default btn-circle smoins"--}}
-                        {{--data-dir="dwn" id="btn-down"><span--}}
-                        {{--class="fa fa-minus"></span></button>--}}
-                        {{--</span>--}}
-                        {{--<input class="form-control text-center ui" value="0"--}}
-                        {{--type="text">--}}
-                        {{--<span class="input-group-btn">--}}
-                        {{--<button class="btn btn-default btn-circle splus "--}}
-                        {{--data-dir="up" id="btn-up8"><span--}}
-                        {{--class="fa fa-plus"></span></button>--}}
-                        {{--</span>--}}
-                        {{--</div>--}}
-                        {{--</div>--}}
-                        {{--<div class="col-md-4 col-md-offset-1"></div>--}}
-                        {{--</div>--}}
-                        {{--</td>--}}
-                        {{--<td><b>4000</b> Ar</td>--}}
-                        {{--<td><b id="prixUnit8">0</b> Ar</td>--}}
-                        {{--</tr>--}}
-                        {{--<!-- prixunit2 -->--}}
-
-                        {{--<tr>--}}
-                        {{--<td><strong>Standard</strong>--}}
-                        {{--<p>Description</p>--}}
-                        {{--</td>--}}
-                        {{--<td><i class="fa fa-close fa-2x" aria-hidden="true"></i>--}}
-                        {{--<p>Non disponible</p>--}}
-                        {{--</td>--}}
-                        {{--<td></td>--}}
-                        {{--<td><b>4000</b> Ar</td>--}}
-                        {{--<td></td>--}}
-                        {{--</tr>--}}
-                        {{--<tr>--}}
-                        {{--<td class="td_detail"></td>--}}
-                        {{--<td class="td_detail"></td>--}}
-                        {{--<td class="td_detail"></td>--}}
-                        {{--<td><strong>Total</strong></td>--}}
-                        {{--<td><b id="total4">0</b> Ar</td>--}}
-                        {{--</tr>--}}
-                        {{--<tr>--}}
-                        {{--<td></td>--}}
-                        {{--<td></td>--}}
-                        {{--<td></td>--}}
-                        {{--<td>--}}
-                        {{--<button type="submit" class=" btn btn-danger btn_reset">Reset</button>--}}
-                        {{--</td>--}}
-                        {{--<td>--}}
-                        {{--<button type="submit" class=" btn btn-success btn_acheterr">Acheter</button>--}}
-                        {{--</td>--}}
-                        {{--</tr>--}}
-                        {{--</tbody>--}}
-
-                        {{--</table>--}}
-                        {{--</div>--}}
-                        {{--</div>--}}
                     </div>
                 </section>
             </div>
@@ -503,44 +155,44 @@
             <h2 class="couleur_mot">Voir aussi</h2>
             <div class="row">
                 @php $count_id = 0 @endphp
-                @foreach($interested as $event)
+                @foreach($interested as $ev)
                     <div class="col-sm-6 col-md-4">
                         <div class="thumbnail"
                              onmouseover="mouseover('month{{$count_id}}','title{{$count_id}}')"
                              onmouseleave="mouseleave('month{{$count_id}}','title{{$count_id}}')">
-                            <a href="{{url('events/show',[$event->id])}}">
+                            <a href="{{url('events/show',[$ev->id])}}">
                                 <div class="mg-image">
-                                    <img src="{{ url('/public/img/'.$event->image.'') }}">
+                                    <img src="{{ url('/public/img/'.$ev->image.'') }}">
                                 </div>
                             </a>
                             <div class="caption taille">
-                                <a href="{{url('events/show',[$event->id])}}">
+                                <a href="{{url('events/show',[$ev->id])}}">
                                     <div class="limitelengh">
                                         <h3>
-                                            <a href="{{url('events/show',[$event->id])}}"
-                                               id="title{{$count_id}}">{{str_limit($event->title,$limit=60, $end = ' ...')}}</a>
+                                            <a href="{{url('events/show',[$ev->id])}}"
+                                               id="title{{$count_id}}">{{str_limit($ev->title,$limit=60, $end = ' ...')}}</a>
                                         </h3>
                                     </div>
                                     <div class="limite">
                                         <a href="#"><p
-                                                    style="text-align: justify">{{ str_limit(ucfirst($event->additional_note), $limit = 100, $end = ' ...') }}</p>
+                                                    style="text-align: justify">{{ str_limit(ucfirst($ev->additional_note), $limit = 100, $end = ' ...') }}</p>
                                         </a><br/>
                                     </div>
                                     <div class="row cbg">
                                         <div class="col-md-3 col-xs-3">
                                             <div class="calendar">
                                                 <h1 class="month"
-                                                    id="month{{$count_id}}">{{ \Carbon\Carbon::parse($event->date_debut_envent)->format('M')}}</h1>
-                                                <label class="jour">{{ \Carbon\Carbon::parse($event->date_debut_envent)->format('D')}}</label>
-                                                <p class="day">{{ \Carbon\Carbon::parse($event->date_debut_envent)->format('d')}}</p>
+                                                    id="month{{$count_id}}">{{ \Carbon\Carbon::parse($ev->date_debut_envent)->format('M')}}</h1>
+                                                <label class="jour">{{ \Carbon\Carbon::parse($ev->date_debut_envent)->format('D')}}</label>
+                                                <p class="day">{{ \Carbon\Carbon::parse($ev->date_debut_envent)->format('d')}}</p>
                                             </div>
                                         </div>
                                         <div class="col-md-9 col-xs-9 ">
                                             <a>
                                                 <div class="prixfx">
-                                                    @if($event->tickets()->count() > 0)
+                                                    @if($ev->tickets()->count() > 0)
                                                         <i class="fa fa-tag prices"></i>A partir de
-                                                        <b class="prx">{{ (int) $event->tickets()->orderBy('price','asc')->take(1)->get()[0]->price  }}</b>
+                                                        <b class="prx">{{ (int) $ev->tickets()->orderBy('price','asc')->take(1)->get()[0]->price  }}</b>
                                                         AR
                                                     @else
                                                         <i class="fa fa-tag prices"></i>Non
@@ -550,12 +202,12 @@
                                             </a>
                                             <a href="#">
                                                 <div class="price"><i
-                                                            class="glyphicon glyphicon-time time"></i>{{ \Carbon\Carbon::parse($event->date_debut_envent)->format('H:i')}}
+                                                            class="glyphicon glyphicon-time time"></i>{{ \Carbon\Carbon::parse($ev->date_debut_envent)->format('H:i')}}
                                                 </div>
                                             </a>
                                             <a href="#">
                                                 <div class="date"><i
-                                                            class="glyphicon glyphicon-map-marker position"></i>{{ $event->localisation_adresse }}
+                                                            class="glyphicon glyphicon-map-marker position"></i>{{ $ev->localisation_adresse }}
                                                 </div>
                                             </a>
                                         </div>
@@ -567,14 +219,12 @@
                     @php $count_id++ @endphp
                 @endforeach
             </div>
-            </a>
         </div>
     </div>
-    </div>
+    <h3>{{$event->tickets()->count()}}</h3>
 @endsection
 
 @section('specificScript')
-    <script type="text/javascript" src="{{url('/')}}/public/js/Tapakila.js"/>
     <script type="text/javascript">
         function mouseover(element, title) {
             $('#' + title + '').css('color', '#d70506');
@@ -585,4 +235,64 @@
             $('#' + element + '').css('background', '#5cb85c');
         }
     </script>
+    <script>
+        var newticket = new Array();
+    </script>
+    @for($i=0;$i<$event->tickets()->count();$i++)
+        <script>
+            newticket[[{{$i}}]] = {{$event->tickets[$i]->number}};
+            $(document).on('click', '.number-spinner{{$i}} button', function () {
+                var btn = $(this),
+                    oldValue = btn.closest('.number-spinner{{$i}}').find('input').val().trim(),
+                    newVal = 0;
+                if (btn.attr('data-dir') == 'up') {
+                    if (oldValue < {{$event->tickets[$i]->number}}) {
+                        newVal = parseInt(oldValue) + 1;
+                        var prixUnit1 = {{$event->tickets[$i]->price}} *
+                        newVal;
+                        newticket[{{$i}}] -= 1;
+                        $('#tickets{{$i}}').html(newticket[{{$i}}]);
+                        $('#prixUnit{{$i}}').html(0 + prixUnit1);
+
+                        btn.closest('.number-spinner{{$i}}').find('input').val(newVal);
+                        var total = 0;
+                        for (var j = 0; j < $('#nombre_id').val(); j++) {
+                            total += parseInt($('#prixUnit' + j).html());
+                        }
+                        $('#total').html(total);
+                    } else if (oldValue == {{$event->tickets[$i]->number}}) {
+                        $('#tickets{{$i}}').html('Epuisé');
+                        $('.clock{{$i}}').removeClass('fa-unlock');
+                        $('.clock{{$i}}').addClass('fa-lock');
+                        $('#btn-up{{$i}}').attr('disabled', 'true');
+                        var total = 0;
+                        for (var j = 0; j < $('#nombre_id').val(); j++) {
+                            total += parseInt($('#prixUnit' + j).html());
+                        }
+                        $('#total').html(total);
+                    }
+
+                } else {
+                    if (oldValue > 0) {
+                        newVal = parseInt(oldValue) - 1;
+                        var prixUnit1 = {{$event->tickets[$i]->price}} *
+                        newVal;
+                        newticket[{{$i}}] += 1;
+                        $('#prixUnit{{$i}}').html(0 + prixUnit1);
+                        $('#tickets{{$i}}').html(newticket[{{$i}}]);
+                        $('#btn-up{{$i}}').removeAttr('disabled');
+                        $('.clock{{$i}}').removeClass('fa-lock');
+                        $('.clock{{$i}}').addClass('fa-unlock');
+                        btn.closest('.number-spinner{{$i}}').find('input').val(newVal);
+                        var total = 0;
+                        for (var j = 0; j < $('#nombre_id').val(); j++) {
+                            total += parseInt($('#prixUnit' + j).html());
+                        }
+                        $('#total').html(total);
+                    }
+                }
+            });
+        </script>
+    @endfor
+
 @endsection
