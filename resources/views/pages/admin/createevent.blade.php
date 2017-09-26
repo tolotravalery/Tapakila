@@ -1366,13 +1366,13 @@
                                     <label for="usr">Nom du type de ticket:*</label>
                                     {!! Form::text('type', null, ['class' => 'form-control', 'id' => 'ticket_type', 'required', 'autofocus']) !!}
                                     <span class="help-block">
-					  Par exemple. "Ticket régulier", "Early Bird", "Student"
-					  </span>
-
+					                    Par exemple. "Ticket régulier", "Early Bird", "Student"
+					                </span>
                                 </div>
+
                                 <div class="form-group">
                                     <label for="usr">La description</label>
-                                    <input type="text" class="form-control" id="usr">
+                                    <textarea name="description" class="form-control" style="height: 100px;"></textarea>
                                     <span class="help-block">
 					                    Par exemple. "Vendu jusqu'au 23 juin" ou "Préparez-vous à montrer votre carte étudiante"
 					                </span>
@@ -1382,7 +1382,7 @@
                                             <label>
                                                 Prix unitaire du ticket</label>
                                             <div class="input-group group chiffre1">
-                                                {!! Form::number('price', null, ['class' => 'form-control', 'id' => 'ticket_price','placeholder'=>'∞','step'=>'0.01','required', 'autofocus']) !!}
+                                                {!! Form::number('price', null, ['class' => 'form-control', 'id' => 'ticket_price','step'=>'0.01','required', 'autofocus']) !!}
                                                 <span class="input-group-addon">AR</span>
                                             </div>
                                         </div>
@@ -1411,7 +1411,7 @@
                                 </div>
                             </div>
                             {{--<p class="help-block">Le nombre maximum de tickets pour l'événement entier est défini sur--}}
-                                {{--"15".</p>--}}
+                            {{--"15".</p>--}}
                             <p class="help-block">Ici, vous pouvez définir une limite supplémentaire pour ce type de
                                 ticket uniquement. Il sera caché à partir de la page d'achat une fois épuisé</p>
                             <br/>
@@ -1446,30 +1446,30 @@
                                 ticket uniquement.</p>
                             <br/>
                             {{--<div class="row">--}}
-                                {{--<div class="col-lg-6">--}}
-                                    {{--<div class="form-group">--}}
-                                        {{--<label for="usr">Code de réduction</label>--}}
-                                        {{--<input type="text" class="form-control" id="usr">--}}
-                                    {{--</div>--}}
-                                {{--</div>--}}
-                                {{--<div class="col-lg-6">--}}
-                                    {{--<label>Prix ​​discount</label>--}}
-                                    {{--<div class="input-group group chiffre">--}}
-                                        {{--<input type="number" name="ticket_limit"--}}
-                                               {{--id="ticket_limit" class="form-control" placeholder=""--}}
-                                               {{--min="0" step="0.01">--}}
-                                        {{--<span class="input-group-addon">AR</span>--}}
-                                    {{--</div>--}}
-                                {{--</div>--}}
+                            {{--<div class="col-lg-6">--}}
+                            {{--<div class="form-group">--}}
+                            {{--<label for="usr">Code de réduction</label>--}}
+                            {{--<input type="text" class="form-control" id="usr">--}}
+                            {{--</div>--}}
+                            {{--</div>--}}
+                            {{--<div class="col-lg-6">--}}
+                            {{--<label>Prix ​​discount</label>--}}
+                            {{--<div class="input-group group chiffre">--}}
+                            {{--<input type="number" name="ticket_limit"--}}
+                            {{--id="ticket_limit" class="form-control" placeholder=""--}}
+                            {{--min="0" step="0.01">--}}
+                            {{--<span class="input-group-addon">AR</span>--}}
+                            {{--</div>--}}
+                            {{--</div>--}}
                             {{--</div>--}}
                             {{--<div class="form-group">--}}
-                                {{--<label for="usr">Prix ​​discount</label>--}}
-                                {{--<input type="text" class="form-control" id="usr">--}}
+                            {{--<label for="usr">Prix ​​discount</label>--}}
+                            {{--<input type="text" class="form-control" id="usr">--}}
                             {{--</div>--}}
                             {{--<label>Commande manuelle</label>--}}
                             {{--<div class="checkbox">--}}
-                                {{--<label><input type="checkbox" value="">Ce type de billet est temporairement non--}}
-                                    {{--vendu</label>--}}
+                            {{--<label><input type="checkbox" value="">Ce type de billet est temporairement non--}}
+                            {{--vendu</label>--}}
                             {{--</div>--}}
                         </div>
                         <div class="com_contenu_type_foot">

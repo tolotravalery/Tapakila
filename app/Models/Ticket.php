@@ -26,4 +26,9 @@ class Ticket extends Model
         return $this->belongsToMany('App\Models\User');
     }
 
+    public function tapakila()
+    {
+        return $this->hasMany('App\Models\Tapakila');
+    }
+
 }
