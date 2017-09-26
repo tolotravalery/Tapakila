@@ -183,7 +183,7 @@
         <div class="container custom-container">
             <div class="row">
                 <div class="col-sm-4 col-xs-6">
-                    <img class="footer-logo" alt="tapakila" src="{{ url('/') }}/img/logo.png">
+                    <img class="footer-logo" alt="tapakila" src="{{ url('/') }}/public/img/logo.png">
                     <p class="small custom">
                         By Tapakila.mg<br>
                         IIB 63 Mahamasina<br>

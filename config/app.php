@@ -162,7 +162,8 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-
+        Barryvdh\DomPDF\ServiceProvider::class,
+//        Thujohn\Pdf\PdfServiceProvider::class,
         /*
          * Package Service Providers...
          */
@@ -247,6 +248,8 @@ return [
         'Image' => Intervention\Image\Facades\Image::class,
         'Uuid' => Webpatser\Uuid\Uuid::class,
         'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
+        'PDF' => Barryvdh\DomPDF\Facade::class,
+//        'PDF' => 'Thujohn\Pdf\PdfFacade',
     ],
 
 ];
