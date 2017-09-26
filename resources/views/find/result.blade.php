@@ -106,12 +106,17 @@
                                                             </div>
                                                         </div>
                                                         <div class="col-md-9 col-xs-9 ">
-                                                            <a href="#">
-                                                                <div class="prixfx"><i class="fa fa-tag prices"></i>A
+                                                            <div class="prixfx">
+                                                                @if($event->tickets()->count() > 0)
+                                                                    <i class="fa fa-tag prices"></i>A
                                                                     partir de <b
-                                                                            class="prx">6000</b> AR
-                                                                </div>
-                                                            </a>
+                                                                            class="prx">{{ (int) $event->tickets()->orderBy('price','asc')->take(1)->get()[0]->price  }}</b>
+                                                                    AR
+                                                                @else
+                                                                    <i class="fa fa-tag prices"></i>Non
+                                                                    disponible
+                                                                @endif
+                                                            </div>
                                                             <a href="#">
                                                                 <div class="price"><i
                                                                             class="glyphicon glyphicon-time time"></i>{{ \Carbon\Carbon::parse($event->date_debut_envent)->format('H:i')}}

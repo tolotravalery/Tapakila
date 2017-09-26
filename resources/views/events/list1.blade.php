@@ -80,7 +80,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-md-9 col-xs-9 ">
-                                                        <a>
+                                                        {{--<a>--}}
                                                             <div class="prixfx">
                                                                 @if($event->tickets()->count() > 0)
                                                                     <i class="fa fa-tag prices"></i>A
@@ -92,7 +92,7 @@
                                                                     disponible
                                                                 @endif
                                                             </div>
-                                                        </a>
+                                                        {{--</a>--}}
                                                         <a href="#">
                                                             <div class="price"><i
                                                                         class="glyphicon glyphicon-time time"></i>{{ \Carbon\Carbon::parse($event->date_debut_envent)->format('H:i')}}
