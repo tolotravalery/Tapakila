@@ -41,21 +41,20 @@ body {
 }
 
 .ico {
-    background-image: url('../img/add-event.png');
+    background-image: url(../img/add-event.png);
     width: 32px;
     height: 32px;
     display: block;
     float: left;
     margin-right: 5px;
-    margin-top: -5px;
+    margin-top: 1px;
 }
-
 .descr {
     display: block;
     float: left;
     line-height: 17px;
     text-align: left;
-    margin-top: -8px;
+    margin-top: 1px;
 }
 
 .navbar-inverse {
