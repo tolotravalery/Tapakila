@@ -1,6 +1,31 @@
 @extends('template')
 
 @section('content')
+    <section id="sectioncategorie" class="clearfix">
+        <div class="container custom-container">
+            <ul class="clearfix">
+                <li><a href="{{url('/')}}">TOUS</a></li>
+                @foreach($menus as $menu)
+                    <li><a href="{{url('/events/list/categorie',[$menu->id])}}">{{strtoupper($menu->name)}}</a></li>
+                @endforeach
+
+            </ul>
+            <a href="#" class="menupull" id="pull"><strong>Catégories</strong></a>
+        </div>
+    </section>
+
+    <section id="sectionevenement" role="navigation">
+        <div class="container custom-container">
+            <ul>
+                @foreach($sousmenus as $sousmenu)
+                    <li>
+                        <a href="{{url('/events/list/categorie/'.$sousmenu->name.'',[$sousmenu->id])}}">{{ucfirst($sousmenu->name)}}</a>
+                    </li>
+                @endforeach
+
+            </ul>
+        </div>
+    </section>
     <div class="container custom-container">
         <div class=" hier1">
             <div class="row ">
@@ -34,7 +59,7 @@
                     </div>
                     <div class="div_style">
                         <strong class="couleur_mot zav"> Partagez sur :</strong>
-                        <a href="https://www.facebook.com/sharer/sharer.php?u={{url()->current()}}"><img
+                        <a href="https://www.facebook.com/sharer/sharer.php?u={{url()->current()}}" target="_blank"><img
                                     src="{{url('/')}}/public/img/facebook.png" style="width: 22px;"></a>
                     </div>
                 </div>
@@ -91,7 +116,7 @@
                                                 <input type="hidden" name="price[]" value="{{ $ticket->price }}">
                                                 <tr>
                                                     <td><strong>{{$ticket->type}}</strong>
-                                                        <p>Description here</p>
+                                                        <p>{{$ticket->description}}</p>
                                                     </td>
                                                     @if($ticket->number > 0)
                                                         <td><i class="fa fa-unlock fa-2x clock{{$count_id_price}}"
@@ -157,7 +182,7 @@
                                             <input type="hidden" id="nombre_id" value="{{$count_id_price}}"/>
                                         </form>
                                         </tbody>
-                                        @if($event->tickets->count() == 0)
+                                        @if($event->tickets()->wherePivot('date',\Carbon\Carbon::parse($date)->format('Y-m-d'))->get()->count() == 0)
                                             <p>(*) Les tickets de cette évènements ne sont pas encore disponible</p>
                                         @endif
                                     </table>

@@ -126,7 +126,7 @@
                                                             <div class="input-group-addon">
                                                                 <i class="fa fa-calendar"></i></div>
                                                             <input class="form-control" id="date" name="date_debut"
-                                                                   placeholder="MM/DD/YYYY" type="text"/>
+                                                                   placeholder="YYYY-MM-DD" type="text"/>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -151,7 +151,7 @@
                                                             <div class="input-group-addon">
                                                                 <i class="fa fa-calendar"></i></div>
                                                             <input class="form-control" id="date" name="date_fin"
-                                                                   placeholder="MM/DD/YYYY" type="text"/>
+                                                                   placeholder="YYYY-MM-DD" type="text"/>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -176,75 +176,6 @@
                                         <textarea class="form-control" style=" word-wrap: break-word; resize: horizontal;
                                         height: 54px;" name="note_time"></textarea>
                                     </div>
-                                    {{--<hr>--}}
-                                    {{--<div class="row">
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <label class="control-label">Débuts des ventes des tickets</label>
-
-                                                <div class="radio-custom radio-primary">
-                                                    <input type="radio" value="" checked="">
-                                                    <label for="starts_published">Lors de la publication</label>
-                                                </div>
-
-                                                <div class="radio-custom radio-primary">
-                                                    <input type="radio" value="dates">
-                                                    <label for="starts_datetime">Date et Heure specifique</label>
-                                                </div>
-
-                                                <div class="input-group padding-left-30 start-datepicker-div hide">
-                                                    <label class="input-group-addon"><i
-                                                                class="fa fa-calendar"></i></label>
-                                                    <input type="text" class="sale_start form-control" value=""
-                                                           data-default="">
-                                                    <label class="input-group-addon"><i
-                                                                class="fa fa-clock-o"></i></label>
-                                                    <input type="text" data-plugin="timepicker"
-                                                           class="sale_start form-control ui-timepicker-input" value=""
-                                                           data-default="" autocomplete="off">
-                                                </div>
-
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <label class="control-label">Fin de vente des tickets</label>
-                                                <div class="radio-custom radio-primary">
-                                                    <input type="radio" value="dates" checked="">
-                                                    <label>A une date et heure précise ou plutôt si tout les tickets
-                                                        sont vendus</label>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label class="control-label required">Fin</label>
-                                                            <div class="input-group">
-                                                                <div class="input-group-addon">
-                                                                    <i class="fa fa-calendar"></i></div>
-                                                                <input class="form-control" id="date" name="date"
-                                                                       placeholder="MM/DD/YYYY" type="text"/>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="input-group clockpicker">
-														<span class="input-group-addon">
-															<span class="glyphicon glyphicon-time"></span>
-															</span>
-                                                            <input type="text" class="form-control" value="23:30">
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="radio-custom radio-primary">
-                                                    <input type="radio">
-                                                    <label>Seulement si tous les tickets sont vendus </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>--}}
                                 </div>
                                 <!-- heure end-->
                                 <hr>
@@ -278,7 +209,7 @@
                                     <div class="form-group">
                                         {{ Auth::user()->name }}
                                         <a class="btn btn-default editer" target="_blank"
-                                           href="{{url('/')}}/profile/{{ Auth::user()->name }}/edit">Editer</a>
+                                           href="{{url('/')}}/profile/{{ Auth::user()->id }}/edit">Editer</a>
                                     </div>
                                 </div>
                                 <!-- organisateur end -->
@@ -1364,14 +1295,13 @@
                                 <div class="form-group">
                                     <label for="usr">Nom du type de ticket:*</label>
                                     {!! Form::text('type', null, ['class' => 'form-control', 'id' => 'ticket_type', 'required', 'autofocus']) !!}
-                                    <span class="help-block">
-                                        Par exemple. "Ticket régulier", "Early Bird", "Student"
-					                </span>
-
+                                    Par exemple. "Ticket régulier", "Early Bird", "Student"
+                                    </span>
                                 </div>
+
                                 <div class="form-group">
                                     <label for="usr">La description</label>
-                                    <input type="text" class="form-control" id="usr">
+                                    <textarea name="description" class="form-control" style="height: 100px;"></textarea>
                                     <span class="help-block">
 					                    Par exemple. "Vendu jusqu'au 23 juin" ou "Préparez-vous à montrer votre carte étudiante"
 					                </span>
@@ -1381,7 +1311,7 @@
                                             <label>
                                                 Prix unitaire du ticket</label>
                                             <div class="input-group group chiffre1">
-                                                {!! Form::number('price', null, ['class' => 'form-control', 'id' => 'ticket_price','placeholder'=>'∞','step'=>'1','required', 'autofocus']) !!}
+                                                {!! Form::number('price', null, ['class' => 'form-control', 'id' => 'ticket_price','step'=>'0.01','required', 'autofocus']) !!}
                                                 <span class="input-group-addon">AR</span>
                                             </div>
                                         </div>
@@ -1424,7 +1354,7 @@
                                                 <div class="input-group-addon">
                                                     <i class="fa fa-calendar"></i>
                                                 </div>
-                                                {!! Form::text('date_debut_vente', null, ['class' => 'form-control', 'id' => 'date','placeholder'=>'MM/DD/YYYY','required', 'autofocus']) !!}
+                                                {!! Form::text('date_debut_vente', null, ['class' => 'form-control', 'id' => 'date','placeholder'=>'YYYY-MM-DD','required', 'autofocus']) !!}
                                             </div>
                                         </div>
                                     </div>
@@ -1434,7 +1364,7 @@
                                                 <div class="input-group-addon">
                                                     <i>à</i>
                                                 </div>
-                                                {!! Form::text('date_fin_vente', null, ['class' => 'form-control', 'id' => 'date','placeholder'=>'MM/DD/YYYY','required', 'autofocus']) !!}
+                                                {!! Form::text('date_fin_vente', null, ['class' => 'form-control', 'id' => 'date','placeholder'=>'YYYY-MM-DD','required', 'autofocus']) !!}
                                             </div>
                                         </div>
                                     </div>
@@ -1534,11 +1464,7 @@
 
             $('#publie').change(function () {
                 valeur = $(this).val();
-                /* var huhu= $('#publie').val( valeur );
-                 console.log(huhu);*/
-                var huhu = $('#publie').val(valeur);
-                //console.log(huhu);
-
+                $('#publie').val(valeur);
             });
 
         });
@@ -1551,7 +1477,6 @@
             $('#publie').change(function () {
                 var valeur = $(this).val();
                 $('#publie').val(valeur);
-                //console.log(valeur);
                 document.getElementById("huhu").value = valeur;
             });
 
@@ -1609,10 +1534,7 @@
             vibrate: true        // vibrate the device when dragging clock hand
         });
     </script>
-
     <!--Script de l'image------------->
-
-
     <script>
         var output = document.getElementById('output');
         var button = document.getElementById('button');

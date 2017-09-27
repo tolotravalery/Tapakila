@@ -207,7 +207,7 @@ Route::group(['middleware' => ['auth', 'activated', 'role:organisateur'], 'prefi
 //    Route::get('index', 'OrganisateurController@index');
     Route::resource('ticket', 'TicketController');
     Route::resource(
-        'evenement',
+        'events',
         'EventController', [
             'only' => [
                 'edit'

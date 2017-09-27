@@ -62,7 +62,7 @@ class EventController extends Controller
     {
         $menus = Menus::orderBy('id', 'desc')->take(8)->get();
         $sousmenus = Sous_menus::orderBy('id', 'desc')->take(20)->get();
-        $event = Events::orderBy('id', 'desc')->take(1)->get();
+//        $event = Events::orderBy('id', 'desc')->take(1)->get();
         return view('pages.admin.createevent', compact('menus', 'sousmenus', 'event'));
     }
 
@@ -82,8 +82,6 @@ class EventController extends Controller
         } else {
             $ev->publie = false;
         }
-//        dd($request->input());
-//        dd($ev);
         $ev->save();
         return redirect(url('admin/listevent'));
     }
@@ -101,6 +99,9 @@ class EventController extends Controller
         $menus = Menus::orderBy('id', 'desc')->take(8)->get();
         $sousmenus = Sous_menus::orderBy('id', 'desc')->take(20)->get();
         $event = Events::find($id);
+        if ($event->user_id != Auth::user()->id) {
+            abort('403');
+        }
         return view('events.edit', compact('event', 'menus', 'sousmenus'));
     }
 
@@ -119,7 +120,7 @@ class EventController extends Controller
             $ev->image_background = $input['image'];
         }
         $ev->save();
-        return redirect(url('organisateur/evenement/' . $ev->id . '/edit'));
+        return redirect(url('organisateur/events/' . $ev->id . '/edit'));
     }
 
     public function store(Request $request)
@@ -143,7 +144,6 @@ class EventController extends Controller
         $titre = $request->input('title');
         $split = explode(" ", $titre);
         $titre = $split[0];
-
         $event = Events::create([
             'title' => $request->input('title'),
             'sous_menus_id' => $request->input('sousmenu'),
@@ -163,6 +163,6 @@ class EventController extends Controller
             'message' => $message,
             'vu' => 0
         ]);
-        return redirect(url('organisateur/evenement/' . $event->id . '/edit'));
+        return redirect(url('organisateur/events/' . $event->id . '/edit'));
     }
 }

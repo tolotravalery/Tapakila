@@ -8,7 +8,7 @@ class Ticket extends Model
 {
     protected $table = "ticket";
 
-    protected $fillable = ['type', 'price', 'number', 'date_debut_vente', 'date_fin_vente', 'events_id'];
+    protected $fillable = ['type', 'price', 'number', 'date_debut_vente', 'date_fin_vente', 'events_id','description'];
     public $timestamps = false;
 
     public function events()
@@ -24,6 +24,11 @@ class Ticket extends Model
     public function users()
     {
         return $this->belongsToMany('App\Models\User');
+    }
+
+    public function tapakila()
+    {
+        return $this->hasMany('App\Models\Tapakila');
     }
 
 }

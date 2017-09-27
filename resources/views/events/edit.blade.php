@@ -9,7 +9,7 @@
 
 @section('content')
     <section id="sectioncategorie" class="clearfix">
-        <div class="container">
+        <div class="container custom-container">
             <ul class="clearfix">
                 <li><a href="{{url('/')}}">TOUS</a></li>
                 @foreach($menus as $menu)
@@ -22,7 +22,7 @@
     </section>
 
     <section id="sectionevenement" role="navigation">
-        <div class="container">
+        <div class="container custom-container">
             <ul>
                 @foreach($sousmenus as $sousmenu)
                     <li>
@@ -34,7 +34,7 @@
         </div>
     </section>
     <section id="detail">
-        <div class="container">
+        <div class="container custom-container">
             <div class="page-menu row">
                 <div class="col-md-9">
                     <h1>Créér un évènement</h1>
@@ -109,7 +109,7 @@
                                                             <div class="input-group-addon">
                                                                 <i class="fa fa-calendar"></i></div>
                                                             <input class="form-control" id="date" name="date_debut"
-                                                                   value="{{\Carbon\Carbon::parse($event->date_debut_envent)->format('d-m-Y')}}"
+                                                                   value="{{\Carbon\Carbon::parse($event->date_debut_envent)->format('Y-m-d')}}"
                                                                    type="text"/>
                                                         </div>
                                                     </div>
@@ -136,7 +136,7 @@
                                                             <div class="input-group-addon">
                                                                 <i class="fa fa-calendar"></i></div>
                                                             <input class="form-control" id="date" name="date_fin"
-                                                                   value="{{ \Carbon\Carbon::parse($event->date_fin_event)->format('d-m-Y')}}"
+                                                                   value="{{ \Carbon\Carbon::parse($event->date_fin_event)->format('Y-m-d')}}"
                                                                    type="text"/>
                                                         </div>
                                                     </div>
@@ -210,7 +210,7 @@
                                                                 <div class="input-group-addon">
                                                                     <i class="fa fa-calendar"></i></div>
                                                                 <input class="form-control" id="date" name="date"
-                                                                       placeholder="MM/DD/YYYY" type="text"/>
+                                                                       placeholder="YYYY-DD-MM" type="text"/>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -265,7 +265,7 @@
                                     <div class="form-group">
                                         {{ Auth::user()->name }}
                                         <a class="btn btn-default editer" target="_blank"
-                                           href="{{url('/')}}/profile/{{ Auth::user()->name }}/edit">Editer</a>
+                                           href="{{url('/')}}/profile/{{ Auth::user()->id }}/edit">Editer</a>
                                     </div>
                                 </div>
                                 <!-- organisateur end -->
@@ -1377,7 +1377,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="usr">La description</label>
-                                    <input type="text" class="form-control" id="usr">
+                                    <input type="text" name="description" class="form-control"/>
                                     <span class="help-block">
 					                    Par exemple. "Vendu jusqu'au 23 juin" ou "Préparez-vous à montrer votre carte étudiante"
 					                </span>
@@ -1404,16 +1404,17 @@
                                     @endphp
                                     @if($i > 1)
                                         <label>Date du ticket</label>
-                                        {!! Form::text('date', null, ['class' => 'form-control', 'id' => 'date','placeholder'=>'DD/MM/YYYY','required', 'autofocus']) !!}
+                                        {!! Form::text('date',\Carbon\Carbon::parse($event->date_debut_envent)->format('Y-m-d') , ['class' => 'form-control', 'id' => 'date','placeholder'=>'','required', 'autofocus']) !!}
                                         <span class="help-block">
                                             Votre évènement a @php echo $i @endphp jours. Vous
-                                            devriez entrer la date de ce ticket<br/>
+                                            devriez entrer la date de ce ticket et créer à nouveau un ticket pour les autres dates<br/>
                                             Ou simplement:
                                         </span>
-                                        <input type="checkbox" name="isValable"/>Ce ticket est valable dans tous les jours de
+                                        <input type="checkbox" name="isValable"/>Ce ticket est valable dans tous les
+                                        jours de
                                         l'évènement.
                                     @else
-                                        {!! Form::hidden('date', \Carbon\Carbon::parse($event->date_debut_envent)->format('d/m/Y'), ['class' => 'form-control', 'id' => 'date','placeholder'=>'MM/DD/YYYY','required', 'autofocus']) !!}
+                                        {!! Form::hidden('date', \Carbon\Carbon::parse($event->date_debut_envent)->format('Y-m-d'), ['class' => 'form-control', 'id' => 'date','placeholder'=>'','required', 'autofocus']) !!}
                                     @endif
                                 </div>
                             </div>
@@ -1616,7 +1617,7 @@
             var date_input = $('input[id="date"]'); //our date input has the name "date"
             var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
             date_input.datepicker({
-                format: 'dd-mm-yyyy',
+                format: 'yyyy-mm-dd',
                 container: container,
                 todayHighlight: true,
                 autoclose: true,
