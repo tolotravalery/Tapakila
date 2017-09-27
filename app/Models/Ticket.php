@@ -13,7 +13,7 @@ class Ticket extends Model
 
     public function events()
     {
-        return $this->belongsTo('App\Models\Events');
+        return $this->belongsToMany('App\Models\Events')->withPivot('date');
     }
 
     public function payement_modes()

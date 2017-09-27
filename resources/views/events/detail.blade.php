@@ -84,7 +84,7 @@
                                         <form action="{{ url('shopping/cart') }}" method="POST" class="side-by-side">
                                         @php $count_id_price = 0; @endphp
                                         <!-- prixunit1 -->
-                                            @foreach($event->tickets as $ticket)
+                                            @foreach($event->tickets()->wherePivot('date',\Carbon\Carbon::parse($date)->format('Y-m-d'))->get() as $ticket)
                                                 {!! csrf_field() !!}
                                                 <input type="hidden" name="id[]" value="{{ $ticket->id }}">
                                                 <input type="hidden" name="type[]" value="{{ $ticket->type }}">
