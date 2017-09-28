@@ -10,6 +10,9 @@ class DetailEventController extends Controller
 {
     public function show($events_id)
     {
+        if (Events::find($events_id) == null) {
+            return redirect(url('errors/' . md5('event-detail') . '/' . md5('500')));
+        }
         $menus = Menus::orderBy('id', 'desc')->get();
         $sousmenus = Sous_menus::orderBy('name', 'asc')->take(20)->get();
         $date_now = date('Y-m-d H:i:s');
@@ -41,6 +44,9 @@ class DetailEventController extends Controller
 
     public function listEventSousMenu($sous_menu_name, $sous_menu)
     {
+        if (Sous_menus::find($sous_menu) == null) {
+            return redirect(url('errors/' . md5('event-detail') . '/' . md5('500')));
+        }
         $sous_menu_id = Sous_menus::find($sous_menu);
         $menus = Menus::orderBy('id', 'desc')->get();
         $sousmenus = Sous_menus::orderBy('name', 'asc')->take(20)->get();

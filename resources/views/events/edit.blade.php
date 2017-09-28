@@ -37,7 +37,7 @@
         <div class="container custom-container">
             <div class="page-menu row">
                 <div class="col-md-9">
-                    <h1>Créér un évènement</h1>
+                    <h1>Modifier votre évènement</h1>
                 </div>
                 <div class="col-md-3">
                     <div class="btn-group margin-bottom-5">
@@ -56,225 +56,180 @@
             <div class="row">
                 <div class="col-lg-9 col-sm-9">
                     <div id="div_details">
-                        <form enctype="multipart/form-data" class="form-horizontal" role="form" method="POST"
-                              action="{{ route('event') }}">
-                            {{ csrf_field() }}
-                            <div class="panel panel-content">
-                                <div class="panel-body border-bottom">
-                                    <h2>Details</h2>
-                                    <input type="hidden" id="huhu" name="publie">
-                                    <div class="clearfix"></div>
+                        {!! Form::model($event, array('action' => array('EventController@update'), 'method' => 'PUT', 'id' => 'user_basics_form','files' => true,'class'=>'form-horizontal')) !!}
+                        {{ csrf_field() }}
+                        <input type="hidden" name="id" value="{{Crypt::encryptString(($event->id))}}">
+                        <div class="panel panel-content">
+                            <div class="panel-body border-bottom">
+                                <h2>Details</h2>
+                                <input type="hidden" id="huhu" name="publie">
+                                <div class="clearfix"></div>
 
-                                    <div class="form-group ">
-                                        <label class="control-label ">
-                                            <span>Titre : *</span>
-                                        </label>
-                                        <input type="text" name="title" id="titre" class="form-control"
-                                               value="{{$event->title}}">
+                                <div class="form-group ">
+                                    <label class="control-label ">
+                                        <span>Titre (*):</span>
+                                    </label>
+                                    <input type="text" name="title" id="titre" class="form-control"
+                                           value="{{$event->title}}" required>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-4">
+                                        <img src="{{url('/public/img/'.$event->image)}}"
+                                             style="height: 150px;width: 200px;"/>
                                     </div>
-                                    <div class="form-group">
-                                        <label class="control-label ">
-                                            <span>Catégories : </span>
-                                        </label>
-                                        <div class="form-group"
-                                             style="margin-left: 0px!important;margin-right: 0px!important;">
-                                            <select class="form-control" name="sousmenu">
-                                                <option value="{{$event->sous_menus->id}}">{{$event->sous_menus->name}}</option>
-                                                @foreach($sousmenus as $sousmenu)
-                                                    <option value="{{$sousmenu->id}}">{{$sousmenu->name}}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group form-group-translation et">
+                                    <div class="col-xs-8">
                                         <label class="control-label">
-                                            <span>Description</span>
+                                            <span>Image : </span>
                                         </label>
-                                        <textarea class="form-control" style=" word-wrap: break-word; resize: horizontal;
-                                        height: 54px;" name="note">{{$event->additional_note}}</textarea>
-                                    </div>
-                                </div>
-
-
-                                <hr>
-                                <div class="panel-body border-bottom">
-                                    <h2>Heures</h2>
-                                    <div class="row" id="event-duration">
-                                        <div class="col-md-6">
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="control-label required">Début</label>
-                                                        <div class="input-group">
-                                                            <div class="input-group-addon">
-                                                                <i class="fa fa-calendar"></i></div>
-                                                            <input class="form-control" id="date" name="date_debut"
-                                                                   value="{{\Carbon\Carbon::parse($event->date_debut_envent)->format('Y-m-d')}}"
-                                                                   type="text"/>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="input-group clockpicker">
-														<span class="input-group-addon">
-															<span class="glyphicon glyphicon-time"></span>
-															</span>
-                                                        <input type="text" class="form-control"
-                                                               value="{{\Carbon\Carbon::parse($event->date_debut_envent)->format('h:i:s')}}"
-                                                               name="heure_debut">
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="control-label required">Fin</label>
-                                                        <div class="input-group">
-                                                            <div class="input-group-addon">
-                                                                <i class="fa fa-calendar"></i></div>
-                                                            <input class="form-control" id="date" name="date_fin"
-                                                                   value="{{ \Carbon\Carbon::parse($event->date_fin_event)->format('Y-m-d')}}"
-                                                                   type="text"/>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="input-group clockpicker">
-														<span class="input-group-addon">
-															<span class="glyphicon glyphicon-time"></span>
-															</span>
-                                                        <input type="text" class="form-control"
-                                                               value="{{ \Carbon\Carbon::parse($event->date_fin_event)->format('h:i:s')}}"
-                                                               name="heure_fin">
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group form-group-translation et">
-                                        <label class="control-label">
-                                            <span>Notes additionnel sur l'heure</span>
-                                        </label>
-                                        <textarea class="form-control" style=" word-wrap: break-word; resize: horizontal;
-                                        height: 54px;" name="note_time">{{$event->additional_note_time}}</textarea>
-                                    </div>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <label class="control-label">Débuts des ventes des tickets</label>
-
-                                                <div class="radio-custom radio-primary">
-                                                    <input type="radio" value="" checked="">
-                                                    <label for="starts_published">Lors de la publication</label>
-                                                </div>
-
-                                                <div class="radio-custom radio-primary">
-                                                    <input type="radio" value="dates">
-                                                    <label for="starts_datetime">Date et Heure specifique</label>
-                                                </div>
-
-                                                <div class="input-group padding-left-30 start-datepicker-div hide">
-                                                    <label class="input-group-addon"><i
-                                                                class="fa fa-calendar"></i></label>
-                                                    <input type="text" class="sale_start form-control" value=""
-                                                           data-default="">
-                                                    <label class="input-group-addon"><i
-                                                                class="fa fa-clock-o"></i></label>
-                                                    <input type="text" data-plugin="timepicker"
-                                                           class="sale_start form-control ui-timepicker-input" value=""
-                                                           data-default="" autocomplete="off">
-                                                </div>
-
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <label class="control-label">Fin de vente des tickets</label>
-                                                <div class="radio-custom radio-primary">
-                                                    <input type="radio" value="dates" checked="">
-                                                    <label>A une date et heure précise ou plutôt si tout les tickets
-                                                        sont vendus</label>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label class="control-label required">Fin</label>
-                                                            <div class="input-group">
-                                                                <div class="input-group-addon">
-                                                                    <i class="fa fa-calendar"></i></div>
-                                                                <input class="form-control" id="date" name="date"
-                                                                       placeholder="YYYY-DD-MM" type="text"/>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="input-group clockpicker">
-														<span class="input-group-addon">
-															<span class="glyphicon glyphicon-time"></span>
-															</span>
-                                                            <input type="text" class="form-control" value="23:30">
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="radio-custom radio-primary">
-                                                    <input type="radio">
-                                                    <label>Seulement si tous les tickets sont vendus </label>
-                                                </div>
-                                            </div>
+                                        <div class="input-group image-preview">
+                                            <input type="text" class="form-control image-preview-filename"
+                                                   disabled="disabled">
+                                            <span class="input-group-btn">
+												<button type="button" class="btn btn-default image-preview-clear"
+                                                        style="display:none;">
+													<span class="glyphicon glyphicon-remove"></span> Supprimer
+												</button>
+												<div class="btn btn-default image-preview-input">
+													<span class="glyphicon glyphicon-folder-open"></span>
+													<span class="image-preview-input-title"></span>
+													<input type="file" accept="image/png, image/jpeg, image/gif"
+                                                           name="image"/>
+												</div>
+											</span>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- heure end-->
-                                <hr>
-                                <!-- location start -->
-                                <div class="panel-body border-bottom">
-                                    <h2>Localisation :</h2>
-                                    <form>
-                                        <div class="form-group">
-                                            <label for="email">Nom:*</label>
-                                            <input type="Adresse" class="form-control" id="email"
-                                                   name="localisation_nom" value="{{$event->localisation_nom}}">
-                                            <p>E.X:Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="adresses">Adresse:</label>
-                                            <input type="Adresse" class="form-control" id="adress"
-                                                   name="localisation_adresse" value="{{$event->localisation_adresse}}">
-                                            <em>Entrer l'adresse exact pour l'affichage des directions sur la carte</em>
-                                            <p>E.X:Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
-                                        </div>
-
-                                    </form>
-
-                                </div>
-
-                                <!-- location end -->
-                                <hr>
-                                <!-- organisateur start -->
-                                <div class="panel-body">
-                                    <h2>Organisateur</h2>
-                                    <div class="form-group">
-                                        {{ Auth::user()->name }}
-                                        <a class="btn btn-default editer" target="_blank"
-                                           href="{{url('/')}}/profile/{{ Auth::user()->id }}/edit">Editer</a>
+                                <div class="form-group">
+                                    <label class="control-label ">
+                                        <span>Catégories : </span>
+                                    </label>
+                                    <div class="form-group"
+                                         style="margin-left: 0px!important;margin-right: 0px!important;">
+                                        <select class="form-control" name="sousmenu">
+                                            <option value="{{$event->sous_menus->id}}">{{$event->sous_menus->name}}</option>
+                                            @foreach($sousmenus as $sousmenu)
+                                                <option value="{{$sousmenu->id}}">{{$sousmenu->name}}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
-                                <!-- organisateur end -->
-
-                                <div class="Confirme">
-                                    <button type="submit" class="btn btn-default enregistrer ">Enregistrer</button>
+                                <div class="form-group form-group-translation et">
+                                    <label class="control-label">
+                                        <span>Description (*) :</span>
+                                    </label>
+                                    <textarea class="form-control" style=" word-wrap: break-word; resize: horizontal;
+                                        height: 150px;" name="note" required>{{$event->additional_note}}</textarea>
                                 </div>
-
                             </div>
+                            <div class="panel-body border-bottom">
+                                <h2>Heures</h2>
+                                <div class="row" id="event-duration">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label required">Début</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon">
+                                                            <i class="fa fa-calendar"></i></div>
+                                                        <input class="form-control" id="date" name="date_debut"
+                                                               value="{{\Carbon\Carbon::parse($event->date_debut_envent)->format('Y-m-d')}}"
+                                                               type="text"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="input-group clockpicker">
+														<span class="input-group-addon">
+															<span class="glyphicon glyphicon-time"></span>
+															</span>
+                                                    <input type="text" class="form-control"
+                                                           value="{{\Carbon\Carbon::parse($event->date_debut_envent)->format('h:i:s')}}"
+                                                           name="heure_debut">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label required">Fin</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon">
+                                                            <i class="fa fa-calendar"></i></div>
+                                                        <input class="form-control" id="date" name="date_fin"
+                                                               value="{{ \Carbon\Carbon::parse($event->date_fin_event)->format('Y-m-d')}}"
+                                                               type="text"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="input-group clockpicker">
+														<span class="input-group-addon">
+															<span class="glyphicon glyphicon-time"></span>
+															</span>
+                                                    <input type="text" class="form-control"
+                                                           value="{{ \Carbon\Carbon::parse($event->date_fin_event)->format('h:i:s')}}"
+                                                           name="heure_fin">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group form-group-translation et">
+                                    <label class="control-label">
+                                        <span>Notes additionnel sur l'heure</span>
+                                    </label>
+                                    <textarea class="form-control" style=" word-wrap: break-word; resize: horizontal;
+                                        height: 54px;" name="note_time">{{$event->additional_note_time}}</textarea>
+
+                                </div>
+                            </div>
+                            <!-- heure end-->
+                            <hr>
+                            <!-- location start -->
+                            <div class="panel-body border-bottom">
+                                <h2>Localisation :</h2>
+                                <form>
+                                    <div class="form-group">
+                                        <label for="email">Nom (*):</label>
+                                        <input type="Adresse" class="form-control" id="email"
+                                               name="localisation_nom" value="{{$event->localisation_nom}}" required>
+                                        <p>E.X:Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="adresses">Adresse:</label>
+                                        <input type="Adresse" class="form-control" id="adress"
+                                               name="localisation_adresse" value="{{$event->localisation_adresse}}">
+                                        <em>Entrer l'adresse exact pour l'affichage des directions sur la carte</em>
+                                        <p>E.X:Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
+                                    </div>
+
+                                </form>
+                            </div>
+
+                            <!-- location end -->
+                            <hr>
+                            <!-- organisateur start -->
+                            <div class="panel-body">
+                                <h2>Organisateur</h2>
+
+                                <div class="form-group">
+                                    {{ Auth::user()->name }}
+                                    <a class="btn btn-default editer" target="_blank"
+                                       href="{{url('/')}}/profile/{{ Auth::user()->id }}/edit">Editer</a>
+                                </div>
+                            </div>
+                            <!-- organisateur end -->
+                            <p style="text-align: right;margin: 15px;"><i>(*) Champs olbligatoires</i></p>
+                            <div class="Confirme">
+                                <button type="submit" class="btn btn-default enregistrer ">Enregistrer</button>
+                            </div>
+
+                        </div>
                         </form>
 
                     </div>
@@ -991,7 +946,7 @@
                     <form enctype="multipart/form-data" class="form-horizontal" role="form" method="POST"
                           action="{{ route('event_siteweb') }}">
                         {{ csrf_field() }}
-                        <input type="hidden" name="id" value="{{$event->id}}">
+                        <input type="hidden" name="id" value="{{Crypt::encryptString($event->id)}}">
                         <div id="div_siteweb" class="hide">
                             <div class="com_contenu_type">
                                 <h2>Apparence du site</h2>
@@ -1363,7 +1318,7 @@
                         {!! Form::open(['id' => 'ticket-form', 'route' => 'ticket.store','role' => 'ticket', 'method' => 'POST'] ) !!}
                         <div class="com_contenu_type1">
                             <div class="ticket_details">
-                                <input type="hidden" name="id_ilaina" value="{{$event->id}}">
+                                <input type="hidden" name="id" value="{{Crypt::encryptString($event->id)}}">
                                 <h2>Détails du type de ticket</h2><br/>
 
                                 {{ csrf_field() }}
@@ -1621,7 +1576,7 @@
                 container: container,
                 todayHighlight: true,
                 autoclose: true,
-            })
+            });
         })
     </script>
 

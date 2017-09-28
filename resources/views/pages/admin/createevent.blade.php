@@ -67,9 +67,9 @@
 
                                     <div class="form-group ">
                                         <label class="control-label ">
-                                            <span>Titre : *</span>
+                                            <span>Titre (*):</span>
                                         </label>
-                                        <input type="text" name="title" id="titre" class="form-control">
+                                        <input type="text" name="title" id="titre" class="form-control" required>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label ">
@@ -86,7 +86,7 @@
                                         </div>
                                     </div>
                                     <label class="control-label ">
-                                        <span>Image : </span>
+                                        <span>Image (*) : </span>
                                     </label>
                                     <div class="input-group image-preview">
                                         <input type="text" class="form-control image-preview-filename"
@@ -100,16 +100,16 @@
 													<span class="glyphicon glyphicon-folder-open"></span>
 													<span class="image-preview-input-title"></span>
 													<input type="file" accept="image/png, image/jpeg, image/gif"
-                                                           name="image"/>
+                                                           name="image" required/>
 												</div>
 											</span>
                                     </div>
                                     <div class="form-group form-group-translation et">
                                         <label class="control-label">
-                                            <span>Description</span>
+                                            <span>Description (*) :</span>
                                         </label>
                                         <textarea class="form-control" style=" word-wrap: break-word; resize: horizontal;
-                                        height: 150px;" name="note"></textarea>
+                                        height: 150px;" name="note" required></textarea>
                                     </div>
                                 </div>
 
@@ -126,7 +126,7 @@
                                                             <div class="input-group-addon">
                                                                 <i class="fa fa-calendar"></i></div>
                                                             <input class="form-control" id="date" name="date_debut"
-                                                                   placeholder="YYYY-MM-DD" type="text"/>
+                                                                   placeholder="YYYY-MM-DD" type="text" required/>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -151,7 +151,7 @@
                                                             <div class="input-group-addon">
                                                                 <i class="fa fa-calendar"></i></div>
                                                             <input class="form-control" id="date" name="date_fin"
-                                                                   placeholder="YYYY-MM-DD" type="text"/>
+                                                                   placeholder="YYYY-MM-DD" type="text" required/>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -184,7 +184,7 @@
                                     <h2>Localisation :</h2>
                                     <form>
                                         <div class="form-group">
-                                            <label for="email">Nom:*</label>
+                                            <label for="email">Nom (*) :</label>
                                             <input type="Adresse" class="form-control" id="email"
                                                    name="localisation_nom">
                                             <p>E.X:Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
@@ -213,7 +213,7 @@
                                     </div>
                                 </div>
                                 <!-- organisateur end -->
-
+                                <p style="text-align: right;margin: 15px;"><i>(*) Champs olbligatoires</i></p>
                                 <div class="Confirme">
                                     <button type="submit" class="btn btn-default enregistrer ">Enregistrer</button>
                                 </div>
@@ -1375,32 +1375,6 @@
                             <p class="help-block">Ici, vous pouvez définir une limite supplémentaire pour ce type de
                                 ticket uniquement.</p>
                             <br/>
-                            {{--<div class="row">--}}
-                            {{--<div class="col-lg-6">--}}
-                            {{--<div class="form-group">--}}
-                            {{--<label for="usr">Code de réduction</label>--}}
-                            {{--<input type="text" class="form-control" id="usr">--}}
-                            {{--</div>--}}
-                            {{--</div>--}}
-                            {{--<div class="col-lg-6">--}}
-                            {{--<label>Prix ​​discount</label>--}}
-                            {{--<div class="input-group group chiffre">--}}
-                            {{--<input type="number" name="ticket_limit"--}}
-                            {{--id="ticket_limit" class="form-control" placeholder=""--}}
-                            {{--min="0" step="0.01">--}}
-                            {{--<span class="input-group-addon">AR</span>--}}
-                            {{--</div>--}}
-                            {{--</div>--}}
-                            {{--</div>--}}
-                            {{--<div class="form-group">--}}
-                            {{--<label for="usr">Prix ​​discount</label>--}}
-                            {{--<input type="text" class="form-control" id="usr">--}}
-                            {{--</div>--}}
-                            {{--<label>Commande manuelle</label>--}}
-                            {{--<div class="checkbox">--}}
-                            {{--<label><input type="checkbox" value="">Ce type de billet est temporairement non--}}
-                            {{--vendu</label>--}}
-                            {{--</div>--}}
                         </div>
                         <div class="com_contenu_type_foot">
                             <button type="submit" class="btn btn-danger bout"

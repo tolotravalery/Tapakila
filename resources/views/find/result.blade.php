@@ -5,7 +5,7 @@
             <ul class="clearfix">
                 <li><a href="{{url('/')}}">TOUS</a></li>
                 @foreach($menus as $menu)
-                    <li><a href="{{url('/events/list/categorie',[$menu->id])}}">{{strtoupper($menu->name)}}</a></li>
+                    <li><a href="{{url('/event/list/categorie',[$menu->id])}}">{{strtoupper($menu->name)}}</a></li>
                 @endforeach
 
             </ul>
@@ -18,7 +18,7 @@
             <ul>
                 @foreach($sousmenus as $sousmenu)
                     <li>
-                        <a href="{{url('/events/list/categorie/'.$sousmenu->name.'',[$sousmenu->id])}}">{{ucfirst($sousmenu->name)}}</a>
+                        <a href="{{url('/event/list/categorie/'.$sousmenu->name.'',[$sousmenu->id])}}">{{ucfirst($sousmenu->name)}}</a>
                     </li>
                 @endforeach
 
@@ -79,15 +79,15 @@
                                     <div class="thumbnail"
                                          onmouseover="mouseover('month{{$count_id}}','title{{$count_id}}')"
                                          onmouseleave="mouseleave('month{{$count_id}}','title{{$count_id}}')">
-                                        <a href="{{url('events/show',[$event->id])}}">
+                                        <a href="{{url('event/show',[$event->id])}}">
                                             <div class="mg-image">
                                                 <img src="{{ url('/public/img/'.$event->image.'') }}">
                                             </div>
                                             <div class="caption taille">
-                                                <a href="{{url('events/show',[$event->id])}}">
+                                                <a href="{{url('event/show',[$event->id])}}">
                                                     <div class="limitelengh">
                                                         <h3>
-                                                            <a href="{{url('events/show',[$event->id])}}"
+                                                            <a href="{{url('event/show',[$event->id])}}"
                                                                id="title{{$count_id}}">{!! str_limit(str_replace($queries,'<span style="background-color: yellow;">'.$queries.'</span>',$event->title),$limit = 60, $end = ' ...') !!}</a>
                                                         </h3>
                                                     </div>

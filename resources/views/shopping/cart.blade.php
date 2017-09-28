@@ -5,7 +5,7 @@
         <div class="container custom-container">
             <ul class="clearfix">
                 @foreach($menus as $menu)
-                    <li><a href="{{url('/events/list/categorie',[$menu->id])}}">{{$menu->name}}</a></li>
+                    <li><a href="{{url('/event/list/categorie',[$menu->id])}}">{{$menu->name}}</a></li>
                 @endforeach
             </ul>
             <a href="#" class="menupull" id="pull"><strong>Catégories</strong></a>
@@ -17,7 +17,7 @@
             <ul>
                 @foreach($sousmenus as $sousmenu)
                     <li>
-                        <a href="{{url('/events/list/categorie/'.$sousmenu->name.'',[$sousmenu->id])}}">{{ucfirst($sousmenu->name)}}</a>
+                        <a href="{{url('/event/list/categorie/'.$sousmenu->name.'',[$sousmenu->id])}}">{{ucfirst($sousmenu->name)}}</a>
                     </li>
                 @endforeach
             </ul>

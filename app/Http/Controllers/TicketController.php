@@ -7,6 +7,7 @@ use App\Models\Tapakila;
 use App\Models\Ticket;
 use Faker\Provider\DateTime;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 
 class TicketController extends Controller
 {
@@ -48,7 +49,7 @@ class TicketController extends Controller
 
     public function store(Request $request)
     {
-        $event_id = $request->input('id_ilaina');
+        $event_id = Crypt::decryptString($request->input('id'));
         $event = Events::find($event_id);
         $nombre = $request->input('number');
         $rep = $request->input('isValable');
