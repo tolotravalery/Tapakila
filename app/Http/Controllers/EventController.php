@@ -201,16 +201,18 @@ class EventController extends Controller
         }
 
         $image = $request->file('image');
-        $filename = $image->getClientOriginalExtension();
-        $input['image'] = time() . '.' . $image->getClientOriginalExtension();
-        $destinationPath = public_path('/img');
-        $image->move($destinationPath, $input['image']);
+        if ($image != null) {
+            $filename = $image->getClientOriginalExtension();
+            $input['image'] = time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('/img');
+            $image->move($destinationPath, $input['image']);
+            $event->image = $input['image'];
+        }
         $titre = $request->input('title');
         $split = explode(" ", $titre);
         $titre = $split[0];
         $event->title = $request->input('title');
         $event->sous_menus_id = $request->input('sousmenu');
-        $event->image = $input['image'];
         $event->date_debut_envent = new \DateTime($request->input('date_debut') . " " . $request->input('heure_debut'));
         $event->date_fin_event = new \DateTime($request->input('date_fin') . " " . $request->input('heure_fin'));
         $event->additional_note = $request->input('note');
