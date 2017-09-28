@@ -3172,3 +3172,96 @@ div.tests .number-spinner .test2 .test3 {
 .categoriesport {
     border-top: 3px solid #d70506;
 }
+/* activation,mots depass,bienvenu */
+
+#globcontent{
+    background-color:white;
+    margin-top: 30px;
+    padding: 20px 25px 20px 25px;
+}
+
+.border-logo{
+    width:100%;
+    color:#b3b3b3;
+}
+.btnactive{
+    background-color:#d70506;
+    color:white;
+}
+
+.btnactive:hover{
+    background-color:#d70506;
+    color:black;
+}
+.ccenter ,.alert{
+    text-align:center;
+}
+
+.alert{
+    background-color:#cccccc;
+    margin-top:25px;
+}
+
+.alert a {
+    color:#62b2eb
+}
+.alert a:hover {
+    color:#d70506;
+}
+
+.sharefb{
+    margin-top:40px;
+}
+/* confirmation */
+#confirmation{
+    text-align: center;
+    color: white;
+}
+.enter {
+    margin-top: 66px;
+}
+/* confirmation_end */
+
+/* activation */
+.a_color{
+    color: #0b70b6;
+
+}
+.high{
+    border-bottom: 2px solid grey;
+    padding-top: 27px;
+    padding-bottom: 15px;
+}
+.ha_style{
+    color: grey;
+    padding-top: 20px;
+
+}
+.img_activation{
+    width: 247px;
+    height: 138px;
+}
+#page_activation{
+    background-color: white;
+    padding: 46px;
+    font-family: roboto;
+    /* line-height: 5px; */
+}
+.row_activation{
+    border-bottom: 1px solid grey;
+    padding-bottom: 22px;
+    padding-top: 20px;
+}
+.p_activation{
+    margin-top: 56px;
+}
+.logo-activation{
+    margin-left: 28px;
+}
+.col_activation{
+    color: grey;
+}
+.co_activation{
+    color: #8e8e8e;
+}
+/* activation_end */

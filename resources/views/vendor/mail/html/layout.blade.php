@@ -3,6 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
 </head>
 <body>
     <style>
@@ -27,7 +28,7 @@
         <tr>
             <td align="center">
                 <table class="content" width="100%" cellpadding="0" cellspacing="0">
-                    {{ $header or '' }}
+                   {{ $header or '' }}
 
                     <!-- Email Body -->
                     <tr>
@@ -45,7 +46,7 @@
                         </td>
                     </tr>
 
-                    {{ $footer or '' }}
+                   {{ $footer or '' }}
                 </table>
             </td>
         </tr>

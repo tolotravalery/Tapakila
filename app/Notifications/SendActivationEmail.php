@@ -34,6 +34,7 @@ class SendActivationEmail extends Notification implements ShouldQueue
     public function via($notifiable)
     {
         return ['mail'];
+
     }
 
     /**
@@ -46,11 +47,16 @@ class SendActivationEmail extends Notification implements ShouldQueue
     {
 
         $message = new MailMessage;
-        $message->subject(trans('emails.activationSubject'))
+       /*$message->subject(trans('emails.activationSubject'))
             ->greeting(trans('emails.activationGreeting'))
             ->line(trans('emails.activationMessage'))
+            ->line(trans('emails.activationMessage2'))
             ->action(trans('emails.activationButton'), route('authenticated.activate', ['token' => $this->token]))
-            ->line(trans('emails.activationThanks'));
+            ->line(trans('emails.activationThanks'));*/
+
+
+      $message->view('vendor.mail.html.activation')
+       ->action('Activer', route('authenticated.activate', ['token' => $this->token]));
 
         return ($message);
 
