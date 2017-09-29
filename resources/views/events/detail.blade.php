@@ -72,7 +72,6 @@
                         $interval = new DateInterval('P1D');
                         $daterange = new DatePeriod(\Carbon\Carbon::parse($event->date_debut_envent), $interval ,\Carbon\Carbon::parse($event->date_fin_event));
                     @endphp
-
                     @foreach($daterange as $date)
                         <li class="@php if($c==0) echo "active" ; else echo "" ;@endphp ">
                             <a href="#date{{$c}}" role="tab"
@@ -80,6 +79,12 @@
                         </li>
                         @php $c++; @endphp
                     @endforeach
+                    @if($c==0)
+                        <li class="active">
+                            <a href="#date" role="tab"
+                               data-toggle="tab">{{\Carbon\Carbon::parse($event->date_debut_envent)->format('d M')}}</a>
+                        </li>
+                    @endif
                 </ul>
 
                 <section>
@@ -106,9 +111,10 @@
                                         </thead>
 
                                         <tbody>
-                                        <form action="{{ url('shopping/cart') }}" method="POST" class="side-by-side">
-                                        @php $count_id_price = 0; @endphp
-                                        <!-- prixunit1 -->
+                                        <form action="{{ url('shopping/cart') }}" method="POST"
+                                              class="side-by-side">
+                                            <!-- prixunit1 -->
+                                            @php $count_id_price = 0; @endphp
                                             @foreach($event->tickets()->wherePivot('date',\Carbon\Carbon::parse($date)->format('Y-m-d'))->get() as $ticket)
                                                 {!! csrf_field() !!}
                                                 <input type="hidden" name="id[]" value="{{ $ticket->id }}">
@@ -140,7 +146,8 @@
                                                                                 id="btn-down{{$count_id_price}}"><span
                                                                                     class="fa fa-minus"></span></button>
                                                             </span>
-                                                                    <input class="form-control text-center ui" value="0"
+                                                                    <input class="form-control text-center ui"
+                                                                           value="0"
                                                                            type="text" name="nombre[]">
                                                                     <span class="input-group-btn">
 																		<button type="button"
@@ -175,7 +182,8 @@
                                                     </button>
                                                 </td>
                                                 <td>
-                                                    <button type="submit" class=" btn btn-success btn_acheterr">Acheter
+                                                    <button type="submit" class=" btn btn-success btn_acheterr">
+                                                        Acheter
                                                     </button>
                                                 </td>
                                             </tr>
@@ -190,6 +198,108 @@
                             </div>
                             @php $d++ @endphp
                         @endforeach
+                        @if($d == 0)
+                            <div class="tab-pane tabulation  fade active in"
+                                 id="date">
+                                <div class="table-responsive tableau_detail">
+                                    <table class="table table-hover">
+                                        <thead>
+                                        <tr>
+                                            <th>Type de ticket</th>
+                                            <th>Disponiblité</th>
+                                            <th>Quantité</th>
+                                            <th>Prix unitaire</th>
+                                            <th>Totale</th>
+                                        </tr>
+                                        </thead>
+
+                                        <tbody>
+                                        <form action="{{ url('shopping/cart') }}" method="POST"
+                                              class="side-by-side">
+                                            <!-- prixunit1 -->
+                                            @php $count_id_price = 0; @endphp
+                                            @foreach($event->tickets()->wherePivot('date',\Carbon\Carbon::parse($event->date_debut_envent)->format('Y-m-d'))->get() as $ticket)
+                                                {!! csrf_field() !!}
+                                                <input type="hidden" name="id[]" value="{{ $ticket->id }}">
+                                                <input type="hidden" name="type[]" value="{{ $ticket->type }}">
+                                                <input type="hidden" name="price[]" value="{{ $ticket->price }}">
+                                                <tr>
+                                                    <td><strong>{{$ticket->type}}</strong>
+                                                        <p>{{$ticket->description}}</p>
+                                                    </td>
+                                                    @if($ticket->number > 0)
+                                                        <td><i class="fa fa-unlock fa-2x clock{{$count_id_price}}"
+                                                               aria-hidden="true"></i>
+                                                            <p id="tickets{{$count_id_price}}">{{$ticket->number}}</p>
+                                                            tickets
+                                                        </td>
+                                                    @else
+                                                        <td><i class="fa fa-close fa-2x" aria-hidden="true"></i>
+                                                            <p>Non disponible</p>
+                                                        </td>
+                                                    @endif
+                                                    <td>
+                                                        <div class="row postions">
+                                                            <div class="col-md-4 col-md-offset-2  ">
+                                                                <div class="input-group number-spinner{{$count_id_price}}">
+                                                            <span class="input-group-btn">
+																		<button type="button"
+                                                                                class="btn btn-default btn-circle smoins"
+                                                                                data-dir="dwn"
+                                                                                id="btn-down{{$count_id_price}}"><span
+                                                                                    class="fa fa-minus"></span></button>
+                                                            </span>
+                                                                    <input class="form-control text-center ui"
+                                                                           value="0"
+                                                                           type="text" name="nombre[]">
+                                                                    <span class="input-group-btn">
+																		<button type="button"
+                                                                                class="btn btn-default btn-circle splus "
+                                                                                data-dir="up"
+                                                                                id="btn-up{{$count_id_price}}"><span
+                                                                                    class="fa fa-plus"></span></button>
+                                                            </span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4 col-md-offset-1"></div>
+                                                        </div>
+                                                    </td>
+                                                    <td><b>{{(int)$ticket->price}}</b> Ar</td>
+                                                    <td><b id="prixUnit{{$count_id_price}}">0</b> Ar</td>
+                                                </tr>
+                                                @php $count_id_price++; @endphp
+                                            @endforeach
+                                            <tr>
+                                                <td class="td_detail"></td>
+                                                <td class="td_detail"></td>
+                                                <td class="td_detail"></td>
+                                                <td><strong>Total</strong></td>
+                                                <td><b id="total">0</b> Ar</td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>
+                                                    <button type="submit" class=" btn btn-danger btn_reset">Reset
+                                                    </button>
+                                                </td>
+                                                <td>
+                                                    <button type="submit" class=" btn btn-success btn_acheterr">
+                                                        Acheter
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <input type="hidden" id="nombre_id" value="{{$count_id_price}}"/>
+                                        </form>
+                                        </tbody>
+                                        @if($event->tickets()->wherePivot('date',\Carbon\Carbon::parse($event->date_debut_envent)->format('Y-m-d'))->get()->count() == 0)
+                                            <p>(*) Les tickets de cette évènements ne sont pas encore disponible</p>
+                                        @endif
+                                    </table>
+                                </div>
+                            </div>
+                        @endif
                     </div>
                 </section>
             </div>
@@ -213,11 +323,11 @@
                                     <div class="limitelengh">
                                         <h3>
                                             <a href="{{url('event/show',[$ev->id])}}"
-                                               id="title{{$count_id}}">{{str_limit($ev->title,$limit=60, $end = ' ...')}}</a>
+                                               id="title{{$count_id}}">{{str_limit($ev->title,$limit=40, $end = ' ...')}}</a>
                                         </h3>
                                     </div>
                                     <div class="limite">
-                                        <a href="#"><p
+                                        <a href="{{url('event/show',[$ev->id])}}"><p
                                                     style="text-align: justify">{{ str_limit(ucfirst($ev->additional_note), $limit = 100, $end = ' ...') }}</p>
                                         </a><br/>
                                     </div>
@@ -231,24 +341,22 @@
                                             </div>
                                         </div>
                                         <div class="col-md-9 col-xs-9 ">
-                                            <a>
-                                                <div class="prixfx">
-                                                    @if($ev->tickets()->count() > 0)
-                                                        <i class="fa fa-tag prices"></i>A partir de
-                                                        <b class="prx">{{ (int) $ev->tickets()->orderBy('price','asc')->take(1)->get()[0]->price  }}</b>
-                                                        AR
-                                                    @else
-                                                        <i class="fa fa-tag prices"></i>Non
-                                                        disponible
-                                                    @endif
-                                                </div>
-                                            </a>
-                                            <a href="#">
+                                            <div class="prixfx">
+                                                @if($ev->tickets()->count() > 0)
+                                                    <i class="fa fa-tag prices"></i>A partir de
+                                                    <b class="prx">{{ (int) $ev->tickets()->orderBy('price','asc')->take(1)->get()[0]->price  }}</b>
+                                                    AR
+                                                @else
+                                                    <i class="fa fa-tag prices"></i>Non
+                                                    disponible
+                                                @endif
+                                            </div>
+                                            <a href="{{url('event/show',[$ev->id])}}">
                                                 <div class="price"><i
                                                             class="glyphicon glyphicon-time time"></i>{{ \Carbon\Carbon::parse($ev->date_debut_envent)->format('H:i')}}
                                                 </div>
                                             </a>
-                                            <a href="#">
+                                            <a href="{{url('event/show',[$ev->id])}}">
                                                 <div class="date"><i
                                                             class="glyphicon glyphicon-map-marker position"></i>{{ $ev->localisation_adresse }}
                                                 </div>
@@ -264,7 +372,6 @@
             </div>
         </div>
     </div>
-    <h3>{{$event->tickets()->count()}}</h3>
 @endsection
 
 @section('specificScript')

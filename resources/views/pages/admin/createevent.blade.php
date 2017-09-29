@@ -8,12 +8,12 @@
 @endsection
 
 @section('content')
-    <section id="sectioncategorie" class="clearfix">
+    <<section id="sectioncategorie" class="clearfix">
         <div class="container custom-container">
             <ul class="clearfix">
                 <li><a href="{{url('/')}}">TOUS</a></li>
                 @foreach($menus as $menu)
-                    <li><a href="{{url('/events/list/categorie',[$menu->id])}}">{{strtoupper($menu->name)}}</a></li>
+                    <li><a href="{{url('/event/list/categorie',[$menu->id])}}">{{strtoupper($menu->name)}}</a></li>
                 @endforeach
 
             </ul>
@@ -26,7 +26,7 @@
             <ul>
                 @foreach($sousmenus as $sousmenu)
                     <li>
-                        <a href="{{url('/events/list/categorie/'.$sousmenu->name.'',[$sousmenu->id])}}">{{ucfirst($sousmenu->name)}}</a>
+                        <a href="{{url('/event/list/categorie/'.$sousmenu->name.'',[$sousmenu->id])}}">{{ucfirst($sousmenu->name)}}</a>
                     </li>
                 @endforeach
 

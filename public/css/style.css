@@ -3172,3 +3172,323 @@ div.tests .number-spinner .test2 .test3 {
 .categoriesport {
     border-top: 3px solid #d70506;
 }
+
+/* paiment */
+#achat-content{
+    background-color:#fff;
+    padding:10px 20px 10px 20px ;
+    margin-top: 35px;
+}
+.wcustom{
+    width:150px;
+}
+.tabl-content {
+    border: 1px solid #ccc;
+    border-collapse: none ! important;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    table-layout: fixed;
+    border-right: hidden;
+    border-left: hidden;
+    border-top: hidden;
+}
+}
+.tabl-content caption {
+    font-size: 1.5em;
+    margin: .5em 0 .75em;
+}
+.tabl-content tr {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: .35em;
+}
+.tabl-content th,
+.tabl-content td {
+    padding: .625em;
+    text-align: center;
+}
+.tabl-content th {
+    font-size: .85em;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+
+.imgpaiment{
+    border:none;
+    padding:0 ! important;
+    margin-bottom: 0 ! important;
+    margin-top: 13px;
+    min-width: 115%;
+}
+@media screen and (max-width: 600px) {
+    .imgpaiment{
+        border:none;
+        padding:0 ! important;
+        margin-bottom: 0 ! important;
+        margin-top: 5px;
+        min-width: 100% ! important;
+
+    }
+    .sor {
+        text-align: center;
+        margin-top: 13px;
+        font-size: 18px;
+    }
+
+    .tabl-content {
+        border: 0;
+    }
+    .tabl-content caption {
+        font-size: 1.3em;
+    }
+    .tabl-content thead {
+        border: none;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
+    .sor{
+        text-align: center;
+    }
+    .image_panier {
+        width: 100%;
+    }
+    .tabl-content tr {
+        border-bottom: 3px solid #ddd;
+        display: block;
+        margin-bottom: .625em;
+    }
+    .tabl-content td {
+        border-bottom: 1px solid #ddd;
+        display: block;
+        font-size: .8em;
+        text-align: right;
+    }
+    .tabl-content td:before {
+
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    .tabl-content td:last-child {
+        border-bottom: 0;
+    }
+}
+
+
+.check{
+    margin-top :20px;
+
+}
+.modepaimenent{
+    margin-top:0px;
+    padding: 18px;
+}
+.intutulé{
+    margin-top:29px;
+    text-align: center;
+}
+.Ttal{
+    margin-top: 30px;
+    padding: 30px 10px 10px 125px;
+
+}
+.tright{
+    margin-right: 112px;
+    margin-left: 29px;
+}
+.t2right{
+    margin-right: 10px;
+}
+.btn-Payer{
+
+    color: white;
+    background-color:#d70506;
+}
+.payee{
+    text-align:center;
+}
+.btn-Payer:hover{
+    color: white;
+    background-color:#d70506;
+}
+.Annulerbtn{
+    margin-bottom:20px;
+    text-align: center;
+    margin-top: 22px;
+    color: #0d8fd6;
+}
+.Annulerbtn a {
+    color: #0d8fd6;
+}
+.Annulerbtn a:hover {
+    text-decoration:underline;
+    color: #0d8fd6;
+}
+
+
+#ticket-radio2{
+    display: flex;
+    justify-content: flex-start;
+}
+
+
+#ticket-radio2 .button.active .radio-point {
+    background: url("../img/radio-checked.png") center right no-repeat;
+}
+
+#ticket-radio2 .button:hover {
+    border: 1px solid red;
+}
+
+#ticket-radio2 .button:active {
+    border: 1px solid #d70506;
+    color: black;
+}
+
+#ticket-radio2 .button:hover {
+    border: 1px solid #5cb85c ;
+}
+
+#ticket-radio2 .button {
+    display: inline-block;
+    min-width: 231px;
+    border-radius: 2px;
+    background-color: #f5f5f5;
+    border: 1px solid #d3d3d3;
+    padding: 6px 15px;
+    color: #000000;
+    text-align: left;
+    font-size: 15px;
+    line-height: 20px;
+    font-family: RobotoBold,sans-serif;
+}
+
+#ticket-radio2 .button.active {
+    color: black;
+}
+
+
+
+#ticket-radio2 .button {
+    color: #000000;
+    text-align: left;
+    font-size: 15px;
+    line-height: 20px;
+    font-family: RobotoBold,sans-serif;
+}
+
+
+
+#ticket-radio2 .btn-group .radio .button .btn label input[type="radio"] {
+    vertical-align: middle;
+    display: inline-block;
+    margin-left: 245px;
+    width: 23px;
+    height: 27px;
+}
+
+#ticket-radio2 .button:active {
+    color: black;
+}
+
+#ticket-radio2 .button .logo {
+    vertical-align: middle;
+    padding-right: 10px;
+    height: 42px;
+}
+
+.btn span.glyphicon {
+    opacity: 0;
+}
+.btn.active span.glyphicon {
+    opacity: 1;
+}
+
+.btn-customs  {
+    padding: 0px 0px 0px 13px ! important;
+    display: inline-block;
+    padding: 4px 12px;
+    padding-left: 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    border-radius: 5px !important;
+    width: 25px;
+    color: #fff;
+    background-color:#5cb85c ;
+    border-color: #5cb85c ;
+    margin-top: 9px;
+}
+.gly-custom  {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    right: 9px  ! important;
+}
+.operateur{
+    margin-right: 15px;
+}
+
+.spacing{
+    border-bottom:2px solid #d70506 ;
+    margin-bottom: 30px;
+}
+.Fraisservice{
+    margin-bottom:20px;
+    margin-top:10px;
+    padding: 11px 10px 10px 137px;
+}
+.sep{
+    width:50%;
+    margin:auto;
+    margin-bottom:20px;
+}
+.button.ticket {
+    color: #ffffff;
+    background-color:#d70506;
+    border: 0;
+    border-radius: 2px;
+    padding: 5px 30px;
+    font-size: 25px;
+    text-transform: uppercase;
+}
+.button.ticket:hover {
+    background-image: -moz-linear-gradient(top, #c0413a, #b00014);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #c0413a), color-stop(1, #b00014));
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c0413a', endColorstr='#a63432', GradientType='0');
+}
+
+.titlebuy {
+    color:#d70506 ;
+}
+.TT{
+    color:#d70506 ;
+    font-size:30px;
+}
+.bold{
+    font-weight: 799 !important;
+    font-size: 16px;
+}
+.tableaucustom{
+    border-bottom:1px solid #ddd !important;
+}
+.custom-pg{
+    padding: 10px 87px 10px 85px;
+}

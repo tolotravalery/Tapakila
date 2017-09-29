@@ -13,7 +13,7 @@
             <ul class="clearfix">
                 <li><a href="{{url('/')}}">TOUS</a></li>
                 @foreach($menus as $menu)
-                    <li><a href="{{url('/events/list/categorie',[$menu->id])}}">{{strtoupper($menu->name)}}</a></li>
+                    <li><a href="{{url('/event/list/categorie',[$menu->id])}}">{{strtoupper($menu->name)}}</a></li>
                 @endforeach
 
             </ul>
@@ -26,7 +26,7 @@
             <ul>
                 @foreach($sousmenus as $sousmenu)
                     <li>
-                        <a href="{{url('/events/list/categorie/sous_categorie',[$sousmenu->id])}}">{{ucfirst($sousmenu->name)}}</a>
+                        <a href="{{url('/event/list/categorie/'.$sousmenu->name.'',[$sousmenu->id])}}">{{ucfirst($sousmenu->name)}}</a>
                     </li>
                 @endforeach
 
@@ -43,12 +43,18 @@
                     <div class="btn-group margin-bottom-5">
                         <div class="btn-group" role="group">
                             <select class="form-control" id="publie" name="publie">
-                                <option value="false">Non publié</option>
-                                <option value="true">Publié</option>
+                                @if($event->publie_organisateur == true)
+                                    <option value="false">Non publié</option>
+                                    <option value="true" selected="selected">Publié</option>
+                                @else
+                                    <option value="false" selected="selected">Non publié</option>
+                                    <option value="true">Publié</option>
+                                @endif
                             </select>
                         </div>
                     </div>
                     <a class="btn btn-sm btn-default btn-aperçu " href="#" target="_blank">Aperçu</a>
+                    <p><i style="color:red;">La modification d'une publication évènement est accordé par l'administrateur</i></p>
                 </div>
             </div>
 

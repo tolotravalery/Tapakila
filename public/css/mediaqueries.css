@@ -98,6 +98,27 @@
 	
 }
 /*-------------------deatails-end------------------------------*/
+    @media only screen and (max-width : 768px ){
+        .Fraisservice {
+            padding: 15px  !important;
+        }
+        .tright {
+            margin-right: 11px  !important;
+            margin-left: 0  !important;
+        }
+        .TT {
+            color: #d70506  !important;
+            font-size: 17px  !important;
+        }
+        .custom-pg {
+            padding: 0 !important;
+        }
+        .Ttal{
+            margin-top: 30px;
+            padding: 0 !important;
+
+        }
+    }
 
 .mot_recherche {
   text-align: center;

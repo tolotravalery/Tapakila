@@ -88,11 +88,11 @@
                                                     <div class="limitelengh">
                                                         <h3>
                                                             <a href="{{url('event/show',[$event->id])}}"
-                                                               id="title{{$count_id}}">{!! str_limit(str_replace($queries,'<span style="background-color: yellow;">'.$queries.'</span>',$event->title),$limit = 60, $end = ' ...') !!}</a>
+                                                               id="title{{$count_id}}">{!! str_limit(str_replace($queries,'<span style="background-color: yellow;">'.$queries.'</span>',$event->title),$limit = 40, $end = ' ...') !!}</a>
                                                         </h3>
                                                     </div>
                                                     <div class="limite">
-                                                        <a href="#"><p
+                                                        <a href="{{url('event/show',[$event->id])}}"><p
                                                                     style="text-align: justify">{!! str_limit(ucfirst(str_replace($queries,'<span style="background-color: yellow;">'.$queries.'</span>',$event->additional_note)), $limit = 140, $end = ' ...') !!}</p>
                                                         </a><br/>
                                                     </div>
@@ -117,12 +117,12 @@
                                                                     disponible
                                                                 @endif
                                                             </div>
-                                                            <a href="#">
+                                                            <a href="{{url('event/show',[$event->id])}}">
                                                                 <div class="price"><i
                                                                             class="glyphicon glyphicon-time time"></i>{{ \Carbon\Carbon::parse($event->date_debut_envent)->format('H:i')}}
                                                                 </div>
                                                             </a>
-                                                            <a href="#">
+                                                            <a href="{{url('event/show',[$event->id])}}">
                                                                 <div class="date"><i
                                                                             class="glyphicon glyphicon-map-marker position"></i>{!! str_replace($queries,'<span style="background-color: yellow;">'.$queries.'</span>',$event->localisation_adresse) !!}
                                                                 </div>

@@ -24,12 +24,12 @@
         </div>
     </section>
     <br>
-	<section  class="clearfix">
+    <section class="clearfix">
         <div class="container custom-container">
-            <ul class="herb">    
-				   <li  class=" bounce animated2 zoomIn"><a href="#"><b>Acceuil</b></a></li>   
-				   <li  class=" bounce animated2 zoomIn dernier"><a href="#"><b>Panier</b></a></li>
-			</ul>
+            <ul class="herb">
+                <li class=" bounce animated2 zoomIn"><a href="#"><b>Acceuil</b></a></li>
+                <li class=" bounce animated2 zoomIn dernier"><a href="#"><b>Panier</b></a></li>
+            </ul>
         </div>
     </section>
     <section>
@@ -63,6 +63,7 @@
                             <tbody>
                             @foreach (Cart::content() as $item)
                                 <tr>
+{{--                                    <td>{{$item->id}}</td>--}}
                                     <td><img src="{{url('/public/img/logo.png')}}"></td>
                                     <td>{{$item->name}}</td>
                                     <td>
@@ -98,8 +99,8 @@
                                 <td class="right">Tax :</td>
                                 <td> 200 AR</td>
                                 <td></td>
-                            </tr>--}}
-                            {{--<tr>
+                            </tr>
+                            <tr>
                                 <td></td>
                                 <td></td>
                                 <td class="right">Total :</td>

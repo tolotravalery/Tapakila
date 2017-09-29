@@ -88,12 +88,14 @@
                                                         <div class="limitelengh">
                                                             <h3>
                                                                 <a href="{{url('event/show',[$event->id])}}"
-                                                                   id="title{{$count_id}}">{{str_limit($event->title,$limit=60, $end = ' ...')}}</a>
+                                                                   id="title{{$count_id}}">{{str_limit($event->title,$limit=40, $end = ' ...')}}</a>
                                                             </h3>
                                                         </div>
                                                         <div class="limite">
-                                                            <a href="#">
-                                                                <?php  if($event->additional_note==null){ echo "<br/>";}?>
+                                                            <a href="{{url('event/show',[$event->id])}}">
+                                                                <?php  if ($event->additional_note == null) {
+                                                                    echo "<br/>";
+                                                                }?>
 
                                                                 <p style="text-align: justify">{{ str_limit(ucfirst($event->additional_note), $limit = 100, $end = ' ...') }}</p>
                                                             </a><br/>
@@ -109,24 +111,24 @@
                                                             </div>
                                                             <div class="col-md-9 col-xs-9 ">
                                                                 {{--<a>--}}
-                                                                    <div class="prixfx">
-                                                                        @if($event->tickets()->count() > 0)
-                                                                            <i class="fa fa-tag prices"></i>A
-                                                                            partir de <b
-                                                                                    class="prx">{{ (int) $event->tickets()->orderBy('price','asc')->take(1)->get()[0]->price  }}</b>
-                                                                            AR
-                                                                        @else
-                                                                            <i class="fa fa-tag prices"></i>Non
-                                                                            disponible
-                                                                        @endif
-                                                                    </div>
+                                                                <div class="prixfx">
+                                                                    @if($event->tickets()->count() > 0)
+                                                                        <i class="fa fa-tag prices"></i>A
+                                                                        partir de <b
+                                                                                class="prx">{{ (int) $event->tickets()->orderBy('price','asc')->take(1)->get()[0]->price  }}</b>
+                                                                        AR
+                                                                    @else
+                                                                        <i class="fa fa-tag prices"></i>Non
+                                                                        disponible
+                                                                    @endif
+                                                                </div>
                                                                 {{--</a>--}}
-                                                                <a href="#">
+                                                                <a href="{{url('event/show',[$event->id])}}">
                                                                     <div class="price"><i
                                                                                 class="glyphicon glyphicon-time time"></i>{{ \Carbon\Carbon::parse($event->date_debut_envent)->format('H:i')}}
                                                                     </div>
                                                                 </a>
-                                                                <a href="#">
+                                                                <a href="{{url('event/show',[$event->id])}}">
                                                                     <div class="date"><i
                                                                                 class="glyphicon glyphicon-map-marker position"></i>{{ str_limit($event->localisation_adresse, $limit = 15, $end = ' ...')}}
                                                                     </div>
