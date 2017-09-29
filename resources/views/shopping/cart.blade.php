@@ -5,7 +5,7 @@
         <div class="container custom-container">
             <ul class="clearfix">
                 @foreach($menus as $menu)
-                    <li><a href="{{url('/events/list/categorie',[$menu->id])}}">{{$menu->name}}</a></li>
+                    <li><a href="{{url('/event/list/categorie',[$menu->id])}}">{{$menu->name}}</a></li>
                 @endforeach
             </ul>
             <a href="#" class="menupull" id="pull"><strong>Catégories</strong></a>
@@ -17,19 +17,19 @@
             <ul>
                 @foreach($sousmenus as $sousmenu)
                     <li>
-                        <a href="{{url('/events/list/categorie/'.$sousmenu->name.'',[$sousmenu->id])}}">{{ucfirst($sousmenu->name)}}</a>
+                        <a href="{{url('/event/list/categorie/'.$sousmenu->name.'',[$sousmenu->id])}}">{{ucfirst($sousmenu->name)}}</a>
                     </li>
                 @endforeach
             </ul>
         </div>
     </section>
     <br>
-	<section  class="clearfix">
+    <section class="clearfix">
         <div class="container custom-container">
-            <ul class="herb">    
-				   <li  class=" bounce animated2 zoomIn"><a href="#"><b>Acceuil</b></a></li>   
-				   <li  class=" bounce animated2 zoomIn dernier"><a href="#"><b>Panier</b></a></li>
-			</ul>
+            <ul class="herb">
+                <li class=" bounce animated2 zoomIn"><a href="#"><b>Acceuil</b></a></li>
+                <li class=" bounce animated2 zoomIn dernier"><a href="#"><b>Panier</b></a></li>
+            </ul>
         </div>
     </section>
     <section>
@@ -63,6 +63,7 @@
                             <tbody>
                             @foreach (Cart::content() as $item)
                                 <tr>
+{{--                                    <td>{{$item->id}}</td>--}}
                                     <td><img src="{{url('/public/img/logo.png')}}"></td>
                                     <td>{{$item->name}}</td>
                                     <td>
@@ -98,8 +99,8 @@
                                 <td class="right">Tax :</td>
                                 <td> 200 AR</td>
                                 <td></td>
-                            </tr>--}}
-                            {{--<tr>
+                            </tr>
+                            <tr>
                                 <td></td>
                                 <td></td>
                                 <td class="right">Total :</td>

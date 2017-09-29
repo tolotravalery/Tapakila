@@ -8,6 +8,8 @@ class Payement_mode extends Model
 {
     //
     protected $table = 'payement_mode';
+    protected $fillable = ['value', 'slug'];
+    protected $guarded = ['id'];
 
     public function tickets()
     {
