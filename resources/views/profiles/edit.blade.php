@@ -1,7 +1,7 @@
 @extends("template")
 @section('content')
     <section id="content" class="debut">
-        <div class="container">
+        <div class="container custom-container">
             <div class="row">
                 <div class="col-sm-2 gauche">
                     <div class="row">
