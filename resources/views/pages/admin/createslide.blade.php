@@ -42,7 +42,7 @@
 
                     Ajouter image
 
-                    <a href="{{url('/')}}" class="btn btn-info btn-xs pull-right">
+                    <a href="{{url('/')}}/admin/slides" class="btn btn-info btn-xs pull-right">
                         <i class="fa fa-fw fa-mail-reply" aria-hidden="true"></i>
                         Back <span class="hidden-xs">to</span><span class="hidden-xs"> list</span>
                     </a>
