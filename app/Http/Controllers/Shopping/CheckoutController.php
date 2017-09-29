@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers\Shopping;
 
+use App\Models\Menus;
 use App\Models\Product;
+use App\Models\Sous_menus;
+use App\Models\Tapakila;
 use App\Models\Ticket;
 use App\Models\User;
 use Faker\Provider\DateTime;
@@ -16,11 +19,13 @@ class CheckoutController extends Controller
 {
     function index()
     {
+        $menus = Menus::orderBy('id', 'desc')->take(8)->get();
+        $sousmenus = Sous_menus::orderBy('name', 'asc')->take(20)->get();
         $payement_mode = Payement_mode::get();
-        return view('shopping.checkout', array('payement_mode' => $payement_mode));
+        return view('shopping.checkout',compact('menus', 'sousmenus','payement_mode'));
     }
 
-    function store(Request $request)
+    /*function store(Request $request)
     {
         //dd(Cart::content());
         $tickets = array();
@@ -45,32 +50,34 @@ class CheckoutController extends Controller
         $payement_mode = Payement_mode::get();
         //dd($checkout);
         return view('shopping.summary')->with(array('checkout' => $checkout, 'payement_mode' => $payement_mode));
-    }
+    }*/
 
     function save(Request $request)
     {
+        $options = $request->input('options');
+        $payement = Payement_mode::where('slug', '=', $options)->get()[0];
         foreach (Cart::content() as $item) {
-            // save from database
             $ticket = Ticket::findOrFail($item->id);
-            //$product = User::findOrFail(1);
-            //dd($product->users());
             $date = date('Y-m-d H:i:s');
-            $payement = '';
-
-            if ($request->input('payement_mode') == 'MVola') {
-                $payement = 1;
-            } elseif ($request->input('payement_mode') == 'Orange Money') {
-                $payement = 2;
-            } elseif ($request->input('payement_mode') == 'Airtel Money') {
-                $payement = 3;
+            $nombre = $item->qty;
+            for ($i = 0; $i < $nombre; $i++) {
+                $tapakila = $ticket->tapakila()->where('vendu', '=', '0')->get()->random(1)[0];
+                $tapakila->vendu = 1;
+                $renderer = new \BaconQrCode\Renderer\Image\Png();
+                $renderer->setHeight(256);
+                $renderer->setWidth(256);
+                $writer = new \BaconQrCode\Writer($renderer);
+                $image_name = strtotime('now');
+                $writer->writeFile($tapakila->code_unique, 'public/qr_code/' . $image_name . '.png');
+                $tapakila->qr_code = $image_name . '.png';
+                $tapakila->save();
+                $ticket->number = $ticket->number - 1;
             }
-            //dd($payement);
             $ticket->users()->sync(array(Auth::user()->id => array('number' => $item->qty, 'date_achat' => $date,
-                'payement_mode_id' => $payement)));
+                'payement_mode_id' => $payement->id)));
+            $ticket->save();
         }
         Cart::destroy();
-        // checkout users
-        $user = User::findOrFail(1);
-        return redirect('/home');
+        return redirect(url('/shopping/cart'));
     }
 }

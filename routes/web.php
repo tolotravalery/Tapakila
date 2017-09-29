@@ -39,7 +39,7 @@ Route::group(['middleware' => 'web'], function () {
     // Route to for user to reactivate their user deleted account.
     Route::get('/re-activate/{token}', ['as' => 'user.reactivate', 'uses' => 'RestoreUserController@userReActivate']);
 
-    Route::group(['prefix' => 'events'], function () {
+    Route::group(['prefix' => 'event'], function () {
         Route::get('show/{events_id}', 'DetailEventController@show');
         Route::get('list/categorie/{menu}', 'DetailEventController@listEventMenu');
         Route::get('list/categorie/{sous_menu_name}/{sous_menu}', 'DetailEventController@listEventSousMenu');
@@ -67,6 +67,8 @@ Route::group(['middleware' => 'web'], function () {
 
 //    Route::get('code/qr/{text}', ['as' => 'qr_code', 'uses' => 'QRCodeController@generate']);
     Route::get('code/pdf/{text}/{event_id}', 'QRCodeController@getPdf');
+
+    Route::get('errors/{from}/{code}', 'ErrorsController@show');
 });
 
 // Registered and Activated User Routes
@@ -125,7 +127,7 @@ Route::group(['middleware' => ['auth', 'activated', 'currentUser']], function ()
     Route::group(['prefix' => 'shopping'], function () {
         Route::get('checkout', 'Shopping\CheckoutController@index');
         Route::post('checkout/store', 'Shopping\CheckoutController@store');
-        Route::post('checkout/save/{checkout}', 'Shopping\CheckoutController@save');
+        Route::post('checkout/save', 'Shopping\CheckoutController@save');
     });
 
 });
@@ -207,18 +209,19 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin'], 'prefix' => '
 
 
 });// Organisateur
-Route::group(['middleware' => ['auth', 'activated', 'role:organisateur'], 'prefix' => 'organisateur'], function () {
+Route::group(['middleware' => ['auth', 'activated'], 'prefix' => 'organisateur'], function () {
     Route::get('event', 'EventController@showEventForm')->name('event');
     Route::post('event', 'EventController@store')->name('event');
     Route::post('event_siteweb', 'EventController@update_website')->name('event_siteweb');
 //    Route::get('index', 'OrganisateurController@index');
     Route::resource('ticket', 'TicketController');
     Route::resource(
-        'evenement',
+        'event',
         'EventController', [
             'only' => [
                 'edit'
             ]
         ]
     );
+    Route::put('event', 'EventController@update')->name('event');
 });

@@ -63,7 +63,7 @@
                 @endrole
                 @role('user')
                 <button type="" class="btn btn-success event"
-                        onclick="addEventSimpleUsers()"><span
+                        onclick="javascript:location.href='{{url('/')}}/organisateur/event'"><span
                             class="ico"></span><span
                             class="descr">AJOUTER<br/> VOTRE EVENEMENT</span></button>
                 <li><a href="{{ url('/shopping/cart') }}">Panier @if (!Auth::guest())

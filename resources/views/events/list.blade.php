@@ -5,7 +5,7 @@
             <ul class="clearfix">
                 <li><a href="{{url('/')}}">TOUS</a></li>
                 @foreach($menus as $menu)
-                    <li><a href="{{url('/events/list/categorie',[$menu->id])}}">{{strtoupper($menu->name)}}</a></li>
+                    <li><a href="{{url('/event/list/categorie',[$menu->id])}}">{{strtoupper($menu->name)}}</a></li>
                 @endforeach
 
             </ul>
@@ -18,7 +18,7 @@
             <ul>
                 @foreach($sousmenus as $sousmenu)
                     <li>
-                        <a href="{{url('/events/list/categorie/'.$sousmenu->name.'',[$sousmenu->id])}}">{{ucfirst($sousmenu->name)}}</a>
+                        <a href="{{url('/event/list/categorie/'.$sousmenu->name.'',[$sousmenu->id])}}">{{ucfirst($sousmenu->name)}}</a>
                     </li>
                 @endforeach
             </ul>
@@ -116,21 +116,21 @@
                                                 <div class="thumbnail"
                                                      onmouseover="mouseover('month{{$count_id}}','title{{$count_id}}')"
                                                      onmouseleave="mouseleave('month{{$count_id}}','title{{$count_id}}')">
-                                                    <a href="{{url('events/show',[$event->id])}}">
+                                                    <a href="{{url('event/show',[$event->id])}}">
                                                         <div class="mg-image">
                                                             <img src="{{ url('public/img/'.$event->image.'') }}">
                                                         </div>
                                                     </a>
                                                     <div class="caption taille">
-                                                        <a href="{{url('events/show',[$event->id])}}">
+                                                        <a href="{{url('event/show',[$event->id])}}">
                                                             <div class="limitelengh">
                                                                 <h3>
-                                                                    <a href="{{url('events/show',[$event->id])}}"
-                                                                       id="title{{$count_id}}">{{str_limit($event->title,$limit=60, $end = ' ...')}}</a>
+                                                                    <a href="{{url('event/show',[$event->id])}}"
+                                                                       id="title{{$count_id}}">{{str_limit($event->title,$limit=40, $end = ' ...')}}</a>
                                                                 </h3>
                                                             </div>
                                                             <div class="limite">
-                                                                <a href="#"><p
+                                                                <a href="{{url('event/show',[$event->id])}}"><p
                                                                             style="text-align: justify">{{ str_limit(ucfirst($event->additional_note), $limit = 100, $end = ' ...') }}</p>
                                                                 </a><br/>
                                                             </div>
@@ -158,12 +158,12 @@
                                                                         </div>
                                                                     {{--</a>--}}
 
-                                                                    <a href="#">
+                                                                    <a href="{{url('event/show',[$event->id])}}">
                                                                         <div class="price"><i
                                                                                     class="glyphicon glyphicon-time time"></i>{{ \Carbon\Carbon::parse($event->date_debut_envent)->format('H:i')}}
                                                                         </div>
                                                                     </a>
-                                                                    <a href="#">
+                                                                    <a href="{{url('event/show',[$event->id])}}">
                                                                         <div class="date"><i
                                                                                     class="glyphicon glyphicon-map-marker position"></i>{{ $event->localisation_adresse }}
                                                                         </div>

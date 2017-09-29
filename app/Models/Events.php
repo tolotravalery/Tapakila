@@ -31,13 +31,14 @@ class Events extends Model
 
     public function tickets()
     {
-        return $this->hasMany('App\Models\Ticket');
+        return $this->belongsToMany('App\Models\Ticket')->withPivot('date');
     }
 
     public function sous_menus()
     {
         return $this->belongsTo('App\Models\Sous_menus');
     }
+
     public function user()
     {
         return $this->belongsTo('App\Models\User');
