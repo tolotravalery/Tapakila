@@ -19,10 +19,11 @@ return [
      */
 
     'activationSubject'  => 'Activation required',
-    'activationGreeting' => 'Welcome!',
-    'activationMessage'  => 'You need to activate your email before you can start using all of our services.',
-    'activationButton'   => 'Activate',
-    'activationThanks'   => 'Thank you for using our application!',
+    'activationGreeting' => 'Vous y êtes presque',
+    'activationMessage'  => 'Nous sommes prêts à activer votre compte. Il nous suffit de vérifier que cet adresse e-mail est bien le votre.',
+    'activationMessage2' =>'Après cela, vous pouvez commander , acheter ou ajouter à votre panier vos évènement favoris.',
+    'activationButton'   => 'Activer',
+    'activationThanks'   => 'Vous avez des question? consultez notre FAQ dès maintenant',
 
     /**
      * Goobye email.

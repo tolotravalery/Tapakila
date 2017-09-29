@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Menus;
 use App\Models\Sous_menus;
 use App\Models\Events;
+use App\Models\Slides;
 
 class WelcomeController extends Controller
 {
@@ -19,7 +20,10 @@ class WelcomeController extends Controller
     {
         $menus = Menus::orderBy('id', 'desc')->take(8)->get();
         $sousmenus = Sous_menus::orderBy('name', 'asc')->take(20)->get();
-        return View('/welcome', compact('menus', 'sousmenus'));
+       // $slides= Slides::orderBy('id','desc')->where('active','=','1');
+        $slides= Slides::orderBy('id', 'desc')->where('active','=',true)->get();
+
+        return View('/welcome', compact('menus', 'sousmenus','slides'));
 
     }
 
