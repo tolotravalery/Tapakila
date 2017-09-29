@@ -83,18 +83,18 @@
                                     </thead>
                                     <tbody>
                                     @foreach($user->tickets as $ticket)
-                                        @if(\Carbon\Carbon::parse($ticket->events->date_debut_envent)->isFuture() )
-                                            <tr>
-                                                <td>{{$ticket->events->title}}</td>
-                                                <td>{{ \Carbon\Carbon::parse($ticket->pivot->date_achat)->format('d M Y')}}</td>
-                                                <td>{{ \Carbon\Carbon::parse($ticket->pivot->date_achat)->format('H:i')}}</td>
-                                                <td>{{$ticket->events->localisation_nom}} {{$ticket->events->localisation_adresse}}</td>
-                                                <td><img src="{{ url('img/'.$ticket->events->image) }}"
-                                                         class="detail_picture1"></td>
-                                                <td>{{$ticket->type}}</td>
-                                                <td>{{$ticket->pivot->number}}</td>
-                                            </tr>
-                                        @endif
+                                        {{--@if(\Carbon\Carbon::parse($ticket->events->date_debut_envent)->isFuture() )--}}
+                                            {{--<tr>--}}
+                                                {{--<td>{{$ticket->events->title}}</td>--}}
+                                                {{--<td>{{ \Carbon\Carbon::parse($ticket->pivot->date_achat)->format('d M Y')}}</td>--}}
+                                                {{--<td>{{ \Carbon\Carbon::parse($ticket->pivot->date_achat)->format('H:i')}}</td>--}}
+                                                {{--<td>{{$ticket->events->localisation_nom}} {{$ticket->events->localisation_adresse}}</td>--}}
+                                                {{--<td><img src="{{ url('img/'.$ticket->events->image) }}"--}}
+                                                         {{--class="detail_picture1"></td>--}}
+                                                {{--<td>{{$ticket->type}}</td>--}}
+                                                {{--<td>{{$ticket->pivot->number}}</td>--}}
+                                            {{--</tr>--}}
+                                        {{--@endif--}}
                                     @endforeach
                                     </tbody>
                                 </table>
@@ -120,18 +120,18 @@
                                         </thead>
                                         <tbody>
                                         @foreach($user->tickets as $ticket)
-                                            @if(\Carbon\Carbon::parse($ticket->events->date_debut_envent)->isPast() )
-                                                <tr>
-                                                    <td>{{$ticket->events->title}}</td>
-                                                    <td>{{ \Carbon\Carbon::parse($ticket->pivot->date_achat)->format('d M Y')}}</td>
-                                                    <td>{{ \Carbon\Carbon::parse($ticket->pivot->date_achat)->format('H:i')}}</td>
-                                                    <td>{{$ticket->events->localisation_nom}} {{$ticket->events->localisation_adresse}}</td>
-                                                    <td><img src="{{ url('img/'.$ticket->events->image) }}"
-                                                             class="detail_picture1"></td>
-                                                    <td>{{$ticket->type}}</td>
-                                                    <td>{{$ticket->pivot->number}}</td>
-                                                </tr>
-                                            @endif
+                                            {{--@if(\Carbon\Carbon::parse($ticket->events->date_debut_envent)->isPast() )--}}
+                                                {{--<tr>--}}
+                                                    {{--<td>{{$ticket->events->title}}</td>--}}
+                                                    {{--<td>{{ \Carbon\Carbon::parse($ticket->pivot->date_achat)->format('d M Y')}}</td>--}}
+                                                    {{--<td>{{ \Carbon\Carbon::parse($ticket->pivot->date_achat)->format('H:i')}}</td>--}}
+                                                    {{--<td>{{$ticket->events->localisation_nom}} {{$ticket->events->localisation_adresse}}</td>--}}
+                                                    {{--<td><img src="{{ url('img/'.$ticket->events->image) }}"--}}
+                                                             {{--class="detail_picture1"></td>--}}
+                                                    {{--<td>{{$ticket->type}}</td>--}}
+                                                    {{--<td>{{$ticket->pivot->number}}</td>--}}
+                                                {{--</tr>--}}
+                                            {{--@endif--}}
                                         @endforeach
                                         </tbody>
                                     </table>
