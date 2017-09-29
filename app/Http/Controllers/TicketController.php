@@ -80,6 +80,6 @@ class TicketController extends Controller
                 'ticket_id' => $ticket->id
             ]);
         }
-        return redirect(url('organisateur/events/' . $event_id . '/edit'));
+        return redirect(url('organisateur/event/' . $event_id . '/edit'));
     }
 }
