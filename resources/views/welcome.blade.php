@@ -22,49 +22,52 @@
                     </li>
                 @endforeach
 
+
             </ul>
         </div>
     </section>
 
-    <section id="carousel-slide">
-        <div class="container custom-container">
-            <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                <!-- Indicators -->
-                <ol class="carousel-indicators">
-                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#myCarousel" data-slide-to="1"></li>
-                    <li data-target="#myCarousel" data-slide-to="2"></li>
-                    <li data-target="#myCarousel" data-slide-to="3"></li>
-                </ol>
+    @if($slides->count()>0)
 
-                <!-- Wrapper for slides -->
-                <div class="carousel-inner">
-                    <div class="item active">
-                        <img src="{{ url('/') }}/public/img/stephani.jpg" style="width:100%;">
+        <section id="carousel-slide">
+            <div class="container custom-container">
+                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                        <li data-target="#myCarousel" data-slide-to="3"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <img src="{{ url('/') }}/public/slide/{{$slides[0]->image}}" style="width:100%;">
+                        </div>
+                        <?php
+                        $count_image = count($slides);
+
+                        ?>
+                        @for($i=1;$i<$count_image;$i++)
+                            <div class="item">
+                                <img src="{{ url('/') }}/public/slide/{{$slides[$i]->image}}" style="width:100%;">
+                            </div>
+                        @endfor
+
                     </div>
 
-                    <div class="item">
-                        <img src="{{ url('/') }}/public/img/prod-trusty.jpg" style="width:100%;">
-                    </div>
-
-                    <div class="item">
-                        <img src="{{ url('/') }}/public/img/mahaleo.jpg" style="width:100%;">
-                    </div>
+                    <!-- Left and right controls -->
+                    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
                 </div>
-
-                <!-- Left and right controls -->
-                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right"></span>
-                    <span class="sr-only">Next</span>
-                </a>
             </div>
-        </div>
-    </section>
-
+        </section>
+    @endif
     <section id="categorie-concert">
         <div class="container custom-container">
             @php $count_id = 0 @endphp
@@ -93,7 +96,9 @@
                                                         </div>
                                                         <div class="limite">
                                                             <a href="#">
-                                                                <?php  if($event->additional_note==null){ echo "<br/>";}?>
+                                                                <?php  if ($event->additional_note == null) {
+                                                                    echo "<br/>";
+                                                                }?>
 
                                                                 <p style="text-align: justify">{{ str_limit(ucfirst($event->additional_note), $limit = 100, $end = ' ...') }}</p>
                                                             </a><br/>
@@ -109,17 +114,17 @@
                                                             </div>
                                                             <div class="col-md-9 col-xs-9 ">
                                                                 {{--<a>--}}
-                                                                    <div class="prixfx">
-                                                                        @if($event->tickets()->count() > 0)
-                                                                            <i class="fa fa-tag prices"></i>A
-                                                                            partir de <b
-                                                                                    class="prx">{{ (int) $event->tickets()->orderBy('price','asc')->take(1)->get()[0]->price  }}</b>
-                                                                            AR
-                                                                        @else
-                                                                            <i class="fa fa-tag prices"></i>Non
-                                                                            disponible
-                                                                        @endif
-                                                                    </div>
+                                                                <div class="prixfx">
+                                                                    @if($event->tickets()->count() > 0)
+                                                                        <i class="fa fa-tag prices"></i>A
+                                                                        partir de <b
+                                                                                class="prx">{{ (int) $event->tickets()->orderBy('price','asc')->take(1)->get()[0]->price  }}</b>
+                                                                        AR
+                                                                    @else
+                                                                        <i class="fa fa-tag prices"></i>Non
+                                                                        disponible
+                                                                    @endif
+                                                                </div>
                                                                 {{--</a>--}}
                                                                 <a href="#">
                                                                     <div class="price"><i

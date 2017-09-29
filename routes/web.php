@@ -159,6 +159,13 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin'], 'prefix' => '
     Route::get('home', 'UserController@index')->name('/admin/home');
 
     /*-------------------*/
+    /*----slideshow------*/
+    Route::get('slide', 'SlideController@showSlideForm')->name('slide');
+    Route::get('slides', 'SlideController@index')->name('slides');
+    $this->post('slide', 'SlideController@store');
+    Route::post('updateActive', 'SlideController@updateActive')->name('updateActive');
+    /*----slideshow------*/
+
     Route::get('menu', 'MenuController@showMenuForm')->name('menu');
     Route::get('/menus', 'MenuController@index')->name('menus');
     $this->post('menu', 'MenuController@store');

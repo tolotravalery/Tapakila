@@ -185,6 +185,13 @@
                         </span>
                     </a>
                 </li>
+                <li>
+                    <a href="{{url('/admin/slide')}}">
+                        <i class="fa fa-photo"></i> <span>Slide image</span>
+                        <span class="pull-right-container">
+                        </span>
+                    </a>
+                </li>
                 {{--<li class="treeview">--}}
                 {{--<a href="#">--}}
                 {{--<i class="fa fa-files-o"></i>--}}
