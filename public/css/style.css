@@ -1731,14 +1731,13 @@ div.calendar p {
     background-repeat: no-repeat;
     margin-top: 25px;
     margin-bottom: 25px;
-    padding-bottom: 5%;
+    padding-bottom: 4%;
     background-position: 36% 53%;
 }
 
 .infopers {
     text-align: center;
     color: white;
-    margin-bottom: 30px;
 }
 
 .inscriptioin {
@@ -3763,4 +3762,11 @@ div.tests .number-spinner .test2 .test3 {
 .custom-pg{
     padding: 10px 70px 10px 70px;
 }
-
+/*sinscrire*/
+.col16_index {
+    padding-top: 10px;
+}
+.col6_index {
+    padding-top: 43px;
+}
+/*sinscrire farany*/

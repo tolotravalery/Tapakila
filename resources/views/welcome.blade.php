@@ -152,41 +152,49 @@
             @endforeach
         </div>
     </section>
+
+    <!-- sectin s'inscrire start -->
     <section>
-        <div class="container custom-container">
+        <div class="container custom-container ">
             <div class="sinscrire">
                 <div class="row">
-                    <div class="col-md-8 col-md-offset-2">
-                        <div class="infopers">
-                            <h1 class="inscriptioin"><strong>S'inscrire</strong></h1>
-                            <label><strong>Une mise à jour mensuel des évènements à Madagascar</strong></label>
-                        </div>
+                    <div class="col-lg-9 col-lg-offset-1">
                         <div class="row">
-                            <div class="col-md-8 col-xs-10 col-md-offset-2 col-xs-offset-1">
-                                <div class="row">
-                                    <div class="col-md-10 col-md-offset-1">
-                                        <form>
-                                            <div class="form-group">
-                                                <input type="email" class="form-control email-subscribe placehold"
-                                                       id="input-mail" aria-describedby="emailHelp"
-                                                       placeholder="| Enter l'adresse E-mail">
-                                            </div>
-                                        </form>
-                                    </div>
+                            <div class="col-lg-7 col16_index">
+                                <div class="infopers">
+                                    <h3 class="inscriptioin">S'inscrire</h3>
+                                    <label><strong>Une mise à jour mensuel des évènements à Madagascar</strong></label>
                                 </div>
+                            </div>
+                            <div class="col-lg-5 col6_index">
                                 <div class="row">
-                                    <div class="col-md-10 col-md-offset-1">
-                                        <button type="button" class="btn btn-sinscrire btn-lg btn-block">S'inscrire
-                                        </button>
+                                    <div class="col-lg-12 col-xs-10 col-lg-offset-0 col-xs-offset-1">
+                                        <div class="row">
+
+                                            <form>
+                                                <div class="form-group">
+                                                    <input type="email" class="form-control email-subscribe placehold" id="input-mail" aria-describedby="emailHelp" placeholder="| Enter l'adresse E-mail">
+                                                </div>
+                                            </form>
+
+                                        </div>
+                                        <div class="row">
+
+                                            <button type="button" class="btn btn-sinscrire btn-lg btn-block">S'inscrire</button>
+
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    <!-- sectin s'inscrire end -->
 @endsection
 @section('specificScript')
     <script type="text/javascript">
