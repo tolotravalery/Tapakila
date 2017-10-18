@@ -32,7 +32,7 @@
             </ul>
         </div>
     </section>
-    <section>
+    {{--<section>
         <div class="container custom-container">
             @if (sizeof(Cart::content()) > 0)
                 <div id="custom-white">
@@ -63,7 +63,7 @@
                             <tbody>
                             @foreach (Cart::content() as $item)
                                 <tr>
-{{--                                    <td>{{$item->id}}</td>--}}
+--}}{{--                                    <td>{{$item->id}}</td>--}}{{--
                                     <td><img src="{{url('/public/img/logo.png')}}"></td>
                                     <td>{{$item->name}}</td>
                                     <td>
@@ -93,20 +93,6 @@
                                 <td>{{ Cart::instance('default')->subtotal() }} Ar</td>
                                 <td></td>
                             </tr>
-                            {{--<tr>
-                                <td></td>
-                                <td></td>
-                                <td class="right">Tax :</td>
-                                <td> 200 AR</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td class="right">Total :</td>
-                                <td> 5800 AR</td>
-                                <td></td>
-                            </tr>--}}
                             </tbody>
                         </table>
                     </div>
@@ -156,8 +142,122 @@
                 </section>
             @endif
         </div>
-    </section>
+    </section>--}}
+    <section>
+        <div class="container custom-container">
+            <div id="achat-content">
+                <h2 class="titlebuy">Votre Panier</h2>
+                <div class="spacing"></div>
+                <div class="custom-pg">
+                    <table class="tabl-content">
+                        <thead>
+                        <tr>
+                            <th scope="col" class="th_panier "><b class="bold">Evènement</b></th>
+                            <th scope="col"><b class="bold">Tickets</b></th>
+                            <th scope="col"><b class="bold">Quantité</b></th>
+                            <th scope="col"><b class="bold">Prix</b></th>
+                            <th scope="col"><b class="bold"></b></th>
+                        </tr>
+                        </thead>
 
+                        <tbody>
+                        @foreach (Cart::content() as $item)
+                            @php
+                                $ticket = \App\Models\Ticket::findOrFail($item->id);
+                                $event = $ticket->events()->take(1)->get()[0];
+                            @endphp
+                            <tr>
+                                <td  data-label="">
+                                    <div class="row">
+                                        <div class=" col-xs-12 ">
+
+                                            <div class="row">
+                                                <div class="col-lg-7 ">
+                                                    <div class="thumbnail imgpaiment">
+                                                        <img src="{{url('/public/img/'.$event->image)}}" class="image_panier">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-5 ">
+                                                    <p class="sor"><b>{{$item->name}}</b></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td data-label="Tickets">VIP</td>
+                                <td data-label="Quantité">
+                                    <div class="row">
+                                        <div class=" col-xs-12 pull-left">
+                                            <div class="row">
+                                                <div class="col-lg-8 col-lg-offset-3 col-xs-12 pull-left">
+                                                    <div class="form-group">
+                                                        <select class="selectpicker quantity form-control" data-id="{{ $item->rowId }}" id="sel1">
+                                                            <option {{ $item->qty == 1 ? 'selected' : '' }}>1</option>
+                                                            <option {{ $item->qty == 2 ? 'selected' : '' }}>2</option>
+                                                            <option {{ $item->qty == 3 ? 'selected' : '' }}>3</option>
+                                                            <option {{ $item->qty == 4 ? 'selected' : '' }}>4</option>
+                                                            <option {{ $item->qty == 5 ? 'selected' : '' }}>5</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td data-label="Prix">{{ $item->subtotal }} AR</td>
+                                <td data-label="">
+                                    <form action="{{ url('shopping/cart', [$item->rowId]) }}" method="POST" class="side-by-side">
+                                        {!! csrf_field() !!}
+                                        <input type="hidden" name="_method" value="DELETE">
+                                        <p class="tot"><input type="submit" class="toto" value="X" style="border: none;background-color: white;"></p>
+                                    </form>
+                                </td>
+
+                            </tr>
+                        @endforeach
+
+
+                        <tr>
+                            <td data-label=""></td>
+                            <td data-label="" class="hidden-xs"></td>
+                            <td data-label="" class="to text-center-xs tttal">Total</td>
+                            <td data-label="" class="tot"><b class="totaly">{{ Cart::instance('default')->subtotal() }} AR</b></td>
+                            <td data-label=""><p></p></td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                    <div class="row text-center-xs text-center-sm text-center-md menbottom">
+                        <div class="col-md-3 achatquiter">
+                            <a href="{{url('/')}}" class="a_color">Continuer vos achats</a>
+                        </div>
+                        <div class="col-md-2"></div>
+                        <div class="col-md-2"></div>
+                        <div class="col-md-5">
+                            <div class="row">
+                                <div class="col-md-6 col-xs-12 achatquiter kit">
+                                    <form action="{{ url('/shopping/emptyCart') }}" method="POST">
+                                        {!! csrf_field() !!}
+                                        <input type="hidden" name="_method" value="DELETE">
+                                        <button type="submit" class="a_color" style="border: none;background-color: white;">Quitter</button>
+                                    </form>
+                                    {{--<a href="#" class="a_color">Quitter</a>--}}
+                                </div>
+
+                                <div class="col-md-6 col-xs-12">
+                                    <button type="button" class="btn bt_panier" onclick="window.location.href='{{url('shopping/checkout')}}';">Commander</button>{{--<a href="{{url('shopping/checkout')}}" class="btn btn-success caisse">Commander</a>--}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        </div>
+    </section>
 @endsection
 
 @section('specificScript')
