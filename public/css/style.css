@@ -1442,6 +1442,7 @@ div.calendar {
     width: 73px;
     background-color: white;
     text-align: center;
+    cursor: pointer;
 
 }
 
