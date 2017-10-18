@@ -1823,7 +1823,26 @@ div.calendar p {
 }
 
 /* partenaire */
+/*----------------------------panier-vide--------------------------*/
+.panier0 {
+    width: 30%;
+}
+.panier1 {
+    border: none;
+}
+.mot_h2 {
+    text-align: center;
+}
+.mot_ha {
+    text-align: center;
+    color: #428bca !important;
+}
+.panier_3 {
+    margin-top: 35px;
+}
+
 /* panier start */
+
 #custom-white {
     background-color: white;
     padding: 6px 35px 35px 35px;
@@ -1836,13 +1855,6 @@ div.calendar p {
     margin-bottom: 20px;
 }
 
-.table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
-    padding: 10px;
-    line-height: 1.42857143;
-    vertical-align: middle ! important;
-    border-top: 1px solid #ddd;
-}
-
 .right {
     text-align: right;
 }
@@ -1853,6 +1865,168 @@ div.calendar p {
 
 .caisse {
     margin-bottom: 15px
+}
+
+.panier_body {
+    background-color: white;
+    padding: 5px 29px 11px 29px;
+    margin-top: 20px;
+}
+
+.panier_body a {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.h2_panier {
+    border-bottom: 2px solid red;
+}
+
+.image_panier {
+    width: 150px;
+}
+
+.tably {
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    border-left: hidden;
+    border-right-style: hidden;
+}
+
+.tably tr {
+    border: 1px solid #5d5858;
+    padding: .35em;
+}
+
+.tably thead tr {
+    border-top: white;
+    padding: .35em;
+}
+
+.tably th {
+    padding: .625em;
+}
+
+.tably td {
+    padding: .625em;
+}
+
+.tably th {
+    font-size: .85em;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+
+.totaly {
+    font-size: 18px;
+}
+
+.menbottom{
+    margin-top:30px;
+}
+.achatquiter{
+    margin-top: 10px;
+    margin-bottom:10px;
+}
+.kit{
+    margin-bottom:25px;
+}
+.th_panier {
+    width: 270px;
+}
+
+.sor {
+    margin-top: 40px;
+}
+
+.sel {
+    width: 60px;
+}
+
+.tableau_panier td {
+    text-align: center;
+}
+
+.tableau_panier th {
+    text-transform: uppercase;
+}
+
+.qt1 {
+    text-align: center;
+}
+
+.to {
+    text-align: center;
+}
+
+.bt_panier {
+    width: 135px;
+    font-size: 16px;
+    background-color: #d70506;
+    border: none;
+    padding: 9px;
+    color:#fff;
+}
+
+.bt_panier:hovers {
+    width: 135px;
+    font-size: 16px;
+    background-color: #d70506;
+    border: none;
+    padding: 9px;
+    color:#fff;
+}
+.nav > li > a:focus, .nav > li > a:hover {
+    text-decoration: none  !important;
+    background-color:none  !important;
+}
+
+.nav > li > a:focus, .nav > li > a:hover {
+    text-decoration: none !important;
+    background-color: #fff !important;
+    color:black;
+}
+
+.nav-tabs > li > a {
+    border: 1px solid transparent !important;
+
+}
+
+.commandy {
+    text-align: right;
+}
+
+.row_pane {
+    margin-top: 34px;
+    margin-bottom: 34px;
+}
+
+.col2_panier {
+    margin-top: 11px;
+    padding-bottom: 12px;
+}
+
+.suc {
+    text-align: left !important;
+    background-color: #dff0d8 !important;
+}
+
+.ko {
+    margin-top: 11px;
+}
+
+.tot {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.toto:hover {
+    color: red !important;
+}
+
+
 }
 
 /* panier end */
@@ -3270,8 +3444,8 @@ div.tests .number-spinner .test2 .test3 {
 
 /* paiment */
 #achat-content{
-    background-color:#fff;
-    padding:10px 20px 10px 20px ;
+    background-color: #fff;
+    padding: 15px 10px 40px 10px;
     margin-top: 35px;
 }
 .wcustom{
@@ -3283,7 +3457,7 @@ div.tests .number-spinner .test2 .test3 {
     margin: 0;
     padding: 0;
     width: 100%;
-    table-layout: fixed;
+    /*table-layout: fixed;*/
     border-right: hidden;
     border-left: hidden;
     border-top: hidden;
@@ -3572,6 +3746,7 @@ div.tests .number-spinner .test2 .test3 {
 
 .titlebuy {
     color:#d70506 ;
+    padding-left: 26px;
 }
 .TT{
     color:#d70506 ;
@@ -3585,6 +3760,6 @@ div.tests .number-spinner .test2 .test3 {
     border-bottom:1px solid #ddd !important;
 }
 .custom-pg{
-    padding: 10px 87px 10px 85px;
+    padding: 10px 70px 10px 70px;
 }
 
