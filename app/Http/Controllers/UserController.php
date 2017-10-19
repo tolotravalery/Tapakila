@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Alert;
+use App\Models\Menus;
+use App\Models\Sous_menus;
 use Auth;
 use Illuminate\Http\Request;
 
@@ -34,7 +36,14 @@ class UserController extends Controller
             return view('pages.admin.home', compact('alert'));
 
         }
-
+        if ($user->hasRole('organisateur')) {
+            $menus = Menus::orderBy('id', 'desc')->get();
+            $sousmenus = Sous_menus::orderBy('name', 'asc')->take(20)->get();
+            $events_passe = $user->events()->where('date_fin_event', '<', date('Y-m-d H:i:s'))->get();
+            $events_futur = $user->events()->where('date_debut_envent', '>', date('Y-m-d H:i:s'))->get();
+            $achats = $user->tickets;
+            return view('pages.user.home_organisateur')->with(compact('menus', 'sousmenus', 'events_passe', 'events_futur', 'achats'));
+        }
         return view('pages.user.home');
 
     }

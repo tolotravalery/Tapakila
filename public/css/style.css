@@ -286,6 +286,13 @@ ul.navbar-nav li.open ul.nav-tabs li a {
     padding: 10px 22px;
 }
 
+.tab_container {
+    border-top: none;
+    clear: both;
+    width: 100%;
+    background: #fff;
+    overflow: auto;
+}
 /* header end */
 
 /*footer start*/
@@ -741,9 +748,7 @@ a:hover {
     color: #93a1a1;
 }
 
-.s_menu div p {
-
-}
+.s_menu div p {}
 
 .s_menu div:hover {
     cursor: pointer;
@@ -755,8 +760,15 @@ a:hover {
 }
 
 #sary {
-    width: 60px;
+    width: 100px;
+    margin-bottom: 15px;
+}
 
+.usercompte{
+    text-align: -moz-center;
+    text-align: center;
+    text-align: -moz-center;
+    margin-bottom:30px;
 }
 
 .menu_droite {
@@ -769,27 +781,32 @@ a:hover {
     margin-top: 48px;
     padding: 30px 30px 30px 30px;
     margin-bottom: 0;
-
 }
 
 .contre5 {
     background-color: #f5f5f5;
     padding: 20px 20px 20px 20px
-
 }
 
-.forme {
-    width: 95% !important;
-    margin-left: 2% !important;
-    margin-top: 1% !important;
-    margin-bottom: 2% !important;
-
+.form-text{
+    margin-bottom: 20px;
 }
 
-#bonjour {
-    margin-left: 35%;
-    font-size: medium;
+.form-text-1{
+    margin-bottom: 15px;
+}
 
+.bt_modif{
+    background-color:#5cb85c;
+    color:white;
+    padding: 10px 30px 10px 30px;
+    font-size: 20px;
+}
+.bt_modif:hover{
+    background-color:#5cb85c;
+    color:white;
+    padding: 10px 30px 10px 30px;
+    font-size: 20px;
 }
 
 .btio2 {
@@ -799,7 +816,6 @@ a:hover {
     margin-left: 5%;
     width: 20%;
     background-color: #d70506;
-
 }
 
 .tab {
@@ -812,27 +828,170 @@ a:link {
     text-decoration: none;
 }
 
-.detail_picture1 {
-    max-width: 180px;
-    min-width: 180px;
-    max-height: 95px;
-    max-width: 180px;
-    min-width: 180px;
-    max-height: 95px;
+
+.compte-bg{
+    margin-top: 35px;
+    background-color: white;
+}
+.row-custom{
+    padding: 0 30px 30px 30px;
+}
+
+.Modifcompte {
+    background-color: #d70506;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    color: white;
+    margin-bottom:35px;
+
+}
+
+.Modifcompte2{
+    background-color: #d70506;
+    height:100px;
+    color: white;
+    margin-bottom: -33px;
+
+}
+.rapport{
+    color: #5cb85c;
+    font-size:12px;
+}
+.padding-custom{
+    padding: 10px 30px 40px 30px;
+}
+
+.rapport:hover{
+    color: #d70506;
+    font-size:12px;
+}
+.modifinfo{
+    color:white;
+}
+
+.modifinfo:hover{
+    color:white;
+    text-decoration:underline;
+}
+
+.pseudoname{
+    color:white;
+    font-size:25px;
+}
+
+.postion{
+    margin-top:-30px;
+}
+
+.fenalope{
+
+    margin-right: 10px;
+
+}
+#bg-custom {
+    background-color: white;
+    padding: 30px 30px 30px 30px;
+    border-radius: 5px;
+}
+
+.information {
+    font-size: 13px;
+}
+
+.e-mailR {
+    max-height: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.btn-send {
+    background-color: #d70506;
+    outline: none;
+    color: #fff;
+    font-size: 14px;
+    height: auto;
+    font-weight: normal;
+    padding: 14px 0;
+    border-color: #fff;
+}
+
+.btn-annuler {
+    background-color: black;
+    outline: none;
+    color: #fff;
+    font-size: 14px;
+    height: auto;
+    font-weight: normal;
+    padding: 14px 0;
+    border-color: #fff;
+}
+
+.initialize {
+    margin-bottom: 35px;
+}
+
+/* mon compte  */
+ul.tabs {
+    margin: 0 10px 10px 21px;
+    padding: 0 0 0 21px;
+    list-style: none;
+    height: 58px;
+    border-bottom: 3px solid #d70506;
+}
+.table-custom th, .table-custom td {
+    padding: 1.422em  ! important;
+    text-align: center;
+}
+
+ul.tabs li {
+    font-size: 19px;
+    margin-right: 4px ! important;
+    float: left;
+    margin: 0;
+    cursor: pointer;
+    padding: 7px 28px 7px 30px;
+    height: 54px;
+    line-height: 20px;
+    background-color: #cccccc;
+    color: #fff;
     overflow: hidden;
+    position: relative;
+    border-radius: 2px;
+    text-align:center;
 }
 
-.sary_new {
-    max-width: 241px;
-    min-width: 241px;
 
+ul.tabs li:hover {
+    background-color: #ccc;
 }
 
-.row_new {
-    border-bottom: 2px solid #D7D7DE;
-    padding-bottom: 47px;
-    padding-top: 37px;
+ul.tabs li.active {
+    background-color: #d70506;
+    color: #fff;
+    border-bottom: 1px solid #d70506;
+    display: block;
+}
 
+.tab_container {
+    border-top: none;
+    clear: both;
+    width: 100%;
+    background: #fff;
+    overflow: auto;
+}
+
+.tab_content {
+    padding: 20px;
+    display: none;
+}
+
+.tab_drawer_heading { display: none; }
+
+
+
+.custom-container {
+    padding: 0 60px
 }
 
 /* mon compte end */
@@ -4015,3 +4174,4 @@ body.page:not(.woocommerce-page) p {
 .valt {
     padding-left: 20px;
 }
+.tab_drawer_heading { display: none; }
