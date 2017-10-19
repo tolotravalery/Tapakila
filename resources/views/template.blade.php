@@ -22,8 +22,8 @@
 </head>
 <body>
 <!-- header start -->
-<nav id="background" class="navbar navbar-default navbar-static-top">
-    <div class="container custom-container">
+<nav id="background" class="navbar navbar-default navbar-static-top ">
+    <div class="container custom-container ">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
                     aria-expanded="false" aria-controls="navbar">
@@ -33,96 +33,68 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="{{url('/')}}">
-                <img src="{{ url('/') }}/public/img/logo.png" title="tapakila">
+                <img src="{{ url('/') }}/public/img/logo.png" title="leguichet">
             </a>
         </div>
+
         <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    @role('organisateur')
-                    <button type="" class="btn btn-success event"
-                            onclick="javascript:location.href='{{url('/')}}/organisateur/event'"><span
-                                class="ico"></span><span
-                                class="descr">AJOUTER<br/> VOTRE EVENEMENT</span></button>
-                <li><a href="{{ url('/shopping/cart') }}">Panier @if (!Auth::guest())
-                            ({{ Cart::instance('default')->count(false) }}) @endif</a>
-                </li>
-                <li role="presentation" class="dropdown">
-                    <a href="#" class="dropdown-toggle" id="drop6" data-toggle="dropdown" role="button"
-                       aria-haspopup="true" aria-expanded="true"> Rechercher
-                        <span class="caret"></span> </a>
-                    <ul class="dropdown-menu search" id="menu3" aria-labelledby="drop6">
-                        <li>
-                            <form action="{{url('/')}}/find/q" method="get">
-                                <input type="text" name="query" placeholder="Search..." autocomplete="off">
-                                <input type="submit" value="Search">
-                            </form>
-                        </li>
-                    </ul>
-                </li>
-                @endrole
-                @role('user')
-                <button type="" class="btn btn-success event"
-                        onclick="javascript:location.href='{{url('/')}}/organisateur/event'"><span
-                            class="ico"></span><span
-                            class="descr">AJOUTER<br/> VOTRE EVENEMENT</span></button>
-                <li><a href="{{ url('/shopping/cart') }}">Panier @if (!Auth::guest())
-                            ({{ Cart::instance('default')->count(false) }}) @endif</a>
-                </li>
-                <li role="presentation" class="dropdown">
-                    <a href="#" class="dropdown-toggle" id="drop6" data-toggle="dropdown" role="button"
-                       aria-haspopup="true" aria-expanded="true"> Rechercher
-                        <span class="caret"></span> </a>
-                    <ul class="dropdown-menu search" id="menu3" aria-labelledby="drop6">
-                        <li>
-                            <form action="  {{url('/')}}/find/q" method="get">
-                                <input type="text" name="query" placeholder="Search..." autocomplete="off">
-                                <input type="submit" value="Search">
-                            </form>
-                        </li>
-                    </ul>
-                </li>
-                @endrole
-                @if (Auth::guest())
-                    <button type="" class="btn btn-success event"
-                            onclick="javascript:location.href='{{url('/')}}/organisateur/event'"><span
-                                class="ico"></span><span
-                                class="descr">AJOUTER<br/> VOTRE EVENEMENT</span></button>
-                    <li><a href="{{ url('/shopping/cart') }}">Panier @if (!Auth::guest())
+            @if (Auth::guest())
+                <ul class="nav navbar-nav navbar-right">
+                    <li style="margin-left: 10px;">
+                        <div class="panier-header"><a href="{{url('/')}}/organisateur/event"
+                                                      class="btn btn-success event"
+                                                      role="button"><span class="ico"></span><span
+                                        class="descr">AJOUTER<br/> VOTRE EVENEMENT</span></a></div>
+                    </li>
+                    <li>
+                        <a href="{{ url('/shopping/cart') }}">Panier @if (!Auth::guest())
                                 ({{ Cart::instance('default')->count(false) }}) @endif</a>
                     </li>
-                    <li role="presentation" class="dropdown">
+
+                    <li role="presentation" class="dropdown connexion">
                         <a href="#" class="dropdown-toggle" id="drop6" data-toggle="dropdown" role="button"
-                           aria-haspopup="true" aria-expanded="true"> Rechercher
+                           aria-haspopup="true" aria-expanded="false"> Connexion
                             <span class="caret"></span> </a>
-                        <ul class="dropdown-menu search" id="menu3" aria-labelledby="drop6">
-                            <li>
-                                <form action="{{url('/')}}/find/q" method="get">
-                                    <input type="text" name="query" placeholder="Search..." autocomplete="off">
-                                    <input type="submit" value="Search">
+                        <ul class="dropdown-menu " id="menu3" aria-labelledby="drop6">
+                            <a href="{{ url('/login') }}">
+                                <li class="conexion">Se connecter</li>
+                            </a>
+                            <a href="{{ url('/register') }}">
+                                <li class="conexion">S'inscrire</li>
+                            </a>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="row">
+                    <div class="col-md-6  col-md-offsset-4" style="height: 82px;>
+                        <div id="custom-search-input">
+                            <div class="input-group col-md-12 searchbox" style="width:98%;">
+                                <form action="{{url('/')}}/find/q" method="get" class="input-group col-md-12 searchbox">
+                                    <input type="text" class="form-control input-lg" name="query"
+                                           placeholder="Rechercher..." autocomplete="off" style="font-size:16px;">
+                                    <span class="input-group-btn">
+                                    <button class="btn btn-info1 btn-lg" type="submit">
+                                        <i class="glyphicon glyphicon-search"></i>
+                                    </button>
+                                </span>
                                 </form>
-                            </li>
-                        </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @else
+                <ul class="nav navbar-nav navbar-right">
+                    <li style="margin-left: 10px;">
+                        <div class="panier-header"><a href="{{url('/')}}/organisateur/event"
+                                                      class="btn btn-success event"
+                                                      role="button"><span class="ico"></span><span
+                                        class="descr">AJOUTER<br/> VOTRE EVENEMENT</span></a></div>
                     </li>
-                @endif
-                @if (Auth::guest())
-                <!--<li><a href="{{ route('login') }}">{!! trans('titles.login') !!}</a></li>-->
                     <li>
-                        <a href="#" class="dropdown-toggle" id="drop6" data-toggle="dropdown" role="button"
-                           aria-haspopup="true" aria-expanded="false"> Connexion <span class="caret"></span></a>
-                        <ul class="dropdown-menu search" id="menu3" aria-labelledby="drop6">
-                            @if (Route::has('login'))
-                                @if (Auth::check())
-                                    <li><a href="{{ url('/home') }}">Home</a></li>
-                                @else
-                                    <li><a href="{{ url('/login') }}">Login</a></li>
-                                    <li><a href="{{ url('/register') }}">Register</a></li>
-                                @endif
-                            @endif
-                        </ul>
+                        <a href="{{ url('/shopping/cart') }}">Panier @if (!Auth::guest())
+                                ({{ Cart::instance('default')->count(false) }}) @endif</a>
                     </li>
-                @else
-                    <li role="presentation" class="dropdown cn">
+                    <li role="presentation" class="dropdown connexion">
                         <a href="#" class="dropdown-toggle" id="drop6" data-toggle="dropdown" role="button"
                            aria-haspopup="true" aria-expanded="false">
 
@@ -135,7 +107,7 @@
 
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
-                        <ul class="dropdown-menu search" id="menu3" aria-labelledby="drop6">
+                        <ul class="dropdown-menu " id="menu3" aria-labelledby="drop6">
 
                             @role('admin')
                             <li {{ Request::is('users', 'users/' . Auth::user()->id, 'users/' . Auth::user()->id . '/edit') ? 'class=active' : null }}>{!! HTML::link(url('/admin/users'), Lang::get('titles.adminUserList')) !!}</li>
@@ -166,14 +138,30 @@
                             </li>
                         </ul>
                     </li>
-                @endif
-            </ul>
+
+                </ul>
+                <div class="row">
+                    <div class="col-md-6  col-md-offsset-4" style="height: 82px;>
+                        <div id="custom-search-input">
+                            <div class="input-group col-md-12 searchbox" style="width:98%;">
+                                <form action="{{url('/')}}/find/q" method="get" class="input-group col-md-12 searchbox">
+                                    <input type="text" class="form-control input-lg" name="query"
+                                           placeholder="Rechercher..." autocomplete="off" style="font-size:16px;">
+                                    <span class="input-group-btn">
+                                    <button class="btn btn-info1 btn-lg" type="submit">
+                                        <i class="glyphicon glyphicon-search"></i>
+                                    </button>
+                                </span>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
         </div>
     </div>
 </nav>
-
 <!-- header end -->
-
 @yield('content')
 
 @yield('specificScript')
@@ -246,21 +234,21 @@
     </div>
 </footer>
 <script>
-		$(function() {
-		var pull 		= $('#pull');
-		menu 		= $('#sectioncategorie ul');
-		menuHeight	= menu.height();
+    $(function () {
+        var pull = $('#pull');
+        menu = $('#sectioncategorie ul');
+        menuHeight = menu.height();
 
-		$(pull).on('click', function(e) {
-		e.preventDefault();
-		menu.slideToggle();
-		});
+        $(pull).on('click', function (e) {
+            e.preventDefault();
+            menu.slideToggle();
+        });
 
-		$(window).resize(function(){
-		var w = $(window).width();
-		if(w > 320 && menu.is(':hidden')) {
-		menu.removeAttr('style');
-		}
-		});
-		});
+        $(window).resize(function () {
+            var w = $(window).width();
+            if (w > 320 && menu.is(':hidden')) {
+                menu.removeAttr('style');
+            }
+        });
+    });
 </script>
