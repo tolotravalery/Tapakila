@@ -3799,3 +3799,43 @@ btn-group-lg > .btn, .btn-lg {
     border-radius: 4px !important;
 }
 /*search on header farany*/
+/*mon compte*/
+.compte-bg {
+    margin-top: 35px;
+    background-color: white;
+}
+.Modifcompte {
+    background-color: #d70506;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    color: white;
+    margin-bottom: 35px;
+}
+.row-custom {
+    padding: 0 30px 30px 30px;
+}
+.usercompte {
+    text-align: -moz-center;
+    text-align: center;
+    text-align: -moz-center;
+    margin-bottom: 30px;
+}
+.form-text {
+    margin-bottom: 20px;
+}
+.form-text-1 {
+    margin-bottom: 15px;
+}
+.bt_modif {
+    background-color: #5cb85c;
+    color: white;
+    padding: 10px 30px 10px 30px;
+    font-size: 20px;
+}
+#sary {
+    width: 100px;
+    margin-bottom: 15px;
+}
+
+/*mon compte farany*/

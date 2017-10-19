@@ -43,7 +43,7 @@
                     </li>
                 </ul>
                 <div class="row">
-                    <div class="col-md-6  col-md-offsset-4">
+                    <div class="col-md-6  col-md-offsset-4" style="height: 82px;>
                         <div id="custom-search-input">
                             <div class="input-group col-md-12 searchbox" style="width:98%;">
                                 <form action="{{url('/')}}/find/q" method="get" class="input-group col-md-12 searchbox">
@@ -118,7 +118,7 @@
 
                 </ul>
                 <div class="row">
-                    <div class="col-md-6  col-md-offsset-4">
+                    <div class="col-md-6  col-md-offsset-4" style="height: 82px;>
                         <div id="custom-search-input">
                             <div class="input-group col-md-12 searchbox" style="width:98%;">
                                 <form action="{{url('/')}}/find/q" method="get" class="input-group col-md-12 searchbox" >
