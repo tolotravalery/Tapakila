@@ -3,11 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Menus;
+use App\Models\Sous_menus;
 
 class AproposController extends Controller
 {
     public function faq(){
-        return view('tapakila.faq');
+        $menus = Menus::orderBy('id', 'desc')->take(8)->get();
+        $sousmenus = Sous_menus::orderBy('name', 'asc')->take(20)->get();
+        return view('tapakila.faq', compact('menus', 'sousmenus','slides'));
     }
     public function apropos(){
         return view('tapakila.apropos');

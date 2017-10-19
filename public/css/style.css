@@ -3839,3 +3839,179 @@ btn-group-lg > .btn, .btn-lg {
 }
 
 /*mon compte farany*/
+/* FAQ */
+.padd {
+    padding-left: 25px;
+    font-weight: 100 !important;
+    font-size: 15px;
+    color: black;
+    margin-top: 16px;
+}
+.content-custom {
+    padding: 0px 35px 0px 35px;
+}
+.body_faq {
+    background-color: white;
+    padding: 10px 25px 10px 25px;
+    margin-top: 40px;
+}
+.mimi {
+    text-align: center;
+    margin-bottom: 50px;
+}
+.nav-tabs2 {
+    border-bottom: 2px solid #d70506;
+}
+
+/* FAQ_END */
+}
+
+/* faq */
+.faqtp > li.active > a,
+.nav-tabs > li.active > a:focus,
+.nav-tabs > li.active > a:hover {
+    background-color: #d70506 !important;
+    border-radius: 0 !important;
+}
+.faqtp {
+    margin-bottom: 45px;
+    text-align: center !important;
+    border-bottom: 3px solid #d70506 !important;
+}
+.faqtp li a {
+    padding: 15px 30px !important;
+}
+.title-var {
+    text-align: center;
+    margin-bottom: 30px;
+}
+.bg-custm {
+    background-color:white;
+    padding:10px 30px 10px 30px;
+    margin-top:40px;
+}
+.panel-group {
+    margin-bottom: 20px;
+}
+
+.panel-group .panel {
+    margin-bottom: 35px;
+    border-radius: 4px;
+}
+.panel-default {
+    border-color: transparent;
+    margin-bottom: 30px;
+}
+.panel {
+    border-color: transparent;
+    background-color: transparent;
+    box-shadow: none;
+}
+.panel-default {
+    border-color: #ddd;
+}
+.panel {
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+.panel-default>.panel-heading {
+    font-family: "Montserrat",
+    sans-serif;
+    text-transform: uppercase;
+    background-color: transparent;
+    border-color: transparent;
+    padding: 0 0 0 70px;
+}
+.panel-default>.panel-heading {
+    color: #333;
+    border-color: #ddd;
+}
+.panel-group .panel-heading {
+    border-bottom: 0;
+}
+.panel-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 16px;
+    color: inherit;
+}
+/* .vos{
+    font-size: 13px !important;
+    font-weight:bold;
+} */
+.panel-default>.panel-heading a {
+    font-size: 13px;
+
+    color: #333333;
+    font-weight: 700;
+    display: block;
+    padding: 21px 0 23px 15px;
+    position: relative;
+    line-height: 24px;
+    border-bottom: 1px solid #e6e6e6;
+}
+.panel-title>a,
+.panel-title>small,
+.panel-title>.small,
+.panel-title>small>a,
+.panel-title>.small>a {
+    color: inherit;
+}
+[role="button"] {
+    cursor: pointer;
+}
+.panel-default>.panel-heading .collapsed:before {
+    content: '\f067';
+    background-color: transparent;
+}
+.panel-default>.panel-heading a:before {
+    content: '\f068';
+    font-family: fontawesome;
+    text-align: center;
+    font-size: 14px;
+    line-height: 70px;
+    height: 70px;
+    width: 70px;
+    color: #333333;
+    background-color: transparent;
+    border: 1px solid #e6e6e6;
+    display: block;
+    position: absolute;
+    left: -70px;
+    top: 50%;
+    margin-top: -35px;
+    transition: all 250ms cubic-bezier(0.55,
+    0,
+    0.1,
+    1);
+}
+.panel-default .panel-heading+.panel-collapse .panel-body p {
+    font-style: italic;
+    font-size: 18px;
+    font-size: 1.8rem;
+    color: #666666;
+    margin: 0;
+    padding: 15px;
+    border-left: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
+    padding-left: 40px;
+}
+body.page:not(.woocommerce-page) p {
+    line-height: 2.2rem;
+}
+.panel-default .panel-heading+.panel-collapse .panel-body {
+    border-top: none;
+    padding: 0 0 0 69px;
+    margin-bottom: 25px;
+}
+.panel-default>.panel-heading+.panel-collapse>.panel-body {
+    border-top-color: #ddd;
+}
+.panel-body {
+    padding: 15px;
+}
+.valt {
+    padding-left: 20px;
+}
