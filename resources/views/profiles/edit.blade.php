@@ -37,7 +37,7 @@
                                                     </span>
                         @endif
 
-
+                        <input type="hidden" name="changer" value="Votre infomation a été mis à jour.">
                         <div class="row">
                             <div class="col-md-6 ">
                                 <div class="check">
@@ -48,9 +48,16 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="col-md-6  text-right-md  text-right-lg text-center-xs text-center-sm  ">
-                                <button type="submit" class="btn bt_modif">Modifier</button>
+                                <div class="col-md-6 col-xs-12" style="margin-top: 20px;">
+                                    <a href="{{url('/home')}}" class="a_color">Annuler</a>
+                                </div>
+                                <div class="col-md-6 col-xs-12">
+                                    <button id="modif_info"ype="submit" class="btn bt_modif">Modifier</button>
+                                </div>
+
+
+
                             </div>
 
                         </div>
@@ -65,7 +72,19 @@
 
 @section(('specificScript'))
     <script type="text/javascript">
-
+        $('#modif_info').click(function() {
+            var changer="oui";
+            $.ajax({
+                type: "GET",
+                url: '{{ url("/home") }}',
+                data: {
+                    'changer': changer,
+                },
+                success: function (data) {
+                    console.log(data);
+                }
+            });
+        });
         $("#password, #password_confirmation").keyup(function () {
             enableSubmitPWCheck();
         });

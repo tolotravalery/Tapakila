@@ -23,6 +23,9 @@ use jeremykenedy\LaravelRoles\Models\Role;
 use Webpatser\Uuid\Uuid;
 use Validator;
 use View;
+use App\Models\Alert;
+use App\Models\Menus;
+use App\Models\Sous_menus;
 
 class ProfilesController extends Controller
 {
@@ -306,8 +309,29 @@ class ProfilesController extends Controller
         $user->updated_ip_address = $ipAddress->getClientIp();
 
         $user->save();
+        $niova=$request->input('changer');
+        /*return redirect('profile/' . $user->id . '/edit')->with('success', trans('profile.updateAccountSuccess'));*/
+        if ($user->isAdmin()) {
+            $alert = Alert::where('vu', '=', '0')->get();
+            return view('pages.admin.home', compact('alert'));
 
-        return redirect('profile/' . $user->id . '/edit')->with('success', trans('profile.updateAccountSuccess'));
+        }
+        if ($user->hasRole('organisateur')) {
+            $menus = Menus::orderBy('id', 'desc')->get();
+            $sousmenus = Sous_menus::orderBy('name', 'asc')->take(20)->get();
+            $events_passe = $user->events()->where('date_fin_event', '<', date('Y-m-d H:i:s'))->get();
+            $events_futur = $user->events()->where('date_debut_envent', '>', date('Y-m-d H:i:s'))->get();
+            $achats = $user->tickets;
+            return view('pages.user.home_organisateur')->with(compact('menus', 'sousmenus', 'events_passe', 'events_futur', 'achats','niova'));
+        }
+        if($user->hasRole('user')) {
+            $menus = Menus::orderBy('id', 'desc')->get();
+            $sousmenus = Sous_menus::orderBy('name', 'asc')->take(20)->get();
+
+            $achats = $user->tickets;
+            return view('panels.welcome-panel')->with(compact('menus', 'sousmenus', 'achats','niova'));
+        }
+        return view('pages.user.home');
 
     }
 
