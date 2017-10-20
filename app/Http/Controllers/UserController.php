@@ -44,6 +44,13 @@ class UserController extends Controller
             $achats = $user->tickets;
             return view('pages.user.home_organisateur')->with(compact('menus', 'sousmenus', 'events_passe', 'events_futur', 'achats'));
         }
+        if($user->hasRole('user')) {
+            $menus = Menus::orderBy('id', 'desc')->get();
+            $sousmenus = Sous_menus::orderBy('name', 'asc')->take(20)->get();
+
+            $achats = $user->tickets;
+            return view('panels.welcome-panel')->with(compact('menus', 'sousmenus', 'achats'));
+        }
         return view('pages.user.home');
 
     }

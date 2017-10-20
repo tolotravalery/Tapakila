@@ -1,123 +1,189 @@
-@php
+@extends("template")
+@section("content")
+    <section id="sectioncategorie" class="clearfix">
+        <div class="container custom-container">
+            <ul class="clearfix">
+                <li><a href="{{url('/')}}">TOUS</a></li>
+                @foreach($menus as $menu)
+                    <li><a href="{{url('/event/list/categorie',[$menu->id])}}">{{strtoupper($menu->name)}}</a></li>
+                @endforeach
 
-    $levelAmount = 'level';
+            </ul>
+            <a href="#" class="menupull" id="pull"><strong>Catégories</strong></a>
+        </div>
+    </section>
 
-    if (Auth::User()->level() >= 2) {
-        $levelAmount = 'levels';
+    <section id="sectionevenement" role="navigation">
+        <div class="container custom-container">
+            <ul>
+                @foreach($sousmenus as $sousmenu)
+                    <li>
+                        <a href="{{url('/event/list/categorie/'.$sousmenu->name.'',[$sousmenu->id])}}">{{ucfirst($sousmenu->name)}}</a>
+                    </li>
+                @endforeach
 
-    }
+            </ul>
+        </div>
+    </section>
+    <br/>
+    <section>
+        <div class="container custom-container">
+            <div class="compte-bg">
+                <div class="Modifcompte2"></div>
+                <div class="row row-custom position-custom">
+                    <div class="col-md-5">
+                        <div class="row">
+                            <div class="col-md-4 text-center-md text-center-lg text-center-xs text-center-sm ">
+                                <img src="{{url('/')}}/public/img/usercircle.png" id="sary" class="postion">
+                            </div>
+                            <div class="col-md-8 text-left-md text-left-lg text-center-xs text-center-sm">
+                                <label class="pseudoname">{{Auth::user()->name}}</label><br>
+                                <p><i class="fa fa-envelope fenalope" aria-hidden="true"></i>{{Auth::user()->email}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-7 text-right-md text-right-lg text-center-xs text-center-sm ">
+                        <a class="modifinfo" href="{{url('/profile/'.Auth::user()->id.'/edit')}}">Modifier mes
+                            Information</a>
+                    </div>
+                </div>
 
-@endphp
+                <div class="padding-custom">
+                    <ul class="tabs">
+                        <li class="active" rel="tab3"><b>Mes achat <br>passés</b></li>
+                        <li rel="tab4"><b>Mes achats<br> Actuels</b></li>
+                    </ul>
+                    <div class="tab_container">
+                                                <!-- #tab2 -->
+                        <h3 class="tab_drawer_heading" rel="tab3">Mes achat passés</h3>
+                        <div id="tab3" class="tab_content">
+                            <table class="tabl-content table-custom">
+                                <thead>
+                                <tr>
+                                    <th scope="col" class=""><b class="bold">Evènement</b></th>
+                                    <th scope="col"><b class="bold">Tickets</b></th>
+                                    <th scope="col"><b class="bold">Date Achat</b></th>
+                                    <th scope="col"><b class="bold">Nombre</b></th>
+                                    <th scope="col"><b class="bold"></b></th>
+                                </tr>
+                                </thead>
+
+                                <tbody>
+                                @foreach($achats as $a)
+                                    @php
+                                        $event = $a->events[0];
+                                    @endphp
+                                    @if(date($event->date_fin_event) < date('now'))
+                                        <tr>
+                                            <td data-label="">
+                                                <div class="thumbnail imgpaiment">
+                                                    <img src="{{url('/')}}/public/img/{{$event->image}}"
+                                                         class="image_panier">
+                                                </div>
+                                            </td>
+                                            <td data-label="Tickets">{{$a->type}}</td>
+                                            <td data-label="Date">{{\Carbon\Carbon::parse($a->pivot->date_achat)->format('d M Y H:i')}}</td>
+                                            <td data-label="Quantité">{{$a->pivot->number}}</td>
+                                            <td data-label=""><p><a href="#" alt="Supprimer" class="rapport">Editer</a>
+                                                </p>
+                                            </td>
+                                            <td data-label=""><p><a href="#" alt="Supprimer" class="rapport">Rapport</a>
+                                                </p>
+                                            </td>
+                                        </tr>
+                                    @endif
+                                @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- #tab3 -->
+                        <h3 class="tab_drawer_heading" rel="tab4">Mes achats Actuels</h3>
+                        <div id="tab4" class="tab_content">
+                            <table class="tabl-content table-custom">
+                                <thead>
+                                <tr>
+                                    <th scope="col" class=""><b class="bold">Evènement</b></th>
+                                    <th scope="col"><b class="bold">Tickets</b></th>
+                                    <th scope="col"><b class="bold">Date Achat</b></th>
+                                    <th scope="col"><b class="bold">Nombre</b></th>
+                                    <th scope="col"><b class="bold"></b></th>
+                                </tr>
+                                </thead>
+
+                                <tbody>
+                                @foreach($achats as $a)
+                                    @php
+                                        $event = $a->events[0];
+                                    @endphp
+                                    @if(date($event->date_debut_envent) > date('now'))
+                                        <tr>
+                                            <td data-label="">
+                                                <div class="thumbnail imgpaiment">
+                                                    <img src="{{url('/')}}/public/img/{{$event->image}}"
+                                                         class="image_panier">
+                                                </div>
+                                            </td>
+                                            <td data-label="Tickets">{{$a->type}}</td>
+                                            <td data-label="Date">{{\Carbon\Carbon::parse($a->pivot->date_achat)->format('d M Y H:i')}}</td>
+                                            <td data-label="Quantité">{{$a->pivot->number}}</td>
+                                            <td data-label=""><p><a href="#" alt="Editer" class="rapport">Editer</a>
+                                                </p>
+                                            </td>
+                                            <td data-label=""><p><a href="#" alt="Supprimer" class="rapport">Rapport</a>
+                                                </p>
+                                            </td>
+                                        </tr>
+                                    @endif
+                                @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- #tab4 -->
+                    </div>
+                </div>
+
+        </div>
+    </section>
+@endsection
+@section("specificScript")
+    <script>
+        // tabbed content
+        $(".tab_content").hide();
+        $(".tab_content:first").show();
+
+        /* if in tab mode */
+        $("ul.tabs li").click(function () {
+
+            $(".tab_content").hide();
+            var activeTab = $(this).attr("rel");
+            $("#" + activeTab).fadeIn();
+
+            $("ul.tabs li").removeClass("active");
+            $(this).addClass("active");
+
+            $(".tab_drawer_heading").removeClass("d_active");
+            $(".tab_drawer_heading[rel^='" + activeTab + "']").addClass("d_active");
+
+        });
+        /* if in drawer mode */
+        $(".tab_drawer_heading").click(function () {
+
+            $(".tab_content").hide();
+            var d_activeTab = $(this).attr("rel");
+            $("#" + d_activeTab).fadeIn();
+
+            $(".tab_drawer_heading").removeClass("d_active");
+            $(this).addClass("d_active");
+
+            $("ul.tabs li").removeClass("active");
+            $("ul.tabs li[rel^='" + d_activeTab + "']").addClass("active");
+        });
 
 
-<div class="panel panel-primary @role('admin', true) panel-info  @endrole">
-    <div class="panel-heading">
+        /* Extra class "tab_last"
+         to add border to right side
+         of last tab */
+        $('ul.tabs li').last().addClass("tab_last");
 
-        Welcome {{ Auth::user()->name }}
-
-        @role('admin', true)
-            <span class="pull-right label label-primary" style="margin-top:4px">
-            Admin Access
-            </span>
-        @else
-            <span class="pull-right label label-warning" style="margin-top:4px">
-            User Access
-            </span>
-        @endrole
-
-    </div>
-    <div class="panel-body">
-        <h2 class="lead">
-            {{ trans('auth.loggedIn') }}
-        </h2>
-        <p>
-            <em>Thank you</em> for checking this project out. <strong>Please remember to star it!</strong>
-        </p>
-
-        <p>
-            <iframe src="https://ghbtns.com/github-btn.html?user=jeremykenedy&repo=laravel-auth&type=star&count=true" frameborder="0" scrolling="0" width="170px" height="20px" style="margin: 0px 0 -3px .5em;"></iframe>
-        </p>
-
-        <p>
-            This page route is protected by <code>activated</code> middleware. Only accounts with activated emails are able pass this middleware.
-        </p>
-        <p>
-            <small>
-                Users registered via Social providers are by default activated.
-            </small>
-        </p>
-
-        <hr>
-
-        <h4>
-            You have
-                @role('admin')
-                   Admin
-                @endrole
-                @role('user')
-                   User
-                @endrole
-            Access
-        </h4>
-
-        <hr>
-
-        <h4>
-            You have access to {{ $levelAmount }}:
-            @level(5)
-                <span class="label label-primary margin-half">5</span>
-            @endlevel
-
-            @level(4)
-                <span class="label label-info margin-half">4</span>
-            @endlevel
-
-            @level(3)
-                <span class="label label-success margin-half">3</span>
-            @endlevel
-
-            @level(2)
-                <span class="label label-warning margin-half">2</span>
-            @endlevel
-
-            @level(1)
-                <span class="label label-default margin-half">1</span>
-            @endlevel
-        </h4>
-
-        @role('admin')
-
-            <hr>
-
-            <h4>
-                You have permissions:
-                @permission('view.users')
-                    <span class="label label-primary margin-half margin-left-0">
-                        {{ trans('permsandroles.permissionView') }}
-                    </span>
-                @endpermission
-
-                @permission('create.users')
-                    <span class="label label-info margin-half margin-left-0">
-                        {{ trans('permsandroles.permissionCreate') }}
-                    </span>
-                @endpermission
-
-                @permission('edit.users')
-                    <span class="label label-warning margin-half margin-left-0">
-                        {{ trans('permsandroles.permissionEdit') }}
-                    </span>
-                @endpermission
-
-                @permission('delete.users')
-                    <span class="label label-danger margin-half margin-left-0">
-                        {{ trans('permsandroles.permissionDelete') }}
-                    </span>
-                @endpermission
-
-            </h4>
-
-        @endrole
-
-    </div>
-</div>
+    </script>
+@endsection
