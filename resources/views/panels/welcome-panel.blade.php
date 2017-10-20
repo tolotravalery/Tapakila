@@ -50,20 +50,17 @@
                 <?php
                 if(isset($niova)){?>
                 <div class="container">
-
-                    <div class="col-md-8 col-md-offset-1">
-
-                            <div class="alert alert-success">
-                                <?php echo $niova; ?>
-                            </div>
-
+                    <div style="margin-left: 36px;">
+                        <div class="alert alert-success col-md-7" style="text-align: left;">
+                            <p style="margin-left: 5px;"><?php echo $niova; ?></p>
+                        </div>
                     </div>
-
                 </div>
-                <br/><br/>
+                <br/>
                 <?php
                 }
                 ?>
+
                 <div class="padding-custom">
                     <ul class="tabs">
                         <li class="active" rel="tab3"><b>Mes achat <br>passés</b></li>
@@ -152,6 +149,9 @@
 @endsection
 @section("specificScript")
     <script>
+        $(document).ready(function() {
+            console.log("huhu");
+        });
         // tabbed content
         $(".tab_content").hide();
         $(".tab_content:first").show();
