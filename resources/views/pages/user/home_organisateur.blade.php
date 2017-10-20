@@ -101,10 +101,7 @@
                                                 Ticket indisponible
                                             @endif
                                         </td>
-                                        <td data-label=""><p><a href="#" alt="Supprimer" class="rapport">Editer</a></p>
-                                        </td>
-                                        <td data-label=""><p><a href="#" alt="Supprimer" class="rapport">Rapport</a></p>
-                                        </td>
+
                                     </tr>
                                 @endforeach
                                 </tbody>
@@ -155,9 +152,7 @@
                                                 Ticket indisponible
                                             @endif
                                         </td>
-                                        <td data-label=""><p><a href="#" alt="Supprimer" class="rapport">Editer</a></p>
-                                        </td>
-                                        <td data-label=""><p><a href="#" alt="Supprimer" class="rapport">Rapport</a></p>
+                                        <td data-label=""><p><a href="organisateur/event/{{$e->id}}/edit" alt="Supprimer" class="rapport">Editer</a></p>
                                         </td>
                                     </tr>
                                 @endforeach
