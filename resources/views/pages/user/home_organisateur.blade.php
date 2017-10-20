@@ -190,12 +190,7 @@
                                             <td data-label="Tickets">{{$a->type}}</td>
                                             <td data-label="Date">{{\Carbon\Carbon::parse($a->pivot->date_achat)->format('d M Y H:i')}}</td>
                                             <td data-label="Quantité">{{$a->pivot->number}}</td>
-                                            <td data-label=""><p><a href="#" alt="Supprimer" class="rapport">Editer</a>
-                                                </p>
-                                            </td>
-                                            <td data-label=""><p><a href="#" alt="Supprimer" class="rapport">Rapport</a>
-                                                </p>
-                                            </td>
+
                                         </tr>
                                     @endif
                                 @endforeach
@@ -232,12 +227,7 @@
                                             <td data-label="Tickets">{{$a->type}}</td>
                                             <td data-label="Date">{{\Carbon\Carbon::parse($a->pivot->date_achat)->format('d M Y H:i')}}</td>
                                             <td data-label="Quantité">{{$a->pivot->number}}</td>
-                                            <td data-label=""><p><a href="#" alt="Editer" class="rapport">Editer</a>
-                                                </p>
-                                            </td>
-                                            <td data-label=""><p><a href="#" alt="Supprimer" class="rapport">Rapport</a>
-                                                </p>
-                                            </td>
+
                                         </tr>
                                     @endif
                                 @endforeach
