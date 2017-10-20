@@ -48,24 +48,19 @@
                             Informations</a>
                     </div>
                 </div>
-
-                                <?php
-                                if(isset($niova)){?>
-                                    <div class="container">
-
-                                        <div class="col-md-8 col-md-offset-1">
-
-                                                <div class="alert alert-success">
-                                                    <?php echo $niova; ?>
-                                                </div>
-
-                                        </div>
-
-                                    </div>
-                                <br/><br/>
-                                <?php
-                                }
-                                ?>
+                    <?php
+                    if(isset($niova)){?>
+                    <div class="container">
+                        <div style="margin-left: 36px;">
+                            <div class="alert alert-success col-md-7" style="text-align: left;">
+                                <p style="margin-left: 5px;"><?php echo $niova; ?></p>
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
+                    <?php
+                    }
+                    ?>
 
 
                 <div class="padding-custom">
@@ -264,9 +259,10 @@
 @endsection
 @section("specificScript")
     <script>
-        /*$(document).ready(function() {
-            console.log();
-        });*/
+        $(document).ready(function() {
+            console.log("huhu");
+        });
+
         // tabbed content
         $(".tab_content").hide();
         $(".tab_content:first").show();

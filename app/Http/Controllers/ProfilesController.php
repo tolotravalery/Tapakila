@@ -311,7 +311,10 @@ class ProfilesController extends Controller
         $user->save();
         $niova=$request->input('changer');
         /*return redirect('profile/' . $user->id . '/edit')->with('success', trans('profile.updateAccountSuccess'));*/
-        if ($user->isAdmin()) {
+        session()->flash('niova', $niova);
+        return redirect('/home')->with(compact('niova'));
+
+        /*if ($user->isAdmin()) {
             $alert = Alert::where('vu', '=', '0')->get();
             return view('pages.admin.home', compact('alert'));
 
@@ -331,7 +334,7 @@ class ProfilesController extends Controller
             $achats = $user->tickets;
             return view('panels.welcome-panel')->with(compact('menus', 'sousmenus', 'achats','niova'));
         }
-        return view('pages.user.home');
+        return view('pages.user.home');*/
 
     }
 
