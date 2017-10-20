@@ -44,10 +44,26 @@
                     </div>
                     <div class="col-md-7 text-right-md text-right-lg text-center-xs text-center-sm ">
                         <a class="modifinfo" href="{{url('/profile/'.Auth::user()->id.'/edit')}}">Modifier mes
-                            Information</a>
+                            Informations</a>
                     </div>
                 </div>
+                <?php
+                if(isset($niova)){?>
+                <div class="container">
 
+                    <div class="col-md-8 col-md-offset-1">
+
+                            <div class="alert alert-success">
+                                <?php echo $niova; ?>
+                            </div>
+
+                    </div>
+
+                </div>
+                <br/><br/>
+                <?php
+                }
+                ?>
                 <div class="padding-custom">
                     <ul class="tabs">
                         <li class="active" rel="tab3"><b>Mes achat <br>passés</b></li>
@@ -84,7 +100,6 @@
                                             <td data-label="Tickets">{{$a->type}}</td>
                                             <td data-label="Date">{{\Carbon\Carbon::parse($a->pivot->date_achat)->format('d M Y H:i')}}</td>
                                             <td data-label="Quantité">{{$a->pivot->number}}</td>
-                                            
                                         </tr>
                                     @endif
                                 @endforeach

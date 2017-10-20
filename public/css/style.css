@@ -3535,8 +3535,8 @@ div.tests .number-spinner .test2 .test3 {
 }
 
 .alert{
-    background-color:#cccccc;
-    margin-top:25px;
+    /*background-color:#cccccc;
+    margin-top:25px;*/
 }
 
 .alert a {
@@ -4175,3 +4175,8 @@ body.page:not(.woocommerce-page) p {
     padding-left: 20px;
 }
 .tab_drawer_heading { display: none; }
+.bg-custom2 {
+    box-shadow: 3px 0px 10px #989898;
+    padding: 30px 50px 30px 50px;
+    margin-top: 30px;
+}

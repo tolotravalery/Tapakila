@@ -26,6 +26,7 @@
         </div>
     </section>
     <br/>
+
     <section>
         <div class="container custom-container">
             <div class="compte-bg">
@@ -44,9 +45,28 @@
                     </div>
                     <div class="col-md-7 text-right-md text-right-lg text-center-xs text-center-sm ">
                         <a class="modifinfo" href="{{url('/profile/'.Auth::user()->id.'/edit')}}">Modifier mes
-                            Information</a>
+                            Informations</a>
                     </div>
                 </div>
+
+                                <?php
+                                if(isset($niova)){?>
+                                    <div class="container">
+
+                                        <div class="col-md-8 col-md-offset-1">
+
+                                                <div class="alert alert-success">
+                                                    <?php echo $niova; ?>
+                                                </div>
+
+                                        </div>
+
+                                    </div>
+                                <br/><br/>
+                                <?php
+                                }
+                                ?>
+
 
                 <div class="padding-custom">
                     <ul class="tabs">
@@ -238,194 +258,15 @@
                     </div>
                 </div>
 
-
-                <!-- test -->
-
-                <div class="tab-content">
-                    <div class="tab-pane tabulation  fade active in" id="VP">
-
-                    </div>
-
-                    <div class="tab-pane tabulation fade" id="VA">
-                        <div id="2" role="tablist" aria-multiselectable="true" class="panel-group">
-                            <table class="tabl-content table-custom">
-                                <thead>
-                                <tr>
-                                    <th scope="col" class=""><b class="bold">Evènement</b></th>
-                                    <th scope="col"><b class="bold">Tickets</b></th>
-                                    <th scope="col"><b class="bold">Date</b></th>
-                                    <th scope="col"><b class="bold">Prix Unitaire</b></th>
-                                    <th scope="col"><b class="bold"></b></th>
-                                </tr>
-                                </thead>
-
-                                <tbody>
-                                <tr>
-                                    <td data-label="">
-                                        <div class="thumbnail imgpaiment">
-                                            <img src="img/danse.jpg" class="image_panier">
-                                        </div>
-                                    </td>
-                                    <td data-label="Tickets">VIP<br>STANDARD</br></td>
-                                    <td data-label="Quantité">02/10/17</td>
-                                    <td data-label="Prix">16.000 AR</td>
-                                    <td data-label=""><p><a href="#" alt="Supprimer" class="rapport">Editer</a></p></td>
-                                    <td data-label=""><p><a href="#" alt="Supprimer" class="rapport">Rapport</a></p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td data-label="">
-                                        <div class="thumbnail imgpaiment">
-                                            <img src="img/danse.jpg" class="image_panier">
-                                        </div>
-                                    </td>
-                                    <td data-label="Tickets">VIP<br></td>
-                                    <td data-label="Quantité">02/10/17</td>
-                                    <td data-label="Prix">16.000 AR</td>
-                                    <td data-label=""><p><a href="#" alt="Supprimer" class="rapport">Editer</a></p></td>
-                                    <td data-label=""><p><a href="#" alt="Supprimer" class="rapport">Rapport</a></p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td data-label="">
-                                        <div class="thumbnail imgpaiment">
-                                            <img src="img/danse.jpg" class="image_panier">
-                                        </div>
-                                    </td>
-                                    <td data-label="Tickets">VIP</td>
-                                    <td data-label="Quantité">02/10/17</td>
-                                    <td data-label="Prix">16.000 AR</td>
-                                    <td data-label=""><p><a href="#" alt="Supprimer" class="rapport">Editer</a></p></td>
-                                    <td data-label=""><p><a href="#" alt="Supprimer" class="rapport">Rapport</a></p>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                    <div class="tab-pane tabulation fade" id="AP">
-                        <div id="3" role="tablist" aria-multiselectable="true" class="panel-group">
-                            <table class="tabl-content table-custom">
-                                <thead>
-                                <tr>
-                                    <th scope="col" class=""><b class="bold">Evènement</b></th>
-                                    <th scope="col"><b class="bold">Tickets</b></th>
-                                    <th scope="col"><b class="bold">Date</b></th>
-                                    <th scope="col"><b class="bold">Prix Unitaire</b></th>
-                                    <th scope="col"><b class="bold"></b></th>
-                                </tr>
-                                </thead>
-
-                                <tbody>
-                                <tr>
-                                    <td data-label="">
-                                        <div class="thumbnail imgpaiment">
-                                            <img src="img/danse.jpg" class="image_panier">
-                                        </div>
-                                    </td>
-                                    <td data-label="Tickets">VIP<br>STANDARD</br></td>
-                                    <td data-label="Quantité">02/10/17</td>
-                                    <td data-label="Prix">16.000 AR</td>
-                                    <td data-label=""><p><a href="#" alt="Supprimer" class="rapport">Editer</a></p></td>
-                                    <td data-label=""><p><a href="#" alt="Supprimer" class="rapport">Rapport</a></p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td data-label="">
-                                        <div class="thumbnail imgpaiment">
-                                            <img src="img/danse.jpg" class="image_panier">
-                                        </div>
-                                    </td>
-                                    <td data-label="Tickets">VIP<br></td>
-                                    <td data-label="Quantité">02/10/17</td>
-                                    <td data-label="Prix">16.000 AR</td>
-                                    <td data-label=""><p><a href="#" alt="Supprimer" class="rapport">Editer</a></p></td>
-                                    <td data-label=""><p><a href="#" alt="Supprimer" class="rapport">Rapport</a></p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td data-label="">
-                                        <div class="thumbnail imgpaiment">
-                                            <img src="img/danse.jpg" class="image_panier">
-                                        </div>
-                                    </td>
-                                    <td data-label="Tickets">VIP</td>
-                                    <td data-label="Quantité">02/10/17</td>
-                                    <td data-label="Prix">16.000 AR</td>
-                                    <td data-label=""><p><a href="#" alt="Supprimer" class="rapport">Editer</a></p></td>
-                                    <td data-label=""><p><a href="#" alt="Supprimer" class="rapport">Rapport</a></p>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                    <div class="tab-pane tabulation fade" id="AA">
-                        <div id="4" role="tablist" aria-multiselectable="true" class="panel-group">
-                            <table class="tabl-content table-custom">
-                                <thead>
-                                <tr>
-                                    <th scope="col" class=""><b class="bold">Evènement</b></th>
-                                    <th scope="col"><b class="bold">Tickets</b></th>
-                                    <th scope="col"><b class="bold">Date</b></th>
-                                    <th scope="col"><b class="bold">Prix Unitaire</b></th>
-                                    <th scope="col"><b class="bold"></b></th>
-                                </tr>
-                                </thead>
-
-                                <tbody>
-                                <tr>
-                                    <td data-label="">
-                                        <div class="thumbnail imgpaiment">
-                                            <img src="img/danse.jpg" class="image_panier">
-                                        </div>
-                                    </td>
-                                    <td data-label="Tickets">VIP<br>STANDARD</br></td>
-                                    <td data-label="Quantité">02/10/17</td>
-                                    <td data-label="Prix">16.000 AR</td>
-                                    <td data-label=""><p><a href="#" alt="Supprimer" class="rapport">Editer</a></p></td>
-                                    <td data-label=""><p><a href="#" alt="Supprimer" class="rapport">Rapport</a></p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td data-label="">
-                                        <div class="thumbnail imgpaiment">
-                                            <img src="img/danse.jpg" class="image_panier">
-                                        </div>
-                                    </td>
-                                    <td data-label="Tickets">VIP<br></td>
-                                    <td data-label="Quantité">02/10/17</td>
-                                    <td data-label="Prix">16.000 AR</td>
-                                    <td data-label=""><p><a href="#" alt="Supprimer" class="rapport">Editer</a></p></td>
-                                    <td data-label=""><p><a href="#" alt="Supprimer" class="rapport">Rapport</a></p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td data-label="">
-                                        <div class="thumbnail imgpaiment">
-                                            <img src="img/danse.jpg" class="image_panier">
-                                        </div>
-                                    </td>
-                                    <td data-label="Tickets">VIP</td>
-                                    <td data-label="Quantité">02/10/17</td>
-                                    <td data-label="Prix">16.000 AR</td>
-                                    <td data-label=""><p><a href="#" alt="Supprimer" class="rapport">Editer</a></p></td>
-                                    <td data-label=""><p><a href="#" alt="Supprimer" class="rapport">Rapport</a></p>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 @endsection
 @section("specificScript")
     <script>
+        /*$(document).ready(function() {
+            console.log();
+        });*/
         // tabbed content
         $(".tab_content").hide();
         $(".tab_content:first").show();
