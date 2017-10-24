@@ -32,7 +32,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{url('/home')}}">
+            <a class="navbar-brand" href="{{url('/')}}">
                 <img src="{{ url('/') }}/public/img/logo.png" title="leguichet">
             </a>
         </div>
@@ -108,10 +108,13 @@
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu " id="menu3" aria-labelledby="drop6">
-                            <li {{ Request::is('profile/'.Auth::user()->id, 'profile/'.Auth::user()->id . '/edit') ?  : null }}>
+                            {{--<li {{ Request::is('profile/'.Auth::user()->id, 'profile/'.Auth::user()->id . '/edit') ?  : null }}>
                             {!! HTML::link(url('/profile/'.Auth::user()->id.'/edit'), trans('titles.profile')) !!}
                             <!--{!! HTML::icon_link(URL::to('/profile/'.Auth::user()->id.'/edit'), 'fa fa-fw fa-cog', trans('titles.editProfile'), array('class' => 'btn btn-small btn-info btn-block')) !!}
                             {{ trans('profile.editAccountTitle') }}-->
+                            </li>--}}
+                            <li>
+                                <a href="{{url('/home')}}">Profile</a>
                             </li>
                             @role('organisateur')
                             <li><a href="{{url('/')}}/organisateur/event">Events</a></li>
