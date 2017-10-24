@@ -8,7 +8,7 @@
 @endsection
 
 @section('content')
-    <<section id="sectioncategorie" class="clearfix">
+    <section id="sectioncategorie" class="clearfix">
         <div class="container custom-container">
             <ul class="clearfix">
                 <li><a href="{{url('/')}}">TOUS</a></li>
@@ -35,11 +35,36 @@
     </section>
     <section id="detail">
         <div class="container custom-container">
-            <div class="page-menu row">
-                <div class="col-md-9">
-                    <h1>Créér un évènement</h1>
+            {{--<div class="page-menu row">
+                <div class="row">
+
+                    <div class="col-lg-9 col-sm-9 col-lg-push-3 col-sm-push-3 fi">
+                        <h1>Créer un évènement</h1>
+                    </div>
+                    <div class="col-lg-3 col-sm-3 col-lg-pull-9 col-sm-pull-9 sec">
+                        <div class="btn-group margin-bottom-5">
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn btn-sm nonpublier dropdown-toggle"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Non publié
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="btn-sm" href="#">Publié</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a class="btn btn-sm btn-default btn-aperçu " href="#" target="_blank">Aperçu</a>
+                    </div>
+
+
                 </div>
-                <div class="col-md-3">
+            </div>--}}
+            <div class="page-menu row">
+                <div class="col-lg-9 col-sm-9 col-lg-push-3 col-sm-push-3 fi">
+                    <h1>Créer un évènement</h1>
+                </div>
+                <div class="col-lg-3 col-sm-3 col-lg-pull-9 col-sm-pull-9 sec">
                     <div class="btn-group margin-bottom-5">
                         <div class="btn-group" role="group">
                             <select class="form-control" id="publie" name="publie">
@@ -54,176 +79,204 @@
 
             <!-- detail end -->
             <div class="row">
-                <div class="col-lg-9 col-sm-9">
-                    <div id="div_details">
-                        <form enctype="multipart/form-data" class="form-horizontal" role="form" method="POST"
-                              action="{{ route('event') }}">
-                            {{ csrf_field() }}
-                            <div class="panel panel-content">
-                                <div class="panel-body border-bottom">
-                                    <h2>Details</h2>
-                                    <input type="hidden" id="huhu" name="publie">
-                                    <div class="clearfix"></div>
+                <div class="col-lg-3 col-sm-3 creat">
 
-                                    <div class="form-group ">
-                                        <label class="control-label ">
-                                            <span>Titre (*):</span>
-                                        </label>
-                                        <input type="text" name="title" id="titre" class="form-control" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label ">
-                                            <span>Catégories : </span>
-                                        </label>
-                                        <div class="form-group"
-                                             style="margin-left: 0px!important;margin-right: 0px!important;">
-                                            <select class="form-control" name="sousmenu">
-                                                <option>--------choisir-----------</option>
-                                                @foreach($sousmenus as $sousmenu)
-                                                    <option value="{{$sousmenu->id}}">{{$sousmenu->name}}</option>
-                                                @endforeach
-                                            </select>
+                    <ul class="navtab">
+                        <li class="categorimenu"><strong>Achats</strong></li>
+                        <li><a id="a_rapport" onClick="changePage('div_rapport', 'a_rapport')">Rapports</a></li>
+                        <li><a id="a_commandes" onClick="changePage('div_commandes', 'a_commandes')">Commandes</a></li>
+                        <li><a id="a_valideTicket" onClick="changePage('div_valideTicket', 'a_valideTicket')">Tickets
+                                Validés</a></li>
+                        <li class="categorimenu"><strong>Editer</strong></li>
+                        <li><a id="a_details" class="select"
+                               onClick="changePage('div_details', 'a_details')">Détails</a></li>
+                        <li><a id="a_type" onClick="changePage('div_type', 'a_type')">Types de Ticket &amp; prix</a>
+                        </li>
+                        <li><a id="a_siteweb" onClick="changePage('div_siteweb', 'a_siteweb')">Apparence du site</a>
+                        </li>
+                        <li><a id="a_pdf" onClick="changePage('div_pdf', 'a_pdf')">PDF</a></li>
+                        <li><a id="a_cpersonalize" onClick="changePage('div_cpersonalize', 'a_cpersonalize')">Champs
+                                additioneles</a></li>
+                        <li class="categorimenu"><strong>Paramètre</strong></li>
+                        <li><a id="a_paiement" onClick="changePage('div_paiement', 'a_paiement')">Méthodes de
+                                payements</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-9 col-sm-9 ">
+                    <div id="div_details">
+                        <div class="com_contenu_type">
+                            <form enctype="multipart/form-data" class="form-horizontal" role="form" method="POST"
+                                  action="{{ route('event') }}">
+                                {{ csrf_field() }}
+                                <div class="panel panel-content">
+                                    <div class="panel-body border-bottom">
+                                        <h2>Details</h2>
+                                        <div class="clearfix"></div>
+                                        <div class="form-group ">
+                                            <label class="control-label ">
+                                                <span>Titre : *</span>
+                                            </label>
+                                            <input type="text" name="title" id="titre" class="form-control" required>
                                         </div>
-                                    </div>
-                                    <label class="control-label ">
-                                        <span>Image (*) : </span>
-                                    </label>
-                                    <div class="input-group image-preview">
-                                        <input type="text" class="form-control image-preview-filename"
-                                               disabled="disabled">
-                                        <span class="input-group-btn">
+                                        <div class="form-group">
+                                            <label class="control-label ">
+                                                <span>Catégories : </span>
+                                            </label>
+                                            <div class="form-group"
+                                                 style="margin-left: 0px!important;margin-right: 0px!important;">
+                                                <select class="form-control" name="sousmenu">
+                                                    <option>--------choisir-----------</option>
+                                                    @foreach($sousmenus as $sousmenu)
+                                                        <option value="{{$sousmenu->id}}">{{$sousmenu->name}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <label class="control-label ">
+                                            <span>Image : *</span>
+                                        </label>
+                                        <div class="input-group image-preview">
+                                            <input type="text" class="form-control image-preview-filename"
+                                                   disabled="disabled">
+                                            <span class="input-group-btn">
 												<button type="button" class="btn btn-default image-preview-clear"
                                                         style="display:none;">
-													<span class="glyphicon glyphicon-remove"></span> Supprimer
-												</button>
-												<div class="btn btn-default image-preview-input">
-													<span class="glyphicon glyphicon-folder-open"></span>
-													<span class="image-preview-input-title"></span>
-													<input type="file" accept="image/png, image/jpeg, image/gif"
-                                                           name="image" required/>
-												</div>
-											</span>
-                                    </div>
-                                    <div class="form-group form-group-translation et">
-                                        <label class="control-label">
-                                            <span>Description (*) :</span>
-                                        </label>
-                                        <textarea class="form-control" style=" word-wrap: break-word; resize: horizontal;
+													<span class="glyphicon glyphicon-remove"></span> Suprimer
+                                        </button>
+                                        <div class="btn btn-default image-preview-input">
+                                            <span class="glyphicon glyphicon-folder-open"></span>
+                                            <span class="image-preview-input-title"></span>
+                                            <input type="file" accept="image/png, image/jpeg, image/gif" name="image"
+                                                   required/>
+                                        </div>
+                                        </span>
+                                        </div>
+                                        <div class="form-group form-group-translation et">
+                                            <label class="control-label">
+                                                <span>Description : *</span>
+                                            </label>
+                                            <textarea class="form-control" style=" word-wrap: break-word; resize: horizontal;
                                         height: 150px;" name="note" required></textarea>
+                                        </div>
                                     </div>
-                                </div>
+                                    <hr>
+                                    <!-- detail end -->
 
-                                <hr>
-                                <div class="panel-body border-bottom">
-                                    <h2>Heures</h2>
-                                    <div class="row" id="event-duration">
-                                        <div class="col-md-6">
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="control-label required">Début</label>
-                                                        <div class="input-group">
-                                                            <div class="input-group-addon">
-                                                                <i class="fa fa-calendar"></i></div>
-                                                            <input class="form-control" id="date" name="date_debut"
-                                                                   placeholder="YYYY-MM-DD" type="text" required/>
+                                    <!-- heure start -->
+                                    <div class="panel-body border-bottom">
+                                        <h2>Heures</h2>
+                                        <div class="row" id="event-duration">
+                                            <div class="col-md-6">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label class="control-label required">Début</label>
+                                                            <div class="input-group">
+                                                                <div class="input-group-addon">
+                                                                    <i class="fa fa-calendar"></i></div>
+                                                                <input class="form-control" id="date" name="date_debut"
+                                                                       placeholder="YYYY-MM-DD" type="text" required/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="input-group clockpicker">
+                                                        <span class="input-group-addon">
+															<span class="glyphicon glyphicon-time"></span>
+                                                        </span>
+                                                            <input type="text" class="form-control" value="23:30"
+                                                                   name="heure_debut">
+
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <div class="input-group clockpicker">
-														<span class="input-group-addon">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label class="control-label required">Fin</label>
+                                                            <div class="input-group">
+                                                                <div class="input-group-addon">
+                                                                    <i class="fa fa-calendar"></i></div>
+                                                                <input class="form-control" id="date" name="date_fin"
+                                                                       placeholder="YYYY-MM-DD" type="text" required/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="input-group clockpicker">
+                                                        <span class="input-group-addon">
 															<span class="glyphicon glyphicon-time"></span>
-															</span>
-                                                        <input type="text" class="form-control" value="23:30"
-                                                               name="heure_debut">
-
+                                                        </span>
+                                                            <input type="text" class="form-control" value="23:30"
+                                                                   name="heure_fin">
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="control-label required">Fin</label>
-                                                        <div class="input-group">
-                                                            <div class="input-group-addon">
-                                                                <i class="fa fa-calendar"></i></div>
-                                                            <input class="form-control" id="date" name="date_fin"
-                                                                   placeholder="YYYY-MM-DD" type="text" required/>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="input-group clockpicker">
-														<span class="input-group-addon">
-															<span class="glyphicon glyphicon-time"></span>
-															</span>
-                                                        <input type="text" class="form-control" value="23:30"
-                                                               name="heure_fin">
 
-                                                    </div>
-                                                </div>
+                                        <div class="form-group form-group-translation et">
+                                            <label class="control-label">
+                                                <span>Notes additionnel sur l'heure</span>
+                                            </label>
+                                            <textarea class="form-control"
+                                                      style=" word-wrap: break-word; resize: horizontal; height: 54px;"
+                                                      name="note_time"></textarea>
+                                        </div>
+                                        <hr>
+                                    </div>
+                                    <!-- heure end-->
+                                    <hr>
+                                    <!-- location start -->
+                                    <div class="panel-body border-bottom">
+                                        <h2>Localisation :</h2>
+                                        <form>
+                                            <div class="form-group">
+                                                <label for="email">Nom:*</label>
+                                                <input type="Adresse" class="form-control" id="email"
+                                                       name="localisation_nom">
+                                                <p>E.X:Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
                                             </div>
-                                        </div>
+                                            <div class="form-group">
+                                                <label for="adresses">Adresse:</label>
+                                                <input type="Adresse" class="form-control" id="adress"
+                                                       name="localisation_adresse">
+                                                <em>Entrer l'adresse exact pour l'affichage des directions sur la
+                                                    carte</em>
+                                                <p>E.X:Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
+                                            </div>
+
+                                        </form>
+
                                     </div>
 
-                                    <div class="form-group form-group-translation et">
-                                        <label class="control-label">
-                                            <span>Notes additionnel sur l'heure</span>
-                                        </label>
-                                        <textarea class="form-control" style=" word-wrap: break-word; resize: horizontal;
-                                        height: 54px;" name="note_time"></textarea>
-                                    </div>
-                                </div>
-                                <!-- heure end-->
-                                <hr>
-                                <!-- location start -->
-                                <div class="panel-body border-bottom">
-                                    <h2>Localisation :</h2>
-                                    <form>
+                                    <!-- location end -->
+                                    <hr>
+                                    <!-- organisateur start -->
+                                    <div class="panel-body">
+                                        <h2>Organisateur</h2>
                                         <div class="form-group">
-                                            <label for="email">Nom (*) :</label>
-                                            <input type="Adresse" class="form-control" id="email"
-                                                   name="localisation_nom">
-                                            <p>E.X:Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
+                                            {{ Auth::user()->name }}
+                                            <a class="btn btn-default editer" target="_blank"
+                                               href="{{url('/')}}/profile/{{ Auth::user()->id }}/edit">Editer</a>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="adresses">Adresse:</label>
-                                            <input type="Adresse" class="form-control" id="adress"
-                                                   name="localisation_adresse">
-                                            <em>Entrer l'adresse exact pour l'affichage des directions sur la carte</em>
-                                            <p>E.X:Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
-                                        </div>
-
-                                    </form>
-
-                                </div>
-
-                                <!-- location end -->
-                                <hr>
-                                <!-- organisateur start -->
-                                <div class="panel-body">
-                                    <h2>Organisateur</h2>
-                                    <div class="form-group">
-                                        {{ Auth::user()->name }}
-                                        <a class="btn btn-default editer" target="_blank"
-                                           href="{{url('/')}}/profile/{{ Auth::user()->id }}/edit">Editer</a>
                                     </div>
-                                </div>
-                                <!-- organisateur end -->
-                                <p style="text-align: right;margin: 15px;"><i>(*) Champs olbligatoires</i></p>
-                                <div class="Confirme">
-                                    <button type="submit" class="btn btn-default enregistrer ">Enregistrer</button>
-                                </div>
+                                    <!-- organisateur end -->
 
-                            </div>
-                        </form>
+                                    <div class="Confirme">
+                                        <button type="submit" class="btn btn-default enregistrer ">Enregistrer</button>
+                                    </div>
+
+                                </div>
+                            </form>
+                        </div>
 
                     </div>
 
-                    <!------------------------------------Commandes--------------------------------------------------------------------------->
+                    <!------------------------------------Commandes------------------------------------------------------------------------ -->
 
                     <div id="div_commandes" class="hide">
                         <div id="commande">
@@ -241,16 +294,24 @@
                                         </thead>
                                         <tbody>
                                         <tr>
-                                            <td><input type="text" class="form-control" id="usr"></td>
-                                            <td><input type="text" class="form-control" id="usr"></td>
-                                            <td><input type="text" class="form-control" id="usr"></td>
-                                            <td><select class="form-control">
+                                            <td>
+                                                <input type="text" class="form-control" id="usr">
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control" id="usr">
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control" id="usr">
+                                            </td>
+                                            <td>
+                                                <select class="form-control">
                                                     <option>Terminé</option>
                                                     <option>En attendant</option>
                                                     <option>Expiré</option>
                                                     <option>Annulé</option>
                                                     <option>Remboursé</option>
-                                                </select></td>
+                                                </select>
+                                            </td>
                                         </tbody>
                                     </table>
                                 </div>
@@ -261,11 +322,12 @@
 
                     <!------------------------------------Commande-end--------------------------------------------------------------------------->
 
-                    <!-------------------------------------rapport------------------------------------------------------------------------->
+                    <!-- -----------------------------------rapport----------------------------------------------------------------------- -->
 
                     <div id="div_rapport" class="hide">
-                        <div id="rapport">
 
+                        <div id="rapport" class="com_contenu">
+                            <h2>Rapports</h2>
                             <ul class="nav nav-tabs nav-tabs1">
                                 <li class="active ">
                                     <a href="#1" data-toggle="tab">Aperçu</a>
@@ -642,7 +704,6 @@
                                                     </g>
                                                 </svg>
 
-
                                             </div>
 
                                         </div>
@@ -680,10 +741,8 @@
                                                             <tbody>
                                                             </tbody>
 
-
                                                         </table>
                                                     </div>
-
 
                                                 </div>
 
@@ -728,10 +787,8 @@
                                                             <tbody>
                                                             </tbody>
 
-
                                                         </table>
                                                     </div>
-
 
                                                 </div>
 
@@ -772,10 +829,8 @@
                                                             <tbody>
                                                             </tbody>
 
-
                                                         </table>
                                                     </div>
-
 
                                                 </div>
 
@@ -805,14 +860,14 @@
                                                 </div>
                                                 <div class="col-lg-2">
                                                     <h2>{{$ticket->price}}</h2>
-                                                    <p>AR</p>
+                                                    <p>Ar</p>
                                                 </div>
                                                 <div class="col-lg-4">
                                                     <h2>
                                                         <div class="btn-group pull-right">
                                                             <button type="button" class="btn btn-default">
-                                                        <span class="glyphicon glyphicon-edit"
-                                                              aria-hidden="true"></span>
+                                                                <span class="glyphicon glyphicon-edit"
+                                                                      aria-hidden="true"></span>
                                                                 Edit
                                                             </button>
                                                             <button type="button"
@@ -825,8 +880,7 @@
                                                             <ul class="dropdown-menu menu_type">
                                                                 <li><a href="#"><span
                                                                                 class="glyphicon glyphicon-chevron-up"
-                                                                                aria-hidden="true"></span> Déplacer
-                                                                        vers
+                                                                                aria-hidden="true"></span> Déplacer vers
                                                                         le haut</a></li>
                                                                 <li><a href="#"><span
                                                                                 class="glyphicon glyphicon-chevron-down"
@@ -835,8 +889,7 @@
                                                                 <li role="separator" class="divider"></li>
                                                                 <li><a href="#"><span
                                                                                 class="glyphicon glyphicon-duplicate"
-                                                                                aria-hidden="true"></span>
-                                                                        Dupliquer</a>
+                                                                                aria-hidden="true"></span> Dupliquer</a>
                                                                 </li>
                                                             </ul>
                                                         </div>
@@ -844,14 +897,16 @@
                                                 </div>
                                             </div>
                                             <p>Nombre de billets: {{$ticket->number}}</p>
+
                                         </div>
                                     @endforeach
                                 @endif
+
                                 <a class="btn btn-primary btn-outline text-center center-block primary" role="button"
                                    onClick="changePage('div_ticket','a_type')">
                                     <i aria-hidden="true"></i> <span class="glyphicon glyphicon-plus"
-                                                                     aria-hidden="true"></span> Ajouter
-                                    le type de ticket
+                                                                     aria-hidden="true"></span> Ajouter le type de
+                                    ticket
                                 </a>
                             </div>
                             <div class="com_contenu_type">
@@ -860,15 +915,12 @@
                                     <div class="col-lg-6">
                                         <label>
                                             Nombre maximum de billets</label>
-                                        <div class="input-group group"><input type="number" name="ticket_limit"
-                                                                              value="15"
-                                                                              id="ticket_limit" class="form-control"
-                                                                              placeholder="∞"
-                                                                              min="0">
+                                        <div class="input-group group">
+                                            <input type="number" name="ticket_limit" value="15" id="ticket_limit"
+                                                   class="form-control" placeholder="∞" min="0">
                                             <span class="input-group-addon">tickets</span></div>
                                         <p>Nombre maximum de billets pour l'ensemble de l'événement. Vous pouvez
-                                            également définir les
-                                            limites par type de ticket.</p>
+                                            également définir les limites par type de ticket.</p>
                                     </div>
                                     <div class="col-lg-6">
                                         <label>Taxe sur la valeur ajoutée</label>
@@ -886,7 +938,6 @@
                                     </div>
                                 </div>
 
-
                             </div>
                             <div class="com_contenu_type_foot">
                                 <button type="button" class="btn btn-danger bout">Enregistrer</button>
@@ -895,9 +946,9 @@
 
                         </div>
                     </div>
-                    <!------------------------------------type-ticket-end--------------------------------------------------------------------------->
+                    <!------------------------------------type-ticket-end------------------------------------------------------------------------- -->
 
-                    <!------------------------------------Ticket validé--------------------------------------------------------------------------->
+                    <!------------------------------------Ticket validé------------------------------------------------------------------------- -->
 
                     <div id="div_valideTicket" class="hide">
                         <div id="billet">
@@ -905,10 +956,9 @@
                                 <h2>Validation des billets</h2>
                                 <p>
                                     Pour valider les tickets, vous aurez besoin d'un appareil mobile ou d'un ordinateur
-                                    et d'une connexion Internet.
-
-                                    Vous pouvez utiliser cet <a href="#" target="_blank">Exemple de ticket</a> pour
-                                    vérifier si la validation fonctionne correctement.</p><br>
+                                    et d'une connexion Internet. Vous pouvez utiliser cet <a href="#" target="_blank">Exemple
+                                        de ticket</a> pour vérifier si la validation fonctionne correctement.</p>
+                                <br>
                                 <h3>Appareils mobiles</h3>
                                 <hr/>
                                 <p>Téléchargez notre application gratuite:</p>
@@ -929,25 +979,20 @@
 
                     <!------------------------------------Ticket validé-end------------------------------------------------------------------------->
 
-
                     <!------------------------------------Site web-------------------------------------------------------------------------->
 
                     <div id="div_siteweb" class="hide">
                         <div class="com_contenu_type">
                             <h2>Apparence du site</h2>
                             <label class="control-label" for="slug">Adresse web</label>
-                            <div class="input-group"><span class="input-group-addon">http://----</span><input
-                                        type="text" name="slug"
-                                        value="mon_événement"
-                                        id="slug"
-                                        class="form-control"
-                                        data-fv-field="slug">
+                            <div class="input-group"><span class="input-group-addon">http://----</span>
+                                <input type="text" name="slug" value="mon_événement" id="slug" class="form-control"
+                                       data-fv-field="slug">
                                 <span class="input-group-addon">
                 <a href="#" target="_blank"><i class="fa fa-external-link"></i></a></span></div>
                             <br/>
                             <p>L'adresse de la page de vente de billets. Vous pouvez changer cela, mais sachez que le
-                                lien précédent ne
-                                fonctionnera plus.</p>
+                                lien précédent ne fonctionnera plus.</p>
                             <div class="form-group form-group-translation">
                                 <label class="control-label" for="en[image_pdf_file]">
                                     <span>Image</span>
@@ -968,7 +1013,6 @@
                                             onclick="buttonClick()">Supprimer
                                     </button>
 
-
                                 </div>
                                 <input type="hidden" class="delete" name="en[image_pdf_delete]"
                                        id="en[image_pdf_delete]">
@@ -985,12 +1029,12 @@
                     </div>
                     <!------------------------------------Site web-end--------------------------------------------------------------------------->
 
-                    <!------------------------------------PDF--------------------------------------------------------------------------->
+                    <!------------------------------------PDF------------------------------------------------------------------------- -->
 
                     <div id="div_pdf" class="hide">
 
                         <div class="com_contenu_type">
-                            <h2>Informations sur le ticket</h2>
+                            <h2>Informations sur le ticket PDF</h2>
 
                             <div class="form-group">
                                 <label>
@@ -1017,7 +1061,6 @@
                                     <button id="button1" type="button" class="btn btn-danger hide"
                                             onclick="button1Click()">Supprimer
                                     </button>
-
 
                                 </div>
                                 <input type="hidden" class="delete" name="en[image_pdf_delete]"
@@ -1050,9 +1093,8 @@
                         <div class="com_contenu_type">
                             <h2>Aperçu des tickets</h2>
                             <p>Toutes les données du ticket sont incluses dans le corps du courrier électronique et dans
-                                le fichier .pdf
-                                joint.</p>
-
+                                le fichier .pdf joint.
+                            </p>
 
                             <ul class="nav nav-tabs nav-tabs1">
                                 <li class="active ">
@@ -1069,10 +1111,10 @@
                                     <div class=" row menu_int1">
                                         <div class="menu_int2">
                                             <div class="com_contenu_type">
-                                                <h2>Tapakila</h2>
+                                                <h2>leguichet</h2>
                                                 <p>Merci, voici vos billets! Lorsque vous participez, indiquez le code
-                                                    dans ce courrier
-                                                    électronique ou utilisez le fichier .pdf ci-joint</p>
+                                                    dans ce courrier électronique ou utilisez le fichier .pdf
+                                                    ci-joint</p>
                                                 <hr/>
                                                 <h2>Mes évènements</h2>
                                                 <strong>Tue 25. July 2017 - 14:00</strong>
@@ -1091,25 +1133,23 @@
 
                                         </div>
                                         <table role="presentation" cellspacing="0" cellpadding="0" border="0"
-                                               align="center"
-                                               width="100%" style="max-width: 680px;">
+                                               align="center" width="100%" style="max-width: 680px;">
                                             <tbody>
                                             <tr>
                                                 <td style="padding: 15px 10px 40px 10px; width: 100%; font-family: sans-serif; text-align: center; color: #888888;">
                                                     <p class="small" style="font-size: 13px; line-height:22px;">
-                                                        Ticket order 123456<br>
-                                                        This email has been sent to <a
+                                                        Ticket order 123456
+                                                        <br> This email has been sent to <a
                                                                 href="mailto:dinavonjy@icloud.com">dinavonjy@icloud
-                                                            .com</a><br>
+                                                            .com</a>
+                                                        <br>
                                                         <a href="#" style="color:#2CB0E1; text-decoration: none;">Piletimasin</a>
-                                                        ·
-                                                        Organize your event
+                                                        · Organize your event
                                                     </p>
                                                 </td>
                                             </tr>
                                             </tbody>
                                         </table>
-
 
                                     </div>
                                 </div>
@@ -1135,33 +1175,30 @@
                                 </div>
                             </div>
 
-
                         </div>
 
                     </div>
                     <!------------------------------------PDF-end--------------------------------------------------------------------------->
 
-
-                    <!------------------------------------Champ additionel--------------------------------------------------------------------------->
+                    <!------------------------------------Champ additionel------------------------------------------------------------------------- -->
 
                     <div id="div_cpersonalize" class="hide">
                         <div class="com_contenu_type1">
-                            <h2>Les champs personnalisés</h2>
+                            <h2>Les champs additioneles</h2>
                             <p>
                                 Par défaut, les clients sont invités à fournir une seule adresse électronique et un
-                                numéro de téléphone
-                                obligatoires. Ici, vous pouvez ajouter d'autres questions telles que le prénom,
-                                l'adresse etc.</p>
+                                numéro de téléphone obligatoires. Ici, vous pouvez ajouter d'autres questions telles que
+                                le prénom, l'adresse etc.</p>
                         </div>
                         <div class="com_contenu_type2">
                             <h2>Champs personnalisés par participant</h2>
-                            <a href=#" class="btn btn-primary btn-outline text-center center-block primary"
-                               role="button">
-                                <i aria-hidden="true"></i> <span class="glyphicon glyphicon-plus"
-                                                                 aria-hidden="true"></span> Ajouter
+                            <a href=# " class="btn btn-primary btn-outline text-center center-block primary "
+                            role="button ">
+                            <i aria-hidden="true "></i> <span class="glyphicon glyphicon-plus "
+                                                              aria-hidden="true "></span> Ajouter
                             </a>
                         </div>
-                        <div class="com_contenu_type2">
+                        <div class="com_contenu_type2 ">
                             <h2>Champs personnalisés par participant</h2>
                             <a href=#" class="btn btn-primary btn-outline text-center center-block primary"
                                role="button">
@@ -1173,29 +1210,28 @@
                     </div>
                     <!------------------------------------Champ additionel-end--------------------------------------------------------------------------->
 
-
-                    <!------------------------------------Methode des payements--------------------------------------------------------------------------->
+                    <!------------------------------------Methode des payements------------------------------------------------------------------------- -->
 
                     <div id="div_paiement" class="hide">
-                        <div class="com_contenu_type1">
-                            <h2>Liens et cartes bancaires</h2>
-                            <div class="row">
+                        <div class="com_contenu_type12">
+                            <h2>Le méthodes des paiements</h2>
+                            <!-- <div class="row">
                                 <div class="col-lg-6">
                                     <label class="control-label block">Liens et cartes bancaires activés</label>
                                     <div class="form-group">
 
                                         <div class="checkbox">
-                                            <label><input type="checkbox" value="" checked="checked" disabled>Liens
-                                                bancaires estoniens</label>
+                                            <label>
+                                                <input type="checkbox" value="" checked="checked" disabled>Liens bancaires estoniens</label>
                                         </div>
                                         <div class="checkbox">
-                                            <label><input type="checkbox" value="" checked="checked" disabled>Liens
-                                                bancaires en
-                                                Lettonie</label>
+                                            <label>
+                                                <input type="checkbox" value="" checked="checked" disabled>Liens bancaires en Lettonie
+                                            </label>
                                         </div>
                                         <div class="checkbox disabled">
-                                            <label><input type="checkbox" value="" checked="checked" disabled>Cartes de
-                                                crédit</label>
+                                            <label>
+                                                <input type="checkbox" value="" checked="checked" disabled>Cartes de crédit</label>
                                         </div>
                                     </div>
                                 </div>
@@ -1210,15 +1246,71 @@
                                     <div class="form-group">
 
                                         <div class="checkbox">
-                                            <label><input type="checkbox" value="" checked="checked" disabled>
-                                                Piletimasin can send my customers invoices which are genereted behalf of
-                                                my
-                                                organisation.
-                                                Preview
+                                            <label>
+                                                <input type="checkbox" value="" checked="checked" disabled> Piletimasin can send my customers invoices which are genereted behalf of my organisation. Preview
                                                 <a href="#" target="_blank">invoice example</a>.
                                             </label>
                                         </div>
                                     </div>
+
+                                </div>
+
+                            </div> -->
+
+
+                            <div class="modepaimenent">
+
+
+                                <div class="row">
+
+                                    <div id="ticket-radio2">
+                                        <div class="btn-group" data-toggle="buttons">
+                                            <div class="col-lg-4 col-sm-6">
+                                                <div class="radio">
+                                                    <label class="button  active">
+                                                        <img class="logo" src="./img/logmvola.png" alt="">
+                                                        <b class="operateura">Telma Mvola</b>
+                                                        <label class="custom-control custom-checkbox che pull-right">
+                                                            <input type="checkbox" class="custom-control-input">
+                                                            <span class="custom-control-indicator"></span>
+                                                            <span class="custom-control-description"></span>
+                                                        </label>
+
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-4 col-sm-6">
+                                                <div class="radio">
+                                                    <label class="button  ">
+                                                        <img class="logo" src="./img/logmartel.png" alt="">
+                                                        <b class="operateura">Airtel money</b>
+                                                        <label class="custom-control custom-checkbox che pull-right">
+                                                            <input type="checkbox" class="custom-control-input">
+                                                            <span class="custom-control-indicator"></span>
+                                                            <span class="custom-control-description"></span>
+                                                        </label>
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-4 col-sm-12">
+                                                <div class="radio">
+                                                    <label class="button  ">
+                                                        <img class="logo" src="./img/logmorange.png" alt="">
+                                                        <b class="operateura">Orange money</b>
+                                                        <label class="custom-control custom-checkbox che pull-right">
+                                                            <input type="checkbox" class="custom-control-input">
+                                                            <span class="custom-control-indicator"></span>
+                                                            <span class="custom-control-description"></span>
+                                                        </label>
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
 
                                 </div>
 
@@ -1232,11 +1324,11 @@
                                     <div class="form-group">
 
                                         <div class="checkbox">
-                                            <label><input type="checkbox" value="" id="check" onchange="changing()">
+                                            <label>
+                                                <input type="checkbox" value="" id="check" onchange="changing()">
                                                 Autoriser le paiement par facture. L'acheteur recevra une facture émise
-                                                au nom de ma
-                                                société. La réception du paiement et
-                                                l'exécution de la commande seront traitées par Piletimasin.
+                                                au nom de ma société. La réception du paiement et l'exécution de la
+                                                commande seront traitées par Piletimasin.
                                                 <a href="#" target="_blank">Aperçu de l'exemple de facturation.</a>.
                                             </label>
                                         </div>
@@ -1247,16 +1339,16 @@
                                     <div id="div_menu" class="hide">
                                         <label>Tickets</label>
                                         <div class="radio">
-                                            <label><input type="radio" name="optradio" checked="checked">Les billets
-                                                sont envoyés à la réception du
-                                                paiement.</label>
+                                            <label>
+                                                <input type="radio" name="optradio" checked="checked">Les billets sont
+                                                envoyés à la réception du paiement.
+                                            </label>
                                         </div>
                                         <div class="radio">
-                                            <label><input type="radio" name="optradio">Les billets sont envoyés
-                                                immédiatement lorsque la
-                                                commande est effectuée, ainsi que la facture. En tant qu'organisateur,
-                                                je risque de
-                                                recevoir le paiement.</label>
+                                            <label>
+                                                <input type="radio" name="optradio">Les billets sont envoyés
+                                                immédiatement lorsque la commande est effectuée, ainsi que la facture.
+                                                En tant qu'organisateur, je risque de recevoir le paiement.</label>
                                         </div>
                                     </div>
                                 </div>
@@ -1278,157 +1370,162 @@
                             }
                         </script>
 
-
                     </div>
                     <!------------------------------------Methode de payement-end--------------------------------------------------------------------------->
 
-
                     <!---------------------------ticket---------------------------------------------------------------------------------------->
 
-                    <!----------------------------------création-ticket------------------------------------->
+                    <!----------------------------------création-ticket----------------------------------- -->
                     <div id="div_ticket" class="hide">
-                        {!! Form::open(['id' => 'ticket-form', 'route' => 'ticket.store','role' => 'ticket', 'method' => 'POST'] ) !!}
+
                         <div class="com_contenu_type1">
                             <div class="ticket_details">
-                                <h2>Détails du type de ticket</h2><br/>
-                                {{ csrf_field() }}
-                                <div class="form-group">
-                                    <label for="usr">Nom du type de ticket:*</label>
-                                    {!! Form::text('type', null, ['class' => 'form-control', 'id' => 'ticket_type', 'required', 'autofocus']) !!}
-                                    Par exemple. "Ticket régulier", "Early Bird", "Student"
-                                    </span>
-                                </div>
+                                <h2>Détails du type de ticket</h2>
+                                <br/>
+                                <form>
+                                    <div class="form-group">
+                                        <label for="usr">Nom du type de ticket:*</label>
+                                        <input type="text" class="form-control" id="usr">
+                                        <span class="help-block">
+					  Par exemple. "Ticket régulier", "Early Bird", "Student"
+					  </span>
 
-                                <div class="form-group">
-                                    <label for="usr">La description</label>
-                                    <textarea name="description" class="form-control" style="height: 100px;"></textarea>
-                                    <span class="help-block">
-					                    Par exemple. "Vendu jusqu'au 23 juin" ou "Préparez-vous à montrer votre carte étudiante"
-					                </span>
-                                    <br/>
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <label>
-                                                Prix unitaire du ticket</label>
-                                            <div class="input-group group chiffre1">
-                                                {!! Form::number('price', null, ['class' => 'form-control', 'id' => 'ticket_price','step'=>'0.01','required', 'autofocus']) !!}
-                                                <span class="input-group-addon">AR</span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="usr">La description</label>
+                                        <input type="text" class="form-control" id="usr">
+                                        <span class="help-block">
+					  Par exemple. "Vendu jusqu'au 23 juin" ou "Préparez-vous à montrer votre carte étudiante"
+					  </span>
+                                        <br/>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <label>
+                                                    Nombre maximum de billets</label>
+                                                <div class="input-group group chiffre1">
+                                                    <input type="number" name="ticket_limit" value="0.01"
+                                                           id="ticket_limit" class="form-control" placeholder="∞"
+                                                           min="0" step="0.01">
+                                                    <span class="input-group-addon">AR</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
                                             </div>
                                         </div>
-                                        <div class="col-lg-6">
-                                        </div>
+                                        <p class="help-block">Prix ​​de l'utilisateur final par billet incluant <a
+                                                    href="index.html" target="_blank" class="aa">Frais leguichet</a> Et
+                                            TVA, le cas échéant</p>
+
                                     </div>
-                                    <p class="help-block">Prix ​​de l'utilisateur final par billet incluant <a
-                                                href="index.html" target="_blank" class="aa">Frais Tapakila</a> Et
-                                        TVA, le cas échéant</p>
-                                    <br>
-                                </div>
+                                </form>
+
                             </div>
                         </div>
                         <div class="com_contenu_type2">
-                            <h2>Avancée</h2><br/>
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <label>
-                                        Nombre maximum de billets
-                                    </label>
-                                    <div class="input-group group chiffre1">
-                                        {!! Form::number('number', null, ['class' => 'form-control', 'id' => 'ticket_number', 'min' => '0','required', 'autofocus']) !!}
-                                        <span class="input-group-addon">Tickets</span>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                </div>
-                            </div>
-                            {{--<p class="help-block">Le nombre maximum de tickets pour l'événement entier est défini sur--}}
-                            {{--"15".</p>--}}
-                            <p class="help-block">Ici, vous pouvez définir une limite supplémentaire pour ce type de
-                                ticket uniquement. Il sera caché à partir de la page d'achat une fois épuisé</p>
+                            <h2>Avancée</h2>
                             <br/>
-                            <label>Disponible entre les dates, y compris:</label>
-                            <div class="row" id="event-duration">
+                            <form>
                                 <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <div class="input-group">
-                                                <div class="input-group-addon">
-                                                    <i class="fa fa-calendar"></i>
+                                    <div class="col-lg-6">
+                                        <label>
+                                            Nombre maximum de billets</label>
+                                        <div class="input-group group chiffre1">
+                                            <input type="number" name="ticket_limit" id="ticket_limit"
+                                                   class="form-control" placeholder="" min="0">
+                                            <span class="input-group-addon">Tickets</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                    </div>
+                                </div>
+                                <p class="help-block">Le nombre maximum de tickets pour l'événement entier est défini
+                                    sur "15".</p>
+                                <p class="help-block">Ici, vous pouvez définir une limite supplémentaire pour ce type de
+                                    ticket uniquement. Il sera caché à partir de la page d'achat une fois épuisé</p>
+                                <br/>
+                                <label>Disponible entre les dates, y compris:</label>
+                                <div class="row" id="event-duration">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-calendar"></i></div>
+                                                    <input class="form-control" id="date" name="date"
+                                                           placeholder="MM/DD/YYYY" type="text"/>
                                                 </div>
-                                                {!! Form::text('date_debut_vente', null, ['class' => 'form-control', 'id' => 'date','placeholder'=>'YYYY-MM-DD','required', 'autofocus']) !!}
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">
+                                                        <i>à</i></div>
+                                                    <input class="form-control" id="date" name="date"
+                                                           placeholder="MM/DD/YYYY" type="text"/>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+
+                                </div>
+                                <p class="help-block">Toute la vente de billets d'événement commence "Quand je publie
+                                    cet événement" et finit "Seulement lorsque tous les billets ont été vendus"</p>
+                                <p class="help-block">Ici, vous pouvez définir une limite supplémentaire pour ce type de
+                                    ticket uniquement.</p>
+                                <br/>
+                                <div class="row">
+                                    <div class="col-lg-6">
                                         <div class="form-group">
-                                            <div class="input-group">
-                                                <div class="input-group-addon">
-                                                    <i>à</i>
-                                                </div>
-                                                {!! Form::text('date_fin_vente', null, ['class' => 'form-control', 'id' => 'date','placeholder'=>'YYYY-MM-DD','required', 'autofocus']) !!}
-                                            </div>
+                                            <label for="usr">Code de réduction</label>
+                                            <input type="text" class="form-control" id="usr">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <label>Prix ​​discount</label>
+                                        <div class="input-group group chiffre">
+                                            <input type="number" name="ticket_limit" id="ticket_limit"
+                                                   class="form-control" placeholder="" min="0" step="0.01">
+                                            <span class="input-group-addon">AR</span>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <p class="help-block">Toute la vente de billets d'événement commence "Quand je publie
-                                cet événement" et finit "Seulement lorsque tous les billets ont été vendus"</p>
-                            <p class="help-block">Ici, vous pouvez définir une limite supplémentaire pour ce type de
-                                ticket uniquement.</p>
-                            <br/>
+                                <div class="form-group">
+                                    <label for="usr">Prix ​​discount</label>
+                                    <input type="text" class="form-control" id="usr">
+                                </div>
+                                <label>Commande manuelle</label>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" value="">Ce type de billet est temporairement non
+                                        vendu</label>
+                                </div>
+
                         </div>
                         <div class="com_contenu_type_foot">
-                            <button type="submit" class="btn btn-danger bout"
-                            {{--onClick="changePage('div_type', 'a_type')--}}">Enregistrer
+                            <button type="button" class="btn btn-danger bout"
+                                    onClick="changePage('div_type', 'a_type')">Enregistrer
                             </button>
                             <button type="button" class="btn btn-danger bout1"
                                     onClick="changePage('div_type', 'a_type')">Annuler
                             </button>
+
                         </div>
+                        </form>
+
                     </div>
-                    @if(isset($event))
-                        {!! Form::hidden('events_id', $event[0]->id, ['class' => 'form-control']) !!}
-                    @endif
+                    <!----------------------------------création ticket-end------------------------------------->
 
-                    {!! Form::close() !!}
+                    <!---------------------------ticket-end--------------------------------------------------------------------------------------->
                 </div>
-                <!----------------------------------création ticket-end------------------------------------->
 
-                <!---------------------------ticket-end--------------------------------------------------------------------------------------->
                 <!-- menu droit start -->
-                <div class="col-lg-3 col-sm-3">
-                    <ul class="navtab">
-                        <li class="categorimenu"><strong>Achats</strong></li>
-                        <li><a href="#" id="a_rapport" onClick="changePage('div_rapport', 'a_rapport')">Rapports</a>
-                        </li>
-                        <li><a href="#" id="a_commandes"
-                               onClick="changePage('div_commandes', 'a_commandes')">Commandes</a></li>
-                        <li><a href="#" id="a_valideTicket"
-                               onClick="changePage('div_valideTicket', 'a_valideTicket')">Tickets
-                                Validés</a></li>
-                        <li class="categorimenu"><strong>Editer</strong></li>
-                        <li><a href="#" id="a_details" class="select"
-                               onClick="changePage('div_details', 'a_details')">Détails</a>
-                        </li>
-                        <li><a href="#" id="a_type" onClick="changePage('div_type', 'a_type')">Types de Ticket &amp;
-                                prix</a></li>
-                        <li><a href="#" id="a_siteweb" onClick="changePage('div_siteweb', 'a_siteweb')">Site web</a>
-                        </li>
-                        <li><a href="#" id="a_pdf" onClick="changePage('div_pdf', 'a_pdf')">PDF</a></li>
-                        <li><a href="#" id="a_cpersonalize"
-                               onClick="changePage('div_cpersonalize', 'a_cpersonalize')">Champs
-                                additioneles</a></li>
-                        <li class="categorimenu"><strong>Paramètre</strong></li>
-                        <li><a href="#" id="a_paiement" onClick="changePage('div_paiement', 'a_paiement')">Méthodes
-                                de
-                                payements</a></li>
-                    </ul>
-                </div>
+
 
             </div>
 
-        </div>
-        </div>
-        <!-- End Page -->
+            <!-- End Page -->
+
     </section>
 @endsection
 
