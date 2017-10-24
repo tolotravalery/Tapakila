@@ -54,7 +54,8 @@
                         </div>
                     </div>
                     <a class="btn btn-sm btn-default btn-aperçu " href="#" target="_blank">Aperçu</a>
-                    <p><i style="color:red;">La modification d'une publication évènement est accordé par l'administrateur</i></p>
+                    <p><i style="color:red;">La modification d'une publication évènement est accordé par
+                            l'administrateur</i></p>
                 </div>
             </div>
 
@@ -886,6 +887,7 @@
                                                 </div>
                                                 <p>Nombre de billets: {{$ticket->number}}</p>
                                             </div>
+
                                         @endforeach
                                     @endif
                                     <a class="btn btn-primary btn-outline text-center center-block primary" role="button"
@@ -924,11 +926,13 @@
                                                     <input type="radio" name="optradio">0%
                                                 </label>
                                             </form>
+
                                         </div>
                                     </div>
 
 
                                 </div>
+
                                 <div class="com_contenu_type_foot">
                                     <button type="button" class="btn btn-danger bout">Enregistrer</button>
 
@@ -965,8 +969,10 @@
 
                                 </div>
 
+
                             </div>
                         </div>
+
 
                         <!------------------------------------Ticket validé-end------------------------------------------------------------------------->
 
@@ -1045,6 +1051,7 @@
                         <!------------------------------------PDF--------------------------------------------------------------------------->
 
                         <div id="div_pdf" class="hide">
+
 
                             <div class="com_contenu_type">
                                 <h2>Informations sur le ticket</h2>

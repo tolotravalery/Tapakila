@@ -113,7 +113,7 @@
                                                 {{$t->price}}<br/>
                                             @endforeach
                                             @else
-                                                Ticket indisponible
+                                                Indisponible
                                             @endif
                                         </td>
 
@@ -129,8 +129,8 @@
                                 <thead>
                                 <tr>
                                     <th scope="col" class=""><b class="bold">Evènement</b></th>
-                                    <th scope="col"><b class="bold">Tickets</b></th>
                                     <th scope="col"><b class="bold">Date</b></th>
+                                    <th scope="col"><b class="bold">Tickets</b></th>
                                     <th scope="col"><b class="bold">Prix Unitaire</b></th>
                                     <th scope="col"><b class="bold"></b></th>
                                 </tr>
@@ -164,10 +164,10 @@
                                                     {{$t->price}} Ar<br/>
                                                 @endforeach
                                             @else
-                                                Ticket indisponible
+                                                Indisponible
                                             @endif
                                         </td>
-                                        <td data-label=""><p><a href="organisateur/event/{{$e->id}}/edit" alt="Supprimer" class="rapport">Editer</a></p>
+                                        <td data-label=""><p><a href="organisateur/event/{{$e->id}}/edit" alt="Edit" class="rapport">Editer</a></p>
                                         </td>
                                     </tr>
                                 @endforeach

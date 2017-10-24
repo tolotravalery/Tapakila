@@ -8,6 +8,7 @@
 @endsection
 
 @section('content')
+
     <section id="sectioncategorie" class="clearfix">
         <div class="container custom-container">
             <ul class="clearfix">
@@ -104,6 +105,7 @@
                 </div>
                 <div class="col-lg-9 col-sm-9 ">
                     <div id="div_details">
+
                         <div class="com_contenu_type">
                             <form enctype="multipart/form-data" class="form-horizontal" role="form" method="POST"
                                   action="{{ route('event') }}">
@@ -157,9 +159,11 @@
                                                 <span>Description : *</span>
                                             </label>
                                             <textarea class="form-control" style=" word-wrap: break-word; resize: horizontal;
+
                                         height: 150px;" name="note" required></textarea>
                                         </div>
                                     </div>
+
                                     <hr>
                                     <!-- detail end -->
 
@@ -178,20 +182,24 @@
                                                                 <input class="form-control" id="date" name="date_debut"
                                                                        placeholder="YYYY-MM-DD" type="text" required/>
                                                             </div>
+
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="input-group clockpicker">
                                                         <span class="input-group-addon">
 															<span class="glyphicon glyphicon-time"></span>
+
                                                         </span>
                                                             <input type="text" class="form-control" value="23:30"
                                                                    name="heure_debut">
+
 
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+
                                             <div class="col-md-6">
                                                 <div class="row">
                                                     <div class="col-md-6">
@@ -203,16 +211,19 @@
                                                                 <input class="form-control" id="date" name="date_fin"
                                                                        placeholder="YYYY-MM-DD" type="text" required/>
                                                             </div>
+
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="input-group clockpicker">
                                                         <span class="input-group-addon">
 															<span class="glyphicon glyphicon-time"></span>
+
                                                         </span>
                                                             <input type="text" class="form-control" value="23:30"
                                                                    name="heure_fin">
                                                         </div>
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -253,11 +264,13 @@
 
                                     </div>
 
+
                                     <!-- location end -->
                                     <hr>
                                     <!-- organisateur start -->
                                     <div class="panel-body">
                                         <h2>Organisateur</h2>
+
                                         <div class="form-group">
                                             {{ Auth::user()->name }}
                                             <a class="btn btn-default editer" target="_blank"
@@ -269,6 +282,8 @@
                                     <div class="Confirme">
                                         <button type="submit" class="btn btn-default enregistrer ">Enregistrer</button>
                                     </div>
+
+
 
                                 </div>
                             </form>
@@ -377,7 +392,6 @@
                                         </div>
                                         <div class="com_contenu_type2">
                                             <h2>Billets vendus au cours des 30 derniers jours</h2>
-
                                             <div id="chart-sales" class="ct-chart ct-octave">
                                                 <svg class="ct-chart-bar" style="width: 100%; height: 100%;">
                                                     <g class="ct-grids">
@@ -704,8 +718,9 @@
                                                     </g>
                                                 </svg>
 
-                                            </div>
 
+
+                                            </div>
                                         </div>
                                     </form>
                                 </div>
@@ -725,10 +740,8 @@
                                                         <a class="btn btn-default btn-xs" href="#">.xls</a>
                                                         <a class="btn btn-default btn-xs" href="#">.csv</a>
                                                     </p>
-
                                                     <div class="table-responsive">
                                                         <table class="table table-hover table-striped">
-
                                                             <thead class="bg-blue-grey-100">
                                                             <tr>
                                                                 <th>Date</th>
@@ -737,18 +750,17 @@
                                                                 <th class="text-right">Billets</th>
                                                             </tr>
                                                             </thead>
-
                                                             <tbody>
                                                             </tbody>
+
 
                                                         </table>
                                                     </div>
 
-                                                </div>
 
+                                                </div>
                                             </div>
                                         </div>
-
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="3">
@@ -767,7 +779,6 @@
                                                         <a class="btn btn-default btn-xs" href="#">.xls</a>
                                                         <a class="btn btn-default btn-xs" href="#">.csv</a>
                                                     </p>
-
                                                     <div class="table-responsive">
                                                         <table class="table table-hover table-striped">
 
@@ -783,18 +794,17 @@
                                                                 <th class="text-right">Ref</th>
                                                             </tr>
                                                             </thead>
-
                                                             <tbody>
                                                             </tbody>
+
 
                                                         </table>
                                                     </div>
 
-                                                </div>
 
+                                                </div>
                                             </div>
                                         </div>
-
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="4">
@@ -813,10 +823,8 @@
                                                         <a class="btn btn-default btn-xs" href="#">.xls</a>
                                                         <a class="btn btn-default btn-xs" href="#">.csv</a>
                                                     </p>
-
                                                     <div class="table-responsive">
                                                         <table class="table table-hover table-striped">
-
                                                             <thead class="bg-blue-grey-100">
                                                             <tr>
                                                                 <th>Date</th>
@@ -825,12 +833,12 @@
                                                                 <th class="text-right">Billets validés</th>
                                                             </tr>
                                                             </thead>
-
                                                             <tbody>
                                                             </tbody>
 
                                                         </table>
                                                     </div>
+
 
                                                 </div>
 
@@ -909,6 +917,7 @@
                                     ticket
                                 </a>
                             </div>
+
                             <div class="com_contenu_type">
                                 <h2>Événement complet</h2>
                                 <div class="row">
@@ -943,6 +952,7 @@
                                 <button type="button" class="btn btn-danger bout">Enregistrer</button>
 
                             </div>
+
 
                         </div>
                     </div>
@@ -1380,6 +1390,7 @@
 
                         <div class="com_contenu_type1">
                             <div class="ticket_details">
+
                                 <h2>Détails du type de ticket</h2>
                                 <br/>
                                 <form>
@@ -1410,6 +1421,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
+
                                             </div>
                                         </div>
                                         <p class="help-block">Prix ​​de l'utilisateur final par billet incluant <a
@@ -1417,6 +1429,7 @@
                                             TVA, le cas échéant</p>
 
                                     </div>
+
                                 </form>
 
                             </div>
@@ -1425,6 +1438,7 @@
                             <h2>Avancée</h2>
                             <br/>
                             <form>
+
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <label>
@@ -1469,6 +1483,7 @@
                                     </div>
 
                                 </div>
+
                                 <p class="help-block">Toute la vente de billets d'événement commence "Quand je publie
                                     cet événement" et finit "Seulement lorsque tous les billets ont été vendus"</p>
                                 <p class="help-block">Ici, vous pouvez définir une limite supplémentaire pour ce type de
@@ -1501,22 +1516,28 @@
                                         vendu</label>
                                 </div>
 
+
                         </div>
+
                         <div class="com_contenu_type_foot">
+
                             <button type="button" class="btn btn-danger bout"
                                     onClick="changePage('div_type', 'a_type')">Enregistrer
+
                             </button>
                             <button type="button" class="btn btn-danger bout1"
                                     onClick="changePage('div_type', 'a_type')">Annuler
                             </button>
 
                         </div>
+
                         </form>
 
                     </div>
                     <!----------------------------------création ticket-end------------------------------------->
 
                     <!---------------------------ticket-end--------------------------------------------------------------------------------------->
+
                 </div>
 
                 <!-- menu droit start -->
