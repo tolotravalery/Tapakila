@@ -110,6 +110,11 @@ body {
     background-color: #680306;
 }
 
+#navbar form {
+    margin-right: 20px;
+    margin-top: 4px;
+    margin-left: 10px;
+}
 .btn-info1:hover ,.btn-info1:active ,.btn-info1:focus ,.btn-info1:visited  {
     color: #fff;
     background-color: #680306;
@@ -255,7 +260,7 @@ body {
 .navbar ul {
     list-style: none;
     display: inline;
-    margin-top: 0px;
+    margin-top: 5px;
 }
 
 .navbar ul.dropdown-menu {
@@ -617,7 +622,12 @@ footer {
     color: #727171;
     font-size: 17px;
 }
-
+.full{
+	margin-bottom:0px !important;
+}
+.sec {
+    margin-top: 22px;
+}
 ul {
     list-style: none;
     margin-left: 0;
@@ -719,7 +729,7 @@ a:hover {
 }
 
 .limite {
-    height: 93px;
+    height: 90px;
 }
 
 .limitelengh {
@@ -1676,7 +1686,7 @@ div.calendar h1:hover {
 
 .cbg {
     background-color: #f8f8f8;
-    padding: 10px 0px 10px 0px;
+    padding: 10px 10px 10px 10px;
 }
 
 div.calendar p {
@@ -3949,7 +3959,7 @@ div.tests .number-spinner .test2 .test3 {
 .searchbox {
     margin-top: 16px;
     margin-left: 10px;
-    margin-bottom: 8px;
+    margin-bottom: 20px;
 }
 btn-group-lg > .btn, .btn-lg {
     border-radius: 4px ! important;
@@ -4024,7 +4034,7 @@ btn-group-lg > .btn, .btn-lg {
 }
 .body_faq {
     background-color: white;
-    padding: 10px 20px 10px 20px;
+    padding: 10px 25px 10px 25px;
     margin-top: 40px;
 }
 .mimi {
@@ -4114,11 +4124,12 @@ btn-group-lg > .btn, .btn-lg {
     font-weight:bold;
 } */
 .panel-default>.panel-heading a {
-    font-size: 14px;
+    font-size: 13px;
+
     color: #333333;
     font-weight: 700;
     display: block;
-    padding: 21px 0px 23px 15px;
+    padding: 21px 0 23px 15px;
     position: relative;
     line-height: 24px;
     border-bottom: 1px solid #e6e6e6;
