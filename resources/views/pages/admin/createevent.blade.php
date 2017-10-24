@@ -1278,7 +1278,7 @@
                                             <div class="col-lg-4 col-sm-6">
                                                 <div class="radio">
                                                     <label class="button  active">
-                                                        <img class="logo" src="./img/logmvola.png" alt="">
+                                                        <img class="logo" src="{{url('/')}}/public/img/logmvola.png" alt="">
                                                         <b class="operateura">Telma Mvola</b>
                                                         <label class="custom-control custom-checkbox che pull-right">
                                                             <input type="checkbox" class="custom-control-input">
@@ -1293,7 +1293,7 @@
                                             <div class="col-lg-4 col-sm-6">
                                                 <div class="radio">
                                                     <label class="button  ">
-                                                        <img class="logo" src="./img/logmartel.png" alt="">
+                                                        <img class="logo" src="{{url('/')}}/public//img/logmartel.png" alt="">
                                                         <b class="operateura">Airtel money</b>
                                                         <label class="custom-control custom-checkbox che pull-right">
                                                             <input type="checkbox" class="custom-control-input">
@@ -1307,7 +1307,7 @@
                                             <div class="col-lg-4 col-sm-12">
                                                 <div class="radio">
                                                     <label class="button  ">
-                                                        <img class="logo" src="./img/logmorange.png" alt="">
+                                                        <img class="logo" src="{{url('/')}}/public//img/logmorange.png" alt="">
                                                         <b class="operateura">Orange money</b>
                                                         <label class="custom-control custom-checkbox che pull-right">
                                                             <input type="checkbox" class="custom-control-input">

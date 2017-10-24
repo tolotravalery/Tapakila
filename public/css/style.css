@@ -4194,3 +4194,12 @@ body.page:not(.woocommerce-page) p {
     padding: 30px 50px 30px 50px;
     margin-top: 30px;
 }
+.com_contenu_type12 {
+    background-color: white;
+    padding-left: 46px;
+    padding-right: 16px;
+    margin-top: 0px;
+    padding-top: 28px;
+    padding-bottom: 36px;
+    border-bottom: 2px solid #f5f5f5;
+}
