@@ -2147,7 +2147,6 @@ div.calendar p {
 
 .nav > li > a:focus, .nav > li > a:hover {
     text-decoration: none !important;
-    background-color: #fff !important;
     color:black;
 }
 
