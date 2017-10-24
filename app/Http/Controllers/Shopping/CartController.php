@@ -21,7 +21,7 @@ class CartController extends Controller
     public function index()
     {
         $menus = Menus::orderBy('id', 'desc')->get();
-        $sousmenus = Sous_menus::orderBy('name', 'asc')->take(20)->get();
+        $sousmenus = Sous_menus::orderBy('name', 'asc')->get();
         return view('shopping.cart', array('menus' => $menus, 'sousmenus' => $sousmenus));
     }
 

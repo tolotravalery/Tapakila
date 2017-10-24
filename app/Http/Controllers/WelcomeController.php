@@ -18,8 +18,8 @@ class WelcomeController extends Controller
      */
     public function welcome()
     {
-        $menus = Menus::orderBy('id', 'desc')->take(8)->get();
-        $sousmenus = Sous_menus::orderBy('name', 'asc')->take(20)->get();
+        $menus = Menus::orderBy('id', 'desc')->get();
+        $sousmenus = Sous_menus::orderBy('name', 'asc')->get();
        // $slides= Slides::orderBy('id','desc')->where('active','=','1');
         $slides= Slides::orderBy('id', 'desc')->where('active','=',true)->get();
 

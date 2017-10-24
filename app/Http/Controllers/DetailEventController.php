@@ -14,7 +14,7 @@ class DetailEventController extends Controller
             return redirect(url('errors/' . md5('event-detail') . '/' . md5('500')));
         }
         $menus = Menus::orderBy('id', 'desc')->get();
-        $sousmenus = Sous_menus::orderBy('name', 'asc')->take(20)->get();
+        $sousmenus = Sous_menus::orderBy('name', 'asc')->get();
         $date_now = date('Y-m-d H:i:s');
         $interested = Events::where('id', '!=', $events_id)->where('publie', '=', '1')->where('date_debut_envent', '>', $date_now)->get();;
         if ($interested->count() > 3) $interested = $interested->random(3);
@@ -24,7 +24,7 @@ class DetailEventController extends Controller
     public function show_par_name($event_name)
     {
         $menus = Menus::orderBy('id', 'desc')->get();
-        $sousmenus = Sous_menus::orderBy('name', 'asc')->take(20)->get();
+        $sousmenus = Sous_menus::orderBy('name', 'asc')->get();
         $date_now = date('Y-m-d H:i:s');
         $events = Events::where('siteweb', 'like', '%' . $event_name . '%')->where('publie', '=', '1')->where('date_debut_envent', '>', $date_now)->get();
         $event = $events[0];
@@ -38,7 +38,7 @@ class DetailEventController extends Controller
     {
         $menu_id = Menus::find($menu);
         $menus = Menus::orderBy('id', 'desc')->get();
-        $sousmenus = Sous_menus::orderBy('name', 'asc')->take(20)->get();
+        $sousmenus = Sous_menus::orderBy('name', 'asc')->get();
         return view('events.list')->with(array('menu_event' => $menu_id, 'menus' => $menus, 'sousmenus' => $sousmenus));
     }
 
@@ -49,7 +49,7 @@ class DetailEventController extends Controller
         }
         $sous_menu_id = Sous_menus::find($sous_menu);
         $menus = Menus::orderBy('id', 'desc')->get();
-        $sousmenus = Sous_menus::orderBy('name', 'asc')->take(20)->get();
+        $sousmenus = Sous_menus::orderBy('name', 'asc')->get();
         $date_now = date('Y-m-d H:i:s');
         $events = Events::where('sous_menus_id', '=', $sous_menu)->where('publie', '=', '1')->where('date_debut_envent', '>', $date_now)->get();
         return view('events.list1')->with(array('sous_menu_event' => $sous_menu_id, 'menus' => $menus, 'sousmenus' => $sousmenus, 'events' => $events));

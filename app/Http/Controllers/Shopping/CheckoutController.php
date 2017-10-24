@@ -19,8 +19,8 @@ class CheckoutController extends Controller
 {
     function index()
     {
-        $menus = Menus::orderBy('id', 'desc')->take(8)->get();
-        $sousmenus = Sous_menus::orderBy('name', 'asc')->take(20)->get();
+        $menus = Menus::orderBy('id', 'desc')->get();
+        $sousmenus = Sous_menus::orderBy('name', 'asc')->get();
         $payement_mode = Payement_mode::get();
         return view('shopping.checkout',compact('menus', 'sousmenus','payement_mode'));
     }
