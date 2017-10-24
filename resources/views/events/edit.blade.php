@@ -104,31 +104,33 @@
                                                value="{{$event->title}}" required>
                                     </div>
                                     <div class="form-group">
-                                        <div class="col-xs-4">
-                                            <img src="{{url('/public/img/'.$event->image)}}"
-                                                 style="height: 150px;width: 200px;"/>
-                                        </div>
-                                        <div class="col-xs-8">
-                                            <label class="control-label">
-                                                <span>Image : </span>
-                                            </label>
-                                            <div class="input-group image-preview">
-                                                <input type="text" class="form-control image-preview-filename"
-                                                       disabled="disabled">
-                                                <span class="input-group-btn">
-												<button type="button" class="btn btn-default image-preview-clear"
-                                                        style="display:none;">
-													<span class="glyphicon glyphicon-remove"></span> Supprimer
-												</button>
-												<div class="btn btn-default image-preview-input">
-													<span class="glyphicon glyphicon-folder-open"></span>
-													<span class="image-preview-input-title"></span>
-													<input type="file" accept="image/png, image/jpeg, image/gif"
-                                                           name="image"/>
+										<div class="row">
+											<div class="col-md-5 col-xs-12">
+												<img src="{{url('/public/img/'.$event->image)}}"
+													 style="height: 175px;width: 225px;"/>
+											</div>
+											<div class="col-md-7 col-xs-12">
+												<label class="control-label">
+													<span>Image : </span>
+												</label>
+												<div class="input-group image-preview">
+													<input type="text" class="form-control image-preview-filename"
+														   disabled="disabled">
+													<span class="input-group-btn">
+													<button type="button" class="btn btn-default image-preview-clear"
+															style="display:none;">
+														<span class="glyphicon glyphicon-remove"></span> Supprimer
+													</button>
+													<div class="btn btn-default image-preview-input">
+														<span class="glyphicon glyphicon-folder-open"></span>
+														<span class="image-preview-input-title"></span>
+														<input type="file" accept="image/png, image/jpeg, image/gif"
+															   name="image"/>
+													</div>
+												</span>
 												</div>
-											</span>
-                                            </div>
-                                        </div>
+											</div>
+										</div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label ">

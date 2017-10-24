@@ -110,6 +110,20 @@ body {
     background-color: #680306;
 }
 
+.btn-info1:hover ,.btn-info1:active ,.btn-info1:focus ,.btn-info1:visited  {
+    color: #fff;
+    background-color: #680306;
+}
+
+.bt_panier:hover {
+    background-color: #d70506;
+}
+
+ .btn-sinscrire:hover{
+	  background-color: #d70506;
+	  color:white;
+ }
+
 /* #navbar form { */
     /* margin-right: 20px; */
     /* margin-top: 4px; */
@@ -601,7 +615,7 @@ footer {
     text-decoration: none;
     list-style-type: none;
     color: #727171;
-    font-size: 15px;
+    font-size: 17px;
 }
 
 ul {
