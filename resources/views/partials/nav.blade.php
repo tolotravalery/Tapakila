@@ -9,7 +9,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{url('/')}}">
+            <a class="navbar-brand" href="{{url('/home')}}">
                 <img src="{{ url('/') }}/public/img/logo.png" title="leguichet">
             </a>
         </div>
@@ -43,10 +43,10 @@
                     </li>
                 </ul>
                 <div class="row">
-                    <div class="col-md-6  col-md-offsset-4" style="height: 82px;>
+                    <div class="col-md-5">
                         <div id="custom-search-input">
-                            <div class="input-group col-md-12 searchbox" style="width:98%;">
-                                <form action="{{url('/')}}/find/q" method="get" class="input-group col-md-12 searchbox">
+                            <div class="input-group searchbox col-md-12">
+                                <form action="{{url('/')}}/find/q" method="get" class="input-group searchbox">
                                     <input type="text" class="form-control input-lg" name="query"
                                            placeholder="Rechercher..." autocomplete="off" style="font-size:16px;">
                                     <span class="input-group-btn">
@@ -118,10 +118,10 @@
 
                 </ul>
                 <div class="row">
-                    <div class="col-md-6  col-md-offsset-4" style="height: 82px;>
+                    <div class="col-md-5">
                         <div id="custom-search-input">
-                            <div class="input-group col-md-12 searchbox" style="width:98%;">
-                                <form action="{{url('/')}}/find/q" method="get" class="input-group col-md-12 searchbox" >
+                            <div class="input-group searchbox col-md-12">
+                                <form action="{{url('/')}}/find/q" method="get" class="input-group searchbox">
                                     <input type="text" class="form-control input-lg" name="query"
                                            placeholder="Rechercher..." autocomplete="off" style="font-size:16px;">
                                     <span class="input-group-btn">
