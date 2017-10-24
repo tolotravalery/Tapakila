@@ -86,6 +86,10 @@ width: 45%!important;
 .navbar-header {
 float: none;
 }
+.image_detail {
+    width: 617px;
+    height: 190px !important;
+}
 .navbar-left,
 .navbar-right {
 float: none !important;
