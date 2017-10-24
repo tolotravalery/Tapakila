@@ -61,6 +61,8 @@
 
                 </div>
             </div>--}}
+			
+			
             <div class="page-menu row">
                 <div class="col-lg-9 col-sm-9 col-lg-push-3 col-sm-push-3 fi">
                     <h1>Créer un évènement</h1>
@@ -123,6 +125,7 @@
                                             </label>
                                             <input type="text" name="title" id="titre" class="form-control" required>
                                         </div>
+										
                                         <div class="form-group">
                                             <label class="control-label ">
                                                 <span>Catégories : </span>
@@ -141,7 +144,8 @@
                                         <label class="control-label ">
                                             <span>Image : *</span>
                                         </label>
-                                       <div class="input-group image-preview">
+										
+								    <div class="input-group image-preview">
                                         <input type="text" class="form-control image-preview-filename" disabled="disabled">
                                         <span class="input-group-btn">
 												<button type="button" class="btn btn-default image-preview-clear" style="display:none;">
@@ -154,17 +158,16 @@
                                         </div>
                                         </span>
                                     </div>
+									
                                         <div class="form-group form-group-translation et">
                                             <label class="control-label">
                                                 <span>Description : *</span>
                                             </label>
-                                            <textarea class="form-control" style=" word-wrap: break-word; resize: horizontal;
-
-                                        height: 150px;" name="note" required></textarea>
+                                            <textarea class="form-control" style=" word-wrap: break-word; resize: horizontal;height: 150px;" name="note" required></textarea>
                                         </div>
                                     </div>
 
-                                    <hr>
+                                    <hr class="separe">
                                     <!-- detail end -->
 
                                     <!-- heure start -->
@@ -237,10 +240,10 @@
                                                       style=" word-wrap: break-word; resize: horizontal; height: 54px;"
                                                       name="note_time"></textarea>
                                         </div>
-                                        <hr>
+                                       
                                     </div>
                                     <!-- heure end-->
-                                    <hr>
+                                     <hr class="separe">
                                     <!-- location start -->
                                     <div class="panel-body border-bottom">
                                         <h2>Localisation :</h2>
@@ -266,7 +269,7 @@
 
 
                                     <!-- location end -->
-                                    <hr>
+                                     <hr class="separe">
                                     <!-- organisateur start -->
                                     <div class="panel-body">
                                         <h2>Organisateur</h2>
@@ -970,13 +973,13 @@
                                         de ticket</a> pour vérifier si la validation fonctionne correctement.</p>
                                 <br>
                                 <h3>Appareils mobiles</h3>
-                                <hr/>
+                                 <hr class="separe">
                                 <p>Téléchargez notre application gratuite:</p>
                                 <a href="#" target="_blank"><img src="img/download-appstore.png"></a>
                                 <a href="#" target="_blank"><img src="img/download-playstore.png"></a>
                                 <p class="a1">Ou utiliser payé <a href="#" data-toggle="collapse">Pic2Shop Pro</a>.</p>
                                 <h3 class="h14">Ordinateurs et périphériques spéciaux</h3>
-                                <hr/>
+                                 <hr class="separe">
                                 <p>Vous pouvez également utiliser différentes combinaisons de scanners et d'ordinateurs
                                     de codes à barres pour valider les tickets. Configurez votre scanner pour décoder
                                     les formats "Code QR" et "Code 128" et soumettre le formulaire au <a href="#">https://------ </a>Qui
@@ -1079,7 +1082,7 @@
                                 <span class="help-block">L'image couvrira le ticket d'un côté à l'autre. Utilisez un fichier JPG ou PNG de 1240px. Lorsque vous choisissez la hauteur, assurez-vous que tout sur le ticket PDF correspond à une seule page. Les fichiers les plus étendus sont automatiquement réduits.</span>
                             </div>
                         </div>
-                        <hr/>
+                        <hr class="separe">
                         <div class="com_contenu_type_ticket">
                             <form>
                                 <div class="radio-custom radio-primary">
@@ -1125,13 +1128,13 @@
                                                 <p>Merci, voici vos billets! Lorsque vous participez, indiquez le code
                                                     dans ce courrier électronique ou utilisez le fichier .pdf
                                                     ci-joint</p>
-                                                <hr/>
+                                                 <hr class="separe">
                                                 <h2>Mes évènements</h2>
                                                 <strong>Tue 25. July 2017 - 14:00</strong>
                                                 <p>Location · . Viru 12-34, Tallinn, Estonia <a href="#"
                                                                                                 target="_blank">Map</a>
                                                 </p>
-                                                <hr/>
+                                                 <hr class="separe">
                                                 <p style="text-align: center; margin: 5px 0; ">1 x Regular ticket</p>
                                                 <p style="text-align: center">
                                                     <img src="img/123456TEST.png" class="qt">
@@ -1178,7 +1181,7 @@
                                             </div>
 
                                         </div>
-                                        <hr/>
+                                         <hr class="separe">
 
                                     </div>
 
@@ -1278,7 +1281,7 @@
                                             <div class="col-lg-4 col-sm-6">
                                                 <div class="radio">
                                                     <label class="button  active">
-                                                        <img class="logo" src="./img/logmvola.png" alt="">
+                                                        <img class="logo" src="{{url('/')}}/public/img/logmvola.png" alt="">
                                                         <b class="operateura">Telma Mvola</b>
                                                         <label class="custom-control custom-checkbox che pull-right">
                                                             <input type="checkbox" class="custom-control-input">
@@ -1293,7 +1296,7 @@
                                             <div class="col-lg-4 col-sm-6">
                                                 <div class="radio">
                                                     <label class="button  ">
-                                                        <img class="logo" src="./img/logmartel.png" alt="">
+                                                        <img class="logo" src="{{url('/')}}/public//img/logmartel.png" alt="">
                                                         <b class="operateura">Airtel money</b>
                                                         <label class="custom-control custom-checkbox che pull-right">
                                                             <input type="checkbox" class="custom-control-input">
@@ -1307,7 +1310,7 @@
                                             <div class="col-lg-4 col-sm-12">
                                                 <div class="radio">
                                                     <label class="button  ">
-                                                        <img class="logo" src="./img/logmorange.png" alt="">
+                                                        <img class="logo" src="{{url('/')}}/public//img/logmorange.png" alt="">
                                                         <b class="operateura">Orange money</b>
                                                         <label class="custom-control custom-checkbox che pull-right">
                                                             <input type="checkbox" class="custom-control-input">
