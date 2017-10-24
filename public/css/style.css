@@ -666,16 +666,15 @@ a:hover {
 .creat > ul > li > a {
     cursor: pointer;
 }
-
-.select:before {
+.select:after {
     content: '';
     display: block;
     position: absolute;
-    right: 100%;
-    top: 0px;
+    left: 100%;
+    top: 0;
     border-top: 22px solid transparent;
     border-bottom: 22px solid transparent;
-    border-right: 23px solid white;
+    border-left: 18px solid white;
 }
 
 .Confirme {
