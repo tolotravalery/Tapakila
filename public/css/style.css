@@ -706,7 +706,7 @@ a:hover {
 }
 
 .page-menu {
-    padding-bottom: 9px;
+    padding-bottom: 0px;
     margin: 15px 0 20px;
     border-bottom: 1px solid #eee;
 }
@@ -1317,11 +1317,34 @@ html|* > svg {
     background-color: white !important;
 }
 
+.btn-menu2:hover {
+    background-color: red;
+    border: none;
+        border-top-color: currentcolor;
+        border-right-color: currentcolor;
+        border-bottom-color: currentcolor;
+        border-left-color: currentcolor;
+    margin-top: 18px;
+}
+
+.btn-menu:hover {
+    background-color: red;
+    border: none;
+    margin-top: 7px;
+}
+
+.nonpublier:hover {
+    background-color: #df3838;
+    color: white;
+    border: none;
+    padding: 10px 20px 10px 20px;
+}
+
 .com_contenu_type {
     background-color: white;
     padding-left: 60px;
     padding-right: 60px;
-    margin-top: 41px;
+    /* margin-top: 41px; */
     padding-top: 28px;
     padding-bottom: 36px;
 }
@@ -3834,7 +3857,11 @@ div.tests .number-spinner .test2 .test3 {
     font-family: RobotoBold,sans-serif;
 }
 
-
+.enregistrer:hover {
+    color: white;
+    background-color: #ff1d1d;
+    padding: 15px 30px 15px 30px;
+}
 
 #ticket-radio2 .btn-group .radio .button .btn label input[type="radio"] {
     vertical-align: middle;
