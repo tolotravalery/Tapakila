@@ -380,6 +380,9 @@ margin: 0 0 30px 0;
 .panel-default > .panel-heading a {
     padding: 0px 0 20px 18px !important;
 }
+.panel-default > .panel-heading a {
+font-size: 14px;
+}
 .panel-default .panel-heading + .panel-collapse .panel-body p {
 padding-left: 0 !important;
 padding-left: 9px !important;
