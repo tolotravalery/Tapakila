@@ -240,7 +240,7 @@
                                     <form action="{{ url('/shopping/emptyCart') }}" method="POST">
                                         {!! csrf_field() !!}
                                         <input type="hidden" name="_method" value="DELETE">
-                                        <button type="submit" class="a_color" style="border: none;background-color: white;">Quitter</button>
+                                        <button type="submit" class="a_color" style="border: none;background-color: white;">Vider</button>
                                     </form>
                                     {{--<a href="#" class="a_color">Quitter</a>--}}
                                 </div>

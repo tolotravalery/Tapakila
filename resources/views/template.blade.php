@@ -32,7 +32,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{url('/')}}">
+            <a class="navbar-brand" href="{{url('/home')}}">
                 <img src="{{ url('/') }}/public/img/logo.png" title="leguichet">
             </a>
         </div>
@@ -66,10 +66,10 @@
                     </li>
                 </ul>
                 <div class="row">
-                    <div class="col-md-6  col-md-offsset-4" style="height: 82px;>
+                    <div class="col-md-6">
                         <div id="custom-search-input">
-                            <div class="input-group col-md-12 searchbox" style="width:98%;">
-                                <form action="{{url('/')}}/find/q" method="get" class="input-group col-md-12 searchbox">
+                            <div class="input-group col-md-12 searchbox">
+                                <form action="{{url('/')}}/find/q" method="get" class="input-group searchbox">
                                     <input type="text" class="form-control input-lg" name="query"
                                            placeholder="Rechercher..." autocomplete="off" style="font-size:16px;">
                                     <span class="input-group-btn">
@@ -108,14 +108,6 @@
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu " id="menu3" aria-labelledby="drop6">
-
-                            @role('admin')
-                            <li {{ Request::is('users', 'users/' . Auth::user()->id, 'users/' . Auth::user()->id . '/edit') ? 'class=active' : null }}>{!! HTML::link(url('/admin/users'), Lang::get('titles.adminUserList')) !!}</li>
-                            <li {{ Request::is('users/create') ? 'class=active' : null }}>{!! HTML::link(url('/admin/users/create'), Lang::get('titles.adminNewUser')) !!}</li>
-                            <li><a href="{{url('/')}}/admin/menu">Menus</a></li>
-                            <li><a href="{{url('/')}}/admin/sousmenu">Sous menus</a></li>
-                            <li><a href="{{url('/')}}/admin/listevent">List events</a></li>
-                            @endrole
                             <li {{ Request::is('profile/'.Auth::user()->id, 'profile/'.Auth::user()->id . '/edit') ?  : null }}>
                             {!! HTML::link(url('/profile/'.Auth::user()->id.'/edit'), trans('titles.profile')) !!}
                             <!--{!! HTML::icon_link(URL::to('/profile/'.Auth::user()->id.'/edit'), 'fa fa-fw fa-cog', trans('titles.editProfile'), array('class' => 'btn btn-small btn-info btn-block')) !!}
@@ -141,10 +133,10 @@
 
                 </ul>
                 <div class="row">
-                    <div class="col-md-6  col-md-offsset-4" style="height: 82px;>
+                    <div class="col-md-5">
                         <div id="custom-search-input">
-                            <div class="input-group col-md-12 searchbox" style="width:98%;">
-                                <form action="{{url('/')}}/find/q" method="get" class="input-group col-md-12 searchbox">
+                            <div class="input-group searchbox col-md-12">
+                                <form action="{{url('/')}}/find/q" method="get" class="input-group searchbox">
                                     <input type="text" class="form-control input-lg" name="query"
                                            placeholder="Rechercher..." autocomplete="off" style="font-size:16px;">
                                     <span class="input-group-btn">

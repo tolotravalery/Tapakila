@@ -8,7 +8,8 @@
 @endsection
 
 @section('content')
-    <<section id="sectioncategorie" class="clearfix">
+    <
+    <section id="sectioncategorie" class="clearfix">
         <div class="container custom-container">
             <ul class="clearfix">
                 <li><a href="{{url('/')}}">TOUS</a></li>
@@ -67,17 +68,17 @@
 
                                     <div class="form-group ">
                                         <label class="control-label ">
-                                            <span>Titre (*):</span>
+                                            <span>Titre  <i>(*)</i>:</span>
                                         </label>
                                         <input type="text" name="title" id="titre" class="form-control" required>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label ">
-                                            <span>Catégories : </span>
+                                            <span>Catégories  <i>(*)</i> : </span>
                                         </label>
                                         <div class="form-group"
                                              style="margin-left: 0px!important;margin-right: 0px!important;">
-                                            <select class="form-control" name="sousmenu">
+                                            <select class="form-control" name="sousmenu" required>
                                                 <option>--------choisir-----------</option>
                                                 @foreach($sousmenus as $sousmenu)
                                                     <option value="{{$sousmenu->id}}">{{$sousmenu->name}}</option>
@@ -86,7 +87,7 @@
                                         </div>
                                     </div>
                                     <label class="control-label ">
-                                        <span>Image (*) : </span>
+                                        <span>Image  <i>(*)</i> : </span>
                                     </label>
                                     <div class="input-group image-preview">
                                         <input type="text" class="form-control image-preview-filename"
@@ -106,13 +107,12 @@
                                     </div>
                                     <div class="form-group form-group-translation et">
                                         <label class="control-label">
-                                            <span>Description (*) :</span>
+                                            <span>Description  <i>(*)</i> :</span>
                                         </label>
                                         <textarea class="form-control" style=" word-wrap: break-word; resize: horizontal;
                                         height: 150px;" name="note" required></textarea>
                                     </div>
                                 </div>
-
                                 <hr>
                                 <div class="panel-body border-bottom">
                                     <h2>Heures</h2>
@@ -121,7 +121,7 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label class="control-label required">Début</label>
+                                                        <label class="control-label required">Début  <i>(*)</i></label>
                                                         <div class="input-group">
                                                             <div class="input-group-addon">
                                                                 <i class="fa fa-calendar"></i></div>
@@ -136,7 +136,7 @@
 															<span class="glyphicon glyphicon-time"></span>
 															</span>
                                                         <input type="text" class="form-control" value="23:30"
-                                                               name="heure_debut">
+                                                               name="heure_debut" required>
 
                                                     </div>
                                                 </div>
@@ -146,7 +146,7 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label class="control-label required">Fin</label>
+                                                        <label class="control-label required">Fin  <i>(*)</i></label>
                                                         <div class="input-group">
                                                             <div class="input-group-addon">
                                                                 <i class="fa fa-calendar"></i></div>
@@ -161,7 +161,7 @@
 															<span class="glyphicon glyphicon-time"></span>
 															</span>
                                                         <input type="text" class="form-control" value="23:30"
-                                                               name="heure_fin">
+                                                               name="heure_fin" required>
 
                                                     </div>
                                                 </div>
@@ -184,9 +184,9 @@
                                     <h2>Localisation :</h2>
                                     <form>
                                         <div class="form-group">
-                                            <label for="email">Nom (*) :</label>
+                                            <label for="email">Nom  <i>(*)</i> :</label>
                                             <input type="Adresse" class="form-control" id="email"
-                                                   name="localisation_nom">
+                                                   name="localisation_nom" required>
                                             <p>E.X:Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
                                         </div>
                                         <div class="form-group">
@@ -213,7 +213,7 @@
                                     </div>
                                 </div>
                                 <!-- organisateur end -->
-                                <p style="text-align: right;margin: 15px;"><i>(*) Champs olbligatoires</i></p>
+                                <p style="text-align: right;margin: 15px;color: red;"><i>(*) Champs olbligatoires</i></p>
                                 <div class="Confirme">
                                     <button type="submit" class="btn btn-default enregistrer ">Enregistrer</button>
                                 </div>
@@ -315,7 +315,6 @@
                                         </div>
                                         <div class="com_contenu_type2">
                                             <h2>Billets vendus au cours des 30 derniers jours</h2>
-
                                             <div id="chart-sales" class="ct-chart ct-octave">
                                                 <svg class="ct-chart-bar" style="width: 100%; height: 100%;">
                                                     <g class="ct-grids">
@@ -641,10 +640,7 @@
                                                         </foreignObject>
                                                     </g>
                                                 </svg>
-
-
                                             </div>
-
                                         </div>
                                     </form>
                                 </div>
@@ -664,10 +660,8 @@
                                                         <a class="btn btn-default btn-xs" href="#">.xls</a>
                                                         <a class="btn btn-default btn-xs" href="#">.csv</a>
                                                     </p>
-
                                                     <div class="table-responsive">
                                                         <table class="table table-hover table-striped">
-
                                                             <thead class="bg-blue-grey-100">
                                                             <tr>
                                                                 <th>Date</th>
@@ -676,20 +670,13 @@
                                                                 <th class="text-right">Billets</th>
                                                             </tr>
                                                             </thead>
-
                                                             <tbody>
                                                             </tbody>
-
-
                                                         </table>
                                                     </div>
-
-
                                                 </div>
-
                                             </div>
                                         </div>
-
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="3">
@@ -708,7 +695,6 @@
                                                         <a class="btn btn-default btn-xs" href="#">.xls</a>
                                                         <a class="btn btn-default btn-xs" href="#">.csv</a>
                                                     </p>
-
                                                     <div class="table-responsive">
                                                         <table class="table table-hover table-striped">
 
@@ -724,20 +710,13 @@
                                                                 <th class="text-right">Ref</th>
                                                             </tr>
                                                             </thead>
-
                                                             <tbody>
                                                             </tbody>
-
-
                                                         </table>
                                                     </div>
-
-
                                                 </div>
-
                                             </div>
                                         </div>
-
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="4">
@@ -756,10 +735,8 @@
                                                         <a class="btn btn-default btn-xs" href="#">.xls</a>
                                                         <a class="btn btn-default btn-xs" href="#">.csv</a>
                                                     </p>
-
                                                     <div class="table-responsive">
                                                         <table class="table table-hover table-striped">
-
                                                             <thead class="bg-blue-grey-100">
                                                             <tr>
                                                                 <th>Date</th>
@@ -768,15 +745,10 @@
                                                                 <th class="text-right">Billets validés</th>
                                                             </tr>
                                                             </thead>
-
                                                             <tbody>
                                                             </tbody>
-
-
                                                         </table>
                                                     </div>
-
-
                                                 </div>
 
                                             </div>
@@ -854,45 +826,6 @@
                                     le type de ticket
                                 </a>
                             </div>
-                            <div class="com_contenu_type">
-                                <h2>Événement complet</h2>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <label>
-                                            Nombre maximum de billets</label>
-                                        <div class="input-group group"><input type="number" name="ticket_limit"
-                                                                              value="15"
-                                                                              id="ticket_limit" class="form-control"
-                                                                              placeholder="∞"
-                                                                              min="0">
-                                            <span class="input-group-addon">tickets</span></div>
-                                        <p>Nombre maximum de billets pour l'ensemble de l'événement. Vous pouvez
-                                            également définir les
-                                            limites par type de ticket.</p>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <label>Taxe sur la valeur ajoutée</label>
-                                        <form>
-                                            <label class="radio-inline">
-                                                <input type="radio" name="optradio">20%
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" name="optradio">21%
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" name="optradio">0%
-                                            </label>
-                                        </form>
-                                    </div>
-                                </div>
-
-
-                            </div>
-                            <div class="com_contenu_type_foot">
-                                <button type="button" class="btn btn-danger bout">Enregistrer</button>
-
-                            </div>
-
                         </div>
                     </div>
                     <!------------------------------------type-ticket-end--------------------------------------------------------------------------->
@@ -1293,7 +1226,7 @@
                                 <h2>Détails du type de ticket</h2><br/>
                                 {{ csrf_field() }}
                                 <div class="form-group">
-                                    <label for="usr">Nom du type de ticket:*</label>
+                                    <label for="usr">Nom du type de ticket: <i>(*)</i></label>
                                     {!! Form::text('type', null, ['class' => 'form-control', 'id' => 'ticket_type', 'required', 'autofocus']) !!}
                                     Par exemple. "Ticket régulier", "Early Bird", "Student"
                                     </span>
@@ -1301,7 +1234,7 @@
 
                                 <div class="form-group">
                                     <label for="usr">La description</label>
-                                    <textarea name="description" class="form-control" style="height: 100px;"></textarea>
+                                    <textarea name="description" class="form-control" style="height: 50px;"></textarea>
                                     <span class="help-block">
 					                    Par exemple. "Vendu jusqu'au 23 juin" ou "Préparez-vous à montrer votre carte étudiante"
 					                </span>
@@ -1309,7 +1242,7 @@
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <label>
-                                                Prix unitaire du ticket</label>
+                                                Prix unitaire du ticket <i>(*)</i></label>
                                             <div class="input-group group chiffre1">
                                                 {!! Form::number('price', null, ['class' => 'form-control', 'id' => 'ticket_price','step'=>'0.01','required', 'autofocus']) !!}
                                                 <span class="input-group-addon">AR</span>
@@ -1319,7 +1252,7 @@
                                         </div>
                                     </div>
                                     <p class="help-block">Prix ​​de l'utilisateur final par billet incluant <a
-                                                href="index.html" target="_blank" class="aa">Frais Tapakila</a> Et
+                                                href="" target="_blank" class="aa">Frais Tapakila</a> Et
                                         TVA, le cas échéant</p>
                                     <br>
                                 </div>
@@ -1330,7 +1263,7 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <label>
-                                        Nombre maximum de billets
+                                        Nombre de billets <i>(*)</i>
                                     </label>
                                     <div class="input-group group chiffre1">
                                         {!! Form::number('number', null, ['class' => 'form-control', 'id' => 'ticket_number', 'min' => '0','required', 'autofocus']) !!}
@@ -1340,12 +1273,10 @@
                                 <div class="col-lg-6">
                                 </div>
                             </div>
-                            {{--<p class="help-block">Le nombre maximum de tickets pour l'événement entier est défini sur--}}
-                            {{--"15".</p>--}}
                             <p class="help-block">Ici, vous pouvez définir une limite supplémentaire pour ce type de
                                 ticket uniquement. Il sera caché à partir de la page d'achat une fois épuisé</p>
                             <br/>
-                            <label>Disponible entre les dates, y compris:</label>
+                            <label>Disponible entre les dates, y compris <i>(*)</i>:</label>
                             <div class="row" id="event-duration">
                                 <div class="row">
                                     <div class="col-md-6">
@@ -1375,20 +1306,22 @@
                             <p class="help-block">Ici, vous pouvez définir une limite supplémentaire pour ce type de
                                 ticket uniquement.</p>
                             <br/>
+                            <p style="text-align: right;margin: 15px;color: red;"><i>(*) Champs olbligatoires</i></p>
                         </div>
+
                         <div class="com_contenu_type_foot">
-                            <button type="submit" class="btn btn-danger bout"
-                            {{--onClick="changePage('div_type', 'a_type')--}}">Enregistrer
+                            <button type="submit" class="btn btn-danger bout">Enregistrer
                             </button>
                             <button type="button" class="btn btn-danger bout1"
                                     onClick="changePage('div_type', 'a_type')">Annuler
                             </button>
                         </div>
+
+
                     </div>
                     @if(isset($event))
                         {!! Form::hidden('events_id', $event[0]->id, ['class' => 'form-control']) !!}
                     @endif
-
                     {!! Form::close() !!}
                 </div>
                 <!----------------------------------création ticket-end------------------------------------->

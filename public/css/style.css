@@ -1705,6 +1705,7 @@ div.calendar p {
     -webkit-transition: border .2s ease-in-out;
     -o-transition: border .2s ease-in-out;
     transition: border .2s ease-in-out;
+    cursor: pointer;
 }
 
 #sectioncategorie {
@@ -1722,7 +1723,7 @@ div.calendar p {
 #sectioncategorie ul {
     padding: 0;
     margin: 0 -21px;
-    12 height: 40px;
+    height: 40px;
 }
 
 #sectioncategorie li {
@@ -1903,7 +1904,7 @@ div.calendar p {
 }
 
 .inscriptioin {
-    font-size: 60px;
+    font-size: 54px;
 }
 
 .btn-sinscrire {
@@ -2147,7 +2148,6 @@ div.calendar p {
 
 .nav > li > a:focus, .nav > li > a:hover {
     text-decoration: none !important;
-    background-color: #fff !important;
     color:black;
 }
 

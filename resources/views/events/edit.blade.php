@@ -54,7 +54,8 @@
                         </div>
                     </div>
                     <a class="btn btn-sm btn-default btn-aperçu " href="#" target="_blank">Aperçu</a>
-                    <p><i style="color:red;">La modification d'une publication évènement est accordé par l'administrateur</i></p>
+                    <p><i style="color:red;">La modification d'une publication évènement est accordé par
+                            l'administrateur</i></p>
                 </div>
             </div>
 
@@ -861,7 +862,7 @@
                                                     </h2>
                                                 </div>
                                             </div>
-                                            <p>Nombre de billets: {{$ticket->number}}</p>
+                                            <p>Nombre de billets: {{$ticket->tapakila()->count()}}</p>
                                         </div>
                                     @endforeach
                                 @endif
@@ -903,20 +904,15 @@
                                         </form>
                                     </div>
                                 </div>
-
-
                             </div>
                             <div class="com_contenu_type_foot">
                                 <button type="button" class="btn btn-danger bout">Enregistrer</button>
-
                             </div>
-
                         </div>
                     </div>
                     <!------------------------------------type-ticket-end--------------------------------------------------------------------------->
 
                     <!------------------------------------Ticket validé--------------------------------------------------------------------------->
-
                     <div id="div_valideTicket" class="hide">
                         <div id="billet">
                             <div class="com_contenu">
@@ -941,13 +937,9 @@
                                     renvoie l'état actuel du ticket et le marque comme étant utilisé.</p>
 
                             </div>
-
                         </div>
                     </div>
-
                     <!------------------------------------Ticket validé-end------------------------------------------------------------------------->
-
-
                     <!------------------------------------Site web-------------------------------------------------------------------------->
                     <form enctype="multipart/form-data" class="form-horizontal" role="form" method="POST"
                           action="{{ route('event_siteweb') }}">

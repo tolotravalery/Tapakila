@@ -25,33 +25,6 @@ class CheckoutController extends Controller
         return view('shopping.checkout',compact('menus', 'sousmenus','payement_mode'));
     }
 
-    /*function store(Request $request)
-    {
-        //dd(Cart::content());
-        $tickets = array();
-        $i = 0;
-        foreach (Cart::content() as $item) {
-            $tickets[$i] = array(
-                "id" => $item->id,
-                "qty" => $item->qty,
-                "name" => $item->name,
-                "price" => $item->price);
-            $i++;
-        }
-
-        $adresseFacturation = array("name" => $request->input("fact_name"),
-            "adresse" => $request->input("fact_adress"),
-            "city" => $request->input("fact_city"),
-            "phone" => $request->input("fact_phone"),
-            "mail" => $request->input("fact_mail"));
-        $adresseLivraison = array("mail" => $request->input("livr_mail"));
-        $payement_method = $request->input("radio");
-        $checkout = new Checkout($adresseFacturation, $adresseLivraison, $payement_method, $tickets);
-        $payement_mode = Payement_mode::get();
-        //dd($checkout);
-        return view('shopping.summary')->with(array('checkout' => $checkout, 'payement_mode' => $payement_mode));
-    }*/
-
     function save(Request $request)
     {
         $options = $request->input('options');
@@ -71,9 +44,10 @@ class CheckoutController extends Controller
                 $writer->writeFile($tapakila->code_unique, 'public/qr_code/' . $image_name . '.png');
                 $tapakila->qr_code = $image_name . '.png';
                 $tapakila->save();
+                //send mail to users here: attach $image_name . '.png' in mail
                 $ticket->number = $ticket->number - 1;
             }
-            $ticket->users()->sync(array(Auth::user()->id => array('number' => $item->qty, 'date_achat' => $date,
+            $ticket->users()->attach(array(Auth::user()->id => array('number' => $item->qty, 'date_achat' => $date,
                 'payement_mode_id' => $payement->id)));
             $ticket->save();
         }

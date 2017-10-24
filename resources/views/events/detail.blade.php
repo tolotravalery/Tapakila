@@ -113,32 +113,32 @@
                                         <tbody>
                                         <form action="{{ url('shopping/cart') }}" method="POST"
                                               class="side-by-side">
-                                            <!-- prixunit1 -->
                                             @php $count_id_price = 0; @endphp
-                                            @foreach($event->tickets()->wherePivot('date',\Carbon\Carbon::parse($date)->format('Y-m-d'))->get() as $ticket)
-                                                {!! csrf_field() !!}
-                                                <input type="hidden" name="id[]" value="{{ $ticket->id }}">
-                                                <input type="hidden" name="type[]" value="{{ $ticket->type }}">
-                                                <input type="hidden" name="price[]" value="{{ $ticket->price }}">
-                                                <tr>
-                                                    <td><strong>{{$ticket->type}}</strong>
-                                                        <p>{{$ticket->description}}</p>
-                                                    </td>
-                                                    @if($ticket->number > 0)
-                                                        <td><i class="fa fa-unlock fa-2x clock{{$count_id_price}}"
-                                                               aria-hidden="true"></i>
-                                                            <p id="tickets{{$count_id_price}}">{{$ticket->number}}</p>
-                                                            tickets
+                                            @if($event->tickets->where('date_debut_vente','<',date('Y-m-d H:i:s'))->where('date_fin_vente','>',date('Y-m-d H:i:s'))->count() > 0)
+                                                @foreach($event->tickets()->wherePivot('date',\Carbon\Carbon::parse($date)->format('Y-m-d'))->get() as $ticket)
+                                                    {!! csrf_field() !!}
+                                                    <input type="hidden" name="id[]" value="{{ $ticket->id }}">
+                                                    <input type="hidden" name="type[]" value="{{ $ticket->type }}">
+                                                    <input type="hidden" name="price[]" value="{{ $ticket->price }}">
+                                                    <tr>
+                                                        <td><strong>{{$ticket->type}}</strong>
+                                                            <p>{{$ticket->description}}</p>
                                                         </td>
-                                                    @else
-                                                        <td><i class="fa fa-close fa-2x" aria-hidden="true"></i>
-                                                            <p>Non disponible</p>
-                                                        </td>
-                                                    @endif
-                                                    <td>
-                                                        <div class="row postions">
-                                                            <div class="col-md-4 col-md-offset-2  ">
-                                                                <div class="input-group number-spinner{{$count_id_price}}">
+                                                        @if($ticket->number > 0)
+                                                            <td><i class="fa fa-unlock fa-2x clock{{$count_id_price}}"
+                                                                   aria-hidden="true"></i>
+                                                                <p id="tickets{{$count_id_price}}">{{$ticket->number}}</p>
+                                                                tickets
+                                                            </td>
+                                                        @else
+                                                            <td><i class="fa fa-close fa-2x" aria-hidden="true"></i>
+                                                                <p>Non disponible</p>
+                                                            </td>
+                                                        @endif
+                                                        <td>
+                                                            <div class="row postions">
+                                                                <div class="col-md-4 col-md-offset-2  ">
+                                                                    <div class="input-group number-spinner{{$count_id_price}}">
                                                             <span class="input-group-btn">
 																		<button type="button"
                                                                                 class="btn btn-default btn-circle smoins"
@@ -146,26 +146,27 @@
                                                                                 id="btn-down{{$count_id_price}}"><span
                                                                                     class="fa fa-minus"></span></button>
                                                             </span>
-                                                                    <input class="form-control text-center ui"
-                                                                           value="0"
-                                                                           type="text" name="nombre[]">
-                                                                    <span class="input-group-btn">
+                                                                        <input class="form-control text-center ui"
+                                                                               value="0"
+                                                                               type="text" name="nombre[]">
+                                                                        <span class="input-group-btn">
 																		<button type="button"
                                                                                 class="btn btn-default btn-circle splus "
                                                                                 data-dir="up"
                                                                                 id="btn-up{{$count_id_price}}"><span
                                                                                     class="fa fa-plus"></span></button>
                                                             </span>
+                                                                    </div>
                                                                 </div>
+                                                                <div class="col-md-4 col-md-offset-1"></div>
                                                             </div>
-                                                            <div class="col-md-4 col-md-offset-1"></div>
-                                                        </div>
-                                                    </td>
-                                                    <td><b>{{(int)$ticket->price}}</b> Ar</td>
-                                                    <td><b id="prixUnit{{$count_id_price}}">0</b> Ar</td>
-                                                </tr>
-                                                @php $count_id_price++; @endphp
-                                            @endforeach
+                                                        </td>
+                                                        <td><b>{{(int)$ticket->price}}</b> Ar</td>
+                                                        <td><b id="prixUnit{{$count_id_price}}">0</b> Ar</td>
+                                                    </tr>
+                                                    @php $count_id_price++; @endphp
+                                                @endforeach
+                                            @endif
                                             <tr>
                                                 <td class="td_detail"></td>
                                                 <td class="td_detail"></td>
@@ -216,32 +217,32 @@
                                         <tbody>
                                         <form action="{{ url('shopping/cart') }}" method="POST"
                                               class="side-by-side">
-                                            <!-- prixunit1 -->
                                             @php $count_id_price = 0; @endphp
-                                            @foreach($event->tickets()->wherePivot('date',\Carbon\Carbon::parse($event->date_debut_envent)->format('Y-m-d'))->get() as $ticket)
-                                                {!! csrf_field() !!}
-                                                <input type="hidden" name="id[]" value="{{ $ticket->id }}">
-                                                <input type="hidden" name="type[]" value="{{ $ticket->type }}">
-                                                <input type="hidden" name="price[]" value="{{ $ticket->price }}">
-                                                <tr>
-                                                    <td><strong>{{$ticket->type}}</strong>
-                                                        <p>{{$ticket->description}}</p>
-                                                    </td>
-                                                    @if($ticket->number > 0)
-                                                        <td><i class="fa fa-unlock fa-2x clock{{$count_id_price}}"
-                                                               aria-hidden="true"></i>
-                                                            <p id="tickets{{$count_id_price}}">{{$ticket->number}}</p>
-                                                            tickets
+                                            @if($event->tickets->where('date_debut_vente','<',date('Y-m-d H:i:s'))->where('date_fin_vente','>',date('Y-m-d H:i:s'))->count() > 0)
+                                                @foreach($event->tickets()->wherePivot('date',\Carbon\Carbon::parse($event->date_debut_envent)->format('Y-m-d'))->get() as $ticket)
+                                                    {!! csrf_field() !!}
+                                                    <input type="hidden" name="id[]" value="{{ $ticket->id }}">
+                                                    <input type="hidden" name="type[]" value="{{ $ticket->type }}">
+                                                    <input type="hidden" name="price[]" value="{{ $ticket->price }}">
+                                                    <tr>
+                                                        <td><strong>{{$ticket->type}}</strong>
+                                                            <p>{{$ticket->description}}</p>
                                                         </td>
-                                                    @else
-                                                        <td><i class="fa fa-close fa-2x" aria-hidden="true"></i>
-                                                            <p>Non disponible</p>
-                                                        </td>
-                                                    @endif
-                                                    <td>
-                                                        <div class="row postions">
-                                                            <div class="col-md-4 col-md-offset-2  ">
-                                                                <div class="input-group number-spinner{{$count_id_price}}">
+                                                        @if($ticket->number > 0)
+                                                            <td><i class="fa fa-unlock fa-2x clock{{$count_id_price}}"
+                                                                   aria-hidden="true"></i>
+                                                                <p id="tickets{{$count_id_price}}">{{$ticket->number}}</p>
+                                                                tickets
+                                                            </td>
+                                                        @else
+                                                            <td><i class="fa fa-close fa-2x" aria-hidden="true"></i>
+                                                                <p>Non disponible</p>
+                                                            </td>
+                                                        @endif
+                                                        <td>
+                                                            <div class="row postions">
+                                                                <div class="col-md-4 col-md-offset-2  ">
+                                                                    <div class="input-group number-spinner{{$count_id_price}}">
                                                             <span class="input-group-btn">
 																		<button type="button"
                                                                                 class="btn btn-default btn-circle smoins"
@@ -249,26 +250,27 @@
                                                                                 id="btn-down{{$count_id_price}}"><span
                                                                                     class="fa fa-minus"></span></button>
                                                             </span>
-                                                                    <input class="form-control text-center ui"
-                                                                           value="0"
-                                                                           type="text" name="nombre[]">
-                                                                    <span class="input-group-btn">
+                                                                        <input class="form-control text-center ui"
+                                                                               value="0"
+                                                                               type="text" name="nombre[]">
+                                                                        <span class="input-group-btn">
 																		<button type="button"
                                                                                 class="btn btn-default btn-circle splus "
                                                                                 data-dir="up"
                                                                                 id="btn-up{{$count_id_price}}"><span
                                                                                     class="fa fa-plus"></span></button>
                                                             </span>
+                                                                    </div>
                                                                 </div>
+                                                                <div class="col-md-4 col-md-offset-1"></div>
                                                             </div>
-                                                            <div class="col-md-4 col-md-offset-1"></div>
-                                                        </div>
-                                                    </td>
-                                                    <td><b>{{(int)$ticket->price}}</b> Ar</td>
-                                                    <td><b id="prixUnit{{$count_id_price}}">0</b> Ar</td>
-                                                </tr>
-                                                @php $count_id_price++; @endphp
-                                            @endforeach
+                                                        </td>
+                                                        <td><b>{{(int)$ticket->price}}</b> Ar</td>
+                                                        <td><b id="prixUnit{{$count_id_price}}">0</b> Ar</td>
+                                                    </tr>
+                                                    @php $count_id_price++; @endphp
+                                                @endforeach
+                                            @endif
                                             <tr>
                                                 <td class="td_detail"></td>
                                                 <td class="td_detail"></td>
@@ -281,7 +283,7 @@
                                                 <td></td>
                                                 <td></td>
                                                 <td>
-                                                    <button type="submit" class=" btn btn-danger btn_reset">Reset
+                                                    <button type="button" onclick="reset()" class=" btn btn-danger btn_reset">Reset
                                                     </button>
                                                 </td>
                                                 <td>
@@ -444,7 +446,11 @@
                 }
             });
         </script>
-
     @endfor
+    <script>
+        function reset(){
+            {{--window.location = '{{url}}'--}}
+        }
+    </script>
     <script type="text/javascript" src="{{ url('/') }}/public/js/share.js"></script>
 @endsection
