@@ -68,10 +68,13 @@
                 <div class="col-lg-3 col-sm-3 col-lg-pull-9 col-sm-pull-9 sec">
                     <div class="btn-group margin-bottom-5">
                         <div class="btn-group" role="group">
-                            <select class="form-control" id="publie" name="publie">
-                                <option value="false">Non publié</option>
+						<div class="form-group full">
+						  <label for="sel1"></label>
+							<select class="btn btn-sm nonpublier dropdown-toggle" id="publie" name="publie">
+								<option value="false">Non publié</option>
                                 <option value="true">Publié</option>
-                            </select>
+							</select>
+						</div>
                         </div>
                     </div>
                     <a class="btn btn-sm btn-default btn-aperçu " href="#" target="_blank">Aperçu</a>
@@ -138,22 +141,19 @@
                                         <label class="control-label ">
                                             <span>Image : *</span>
                                         </label>
-                                        <div class="input-group image-preview">
-                                            <input type="text" class="form-control image-preview-filename"
-                                                   disabled="disabled">
-                                            <span class="input-group-btn">
-												<button type="button" class="btn btn-default image-preview-clear"
-                                                        style="display:none;">
-													<span class="glyphicon glyphicon-remove"></span> Suprimer
+                                       <div class="input-group image-preview">
+                                        <input type="text" class="form-control image-preview-filename" disabled="disabled">
+                                        <span class="input-group-btn">
+												<button type="button" class="btn btn-default image-preview-clear" style="display:none;">
+													<span class="glyphicon glyphicon-remove"></span> Suprimmer
                                         </button>
                                         <div class="btn btn-default image-preview-input">
                                             <span class="glyphicon glyphicon-folder-open"></span>
                                             <span class="image-preview-input-title"></span>
-                                            <input type="file" accept="image/png, image/jpeg, image/gif" name="image"
-                                                   required/>
+                                            <input type="file" accept="image/png, image/jpeg, image/gif" name="input-file-preview" />
                                         </div>
                                         </span>
-                                        </div>
+                                    </div>
                                         <div class="form-group form-group-translation et">
                                             <label class="control-label">
                                                 <span>Description : *</span>
