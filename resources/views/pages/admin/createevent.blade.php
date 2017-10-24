@@ -116,6 +116,7 @@
                                 <div class="panel panel-content">
                                     <div class="panel-body border-bottom">
                                         <h2>Details</h2>
+                                        <input type="hidden" id="huhu" name="publie">
                                         <div class="clearfix"></div>
                                         <div class="form-group ">
                                             <label class="control-label ">
@@ -150,7 +151,7 @@
                                         <div class="btn btn-default image-preview-input">
                                             <span class="glyphicon glyphicon-folder-open"></span>
                                             <span class="image-preview-input-title"></span>
-                                            <input type="file" accept="image/png, image/jpeg, image/gif" name="input-file-preview" />
+                                            <input type="file" accept="image/png, image/jpeg, image/gif" name="image" required />
                                         </div>
                                         </span>
                                     </div>
@@ -1555,8 +1556,9 @@
         $(document).ready(function () {
 
             $('#publie').change(function () {
-                valeur = $(this).val();
+                var valeur = $(this).val();
                 $('#publie').val(valeur);
+                console.log(valeur);
             });
 
         });
