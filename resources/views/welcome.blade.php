@@ -34,19 +34,22 @@
                 <div id="myCarousel" class="carousel slide" data-ride="carousel">
                     <!-- Indicators -->
                     <ol class="carousel-indicators">
-                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                        <li data-target="#myCarousel" data-slide-to="1"></li>
-                        <li data-target="#myCarousel" data-slide-to="2"></li>
-                        <li data-target="#myCarousel" data-slide-to="3"></li>
+                        <?php
+                        $count_image = count($slides);
+                        ?>
+                        @php $ci = 0; @endphp
+                        @for($ci=0;$ci<$count_image;$ci++)
+                            @if($ci == 0)
+                                <li data-target="#myCarousel" data-slide-to="{{$ci}}" class="active"></li>
+                            @else
+                                <li data-target="#myCarousel" data-slide-to="{{$ci}}"></li>
+                            @endif
+                        @endfor
                     </ol>
                     <div class="carousel-inner">
                         <div class="item active">
                             <img src="{{ url('/') }}/public/slide/{{$slides[0]->image}}" style="width:100%;">
                         </div>
-                        <?php
-                        $count_image = count($slides);
-
-                        ?>
                         @for($i=1;$i<$count_image;$i++)
                             <div class="item">
                                 <img src="{{ url('/') }}/public/slide/{{$slides[$i]->image}}" style="width:100%;">
@@ -115,7 +118,7 @@
                                                             <div class="col-md-9 col-xs-9 ">
                                                                 {{--<a>--}}
                                                                 <div class="prixfx">
-                                                                    @if($event->tickets()->count() > 0)
+                                                                    @if($event->tickets->where('date_debut_vente','<',date('Y-m-d H:i:s'))->where('date_fin_vente','>',date('Y-m-d H:i:s'))->count() > 0)
                                                                         <i class="fa fa-tag prices"></i>A
                                                                         partir de <b
                                                                                 class="prx">{{ (int) $event->tickets()->orderBy('price','asc')->take(1)->get()[0]->price  }}</b>
@@ -173,14 +176,18 @@
 
                                             <form>
                                                 <div class="form-group">
-                                                    <input type="email" class="form-control email-subscribe placehold" id="input-mail" aria-describedby="emailHelp" placeholder="| Enter l'adresse E-mail">
+                                                    <input type="email" class="form-control email-subscribe placehold"
+                                                           id="input-mail" aria-describedby="emailHelp"
+                                                           placeholder="| Enter l'adresse E-mail">
                                                 </div>
                                             </form>
 
                                         </div>
                                         <div class="row">
 
-                                            <button type="button" class="btn btn-sinscrire btn-lg btn-block">S'inscrire</button>
+                                            <button type="button" class="btn btn-sinscrire btn-lg btn-block">
+                                                S'inscrire
+                                            </button>
 
                                         </div>
                                     </div>
