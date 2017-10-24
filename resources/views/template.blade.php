@@ -66,10 +66,9 @@
                     </li>
                 </ul>
                 <div class="row">
-
-                    <div class="col-md-6" style="height: 82px;">
-                        <div id="custom-search-input">
-                            <div class="input-group col-md-12 searchbox">
+                    <div class="col-md-6" >
+                        <div id="custom-search-input col-xs-12">
+                            <div class="input-group searchbox">
                                 <form action="{{url('/')}}/find/q" method="get" class="input-group searchbox">
                                     <input type="text" class="form-control input-lg" name="query"
                                            placeholder="Rechercher..." autocomplete="off" style="font-size:16px;">
@@ -135,8 +134,8 @@
                 </ul>
                 <div class="row">
                     <div class="col-md-5">
-                        <div id="custom-search-input">
-                            <div class="input-group searchbox col-md-12">
+                        <div id="custom-search-input col-xs-12">
+                            <div class="input-group searchbox ">
                                 <form action="{{url('/')}}/find/q" method="get" class="input-group searchbox">
                                     <input type="text" class="form-control input-lg" name="query"
                                            placeholder="Rechercher..." autocomplete="off" style="font-size:16px;">
