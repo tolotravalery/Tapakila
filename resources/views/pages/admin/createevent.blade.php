@@ -183,7 +183,7 @@
                                                                 <div class="input-group-addon">
                                                                     <i class="fa fa-calendar"></i></div>
                                                                 <input class="form-control" id="date" name="date_debut"
-                                                                       placeholder="YYYY-MM-DD" type="text" required/>
+                                                                       placeholder="A-M-J" type="text" required/>
                                                             </div>
 
                                                         </div>
@@ -212,7 +212,7 @@
                                                                 <div class="input-group-addon">
                                                                     <i class="fa fa-calendar"></i></div>
                                                                 <input class="form-control" id="date" name="date_fin"
-                                                                       placeholder="YYYY-MM-DD" type="text" required/>
+                                                                       placeholder="A-M-J" type="text" required/>
                                                             </div>
 
                                                         </div>
@@ -755,12 +755,8 @@
                                                             </thead>
                                                             <tbody>
                                                             </tbody>
-
-
                                                         </table>
                                                     </div>
-
-
                                                 </div>
                                             </div>
                                         </div>
@@ -799,12 +795,8 @@
                                                             </thead>
                                                             <tbody>
                                                             </tbody>
-
-
                                                         </table>
                                                     </div>
-
-
                                                 </div>
                                             </div>
                                         </div>
