@@ -96,6 +96,14 @@ width: 45%!important;
 		padding-top: 28px;
 		padding-bottom: 36px;
 	}
+	.Confirme {
+		padding: 17px 30px;
+		background-color: #f5f5f5;
+		border-top: 1px solid #ddd;
+		border-bottom-right-radius: 3px;
+		border-bottom-left-radius: 3px;
+		text-align: center;
+	}
 	.com_contenu {
 		padding-left: 16px;
 		padding-right: 16px;
