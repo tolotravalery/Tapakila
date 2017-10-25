@@ -717,12 +717,33 @@ footer {
 
 
 /* create event start */
-
-.form-control[disabled],
-.form-control[readonly],
-fieldset[disabled] .form-control {
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
     background-color: white;
     opacity: 1;
+}
+
+.image-preview-input {
+    position: relative;
+    overflow: hidden;
+    margin: 0px;
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}
+
+.image-preview-input input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+.image-preview-input-title {
+    margin-left: 2px;
 }
 
 
@@ -875,7 +896,13 @@ hr {
 
 .enregistrer {
     color: white;
-    background-color: #ff1d1d;
+    background-color: #d70506;
+    padding: 15px 30px 15px 30px;
+}
+
+.enregistrer:hover {
+    color: white;
+    background-color: #d70506;
     padding: 15px 30px 15px 30px;
 }
 
@@ -1580,12 +1607,12 @@ html|* > svg {
 }
 
 .com_contenu_type {
-    background-color: white;
-    padding-left: 60px;
-    padding-right: 60px;
-    margin-top: 0px;
-    padding-top: 28px;
-    padding-bottom: 36px;
+  background-color: white;
+padding-left: 35px;
+padding-right: 35px;
+margin-top: 10px;
+padding-top: 0;
+padding-bottom: 10px;
 }
 .row_creat{
     text-align: center;
@@ -1595,6 +1622,10 @@ html|* > svg {
     color: #d70506;
     background-color: transparent;
     border-color: #d70506;
+}
+
+.separe{
+	width:100%;
 }
 
 .primary:hover {
@@ -1879,11 +1910,11 @@ input[type="file"] {
 }
 
 .limite {
-    height: 83px;
+   height: 90px;
 }
 
 .limitelengh {
-    height: 70px;
+    height: 65px;
 }
 
 .col6_index {
@@ -2013,6 +2044,12 @@ div.calendar p {
     -webkit-transition: border .2s ease-in-out;
     -o-transition: border .2s ease-in-out;
     transition: border .2s ease-in-out;
+}
+
+.mg-image {
+    width: 100% ! important;
+    height: 100% ! important;
+    overflow: hidden ! important;
 }
 
 #sectioncategorie {
@@ -2262,40 +2299,32 @@ margin-left: 30px;
 
 
 /* zoom */
-
 .mg-image img {
-    -webkit-transition: all 1s ease;
-    /* Safari and Chrome */
-    -moz-transition: all 1s ease;
-    /* Firefox */
-    -o-transition: all 1s ease;
-    /* IE 9 */
-    -ms-transition: all 1s ease;
-    /* Opera */
+    -webkit-transition: all 1s ease; /* Safari and Chrome */
+    -moz-transition: all 1s ease; /* Firefox */
+    -o-transition: all 1s ease; /* IE 9 */
+    -ms-transition: all 1s ease; /* Opera */
     transition: all 1s ease;
-    max-width: 100%;
+    width: 100%;
+    height: 200px;
 }
 
 .mg-image:hover img {
-    -webkit-transform: scale(1.25);
-    /* Safari and Chrome */
-    -moz-transform: scale(1.25);
-    /* Firefox */
-    -ms-transform: scale(1.25);
-    /* IE 9 */
-    -o-transform: scale(1.25);
-    /* Opera */
+    -webkit-transform: scale(1.25); /* Safari and Chrome */
+    -moz-transform: scale(1.25); /* Firefox */
+    -ms-transform: scale(1.25); /* IE 9 */
+    -o-transform: scale(1.25); /* Opera */
     transform: scale(1.25);
 }
 
-
 /* just apply some height and width to the wrapper.*/
-
 .mg-image {
     width: 100%;
     height: 100%;
     overflow: hidden;
 }
+
+/* zomm end */
 
 
 /* zomm end */
@@ -3849,7 +3878,12 @@ div.tests .number-spinner .test2 .test3 {
     height: 42px;
 }
 .btn span.glyphicon {
-    opacity: 0;
+    opacity: 1;
+}
+
+.form-horizontal .form-group {
+    margin-right:0 ! important;
+    margin-left: 0  ! important;
 }
 .btn.active span.glyphicon {
     opacity: 1;
