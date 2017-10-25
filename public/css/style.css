@@ -1607,12 +1607,12 @@ html|* > svg {
 }
 
 .com_contenu_type {
-    background-color: white;
-    padding-left: 60px;
-    padding-right: 60px;
-    margin-top: 0px;
-    padding-top: 28px;
-    padding-bottom: 36px;
+  background-color: white;
+padding-left: 35px;
+padding-right: 35px;
+margin-top: 10px;
+padding-top: 0;
+padding-bottom: 10px;
 }
 .row_creat{
     text-align: center;
@@ -1622,6 +1622,10 @@ html|* > svg {
     color: #d70506;
     background-color: transparent;
     border-color: #d70506;
+}
+
+.separe{
+	width:100%;
 }
 
 .primary:hover {
@@ -3874,7 +3878,12 @@ div.tests .number-spinner .test2 .test3 {
     height: 42px;
 }
 .btn span.glyphicon {
-    opacity: 0;
+    opacity: 1;
+}
+
+.form-horizontal .form-group {
+    margin-right:0 ! important;
+    margin-left: 0  ! important;
 }
 .btn.active span.glyphicon {
     opacity: 1;
