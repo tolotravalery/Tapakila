@@ -317,6 +317,27 @@ body {
     margin-top: 5px !important;
 }
 
+.btn-info1:hover {
+    color: #fff;
+    background-color: #680306;
+}
+
+.btn-info1:focus {
+    color: #fff;
+    background-color: #680306;
+}
+
+.btn-info1:visited {
+    color: #fff;
+    background-color: #680306;
+}
+
+.btn-sinscrire:hover {
+    width: 100%;
+    background-color: #d70506;
+    color: white;
+    padding: 5px 0px !important;
+}
 
 #navbar form input[type=submit] {
     right: -1px;
@@ -2869,9 +2890,9 @@ hr.couvert:after {
     text-align: center;
 }
 .bg-custom {
-    background-color: white;
-    padding: 20px 20px 20px 21px;
-    margin-bottom: 40px;
+  background-color: white;
+padding: 20px 20px 20px 21px;
+margin-bottom: 25px;
 }
 
 /* sans item end */
