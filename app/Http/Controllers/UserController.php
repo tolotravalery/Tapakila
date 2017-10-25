@@ -41,14 +41,14 @@ class UserController extends Controller
         if ($user->hasRole('organisateur')) {
             $menus = Menus::orderBy('id', 'desc')->get();
             $sousmenus = Sous_menus::orderBy('name', 'asc')->get();
-            $events_passe = $user->events()->where('date_fin_event', '<', date('Y-m-d H:i:s'))->get();
-            $events_futur = $user->events()->where('date_debut_envent', '>', date('Y-m-d H:i:s'))->get();
+            $events_passe = $user->events()->where('date_fin_event', '<', date('Y-m-d'))->get();
+            $events_futur = $user->events()->where('date_debut_envent', '>', date('Y-m-d'))->get();
             $achats = $user->tickets;
             return view('pages.user.home_organisateur')->with(compact('menus', 'sousmenus', 'events_passe', 'events_futur', 'achats','niova'));
         }
         if($user->hasRole('user')) {
             $menus = Menus::orderBy('id', 'desc')->get();
-            $sousmenus = Sous_menus::orderBy('name', 'asc')->take(20)->get();
+            $sousmenus = Sous_menus::orderBy('name', 'asc')->get();
 
             $achats = $user->tickets;
             return view('panels.welcome-panel')->with(compact('menus', 'sousmenus', 'achats','niova'));
