@@ -725,8 +725,18 @@ text-align: center;
 }
 }
 
+
+@media only screen and (max-width:498px){
+	#sectioncategorie a {
+    margin-left: 0px !important;
+}
+}
 /* Smartphones (portrait) ----------- */
 @media only screen and (max-width: 320px) {
+	.cbg {
+    background-color: #f8f8f8;
+    padding: 10px 0px 10px 0px !important;
+}
 .tabl li .active a {
 background-color: #d70506 !important;
 border: none !important;
