@@ -958,7 +958,7 @@ ul.tabs {
     margin: 0 10px 10px 21px;
     padding: 0 0 0 21px;
     list-style: none;
-    height: 58px;
+    height: 53px;
     border-bottom: 3px solid #d70506;
 }
 .table-custom th, .table-custom td {
@@ -967,13 +967,13 @@ ul.tabs {
 }
 
 ul.tabs li {
-    font-size: 19px;
+    font-size: 17px;
     margin-right: 4px ! important;
     float: left;
     margin: 0;
     cursor: pointer;
     padding: 7px 28px 7px 30px;
-    height: 54px;
+    height: 50px;
     line-height: 20px;
     background-color: #cccccc;
     color: #fff;
