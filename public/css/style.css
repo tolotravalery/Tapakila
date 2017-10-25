@@ -1013,7 +1013,7 @@ ul.tabs li.active {
 
 
 .custom-container {
-    padding: 0 60px
+    padding: 0 50px
 }
 
 /* mon compte end */
@@ -1710,7 +1710,7 @@ div.calendar h1:hover {
 
 .cbg {
     background-color: #f8f8f8;
-    padding: 10px 10px 10px 10px;
+    padding: 10px 0px 10px 0px;
 }
 
 div.calendar p {
@@ -1800,7 +1800,7 @@ div.calendar p {
 /*Styles for screen 700px > 1000*/
 @media screen and (min-width: 500px) and (max-width: 1200px) {
     #sectioncategorie {
-        background: #ffffffe6;
+		background-color: #fff;
         font-size: 11pt;
         font-family: 'PT Sans', Arial, sans-serif;
         font-weight: bold;
