@@ -72,12 +72,14 @@
                                                 </div>
                                                 <div class="row cbg">
                                                     <div class="col-md-3 col-xs-3">
-                                                        <div class="calendar">
-                                                            <h1 class="month"
-                                                                id="month{{$count_id}}">{{ \Carbon\Carbon::parse($event->date_debut_envent)->format('M')}}</h1>
-                                                            <label class="jour">{{ \Carbon\Carbon::parse($event->date_debut_envent)->format('D')}}</label>
-                                                            <p class="day">{{ \Carbon\Carbon::parse($event->date_debut_envent)->format('d')}}</p>
-                                                        </div>
+                                                        <a href="{{url('event/show',[$event->id])}}">
+                                                            <div class="calendar">
+                                                                <h1 class="month"
+                                                                    id="month{{$count_id}}">{{ \Carbon\Carbon::parse($event->date_debut_envent)->format('M')}}</h1>
+                                                                <label class="jour">{{ \Carbon\Carbon::parse($event->date_debut_envent)->format('D')}}</label>
+                                                                <p class="day">{{ \Carbon\Carbon::parse($event->date_debut_envent)->format('d')}}</p>
+                                                            </div>
+                                                        </a>
                                                     </div>
                                                     <div class="col-md-9 col-xs-9 ">
                                                         {{--<a>--}}

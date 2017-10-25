@@ -1756,15 +1756,12 @@ div.calendar p {
 }
 
 #sectioncategorie {
-    height: 40px;
-    width: 100%;
     background: #ffffffe6;
-    font-size: 11pt;
+    font-size: 16px;
     font-family: 'PT Sans', Arial, sans-serif;
     font-weight: bold;
     position: relative;
     margin-top: -20px;
-
 }
 
 #sectioncategorie ul {
@@ -1781,11 +1778,10 @@ div.calendar p {
 #sectioncategorie a {
     color: #b91027;
     display: inline-block;
-    width: 100px;
     text-align: center;
     text-decoration: none;
     line-height: 40px;
-
+    margin-left: 30px;
 }
 
 #sectioncategorie :hover {
@@ -1804,8 +1800,6 @@ div.calendar p {
 /*Styles for screen 700px > 1000*/
 @media screen and (min-width: 500px) and (max-width: 1200px) {
     #sectioncategorie {
-        height: 100px;
-        width: 100%;
         background: #ffffffe6;
         font-size: 11pt;
         font-family: 'PT Sans', Arial, sans-serif;
