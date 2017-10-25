@@ -919,9 +919,9 @@ ul>li>a:hover {
     background-color: #df3838;
     color: white;
     border: none;
-    padding: 10px 20px 10px 20px;
+    padding: 12px 11px 10px 6px;
+    margin-bottom: -14px !important;
 }
-
 button.nonpublier:hover:visited:focus {
     color: white;
 }
@@ -966,14 +966,10 @@ a:hover {
 }
 .sec{
     margin-top: 22px;
+    margin-left: -18px !important;
 }
 
-.nonpublier:hover {
-    background-color: #df3838;
-    color: white;
-    border: none;
-    padding: 10px 20px 10px 20px;
-}
+
 
 .Confirme {
     padding: 17px 30px;
