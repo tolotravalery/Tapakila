@@ -119,7 +119,7 @@
                                                         <label class="btn btn-customs  btn-success pull-right">
                                                             <input type="radio" name="options" id="option2"
                                                                    autocomplete="off" style="display: none;"
-                                                                   value="{{$p->slug}}">
+                                                                   value="{{$p->slug}}" required>
                                                             <span class="glyphicon gly-custom  glyphicon-ok"></span>
                                                         </label>
 
