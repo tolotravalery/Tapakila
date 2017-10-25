@@ -1,6 +1,7 @@
 @extends('template')
 
 @section('content')
+
     <section id="sectioncategorie" class="clearfix">
         <div class="container custom-container">
             <ul class="clearfix">
@@ -26,8 +27,6 @@
             </ul>
         </div>
     </section>
-	
-	
     <div class="container custom-container">
         <div class=" hier1">
             <div class="row ">
@@ -36,9 +35,10 @@
                         <img src="{{url('/')}}/public/img/{{$event->image}}" class="image_detail">
                     </div>
                 </div>
+
                 <div class="col-lg-5">
                     <h3 class="couleur_mot">{{$event->title}}</h3>
-                    <p style="text-align: justify;padding-right: 10px;">{{$event->additional_note}}</p>
+                    <p style="text-align: justify;padding-right: 10px;">{{$event->additional_note}}
                     <div class="div_style">
                         <i class="fa fa-product-hunt fa-2x zav" aria-hidden="true"></i><strong id="programme"
                                                                                                class="couleur_mot">
@@ -51,13 +51,13 @@
                     </div>
                     <div class="div_style">
                         <i class="fa fa-calendar-o fa-2x  zav" aria-hidden="true"></i><strong id="date"
-                                                                                              class="couleur_mot">
-                            Date : </strong> {{ \Carbon\Carbon::parse($event->date_debut_envent)->format('d M Y')}}
+                                                                                              class="couleur_mot"> Date
+                            : </strong> {{ \Carbon\Carbon::parse($event->date_debut_envent)->format('d M Y')}}
                     </div>
                     <div class="div_style">
                         <i class="fa fa-clock-o fa-2x zav" aria-hidden="true"></i><strong id="heure"
-                                                                                          class="couleur_mot">
-                            Heure :</strong> {{ \Carbon\Carbon::parse($event->date_debut_envent)->format('H:i')}}
+                                                                                          class="couleur_mot"> Heure
+                            :</strong> {{ \Carbon\Carbon::parse($event->date_debut_envent)->format('H:i')}}
                     </div>
                     <div class="div_style">
                         <strong class="couleur_mot zav"> Partagez sur :</strong>
@@ -96,7 +96,6 @@
                             $interval = new DateInterval('P1D');
                             $daterange = new DatePeriod(\Carbon\Carbon::parse($event->date_debut_envent), $interval ,\Carbon\Carbon::parse($event->date_fin_event));
                         @endphp
-
                         @foreach($daterange as $date)
                             <div class="tab-pane tabulation  fade @php if($d == 0)  echo "active in"; else ""; @endphp"
                                  id="date{{$d}}">
@@ -127,41 +126,50 @@
                                                             <p>{{$ticket->description}}</p>
                                                         </td>
                                                         @if($ticket->number > 0)
-                                                            <td><i class="fa fa-unlock fa-2x clock{{$count_id_price}}"
-                                                                   aria-hidden="true"></i>
+                                                            <td class="unlock"><i class="fa fa-unlock fa-2x"
+                                                                                  aria-hidden="true"></i>
                                                                 <p id="tickets{{$count_id_price}}">{{$ticket->number}}</p>
                                                                 tickets
                                                             </td>
                                                         @else
-                                                            <td><i class="fa fa-close fa-2x" aria-hidden="true"></i>
+                                                            <td class="clock"><i class="fa fa-close fa-2x"
+                                                                                 aria-hidden="true"></i>
                                                                 <p>Non disponible</p>
                                                             </td>
                                                         @endif
                                                         <td>
-                                                            <div class="row postions">
-                                                                <div class="col-md-4 col-md-offset-2  ">
-                                                                    <div class="input-group number-spinner{{$count_id_price}}">
-                                                            <span class="input-group-btn">
-																		<button type="button"
-                                                                                class="btn btn-default btn-circle smoins"
-                                                                                data-dir="dwn"
-                                                                                id="btn-down{{$count_id_price}}"><span
-                                                                                    class="fa fa-minus"></span></button>
-                                                            </span>
-                                                                        <input class="form-control text-center ui"
-                                                                               value="0"
-                                                                               type="text" name="nombre[]">
-                                                                        <span class="input-group-btn">
-																		<button type="button"
-                                                                                class="btn btn-default btn-circle splus "
-                                                                                data-dir="up"
-                                                                                id="btn-up{{$count_id_price}}"><span
-                                                                                    class="fa fa-plus"></span></button>
-                                                            </span>
-                                                                    </div>
+
+                                                            <div class="tableau-center">
+                                                                <div class="input-group number-spinner{{$count_id_price}}  tabdetail">
+
+                                                                    <ul>
+                                                                        <li>
+                                                                            <span class="input-group-btn">
+                                                                                        <button class="btn btn-default btn-circle smoins"
+                                                                                                data-dir="dwn"
+                                                                                                type="button"
+                                                                                                id="btn-down{{$count_id_price}}"><span
+                                                                                                    class="fa fa-minus"></span></button>
+                                                                            </span>
+                                                                        </li>
+                                                                        <li>
+                                                                            <input class="form-control text-center ui tests "
+                                                                                   value="0"
+                                                                                   type="text" name="nombre[]"></li>
+                                                                        <li>
+																	<span class="input-group-btn">
+																				<button class="btn btn-default btn-circle splus "
+                                                                                        data-dir="up" type="button"
+                                                                                        id="btn-up{{$count_id_price}}"><span
+                                                                                            class="fa fa-plus"></span></button>
+																	</span>
+                                                                        </li>
+                                                                    </ul>
+
                                                                 </div>
-                                                                <div class="col-md-4 col-md-offset-1"></div>
                                                             </div>
+
+
                                                         </td>
                                                         <td><b>{{(int)$ticket->price}}</b> Ar</td>
                                                         <td><b id="prixUnit{{$count_id_price}}">0</b> Ar</td>
@@ -174,14 +182,15 @@
                                                 <td class="td_detail"></td>
                                                 <td class="td_detail"></td>
                                                 <td><strong>Total</strong></td>
-                                                <td><b id="total">0</b> Ar</td>
+                                                <td><b id="total1">0</b> Ar</td>
                                             </tr>
                                             <tr>
                                                 <td></td>
                                                 <td></td>
                                                 <td></td>
                                                 <td>
-                                                    <button type="submit" class=" btn btn-danger btn_reset">Reset
+                                                    <button type="button" class=" btn btn-danger btn_reset">
+                                                        Reset
                                                     </button>
                                                 </td>
                                                 <td>
@@ -201,7 +210,7 @@
                             </div>
                             @php $d++ @endphp
                         @endforeach
-                        @if($d == 0)
+                        @if($d==0)
                             <div class="tab-pane tabulation  fade active in"
                                  id="date">
                                 <div class="table-responsive tableau_detail">
@@ -221,7 +230,7 @@
                                               class="side-by-side">
                                             @php $count_id_price = 0; @endphp
                                             @if($event->tickets->where('date_debut_vente','<',date('Y-m-d H:i:s'))->where('date_fin_vente','>',date('Y-m-d H:i:s'))->count() > 0)
-                                                @foreach($event->tickets()->wherePivot('date',\Carbon\Carbon::parse($event->date_debut_envent)->format('Y-m-d'))->get() as $ticket)
+                                                @foreach($event->tickets()->wherePivot('date',\Carbon\Carbon::parse($date)->format('Y-m-d'))->get() as $ticket)
                                                     {!! csrf_field() !!}
                                                     <input type="hidden" name="id[]" value="{{ $ticket->id }}">
                                                     <input type="hidden" name="type[]" value="{{ $ticket->type }}">
@@ -231,41 +240,50 @@
                                                             <p>{{$ticket->description}}</p>
                                                         </td>
                                                         @if($ticket->number > 0)
-                                                            <td><i class="fa fa-unlock fa-2x clock{{$count_id_price}}"
-                                                                   aria-hidden="true"></i>
+                                                            <td class="unlock"><i class="fa fa-unlock fa-2x"
+                                                                                  aria-hidden="true"></i>
                                                                 <p id="tickets{{$count_id_price}}">{{$ticket->number}}</p>
                                                                 tickets
                                                             </td>
                                                         @else
-                                                            <td><i class="fa fa-close fa-2x" aria-hidden="true"></i>
+                                                            <td class="clock"><i class="fa fa-close fa-2x"
+                                                                                 aria-hidden="true"></i>
                                                                 <p>Non disponible</p>
                                                             </td>
                                                         @endif
                                                         <td>
-                                                            <div class="row postions">
-                                                                <div class="col-md-4 col-md-offset-2  ">
-                                                                    <div class="input-group number-spinner{{$count_id_price}}">
-                                                            <span class="input-group-btn">
-																		<button type="button"
-                                                                                class="btn btn-default btn-circle smoins"
-                                                                                data-dir="dwn"
-                                                                                id="btn-down{{$count_id_price}}"><span
-                                                                                    class="fa fa-minus"></span></button>
-                                                            </span>
-                                                                        <input class="form-control text-center ui"
-                                                                               value="0"
-                                                                               type="text" name="nombre[]">
-                                                                        <span class="input-group-btn">
-																		<button type="button"
-                                                                                class="btn btn-default btn-circle splus "
-                                                                                data-dir="up"
-                                                                                id="btn-up{{$count_id_price}}"><span
-                                                                                    class="fa fa-plus"></span></button>
-                                                            </span>
-                                                                    </div>
+
+                                                            <div class="tableau-center">
+                                                                <div class="input-group number-spinner{{$count_id_price}}  tabdetail">
+
+                                                                    <ul>
+                                                                        <li>
+                                                                            <span class="input-group-btn">
+                                                                                        <button class="btn btn-default btn-circle smoins"
+                                                                                                data-dir="dwn"
+                                                                                                type="button"
+                                                                                                id="btn-down{{$count_id_price}}"><span
+                                                                                                    class="fa fa-minus"></span></button>
+                                                                            </span>
+                                                                        </li>
+                                                                        <li>
+                                                                            <input class="form-control text-center ui tests "
+                                                                                   value="0"
+                                                                                   type="text" name="nombre[]"></li>
+                                                                        <li>
+																	<span class="input-group-btn">
+																				<button class="btn btn-default btn-circle splus "
+                                                                                        data-dir="up" type="button"
+                                                                                        id="btn-up{{$count_id_price}}"><span
+                                                                                            class="fa fa-plus"></span></button>
+																	</span>
+                                                                        </li>
+                                                                    </ul>
+
                                                                 </div>
-                                                                <div class="col-md-4 col-md-offset-1"></div>
                                                             </div>
+
+
                                                         </td>
                                                         <td><b>{{(int)$ticket->price}}</b> Ar</td>
                                                         <td><b id="prixUnit{{$count_id_price}}">0</b> Ar</td>
@@ -278,14 +296,15 @@
                                                 <td class="td_detail"></td>
                                                 <td class="td_detail"></td>
                                                 <td><strong>Total</strong></td>
-                                                <td><b id="total">0</b> Ar</td>
+                                                <td><b id="total1">0</b> Ar</td>
                                             </tr>
                                             <tr>
                                                 <td></td>
                                                 <td></td>
                                                 <td></td>
                                                 <td>
-                                                    <button type="button" onclick="reset()" class=" btn btn-danger btn_reset">Reset
+                                                    <button type="button" class=" btn btn-danger btn_reset">
+                                                        Reset
                                                     </button>
                                                 </td>
                                                 <td>
@@ -297,7 +316,7 @@
                                             <input type="hidden" id="nombre_id" value="{{$count_id_price}}"/>
                                         </form>
                                         </tbody>
-                                        @if($event->tickets()->wherePivot('date',\Carbon\Carbon::parse($event->date_debut_envent)->format('Y-m-d'))->get()->count() == 0)
+                                        @if($event->tickets()->wherePivot('date',\Carbon\Carbon::parse($date)->format('Y-m-d'))->get()->count() == 0)
                                             <p>(*) Les tickets de cette évènements ne sont pas encore disponible</p>
                                         @endif
                                     </table>
@@ -374,6 +393,7 @@
                     @php $count_id++ @endphp
                 @endforeach
             </div>
+            </a>
         </div>
     </div>
 @endsection
@@ -450,7 +470,7 @@
         </script>
     @endfor
     <script>
-        function reset(){
+        function reset() {
             {{--window.location = '{{url}}'--}}
         }
     </script>
