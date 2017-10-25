@@ -1010,13 +1010,15 @@ text-align: center;
 .connexion {
 clear: both;
 }
+
 footer {
-position: absolute;
-left: 0;
-bottom: 0;
-height: 305px;
-width: 100%;
-overflow: hidden;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 364px;
+    width: 100%;
+    overflow: hidden;
+
 }
 /*------------------Mon Compte------------------*/
 .compte2 {
