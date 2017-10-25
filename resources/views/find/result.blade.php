@@ -88,22 +88,26 @@
                                                     <div class="limitelengh">
                                                         <h3>
                                                             <a href="{{url('event/show',[$event->id])}}"
-                                                               id="title{{$count_id}}">{!! str_limit(str_replace($queries,'<span style="background-color: yellow;">'.$queries.'</span>',$event->title),$limit = 40, $end = ' ...') !!}</a>
+                                                               id="title{{$count_id}}">
+                                                                {!! str_replace($queries,'<span style="background-color: yellow;">'.$queries.'</span>',str_limit($event->title,$limit = 40, $end = ' ...')) !!}
+                                                            </a>
                                                         </h3>
                                                     </div>
                                                     <div class="limite">
                                                         <a href="{{url('event/show',[$event->id])}}"><p
-                                                                    style="text-align: justify">{!! str_limit(ucfirst(str_replace($queries,'<span style="background-color: yellow;">'.$queries.'</span>',$event->additional_note)), $limit = 140, $end = ' ...') !!}</p>
+                                                                    style="text-align: justify">{!! str_replace($queries,'<span style="background-color: yellow;">'.$queries.'</span>',str_limit(ucfirst($event->additional_note),$limit = 140, $end = ' ...')) !!}</p>
                                                         </a><br/>
                                                     </div>
                                                     <div class="row cbg">
                                                         <div class="col-md-3 col-xs-3">
-                                                            <div class="calendar">
-                                                                <h1 class="month"
-                                                                    id="month{{$count_id}}">{{ \Carbon\Carbon::parse($event->date_debut_envent)->format('M')}}</h1>
-                                                                <label class="jour">{{ \Carbon\Carbon::parse($event->date_debut_envent)->format('D')}}</label>
-                                                                <p class="day">{{ \Carbon\Carbon::parse($event->date_debut_envent)->format('d')}}</p>
-                                                            </div>
+                                                            <a href="{{url('event/show',[$event->id])}}">
+                                                                <div class="calendar">
+                                                                    <h1 class="month"
+                                                                        id="month{{$count_id}}">{{ \Carbon\Carbon::parse($event->date_debut_envent)->format('M')}}</h1>
+                                                                    <label class="jour">{{ \Carbon\Carbon::parse($event->date_debut_envent)->format('D')}}</label>
+                                                                    <p class="day">{{ \Carbon\Carbon::parse($event->date_debut_envent)->format('d')}}</p>
+                                                                </div>
+                                                            </a>
                                                         </div>
                                                         <div class="col-md-9 col-xs-9 ">
                                                             <div class="prixfx">
@@ -124,7 +128,8 @@
                                                             </a>
                                                             <a href="{{url('event/show',[$event->id])}}">
                                                                 <div class="date"><i
-                                                                            class="glyphicon glyphicon-map-marker position"></i>{!! str_replace($queries,'<span style="background-color: yellow;">'.$queries.'</span>',$event->localisation_adresse) !!}
+                                                                            class="glyphicon glyphicon-map-marker position"></i>
+                                                                    {!! str_replace($queries,'<span style="background-color: yellow;">'.$queries.'</span>',$event->localisation_adresse) !!}
                                                                 </div>
                                                             </a>
                                                         </div>
