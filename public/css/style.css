@@ -288,11 +288,11 @@ body {
     background-color: #680306;
 }
 
-#navbar form {
-    margin-right: 20px;
-    margin-top: 4px;
-    margin-left: 10px;
-}
+/* #navbar form { */
+    /* margin-right: 20px; */
+    /* margin-top: 4px; */
+    /* margin-left: 10px; */
+/* } */
 
 .panier-header {
     margin-top: 5px !important;
@@ -2042,12 +2042,12 @@ div.calendar p {
 }
 
 #sectioncategorie a {
-    color: #b91027;
-    display: inline-block;
-    width: 95px;
-    text-align: center;
-    text-decoration: none;
-    line-height: 40px;
+   color: #b91027;
+display: inline-block;
+text-align: center;
+text-decoration: none;
+line-height: 40px;
+margin-left: 30px;
 }
 
 #sectioncategorie:hover {
