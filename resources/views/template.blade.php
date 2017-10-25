@@ -125,20 +125,24 @@
                     </li>
 
                 </ul>
-                <div class="row">
-                    <div class="col-md-5">
-                        <div id="custom-search-input">
-                            <form action="{{url('/')}}/find/q" method="get" class="input-group searchbox">
-                                <input type="text" class="form-control input-lg" name="query" placeholder="Rechercher..." autocomplete="off" style="font-size:16px;">
-                                <span class="input-group-btn">
-									<button class="btn btn-info1 btn-lg" type="submit">
-										<i class="glyphicon glyphicon-search"></i>
-									</button>
-								</span>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+               
+				
+				<div class="row">
+				<div class="col-md-5">
+					<div id="custom-search-input">
+					  <form action="{{url('/')}}/find/q" method="get">
+						<div class="input-group col-md-12 searchbox">
+							<input type="text" class="form-control input-lg" placeholder="Rechercher..." />
+							<span class="input-group-btn">
+								<button class="btn btn-info1 btn-lg" type="button">
+									<i class="glyphicon glyphicon-search"></i>
+								</button>
+							</span>
+						</div>
+						</form>
+					</div>
+				</div>
+			</div>
                 @endif
             </div>
         </div>
