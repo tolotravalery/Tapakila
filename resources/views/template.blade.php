@@ -65,20 +65,19 @@
                         </ul>
                     </li>
                 </ul>
+				
                 <div class="row">
                     <div class="col-md-6">
                         <div id="custom-search-input">
-                            <div class="input-group col-md-12 searchbox">
-                                <form action="{{url('/')}}/find/q" method="get" class="input-group searchbox">
-                                    <input type="text" class="form-control input-lg" name="query"
-                                           placeholder="Rechercher..." autocomplete="off" style="font-size:16px;">
-                                    <span class="input-group-btn">
-                                    <button class="btn btn-info1 btn-lg" type="submit">
-                                        <i class="glyphicon glyphicon-search"></i>
-                                    </button>
-                                </span>
-                                </form>
-                            </div>
+							<form action="{{url('/')}}/find/q" method="get" class="input-group searchbox">
+								<input type="text" class="form-control input-lg" name="query"
+									   placeholder="Rechercher..." autocomplete="off" style="font-size:16px;">
+								<span class="input-group-btn">
+									<button class="btn btn-info1 btn-lg" type="submit">
+										<i class="glyphicon glyphicon-search"></i>
+									</button>
+								</span>
+							</form>
                         </div>
                     </div>
                 </div>
@@ -138,17 +137,15 @@
                 <div class="row">
                     <div class="col-md-5">
                         <div id="custom-search-input">
-                            <div class="input-group searchbox col-md-12">
-                                <form action="{{url('/')}}/find/q" method="get" class="input-group searchbox">
-                                    <input type="text" class="form-control input-lg" name="query"
-                                           placeholder="Rechercher..." autocomplete="off" style="font-size:16px;">
-                                    <span class="input-group-btn">
-                                    <button class="btn btn-info1 btn-lg" type="submit">
-                                        <i class="glyphicon glyphicon-search"></i>
-                                    </button>
-                                </span>
-                                </form>
-                            </div>
+							<form action="{{url('/')}}/find/q" method="get" class="input-group searchbox">
+								<input type="text" class="form-control input-lg" name="query"
+									   placeholder="Rechercher..." autocomplete="off" style="font-size:16px;">
+								<span class="input-group-btn">
+									<button class="btn btn-info1 btn-lg" type="submit">
+										<i class="glyphicon glyphicon-search"></i>
+									</button>
+								</span>
+							</form>
                         </div>
                     </div>
                 </div>
@@ -179,15 +176,15 @@
                 <div class="col-sm-3 col-xs-6">
                     <p class="titled"><strong>Acheter des tickets</strong></p>
                     <ul class="list-unstyled">
-                        <li><a href="{{url('')}}/tapakila/faq">Comment acheter</a></li>
-                        <li><a href="{{url('')}}/tapakila/shop">Foire aux questions</a></li>
+                        <li><a href="{{url('')}}/tapakila/shop">Comment acheter</a></li>
+                        <li><a href="{{url('')}}/tapakila/faq">Foire aux questions</a></li>
                         <li><a href="{{url('')}}/tapakila/term">Terms of service</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-3 col-xs-6">
                     <p class="titled"><strong>Organisateurs</strong></p>
                     <ul class="list-unstyled">
-                        <li><a href="{{ url('/login') }}">Pour les Organisateurs</a></li>
+                        <li><a href="{{url('')}}/tapakila/shop/ticket">Pour les Organisateurs</a></li>
                         <li><a href="{{ url('/register') }}">S'enregistrer</a></li>
                         <li><a href="{{ url('/login') }}">Connexion</a></li>
                     </ul>
@@ -215,11 +212,11 @@
                 |
                 <li><a href="{{url('')}}/tapakila/contact">Contact</a></li>
                 |
-                <li><a href="#">Ajouter votre evenement</a></li>
+                <li><a href="{{url('/')}}/organisateur/event">Ajouter votre evenement</a></li>
                 |
                 <li><a href="#">Publicite</a></li>
                 |
-                <li><a href="{{url('')}}/tapakila/shop/ticket">FAQ</a></li>
+                <li><a href="{{url('')}}/tapakila/faq">FAQ</a></li>
                 |
                 <li><a href="#">Vie privee</a></li>
                 |

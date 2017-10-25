@@ -39,7 +39,7 @@
                 <div class="col-lg-9 col-sm-9 col-lg-push-3 col-sm-push-3 fi">
                     <h1>Modifier votre évènement</h1>
                 </div>
-                <div class="col-lg-3 col-sm-3 col-lg-pull-9 col-sm-pull-9 sec">
+                {{--<div class="col-lg-3 col-sm-3 col-lg-pull-9 col-sm-pull-9 sec">
                     <div class="btn-group margin-bottom-5">
                         <div class="btn-group" role="group">
                             <select class="form-control" id="publie" name="publie">
@@ -51,6 +51,27 @@
                                     <option value="true">Publié</option>
                                 @endif
                             </select>
+                        </div>
+                    </div>
+                    <a class="btn btn-sm btn-default btn-aperçu " href="#" target="_blank">Aperçu</a>
+                    <p><i style="color:red;">La modification d'une publication évènement est accordé par
+                            l'administrateur</i></p>
+                </div>--}}
+                <div class="col-lg-3 col-sm-3 col-lg-pull-9 col-sm-pull-9 sec">
+                    <div class="btn-group margin-bottom-5">
+                        <div class="btn-group" role="group">
+                            <div class="form-group full">
+                                <label for="sel1"></label>
+                                <select class="btn btn-sm nonpublier dropdown-toggle" id="publie" name="publie">
+                                    @if($event->publie_organisateur == true)
+                                        <option value="false">Non publié</option>
+                                        <option value="true" selected="selected">Publié</option>
+                                    @else
+                                        <option value="false" selected="selected">Non publié</option>
+                                        <option value="true">Publié</option>
+                                    @endif
+                                </select>
+                            </div>
                         </div>
                     </div>
                     <a class="btn btn-sm btn-default btn-aperçu " href="#" target="_blank">Aperçu</a>
@@ -93,7 +114,16 @@
                             <div class="panel panel-content">
                                 <div class="panel-body border-bottom">
                                     <h2>Details</h2>
-                                    <input type="hidden" id="huhu" name="publie">
+                                    <?php
+                                    $publie_org=$event->publie_organisateur;
+                                    if($publie_org==0){
+                                        $p="false";
+                                    }
+                                    else{
+                                        $p="true";
+                                    }
+                                    ?>
+                                    <input type="hidden" id="huhu" name="publie" value="{{$p}}">
                                     <div class="clearfix"></div>
 
                                     <div class="form-group ">
@@ -104,31 +134,33 @@
                                                value="{{$event->title}}" required>
                                     </div>
                                     <div class="form-group">
-                                        <div class="col-xs-4">
-                                            <img src="{{url('/public/img/'.$event->image)}}"
-                                                 style="height: 150px;width: 200px;"/>
-                                        </div>
-                                        <div class="col-xs-8">
-                                            <label class="control-label">
-                                                <span>Image : </span>
-                                            </label>
-                                            <div class="input-group image-preview">
-                                                <input type="text" class="form-control image-preview-filename"
-                                                       disabled="disabled">
-                                                <span class="input-group-btn">
-												<button type="button" class="btn btn-default image-preview-clear"
-                                                        style="display:none;">
-													<span class="glyphicon glyphicon-remove"></span> Supprimer
-												</button>
-												<div class="btn btn-default image-preview-input">
-													<span class="glyphicon glyphicon-folder-open"></span>
-													<span class="image-preview-input-title"></span>
-													<input type="file" accept="image/png, image/jpeg, image/gif"
-                                                           name="image"/>
+										<div class="row">
+											<div class="col-md-5 col-xs-12">
+												<img src="{{url('/public/img/'.$event->image)}}"
+													 style="height: 175px;width: 225px;"/>
+											</div>
+											<div class="col-md-7 col-xs-12">
+												<label class="control-label">
+													<span>Image : </span>
+												</label>
+												<div class="input-group image-preview">
+													<input type="text" class="form-control image-preview-filename"
+														   disabled="disabled">
+													<span class="input-group-btn">
+													<button type="button" class="btn btn-default image-preview-clear"
+															style="display:none;">
+														<span class="glyphicon glyphicon-remove"></span> Supprimer
+													</button>
+													<div class="btn btn-default image-preview-input">
+														<span class="glyphicon glyphicon-folder-open"></span>
+														<span class="image-preview-input-title"></span>
+														<input type="file" accept="image/png, image/jpeg, image/gif"
+															   name="image"/>
+													</div>
+												</span>
 												</div>
-											</span>
-                                            </div>
-                                        </div>
+											</div>
+										</div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label ">
@@ -220,7 +252,7 @@
                                     </div>
                                 </div>
                                 <!-- heure end-->
-                                <hr>
+                                <hr class="separe">
                                 <!-- location start -->
                                 <div class="panel-body border-bottom">
                                     <h2>Localisation :</h2>
@@ -243,7 +275,7 @@
                                 </div>
 
                                 <!-- location end -->
-                                <hr>
+                                <hr class="separe">
                                 <!-- organisateur start -->
                                 <div class="panel-body">
                                     <h2>Organisateur</h2>
@@ -955,13 +987,13 @@
                                         Vous pouvez utiliser cet <a href="#" target="_blank">Exemple de ticket</a> pour
                                         vérifier si la validation fonctionne correctement.</p><br>
                                     <h3>Appareils mobiles</h3>
-                                    <hr/>
+                                    <hr class="separe">
                                     <p>Téléchargez notre application gratuite:</p>
                                     <a href="#" target="_blank"><img src="img/download-appstore.png"></a>
                                     <a href="#" target="_blank"><img src="img/download-playstore.png"></a>
                                     <p class="a1">Ou utiliser payé <a href="#" data-toggle="collapse">Pic2Shop Pro</a>.</p>
                                     <h3 class="h14">Ordinateurs et périphériques spéciaux</h3>
-                                    <hr/>
+                                    <hr class="separe">
                                     <p>Vous pouvez également utiliser différentes combinaisons de scanners et d'ordinateurs
                                         de codes à barres pour valider les tickets. Configurez votre scanner pour décoder
                                         les formats "Code QR" et "Code 128" et soumettre le formulaire au <a href="#">https://------ </a>Qui
@@ -1090,7 +1122,7 @@
                                     <span class="help-block">L'image couvrira le ticket d'un côté à l'autre. Utilisez un fichier JPG ou PNG de 1240px. Lorsque vous choisissez la hauteur, assurez-vous que tout sur le ticket PDF correspond à une seule page. Les fichiers les plus étendus sont automatiquement réduits.</span>
                                 </div>
                             </div>
-                            <hr/>
+                            <hr class="separe">
                             <div class="com_contenu_type_ticket">
                                 <form>
                                     <div class="radio-custom radio-primary">
@@ -1137,13 +1169,13 @@
                                                     <p>Merci, voici vos billets! Lorsque vous participez, indiquez le code
                                                         dans ce courrier
                                                         électronique ou utilisez le fichier .pdf ci-joint</p>
-                                                    <hr/>
+                                                    <hr class="separe">
                                                     <h2>Mes évènements</h2>
                                                     <strong>Tue 25. July 2017 - 14:00</strong>
                                                     <p>Location · . Viru 12-34, Tallinn, Estonia <a href="#"
                                                                                                     target="_blank">Map</a>
                                                     </p>
-                                                    <hr/>
+                                                    <hr class="separe">
                                                     <p style="text-align: center; margin: 5px 0; ">1 x Regular ticket</p>
                                                     <p style="text-align: center">
                                                         <img src="img/123456TEST.png" class="qt">
@@ -1192,7 +1224,7 @@
                                                 </div>
 
                                             </div>
-                                            <hr/>
+                                            <hr class="separe">
 
                                         </div>
 
@@ -1239,111 +1271,123 @@
 
 
                         <!------------------------------------Methode des payements--------------------------------------------------------------------------->
+                    <div id="div_paiement" class="hide">
+                        <div class="com_contenu_type12">
+                            <h2>Le méthodes des paiements</h2>
+                            <div class="modepaimenent">
 
-                        <div id="div_paiement" class="hide">
-                            <div class="com_contenu_type1">
-                                <h2>Liens et cartes bancaires</h2>
+
                                 <div class="row">
-                                    <div class="col-lg-6">
-                                        <label class="control-label block">Liens et cartes bancaires activés</label>
-                                        <div class="form-group">
 
-                                            <div class="checkbox">
-                                                <label><input type="checkbox" value="" checked="checked" disabled>Liens
-                                                    bancaires estoniens</label>
+                                    <div id="ticket-radio2">
+                                        <div class="btn-group" data-toggle="buttons">
+                                            <div class="col-lg-4 col-sm-6">
+                                                <div class="radio">
+                                                    <label class="button  active">
+                                                        <img class="logo" src="{{url('/')}}/public/img/logmvola.png" alt="">
+                                                        <b class="operateura">Telma Mvola</b>
+                                                        <label class="custom-control custom-checkbox che pull-right">
+                                                            <input type="checkbox" class="custom-control-input">
+                                                            <span class="custom-control-indicator"></span>
+                                                            <span class="custom-control-description"></span>
+                                                        </label>
+
+                                                    </label>
+                                                </div>
                                             </div>
-                                            <div class="checkbox">
-                                                <label><input type="checkbox" value="" checked="checked" disabled>Liens
-                                                    bancaires en
-                                                    Lettonie</label>
+
+                                            <div class="col-lg-4 col-sm-6">
+                                                <div class="radio">
+                                                    <label class="button  ">
+                                                        <img class="logo" src="{{url('/')}}/public//img/logmartel.png" alt="">
+                                                        <b class="operateura">Airtel money</b>
+                                                        <label class="custom-control custom-checkbox che pull-right">
+                                                            <input type="checkbox" class="custom-control-input">
+                                                            <span class="custom-control-indicator"></span>
+                                                            <span class="custom-control-description"></span>
+                                                        </label>
+                                                    </label>
+                                                </div>
                                             </div>
-                                            <div class="checkbox disabled">
-                                                <label><input type="checkbox" value="" checked="checked" disabled>Cartes de
-                                                    crédit</label>
+
+                                            <div class="col-lg-4 col-sm-12">
+                                                <div class="radio">
+                                                    <label class="button  ">
+                                                        <img class="logo" src="{{url('/')}}/public//img/logmorange.png" alt="">
+                                                        <b class="operateura">Orange money</b>
+                                                        <label class="custom-control custom-checkbox che pull-right">
+                                                            <input type="checkbox" class="custom-control-input">
+                                                            <span class="custom-control-indicator"></span>
+                                                            <span class="custom-control-description"></span>
+                                                        </label>
+                                                    </label>
+                                                </div>
                                             </div>
+
                                         </div>
                                     </div>
-                                    <div class="col-lg-6">
 
-                                        <div class="form-group">
-                                            <label class="control-label block">Tickets</label>
-                                            <p>
-                                                Tickets are sent immediately after completing the payment.
-                                            </p>
-                                        </div>
-                                        <div class="form-group">
 
-                                            <div class="checkbox">
-                                                <label><input type="checkbox" value="" checked="checked" disabled>
-                                                    Piletimasin can send my customers invoices which are genereted behalf of
-                                                    my
-                                                    organisation.
-                                                    Preview
-                                                    <a href="#" target="_blank">invoice example</a>.
-                                                </label>
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="com_contenu_type2">
-                                <div class="row">
-                                    <h2>Facture d'achat</h2>
-
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-
-                                            <div class="checkbox">
-                                                <label><input type="checkbox" value="" id="check" onchange="changing()">
-                                                    Autoriser le paiement par facture. L'acheteur recevra une facture émise
-                                                    au nom de ma
-                                                    société. La réception du paiement et
-                                                    l'exécution de la commande seront traitées par Piletimasin.
-                                                    <a href="#" target="_blank">Aperçu de l'exemple de facturation.</a>.
-                                                </label>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div id="div_menu" class="hide">
-                                            <label>Tickets</label>
-                                            <div class="radio">
-                                                <label><input type="radio" name="optradio" checked="checked">Les billets
-                                                    sont envoyés à la réception du
-                                                    paiement.</label>
-                                            </div>
-                                            <div class="radio">
-                                                <label><input type="radio" name="optradio">Les billets sont envoyés
-                                                    immédiatement lorsque la
-                                                    commande est effectuée, ainsi que la facture. En tant qu'organisateur,
-                                                    je risque de
-                                                    recevoir le paiement.</label>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
 
                             </div>
-                            <div class="com_contenu_type_foot">
-                                <button type="button" class="btn btn-danger bout">Mettre à jour</button>
+                        </div>
+                        <div class="com_contenu_type2">
+                            <div class="row">
+                                <h2>Facture d'achat</h2>
 
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" value="" id="check" onchange="changing()">
+                                                Autoriser le paiement par facture. L'acheteur recevra une facture émise
+                                                au nom de ma société. La réception du paiement et l'exécution de la
+                                                commande seront traitées par Piletimasin.
+                                                <a href="#" target="_blank">Aperçu de l'exemple de facturation.</a>.
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-lg-6">
+                                    <div id="div_menu" class="hide">
+                                        <label>Tickets</label>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="optradio" checked="checked">Les billets sont
+                                                envoyés à la réception du paiement.
+                                            </label>
+                                        </div>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="optradio">Les billets sont envoyés
+                                                immédiatement lorsque la commande est effectuée, ainsi que la facture.
+                                                En tant qu'organisateur, je risque de recevoir le paiement.</label>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-
-                            <script>
-                                function changing() {
-                                    if ($('#check').is(":checked")) {
-                                        $('#div_menu').removeClass('hide');
-                                    } else {
-                                        $('#div_menu').addClass('hide');
-                                    }
-                                }
-                            </script>
-
 
                         </div>
+                        <div class="com_contenu_type_foot">
+                            <button type="button" class="btn btn-danger bout">Mettre à jour</button>
+
+                        </div>
+
+                        <script>
+                            function changing() {
+                                if ($('#check').is(":checked")) {
+                                    $('#div_menu').removeClass('hide');
+                                } else {
+                                    $('#div_menu').addClass('hide');
+                                }
+                            }
+                        </script>
+
+                    </div>
+
                         <!------------------------------------Methode de payement-end--------------------------------------------------------------------------->
 
 
@@ -1539,7 +1583,7 @@
             $('#publie').change(function () {
                 var valeur = $(this).val();
                 $('#publie').val(valeur);
-                //console.log(valeur);
+                console.log(valeur);
                 document.getElementById("huhu").value = valeur;
             });
 
