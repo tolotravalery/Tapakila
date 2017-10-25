@@ -98,53 +98,35 @@
                                 {{ csrf_field() }}
                                 <div id="ticket-radio2">
                                     <div class="btn-group" data-toggle="buttons">
-                                        <div class="col-md-4">
-                                            <div class="radio">
-                                                <label class="button  active">
-                                                    <img class="logo" src="{{url('/')}}/public/img/logmvola.png" alt="">
-                                                    <b class="operateur">Telma</b>
-                                                    <label class="btn btn-customs  btn-success active pull-right">
-                                                        <input type="radio" name="options" id="option2"
-                                                               autocomplete="off"
-                                                               chacked style="display: none;" value="telma">
-                                                        <span class="glyphicon gly-custom  glyphicon-ok"></span>
-                                                    </label>
+                                        @foreach($payement_mode as $p)
+                                            <div class="col-md-4">
+                                                <div class="radio">
+                                                    <label class="button">
+                                                        @if($p->slug=='telma')
+                                                            <img class="logo"
+                                                                 src="{{url('/')}}/public/img/logmvola.png"
+                                                                 alt="">
+                                                        @elseif($p->slug=='orange')
+                                                            <img class="logo"
+                                                                 src="{{url('/')}}/public/img/logmorange.png"
+                                                                 alt="">
+                                                        @elseif($p->slug=='airtel')
+                                                            <img class="logo"
+                                                                 src="{{url('/')}}/public/img/logmartel.png"
+                                                                 alt="">
+                                                        @endif
+                                                        <b class="operateur">{{$p->slug}}</b>
+                                                        <label class="btn btn-customs  btn-success pull-right">
+                                                            <input type="radio" name="options" id="option2"
+                                                                   autocomplete="off" style="display: none;"
+                                                                   value="{{$p->slug}}">
+                                                            <span class="glyphicon gly-custom  glyphicon-ok"></span>
+                                                        </label>
 
-                                                </label>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-4">
-                                            <div class="radio">
-                                                <label class="button  ">
-                                                    <img class="logo" src="{{url('/')}}/public/img/logmartel.png"
-                                                         alt="">
-                                                    <b class="operateur">Airtel</b>
-                                                    <label class="btn btn-customs  btn-success pull-right">
-                                                        <input type="radio" name="options" id="option2"
-                                                               autocomplete="off"
-                                                               style="display: none;" value="airtel">
-                                                        <span class="glyphicon gly-custom  glyphicon-ok"></span>
                                                     </label>
-                                                </label>
+                                                </div>
                                             </div>
-                                        </div>
-
-                                        <div class="col-md-4">
-                                            <div class="radio">
-                                                <label class="button ">
-                                                    <img class="logo" src="{{url('/')}}/public/img/logmorange.png"
-                                                         alt="">
-                                                    <b class="operateur">Orange</b>
-                                                    <label class="btn btn-customs  btn-success pull-right">
-                                                        <input type="radio" name="options" id="option2"
-                                                               autocomplete="off"
-                                                               style="display: none;" value="orange">
-                                                        <span class="glyphicon gly-custom glyphicon-ok"></span>
-                                                    </label>
-                                                </label>
-                                            </div>
-                                        </div>
+                                        @endforeach
                                     </div>
                                 </div>
 
@@ -174,7 +156,8 @@
                                             <div class="col-md-3 payee col-xs-3">
                                                 <input value="Payer" class="button ticket"
                                                        name="submit_ticket_order"
-                                                       id="place-order-button" type="submit" @php if(Cart::count() == 0) echo "disabled"; @endphp>
+                                                       id="place-order-button"
+                                                       type="submit" @php if(Cart::count() == 0) echo "disabled"; @endphp>
                                             </div>
                                         </div>
                                     </div>
