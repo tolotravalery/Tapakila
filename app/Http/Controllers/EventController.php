@@ -71,8 +71,8 @@ class EventController extends Controller
         if (!$user->hasRole('organisateur')) {
             return redirect(url('errors/' . md5('event') . '/' . md5('403')));
         }
-        $menus = Menus::orderBy('id', 'desc')->take(8)->get();
-        $sousmenus = Sous_menus::orderBy('id', 'desc')->take(20)->get();
+        $menus = Menus::orderBy('id', 'desc')->get();
+        $sousmenus = Sous_menus::orderBy('id', 'desc')->get();
 //        $event = Events::orderBy('id', 'desc')->take(1)->get();
         return view('pages.admin.createevent', compact('menus', 'sousmenus', 'event'));
     }

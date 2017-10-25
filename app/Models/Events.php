@@ -43,4 +43,6 @@ class Events extends Model
     {
         return $this->belongsTo('App\Models\User');
     }
+
+    //public function
 }
