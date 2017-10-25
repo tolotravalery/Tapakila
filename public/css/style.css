@@ -288,11 +288,11 @@ body {
     background-color: #680306;
 }
 
-#navbar form {
-    margin-right: 20px;
-    margin-top: 4px;
-    margin-left: 10px;
-}
+/* #navbar form { */
+    /* margin-right: 20px; */
+    /* margin-top: 4px; */
+    /* margin-left: 10px; */
+/* } */
 
 .panier-header {
     margin-top: 5px !important;
@@ -1192,6 +1192,115 @@ a:link {
 }
 
 
+/* mon compte  */
+ul.tabs {
+    margin: 0 10px 10px 21px;
+    padding: 0 0 0 21px;
+    list-style: none;
+    height: 58px;
+    border-bottom: 3px solid #d70506;
+}
+.table-custom th, .table-custom td {
+    padding: 1.422em  ! important;
+    text-align: center;
+}
+
+ul.tabs li {
+    font-size: 19px;
+    margin-right: 4px ! important;
+    float: left;
+    margin: 0;
+    cursor: pointer;
+    padding: 7px 28px 7px 30px;
+    height: 54px;
+    line-height: 20px;
+    background-color: #cccccc;
+    color: #fff;
+    overflow: hidden;
+    position: relative;
+    border-radius: 9px 9px 1px 1px;
+    text-align:center;
+}
+
+
+ul.tabs li:hover {
+    background-color: #ccc;
+}
+
+ul.tabs li.active {
+    background-color: #d70506;
+    color: #fff;
+    border-bottom: 1px solid #d70506;
+    display: block;
+}
+
+.tab_container {
+    border-top: none;
+    clear: both;
+    width: 100%;
+    background: #fff;
+    overflow: auto;
+}
+
+.tab_content {
+    padding: 20px;
+    display: none;
+}
+
+.tab_drawer_heading { display: none; }
+
+
+
+.custom-container {
+    padding: 0 50px
+}
+
+/* mon compte end */
+
+/* reinitialiser start */
+#bg-custom {
+    background-color: white;
+    padding: 30px 30px 30px 30px;
+    border-radius: 5px;
+}
+
+.information {
+    font-size: 13px;
+}
+
+.e-mailR {
+    max-height: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.btn-send {
+    background-color: #d70506;
+    outline: none;
+    color: #fff;
+    font-size: 14px;
+    height: auto;
+    font-weight: normal;
+    padding: 14px 0;
+    border-color: #fff;
+}
+
+.btn-annuler {
+    background-color: black;
+    outline: none;
+    color: #fff;
+    font-size: 14px;
+    height: auto;
+    font-weight: normal;
+    padding: 14px 0;
+    border-color: #fff;
+}
+
+.initialize {
+    margin-bottom: 35px;
+}
+
+
 /* reinitialiser end */
 
 
@@ -1861,7 +1970,7 @@ div.calendar h1:hover {
 
 .cbg {
     background-color: #f8f8f8;
-    padding: 12px 0px 8px 0px;
+    padding: 10px 0px 10px 0px;
 }
 
 div.calendar p {
@@ -1933,12 +2042,12 @@ div.calendar p {
 }
 
 #sectioncategorie a {
-    color: #b91027;
-    display: inline-block;
-    width: 95px;
-    text-align: center;
-    text-decoration: none;
-    line-height: 40px;
+   color: #b91027;
+display: inline-block;
+text-align: center;
+text-decoration: none;
+line-height: 40px;
+margin-left: 30px;
 }
 
 #sectioncategorie:hover {
@@ -1954,6 +2063,94 @@ div.calendar p {
 }
 
 
+/*Styles for screen 700px > 1000*/
+@media screen and (min-width: 500px) and (max-width: 1200px) {
+    #sectioncategorie {
+		background-color: #fff;
+        font-size: 11pt;
+        font-family: 'PT Sans', Arial, sans-serif;
+        font-weight: bold;
+        position: relative;
+        margin-top: -20px;
+    }
+}
+
+/*Styles for screen 600px and lower*/
+@media screen and (max-width: 600px) {
+    #sectioncategorie {
+        height: auto;
+    }
+
+    #sectioncategorie ul {
+        width: 100%;
+        display: block;
+        height: auto;
+    }
+
+    #sectioncategorie li {
+        width: 50%;
+        float: left;
+        position: relative;
+    }
+
+    #sectioncategorie a {
+        text-align: center;
+        width: 100%;
+
+    }
+}
+
+/*Styles for screen 515px and lower*/
+@media only screen and (max-width: 480px) {
+    #sectioncategorie {
+        border-bottom: 0;
+    }
+
+    #sectioncategorie ul {
+        display: none;
+        height: auto;
+    }
+
+    #sectioncategorie a#pull {
+        display: block;
+        width: 100%;
+        position: relative;
+        background-color: #f8f8f8;
+    }
+
+    #sectioncategorie a#pull:after {
+        content: "";
+        background: url('nav-icon.png') no-repeat;
+        width: 30px;
+        height: 30px;
+        display: inline-block;
+        position: absolute;
+        right: 15px;
+        top: 10px;
+    }
+
+    .menupull {
+        color: black;
+    }
+}
+
+/*Smartphone*/
+@media only screen and (max-width: 320px) {
+    #sectioncategorie li {
+        display: block;
+        float: none;
+        width: 100%;
+    }
+
+    #sectioncategorie li a {
+        border-bottom: 1px solid #576979;
+        margin-left: 20px;
+    }
+
+    .menupull {
+        color: black;
+    }
+}
 /* section-evenement-start */
 
 #sectionevenement {
