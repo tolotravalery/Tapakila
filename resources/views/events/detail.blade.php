@@ -140,7 +140,7 @@
                                                         <td>
 
                                                             <div class="tableau-center">
-                                                                <div class="input-group number-spinner{{$count_id_price}}  tabdetail">
+                                                                <div class="input-group number-spinner{{$d}}{{$count_id_price}}  tabdetail">
 
                                                                     <ul>
                                                                         <li>
@@ -148,7 +148,7 @@
                                                                                         <button class="btn btn-default btn-circle smoins"
                                                                                                 data-dir="dwn"
                                                                                                 type="button"
-                                                                                                id="btn-down{{$count_id_price}}"><span
+                                                                                                id="btn-down{{$d}}{{$count_id_price}}"><span
                                                                                                     class="fa fa-minus"></span></button>
                                                                             </span>
                                                                         </li>
@@ -160,7 +160,7 @@
 																	<span class="input-group-btn">
 																				<button class="btn btn-default btn-circle splus "
                                                                                         data-dir="up" type="button"
-                                                                                        id="btn-up{{$count_id_price}}"><span
+                                                                                        id="btn-up{{$d}}{{$count_id_price}}"><span
                                                                                             class="fa fa-plus"></span></button>
 																	</span>
                                                                         </li>
@@ -171,8 +171,8 @@
 
 
                                                         </td>
-                                                        <td><b>{{(int)$ticket->price}}</b> Ar</td>
-                                                        <td><b id="prixUnit{{$count_id_price}}">0</b> Ar</td>
+                                                        <td><b id="prix{{$d}}{{$count_id_price}}">{{(int)$ticket->price}}</b> Ar</td>
+                                                        <td><b id="prixUnit{{$d}}{{$count_id_price}}">0</b> Ar</td>
                                                     </tr>
                                                     @php $count_id_price++; @endphp
                                                 @endforeach
@@ -182,14 +182,14 @@
                                                 <td class="td_detail"></td>
                                                 <td class="td_detail"></td>
                                                 <td><strong>Total</strong></td>
-                                                <td><b id="total1">0</b> Ar</td>
+                                                <td><b id="total{{$d}}">0</b> Ar</td>
                                             </tr>
                                             <tr>
                                                 <td></td>
                                                 <td></td>
                                                 <td></td>
                                                 <td>
-                                                    <button type="button" class=" btn btn-danger btn_reset">
+                                                    <button type="button" class=" btn btn-danger btn_reset" id="reset{{$d}}">
                                                         Reset
                                                     </button>
                                                 </td>
@@ -199,7 +199,7 @@
                                                     </button>
                                                 </td>
                                             </tr>
-                                            <input type="hidden" id="nombre_id" value="{{$count_id_price}}"/>
+                                            <input type="hidden" id="nombre_id{{$d}}" value="{{$count_id_price}}"/>
                                         </form>
                                         </tbody>
                                         @if($event->tickets()->wherePivot('date',\Carbon\Carbon::parse($date)->format('Y-m-d'))->get()->count() == 0)
@@ -296,7 +296,7 @@
                                                 <td class="td_detail"></td>
                                                 <td class="td_detail"></td>
                                                 <td><strong>Total</strong></td>
-                                                <td><b id="total1">0</b> Ar</td>
+                                                <td><b id="total">0</b> Ar</td>
                                             </tr>
                                             <tr>
                                                 <td></td>
@@ -399,7 +399,20 @@
 @endsection
 
 @section('specificScript')
+    <script>
+        var i=0;
+        console.log(i);
+        var nbre=<?php echo $d;?>;
 
+        for(i=0;i<nbre;i++){
+            /*var classe= "#reset"+i;
+            console.log(classe);*/
+            $('#reset'+i).click(function () {
+                window.location.reload(false);
+            });
+        }
+
+    </script>
     <script type="text/javascript">
         function mouseover(element, title) {
             $('#' + title + '').css('color', '#d70506');
@@ -414,60 +427,67 @@
         var newticket = new Array();
     </script>
     @for($i=0;$i<$event->tickets()->count();$i++)
-        <script>
-            newticket[[{{$i}}]] = {{$event->tickets[$i]->number}};
-            $(document).on('click', '.number-spinner{{$i}} button', function () {
-                var btn = $(this),
-                    oldValue = btn.closest('.number-spinner{{$i}}').find('input').val().trim(),
-                    newVal = 0;
-                if (btn.attr('data-dir') == 'up') {
-                    if (oldValue < {{$event->tickets[$i]->number}}) {
-                        newVal = parseInt(oldValue) + 1;
-                        var prixUnit1 = {{$event->tickets[$i]->price}} *
-                        newVal;
-                        newticket[{{$i}}] -= 1;
-                        $('#tickets{{$i}}').html(newticket[{{$i}}]);
-                        $('#prixUnit{{$i}}').html(0 + prixUnit1);
+        @for($u=0;$u<$d;$u++)
+            <script>
 
-                        btn.closest('.number-spinner{{$i}}').find('input').val(newVal);
-                        var total = 0;
-                        for (var j = 0; j < $('#nombre_id').val(); j++) {
-                            total += parseInt($('#prixUnit' + j).html());
-                        }
-                        $('#total').html(total);
-                    } else if (oldValue == {{$event->tickets[$i]->number}}) {
-                        $('#tickets{{$i}}').html('Epuisé');
-                        $('.clock{{$i}}').removeClass('fa-unlock');
-                        $('.clock{{$i}}').addClass('fa-lock');
-                        $('#btn-up{{$i}}').attr('disabled', 'true');
-                        var total = 0;
-                        for (var j = 0; j < $('#nombre_id').val(); j++) {
-                            total += parseInt($('#prixUnit' + j).html());
-                        }
-                        $('#total').html(total);
-                    }
+                    newticket[[{{$i}}]] = {{$event->tickets[$i]->number}};
+                $(document).on('click', '.number-spinner{{$u}}{{$i}} button', function () {
+                    var btn = $(this),
+                        oldValue = btn.closest('.number-spinner{{$u}}{{$i}}').find('input').val().trim(),
+                        newVal = 0;
+                    console.log(oldValue);
+                    if (btn.attr('data-dir') == 'up') {
+                        if (oldValue < {{$event->tickets[$i]->number}}) {
+                            newVal = parseInt(oldValue) + 1;
+                            //var prixUnit1 = {{$event->tickets[$i]->price}} * newVal;
+                            var prixUnit1 = $('#prix{{$u}}{{$i}}').html() * newVal;
+                            console.log(prixUnit1);
+                            newticket[{{$i}}] -= 1;
+                            $('#tickets{{$i}}').html(newticket[{{$i}}]);
+                            $('#prixUnit{{$u}}{{$i}}').html(0 + prixUnit1);
 
-                } else {
-                    if (oldValue > 0) {
-                        newVal = parseInt(oldValue) - 1;
-                        var prixUnit1 = {{$event->tickets[$i]->price}} *
-                        newVal;
-                        newticket[{{$i}}] += 1;
-                        $('#prixUnit{{$i}}').html(0 + prixUnit1);
-                        $('#tickets{{$i}}').html(newticket[{{$i}}]);
-                        $('#btn-up{{$i}}').removeAttr('disabled');
-                        $('.clock{{$i}}').removeClass('fa-lock');
-                        $('.clock{{$i}}').addClass('fa-unlock');
-                        btn.closest('.number-spinner{{$i}}').find('input').val(newVal);
-                        var total = 0;
-                        for (var j = 0; j < $('#nombre_id').val(); j++) {
-                            total += parseInt($('#prixUnit' + j).html());
+                            btn.closest('.number-spinner{{$u}}{{$i}}').find('input').val(newVal);
+                            var total = 0;
+                            var u={{$u}};
+                            for (var j = 0; j < $('#nombre_id{{$u}}').val(); j++) {
+                                total += parseInt($('#prixUnit{{$u}}'+j).html());
+                            }
+                            $('#total{{$u}}').html(total);
+
+                        } else if (oldValue == {{$event->tickets[$i]->number}}) {
+                            $('#tickets{{$i}}').html('Epuisé');
+                            $('.clock{{$i}}').removeClass('fa-unlock');
+                            $('.clock{{$i}}').addClass('fa-lock');
+                            $('#btn-up{{$u}}{{$i}}').attr('disabled', 'true');
+                            var total = 0;
+                            for (var j = 0; j < $('#nombre_id{{$u}}').val(); j++) {
+                                //total += parseInt($('#prixUnit' + j).html());
+                                total += parseInt($('#prixUnit{{$u}}'+j).html());
+                            }
+                            $('#total{{$u}}').html(total);
                         }
-                        $('#total').html(total);
+
+                    } else {
+                        if (oldValue > 0) {
+                            newVal = parseInt(oldValue) - 1;
+                            var prixUnit1 = $('#prix{{$u}}{{$i}}').html() * newVal;
+                            newticket[{{$i}}] += 1;
+                            $('#prixUnit{{$u}}{{$i}}').html(0 + prixUnit1);
+                            $('#tickets{{$i}}').html(newticket[{{$i}}]);
+                            $('#btn-up{{$u}}{{$i}}').removeAttr('disabled');
+                            $('.clock{{$i}}').removeClass('fa-lock');
+                            $('.clock{{$i}}').addClass('fa-unlock');
+                            btn.closest('.number-spinner{{$u}}{{$i}}').find('input').val(newVal);
+                            var total = 0;
+                            for (var j = 0; j < $('#nombre_id{{$u}}').val(); j++) {
+                                total += parseInt($('#prixUnit{{$u}}' + j).html());
+                            }
+                            $('#total{{$u}}').html(total);
+                        }
                     }
-                }
-            });
-        </script>
+                });
+            </script>
+        @endfor
     @endfor
     <script>
         function reset() {
