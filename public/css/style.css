@@ -78,19 +78,24 @@ ul.tabs {
 }
 
 ul.tabs li {
-    font-size: 19px;
-    margin-right: 4px ! important;
+    font-size: 16px;
+    margin-right: 4px !important;
     float: left;
     margin: 0;
+        margin-right: 0px;
     cursor: pointer;
-    padding: 7px 28px 7px 30px;
-    height: 54px;
+    padding: 4px 28px 7px 30px;
+    height: 48px;
     line-height: 20px;
     background-color: #cccccc;
     color: #fff;
     overflow: hidden;
     position: relative;
+<<<<<<< HEAD
+    border-radius: 9px 9px 1px 1px;
+=======
     border-radius: 2px;
+>>>>>>> a337794e92a48d3458b1c3876eb31adba599988d
     text-align: center;
 }
 
@@ -1269,7 +1274,7 @@ ul.tabs {
     margin: 0 10px 10px 21px;
     padding: 0 0 0 21px;
     list-style: none;
-    height: 58px;
+    height: 51px;
     border-bottom: 3px solid #d70506;
 }
 
@@ -1280,13 +1285,14 @@ ul.tabs {
 }
 
 ul.tabs li {
-    font-size: 19px;
-    margin-right: 4px ! important;
+    font-size: 16px;
+    margin-right: 4px !important;
     float: left;
     margin: 0;
+        margin-right: 0px;
     cursor: pointer;
-    padding: 7px 28px 7px 30px;
-    height: 54px;
+    padding: 4px 28px 7px 30px;
+    height: 48px;
     line-height: 20px;
     background-color: #cccccc;
     color: #fff;
@@ -1796,7 +1802,6 @@ html|* > svg {
     z-index: 9;
     margin-top: -53px;
 }
-
 inputimage input[type=file] {
     float: right;
 }
