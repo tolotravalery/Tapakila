@@ -1158,9 +1158,9 @@ a:link {
     text-decoration:underline;
 }
 
-.pseudoname{
-    color:white;
-    font-size:25px;
+.pseudoname {
+    color: white;
+    font-size: 24px;
 }
 
 .postion{
@@ -2484,6 +2484,7 @@ margin-left: 30px;
     border: none;
     padding: 9px;
     color:#fff;
+	
 }
 
 .bt_panier:hovers {
@@ -3563,8 +3564,17 @@ input[type=submit] {
     padding: 10px;
     background-color: #000;
     border: none;
-    color: #fff;
+    color: #black;
     margin: 10px 0;
+}
+
+.bt_panier:hover {
+    width: 135px;
+    font-size: 16px;
+    background-color: #d70506;
+    border: none;
+    padding: 9px;
+    color: #fff;
 }
 * {
     margin: 0;
@@ -3762,11 +3772,13 @@ div.tests .number-spinner .test2 .test3 {
     padding: .625em;
     text-align: center;
 }
-.tabl-content th {
-    font-size: .85em;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-}
+/* .tabl-content th { */
+    /* font-size: .85em; */
+    /* letter-spacing: .1em; */
+    /* text-transform: uppercase; */
+/* } */
+
+
 .imgpaiment {
     border:none;
     padding:0 ! important;
