@@ -30,90 +30,95 @@
         @if($events->count() > 0)
 
             <div class="container custom-container">
-                <div class="search-bg hidden-xs">
+                <div class="search-bg">
                     <h2 class="text-recherhe">Filtrer votre recherche</h2>
-					<div class="row mi_recherche">
-					<div class="col-lg-8 col-lg-offset-2">
-                    <form class="form-horizontal" action="{{url('/')}}/find/filtered" method="get">
-                        <div class="form-group">
-						<div class="row row_recherche">
-                             <div class="col-lg-4 mot_recherche">
-                                        <label for="usr">Mot-clé</label>
+                    <div class="row mi_recherche">
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <form class="form-horizontal" action="{{url('/')}}/find/filtered" method="get">
+                                <div class="form-group">
+                                    <div class="row row_recherche">
+                                        <div class="col-lg-4 mot_recherche">
+                                            <label for="usr">Mot-clé</label>
 
-                              </div>
-							   <div class="col-lg-6  col-xs-10-offset-1">
-                                        <input type="text" name="query" class="form-control" value="{{$queries}}">
-
-                               </div>
-							   <div class="col-lg-2">
-
-                                    </div>
-						</div>
-                            
-                        </div>
-						<div class="row row_recherche">
-                                <div class="col-lg-4 mot_recherche">
-                                    <label for="usr">Type d'événément</label>
-                                </div>
-                                <div class="col-lg-8 col_recherche">
-                                    <div class="row select_recherche">
-                                        <div class="col-lg-3 col-xs-6">
-                                            <label class="checkbox-inline">
-                                                <input type="checkbox" value="">Passé</label>
                                         </div>
-                                        <div class="col-lg-3 col-xs-6">
-                                            <label class="checkbox-inline">
-                                                <input type="checkbox" value="">Actuel</label>
+                                        <div class="col-lg-6  col-xs-10-offset-1">
+                                            <input type="text" name="query" class="form-control" value="{{$queries}}">
+
                                         </div>
-                                        <div class="col-lg-3">
-                                            <label class="checkbox-inline">
-                                                <input type="checkbox" value="">Prochain</label>
+                                        <div class="col-lg-2">
+
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-						 <div class="row_recherche">
-						  <div class="row">
-						  <div class="col-lg-4 mot_recherche">
-                                        <label for="usr">Cochez la ou le catégories</label>
 
-                          </div>
-						  <div class="col-lg-8 col_recherche">
-                        <div class="form-group">
-						
-						<div class="row select_recherche">
-						 <div class="col-lg-3 col-xs-3">
-                            {{--<label class="checkbox-inline">Catégorie</label>--}}
-                            <div class="col-lg-10 col-lg-offset-3">
-                                {{--<div class="thumbnail">--}}
-                                <div class="table-responsive">
-                                    <table>
-                                        @php $i = 0; @endphp
-                                        @foreach($sousmenus as $sousmenu)
-                                            @if($i % 6 == 0)
-                                                <tr>
-                                                </tr>
-                                            @endif
-                                            <td><input type="checkbox" name="categorie[]"
-                                                       value="{{$sousmenu->id}}"/>{{$sousmenu->name}}</td>
-                                            @php $i++; @endphp
-                                        @endforeach
-                                    </table>
                                 </div>
-                            </div>
-                            <button type="submit" class=" col-md-3 col-md-offset-5 btn btn-success btn-search">Recherche
-                            </button>
+                                <div class="row row_recherche">
+                                    <div class="col-lg-4 mot_recherche">
+                                        <label for="usr">Type d'événément</label>
+                                    </div>
+                                    <div class="col-lg-8 col_recherche">
+                                        <div class="row select_recherche">
+                                            <div class="col-lg-3 col-xs-6">
+                                                <label class="checkbox-inline">
+                                                    <input type="checkbox" value="">Passé</label>
+                                            </div>
+                                            <div class="col-lg-3 col-xs-6">
+                                                <label class="checkbox-inline">
+                                                    <input type="checkbox" value="">Actuel</label>
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <label class="checkbox-inline">
+                                                    <input type="checkbox" value="">Prochain</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row_recherche">
+                                    <div class="row">
+                                        <div class="col-lg-4 mot_recherche">
+                                            <label for="usr">Cochez la ou le catégories</label>
+
+                                        </div>
+                                        <div class="col-lg-8 col_recherche">
+                                            <div class="row select_recherche">
+                                                @foreach($sousmenus as $sousmenu)
+                                                    <div class="col-lg-3 col-xs-6">
+                                                        <label class="checkbox-inline">
+                                                            <input type="checkbox" name="categorie[]"
+                                                                   value="{{$sousmenu->id}}">{{$sousmenu->name}}</label>
+                                                    </div>
+                                                @endforeach
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="row row_recherche">
+                                    <div class="col-lg-4 mot_recherche">
+
+                                    </div>
+                                    <div class="col-lg-8 col_recherche">
+                                        <div class="row">
+                                            <div class="col-lg-6 col_bout">
+                                                <button type="submit"
+                                                        class=" btn btn-success btn-search">
+                                                    Recherche
+                                                </button>
+                                            </div>
+                                            <div class="col-lg-6">
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-						</div>
-						</div>
-						</div>
-						</div>
-						</div>
-						</div>
-						</div>
-                    </form>
+                    </div>
                 </div>
-                <h2>Résultats de votre Recherche : " {{$queries}} "</h2>
+            </div>
+            <div class="container custom-container">
+                <h3>Résultats de votre Recherche : " {{$queries}} "</h3>
                 <h3> {{$events->count()}} Evénements trouvés</h3>
             </div>
         @endif
