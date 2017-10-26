@@ -45,35 +45,43 @@
                         </thead>
 
                         <tbody>
-                        {{--@foreach (Cart::content() as $item)--}}
-                        {{--@php--}}
-                        {{--$ticket = \App\Models\Ticket::findOrFail($item->id);--}}
-                        {{--$event = $ticket->events()->take(1)->get()[0];--}}
-                        {{--@endphp--}}
-                        {{--<tr>--}}
-                        {{--<td data-label="">--}}
-                        {{--<div class="row">--}}
-                        {{--<div class=" col-xs-12 ">--}}
-                        {{--<div class="row">--}}
-                        {{--<div class="col-lg-7 ">--}}
-                        {{--<div class="thumbnail imgpaiment">--}}
-                        {{--<img src="{{url('/public/img/'.$event->image)}}"--}}
-                        {{--class="image_panier">--}}
-                        {{--</div>--}}
-                        {{--</div>--}}
-                        {{--<div class="col-lg-5 ">--}}
-                        {{--<p class="sor">--}}
-                        {{--<b>{{str_limit($event->title,$limit=20,$end=' ...')}}</b></p>--}}
-                        {{--</div>--}}
-                        {{--</div>--}}
-                        {{--</div>--}}
-                        {{--</div>--}}
-                        {{--</td>--}}
-                        {{--<td data-label="Tickets">{{$ticket->type}}</td>--}}
-                        {{--<td data-label="Quantité">{{$item->qty}}</td>--}}
-                        {{--<td data-label="Prix">{{ $ticket->price *  $item->qty}}</td>--}}
-                        {{--</tr>--}}
-                        {{--@endforeach--}}
+                        @php
+                            $i = 0;
+                            $somme = 0;
+                        @endphp
+                        @foreach ($users->tickets()->wherePivot('id','=',$id)->get() as $item)
+                            @php
+                                $ticket = \App\Models\Ticket::findOrFail($item->id);
+                                $event = $ticket->events()->take(1)->get()[0];
+                            @endphp
+                            <tr>
+                                <td data-label="">
+                                    <div class="row">
+                                        <div class=" col-xs-12 ">
+                                            <div class="row">
+                                                <div class="col-lg-7 ">
+                                                    <div class="thumbnail imgpaiment">
+                                                        <img src="{{url('/public/img/'.$event->image)}}"
+                                                             class="image_panier">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-5 ">
+                                                    <p class="sor">
+                                                        <b>{{str_limit($event->title,$limit=20,$end=' ...')}}</b></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td data-label="Tickets">{{$ticket->type}}</td>
+                                <td data-label="Quantité">{{$item->pivot->number}}</td>
+                                <td data-label="Prix">{{ $ticket->price *  $item->pivot->number}}</td>
+                            </tr>
+                            @php
+                                $i++;
+                                $somme+=$ticket->price *  $item->pivot->number;
+                            @endphp
+                        @endforeach
                         </tbody>
                     </table>
 
@@ -81,7 +89,7 @@
                         <div class="col-md-8 col-md-offset-5 Fraisservice ">
                             <p><b class="tright">Frais de service :</b>0 AR </p>
                             <p><b class="t2right">Somme Total à payer : </b>
-                                <label class="TT">{{ Cart::instance('default')->subtotal() }} AR</label>
+                                <label class="TT">{{$somme}} AR</label>
                             </p>
                         </div>
                     </div>
@@ -157,7 +165,7 @@
                                                 <input value="Payer" class="button ticket"
                                                        name="submit_ticket_order"
                                                        id="place-order-button"
-                                                       type="submit" @php if(Cart::count() == 0) echo "disabled"; @endphp>
+                                                       type="submit" @php if($i == 0) echo "disabled"; @endphp>
                                             </div>
                                         </div>
                                     </div>

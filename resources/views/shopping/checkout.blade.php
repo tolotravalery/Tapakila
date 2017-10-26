@@ -117,7 +117,7 @@
                                                                  alt="">
                                                         @endif
                                                         <b class="operateur">{{$p->slug}}</b>
-                                                        <label class="btn btn-customs  btn-success pull-right">
+                                                        <label class="btn btn-customs   pull-right">
                                                             <input type="radio" name="options" id="option2"
                                                                    autocomplete="off" style="display: none;"
                                                                    value="{{$p->slug}}" required>

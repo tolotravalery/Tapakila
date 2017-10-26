@@ -128,6 +128,7 @@ Route::group(['middleware' => ['auth', 'activated', 'currentUser']], function ()
         Route::get('checkout', 'Shopping\CheckoutController@index');
         Route::post('checkout/store', 'Shopping\CheckoutController@store');
         Route::post('checkout/save', 'Shopping\CheckoutController@save');
+        Route::get('payment/{users_id}/{id}', 'Shopping\CheckoutController@pay');
     });
 
 });
