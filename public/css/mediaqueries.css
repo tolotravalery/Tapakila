@@ -763,14 +763,7 @@ margin-left: 9px !important;
 .connexion {
 clear: both;
 }
-footer {
-position: absolute;
-left: 0;
-bottom: 0;
-height: 370px;
-width: 100%;
-overflow: hidden;
-}
+
 .mot_recherche {
 text-align: center !important;
 padding-top: 6px;
@@ -1011,15 +1004,7 @@ text-align: center;
 clear: both;
 }
 
-footer {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 364px;
-    width: 100%;
-    overflow: hidden;
 
-}
 /*------------------Mon Compte------------------*/
 .compte2 {
 width: 50px;

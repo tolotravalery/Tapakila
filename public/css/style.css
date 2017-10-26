@@ -91,11 +91,8 @@ ul.tabs li {
     color: #fff;
     overflow: hidden;
     position: relative;
-<<<<<<< HEAD
     border-radius: 9px 9px 1px 1px;
-=======
     border-radius: 2px;
->>>>>>> a337794e92a48d3458b1c3876eb31adba599988d
     text-align: center;
 }
 
@@ -304,19 +301,6 @@ body {
 }
 
 
-/* #navbar form { */
-
-
-/* margin-right: 20px; */
-
-
-/* margin-top: 4px; */
-
-
-/* margin-left: 10px; */
-
-
-/* } */
 
 .panier-header {
     margin-top: 5px !important;
@@ -416,6 +400,7 @@ body {
     font-size: 16px;
     margin-bottom: 15px;
 }
+
 
 .red3 {
     display: block;
@@ -561,35 +546,6 @@ ul.navbar-nav li.open ul.nav-tabs li a {
     text-decoration: underline;
 }
 
-
-/*footer end*/
-
-
-/* html start */
-
-html {
-    position: relative;
-    min-height: 100%;
-}
-
-body {
-    margin: 0 0 400px;
-    / bottom=footer height / padding: 25px;
-}
-
-footer {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 305px;
-    width: 100%;
-    overflow: hidden;
-}
-
-
-/* html end */
-
-
 /* connexion-inscription start */
 
 .panel-login {
@@ -620,6 +576,7 @@ footer {
     -moz-transition: all 0.1s linear;
     transition: all 0.1s linear;
 }
+
 
 .panel-login>.panel-heading a.active {
     color: #d70506;
@@ -1401,7 +1358,7 @@ ul.tabs li.active {
 }
 
 .custom-container {
-    padding: 0 50px
+    padding: 0 20px
 }
 
 
@@ -4377,33 +4334,33 @@ ul.herb li a:visited {
 }
 .btn-customs {
     padding: 0px 0px 0px 13px ! important;
-    display: inline-block;
-    padding: 4px 12px;
-    padding-left: 12px;
-    margin-bottom: 0;
-    font-size: 14px;
+    display: inline-block ! important;
+    padding: 4px 12px ! important;
+    padding-left: 12px ! important;
+    margin-bottom: 0 ! important;
+    font-size: 14px ! important;
     font-weight: 400;
-    line-height: 1.42857143;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
+    line-height: 1.42857143 ! important;
+    text-align: center ! important;
+    white-space: nowrap ! important;
+    vertical-align: middle ! important;
     border-radius: 5px !important;
-    width: 25px;
-    color: #fff;
-    background-color:#5cb85c;
-    border-color: #5cb85c;
-    margin-top: 9px;
+    width: 25px ! important;
+    color: #fff ! important;
+    background-color:#5cb85c ! important;
+    border-color: #5cb85c ! important;
+    margin-top: 9px ! important;
 }
 .gly-custom {
-    position: relative;
-    top: 1px;
-    display: inline-block;
-    font-family: 'Glyphicons Halflings';
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    position: relative ! important;
+    top: 1px ! important;
+    display: inline-block ! important;
+    font-family: 'Glyphicons Halflings' ! important;
+    font-style: normal ! important;
+    font-weight: 400 ! important;
+    line-height: 1 ! important;
+    -webkit-font-smoothing: antialiased ! important;
+    -moz-osx-font-smoothing: grayscale ! important;
     right: 9px ! important;
 }
 
@@ -4429,3 +4386,9 @@ button, select {
 button {
     overflow: visible;
 }
+
+
+
+
+
+
