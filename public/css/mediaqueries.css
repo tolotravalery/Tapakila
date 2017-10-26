@@ -548,14 +548,7 @@ margin-left: 60px;
 .connexion {
 clear: both;
 }
-footer {
-position: absolute;
-left: 0;
-bottom: 0;
-height: 370px;
-width: 100%;
-overflow: hidden;
-}
+
 /*------------commande_event_------------------*/
 .com_contenu {
 padding-left: 22px;
