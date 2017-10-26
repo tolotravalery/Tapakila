@@ -51,7 +51,7 @@ class UserController extends Controller
             $sousmenus = Sous_menus::orderBy('name', 'asc')->get();
 
             $achats = $user->tickets;
-            return view('panels.welcome-panel')->with(compact('menus', 'sousmenus', 'achats','niova'));
+            return view('pages.user.home')->with(compact('menus', 'sousmenus', 'achats','niova'));
         }
         return view('pages.user.home');
 
