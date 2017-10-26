@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Tapakila</title>
+    <title>Leguichets</title>
     <link rel="stylesheet" href="{{ url('/') }}/public/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ url('/') }}/public/css/style.css">
     <link rel="stylesheet" href="{{ url('/') }}/public/css/mediaqueries.css">
@@ -163,14 +163,14 @@
         <div class="container custom-container">
             <div class="row">
                 <div class="col-sm-4 col-xs-6">
-                    <img class="footer-logo" alt="tapakila" src="{{ url('/') }}/public/img/logo.png">
+                    <img class="footer-logo" alt="Leguichet" src="{{ url('/') }}/public/img/logo.png">
                     <p class="small custom">
-                        By Tapakila.mg<br>
+                        By Leguichet.mg<br>
                         IIB 63 Mahamasina<br>
                         Antananarivo<br>
                         Madagascar<br>
                         +33 12 901432<br>
-                        <a href="mailto:contact@tapakila.mg">contact@tapakila.mg</a>
+                        <a href="mailto:contact@Leguichet.mg">contact@Leguichet.mg</a>
                     </p>
                 </div>
                 <div class="col-sm-3 col-xs-6">
@@ -191,11 +191,11 @@
                 </div>
                 <div class="col-sm-2 col-xs-6 ">
 
-                    <a class="fb-link-icon" href="https://www.facebook.com/tapakila/" target="_blank"><i
+                    <a class="fb-link-icon" href="https://www.facebook.com/Leguichet/" target="_blank"><i
                                 class="fa fa-facebook-square facebookico" aria-hidden="true"></i></a>
 
                     <div id="fb-root"></div>
-                    <div class="fb-like" data-href="https://www.facebook.com/tapakila/" data-layout="button"
+                    <div class="fb-like" data-href="https://www.facebook.com/Leguichet/" data-layout="button"
                          data-action="like" data-size="small" data-show-faces="false" data-colorscheme="dark"
                          data-share="false"></div>
 
@@ -221,7 +221,7 @@
                 <li><a href="#">Vie privee</a></li>
                 |
             </ul>
-            <p>Copyright &copy Tapakila 2017</p>
+            <p>Copyright &copy Leguichet 2017</p>
         </div>
     </div>
 </footer>
