@@ -478,7 +478,7 @@ ul.navbar-nav li.open ul.nav-tabs li a {
 
 .footer {
     font-size: 14px;
-    margin-top: 20px;
+    margin-top: 3%;
     color: #fff!important;
 }
 
@@ -946,14 +946,7 @@ ul>li>a:hover {
     font-size: 20px !important;
 }
 
-#sectioncategorie a:hover {
-    color: #5cb85c;
-    display: inline-block;
-    text-align: center;
-    text-decoration: none;
-    line-height: 40px;
-    margin-left: 30px;
-}
+
 
 .btn-danger:hover {
     color: #fff !important;
@@ -2178,6 +2171,15 @@ div.calendar p {
     margin-left: 30px;
 }
 
+#sectioncategorie a:hover {
+    color: #b91027;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    line-height: 40px;
+    margin-left: 30px;
+}
+
 #sectioncategorie:hover {
     color: #000;
 }
@@ -2470,6 +2472,7 @@ div.calendar p {
     padding: 6px 35px 35px 35px;
     border-radius: 4px;
     margin-top: 6%;
+    margin-bottom:3%;
 }
 
 .panier {
@@ -2556,6 +2559,7 @@ div.calendar p {
 
 .kit {
     margin-bottom: 25px;
+	text-align:right;
 }
 
 .th_panier {
@@ -2863,7 +2867,7 @@ div.calendar p {
 }
 .gi{
 	text-align:left;
-	margin-left: -13px;
+	margin-left:-13px;
 }
 #date {
     margin-right: 0px;
