@@ -68,7 +68,7 @@
                                                         <input id="inputCheckbox" name="remember" type="checkbox">
                                                         <label for="inputCheckbox">Se souvenir de moi</label><br>
                                                     </div>
-                                                    <div class="col-lg-12">
+                                                    <div class="col-lg-12 col-xs-12">
                                                         <a href="{{ route('password.request') }}" tabindex="5"
                                                            class="réitinitialiser le mots de passe">Mot de passe oublié&nbsp;?</a>
                                                     </div>
