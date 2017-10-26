@@ -9,7 +9,13 @@
 
 /* #d70506;rouge */
 
+.footer-logo {
+    margin-bottom: 10px;
+}
 
+.btn span.gly-icon2 {
+    opacity: 1 ! important;
+}
 
 .navbar-brand>img {
     display: block;
