@@ -974,6 +974,76 @@ ul>li>a:hover {
     margin-bottom: -14px !important;
 }
 
+.nonpublier:hover {
+    background-color: #df3838 !important;
+    color: white !important;
+    border: none !important;
+    padding: 12px 11px 10px 6px !important;
+    margin-bottom: -14px !important;
+}
+
+.bt_modif:hover {
+    background-color: #5cb85c !important;
+    color: white !important;
+    padding: 10px 30px 10px 30px !important;
+    font-size: 20px !important;
+}
+
+#sectioncategorie a:hover {
+    color: #5cb85c;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    line-height: 40px;
+    margin-left: 30px;
+}
+
+.btn-danger:hover {
+    color: #fff !important;
+    background-color: #d9534f !important;
+    border-color: #d43f3a !important;
+}
+
+.btn_acheterr {
+    width: 100%  !important;
+    background-color: #5cb85c  !important;
+    color: white  !important;
+}
+
+.btn_acheterr:hover {
+    width: 100%  !important;
+    background-color: #5cb85c  !important;
+    color: white  !important;
+}
+
+.bt_panier:hover {
+    background-color: #d70506 !important;
+    color: #fff !important;
+}
+
+.nonpublier:focus {
+    background-color: #df3838 !important;
+    color: white !important;
+    border: none !important;
+    padding: 12px 11px 10px 6px !important;
+    margin-bottom: -14px !important;
+}
+
+.enregistrer:hover {
+    color: white !important;
+    background-color: #d70506 !important;
+
+}
+
+.editer {
+    color: white !important;
+    background-color: #5cb85c !important;
+}
+.editer:hover {
+    color: white !important;
+    background-color: #5cb85c !important;
+}
+
 button.nonpublier:hover:visited:focus {
     color: white;
 }
@@ -1705,6 +1775,14 @@ html|* > svg {
 .bout {
     margin: 35px 0px 35px 63px;
     background-color: #d70506;
+   padding: 15px 30px 15px 30px;
+	color:white
+}
+
+.bout:hover {
+	color:white ! important;
+	background-color: #d70506 ! important;
+ 
 }
 
 .group {
@@ -4292,7 +4370,7 @@ ul.herb li a:visited {
     color: #c80e07;
 }
 .btn span.glyphicon {
-    opacity: 0;
+    opacity: 1 ! important;
 }
 .btn.active span.glyphicon {
     opacity: 1;
@@ -4329,4 +4407,25 @@ ul.herb li a:visited {
     right: 9px ! important;
 }
 
+.btn-group-vertical > .btn.active, .btn-group-vertical > .btn:active, .btn-group-vertical > .btn:focus, .btn-group-vertical > .btn:hover, .btn-group > .btn.active, .btn-group > .btn:active, .btn-group > .btn:focus, .btn-group > .btn:hover {
+    z-index: 2;
+}
 
+
+
+
+.btn-group-vertical > .btn, .btn-group > .btn {
+    position: relative;
+    float: left;
+}
+
+.btn.focus, .btn:focus, .btn:hover {
+    color: #333;
+    text-decoration: none;
+}
+button, select {
+    text-transform: none;
+}
+button {
+    overflow: visible;
+}
