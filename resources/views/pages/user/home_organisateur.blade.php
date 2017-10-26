@@ -246,7 +246,17 @@
                                             @if($a->pivot->status_payment=='FAILED')
                                                 <td data-label=""><p><a
                                                                 href="shopping/payment/{{Auth::user()->id}}/{{$a->pivot->id}}"
-                                                                alt="Edit"  style="color: #d70506;font-size: 30px !important;">Payer</a></p>
+                                                                alt="Edit"
+                                                                style="color: #d70506;font-size: 30px !important;">Payer</a>
+                                                    </p>
+                                                </td>
+                                            @else
+                                                <td data-label=""><p>
+                                                        <a alt="payement"
+                                                           style="color: #5cb85c;font-size: 30px !important;">
+                                                            Success
+                                                        </a>
+                                                    </p>
                                                 </td>
                                             @endif
                                         </tr>
@@ -266,7 +276,7 @@
 @section("specificScript")
     <script>
         $(document).ready(function () {
-            console.log("huhu");
+
         });
 
         // tabbed content
@@ -291,7 +301,9 @@
         $(".tab_drawer_heading").click(function () {
 
             $(".tab_content").hide();
+
             var d_activeTab = $(this).attr("rel");
+
             $("#" + d_activeTab).fadeIn();
 
             $(".tab_drawer_heading").removeClass("d_active");
