@@ -64,7 +64,9 @@
                                             <div class="row">
                                                 <div class="col-lg-7 ">
                                                     <div class="thumbnail imgpaiment">
-                                                        <img src="{{url('/public/img/'.$event->image)}}" class="image_panier">
+                                                        <a href="{{url('event/show',[$event->id])}}">
+                                                            <img src="{{url('/public/img/'.$event->image)}}" class="image_panier">
+                                                        </a>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-5 ">
