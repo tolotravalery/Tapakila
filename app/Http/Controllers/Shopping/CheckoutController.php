@@ -58,9 +58,14 @@ class CheckoutController extends Controller
         return redirect(url('/shopping/cart'));
     }
 
-    function pay($users_id)
+    function pay($users_id, $id)
     {
+        if ($users_id != Auth::user()->id)
+            abort('403');
         $users = User::find($users_id);
-        return view('shopping.payment', compact('users'));
+        $menus = Menus::orderBy('id', 'desc')->get();
+        $sousmenus = Sous_menus::orderBy('name', 'asc')->get();
+        $payement_mode = Payement_mode::get();
+        return view('shopping.payment', compact('users', 'id', 'sousmenus', 'menus', 'payement_mode'));
     }
 }

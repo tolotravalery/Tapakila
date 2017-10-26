@@ -134,8 +134,9 @@
                                             <td data-label="Date">{{\Carbon\Carbon::parse($a->pivot->date_achat)->format('d M Y H:i')}}</td>
                                             <td data-label="Quantité">{{$a->pivot->number}}</td>
                                             @if($a->pivot->status_payment=='FAILED')
-                                                <td data-label=""><p><a href="organisateur/event/{{$e->id}}/edit"
-                                                                        alt="Edit" class="rapport">Payer</a></p>
+                                                <td data-label=""><p><a
+                                                                href="shopping/payment/{{Auth::user()->id}}/{{$a->pivot->id}}"
+                                                                alt="Edit"  style="color: #d70506;font-size: 30px !important;">Payer</a></p>
                                                 </td>
                                             @endif
                                         </tr>
