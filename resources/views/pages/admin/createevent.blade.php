@@ -968,8 +968,8 @@
                                 <h3>Appareils mobiles</h3>
                                  <hr class="separe">
                                 <p>Téléchargez notre application gratuite:</p>
-                                <a href="#" target="_blank"><img src="img/download-appstore.png"></a>
-                                <a href="#" target="_blank"><img src="img/download-playstore.png"></a>
+                                <a href="#" target="_blank"><img src="{{url('/')}}/public/img/download-appstore.png"></a>
+                                <a href="#" target="_blank"><img src="{{url('/')}}/public/img/download-playstore.png"></a>
                                 <p class="a1">Ou utiliser payé <a href="#" data-toggle="collapse">Pic2Shop Pro</a>.</p>
                                 <h3 class="h14">Ordinateurs et périphériques spéciaux</h3>
                                  <hr class="separe">
