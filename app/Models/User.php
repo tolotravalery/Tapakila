@@ -124,7 +124,7 @@ class User extends Authenticatable
 
     public function tickets()
     {
-        return $this->belongsToMany('App\Models\Ticket')->withPivot('number')->withPivot('date_achat');
+        return $this->belongsToMany('App\Models\Ticket')->withPivot('number')->withPivot('date_achat')->withPivot('status_payment')->withPivot('id');
     }
 
     public function events()

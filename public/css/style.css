@@ -91,11 +91,8 @@ ul.tabs li {
     color: #fff;
     overflow: hidden;
     position: relative;
-<<<<<<< HEAD
     border-radius: 9px 9px 1px 1px;
-=======
     border-radius: 2px;
->>>>>>> a337794e92a48d3458b1c3876eb31adba599988d
     text-align: center;
 }
 
@@ -304,19 +301,6 @@ body {
 }
 
 
-/* #navbar form { */
-
-
-/* margin-right: 20px; */
-
-
-/* margin-top: 4px; */
-
-
-/* margin-left: 10px; */
-
-
-/* } */
 
 .panier-header {
     margin-top: 5px !important;
@@ -417,6 +401,7 @@ body {
     margin-bottom: 15px;
 }
 
+
 .red3 {
     display: block;
     clear: both;
@@ -493,7 +478,7 @@ ul.navbar-nav li.open ul.nav-tabs li a {
 
 .footer {
     font-size: 14px;
-    margin-top: 20px;
+    margin-top: 3%;
     color: #fff!important;
 }
 
@@ -561,35 +546,6 @@ ul.navbar-nav li.open ul.nav-tabs li a {
     text-decoration: underline;
 }
 
-
-/*footer end*/
-
-
-/* html start */
-
-html {
-    position: relative;
-    min-height: 100%;
-}
-
-body {
-    margin: 0 0 400px;
-    / bottom=footer height / padding: 25px;
-}
-
-footer {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 305px;
-    width: 100%;
-    overflow: hidden;
-}
-
-
-/* html end */
-
-
 /* connexion-inscription start */
 
 .panel-login {
@@ -620,6 +576,7 @@ footer {
     -moz-transition: all 0.1s linear;
     transition: all 0.1s linear;
 }
+
 
 .panel-login>.panel-heading a.active {
     color: #d70506;
@@ -989,14 +946,7 @@ ul>li>a:hover {
     font-size: 20px !important;
 }
 
-#sectioncategorie a:hover {
-    color: #5cb85c;
-    display: inline-block;
-    text-align: center;
-    text-decoration: none;
-    line-height: 40px;
-    margin-left: 30px;
-}
+
 
 .btn-danger:hover {
     color: #fff !important;
@@ -1401,7 +1351,7 @@ ul.tabs li.active {
 }
 
 .custom-container {
-    padding: 0 50px
+    padding: 0 20px
 }
 
 
@@ -2221,6 +2171,15 @@ div.calendar p {
     margin-left: 30px;
 }
 
+#sectioncategorie a:hover {
+    color: #b91027;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    line-height: 40px;
+    margin-left: 30px;
+}
+
 #sectioncategorie:hover {
     color: #000;
 }
@@ -2513,6 +2472,7 @@ div.calendar p {
     padding: 6px 35px 35px 35px;
     border-radius: 4px;
     margin-top: 6%;
+    margin-bottom:3%;
 }
 
 .panier {
@@ -4048,7 +4008,7 @@ div.tests .number-spinner .test2 .test3 {
     height: 42px;
 }
 .btn span.glyphicon {
-    opacity: 1;
+    opacity: 0;
 }
 .form-horizontal .form-group {
     margin-right:0 ! important;
@@ -4373,43 +4333,12 @@ ul.herb li a:active,
 ul.herb li a:visited {
     color: #c80e07;
 }
-.btn span.glyphicon {
-    opacity: 1 ! important;
-}
+
 .btn.active span.glyphicon {
     opacity: 1;
 }
-.btn-customs {
-    padding: 0px 0px 0px 13px ! important;
-    display: inline-block;
-    padding: 4px 12px;
-    padding-left: 12px;
-    margin-bottom: 0;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.42857143;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    border-radius: 5px !important;
-    width: 25px;
-    color: #fff;
-    background-color:#5cb85c;
-    border-color: #5cb85c;
-    margin-top: 9px;
-}
-.gly-custom {
-    position: relative;
-    top: 1px;
-    display: inline-block;
-    font-family: 'Glyphicons Halflings';
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    right: 9px ! important;
-}
+
+
 
 .btn-group-vertical > .btn.active, .btn-group-vertical > .btn:active, .btn-group-vertical > .btn:focus, .btn-group-vertical > .btn:hover, .btn-group > .btn.active, .btn-group > .btn:active, .btn-group > .btn:focus, .btn-group > .btn:hover {
     z-index: 2;
@@ -4424,7 +4353,7 @@ ul.herb li a:visited {
 }
 
 .btn.focus, .btn:focus, .btn:hover {
-    color: #333;
+    color: #fff ! important;
     text-decoration: none;
 }
 button, select {
@@ -4433,3 +4362,9 @@ button, select {
 button {
     overflow: visible;
 }
+
+
+
+
+
+
