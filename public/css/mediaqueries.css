@@ -46,7 +46,7 @@
 }
 @media (max-width: 767px) { 
 .text-left-xs {text-align: left;}
-.text-center-xs {text-align: center;}
+.text-center-xs {text-align: center !important;}
 .text-right-xs {text-align: right;}
 .text-justify-xs {text-align: justify;}
 }
@@ -103,6 +103,9 @@ width: 45%!important;
 		border-bottom-right-radius: 3px;
 		border-bottom-left-radius: 3px;
 		text-align: center;
+	}
+	.kit{
+		text-align:center !important;
 	}
 	.com_contenu {
 		padding-left: 16px;
