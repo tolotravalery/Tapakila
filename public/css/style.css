@@ -2859,17 +2859,13 @@ div.calendar p {
     margin-right: 35px;
 }
 #localisation {
-    margin-right: 0px;
-}
-.gi{
-	text-align:left;
-	margin-left: -13px;
+    margin-right: 33px;
 }
 #date {
-    margin-right: 0px;
+    margin-right: 85px;
 }
 #heure {
-    margin-right: 0px;
+    margin-right: 75px;
 }
 
 /*----------------------------------details-end-------------------------------------*/
