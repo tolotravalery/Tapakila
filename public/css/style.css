@@ -2573,6 +2573,7 @@ div.calendar p {
 
 .kit {
     margin-bottom: 25px;
+	text-align:right;
 }
 
 .th_panier {
@@ -2880,7 +2881,7 @@ div.calendar p {
 }
 .gi{
 	text-align:left;
-	margin-left: -13px;
+	margin-left:-13px;
 }
 #date {
     margin-right: 0px;

@@ -211,7 +211,7 @@
                                                 <td class="td_detail"></td>
                                                 <td class="td_detail"></td>
                                                 <td><strong>Total</strong></td>
-                                                <td><b id="total{{$d}}">0</b> Ar</td>
+                                                <td><b id="total{{$d}}">0</b> Ar <?php $totaly =0; ?></td>
                                             </tr>
                                             <tr>
                                                 <td></td>
@@ -223,9 +223,21 @@
                                                     </button>
                                                 </td>
                                                 <td>
-                                                    <button type="submit" class=" btn btn-success btn_acheterr">
+                                                    <button type="submit" class=" btn btn-success btn_acheterr " id="acheter">
                                                         Acheter
                                                     </button>
+                                                        {{--@if(strcmp($totaly,"0")==0)
+                                                            <button type="submit" class=" btn btn-success btn_acheterr" disabled="true">
+                                                                Acheter
+                                                            </button>
+                                                        @else
+
+                                                            <button type="submit" class=" btn btn-success btn_acheterr ">
+                                                                Acheter
+                                                             </button>
+                                                        @endif--}}
+
+
                                                 </td>
                                             </tr>
                                             <input type="hidden" id="nombre_id{{$d}}" value="{{$count_id_price}}"/>
@@ -443,6 +455,10 @@
                 window.location.reload(false);
             });
         }
+        $(document).ready(function () {
+            console.log("huhu");
+            $('#acheter').prop('disabled', true);
+        });
 
     </script>
     <script type="text/javascript">
@@ -469,6 +485,7 @@
                         newVal = 0;
                     console.log(oldValue);
                     if (btn.attr('data-dir') == 'up') {
+                        $('#acheter').prop('disabled', false);
                         if (oldValue < {{$event->tickets[$i]->number}}) {
                             newVal = parseInt(oldValue) + 1;
                             //var prixUnit1 = {{$event->tickets[$i]->price}} * newVal;
@@ -500,6 +517,7 @@
                         }
 
                     } else {
+                        $('#acheter').prop('disabled', false);
                         if (oldValue > 0) {
                             newVal = parseInt(oldValue) - 1;
                             var prixUnit1 = $('#prix{{$u}}{{$i}}').html() * newVal;
@@ -515,6 +533,12 @@
                                 total += parseInt($('#prixUnit{{$u}}' + j).html());
                             }
                             $('#total{{$u}}').html(total);
+                            if(total==0){
+                                $('#acheter').prop('disabled', true);
+                            }
+                        }
+                        else if(oldValue==0){
+                            $('#acheter').prop('disabled', true);
                         }
                     }
                 });
