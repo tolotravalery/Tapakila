@@ -48,19 +48,19 @@
                             Informations</a>
                     </div>
                 </div>
-                    <?php
-                    if(isset($niova)){?>
-                    <div class="container">
-                        <div style="margin-left: 36px;">
-                            <div class="alert alert-success col-md-7" style="text-align: left;">
-                                <p style="margin-left: 5px;"><?php echo $niova; ?></p>
-                            </div>
+                <?php
+                if(isset($niova)){?>
+                <div class="container">
+                    <div style="margin-left: 36px;">
+                        <div class="alert alert-success col-md-7" style="text-align: left;">
+                            <p style="margin-left: 5px;"><?php echo $niova; ?></p>
                         </div>
                     </div>
-                    <br/>
-                    <?php
-                    }
-                    ?>
+                </div>
+                <br/>
+                <?php
+                }
+                ?>
 
 
                 <div class="padding-custom">
@@ -167,7 +167,8 @@
                                                 Indisponible
                                             @endif
                                         </td>
-                                        <td data-label=""><p><a href="organisateur/event/{{$e->id}}/edit" alt="Edit" class="rapport">Editer</a></p>
+                                        <td data-label=""><p><a href="organisateur/event/{{$e->id}}/edit" alt="Edit"
+                                                                class="rapport">Editer</a></p>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -242,7 +243,11 @@
                                             <td data-label="Tickets">{{$a->type}}</td>
                                             <td data-label="Date">{{\Carbon\Carbon::parse($a->pivot->date_achat)->format('d M Y H:i')}}</td>
                                             <td data-label="Quantité">{{$a->pivot->number}}</td>
-
+                                            @if($a->pivot->status_payment=='FAILED')
+                                                <td data-label=""><p><a href="organisateur/event/{{$e->id}}/edit"
+                                                                        alt="Edit" class="rapport">Payer</a></p>
+                                                </td>
+                                            @endif
                                         </tr>
                                     @endif
                                 @endforeach
@@ -259,7 +264,7 @@
 @endsection
 @section("specificScript")
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             console.log("huhu");
         });
 
