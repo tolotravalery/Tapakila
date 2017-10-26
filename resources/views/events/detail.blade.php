@@ -45,19 +45,48 @@
                             Programme : </strong>{{$event->additional_note_time}}
                     </div>
                     <div class="div_style">
-                        <i class="fa fa-map-marker fa-2x loc zav" aria-hidden="true"></i><strong id="localisation"
+					<div class="row">
+						<div class="col-lg-5 col-xs-7">
+						<i class="fa fa-map-marker fa-2x loc zav" aria-hidden="true"></i><strong id="localisation"
                                                                                                  class="couleur_mot">
-                            Localisation : </strong> {{$event->localisation_nom }} {{$event->localisation_adresse}}
+                            Localisation : </strong> 
+							
+						</div>
+						<div class="col-lg-7 col-xs-5 gi">
+							{{$event->localisation_nom }} {{$event->localisation_adresse}}
+						</div>
+					</div>
+                        
+							
+							
+						
+						
                     </div>
                     <div class="div_style">
-                        <i class="fa fa-calendar-o fa-2x  zav" aria-hidden="true"></i><strong id="date"
+					<div class="row">
+						<div class="col-lg-5 col-xs-7">
+						<i class="fa fa-calendar-o fa-2x  zav" aria-hidden="true"></i><strong id="date"
                                                                                               class="couleur_mot"> Date
-                            : </strong> {{ \Carbon\Carbon::parse($event->date_debut_envent)->format('d M Y')}}
+                            : </strong>
+						</div>
+						<div class="col-lg-7 col-xs-5 gi">
+						{{ \Carbon\Carbon::parse($event->date_debut_envent)->format('d M Y')}}
+						</div>
+					</div>
+                         
                     </div>
                     <div class="div_style">
-                        <i class="fa fa-clock-o fa-2x zav" aria-hidden="true"></i><strong id="heure"
+					<div class="row">
+						<div class="col-lg-5 col-xs-7">
+						<i class="fa fa-clock-o fa-2x zav" aria-hidden="true"></i><strong id="heure"
                                                                                           class="couleur_mot"> Heure
-                            :</strong> {{ \Carbon\Carbon::parse($event->date_debut_envent)->format('H:i')}}
+                            :</strong>
+						</div>
+						<div class="col-lg-7 col-xs-5 gi">
+						 {{ \Carbon\Carbon::parse($event->date_debut_envent)->format('H:i')}}
+						</div>
+					</div>
+                        
                     </div>
                     <div class="div_style">
                         <strong class="couleur_mot zav"> Partagez sur :</strong>
