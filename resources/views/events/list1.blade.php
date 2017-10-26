@@ -28,10 +28,10 @@
     <section class="clearfix">
         <div class="container custom-container">
             <ul class="herb">
-                <li class=" bounce animated2 zoomIn"><a href="#"><b>Acceuil</b></a></li>
+                <li class=" bounce animated2 zoomIn"><a href="{{url('/')}}"><b>Acceuil</b></a></li>
                 <li class=" bounce animated2 zoomIn"><a href="{{url('/')}}"><b>Evenement</b></a></li>
                 <li class=" bounce animated2 zoomIn"><a
-                            href="{{url('/events/list/categorie',[$sous_menu_event->menus->id])}}"><b>{{ucfirst(strtolower($sous_menu_event->menus->name))}}</b></a>
+                            href="{{url('/event/list/categorie',[$sous_menu_event->menus->id])}}"><b>{{ucfirst(strtolower($sous_menu_event->menus->name))}}</b></a>
                 </li>
                 <li class=" bounce animated2 zoomIn dernier"><a href="#"><b>{{ucfirst($sous_menu_event->name)}}</b></a>
                 </li>
