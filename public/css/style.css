@@ -2859,13 +2859,17 @@ div.calendar p {
     margin-right: 35px;
 }
 #localisation {
-    margin-right: 33px;
+    margin-right: 0px;
+}
+.gi{
+	text-align:left;
+	margin-left: -13px;
 }
 #date {
-    margin-right: 85px;
+    margin-right: 0px;
 }
 #heure {
-    margin-right: 75px;
+    margin-right: 0px;
 }
 
 /*----------------------------------details-end-------------------------------------*/
@@ -4001,7 +4005,7 @@ div.tests .number-spinner .test2 .test3 {
     height: 42px;
 }
 .btn span.glyphicon {
-    opacity: 1;
+    opacity: 0;
 }
 .form-horizontal .form-group {
     margin-right:0 ! important;
@@ -4326,43 +4330,12 @@ ul.herb li a:active,
 ul.herb li a:visited {
     color: #c80e07;
 }
-.btn span.glyphicon {
-    opacity: 1 ! important;
-}
+
 .btn.active span.glyphicon {
     opacity: 1;
 }
-.btn-customs {
-    padding: 0px 0px 0px 13px ! important;
-    display: inline-block ! important;
-    padding: 4px 12px ! important;
-    padding-left: 12px ! important;
-    margin-bottom: 0 ! important;
-    font-size: 14px ! important;
-    font-weight: 400;
-    line-height: 1.42857143 ! important;
-    text-align: center ! important;
-    white-space: nowrap ! important;
-    vertical-align: middle ! important;
-    border-radius: 5px !important;
-    width: 25px ! important;
-    color: #fff ! important;
-    background-color:#5cb85c ! important;
-    border-color: #5cb85c ! important;
-    margin-top: 9px ! important;
-}
-.gly-custom {
-    position: relative ! important;
-    top: 1px ! important;
-    display: inline-block ! important;
-    font-family: 'Glyphicons Halflings' ! important;
-    font-style: normal ! important;
-    font-weight: 400 ! important;
-    line-height: 1 ! important;
-    -webkit-font-smoothing: antialiased ! important;
-    -moz-osx-font-smoothing: grayscale ! important;
-    right: 9px ! important;
-}
+
+
 
 .btn-group-vertical > .btn.active, .btn-group-vertical > .btn:active, .btn-group-vertical > .btn:focus, .btn-group-vertical > .btn:hover, .btn-group > .btn.active, .btn-group > .btn:active, .btn-group > .btn:focus, .btn-group > .btn:hover {
     z-index: 2;
@@ -4377,7 +4350,7 @@ ul.herb li a:visited {
 }
 
 .btn.focus, .btn:focus, .btn:hover {
-    color: #333;
+    color: #fff ! important;
     text-decoration: none;
 }
 button, select {
