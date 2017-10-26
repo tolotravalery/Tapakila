@@ -9,6 +9,14 @@
 
 /* #d70506;rouge */
 
+
+
+.navbar-brand>img {
+    display: block;
+    margin-left: -13px ! important;
+    margin-right: 30px ! important;
+}
+
 .btn-renvoye {
     color: #fff
 }
@@ -4257,6 +4265,9 @@ padding: 10px 52px 10px 52px;
     0.1,
     1);
 }
+
+
+
 .panel-default .panel-heading+.panel-collapse .panel-body p {
     font-style: italic;
     font-size: 18px;
