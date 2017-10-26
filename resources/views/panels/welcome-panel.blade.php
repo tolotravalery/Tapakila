@@ -67,7 +67,7 @@
                         <li rel="tab4"><b>Mes achats<br> Actuels</b></li>
                     </ul>
                     <div class="tab_container">
-                                                <!-- #tab2 -->
+                        <!-- #tab2 -->
                         <h3 class="tab_drawer_heading" rel="tab3">Mes achat passés</h3>
                         <div id="tab3" class="tab_content">
                             <table class="tabl-content table-custom">
@@ -133,7 +133,11 @@
                                             <td data-label="Tickets">{{$a->type}}</td>
                                             <td data-label="Date">{{\Carbon\Carbon::parse($a->pivot->date_achat)->format('d M Y H:i')}}</td>
                                             <td data-label="Quantité">{{$a->pivot->number}}</td>
-
+                                            @if($a->pivot->status_payment=='FAILED')
+                                                <td data-label=""><p><a href="organisateur/event/{{$e->id}}/edit"
+                                                                        alt="Edit" class="rapport">Payer</a></p>
+                                                </td>
+                                            @endif
                                         </tr>
                                     @endif
                                 @endforeach
@@ -144,12 +148,12 @@
                     </div>
                 </div>
 
-        </div>
+            </div>
     </section>
 @endsection
 @section("specificScript")
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             console.log("huhu");
         });
         // tabbed content
