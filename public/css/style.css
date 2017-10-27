@@ -17,6 +17,10 @@
     opacity: 1 ! important;
 }
 
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+    background-color: transparent ! important;
+}
+
 .navbar-brand>img {
     display: block;
     margin-left: -13px ! important;
