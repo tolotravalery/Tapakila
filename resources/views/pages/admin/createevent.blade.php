@@ -153,7 +153,7 @@
 													<span class="glyphicon  glyphicon-remove"></span> Suprimmer
                                         </button>
                                         <div class="btn btn-default image-preview-input">
-                                            <span class="glyphicon gly-icon2 glyphicon-folder-open"></span>
+                                            <span class="glyphicon gly-icon2s glyphicon-folder-open"></span>
                                             <span class="image-preview-input-title"></span>
                                             <input type="file" accept="image/png, image/jpeg, image/gif" name="image" required />
                                         </div>
@@ -854,57 +854,61 @@
                     <div id="div_type" class="hide">
                         <div id="type_ticket">
                             <div class="com_contenu_type">
-                                <h2>Type des tickets</h2>
-                                @if(isset($event))
-                                    @foreach($event[0]->tickets as $ticket)
-                                        <div class="ticket_type_contenu">
-                                            <div class="row">
-                                                <div class="col-lg-6">
-                                                    <h2>{{$ticket->type}}</h2>
+                                <div class="panel panel-content">
+                                    <div class="panel-body border-bottom">
+                                    <h2>Type des tickets</h2>
+                                    @if(isset($event))
+                                        @foreach($event[0]->tickets as $ticket)
+                                            <div class="ticket_type_contenu">
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <h2>{{$ticket->type}}</h2>
+                                                    </div>
+                                                    <div class="col-lg-2">
+                                                        <h2>{{$ticket->price}}</h2>
+                                                        <p>Ar</p>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <h2>
+                                                            <div class="btn-group pull-right">
+                                                                <button type="button" class="btn btn-default">
+                                                                    <span class="glyphicon glyphicon-edit"
+                                                                          aria-hidden="true"></span>
+                                                                    Edit
+                                                                </button>
+                                                                <button type="button"
+                                                                        class="btn btn-default dropdown-toggle pull-right"
+                                                                        data-toggle="dropdown" aria-haspopup="true"
+                                                                        aria-expanded="false">
+                                                                    <span class="caret"></span>
+                                                                    <span class="sr-only">Toggle Dropdown</span>
+                                                                </button>
+                                                                <ul class="dropdown-menu menu_type">
+                                                                    <li><a href="#"><span
+                                                                                    class="glyphicon glyphicon-chevron-up"
+                                                                                    aria-hidden="true"></span> Déplacer vers
+                                                                            le haut</a></li>
+                                                                    <li><a href="#"><span
+                                                                                    class="glyphicon glyphicon-chevron-down"
+                                                                                    aria-hidden="true"></span> Déplacer vers
+                                                                            le bat</a></li>
+                                                                    <li role="separator" class="divider"></li>
+                                                                    <li><a href="#"><span
+                                                                                    class="glyphicon glyphicon-duplicate"
+                                                                                    aria-hidden="true"></span> Dupliquer</a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </h2>
+                                                    </div>
                                                 </div>
-                                                <div class="col-lg-2">
-                                                    <h2>{{$ticket->price}}</h2>
-                                                    <p>Ar</p>
-                                                </div>
-                                                <div class="col-lg-4">
-                                                    <h2>
-                                                        <div class="btn-group pull-right">
-                                                            <button type="button" class="btn btn-default">
-                                                                <span class="glyphicon glyphicon-edit"
-                                                                      aria-hidden="true"></span>
-                                                                Edit
-                                                            </button>
-                                                            <button type="button"
-                                                                    class="btn btn-default dropdown-toggle pull-right"
-                                                                    data-toggle="dropdown" aria-haspopup="true"
-                                                                    aria-expanded="false">
-                                                                <span class="caret"></span>
-                                                                <span class="sr-only">Toggle Dropdown</span>
-                                                            </button>
-                                                            <ul class="dropdown-menu menu_type">
-                                                                <li><a href="#"><span
-                                                                                class="glyphicon glyphicon-chevron-up"
-                                                                                aria-hidden="true"></span> Déplacer vers
-                                                                        le haut</a></li>
-                                                                <li><a href="#"><span
-                                                                                class="glyphicon glyphicon-chevron-down"
-                                                                                aria-hidden="true"></span> Déplacer vers
-                                                                        le bat</a></li>
-                                                                <li role="separator" class="divider"></li>
-                                                                <li><a href="#"><span
-                                                                                class="glyphicon glyphicon-duplicate"
-                                                                                aria-hidden="true"></span> Dupliquer</a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </h2>
-                                                </div>
-                                            </div>
-                                            <p>Nombre de billets: {{$ticket->number}}</p>
+                                                <p>Nombre de billets: {{$ticket->number}}</p>
 
-                                        </div>
-                                    @endforeach
-                                @endif
+                                            </div>
+                                        @endforeach
+                                    @endif
+                                    </div>
+                                </div>
 
                                 <a class="btn btn-primary btn-outline text-center center-block primary" role="button"
                                    onClick="changePage('div_ticket','a_type')">
