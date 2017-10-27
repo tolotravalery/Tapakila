@@ -5,7 +5,7 @@
                 <div class="col-sm-4 col-xs-6">
                     <img class="footer-logo" alt="tapakila" src="{{ url('/') }}/public/img/logo.png">
                     <p class="small custom">
-                        By Tapakila.mg<br>
+                        By leguichet.mg<br>
                         IIB 63 Mahamasina<br>
                         Antananarivo<br>
                         Madagascar<br>
