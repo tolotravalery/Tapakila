@@ -140,7 +140,10 @@
                                     <tr>
                                         <td data-label="">
                                             <div class="thumbnail imgpaiment">
-                                                <img src="{{url('/')}}/public/img/{{$e->image}}" class="image_panier">
+                                                <a href="event/show/{{$e->id}}">
+                                                    <img src="{{url('/')}}/public/img/{{$e->image}}" class="image_panier">
+                                                </a>
+
                                             </div>
                                         </td>
                                         <td data-label="Date">
@@ -236,8 +239,10 @@
                                         <tr>
                                             <td data-label="">
                                                 <div class="thumbnail imgpaiment">
-                                                    <img src="{{url('/')}}/public/img/{{$event->image}}"
-                                                         class="image_panier">
+                                                    <a href="event/show/{{$event->id}}">
+                                                        <img src="{{url('/')}}/public/img/{{$event->image}}" class="image_panier">
+                                                    </a>
+
                                                 </div>
                                             </td>
                                             <td data-label="Tickets">{{$a->type}}</td>
