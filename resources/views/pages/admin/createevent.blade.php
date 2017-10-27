@@ -987,7 +987,7 @@
                     <!------------------------------------Site web-------------------------------------------------------------------------->
 
                     <div id="div_siteweb" class="hide">
-                        <div class="com_contenu_type">
+                          <div class="com_contenu_type">
                             <h2>Apparence du site</h2>
                             <label class="control-label" for="slug">Adresse web</label>
                             <div class="input-group"><span class="input-group-addon">http://----</span>

@@ -2155,7 +2155,7 @@ div.calendar p {
 }
 
 #sectioncategorie {
-    height: 40px;
+    height: auto;
     width: 100%;
     background: #ffffffe6;
     font-size: 11pt;
