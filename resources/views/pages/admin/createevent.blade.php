@@ -962,6 +962,8 @@
                     <div id="div_valideTicket" class="hide">
                         <div id="billet">
                             <div class="com_contenu">
+							 <div class="panel panel-content">
+                                    <div class="panel-body border-bottom">
                                 <h2>Validation des billets</h2>
                                 <p>
                                     Pour valider les tickets, vous aurez besoin d'un appareil mobile ou d'un ordinateur
@@ -982,7 +984,8 @@
                                     renvoie l'état actuel du ticket et le marque comme étant utilisé.</p>
 
                             </div>
-
+							</div>
+							</div>
                         </div>
                     </div>
 
@@ -992,6 +995,8 @@
 
                     <div id="div_siteweb" class="hide">
                           <div class="com_contenu_type">
+						   <div class="panel panel-content">
+                                    <div class="panel-body border-bottom">
                             <h2>Apparence du site</h2>
                             <label class="control-label" for="slug">Adresse web</label>
                             <div class="input-group"><span class="input-group-addon">http://----</span>
@@ -1033,7 +1038,8 @@
                         </div>
                         <div class="com_contenu_type_foot">
                             <button type="button" class="btn btn-danger bout">Mettre à jour</button>
-
+							</div>
+							</div>
                         </div>
                     </div>
                     <!------------------------------------Site web-end--------------------------------------------------------------------------->
@@ -1043,6 +1049,8 @@
                     <div id="div_pdf" class="hide">
 
                         <div class="com_contenu_type">
+						 <div class="panel panel-content">
+                                    <div class="panel-body border-bottom">
                             <h2>Informations sur le ticket PDF</h2>
 
                             <div class="form-group">
@@ -1185,7 +1193,8 @@
                             </div>
 
                         </div>
-
+						</div>
+						</div>
                     </div>
                     <!------------------------------------PDF-end--------------------------------------------------------------------------->
 
