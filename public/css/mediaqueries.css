@@ -425,6 +425,7 @@ height: auto;
 width: 100%;
 display: block;
 height: auto;
+margin-left:2px;
 }
 #sectioncategorie li {
 width: 50%;
