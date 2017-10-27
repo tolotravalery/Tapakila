@@ -76,7 +76,6 @@
                                         </div>
                                     </div>
                                 </td>
-
                                 <td data-label="Tickets">VIP</td>
                                 <td data-label="Quantité">
                                     <div class="row">
@@ -105,11 +104,8 @@
                                         <p class="tot"><input type="submit" class="toto" value="X" style="border: none;background-color: white;"></p>
                                     </form>
                                 </td>
-
                             </tr>
                         @endforeach
-
-
                         <tr>
                             <td data-label=""></td>
                             <td data-label="" class="hidden-xs"></td>
@@ -120,10 +116,6 @@
 
                         </tbody>
                     </table>
-					
-					
-					
-					
                     <div class="row text-center-xs text-center-sm text-center-md menbottom">
                         <div class="col-md-3 achatquiter">
                             <a href="{{url('/')}}" class="a_color">Continuer vos achats</a>
