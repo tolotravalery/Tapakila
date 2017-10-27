@@ -84,11 +84,12 @@
                                                 <div class="col-lg-8 col-lg-offset-3 col-xs-12 pull-left">
                                                     <div class="form-group">
                                                         <select class="selectpicker quantity form-control" data-id="{{ $item->rowId }}" id="sel1">
-                                                            <option {{ $item->qty == 1 ? 'selected' : '' }}>1</option>
-                                                            <option {{ $item->qty == 2 ? 'selected' : '' }}>2</option>
-                                                            <option {{ $item->qty == 3 ? 'selected' : '' }}>3</option>
-                                                            <option {{ $item->qty == 4 ? 'selected' : '' }}>4</option>
-                                                            <option {{ $item->qty == 5 ? 'selected' : '' }}>5</option>
+                                                            <?php
+                                                                $nombreticket =$ticket->number;
+                                                            ?>
+                                                            @for($nombre=1;$nombre<=$nombreticket;$nombre++)
+                                                                <option {{ $item->qty == $nombre ? 'selected' : '' }}>{{$nombre}}</option>
+                                                            @endfor
                                                         </select>
                                                     </div>
                                                 </div>
