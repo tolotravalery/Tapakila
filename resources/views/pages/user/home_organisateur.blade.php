@@ -194,6 +194,7 @@
                                 </thead>
 
                                 <tbody>
+								@if(count($achats)>0)
                                 @foreach($achats as $a)
                                     @php
                                         $event = $a->events[0];
@@ -213,6 +214,7 @@
                                         </tr>
                                     @endif
                                 @endforeach
+								@endif
                                 </tbody>
                             </table>
                         </div>
@@ -231,6 +233,7 @@
                                 </thead>
 
                                 <tbody>
+								@if(count($achats)>0)
                                 @foreach($achats as $a)
                                     @php
                                         $event = $a->events[0];
@@ -267,6 +270,7 @@
                                         </tr>
                                     @endif
                                 @endforeach
+								@endif
                                 </tbody>
                             </table>
                         </div>

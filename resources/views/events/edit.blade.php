@@ -1428,7 +1428,7 @@
                                     </div>
                                     <span class="help-block">
                                         Prix ​​de l'utilisateur final par billet incluant <a
-                                                href="index.html" target="_blank" class="aa">Frais Tapakila</a> Et
+                                                href="index.html" target="_blank" class="aa">Frais leguichet</a> Et
                                         TVA, le cas échéant
                                     </span>
                                 </div>
@@ -1617,6 +1617,10 @@
             document.getElementById("a_cpersonalize").className = "";
             document.getElementById("a_paiement").className = "";
             document.getElementById(aId).className = "select";
+			
+			if (screen.width <= 750) {
+				window.location.hash = id;
+			}
         }
     </script>
 

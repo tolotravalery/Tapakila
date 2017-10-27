@@ -912,9 +912,8 @@
                                                                      aria-hidden="true"></span> Ajouter le type de
                                     ticket
                                 </a>
-                            </div>
-
-                            <div class="com_contenu_type">
+								</br></br>
+                           
                                 <h2>Événement complet</h2>
                                 <div class="row">
                                     <div class="col-lg-6">
@@ -1146,10 +1145,10 @@
                                                     <p class="small" style="font-size: 13px; line-height:22px;">
                                                         Ticket order 123456
                                                         <br> This email has been sent to <a
-                                                                href="mailto:dinavonjy@icloud.com">dinavonjy@icloud
+                                                                href="mailto:dinavonjy@icloud.com">blabla@icloud
                                                             .com</a>
                                                         <br>
-                                                        <a href="#" style="color:#2CB0E1; text-decoration: none;">Piletimasin</a>
+                                                        <a href="#" style="color:#2CB0E1; text-decoration: none;">leguichet</a>
                                                         · Organize your event
                                                     </p>
                                                 </td>
@@ -1596,6 +1595,10 @@
             document.getElementById("a_cpersonalize").className = "";
             document.getElementById("a_paiement").className = "";
             document.getElementById(aId).className = "select";
+			
+			if (screen.width <= 750) {
+				window.location.hash = id;
+			}
         }
     </script>
 

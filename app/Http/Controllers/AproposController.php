@@ -9,8 +9,8 @@ use App\Models\Sous_menus;
 class AproposController extends Controller
 {
     public function faq(){
-        $menus = Menus::orderBy('id', 'desc')->take(8)->get();
-        $sousmenus = Sous_menus::orderBy('name', 'asc')->take(20)->get();
+        $menus = Menus::orderBy('id', 'desc')->get();
+        $sousmenus = Sous_menus::orderBy('name', 'asc')->get();
         return view('tapakila.faq', compact('menus', 'sousmenus','slides'));
     }
     public function apropos(){
@@ -23,7 +23,9 @@ class AproposController extends Controller
         return view('tapakila.term');
     }
     public function achat(){
-        return view('tapakila.achat');
+		$menus = Menus::orderBy('id', 'desc')->get();
+        $sousmenus = Sous_menus::orderBy('name', 'asc')->get();
+        return view('tapakila.achat',compact('menus', 'sousmenus'));
     }
     public function achatBillet(){
         return view('tapakila.acheterbillet');

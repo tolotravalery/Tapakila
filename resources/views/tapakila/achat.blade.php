@@ -1,8 +1,34 @@
 @extends('template')
 @section('content')
+    <section id="sectioncategorie" class="clearfix">
+        <div class="container custom-container">
+            <ul class="clearfix">
+                <li><a href="{{url('/')}}">TOUS</a></li>
+                @foreach($menus as $menu)
+                    <li><a href="{{url('/event/list/categorie',[$menu->id])}}">{{strtoupper($menu->name)}}</a></li>
+                @endforeach
+
+            </ul>
+            <a href="#" class="menupull" id="pull"><strong>Catégories</strong></a>
+        </div>
+    </section>
+
+    <section id="sectionevenement" role="navigation">
+        <div class="container custom-container">
+            <ul>
+                @foreach($sousmenus as $sousmenu)
+                    <li>
+                        <a href="{{url('/event/list/categorie/'.$sousmenu->name.'',[$sousmenu->id])}}">{{ucfirst($sousmenu->name)}}</a>
+                    </li>
+                @endforeach
+
+            </ul>
+        </div>
+    </section>
+    <br/>
     <div class="container">
         <div class="row performe">
-            <div class="col-md-9">
+            <div class="col-md-12">
                 <div class="about-bg">
                     <!-- QU'EST-CE QU'UN E-TICKET ? -->
                     <h4><strong>Qu'est-ce qu'un ticket ?</strong></h4>
@@ -126,116 +152,6 @@
             </div>
 
 
-            <div class="col-md-3 social-bg">
-                <div class="espacepersonnel">
-                    <h3 class="all">Espace personnel</h3>
-                    <form>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Nom d'utilisateur : <sup
-                                        class="champsobligatoire">*</sup></label>
-                            <input type="email" class="form-control" id="exampleInputEmail1"
-                                   aria-describedby="emailHelp">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Mots de passe : <sup
-                                        class="champsobligatoire">*</sup></label>
-                            <input type="email" class="form-control" id="exampleInputEmail1"
-                                   aria-describedby="emailHelp">
-                        </div>
-                    </form>
-
-                    <div class="row">
-                        <div class="col-md-7">
-                            <div>
-                                <a href="#"><span class="fa fa-caret-square-o-right label"> Créer un compte</span></a>
-                            </div>
-                            <div>
-                                <a href="#"><span
-                                            class="fa fa-caret-square-o-right label"> Mots de passe oubliè ?</span></a>
-                            </div>
-                        </div>
-                        <div class="col-md-5">
-                            <button type="button" class="btn btn-primary btn-menu">connecter</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="newsletter">
-                    <h3 class="all">Newletter</h3>
-                    Recevez nos dernier actualités !
-                    <form>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Adresse e-mail : <sup
-                                        class="champsobligatoire">*</sup></label>
-                            <input type="email" class="form-control" id="exampleInputEmail1"
-                                   aria-describedby="emailHelp">
-                        </div>
-                    </form>
-                    <div class="row">
-                        <div class="col-md-7">
-                            <div class="radio">
-                                <label><input type="radio" name="optradio">s'inscrire</label>
-                            </div>
-                            <div class="radio">
-                                <label><input type="radio" name="optradio">Se desinscrire</label>
-                            </div>
-                        </div>
-                        <div class="col-md-5">
-                            <button type="button" class="btn btn-primary btn-menu2">Enregistrer</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="vente">
-                    <h3 class="all">Top vente</h3>
-                    <div class="row space">
-                        <div class="col-md-2">
-                            <label class="top10">1</label>
-                        </div>
-                        <div class="col-md-8">
-                            <h5 class="Titre"><strong>Mahaleo</strong></h5>
-                            <p>
-                            <div class="price"><i class="glyphicon glyphicon-time time"></i> Apr 1, 100rmb</div>
-                            <div class="date"><i class="glyphicon glyphicon-map-marker position"></i>Paris</div>
-                        </div>
-                        </p>
-                        <div class="col-md-2">
-                            <a href="#"><label class="glyphicon glyphicon-plus mytop"></label></a>
-                        </div>
-
-                    </div>
-                    <div class="row space">
-                        <div class="col-md-2">
-                            <label class="top10">2</label>
-                        </div>
-                        <div class="col-md-8">
-                            <h5 class="Titre"><strong>Ambondrona</strong></h5>
-                            <p>
-                            <div class="price"><i class="glyphicon glyphicon-time time"></i> Apr 1, 100rmb</div>
-                            <div class="date"><i class="glyphicon glyphicon-map-marker position"></i>Paris</div>
-                        </div>
-                        </p>
-                        <div class="col-md-2">
-                            <a href="#"><label class="glyphicon glyphicon-plus mytop"></label></a>
-                        </div>
-
-                    </div>
-                    <div class="row space">
-                        <div class="col-md-2">
-                            <label class="top10">3</label>
-                        </div>
-                        <div class="col-md-8">
-                            <h5 class="Titre"><strong>Bodo</strong></h5>
-                            <p>
-                            <div class="price"><i class="glyphicon glyphicon-time time"></i> Apr 1, 100rmb</div>
-                            <div class="date"><i class="glyphicon glyphicon-map-marker position"></i>Paris</div>
-                        </div>
-                        </p>
-                        <div class="col-md-2">
-                            <a href="#"><label class="glyphicon glyphicon-plus mytop"></label></a>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 @endsection
