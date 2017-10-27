@@ -32,9 +32,9 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{url('/')}}">
-                <img src="{{ url('/') }}/public/img/logo.png" title="leguichet">
-            </a>
+				<a class="navbar-brand" href="{{url('/')}}">
+					<img src="{{ url('/') }}/public/img/logo.png" title="leguichet">
+				</a>
         </div>
 
         <div id="navbar" class="navbar-collapse collapse">

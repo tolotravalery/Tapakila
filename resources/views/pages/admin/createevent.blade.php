@@ -153,7 +153,7 @@
 													<span class="glyphicon  glyphicon-remove"></span> Suprimmer
                                         </button>
                                         <div class="btn btn-default image-preview-input">
-                                            <span class="glyphicon gly-icon2s glyphicon-folder-open"></span>
+                                            <span class="glyphicon gly-icon2 glyphicon-folder-open"></span>
                                             <span class="image-preview-input-title"></span>
                                             <input type="file" accept="image/png, image/jpeg, image/gif" name="image" required />
                                         </div>

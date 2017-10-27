@@ -21,10 +21,22 @@
     background-color: transparent ! important;
 }
 
-.navbar-brand>img {
+.navbar-brand >img {
     display: block;
     margin-left: -13px ! important;
     margin-right: 30px ! important;
+	cursor:pointer ! important;
+}
+
+
+@media only screen and (min-width:768px) and (max-width:1024px){
+	#custom-search-input {
+    position: absolute ! important;
+}
+}
+
+a{
+	cursor:pointer ! important;
 }
 
 .btn-renvoye {
