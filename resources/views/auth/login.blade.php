@@ -83,7 +83,7 @@
                                                 <div class="col-md-8 col-md-offset-2">
                                                     <a href="{{route('social.redirect',['provider' => 'facebook'])}}">
                                                         <button type="button" class="btn-facebooksign"><img
-                                                                    src="{{url('/img/fblogo.jpeg')}}">Connexion avec
+                                                                    src="{{url('public/img/fblogo.jpeg')}}">Connexion avec
                                                             facebook
                                                         </button>
                                                     </a>
