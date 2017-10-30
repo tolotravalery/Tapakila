@@ -98,7 +98,7 @@
                                             {{\Carbon\Carbon::parse($e->date_fin_event)->format('d M Y H:i')}}
                                         </td>
                                         <td data-label="Tickets">
-                                            @if($e->tickets()->count()))
+                                            @if($e->tickets()->count())
                                             @foreach($e->tickets() as $t)
                                                 {{$t->type}}<br/>
                                             @endforeach
@@ -108,7 +108,7 @@
                                         </td>
 
                                         <td data-label="Prix">
-                                            @if($e->tickets()->count()))
+                                            @if($e->tickets()->count())
                                             @foreach($e->tickets() as $t)
                                                 {{$t->price}}<br/>
                                             @endforeach

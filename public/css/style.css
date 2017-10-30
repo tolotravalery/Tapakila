@@ -2705,6 +2705,7 @@ div.calendar p {
     margin: 35px 0px 35px -1px;
     background-color: black;
     border-color: black;
+	padding: 15px 30px 15px 30px;
 }
 .bout1:hover {
     background-color: #428bca;
