@@ -29,11 +29,11 @@
 }
 
 
-@media only screen and (min-width:768px) and (max-width:1024px){
-	#custom-search-input {
-    position: absolute ! important;
-}
-}
+/* @media only screen and (min-width:768px) and (max-width:1024px){ */
+	/* #custom-search-input { */
+    /* position: absolute ! important; */
+/* } */
+/* } */
 
 a{
 	cursor:pointer ! important;
