@@ -57,15 +57,15 @@
                                     </div>
                                     <div class="col-lg-8 col_recherche">
                                         <div class="row select_recherche">
-                                            <div class="col-lg-3 col-xs-6">
+                                            <div class="col-lg-4 col-xs-6">
                                                 <label class="checkbox-inline">
                                                     <input type="checkbox" value="">Passé</label>
                                             </div>
-                                            <div class="col-lg-3 col-xs-6">
+                                            <div class="col-lg-4 col-xs-6">
                                                 <label class="checkbox-inline">
                                                     <input type="checkbox" value="">Actuel</label>
                                             </div>
-                                            <div class="col-lg-3">
+                                            <div class="col-lg-4">
                                                 <label class="checkbox-inline">
                                                     <input type="checkbox" value="">Prochain</label>
                                             </div>
@@ -81,7 +81,7 @@
                                         <div class="col-lg-8 col_recherche">
                                             <div class="row select_recherche">
                                                 @foreach($sousmenus as $sousmenu)
-                                                    <div class="col-lg-3 col-xs-6">
+                                                    <div class="col-lg-4 col-xs-6">
                                                         <label class="checkbox-inline">
                                                             <input type="checkbox" name="categorie[]"
                                                                    value="{{$sousmenu->id}}">{{$sousmenu->name}}</label>
