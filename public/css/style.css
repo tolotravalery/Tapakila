@@ -1418,14 +1418,11 @@ ul.tabs li.active {
 }
 
 .btn-annuler {
-    background-color: black;
-    outline: none;
-    color: #fff;
-    font-size: 14px;
-    height: auto;
-    font-weight: normal;
-    padding: 14px 0;
-    border-color: #fff;
+  padding: 10px;
+background-color: #000;
+border: none;
+color: #black;
+margin: 10px 0;
 }
 
 .initialize {
@@ -1501,10 +1498,7 @@ ul.tabs li.active {
     background-color: #f5f5f5;
 }
 
-.choix1 {
-    margin-top: 55px;
-    margin-bottom: 45px;
-}
+
 
 .choix2 {
     margin-top: 55px;
@@ -1564,12 +1558,13 @@ ul.tabs li.active {
 
 .pane1 {
     background-color: #f5f5f5;
+	padding: 30px 10px 30px 10px;
 }
 
-.choix1 {
-    margin-top: 55px;
-    margin-bottom: 45px;
-}
+/* .choix1 { */
+    /* margin-top: 55px; */
+    /* margin-bottom: 45px; */
+/* } */
 
 .choix2 {
     margin-top: 55px;
@@ -2190,6 +2185,7 @@ div.calendar p {
 #sectioncategorie li {
     display: inline;
     float: left;
+	text-transform: uppercase !important;
 }
 
 #sectioncategorie a {
@@ -2318,6 +2314,7 @@ div.calendar p {
 
 #sectionevenement li {
     display: inline;
+	 text-transform:capitalize; 
 }
 
 #sectionevenement a {
@@ -2373,6 +2370,7 @@ div.calendar p {
     margin-bottom: 25px;
     padding-bottom: 4%;
     background-position: 36% 53%;
+
 }
 
 .infopers {
@@ -2897,7 +2895,7 @@ div.calendar p {
 }
 .gi{
 	text-align:left;
-	margin-left:-13px;
+	margin-top: 10px;
 }
 #date {
     margin-right: 0px;
@@ -3020,7 +3018,7 @@ margin-bottom: 25px;
 }
 .about-bg {
     background-color: white;
-    padding: 10px 35px 20px 35px;
+    padding: 20px 30px 20px 30px;
     margin-bottom: 30px;
     border-radius: 5px;
 }
