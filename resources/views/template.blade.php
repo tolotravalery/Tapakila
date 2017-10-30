@@ -219,7 +219,7 @@
                 <li><a href="{{url('')}}/tapakila/faq">FAQ</a></li>
                 |
                 <li><a href="#">Vie privee</a></li>
-                |
+               
             </ul>
             <p>Copyright &copy Leguichet 2017</p>
         </div>
