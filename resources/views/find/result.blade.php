@@ -18,7 +18,7 @@
             <ul>
                 @foreach($sousmenus as $sousmenu)
                     <li>
-                        <a href="{{url('/event/list/categorie/'.$sousmenu->name.'',[$sousmenu->id])}}">{{ucfirst($sousmenu->name)}}</a>
+                        <a href="{{url('/event/list/categorie/'.$sousmenu->name.'',[$sousmenu->id])}}">{{ucfirst(strtolower($sousmenu->name))}}</a>
                     </li>
                 @endforeach
 
@@ -128,7 +128,7 @@
                     @php $count_id = 0 @endphp
                     @foreach($events as $event)
                         <div class="categorie-item">
-                            <h2 class="couleur_mot">{{$event->sous_menus->name}}</h2>
+                            <h2 class="couleur_mot">{{ucfirst(strtolower($event->sous_menus->name))}}</h2>
                             <div class="row">
                                 <div class="col-sm-6 col-md-4">
                                     <div class="thumbnail"

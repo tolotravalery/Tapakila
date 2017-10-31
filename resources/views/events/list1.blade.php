@@ -18,7 +18,7 @@
             <ul>
                 @foreach($sousmenus as $sousmenu)
                     <li>
-                        <a href="{{url('/event/list/categorie/'.$sousmenu->name.'',[$sousmenu->id])}}">{{ucfirst($sousmenu->name)}}</a>
+                        <a href="{{url('/event/list/categorie/'.$sousmenu->name.'',[$sousmenu->id])}}">{{ucfirst(strtolower($sousmenu->name))}}</a>
                     </li>
                 @endforeach
             </ul>
@@ -33,7 +33,7 @@
                 <li class=" bounce animated2 zoomIn"><a
                             href="{{url('/event/list/categorie',[$sous_menu_event->menus->id])}}"><b>{{ucfirst(strtolower($sous_menu_event->menus->name))}}</b></a>
                 </li>
-                <li class=" bounce animated2 zoomIn dernier"><a href="#"><b>{{ucfirst($sous_menu_event->name)}}</b></a>
+                <li class=" bounce animated2 zoomIn dernier"><a href="#"><b>{{ucfirst(strtolower($sous_menu_event->name))}}</b></a>
                 </li>
             </ul>
         </div>
@@ -44,7 +44,7 @@
             @if($sous_menu_event)
                 @php $count_id = 0 @endphp
                 <div class="categorie-item">
-                    <h2 class="couleur_mot">{{ucfirst($sous_menu_event->name)}}</h2>
+                    <h2 class="couleur_mot">{{ucfirst(strtolower($sous_menu_event->name))}}</h2>
                     <div class="row">
                         @if($events->count() > 0)
                             @foreach($events as $event)
