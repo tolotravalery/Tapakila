@@ -140,6 +140,7 @@ class EventController extends Controller
 
     public function store(Request $request)
     {
+
         $user = User::find(Auth::user()->id);
         if (!$user->hasRole('organisateur')) {
             return redirect(url('errors/' . md5('event') . '/' . md5('403')));

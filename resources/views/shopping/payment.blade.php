@@ -33,7 +33,7 @@
             <div id="achat-content">
                 <h2 class="titlebuy">Votre Commande</h2>
                 <div class="spacing"></div>
-                @if(($ticket_to_pay[0]->pivot->number < \App\Models\Ticket::find($ticket_to_pay[0]->id)->number))
+                @if(($ticket_to_pay[0]->pivot->number <= \App\Models\Ticket::find($ticket_to_pay[0]->id)->number))
                     <div class="custom-pg">
                         <form action="{{url('/shopping/checkout/payment')}}" method="POST">
                             <table class="tabl-content">
