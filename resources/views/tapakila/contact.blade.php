@@ -1,106 +1,63 @@
 @extends('template')
 @section('content')
-    <div class="container custom-container">
-        <div class="bgcontact">
-            <h1 class="contactpg">Contact</h1>
-            <div class="row">
-                <div class="col-lg-5">
-                    <div class="slogan">
-                        Avec Tapakila vous aurrez vos billets
-                        d'entrée à nos événement sans frais
-                        d'envoi ,sans déplacement,
-                        sans perdre de temps...
-                    </div>
-                    <div class="spaceconect"></div>
-                    <div class="infoline">
-                        <h2>Infoline </h2>
-                        <ul>
-                            <li class=" statictitle"><i class="fa fa-home"></i><b>Mahamasina</b></li>
-                            <li class=" statictitle"><i class="fa fa-phone"></i><b>032 54 230 24</b></li>
-                            <li class=" statictitle"><i class="fa fa-envelope"></i><b>Trustylabs@gmail.com</b></li>
-                            <li class=" statictitle"><i class="fa fa-globe"
-                                                        aria-hidden="true"></i><b>www.Tapakila.com</b></li>
-                        </ul>
-                    </div>
 
-                </div>
-                <div class="col-lg-7">
-                    <h2 class="message">Laissez nous un message</h2>
-                    <div class="spacemessage"></div>
-                    <form id="formcontact">
-
-                        <div class="form-group row">
-                            <label class="col-sm-3 col-form-label statictitle ">Nom<sup class="require1">*</sup></label>
-                            <div class="col-sm-9">
-                                <input type="password" class="form-control border" id="inputPassword">
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="inputPassword" class="col-sm-3 col-form-label statictitle">Email/Phone <sup
-                                        class="require2">*</sup> </label>
-                            <div class="col-sm-9">
-                                <input type="password" class="form-control border" id="inputPassword">
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="staticEmail" class="col-sm-3 col-form-label statictitle">Organisateur <sup
-                                        class="require3">*</sup></label>
-                            <div class="col-sm-9">
-                                <select class="form-control border" id="sel1">
-                                    <option></option>
-                                    <option></option>
-                                    <option></option>
-                                    <option></option>
-                                </select>
-
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="inputPassword" class="col-sm-3 col-form-label statictitle">Votre message<sup
-                                        class="require4">*</sup> </label>
-                            <div class="col-sm-9">
-                                <div class="form-group">
-                                    <textarea class="form-control" rows="5" id="comment"></textarea>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                    <div class="row">
-                        <div class="col-lg-4"></div>
-                        <div class="col-lg-4"></div>
-                        <div class="col-lg-4">
-                            <button type="button" class="btn btn-success pull-right btnenvoie">Envoyer</button>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-4"></div>
-                        <div class="col-lg-4"></div>
-                        <div class="col-lg-4">
-                            <label class="labely pull-right"><sup class="require5">*</sup> : champs obligatoire</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- social footer start -->
-
-            <div class="row ico-social">
-                <div class="col-lg-6 footer-social">
-                    <a href="#" target="_blank"><img class="social" src="{{url('/')}}/public/img/facebook.png"></a>
-                    <a href="#" target="_blank"><img class="social" style="border-radius: 16px;"
-                                                     src="{{url('/')}}/public/img/twit.png"></a>
-                    <a href="#" target="_blank"><img class="social" src="{{url('/')}}/public/img/google-plus.png"></a>
-                    <a href="#" target="_blank"><img class="social" src="{{url('/')}}/public/img/dribbble.png"></a>
-                </div>
-
+        <div class="container custom-container">
+            <div class="bgcontact">
+                <h1 class="contactpg">Nous Contacter</h1>
+				<p class="text-center text1 hidden-xs">Vous n'avez pas trouvé la reponse à votre question dans notre  <a href="#">FAQ ?</a><br>N'hesitez pas à nous écrire ou à nous contactez !</p> 
+				<p class="text-center text1 hidden-lg hidden-md hidden-sm">Ecrivez-vous !</p>
+			<div class="row spac">
+				<div class="col-md-6 text-center-lg text-center-md text-center-sm text-center-lg-xs">
+					<form>
+						<div class="form-group">
+							<input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nom*">
+						</div>
+						<div class="form-group">
+							<input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Mail*">
+						</div>
+					  <div class="form-group">
+							<select class="form-control border">
+								<option>Organisateur</option>
+								<option>Achateur</option>
+								<option>Vendeur</option>
+							</select>
+						</div>
+						 <div class="form-group ">
+							<div class="form-group">
+								<textarea class="form-control" rows="5" placeholder="Message"  id="comment"></textarea>
+							</div>
+						</div>
+						<p class="pull-right olig"><sup>*</sup>&nbsp Champs obligatoire</p>
+					</form>
+					<div class="row">
+						<div class="col-md-3 col-md-offset-4 col-xs-3 col-xs-offset-3 col-sm-3 col-sm-offset-4">
+							<button type="button" class="btn btn-envoye btn-lg">Envoyer</button>
+						</div>
+					</div>
+				
+						
+				</div>
+				
+				<div class="col-md-6 ">
+					<div class="row">
+						<div class=" infoline">
+							<ul>
+								<li class=" statictitle"><i class="fa fa-map-marker"></i><b>Mahamasina</b></li>
+								<li class=" statictitle"><i class="fa fa-phone"></i><b>032 54 230 24</b></li>
+								<li class=" statictitle"><i class="fa fa-envelope"></i><b>Leguichet@gmail.com</b></li>
+							</ul>
+						</div>
+						<div class="joinfb">
+						<a href="#">
+						<img src="{{url('/')}}/public/img/fbcircle.png">
+							<p class="joins">Nous suivre sur <br>facebook</p></a>
+						</div>
+					</div>
+				</div>
+			</div>
+         
 
             </div>
-
-            <!-- social end footer -->
         </div>
-    </div>
+
 @endsection
