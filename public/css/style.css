@@ -211,8 +211,7 @@ a {
 
 .searchbox {
     margin-top: 16px;
-    margin-left: 10px;
-    margin-bottom: 20px;
+
 }
 
 .btn-info1 {
@@ -1029,10 +1028,11 @@ button.nonpublier:hover:visited:focus {
 }
 
 .btn-aperçu {
-    background-color: #f1f4f5;
     color: #fffff;
     padding: 10px 20px 10px 20px;
 }
+
+
 
 .select {
     background-color: white;
@@ -2347,9 +2347,6 @@ div.calendar p {
 }
 
 
-/* carousel-end */
-
-
 /* categories item start */
 
 .categorie-item {
@@ -2367,8 +2364,8 @@ div.calendar p {
     background: url(../img/spectacle.png) no-repeat;
     background-repeat: no-repeat;
     margin-top: 25px;
-    margin-bottom: 25px;
-    padding-bottom: 4%;
+margin-bottom: 50px;
+padding-bottom: 35px;
     background-position: 36% 53%;
 
 }
@@ -2927,6 +2924,9 @@ div.calendar p {
 .mot_ha {
     text-align: center;
     color: #428bca !important;
+}
+.mot_ha:hover {
+  text-decoration:underline;
 }
 .panier_3 {
     margin-top: 35px;

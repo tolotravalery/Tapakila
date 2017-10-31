@@ -84,26 +84,19 @@
             @else
                 <ul class="nav navbar-nav navbar-right">
                     <li style="margin-left: 10px;">
-                        <div class="panier-header"><a href="{{url('/')}}/organisateur/event"
-                                                      class="btn btn-success event"
-                                                      role="button"><span class="ico"></span><span
-                                        class="descr">AJOUTER<br/> VOTRE EVENEMENT</span></a></div>
+                        <div class="panier-header"><a href="{{url('/')}}/organisateur/event" class="btn btn-success event" role="button"><span class="ico"></span><span class="descr">AJOUTER<br/> VOTRE EVENEMENT</span></a></div>
                     </li>
                     <li>
-                        <a href="{{ url('/shopping/cart') }}">Panier @if (!Auth::guest())
-                                ({{ Cart::instance('default')->count(false) }}) @endif</a>
+                        <a href="{{ url('/shopping/cart') }}">Panier @if (!Auth::guest()) ({{ Cart::instance('default')->count(false) }}) @endif</a>
                     </li>
                     <li role="presentation" class="dropdown connexion">
-                        <a href="#" class="dropdown-toggle" id="drop6" data-toggle="dropdown" role="button"
-                           aria-haspopup="true" aria-expanded="false">
+                        <a href="#" class="dropdown-toggle" id="drop6" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 
                             @if ((Auth::User()->profile) && Auth::user()->profile->avatar_status == 1)
-                                <img src="{{ Auth::user()->profile->avatar }}" alt="{{ Auth::user()->name }}"
-                                     class="user-avatar-nav">
+                                <img src="{{ Auth::user()->profile->avatar }}" alt="{{ Auth::user()->name }}" class="user-avatar-nav">
                             @else
                                 <div class="user-avatar-nav"></div>
                             @endif
-
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu " id="menu3" aria-labelledby="drop6">
@@ -111,10 +104,10 @@
                             {!! HTML::link(url('/profile/'.Auth::user()->id.'/edit'), trans('titles.profile')) !!}
                             <!--{!! HTML::icon_link(URL::to('/profile/'.Auth::user()->id.'/edit'), 'fa fa-fw fa-cog', trans('titles.editProfile'), array('class' => 'btn btn-small btn-info btn-block')) !!}
                             {{ trans('profile.editAccountTitle') }}-->
-                            </li>--}}
-                            <li>
-                                <a href="{{url('/home')}}">Profile</a>
-                            </li>
+								</li>--}}
+								<li>
+									<a href="{{url('/home')}}">Profile</a>
+								</li>
                             @role('organisateur')
                             <li><a href="{{url('/')}}/organisateur/event">Events</a></li>
                             @endrole

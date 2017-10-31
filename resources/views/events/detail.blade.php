@@ -46,7 +46,7 @@
                     </div>
                     <div class="div_style">
 					<div class="row">
-						<div class="col-lg-5 col-xs-7">
+						<div class="col-lg-5 col-xs-7 col-sm-3">
 						<i class="fa fa-map-marker fa-2x loc zav" aria-hidden="true"></i><strong id="localisation"
                                                                                                  class="couleur_mot">
                             Localisation : </strong> 
@@ -64,7 +64,7 @@
                     </div>
                     <div class="div_style">
 					<div class="row">
-						<div class="col-lg-5 col-xs-7">
+						<div class="col-lg-5 col-xs-7 col-sm-3">
 						<i class="fa fa-calendar-o fa-2x  zav" aria-hidden="true"></i><strong id="date"
                                                                                               class="couleur_mot"> Date
                             : </strong>
@@ -77,7 +77,7 @@
                     </div>
                     <div class="div_style">
 					<div class="row">
-						<div class="col-lg-5 col-xs-7">
+						<div class="col-lg-5 col-xs-7 col-sm-3">
 						<i class="fa fa-clock-o fa-2x zav" aria-hidden="true"></i><strong id="heure"
                                                                                           class="couleur_mot"> Heure
                             :</strong>
