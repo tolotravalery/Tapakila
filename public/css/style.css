@@ -4409,9 +4409,6 @@ button, select {
 button {
     overflow: visible;
 }
-
-
-
-
-
-
+.champ_required{
+    color:#ff0000;
+}

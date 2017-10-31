@@ -107,12 +107,26 @@
                 </div>
                 <div class="col-lg-9 col-sm-9">
                     <div id="div_details">
+
                         <div class="com_contenu_type">
                             {!! Form::model($event, array('action' => array('EventController@update'), 'method' => 'PUT', 'id' => 'user_basics_form','files' => true,'class'=>'form-horizontal')) !!}
                             {{ csrf_field() }}
                             <input type="hidden" name="id" value="{{Crypt::encryptString(($event->id))}}">
                             <div class="panel panel-content">
                                 <div class="panel-body border-bottom">
+                                    <?php
+                                    if(isset($niova)){?>
+                                    <div class="container">
+                                        <div style="margin-left: 36px;">
+                                            <div class="alert alert-success col-md-7" style="text-align: left;">
+                                                <p style="margin-left: 5px;"><?php echo $niova; ?></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br/>
+                                    <?php
+                                    }
+                                    ?>
                                     <h2>Details</h2>
                                     <?php
                                     $publie_org = $event->publie_organisateur;
@@ -127,7 +141,7 @@
 
                                     <div class="form-group ">
                                         <label class="control-label ">
-                                            <span>Titre (*):</span>
+                                            <span>Titre :</span> <span class="champ_required"> *</span>
                                         </label>
                                         <input type="text" name="title" id="titre" class="form-control"
                                                value="{{$event->title}}" required>
@@ -177,10 +191,10 @@
                                     </div>
                                     <div class="form-group form-group-translation et">
                                         <label class="control-label">
-                                            <span>Description (*) :</span>
+                                            <span>Description : </span><span class="champ_required"> *</span>
                                         </label>
                                         <textarea class="form-control" style=" word-wrap: break-word; resize: horizontal;
-                                        height: 150px;" name="note" required>{{$event->additional_note}}</textarea>
+                                        height: 150px;" name="note" >{{$event->additional_note}}</textarea>
                                     </div>
                                 </div>
                                 <div class="panel-body border-bottom">
@@ -190,7 +204,7 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label class="control-label required">Début (*)</label>
+                                                        <label class="control-label required">Début de l'évenement</label><span class="champ_required"> *</span>
                                                         <div class="input-group">
                                                             <div class="input-group-addon">
                                                                 <i class="fa fa-calendar"></i></div>
@@ -216,7 +230,7 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label class="control-label required">Fin (*)</label>
+                                                        <label class="control-label required">Fin de l'évenement</label><span class="champ_required"> *</span>
                                                         <div class="input-group">
                                                             <div class="input-group-addon">
                                                                 <i class="fa fa-calendar"></i></div>
@@ -257,18 +271,18 @@
                                     <h2>Localisation :</h2>
                                     <form>
                                         <div class="form-group">
-                                            <label for="email">Nom (*):</label>
+                                            <label for="email">Nom :</label><span class="champ_required"> *</span>
                                             <input type="Adresse" class="form-control" id="email"
                                                    name="localisation_nom" value="{{$event->localisation_nom}}"
                                                    required>
-                                            <p>E.X:Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
+                                            <p>E.X : Antananarivo</p>
                                         </div>
                                         <div class="form-group">
                                             <label for="adresses">Adresse:</label>
                                             <input type="Adresse" class="form-control" id="adress"
                                                    name="localisation_adresse" value="{{$event->localisation_adresse}}">
                                             <em>Entrer l'adresse exact pour l'affichage des directions sur la carte</em>
-                                            <p>E.X:Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
+                                            <p>E.X : Palais des sports</p>
                                         </div>
 
                                     </form>

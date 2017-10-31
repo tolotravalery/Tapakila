@@ -182,7 +182,11 @@ class EventController extends Controller
             'message' => $message,
             'vu' => 0
         ]);
-        return redirect(url('organisateur/event/' . $event->id . '/edit'));
+
+        $message=$request->input('message');
+        session()->flash('message', $message);
+
+        return redirect(url('organisateur/event/' . $event->id . '/edit'))->with(compact('message'));;
     }
 
     public function update(Request $request)

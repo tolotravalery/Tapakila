@@ -122,7 +122,7 @@
                                         <div class="clearfix"></div>
                                         <div class="form-group ">
                                             <label class="control-label ">
-                                                <span>Titre : *</span>
+                                                <span>Titre :</span><span class="champ_required"> *</span>
                                             </label>
                                             <input type="text" name="title" id="titre" class="form-control" required>
                                         </div>
@@ -143,7 +143,7 @@
                                         </div>
 
                                         <label class="control-label ">
-                                            <span>Image : *</span>
+                                            <span>Image : </span><span class="champ_required"> *</span>
                                         </label>
 										
 								    <div class="input-group image-preview">
@@ -162,9 +162,9 @@
 									
                                         <div class="form-group form-group-translation et">
                                             <label class="control-label">
-                                                <span>Description : *</span>
+                                                <span>Description : </span>
                                             </label>
-                                            <textarea class="form-control" style=" word-wrap: break-word; resize: horizontal;height: 150px;" name="note" required></textarea>
+                                            <textarea class="form-control" style=" word-wrap: break-word; resize: horizontal;height: 150px;" name="note"></textarea>
                                         </div>
                                     </div>
 
@@ -179,15 +179,18 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label class="control-label required">Début</label>
+                                                            <label class="control-label required">Début de l'évènement</label><span class="champ_required"> *</span>
                                                             <div class="input-group">
                                                                 <div class="input-group-addon">
                                                                     <i class="fa fa-calendar"></i></div>
-                                                                <input class="form-control" id="date" name="date_debut"
+                                                                <input class="form-control" id="dated" name="date_debut"
                                                                        placeholder="A-M-J" type="text" required/>
                                                             </div>
 
                                                         </div>
+                                                        <p  style="color:red;" id="message_after_comparaison">La date fin de l' évenement doit être supérieure à la date debut</p>
+                                                        <p  style="color:red;" id="message_after_comparaison_date_now">La date début ou fin de l' évènement doit être supérieure à la date actuelle</p>
+
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="input-group clockpicker">
@@ -196,11 +199,12 @@
 
                                                         </span>
                                                             <input type="text" class="form-control" value="23:30"
-                                                                   name="heure_debut">
+                                                                   name="heure_debut" id="heured">
 
 
                                                         </div>
                                                     </div>
+
                                                 </div>
                                             </div>
 
@@ -208,12 +212,13 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label class="control-label required">Fin</label>
+                                                            <label class="control-label required">Fin de l'évènement</label><span class="champ_required"> *</span>
                                                             <div class="input-group">
                                                                 <div class="input-group-addon">
                                                                     <i class="fa fa-calendar"></i></div>
-                                                                <input class="form-control" id="date" name="date_fin"
+                                                                <input class="form-control" id="datef" name="date_fin"
                                                                        placeholder="A-M-J" type="text" required/>
+
                                                             </div>
 
                                                         </div>
@@ -225,7 +230,7 @@
 
                                                         </span>
                                                             <input type="text" class="form-control" value="23:30"
-                                                                   name="heure_fin">
+                                                                   name="heure_fin" id="heuref">
                                                         </div>
 
                                                     </div>
@@ -250,10 +255,10 @@
                                         <h2>Localisation :</h2>
                                         <form>
                                             <div class="form-group">
-                                                <label for="email">Nom:*</label>
+                                                <label for="email">Nom:</label><span class="champ_required"> *</span>
                                                 <input type="Adresse" class="form-control" id="email"
-                                                       name="localisation_nom">
-                                                <p>E.X:Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
+                                                       name="localisation_nom" required>
+                                                <p>E.X : Antananarivo</p>
                                             </div>
                                             <div class="form-group">
                                                 <label for="adresses">Adresse:</label>
@@ -261,7 +266,7 @@
                                                        name="localisation_adresse">
                                                 <em>Entrer l'adresse exact pour l'affichage des directions sur la
                                                     carte</em>
-                                                <p>E.X:Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
+                                                <p>E.X : Palais des sports</p>
                                             </div>
 
                                         </form>
@@ -283,8 +288,10 @@
                                     </div>
                                     <!-- organisateur end -->
 
+
+                                    <input type="hidden" name="message" value="Ajout évenement réussie">
                                     <div class="Confirme">
-                                        <button type="submit" class="btn btn-default enregistrer ">Enregistrer</button>
+                                        <button type="submit" class="btn btn-default enregistrer " id="enregister">Enregistrer</button>
                                     </div>
 
 
@@ -1559,6 +1566,34 @@
 @endsection
 
 @section('footer_scripts')
+    <script type="text/javascript">
+        $('#enregister').click(function () {
+            console.log("click");
+            var datedebut=$('#dated').val();
+            var datefin=$('#datef').val();
+
+            var arrdd=datedebut.split("-");
+            datedebut=arrdd[2]+"-"+arrdd[1]+"-"+arrdd[0];
+            var arrdf=datefin.split("-");
+            datefin=arrdf[2]+"-"+arrdf[1]+"-"+arrdf[0];
+            //console.log(datedebut+" "+$('#heured').val());
+            var dd=new Date(datedebut+" "+$('#heured').val());
+            var df=new Date(datefin+" "+$('#heuref').val());
+            var now= new Date();
+            console.log(now);
+            if(dd<now || df<now){
+                $('#message_after_comparaison_date_now').show();
+                //alert("La date fin de l' évenement doit être supérieure à la date debut");
+                return false;
+            }
+            if(df<=dd){
+                $('#message_after_comparaison').show();
+                //alert("La date fin de l' évenement doit être supérieure à la date debut");
+                return false;
+            }
+
+        });
+    </script>
     <script>
         $(document).ready(function () {
 
@@ -1567,7 +1602,8 @@
                 $('#publie').val(valeur);
                 console.log(valeur);
             });
-
+            $('#message_after_comparaison').hide();
+            $('#message_after_comparaison_date_now').hide();
         });
 
     </script>
@@ -1583,6 +1619,7 @@
 
         });
     </script>
+
     <script>
         function changePage(id, aId) {
             console.log('fghhgfhgfhg');
@@ -1619,9 +1656,18 @@
     <script>
 
         $(document).ready(function () {
-            var date_input = $('input[id="date"]'); //our date input has the name "date"
+            var date_input = $('input[id="dated"]'); //our date input has the name "date"
             var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
             date_input.datepicker({
+                format: 'dd-mm-yyyy',
+                container: container,
+                todayHighlight: true,
+                autoclose: true,
+            })
+
+            var date_inputf = $('input[id="datef"]'); //our date input has the name "date"
+            var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
+            date_inputf.datepicker({
                 format: 'dd-mm-yyyy',
                 container: container,
                 todayHighlight: true,
