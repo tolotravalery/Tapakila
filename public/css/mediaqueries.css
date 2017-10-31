@@ -20,7 +20,12 @@
 }
 }
 
-
+@media screen and (max-width:768px){
+	.searchbox {
+    margin-top: 0 !important;
+    margin-bottom: 35px !important;
+}
+}
 
 @media screen and (max-width: 675px) {
 	.tabs {
