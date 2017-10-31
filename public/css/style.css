@@ -3007,6 +3007,15 @@ margin-bottom: 25px;
     margin-top: 9px;
     font-size: 30px;
 }
+
+
+
+.joins:hover{
+	text-decoration:underline;
+	color:#d70506;
+}
+
+
 .mytop {
     margin-top: 25px;
     color: red;
