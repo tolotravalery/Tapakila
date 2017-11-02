@@ -79,7 +79,7 @@ class CartController extends Controller
     {
         // Validation on max quantity
         $validator = Validator::make($request->all(), [
-            'quantity' => 'required|numeric|between:1,5'
+            'quantity' => 'required|numeric'
         ]);
 
         if ($validator->fails()) {
