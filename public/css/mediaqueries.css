@@ -450,8 +450,9 @@ width: 100%;
 .searchbox {
 margin-top: 15px !important;
 margin-left: -41px !important;
-width: 91% !important;
+width: 90% !important;
 }
+
 }
 
 
@@ -459,7 +460,7 @@ width: 91% !important;
 
 @media screen and (min-width:500px) and (max-width: 991px) {
 #sectioncategorie {
-height: 90px;
+height: auto;
 width: 100%;
 background: #ffffffe6;
 font-size: 11pt;
@@ -469,7 +470,6 @@ position: relative;
 margin-top: -20px;
 }
 }
-
 @media only screen and (max-width: 1000px) {
 .custom-container {
 padding: 0 5px !important;
@@ -1191,7 +1191,11 @@ clear: both;
 		margin-top: 22px;
 		padding-right: 2px;
 	}
+	.lo{
+		width:40%;
+	}
 }
+
 /* iPad 3 (landscape) ----------- */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
 	
@@ -1324,7 +1328,11 @@ clear: both;
 }
 }
 /* Medium Devices, Desktops */
-@media only screen and (min-width: 992px) {}
+@media only screen and (min-width: 992px) {
+	.lolo{
+		width: 40% !important;
+	}
+}
 /* Desktops and laptops ----------- */
 @media only screen and (max-width: 1199px) {
 .spaceconect {
@@ -1351,6 +1359,17 @@ text-align: center !important;
 .header-search-box form input[type="text1"] {
 min-width: 250px !important;
 }
+
+}
+@media screen (min-device-width : 1024px) and (max-device-width : 1024px) and (min-device-height : 1366px) and (max-device-height : 1366px) and (min-width: 1024px) and (max-width: 1024px){
+	.lolo{
+		width: 40% !important;
+	}
+}
+@media screen (min-device-width : 1024px) and (max-device-width : 1024px) and (min-device-height : 1366px) and (max-device-height : 1366px) and (min-width: 1366px) and (max-width: 1366px){
+	.lolo{
+		width: 40% !important;
+	}
 }
 @media only screen and (max-width: 1824px) {
 /* Styles */

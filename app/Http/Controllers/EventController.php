@@ -107,17 +107,10 @@ class EventController extends Controller
 
     public function edit($id)
     {
-        $user = User::find(Auth::user()->id);
-        if (!$user->hasRole('organisateur')) {
-            return redirect(url('errors/' . md5('event') . '/' . md5('403')));
-        }
-        $menus = Menus::orderBy('id', 'desc')->take(8)->get();
-        $sousmenus = Sous_menus::orderBy('id', 'desc')->take(20)->get();
-        $event = Events::find($id);
-        if ($event->user_id != Auth::user()->id) {
-            return redirect(url('errors/' . md5('event-form-update') . '/' . md5('500')));
-        }
-        return view('events.edit', compact('event', 'menus', 'sousmenus'));
+        $event = Events::findOrFail($id);
+        $alert = Alert::where('vu', '=', '0')->get();
+        $sousmenus=Sous_menus::all();
+        return view('pages.admin.edit-event', compact('event', 'sousmenus', 'alert'));
     }
 
     public function update_website(Request $request)
@@ -189,7 +182,20 @@ class EventController extends Controller
 
         return redirect(url('organisateur/event/' . $event->id . '/edit'))->with(compact('message'));;
     }
-
+    public function updateadmin(Request $request)
+    {
+        $event = Events::find($request->input('id'));
+        $event->title = $request->input('title');
+        $event->sous_menus_id = $request->input('sousmenu');
+        $event->date_debut_envent = new \DateTime($request->input('date_debut') . " " . $request->input('heure_debut'));
+        $event->date_fin_event = new \DateTime($request->input('date_fin') . " " . $request->input('heure_fin'));
+        $event->additional_note = $request->input('description');
+        $event->localisation_nom = $request->input('localisation_nom');
+        $event->localisation_adresse = $request->input('localisation_adresse');
+        $event->additional_note_time = $request->input('additional_note');
+        $event->save();
+        return redirect(url('admin/listevent'));
+    }
     public function update(Request $request)
     {
         $code = Crypt::decryptString($request->input('id'));
@@ -237,5 +243,16 @@ class EventController extends Controller
         $event->question_secret = $req->input('question');
         $event->save();
         return redirect(url('organisateur/event/' . $event->id . '/edit'));
+    }
+  
+    public function destroy($id)
+    {
+        $event = Events::find($id);
+        $event->delete();
+
+        $events=Events::all();
+        $alert = Alert::where('vu', '=', '0')->get();
+        /*return view('pages.admin.listeevent1', compact('events', 'alert'));*/
+        return redirect(url('admin/listevent'));
     }
 }
