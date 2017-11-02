@@ -100,7 +100,7 @@
                                 @endphp
                                 @foreach($events as $ev)
                                     <tr>
-                                       {{-- {{ Form::open(array('url' => 'admin/updatePublie') ) }}--}}
+                                        {{-- {{ Form::open(array('url' => 'admin/updatePublie') ) }}--}}
                                         <input type="hidden" name="id" value="{{$ev->id}}">
                                         <td>{{$ev->id}}</td>
                                         <td>{{$ev->title}} </td>
@@ -154,7 +154,8 @@
                                             {!! Form::close() !!}
                                         </td>
                                         <td>
-                                            <a class="btn btn-sm btn-info btn-block" href="{{ URL::to('admin/events/' . $ev->id . '/edit') }}"
+                                            <a class="btn btn-sm btn-info btn-block"
+                                               href="{{ URL::to('admin/events/update/' . $ev->id ) }}"
                                                data-toggle="tooltip" title="Edit">
                                                 <i class="fa fa-pencil fa-fw" aria-hidden="true"></i> <span
                                                         class="hidden-xs hidden-sm">Edit</span><span

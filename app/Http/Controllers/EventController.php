@@ -105,14 +105,27 @@ class EventController extends Controller
         return "update " . $request->input('id') . "to " . $request->input('active') . " finished";
     }
 
-    public function edit($id)
+    public function edit_admin($id)
     {
         $event = Events::findOrFail($id);
         $alert = Alert::where('vu', '=', '0')->get();
         $sousmenus=Sous_menus::all();
         return view('pages.admin.edit-event', compact('event', 'sousmenus', 'alert'));
     }
-
+    public function edit($id)
+    {
+        $user = User::find(Auth::user()->id);
+        if (!$user->hasRole('organisateur')) {
+            return redirect(url('errors/' . md5('event') . '/' . md5('403')));
+        }
+        $menus = Menus::orderBy('id', 'desc')->take(8)->get();
+        $sousmenus = Sous_menus::orderBy('id', 'desc')->take(20)->get();
+        $event = Events::find($id);
+        if ($event->user_id != Auth::user()->id) {
+            return redirect(url('errors/' . md5('event-form-update') . '/' . md5('500')));
+        }
+        return view('events.edit', compact('event', 'menus', 'sousmenus'));
+    }
     public function update_website(Request $request)
     {
         $ev = Events::find(Crypt::decryptString($request->input('id')));
