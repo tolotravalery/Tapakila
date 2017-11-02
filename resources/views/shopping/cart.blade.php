@@ -114,6 +114,14 @@
                             <td data-label="" class="tot"><b class="totaly">{{ Cart::instance('default')->subtotal() }} AR</b></td>
                             <td data-label=""><p></p></td>
                         </tr>
+						
+						<tr class="hidden">
+							<td class="td_detail"></td>
+							<td class="td_detail"></td>
+							<td class="td_detail"></td>
+							<td class="quiz"><strong>Quel est votre âge?</strong></td>
+							<td><input type="texte" class="form-control placeholder="votre reponse" class="quiz"></td>
+						</tr>
 
                         </tbody>
                     </table>
