@@ -91,7 +91,7 @@
                                     <th class="hidden-sm hidden-xs hidden-md">Activé</th>
                                     <th class="hidden-sm hidden-xs hidden-md">Billets</th>
                                     <th>Actions</th>
-
+                                    <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -100,7 +100,7 @@
                                 @endphp
                                 @foreach($events as $ev)
                                     <tr>
-                                        {{ Form::open(array('url' => 'admin/updatePublie') ) }}
+                                       {{-- {{ Form::open(array('url' => 'admin/updatePublie') ) }}--}}
                                         <input type="hidden" name="id" value="{{$ev->id}}">
                                         <td>{{$ev->id}}</td>
                                         <td>{{$ev->title}} </td>
@@ -141,17 +141,30 @@
                                                 Non disponible
                                             @endif
                                         </td>
-                                        <td>
+                                        {{--<td>
                                             <button class="btn btn-sm btn-success btn-block" data-toggle="tooltip"
                                                     title="Show">
                                                 <span class="hidden-xs hidden-sm">Update</span>
                                             </button>
+                                        </td>--}}
+                                        <td>
+                                            {!! Form::open(array('url' => 'admin/events/' . $ev->id, 'class' => '', 'data-toggle' => 'tooltip', 'title' => 'Delete')) !!}
+                                            {!! Form::hidden('_method', 'DELETE') !!}
+                                            {!! Form::button('<i class="fa fa-trash-o fa-fw" aria-hidden="true"></i> <span class="hidden-xs hidden-sm">Delete</span><span class="hidden-xs hidden-sm hidden-md"> event</span>', array('class' => 'btn btn-danger btn-sm','type' => 'button', 'style' =>'width: 100%;' ,'data-toggle' => 'modal', 'data-target' => '#confirmDelete', 'data-title' => 'Delete Event', 'data-message' => 'Are you sure you want to delete this event ?')) !!}
+                                            {!! Form::close() !!}
                                         </td>
-
+                                        <td>
+                                            <a class="btn btn-sm btn-info btn-block" href="{{ URL::to('admin/events/' . $ev->id . '/edit') }}"
+                                               data-toggle="tooltip" title="Edit">
+                                                <i class="fa fa-pencil fa-fw" aria-hidden="true"></i> <span
+                                                        class="hidden-xs hidden-sm">Edit</span><span
+                                                        class="hidden-xs hidden-sm hidden-md"> event</span>
+                                            </a>
+                                        </td>
                                         @php
                                             $j++;
                                         @endphp
-                                        {{ Form::close() }}
+                                        {{--{{ Form::close() }}--}}
                                     </tr>
                                 @endforeach
                                 </tbody>

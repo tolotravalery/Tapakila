@@ -55,7 +55,7 @@ class SendActivationEmail extends Notification implements ShouldQueue
             ->line(trans('emails.activationThanks'));*/
 
 
-      $message->view('vendor.mail.html.activation')
+      $message->view('emails.activation')
        ->action('Activer', route('authenticated.activate', ['token' => $this->token]));
 
         return ($message);
