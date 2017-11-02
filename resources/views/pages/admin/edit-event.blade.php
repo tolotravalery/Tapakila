@@ -61,7 +61,8 @@
                     {!! csrf_field() !!}
                     <input type="hidden" name="id" value="{{$event->id}}">
                     <div class="form-group has-feedback row {{ $errors->has('name') ? ' has-error ' : '' }}">
-                        {!! Form::label('title', 'Title (*)', array('class' => 'col-md-3 control-label')) !!}
+                       {{-- {!! Form::label('title', 'Title *', array('class' => 'col-md-3 control-label')) !!}--}}
+                       <label class="col-md-3 control-label">Title (*)</label>
                         <div class="col-md-9">
                             <div class="input-group">
                                 {!! Form::text('title', $event->title, array('id' => 'title', 'class' => 'form-control', 'placeholder' => 'category title')) !!}
@@ -160,6 +161,14 @@
                     </div>
                     <div class="form-group has-feedback row {{ $errors->has('name') ? ' has-error ' : '' }}">
                         {!! Form::label('title', 'Additional note', array('class' => 'col-md-3 control-label')) !!}
+                        <div class="col-md-9">
+                            <div class="input-group">
+                                {!! Form::textarea('additional_note', $event->additional_note, array('id' => 'title', 'class' => 'form-control')) !!}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group has-feedback row {{ $errors->has('name') ? ' has-error ' : '' }}">
+                        {!! Form::label('title', 'Publié organisateur', array('class' => 'col-md-3 control-label')) !!}
                         <div class="col-md-9">
                             <div class="input-group">
                                 {!! Form::textarea('additional_note', $event->additional_note, array('id' => 'title', 'class' => 'form-control')) !!}

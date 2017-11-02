@@ -137,6 +137,7 @@ Route::group(['middleware' => ['auth', 'activated', 'currentUser']], function ()
 // Registered, activated, and is admin routes.
 Route::group(['middleware' => ['auth', 'activated', 'role:admin'], 'prefix' => 'admin'], function () {
 
+
     Route::resource('/users/deleted', 'SoftDeletesController', [
         'only' => [
             'index', 'show', 'update', 'destroy',
@@ -160,8 +161,9 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin'], 'prefix' => '
         ]
     ]);
 
+
     Route::get('home', 'UserController@index')->name('/admin/home');
-    Route::put('event', 'EventController@updateadmin')->name('event');
+    Route::put('events', 'EventController@updateadmin')->name('event');
 
     /*-------------------*/
     /*----slideshow------*/
@@ -202,14 +204,18 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin'], 'prefix' => '
             'deleted'
         ]
     ]);
-    Route::resource('events', 'EventController', [
+    Route::resource(
+        'events',
+        'EventController', [
         'names' => [
-            'destroy' => 'event.destroy'
+            'destroy' => 'event.destroy',
+            'edit' => 'event.edit_admin',
         ],
         'except' => [
             'deleted'
         ]
     ]);
+    Route::get('events/update/{id}', 'EventController@edit_admin');
 
     /*-------------------*/
     Route::get('message', 'AdminDetailsController@message');

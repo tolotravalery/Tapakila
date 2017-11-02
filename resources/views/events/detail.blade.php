@@ -385,7 +385,7 @@
                                     <div class="limitelengh">
                                         <h3>
                                             <a href="{{url('event/show',[$ev->id])}}"
-                                               id="title{{$count_id}}">{{str_limit($ev->title,$limit=40, $end = ' ...')}}</a>
+                                               id="title{{$count_id}}">{{ucfirst(strtolower(str_limit($ev->title,$limit=40, $end = ' ...')))}}</a>
                                         </h3>
                                     </div>
                                     <div class="limite">
