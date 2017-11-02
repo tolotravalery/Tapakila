@@ -194,7 +194,7 @@
                                             <span>Description : </span><span class="champ_required"> *</span>
                                         </label>
                                         <textarea class="form-control" style=" word-wrap: break-word; resize: horizontal;
-                                        height: 150px;" name="note" >{{$event->additional_note}}</textarea>
+                                        height: 150px;" name="note">{{$event->additional_note}}</textarea>
                                     </div>
                                 </div>
                                 <div class="panel-body border-bottom">
@@ -204,7 +204,8 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label class="control-label required">Début de l'évenement</label><span class="champ_required"> *</span>
+                                                        <label class="control-label required">Début de
+                                                            l'évenement</label><span class="champ_required"> *</span>
                                                         <div class="input-group">
                                                             <div class="input-group-addon">
                                                                 <i class="fa fa-calendar"></i></div>
@@ -230,7 +231,8 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label class="control-label required">Fin de l'évenement</label><span class="champ_required"> *</span>
+                                                        <label class="control-label required">Fin de l'évenement</label><span
+                                                                class="champ_required"> *</span>
                                                         <div class="input-group">
                                                             <div class="input-group-addon">
                                                                 <i class="fa fa-calendar"></i></div>
@@ -882,93 +884,95 @@
                     <div id="div_type" class="hide">
                         <div id="type_ticket">
                             <div class="com_contenu_type">
-							<div class="panel panel-content">
+                                <div class="panel panel-content">
                                     <div class="panel-body border-bottom">
-                                <h2>Type des tickets</h2>
-                                @if(isset($event))
-                                    @foreach($event->tickets as $ticket)
-                                        <div class="ticket_type_contenu">
-                                            <div class="row">
-                                                <div class="col-lg-6">
-                                                    <h2>{{$ticket->type}}</h2>
-                                                </div>
-                                                <div class="col-lg-2">
-                                                    <h2>{{$ticket->price}}</h2>
-                                                    <p>AR</p>
-                                                </div>
-                                                <div class="col-lg-4">
-                                                    <h2>
-                                                        <div class="btn-group pull-right">
-                                                            <button type="button" class="btn btn-default">
+                                        <h2>Type des tickets</h2>
+                                        @if(isset($event))
+                                            @foreach($event->tickets as $ticket)
+                                                <div class="ticket_type_contenu">
+                                                    <div class="row">
+                                                        <div class="col-lg-6">
+                                                            <h2>{{$ticket->type}}</h2>
+                                                        </div>
+                                                        <div class="col-lg-2">
+                                                            <h2>{{$ticket->price}}</h2>
+                                                            <p>AR</p>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <h2>
+                                                                <div class="btn-group pull-right">
+                                                                    <button type="button" class="btn btn-default">
                                                         <span class="glyphicon glyphicon-edit"
                                                               aria-hidden="true"></span>
-                                                                Edit
-                                                            </button>
-                                                            <button type="button"
-                                                                    class="btn btn-default dropdown-toggle pull-right"
-                                                                    data-toggle="dropdown" aria-haspopup="true"
-                                                                    aria-expanded="false">
-                                                                <span class="caret"></span>
-                                                                <span class="sr-only">Effacer</span>
-                                                            </button>
+                                                                        Edit
+                                                                    </button>
+                                                                    <button type="button"
+                                                                            class="btn btn-default dropdown-toggle pull-right"
+                                                                            data-toggle="dropdown" aria-haspopup="true"
+                                                                            aria-expanded="false">
+                                                                        <span class="caret"></span>
+                                                                        <span class="sr-only">Effacer</span>
+                                                                    </button>
+                                                                </div>
+                                                            </h2>
                                                         </div>
-                                                    </h2>
+                                                    </div>
+                                                    <p>Nombre de billets: {{$ticket->tapakila()->count()}}</p>
                                                 </div>
+
+                                            @endforeach
+                                        @endif
+                                        <a class="btn btn-primary btn-outline text-center center-block primary"
+                                           role="button"
+                                           onClick="changePage('div_ticket','a_type')">
+                                            <i aria-hidden="true"></i> <span class="glyphicon glyphicon-plus"
+                                                                             aria-hidden="true"></span> Ajouter
+                                            le type de ticket
+                                        </a>
+                                    </div>
+                                    <div class="com_contenu_type">
+                                        <h2>Événement complet</h2>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <label>
+                                                    Nombre maximum de billets</label>
+                                                <div class="input-group group"><input type="number" name="ticket_limit"
+                                                                                      value="15"
+                                                                                      id="ticket_limit"
+                                                                                      class="form-control"
+                                                                                      placeholder="∞"
+                                                                                      min="0">
+                                                    <span class="input-group-addon">tickets</span></div>
+                                                <p>Nombre maximum de billets pour l'ensemble de l'événement. Vous pouvez
+                                                    également définir les
+                                                    limites par type de ticket.</p>
                                             </div>
-                                            <p>Nombre de billets: {{$ticket->tapakila()->count()}}</p>
+                                            <div class="col-lg-6">
+                                                <label>Taxe sur la valeur ajoutée</label>
+                                                <form>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="optradio">20%
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="optradio">21%
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="optradio">0%
+                                                    </label>
+                                                </form>
+
+                                            </div>
                                         </div>
 
-                                    @endforeach
-                                @endif
-                                <a class="btn btn-primary btn-outline text-center center-block primary" role="button"
-                                   onClick="changePage('div_ticket','a_type')">
-                                    <i aria-hidden="true"></i> <span class="glyphicon glyphicon-plus"
-                                                                     aria-hidden="true"></span> Ajouter
-                                    le type de ticket
-                                </a>
-                            </div>
-                            <div class="com_contenu_type">
-                                <h2>Événement complet</h2>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <label>
-                                            Nombre maximum de billets</label>
-                                        <div class="input-group group"><input type="number" name="ticket_limit"
-                                                                              value="15"
-                                                                              id="ticket_limit" class="form-control"
-                                                                              placeholder="∞"
-                                                                              min="0">
-                                            <span class="input-group-addon">tickets</span></div>
-                                        <p>Nombre maximum de billets pour l'ensemble de l'événement. Vous pouvez
-                                            également définir les
-                                            limites par type de ticket.</p>
+
                                     </div>
-                                    <div class="col-lg-6">
-                                        <label>Taxe sur la valeur ajoutée</label>
-                                        <form>
-                                            <label class="radio-inline">
-                                                <input type="radio" name="optradio">20%
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" name="optradio">21%
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" name="optradio">0%
-                                            </label>
-                                        </form>
+
+                                    <div class="com_contenu_type_foot">
+                                        <button type="button" class="btn btn-danger bout">Enregistrer</button>
 
                                     </div>
                                 </div>
-
-
                             </div>
-
-                            <div class="com_contenu_type_foot">
-                                <button type="button" class="btn btn-danger bout">Enregistrer</button>
-
-                            </div>
-							</div>
-							</div>
                         </div>
                     </div>
                     <!------------------------------------type-ticket-end--------------------------------------------------------------------------->
@@ -978,32 +982,38 @@
                     <div id="div_valideTicket" class="hide">
                         <div id="billet">
                             <div class="com_contenu">
-							<div class="panel panel-content">
+                                <div class="panel panel-content">
                                     <div class="panel-body border-bottom">
-                                <h2>Validation des billets</h2>
-                                <p>
-                                    Pour valider les tickets, vous aurez besoin d'un appareil mobile ou d'un ordinateur
-                                    et d'une connexion Internet.
+                                        <h2>Validation des billets</h2>
+                                        <p>
+                                            Pour valider les tickets, vous aurez besoin d'un appareil mobile ou d'un
+                                            ordinateur
+                                            et d'une connexion Internet.
 
-                                    Vous pouvez utiliser cet <a href="#" target="_blank">Exemple de ticket</a> pour
-                                    vérifier si la validation fonctionne correctement.</p><br>
-                                <h3>Appareils mobiles</h3>
-                                <hr class="separe">
-                                <p>Téléchargez notre application gratuite:</p>
-                                <a href="#" target="_blank"><img src="img/download-appstore.png"></a>
-                                <a href="#" target="_blank"><img src="img/download-playstore.png"></a>
-                                <p class="a1">Ou utiliser payé <a href="#" data-toggle="collapse">Pic2Shop Pro</a>.</p>
-                                <h3 class="h14">Ordinateurs et périphériques spéciaux</h3>
-                                <hr class="separe">
-                                <p>Vous pouvez également utiliser différentes combinaisons de scanners et d'ordinateurs
-                                    de codes à barres pour valider les tickets. Configurez votre scanner pour décoder
-                                    les formats "Code QR" et "Code 128" et soumettre le formulaire au <a href="#">https://------ </a>Qui
-                                    renvoie l'état actuel du ticket et le marque comme étant utilisé.</p>
+                                            Vous pouvez utiliser cet <a href="#" target="_blank">Exemple de ticket</a>
+                                            pour
+                                            vérifier si la validation fonctionne correctement.</p><br>
+                                        <h3>Appareils mobiles</h3>
+                                        <hr class="separe">
+                                        <p>Téléchargez notre application gratuite:</p>
+                                        <a href="#" target="_blank"><img src="img/download-appstore.png"></a>
+                                        <a href="#" target="_blank"><img src="img/download-playstore.png"></a>
+                                        <p class="a1">Ou utiliser payé <a href="#" data-toggle="collapse">Pic2Shop
+                                                Pro</a>.</p>
+                                        <h3 class="h14">Ordinateurs et périphériques spéciaux</h3>
+                                        <hr class="separe">
+                                        <p>Vous pouvez également utiliser différentes combinaisons de scanners et
+                                            d'ordinateurs
+                                            de codes à barres pour valider les tickets. Configurez votre scanner pour
+                                            décoder
+                                            les formats "Code QR" et "Code 128" et soumettre le formulaire au <a
+                                                    href="#">https://------ </a>Qui
+                                            renvoie l'état actuel du ticket et le marque comme étant utilisé.</p>
 
+                                    </div>
+
+                                </div>
                             </div>
-
-							</div>
-							</div>
                         </div>
                     </div>
 
@@ -1018,70 +1028,73 @@
                         <input type="hidden" name="id" value="{{Crypt::encryptString($event->id)}}">
                         <div id="div_siteweb" class="hide">
                             <div class="com_contenu_type">
-							<div class="panel panel-content">
+                                <div class="panel panel-content">
                                     <div class="panel-body border-bottom">
-                                <h2>Apparence du site</h2>
-                                @php
-                                    $titre=$event->title;
-                                    $split= explode(" ",$titre);
-                                    $titre=$split[0];
+                                        <h2>Apparence du site</h2>
+                                        @php
+                                            $titre=$event->title;
+                                            $split= explode(" ",$titre);
+                                            $titre=$split[0];
 
-                                @endphp
-                                <label class="control-label" for="slug">Adresse web</label>
-                                <div class="input-group"><span class="input-group-addon">{{ url('/') }}/events/</span>
-                                    <input
-                                            type="text" name="slug"
-                                            value=<?php if (strcmp($event->siteweb, "") == 0) {
-                                                echo $titre;
-                                            } else echo $event->siteweb;
-                                            ?>
-                                                    id="slug"
-                                            class="form-control"
-                                            data-fv-field="slug">
-                                    <span class="input-group-addon">
+                                        @endphp
+                                        <label class="control-label" for="slug">Adresse web</label>
+                                        <div class="input-group"><span class="input-group-addon">{{ url('/') }}
+                                                /events/</span>
+                                            <input
+                                                    type="text" name="slug"
+                                                    value=<?php if (strcmp($event->siteweb, "") == 0) {
+                                                        echo $titre;
+                                                    } else echo $event->siteweb;
+                                                    ?>
+                                                            id="slug"
+                                                    class="form-control"
+                                                    data-fv-field="slug">
+                                            <span class="input-group-addon">
                 <a href="#" target="_blank"><i class="fa fa-external-link"></i></a></span></div>
-                                <br/>
-                                <p>L'adresse de la page de vente de billets. Vous pouvez changer cela, mais sachez que
-                                    le
-                                    lien précédent ne
-                                    fonctionnera plus.</p>
-                                <div class="form-group form-group-translation">
-                                    <label class="control-label" for="en[image_pdf_file]">
-                                        <span>Image</span>
-                                    </label>
-                                    <div class="dropify-wrapper" onmouseover="mouseOverFunction()"
-                                         onmouseout="mouseOutFunction()">
+                                        <br/>
+                                        <p>L'adresse de la page de vente de billets. Vous pouvez changer cela, mais
+                                            sachez que
+                                            le
+                                            lien précédent ne
+                                            fonctionnera plus.</p>
+                                        <div class="form-group form-group-translation">
+                                            <label class="control-label" for="en[image_pdf_file]">
+                                                <span>Image</span>
+                                            </label>
+                                            <div class="dropify-wrapper" onmouseover="mouseOverFunction()"
+                                                 onmouseout="mouseOutFunction()">
 
-                                        <div class="dropify-message" id="mot"><span class="file-icon"></span>
-                                            <i class="glyphicon glyphicon-open"></i>
-                                            <p>Cliquez ou faites glisser votre fichier ici</p>
+                                                <div class="dropify-message" id="mot"><span class="file-icon"></span>
+                                                    <i class="glyphicon glyphicon-open"></i>
+                                                    <p>Cliquez ou faites glisser votre fichier ici</p>
+                                                </div>
+
+                                                <input type="file" id="input" type="file" accept="image/*"
+                                                       onchange="loadFile(event)" name="image">
+                                                <img id="output" class="hide"/>
+
+                                                <button id="button" type="button" class="btn btn-danger hide"
+                                                        onclick="buttonClick()">Supprimer
+                                                </button>
+
+
+                                            </div>
+                                            <input type="hidden" class="delete" name="en[image_pdf_delete]"
+                                                   id="en[image_pdf_delete]">
+                                            <input type="hidden" class="filename" name="en[image_pdf]"
+                                                   id="en[image_pdf]"
+                                                   value="">
+                                            <span class="help-block">Utilisé sur l'en-tête de la page Web, également sous forme de vignette dans les listes d'événements. Utilisez un fichier JPG ou PNG avec une résolution de 1400x500px. Les fichiers plus gros sont réduits automatiquement.</span>
+
                                         </div>
 
-                                        <input type="file" id="input" type="file" accept="image/*"
-                                               onchange="loadFile(event)" name="image">
-                                        <img id="output" class="hide"/>
-
-                                        <button id="button" type="button" class="btn btn-danger hide"
-                                                onclick="buttonClick()">Supprimer
-                                        </button>
-
+                                    </div>
+                                    <div class="com_contenu_type_foot">
+                                        <button type="submit" class="btn btn-danger bout">Mettre à jour</button>
 
                                     </div>
-                                    <input type="hidden" class="delete" name="en[image_pdf_delete]"
-                                           id="en[image_pdf_delete]">
-                                    <input type="hidden" class="filename" name="en[image_pdf]" id="en[image_pdf]"
-                                           value="">
-                                    <span class="help-block">Utilisé sur l'en-tête de la page Web, également sous forme de vignette dans les listes d'événements. Utilisez un fichier JPG ou PNG avec une résolution de 1400x500px. Les fichiers plus gros sont réduits automatiquement.</span>
-
                                 </div>
-
                             </div>
-                            <div class="com_contenu_type_foot">
-                                <button type="submit" class="btn btn-danger bout">Mettre à jour</button>
-
-                            </div>
-							</div>
-							</div>
                         </div>
                     </form>
                     <!------------------------------------Site web-end--------------------------------------------------------------------------->
@@ -1092,154 +1105,160 @@
 
 
                         <div class="com_contenu_type">
-						<div class="panel panel-content">
-                                    <div class="panel-body border-bottom">
-                            <h2>Informations sur le ticket</h2>
+                            <div class="panel panel-content">
+                                <div class="panel-body border-bottom">
+                                    <h2>Informations sur le ticket</h2>
 
-                            <div class="form-group">
-                                <label>
-                                    <span>Text</span>
-                                </label>
-                                <textarea class="form-control" rows="5" id="comment"></textarea>
-                            </div>
-                            <div class="form-group form-group-translation en">
-                                <label class="control-label" for="en[image_pdf_file]">
-                                    <span>Image</span>
-                                </label>
-                                <div class="dropify-wrapper" onmouseover="mouse1OverFunction()"
-                                     onmouseout="mouse1OutFunction()">
-
-                                    <div class="dropify-message" id="mot1"><span class="file-icon"></span>
-                                        <i class="glyphicon glyphicon-open"></i>
-                                        <p>Cliquez ou faites glisser votre fichier ici</p>
+                                    <div class="form-group">
+                                        <label>
+                                            <span>Text</span>
+                                        </label>
+                                        <textarea class="form-control" rows="5" id="comment"></textarea>
                                     </div>
+                                    <div class="form-group form-group-translation en">
+                                        <label class="control-label" for="en[image_pdf_file]">
+                                            <span>Image</span>
+                                        </label>
+                                        <div class="dropify-wrapper" onmouseover="mouse1OverFunction()"
+                                             onmouseout="mouse1OutFunction()">
 
-                                    <input type="file" id="input1" type="file" accept="image/*"
-                                           onchange="loadFile1(event)">
-                                    <img id="output1" class="hide"/>
+                                            <div class="dropify-message" id="mot1"><span class="file-icon"></span>
+                                                <i class="glyphicon glyphicon-open"></i>
+                                                <p>Cliquez ou faites glisser votre fichier ici</p>
+                                            </div>
 
-                                    <button id="button1" type="button" class="btn btn-danger hide"
-                                            onclick="button1Click()">Supprimer
-                                    </button>
+                                            <input type="file" id="input1" type="file" accept="image/*"
+                                                   onchange="loadFile1(event)">
+                                            <img id="output1" class="hide"/>
 
+                                            <button id="button1" type="button" class="btn btn-danger hide"
+                                                    onclick="button1Click()">Supprimer
+                                            </button>
+
+
+                                        </div>
+                                        <input type="hidden" class="delete" name="en[image_pdf_delete]"
+                                               id="en[image_pdf_delete]">
+                                        <input type="hidden" class="filename" name="en[image_pdf]" id="en[image_pdf]"
+                                               value="">
+                                        <span class="help-block">L'image couvrira le ticket d'un côté à l'autre. Utilisez un fichier JPG ou PNG de 1240px. Lorsque vous choisissez la hauteur, assurez-vous que tout sur le ticket PDF correspond à une seule page. Les fichiers les plus étendus sont automatiquement réduits.</span>
+                                    </div>
+                                </div>
+                                <hr class="separe">
+                                <div class="com_contenu_type_ticket">
+                                    <form>
+                                        <div class="radio-custom radio-primary">
+                                            <input type="radio" name="split_tickets" id="split_tickets_1" value="1"
+                                                   checked="">
+                                            <label for="split_tickets_1">Créer des billets distincts pour chaque
+                                                participant</label>
+                                            <span class="help-block">Utile lorsque les participants arrivent séparément.</span>
+                                        </div>
+                                        <div class="radio-custom radio-primary">
+                                            <input type="radio" name="split_tickets" id="split_tickets_0" value="0">
+                                            <label for="split_tickets_0">Créer un ticket composé</label>
+                                            <span class="help-block">Utile lorsque les participants arrivent ensemble - de cette façon, vous gagnez du temps lors de la validation des billets.</span>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="com_contenu_type_foot">
+                                    <button type="button" class="btn btn-danger bout">Enregistrer</button>
 
                                 </div>
-                                <input type="hidden" class="delete" name="en[image_pdf_delete]"
-                                       id="en[image_pdf_delete]">
-                                <input type="hidden" class="filename" name="en[image_pdf]" id="en[image_pdf]" value="">
-                                <span class="help-block">L'image couvrira le ticket d'un côté à l'autre. Utilisez un fichier JPG ou PNG de 1240px. Lorsque vous choisissez la hauteur, assurez-vous que tout sur le ticket PDF correspond à une seule page. Les fichiers les plus étendus sont automatiquement réduits.</span>
-                            </div>
-                        </div>
-                        <hr class="separe">
-                        <div class="com_contenu_type_ticket">
-                            <form>
-                                <div class="radio-custom radio-primary">
-                                    <input type="radio" name="split_tickets" id="split_tickets_1" value="1" checked="">
-                                    <label for="split_tickets_1">Créer des billets distincts pour chaque
-                                        participant</label>
-                                    <span class="help-block">Utile lorsque les participants arrivent séparément.</span>
-                                </div>
-                                <div class="radio-custom radio-primary">
-                                    <input type="radio" name="split_tickets" id="split_tickets_0" value="0">
-                                    <label for="split_tickets_0">Créer un ticket composé</label>
-                                    <span class="help-block">Utile lorsque les participants arrivent ensemble - de cette façon, vous gagnez du temps lors de la validation des billets.</span>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="com_contenu_type_foot">
-                            <button type="button" class="btn btn-danger bout">Enregistrer</button>
 
-                        </div>
-
-                        <div class="com_contenu_type">
-                            <h2>Aperçu des tickets</h2>
-                            <p>Toutes les données du ticket sont incluses dans le corps du courrier électronique et dans
-                                le fichier .pdf
-                                joint.</p>
+                                <div class="com_contenu_type">
+                                    <h2>Aperçu des tickets</h2>
+                                    <p>Toutes les données du ticket sont incluses dans le corps du courrier électronique
+                                        et dans
+                                        le fichier .pdf
+                                        joint.</p>
 
 
-                            <ul class="nav nav-tabs nav-tabs1">
-                                <li class="active ">
-                                    <a href="#1a" data-toggle="tab">Email</a>
-                                </li>
-                                <li><a href="#2a" data-toggle="tab">PDF</a>
-                                </li>
-                            </ul>
+                                    <ul class="nav nav-tabs nav-tabs1">
+                                        <li class="active ">
+                                            <a href="#1a" data-toggle="tab">Email</a>
+                                        </li>
+                                        <li><a href="#2a" data-toggle="tab">PDF</a>
+                                        </li>
+                                    </ul>
 
-                            <div class="tab-content ">
-                                <div class="tab-pane active" id="1a">
-                                    <button type="button" class="btn pull-right c1">Envoyez-moi un email de test
-                                    </button>
-                                    <div class=" row menu_int1">
-                                        <div class="menu_int2">
-                                            <div class="com_contenu_type">
-                                                <h2>Tapakila</h2>
-                                                <p>Merci, voici vos billets! Lorsque vous participez, indiquez le code
-                                                    dans ce courrier
-                                                    électronique ou utilisez le fichier .pdf ci-joint</p>
+                                    <div class="tab-content ">
+                                        <div class="tab-pane active" id="1a">
+                                            <button type="button" class="btn pull-right c1">Envoyez-moi un email de test
+                                            </button>
+                                            <div class=" row menu_int1">
+                                                <div class="menu_int2">
+                                                    <div class="com_contenu_type">
+                                                        <h2>Tapakila</h2>
+                                                        <p>Merci, voici vos billets! Lorsque vous participez, indiquez
+                                                            le code
+                                                            dans ce courrier
+                                                            électronique ou utilisez le fichier .pdf ci-joint</p>
+                                                        <hr class="separe">
+                                                        <h2>Mes évènements</h2>
+                                                        <strong>Tue 25. July 2017 - 14:00</strong>
+                                                        <p>Location · . Viru 12-34, Tallinn, Estonia <a href="#"
+                                                                                                        target="_blank">Map</a>
+                                                        </p>
+                                                        <hr class="separe">
+                                                        <p style="text-align: center; margin: 5px 0; ">1 x Regular
+                                                            ticket</p>
+                                                        <p style="text-align: center">
+                                                            <img src="img/123456TEST.png" class="qt">
+
+                                                        </p>
+                                                        <p class="small" style="text-align: center; font-size: 13px;">
+                                                            123456TEST</p>
+                                                    </div>
+
+                                                </div>
+                                                <table role="presentation" cellspacing="0" cellpadding="0" border="0"
+                                                       align="center"
+                                                       width="100%" style="max-width: 680px;">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td style="padding: 15px 10px 40px 10px; width: 100%; font-family: sans-serif; text-align: center; color: #888888;">
+                                                            <p class="small" style="font-size: 13px; line-height:22px;">
+                                                                Ticket order 123456<br>
+                                                                This email has been sent to <a
+                                                                        href="mailto:dinavonjy@icloud.com">dinavonjy@icloud
+                                                                    .com</a><br>
+                                                                <a href="#"
+                                                                   style="color:#2CB0E1; text-decoration: none;">Piletimasin</a>
+                                                                ·
+                                                                Organize your event
+                                                            </p>
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+
+
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane" id="2a">
+                                            <button type="button" class="btn pull-right c2">Ouvrir PDF</button>
+                                            <div class=" row menu_int2">
+                                                <div class="menu_int3">
+                                                    <div id="menu_left">
+                                                        <img src="img/123456TEST.png" class="qt">
+
+                                                    </div>
+                                                    <div id="menu_right">
+                                                        <h2>Mon événement</h2>
+                                                        <p>Tue 25. July 2017 - 14:00</p>
+                                                        <p>Location · . Viru 12-34, Tallinn, Estonia</p>
+                                                    </div>
+
+                                                </div>
                                                 <hr class="separe">
-                                                <h2>Mes évènements</h2>
-                                                <strong>Tue 25. July 2017 - 14:00</strong>
-                                                <p>Location · . Viru 12-34, Tallinn, Estonia <a href="#"
-                                                                                                target="_blank">Map</a>
-                                                </p>
-                                                <hr class="separe">
-                                                <p style="text-align: center; margin: 5px 0; ">1 x Regular ticket</p>
-                                                <p style="text-align: center">
-                                                    <img src="img/123456TEST.png" class="qt">
 
-                                                </p>
-                                                <p class="small" style="text-align: center; font-size: 13px;">
-                                                    123456TEST</p>
                                             </div>
 
                                         </div>
-                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0"
-                                               align="center"
-                                               width="100%" style="max-width: 680px;">
-                                            <tbody>
-                                            <tr>
-                                                <td style="padding: 15px 10px 40px 10px; width: 100%; font-family: sans-serif; text-align: center; color: #888888;">
-                                                    <p class="small" style="font-size: 13px; line-height:22px;">
-                                                        Ticket order 123456<br>
-                                                        This email has been sent to <a
-                                                                href="mailto:dinavonjy@icloud.com">dinavonjy@icloud
-                                                            .com</a><br>
-                                                        <a href="#" style="color:#2CB0E1; text-decoration: none;">Piletimasin</a>
-                                                        ·
-                                                        Organize your event
-                                                    </p>
-                                                </td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-
-
                                     </div>
-                                </div>
-                                <div class="tab-pane" id="2a">
-                                    <button type="button" class="btn pull-right c2">Ouvrir PDF</button>
-                                    <div class=" row menu_int2">
-                                        <div class="menu_int3">
-                                            <div id="menu_left">
-                                                <img src="img/123456TEST.png" class="qt">
-
-                                            </div>
-                                            <div id="menu_right">
-                                                <h2>Mon événement</h2>
-                                                <p>Tue 25. July 2017 - 14:00</p>
-                                                <p>Location · . Viru 12-34, Tallinn, Estonia</p>
-                                            </div>
-
-                                        </div>
-                                        <hr class="separe">
-
-                                    </div>
-
                                 </div>
                             </div>
-							</div>
-							</div>
 
                         </div>
 
@@ -1251,28 +1270,25 @@
 
                     <div id="div_cpersonalize" class="hide">
                         <div class="com_contenu_type1">
-                            <h2>Les champs personnalisés</h2>
+                            <h2>Les champs additioneles</h2>
                             <p>
                                 Par défaut, les clients sont invités à fournir une seule adresse électronique et un
-                                numéro de téléphone
-                                obligatoires. Ici, vous pouvez ajouter d'autres questions telles que le prénom,
-                                l'adresse etc.</p>
+                                numéro de téléphone obligatoires. Ici, vous pouvez ajouter d'autres questions telles que
+                                le prénom, l'adresse etc.</p>
                         </div>
                         <div class="com_contenu_type2">
                             <h2>Champs personnalisés par participant</h2>
-                            <a href=#" class="btn btn-primary btn-outline text-center center-block primary"
-                               role="button">
-                                <i aria-hidden="true"></i> <span class="glyphicon glyphicon-plus"
-                                                                 aria-hidden="true"></span> Ajouter
-                            </a>
-                        </div>
-                        <div class="com_contenu_type2">
-                            <h2>Champs personnalisés par participant</h2>
-                            <a href=#" class="btn btn-primary btn-outline text-center center-block primary"
-                               role="button">
-                                <i aria-hidden="true"></i> <span class="glyphicon glyphicon-plus"
-                                                                 aria-hidden="true"></span> Ajouter
-                            </a>
+                            {!! Form::open(['id' => 'question-form', 'route' => 'question','role' => 'question', 'method' => 'POST'] ) !!}
+                                <input type="text" name="question" class="btn btn-primary btn-outline text-center center-block primary"><br/>
+                                @if(isset($event))
+                                    {!! Form::hidden('events_id', Crypt::encryptString($event->id), ['class' => 'form-control']) !!}
+                                @endif
+                                <button type="submit"
+                                        class="btn btn-primary btn-outline text-center center-block primary">
+                                    <i aria-hidden="true "></i> <span class="glyphicon glyphicon-plus "
+                                                                      aria-hidden="true "></span> Ajouter
+                                </button>
+                            {!! Form::close() !!}
                         </div>
 
                     </div>
@@ -1626,10 +1642,10 @@
             document.getElementById("a_cpersonalize").className = "";
             document.getElementById("a_paiement").className = "";
             document.getElementById(aId).className = "select";
-			
-			if (screen.width <= 750) {
-				window.location.hash = id;
-			}
+
+            if (screen.width <= 750) {
+                window.location.hash = id;
+            }
         }
     </script>
 

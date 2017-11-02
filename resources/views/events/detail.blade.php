@@ -203,15 +203,17 @@
                                                 <td><strong>Total</strong></td>
                                                 <td><b id="total{{$d}}">0</b> Ar <?php $totaly = 0; ?></td>
                                             </tr>
-											
-											<tr>
+
+                                            <tr>
                                                 <td class="td_detail"></td>
                                                 <td class="td_detail"></td>
                                                 <td class="td_detail"></td>
-                                                <td class="quiz"><strong>Quel est votre âge?</strong></td>
-                                                <td><input type="texte" class="form-control placeholder="votre reponse" class="quiz"></td>
+                                                @if($event->question_secret!=null)
+                                                    <td class="quiz"><strong>{{$event->question_secret}}</strong></td>
+                                                    <td><input type="texte" class="form-control"
+                                                               placeholder="votre reponse" class="quiz"></td>
+                                                @endif
                                             </tr>
-											
                                             <tr>
                                                 <td></td>
                                                 <td></td>

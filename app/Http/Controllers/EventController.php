@@ -177,7 +177,7 @@ class EventController extends Controller
             'vu' => 0
         ]);
 
-        $message=$request->input('message');
+        $message = $request->input('message');
         session()->flash('message', $message);
 
         return redirect(url('organisateur/event/' . $event->id . '/edit'))->with(compact('message'));;
@@ -236,6 +236,15 @@ class EventController extends Controller
         return redirect(url('organisateur/event/' . $event->id . '/edit'));
     }
 
+    public function question_secret(Request $req)
+    {
+        $code = Crypt::decryptString($req->input('events_id'));
+        $event = Events::find($code);
+        $event->question_secret = $req->input('question');
+        $event->save();
+        return redirect(url('organisateur/event/' . $event->id . '/edit'));
+    }
+  
     public function destroy($id)
     {
         $event = Events::find($id);
@@ -245,6 +254,5 @@ class EventController extends Controller
         $alert = Alert::where('vu', '=', '0')->get();
         /*return view('pages.admin.listeevent1', compact('events', 'alert'));*/
         return redirect(url('admin/listevent'));
-
     }
 }
