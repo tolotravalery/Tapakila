@@ -148,19 +148,19 @@
                                                 </a>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-lg-12 pull-right">
-                                                @if(count($ev)>=3)
+                                        @if(count($ev)>=3)
+                                            <div class="row">
+                                                <div class="col-lg-12 pull-right">
                                                     <div class="pull-right">
                                                         <a href="{{url('/event/list/categorie/'.$sm->name.'',[$sm->id])}}"
                                                            style="color: #d70506;">
                                                             <i>Plus d'évènement</i>
                                                         </a>
                                                     </div>
-                                                @endif
+                                                </div>
                                             </div>
-                                        </div>
-                                        <br/>
+                                            <br/>
+                                        @endif
                                         @php $count_id++ @endphp
                                     @endif
                                 @endif
