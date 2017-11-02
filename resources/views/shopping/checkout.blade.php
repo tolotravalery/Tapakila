@@ -35,14 +35,14 @@
                 <div class="spacing"></div>
                 <div class="custom-pg">
                     <table class="tabl-content">
-                        <thead>
-                        <tr>
-                            <th scope="col" class="th_panier "><b class="bold">Evènement</b></th>
-                            <th scope="col"><b class="bold">Tickets</b></th>
-                            <th scope="col"><b class="bold">Quantité</b></th>
-                            <th scope="col"><b class="bold">Prix</b></th>
-                        </tr>
-                        </thead>
+						<thead>
+							<tr>
+								<th scope="col" class="th_panier "><b class="bold">Evènement</b></th>
+								<th scope="col"><b class="bold">Tickets</b></th>
+								<th scope="col"><b class="bold">Quantité</b></th>
+								<th scope="col"><b class="bold">Prix</b></th>
+							</tr>
+						</thead>
 
                         <tbody>
                         @foreach (Cart::content() as $item)
@@ -88,6 +88,50 @@
                     </div>
                     <hr class="sep">
                     <div class="resum">
+					 <table class="tabl-content">
+						<thead>
+							<tr>
+								<th scope="col" class="th_panier "><b class="bold">Evènement</b></th>
+								<th scope="col"><b class="bold">Question</b></th>
+								<th scope="col"><b class="bold">Réponse</b></th>
+							</tr>
+						</thead>
+
+                        <tbody>
+                        @foreach (Cart::content() as $item)
+                            @php
+                                $ticket = \App\Models\Ticket::findOrFail($item->id);
+                                $event = $ticket->events()->take(1)->get()[0];
+                            @endphp
+                            <tr>
+                                <td data-label="">
+                                    <div class="row">
+                                        <div class=" col-xs-12 ">
+                                            <div class="row">
+                                                <div class="col-lg-7 ">
+                                                    <div class="thumbnail imgpaiment">
+                                                        <a href="{{url('event/show',[$event->id])}}">
+                                                            <img src="{{url('/public/img/'.$event->image)}}"  class="image_panier">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-5 ">
+                                                    <p class="sor">
+                                                        <b>{{str_limit($event->title,$limit=20,$end=' ...')}}</b></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td data-label="Tickets">Quels est votre âge?</td>
+                                <td data-label="Quantité">35 ans </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+					<br>
+					<br>
+					<br>
                         <p><b>Adresse e-mail de livraison des tickets :</b> &nbsp {{Auth::user()->email}}</p>
                         <p><b>Méthode de payment :</b></p>
                     </div>
@@ -170,6 +214,7 @@
             </div>
         </div>
     </section>
+	
 @endsection
 @section('specificScript')
 
