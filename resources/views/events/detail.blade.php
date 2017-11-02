@@ -203,6 +203,15 @@
                                                 <td><strong>Total</strong></td>
                                                 <td><b id="total{{$d}}">0</b> Ar <?php $totaly = 0; ?></td>
                                             </tr>
+											
+											<tr>
+                                                <td class="td_detail"></td>
+                                                <td class="td_detail"></td>
+                                                <td class="td_detail"></td>
+                                                <td class="quiz"><strong>Quel est votre âge?</strong></td>
+                                                <td><input type="texte" class="form-control placeholder="votre reponse" class="quiz"></td>
+                                            </tr>
+											
                                             <tr>
                                                 <td></td>
                                                 <td></td>
