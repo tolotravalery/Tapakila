@@ -882,6 +882,8 @@
                     <div id="div_type" class="hide">
                         <div id="type_ticket">
                             <div class="com_contenu_type">
+							<div class="panel panel-content">
+                                    <div class="panel-body border-bottom">
                                 <h2>Type des tickets</h2>
 
                                 @if(isset($event))
@@ -983,7 +985,8 @@
                                 <button type="button" class="btn btn-danger bout">Enregistrer</button>
 
                             </div>
-
+							</div>
+							</div>
                         </div>
                     </div>
                     <!------------------------------------type-ticket-end--------------------------------------------------------------------------->
@@ -993,6 +996,8 @@
                     <div id="div_valideTicket" class="hide">
                         <div id="billet">
                             <div class="com_contenu">
+							<div class="panel panel-content">
+                                    <div class="panel-body border-bottom">
                                 <h2>Validation des billets</h2>
                                 <p>
                                     Pour valider les tickets, vous aurez besoin d'un appareil mobile ou d'un ordinateur
@@ -1015,7 +1020,8 @@
 
                             </div>
 
-
+							</div>
+							</div>
                         </div>
                     </div>
 
@@ -1030,6 +1036,8 @@
                         <input type="hidden" name="id" value="{{Crypt::encryptString($event->id)}}">
                         <div id="div_siteweb" class="hide">
                             <div class="com_contenu_type">
+							<div class="panel panel-content">
+                                    <div class="panel-body border-bottom">
                                 <h2>Apparence du site</h2>
                                 @php
                                     $titre=$event->title;
@@ -1090,6 +1098,8 @@
                                 <button type="submit" class="btn btn-danger bout">Mettre à jour</button>
 
                             </div>
+							</div>
+							</div>
                         </div>
                     </form>
                     <!------------------------------------Site web-end--------------------------------------------------------------------------->
@@ -1100,6 +1110,8 @@
 
 
                         <div class="com_contenu_type">
+						<div class="panel panel-content">
+                                    <div class="panel-body border-bottom">
                             <h2>Informations sur le ticket</h2>
 
                             <div class="form-group">
@@ -1244,7 +1256,8 @@
 
                                 </div>
                             </div>
-
+							</div>
+							</div>
 
                         </div>
 
