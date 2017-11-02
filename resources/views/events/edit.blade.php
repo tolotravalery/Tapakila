@@ -883,7 +883,6 @@
                         <div id="type_ticket">
                             <div class="com_contenu_type">
                                 <h2>Type des tickets</h2>
-
                                 @if(isset($event))
                                     @foreach($event->tickets as $ticket)
                                         <div class="ticket_type_contenu">
@@ -908,25 +907,8 @@
                                                                     data-toggle="dropdown" aria-haspopup="true"
                                                                     aria-expanded="false">
                                                                 <span class="caret"></span>
-                                                                <span class="sr-only">Toggle Dropdown</span>
+                                                                <span class="sr-only">Effacer</span>
                                                             </button>
-                                                            <ul class="dropdown-menu menu_type">
-                                                                <li><a href="#"><span
-                                                                                class="glyphicon glyphicon-chevron-up"
-                                                                                aria-hidden="true"></span> Déplacer
-                                                                        vers
-                                                                        le haut</a></li>
-                                                                <li><a href="#"><span
-                                                                                class="glyphicon glyphicon-chevron-down"
-                                                                                aria-hidden="true"></span> Déplacer vers
-                                                                        le bat</a></li>
-                                                                <li role="separator" class="divider"></li>
-                                                                <li><a href="#"><span
-                                                                                class="glyphicon glyphicon-duplicate"
-                                                                                aria-hidden="true"></span>
-                                                                        Dupliquer</a>
-                                                                </li>
-                                                            </ul>
                                                         </div>
                                                     </h2>
                                                 </div>
