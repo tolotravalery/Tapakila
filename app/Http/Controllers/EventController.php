@@ -140,6 +140,7 @@ class EventController extends Controller
 
     public function store(Request $request)
     {
+
         $user = User::find(Auth::user()->id);
         if (!$user->hasRole('organisateur')) {
             return redirect(url('errors/' . md5('event') . '/' . md5('403')));
@@ -182,7 +183,11 @@ class EventController extends Controller
             'message' => $message,
             'vu' => 0
         ]);
-        return redirect(url('organisateur/event/' . $event->id . '/edit'));
+
+        $message=$request->input('message');
+        session()->flash('message', $message);
+
+        return redirect(url('organisateur/event/' . $event->id . '/edit'))->with(compact('message'));;
     }
 
     public function update(Request $request)

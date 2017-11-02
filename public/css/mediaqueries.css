@@ -1,6 +1,7 @@
 /* team trustylabs */
 /* text-align by trustylabs */
 /* text-align-xs */
+
 @media (min-width:675px) and (max-width:750px){
 	ul.tabs li {
     font-size: 16px ! important;
@@ -16,6 +17,13 @@
 @media screen and (min-width:1024px) and (max-width:1035px){
 	.th_panier {
     width: 210px !important;
+}
+}
+
+@media screen and (max-width:768px){
+	.searchbox {
+    margin-top: 0 !important;
+    margin-bottom: 35px !important;
 }
 }
 

@@ -12,7 +12,7 @@ class Tapakila extends Model
         'code_unique'
     ];
 
-    protected $fillable = ['code_unique', 'vendu', 'scanne', 'reponse', 'users_id', 'ticket_id'];
+    protected $fillable = ['code_unique', 'vendu', 'scanne', 'reponse', 'users_id', 'ticket_id','qr_code'];
 
     public function tickets()
     {

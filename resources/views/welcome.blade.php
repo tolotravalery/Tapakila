@@ -18,7 +18,7 @@
             <ul>
                 @foreach($sousmenus as $sousmenu)
                     <li>
-                        <a href="{{url('/event/list/categorie/'.$sousmenu->name.'',[$sousmenu->id])}}">{{ucfirst($sousmenu->name)}}</a>
+                        <a href="{{url('/event/list/categorie/'.$sousmenu->name.'',[$sousmenu->id])}}">{{ucfirst(strtolower($sousmenu->name))}}</a>
                     </li>
                 @endforeach
 
@@ -77,7 +77,7 @@
             @foreach($sousmenus as $sm)
                 @if($sm->events()->where('publie','=','1')->where('date_debut_envent','>',date('Y-m-d H:i:s'))->count() > 0)
                     <div class="categorie-item">
-                        <h2 class="couleur_mot">{{$sm->name}}</h2>
+                        <h2 class="couleur_mot">{{ucfirst(strtolower($sm->name))}}</h2>
                         <div class="row">
                             @foreach($sm->events as $event)
                                 @if($event->publie == true && \Carbon\Carbon::parse($event->date_debut_envent)->isFuture() )

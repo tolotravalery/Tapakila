@@ -3008,6 +3008,15 @@ margin-bottom: 25px;
     margin-top: 9px;
     font-size: 30px;
 }
+
+
+
+.joins:hover{
+	text-decoration:underline;
+	color:#d70506;
+}
+
+
 .mytop {
     margin-top: 25px;
     color: red;
@@ -3035,6 +3044,12 @@ margin-bottom: 25px;
     background-color: white;
     padding: 11px 25px 40px 22px;
     margin-top: 27px;
+}
+.social{
+	width:40px;
+	text-align:center;
+	margin-top:20px;
+	margin-right:10px;
 }
 .champsobligatoire {
     color: red;
@@ -4395,9 +4410,6 @@ button, select {
 button {
     overflow: visible;
 }
-
-
-
-
-
-
+.champ_required{
+    color:#ff0000;
+}
