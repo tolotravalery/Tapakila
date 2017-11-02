@@ -184,7 +184,7 @@ class EventController extends Controller
             'vu' => 0
         ]);
 
-        $message=$request->input('message');
+        $message = $request->input('message');
         session()->flash('message', $message);
 
         return redirect(url('organisateur/event/' . $event->id . '/edit'))->with(compact('message'));;
@@ -226,6 +226,15 @@ class EventController extends Controller
         $event->publie_organisateur = $tmp;
         $event->siteweb = $titre;
         $event->additional_note_time = $request->input('note_time');
+        $event->save();
+        return redirect(url('organisateur/event/' . $event->id . '/edit'));
+    }
+
+    public function question_secret(Request $req)
+    {
+        $code = Crypt::decryptString($req->input('events_id'));
+        $event = Events::find($code);
+        $event->question_secret = $req->input('question');
         $event->save();
         return redirect(url('organisateur/event/' . $event->id . '/edit'));
     }

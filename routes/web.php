@@ -225,5 +225,6 @@ Route::group(['middleware' => ['auth', 'activated'], 'prefix' => 'organisateur']
             ]
         ]
     );
+    Route::post('question', 'EventController@question_secret')->name('question');
     Route::put('event', 'EventController@update')->name('event');
 });

@@ -61,8 +61,8 @@
 
                 </div>
             </div>--}}
-			
-			
+
+
             <div class="page-menu row">
                 <div class="col-lg-9 col-sm-9 col-lg-push-3 col-sm-push-3 fi">
                     <h1>Créer un évènement</h1>
@@ -70,13 +70,13 @@
                 <div class="col-lg-3 col-sm-3 col-lg-pull-9 col-sm-pull-9 sec">
                     <div class="btn-group margin-bottom-5">
                         <div class="btn-group" role="group">
-						<div class="form-group full">
-						  <label for="sel1"></label>
-							<select class="btn btn-sm nonpublier dropdown-toggle" id="publie" name="publie">
-								<option value="false">Non publié</option>
-                                <option value="true">Publié</option>
-							</select>
-						</div>
+                            <div class="form-group full">
+                                <label for="sel1"></label>
+                                <select class="btn btn-sm nonpublier dropdown-toggle" id="publie" name="publie">
+                                    <option value="false">Non publié</option>
+                                    <option value="true">Publié</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                     <a class="btn btn-sm btn-default btn-aperçu " href="#" target="_blank">Aperçu</a>
@@ -126,7 +126,7 @@
                                             </label>
                                             <input type="text" name="title" id="titre" class="form-control" required>
                                         </div>
-										
+
                                         <div class="form-group">
                                             <label class="control-label ">
                                                 <span>Catégories : </span>
@@ -145,26 +145,31 @@
                                         <label class="control-label ">
                                             <span>Image : </span><span class="champ_required"> *</span>
                                         </label>
-										
-								    <div class="input-group image-preview">
-                                        <input type="text" class="form-control image-preview-filename" disabled="disabled">
-                                        <span class="input-group-btn">
-												<button type="button" class="btn btn-default image-preview-clear" style="display:none;">
+
+                                        <div class="input-group image-preview">
+                                            <input type="text" class="form-control image-preview-filename"
+                                                   disabled="disabled">
+                                            <span class="input-group-btn">
+												<button type="button" class="btn btn-default image-preview-clear"
+                                                        style="display:none;">
 													<span class="glyphicon  glyphicon-remove"></span> Suprimmer
                                         </button>
                                         <div class="btn btn-default image-preview-input">
                                             <span class="glyphicon gly-icon2 glyphicon-folder-open"></span>
                                             <span class="image-preview-input-title"></span>
-                                            <input type="file" accept="image/png, image/jpeg, image/gif" name="image" required />
+                                            <input type="file" accept="image/png, image/jpeg, image/gif" name="image"
+                                                   required/>
                                         </div>
                                         </span>
-                                    </div>
-									
+                                        </div>
+
                                         <div class="form-group form-group-translation et">
                                             <label class="control-label">
                                                 <span>Description : </span>
                                             </label>
-                                            <textarea class="form-control" style=" word-wrap: break-word; resize: horizontal;height: 150px;" name="note"></textarea>
+                                            <textarea class="form-control"
+                                                      style=" word-wrap: break-word; resize: horizontal;height: 150px;"
+                                                      name="note"></textarea>
                                         </div>
                                     </div>
 
@@ -179,7 +184,9 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label class="control-label required">Début de l'évènement</label><span class="champ_required"> *</span>
+                                                            <label class="control-label required">Début de
+                                                                l'évènement</label><span
+                                                                    class="champ_required"> *</span>
                                                             <div class="input-group">
                                                                 <div class="input-group-addon">
                                                                     <i class="fa fa-calendar"></i></div>
@@ -188,8 +195,11 @@
                                                             </div>
 
                                                         </div>
-                                                        <p  style="color:red;" id="message_after_comparaison">La date fin de l' évenement doit être supérieure à la date debut</p>
-                                                        <p  style="color:red;" id="message_after_comparaison_date_now">La date début ou fin de l' évènement doit être supérieure à la date actuelle</p>
+                                                        <p style="color:red;" id="message_after_comparaison">La date fin
+                                                            de l' évenement doit être supérieure à la date debut</p>
+                                                        <p style="color:red;" id="message_after_comparaison_date_now">La
+                                                            date début ou fin de l' évènement doit être supérieure à la
+                                                            date actuelle</p>
 
                                                     </div>
                                                     <div class="col-md-6">
@@ -212,7 +222,9 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label class="control-label required">Fin de l'évènement</label><span class="champ_required"> *</span>
+                                                            <label class="control-label required">Fin de
+                                                                l'évènement</label><span
+                                                                    class="champ_required"> *</span>
                                                             <div class="input-group">
                                                                 <div class="input-group-addon">
                                                                     <i class="fa fa-calendar"></i></div>
@@ -246,10 +258,10 @@
                                                       style=" word-wrap: break-word; resize: horizontal; height: 54px;"
                                                       name="note_time"></textarea>
                                         </div>
-                                       
+
                                     </div>
                                     <!-- heure end-->
-                                     <hr class="separe">
+                                    <hr class="separe">
                                     <!-- location start -->
                                     <div class="panel-body border-bottom">
                                         <h2>Localisation :</h2>
@@ -275,7 +287,7 @@
 
 
                                     <!-- location end -->
-                                     <hr class="separe">
+                                    <hr class="separe">
                                     <!-- organisateur start -->
                                     <div class="panel-body">
                                         <h2>Organisateur</h2>
@@ -291,9 +303,10 @@
 
                                     <input type="hidden" name="message" value="Ajout évenement réussie">
                                     <div class="Confirme">
-                                        <button type="submit" class="btn btn-default enregistrer " id="enregister">Enregistrer</button>
+                                        <button type="submit" class="btn btn-default enregistrer " id="enregister">
+                                            Enregistrer
+                                        </button>
                                     </div>
-
 
 
                                 </div>
@@ -730,7 +743,6 @@
                                                 </svg>
 
 
-
                                             </div>
                                         </div>
                                     </form>
@@ -863,57 +875,60 @@
                             <div class="com_contenu_type">
                                 <div class="panel panel-content">
                                     <div class="panel-body border-bottom">
-                                    <h2>Type des tickets</h2>
-                                    @if(isset($event))
-                                        @foreach($event[0]->tickets as $ticket)
-                                            <div class="ticket_type_contenu">
-                                                <div class="row">
-                                                    <div class="col-lg-6">
-                                                        <h2>{{$ticket->type}}</h2>
-                                                    </div>
-                                                    <div class="col-lg-2">
-                                                        <h2>{{$ticket->price}}</h2>
-                                                        <p>Ar</p>
-                                                    </div>
-                                                    <div class="col-lg-4">
-                                                        <h2>
-                                                            <div class="btn-group pull-right">
-                                                                <button type="button" class="btn btn-default">
+                                        <h2>Type des tickets</h2>
+                                        @if(isset($event))
+                                            @foreach($event[0]->tickets as $ticket)
+                                                <div class="ticket_type_contenu">
+                                                    <div class="row">
+                                                        <div class="col-lg-6">
+                                                            <h2>{{$ticket->type}}</h2>
+                                                        </div>
+                                                        <div class="col-lg-2">
+                                                            <h2>{{$ticket->price}}</h2>
+                                                            <p>Ar</p>
+                                                        </div>
+                                                        <div class="col-lg-4">
+                                                            <h2>
+                                                                <div class="btn-group pull-right">
+                                                                    <button type="button" class="btn btn-default">
                                                                     <span class="glyphicon glyphicon-edit"
                                                                           aria-hidden="true"></span>
-                                                                    Edit
-                                                                </button>
-                                                                <button type="button"
-                                                                        class="btn btn-default dropdown-toggle pull-right"
-                                                                        data-toggle="dropdown" aria-haspopup="true"
-                                                                        aria-expanded="false">
-                                                                    <span class="caret"></span>
-                                                                    <span class="sr-only">Toggle Dropdown</span>
-                                                                </button>
-                                                                <ul class="dropdown-menu menu_type">
-                                                                    <li><a href="#"><span
-                                                                                    class="glyphicon glyphicon-chevron-up"
-                                                                                    aria-hidden="true"></span> Déplacer vers
-                                                                            le haut</a></li>
-                                                                    <li><a href="#"><span
-                                                                                    class="glyphicon glyphicon-chevron-down"
-                                                                                    aria-hidden="true"></span> Déplacer vers
-                                                                            le bat</a></li>
-                                                                    <li role="separator" class="divider"></li>
-                                                                    <li><a href="#"><span
-                                                                                    class="glyphicon glyphicon-duplicate"
-                                                                                    aria-hidden="true"></span> Dupliquer</a>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                        </h2>
+                                                                        Edit
+                                                                    </button>
+                                                                    <button type="button"
+                                                                            class="btn btn-default dropdown-toggle pull-right"
+                                                                            data-toggle="dropdown" aria-haspopup="true"
+                                                                            aria-expanded="false">
+                                                                        <span class="caret"></span>
+                                                                        <span class="sr-only">Toggle Dropdown</span>
+                                                                    </button>
+                                                                    <ul class="dropdown-menu menu_type">
+                                                                        <li><a href="#"><span
+                                                                                        class="glyphicon glyphicon-chevron-up"
+                                                                                        aria-hidden="true"></span>
+                                                                                Déplacer vers
+                                                                                le haut</a></li>
+                                                                        <li><a href="#"><span
+                                                                                        class="glyphicon glyphicon-chevron-down"
+                                                                                        aria-hidden="true"></span>
+                                                                                Déplacer vers
+                                                                                le bat</a></li>
+                                                                        <li role="separator" class="divider"></li>
+                                                                        <li><a href="#"><span
+                                                                                        class="glyphicon glyphicon-duplicate"
+                                                                                        aria-hidden="true"></span>
+                                                                                Dupliquer</a>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </h2>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <p>Nombre de billets: {{$ticket->number}}</p>
+                                                    <p>Nombre de billets: {{$ticket->number}}</p>
 
-                                            </div>
-                                        @endforeach
-                                    @endif
+                                                </div>
+                                            @endforeach
+                                        @endif
                                     </div>
                                 </div>
 
@@ -923,8 +938,8 @@
                                                                      aria-hidden="true"></span> Ajouter le type de
                                     ticket
                                 </a>
-								</br></br>
-                           
+                                </br></br>
+
                                 <h2>Événement complet</h2>
                                 <div class="row">
                                     <div class="col-lg-6">
@@ -969,30 +984,39 @@
                     <div id="div_valideTicket" class="hide">
                         <div id="billet">
                             <div class="com_contenu">
-							 <div class="panel panel-content">
+                                <div class="panel panel-content">
                                     <div class="panel-body border-bottom">
-                                <h2>Validation des billets</h2>
-                                <p>
-                                    Pour valider les tickets, vous aurez besoin d'un appareil mobile ou d'un ordinateur
-                                    et d'une connexion Internet. Vous pouvez utiliser cet <a href="#" target="_blank">Exemple
-                                        de ticket</a> pour vérifier si la validation fonctionne correctement.</p>
-                                <br>
-                                <h3>Appareils mobiles</h3>
-                                 <hr class="separe">
-                                <p>Téléchargez notre application gratuite:</p>
-                                <a href="#" target="_blank"><img src="{{url('/')}}/public/img/download-appstore.png"></a>
-                                <a href="#" target="_blank"><img src="{{url('/')}}/public/img/download-playstore.png"></a>
-                                <p class="a1">Ou utiliser payé <a href="#" data-toggle="collapse">Pic2Shop Pro</a>.</p>
-                                <h3 class="h14">Ordinateurs et périphériques spéciaux</h3>
-                                 <hr class="separe">
-                                <p>Vous pouvez également utiliser différentes combinaisons de scanners et d'ordinateurs
-                                    de codes à barres pour valider les tickets. Configurez votre scanner pour décoder
-                                    les formats "Code QR" et "Code 128" et soumettre le formulaire au <a href="#">https://------ </a>Qui
-                                    renvoie l'état actuel du ticket et le marque comme étant utilisé.</p>
+                                        <h2>Validation des billets</h2>
+                                        <p>
+                                            Pour valider les tickets, vous aurez besoin d'un appareil mobile ou d'un
+                                            ordinateur
+                                            et d'une connexion Internet. Vous pouvez utiliser cet <a href="#"
+                                                                                                     target="_blank">Exemple
+                                                de ticket</a> pour vérifier si la validation fonctionne correctement.
+                                        </p>
+                                        <br>
+                                        <h3>Appareils mobiles</h3>
+                                        <hr class="separe">
+                                        <p>Téléchargez notre application gratuite:</p>
+                                        <a href="#" target="_blank"><img
+                                                    src="{{url('/')}}/public/img/download-appstore.png"></a>
+                                        <a href="#" target="_blank"><img
+                                                    src="{{url('/')}}/public/img/download-playstore.png"></a>
+                                        <p class="a1">Ou utiliser payé <a href="#" data-toggle="collapse">Pic2Shop
+                                                Pro</a>.</p>
+                                        <h3 class="h14">Ordinateurs et périphériques spéciaux</h3>
+                                        <hr class="separe">
+                                        <p>Vous pouvez également utiliser différentes combinaisons de scanners et
+                                            d'ordinateurs
+                                            de codes à barres pour valider les tickets. Configurez votre scanner pour
+                                            décoder
+                                            les formats "Code QR" et "Code 128" et soumettre le formulaire au <a
+                                                    href="#">https://------ </a>Qui
+                                            renvoie l'état actuel du ticket et le marque comme étant utilisé.</p>
 
+                                    </div>
+                                </div>
                             </div>
-							</div>
-							</div>
                         </div>
                     </div>
 
@@ -1001,52 +1025,55 @@
                     <!------------------------------------Site web-------------------------------------------------------------------------->
 
                     <div id="div_siteweb" class="hide">
-                          <div class="com_contenu_type">
-						   <div class="panel panel-content">
-                                    <div class="panel-body border-bottom">
-                            <h2>Apparence du site</h2>
-                            <label class="control-label" for="slug">Adresse web</label>
-                            <div class="input-group"><span class="input-group-addon">http://----</span>
-                                <input type="text" name="slug" value="mon_événement" id="slug" class="form-control"
-                                       data-fv-field="slug">
-                                <span class="input-group-addon">
+                        <div class="com_contenu_type">
+                            <div class="panel panel-content">
+                                <div class="panel-body border-bottom">
+                                    <h2>Apparence du site</h2>
+                                    <label class="control-label" for="slug">Adresse web</label>
+                                    <div class="input-group"><span class="input-group-addon">http://----</span>
+                                        <input type="text" name="slug" value="mon_événement" id="slug"
+                                               class="form-control"
+                                               data-fv-field="slug">
+                                        <span class="input-group-addon">
                 <a href="#" target="_blank"><i class="fa fa-external-link"></i></a></span></div>
-                            <br/>
-                            <p>L'adresse de la page de vente de billets. Vous pouvez changer cela, mais sachez que le
-                                lien précédent ne fonctionnera plus.</p>
-                            <div class="form-group form-group-translation">
-                                <label class="control-label" for="en[image_pdf_file]">
-                                    <span>Image</span>
-                                </label>
-                                <div class="dropify-wrapper" onmouseover="mouseOverFunction()"
-                                     onmouseout="mouseOutFunction()">
+                                    <br/>
+                                    <p>L'adresse de la page de vente de billets. Vous pouvez changer cela, mais sachez
+                                        que le
+                                        lien précédent ne fonctionnera plus.</p>
+                                    <div class="form-group form-group-translation">
+                                        <label class="control-label" for="en[image_pdf_file]">
+                                            <span>Image</span>
+                                        </label>
+                                        <div class="dropify-wrapper" onmouseover="mouseOverFunction()"
+                                             onmouseout="mouseOutFunction()">
 
-                                    <div class="dropify-message" id="mot"><span class="file-icon"></span>
-                                        <i class="glyphicon glyphicon-open"></i>
-                                        <p>Cliquez ou faites glisser votre fichier ici</p>
+                                            <div class="dropify-message" id="mot"><span class="file-icon"></span>
+                                                <i class="glyphicon glyphicon-open"></i>
+                                                <p>Cliquez ou faites glisser votre fichier ici</p>
+                                            </div>
+
+                                            <input type="file" id="input" type="file" accept="image/*"
+                                                   onchange="loadFile(event)">
+                                            <img id="output" class="hide"/>
+
+                                            <button id="button" type="button" class="btn btn-danger hide"
+                                                    onclick="buttonClick()">Supprimer
+                                            </button>
+
+                                        </div>
+                                        <input type="hidden" class="delete" name="en[image_pdf_delete]"
+                                               id="en[image_pdf_delete]">
+                                        <input type="hidden" class="filename" name="en[image_pdf]" id="en[image_pdf]"
+                                               value="">
+                                        <span class="help-block">Utilisé sur l'en-tête de la page Web, également sous forme de vignette dans les listes d'événements. Utilisez un fichier JPG ou PNG avec une résolution de 1400x500px. Les fichiers plus gros sont réduits automatiquement.</span>
+
                                     </div>
 
-                                    <input type="file" id="input" type="file" accept="image/*"
-                                           onchange="loadFile(event)">
-                                    <img id="output" class="hide"/>
-
-                                    <button id="button" type="button" class="btn btn-danger hide"
-                                            onclick="buttonClick()">Supprimer
-                                    </button>
-
                                 </div>
-                                <input type="hidden" class="delete" name="en[image_pdf_delete]"
-                                       id="en[image_pdf_delete]">
-                                <input type="hidden" class="filename" name="en[image_pdf]" id="en[image_pdf]" value="">
-                                <span class="help-block">Utilisé sur l'en-tête de la page Web, également sous forme de vignette dans les listes d'événements. Utilisez un fichier JPG ou PNG avec une résolution de 1400x500px. Les fichiers plus gros sont réduits automatiquement.</span>
-
+                                <div class="com_contenu_type_foot">
+                                    <button type="button" class="btn btn-danger bout">Mettre à jour</button>
+                                </div>
                             </div>
-
-                        </div>
-                        <div class="com_contenu_type_foot">
-                            <button type="button" class="btn btn-danger bout">Mettre à jour</button>
-							</div>
-							</div>
                         </div>
                     </div>
                     <!------------------------------------Site web-end--------------------------------------------------------------------------->
@@ -1056,152 +1083,158 @@
                     <div id="div_pdf" class="hide">
 
                         <div class="com_contenu_type">
-						 <div class="panel panel-content">
-                                    <div class="panel-body border-bottom">
-                            <h2>Informations sur le ticket PDF</h2>
+                            <div class="panel panel-content">
+                                <div class="panel-body border-bottom">
+                                    <h2>Informations sur le ticket PDF</h2>
 
-                            <div class="form-group">
-                                <label>
-                                    <span>Text</span>
-                                </label>
-                                <textarea class="form-control" rows="5" id="comment"></textarea>
-                            </div>
-                            <div class="form-group form-group-translation en">
-                                <label class="control-label" for="en[image_pdf_file]">
-                                    <span>Image</span>
-                                </label>
-                                <div class="dropify-wrapper" onmouseover="mouse1OverFunction()"
-                                     onmouseout="mouse1OutFunction()">
-
-                                    <div class="dropify-message" id="mot1"><span class="file-icon"></span>
-                                        <i class="glyphicon glyphicon-open"></i>
-                                        <p>Cliquez ou faites glisser votre fichier ici</p>
+                                    <div class="form-group">
+                                        <label>
+                                            <span>Text</span>
+                                        </label>
+                                        <textarea class="form-control" rows="5" id="comment"></textarea>
                                     </div>
+                                    <div class="form-group form-group-translation en">
+                                        <label class="control-label" for="en[image_pdf_file]">
+                                            <span>Image</span>
+                                        </label>
+                                        <div class="dropify-wrapper" onmouseover="mouse1OverFunction()"
+                                             onmouseout="mouse1OutFunction()">
 
-                                    <input type="file" id="input1" type="file" accept="image/*"
-                                           onchange="loadFile1(event)">
-                                    <img id="output1" class="hide"/>
+                                            <div class="dropify-message" id="mot1"><span class="file-icon"></span>
+                                                <i class="glyphicon glyphicon-open"></i>
+                                                <p>Cliquez ou faites glisser votre fichier ici</p>
+                                            </div>
 
-                                    <button id="button1" type="button" class="btn btn-danger hide"
-                                            onclick="button1Click()">Supprimer
-                                    </button>
+                                            <input type="file" id="input1" type="file" accept="image/*"
+                                                   onchange="loadFile1(event)">
+                                            <img id="output1" class="hide"/>
+
+                                            <button id="button1" type="button" class="btn btn-danger hide"
+                                                    onclick="button1Click()">Supprimer
+                                            </button>
+
+                                        </div>
+                                        <input type="hidden" class="delete" name="en[image_pdf_delete]"
+                                               id="en[image_pdf_delete]">
+                                        <input type="hidden" class="filename" name="en[image_pdf]" id="en[image_pdf]"
+                                               value="">
+                                        <span class="help-block">L'image couvrira le ticket d'un côté à l'autre. Utilisez un fichier JPG ou PNG de 1240px. Lorsque vous choisissez la hauteur, assurez-vous que tout sur le ticket PDF correspond à une seule page. Les fichiers les plus étendus sont automatiquement réduits.</span>
+                                    </div>
+                                </div>
+                                <hr class="separe">
+                                <div class="com_contenu_type_ticket">
+                                    <form>
+                                        <div class="radio-custom radio-primary">
+                                            <input type="radio" name="split_tickets" id="split_tickets_1" value="1"
+                                                   checked="">
+                                            <label for="split_tickets_1">Créer des billets distincts pour chaque
+                                                participant</label>
+                                            <span class="help-block">Utile lorsque les participants arrivent séparément.</span>
+                                        </div>
+                                        <div class="radio-custom radio-primary">
+                                            <input type="radio" name="split_tickets" id="split_tickets_0" value="0">
+                                            <label for="split_tickets_0">Créer un ticket composé</label>
+                                            <span class="help-block">Utile lorsque les participants arrivent ensemble - de cette façon, vous gagnez du temps lors de la validation des billets.</span>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="com_contenu_type_foot">
+                                    <button type="button" class="btn btn-danger bout">Enregistrer</button>
 
                                 </div>
-                                <input type="hidden" class="delete" name="en[image_pdf_delete]"
-                                       id="en[image_pdf_delete]">
-                                <input type="hidden" class="filename" name="en[image_pdf]" id="en[image_pdf]" value="">
-                                <span class="help-block">L'image couvrira le ticket d'un côté à l'autre. Utilisez un fichier JPG ou PNG de 1240px. Lorsque vous choisissez la hauteur, assurez-vous que tout sur le ticket PDF correspond à une seule page. Les fichiers les plus étendus sont automatiquement réduits.</span>
-                            </div>
-                        </div>
-                        <hr class="separe">
-                        <div class="com_contenu_type_ticket">
-                            <form>
-                                <div class="radio-custom radio-primary">
-                                    <input type="radio" name="split_tickets" id="split_tickets_1" value="1" checked="">
-                                    <label for="split_tickets_1">Créer des billets distincts pour chaque
-                                        participant</label>
-                                    <span class="help-block">Utile lorsque les participants arrivent séparément.</span>
-                                </div>
-                                <div class="radio-custom radio-primary">
-                                    <input type="radio" name="split_tickets" id="split_tickets_0" value="0">
-                                    <label for="split_tickets_0">Créer un ticket composé</label>
-                                    <span class="help-block">Utile lorsque les participants arrivent ensemble - de cette façon, vous gagnez du temps lors de la validation des billets.</span>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="com_contenu_type_foot">
-                            <button type="button" class="btn btn-danger bout">Enregistrer</button>
 
-                        </div>
+                                <div class="com_contenu_type">
+                                    <h2>Aperçu des tickets</h2>
+                                    <p>Toutes les données du ticket sont incluses dans le corps du courrier électronique
+                                        et dans
+                                        le fichier .pdf joint.
+                                    </p>
 
-                        <div class="com_contenu_type">
-                            <h2>Aperçu des tickets</h2>
-                            <p>Toutes les données du ticket sont incluses dans le corps du courrier électronique et dans
-                                le fichier .pdf joint.
-                            </p>
+                                    <ul class="nav nav-tabs nav-tabs1">
+                                        <li class="active ">
+                                            <a href="#1a" data-toggle="tab">Email</a>
+                                        </li>
+                                        <li><a href="#2a" data-toggle="tab">PDF</a>
+                                        </li>
+                                    </ul>
 
-                            <ul class="nav nav-tabs nav-tabs1">
-                                <li class="active ">
-                                    <a href="#1a" data-toggle="tab">Email</a>
-                                </li>
-                                <li><a href="#2a" data-toggle="tab">PDF</a>
-                                </li>
-                            </ul>
+                                    <div class="tab-content ">
+                                        <div class="tab-pane active" id="1a">
+                                            <button type="button" class="btn pull-right c1">Envoyez-moi un email de test
+                                            </button>
+                                            <div class=" row menu_int1">
+                                                <div class="menu_int2">
+                                                    <div class="com_contenu_type">
+                                                        <h2>leguichet</h2>
+                                                        <p>Merci, voici vos billets! Lorsque vous participez, indiquez
+                                                            le code
+                                                            dans ce courrier électronique ou utilisez le fichier .pdf
+                                                            ci-joint</p>
+                                                        <hr class="separe">
+                                                        <h2>Mes évènements</h2>
+                                                        <strong>Tue 25. July 2017 - 14:00</strong>
+                                                        <p>Location · . Viru 12-34, Tallinn, Estonia <a href="#"
+                                                                                                        target="_blank">Map</a>
+                                                        </p>
+                                                        <hr class="separe">
+                                                        <p style="text-align: center; margin: 5px 0; ">1 x Regular
+                                                            ticket</p>
+                                                        <p style="text-align: center">
+                                                            <img src="img/123456TEST.png" class="qt">
 
-                            <div class="tab-content ">
-                                <div class="tab-pane active" id="1a">
-                                    <button type="button" class="btn pull-right c1">Envoyez-moi un email de test
-                                    </button>
-                                    <div class=" row menu_int1">
-                                        <div class="menu_int2">
-                                            <div class="com_contenu_type">
-                                                <h2>leguichet</h2>
-                                                <p>Merci, voici vos billets! Lorsque vous participez, indiquez le code
-                                                    dans ce courrier électronique ou utilisez le fichier .pdf
-                                                    ci-joint</p>
-                                                 <hr class="separe">
-                                                <h2>Mes évènements</h2>
-                                                <strong>Tue 25. July 2017 - 14:00</strong>
-                                                <p>Location · . Viru 12-34, Tallinn, Estonia <a href="#"
-                                                                                                target="_blank">Map</a>
-                                                </p>
-                                                 <hr class="separe">
-                                                <p style="text-align: center; margin: 5px 0; ">1 x Regular ticket</p>
-                                                <p style="text-align: center">
-                                                    <img src="img/123456TEST.png" class="qt">
+                                                        </p>
+                                                        <p class="small" style="text-align: center; font-size: 13px;">
+                                                            123456TEST</p>
+                                                    </div>
 
-                                                </p>
-                                                <p class="small" style="text-align: center; font-size: 13px;">
-                                                    123456TEST</p>
+                                                </div>
+                                                <table role="presentation" cellspacing="0" cellpadding="0" border="0"
+                                                       align="center" width="100%" style="max-width: 680px;">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td style="padding: 15px 10px 40px 10px; width: 100%; font-family: sans-serif; text-align: center; color: #888888;">
+                                                            <p class="small" style="font-size: 13px; line-height:22px;">
+                                                                Ticket order 123456
+                                                                <br> This email has been sent to <a
+                                                                        href="mailto:dinavonjy@icloud.com">blabla@icloud
+                                                                    .com</a>
+                                                                <br>
+                                                                <a href="#"
+                                                                   style="color:#2CB0E1; text-decoration: none;">leguichet</a>
+                                                                · Organize your event
+                                                            </p>
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane" id="2a">
+                                            <button type="button" class="btn pull-right c2">Ouvrir PDF</button>
+                                            <div class=" row menu_int2">
+                                                <div class="menu_int3">
+                                                    <div id="menu_left">
+                                                        <img src="img/123456TEST.png" class="qt">
+
+                                                    </div>
+                                                    <div id="menu_right">
+                                                        <h2>Mon événement</h2>
+                                                        <p>Tue 25. July 2017 - 14:00</p>
+                                                        <p>Location · . Viru 12-34, Tallinn, Estonia</p>
+                                                    </div>
+
+                                                </div>
+                                                <hr class="separe">
+
                                             </div>
 
                                         </div>
-                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0"
-                                               align="center" width="100%" style="max-width: 680px;">
-                                            <tbody>
-                                            <tr>
-                                                <td style="padding: 15px 10px 40px 10px; width: 100%; font-family: sans-serif; text-align: center; color: #888888;">
-                                                    <p class="small" style="font-size: 13px; line-height:22px;">
-                                                        Ticket order 123456
-                                                        <br> This email has been sent to <a
-                                                                href="mailto:dinavonjy@icloud.com">blabla@icloud
-                                                            .com</a>
-                                                        <br>
-                                                        <a href="#" style="color:#2CB0E1; text-decoration: none;">leguichet</a>
-                                                        · Organize your event
-                                                    </p>
-                                                </td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-
-                                    </div>
-                                </div>
-                                <div class="tab-pane" id="2a">
-                                    <button type="button" class="btn pull-right c2">Ouvrir PDF</button>
-                                    <div class=" row menu_int2">
-                                        <div class="menu_int3">
-                                            <div id="menu_left">
-                                                <img src="img/123456TEST.png" class="qt">
-
-                                            </div>
-                                            <div id="menu_right">
-                                                <h2>Mon événement</h2>
-                                                <p>Tue 25. July 2017 - 14:00</p>
-                                                <p>Location · . Viru 12-34, Tallinn, Estonia</p>
-                                            </div>
-
-                                        </div>
-                                         <hr class="separe">
-
                                     </div>
 
                                 </div>
                             </div>
-
                         </div>
-						</div>
-						</div>
                     </div>
                     <!------------------------------------PDF-end--------------------------------------------------------------------------->
 
@@ -1217,19 +1250,15 @@
                         </div>
                         <div class="com_contenu_type2">
                             <h2>Champs personnalisés par participant</h2>
-                            <a href=# " class="btn btn-primary btn-outline text-center center-block primary "
-                            role="button ">
-                            <i aria-hidden="true "></i> <span class="glyphicon glyphicon-plus "
-                                                              aria-hidden="true "></span> Ajouter
-                            </a>
-                        </div>
-                        <div class="com_contenu_type2 ">
-                            <h2>Champs personnalisés par participant</h2>
-                            <a href=#" class="btn btn-primary btn-outline text-center center-block primary"
-                               role="button">
-                                <i aria-hidden="true"></i> <span class="glyphicon glyphicon-plus"
-                                                                 aria-hidden="true"></span> Ajouter
-                            </a>
+                            <form action="" method="post">
+                                <input type="text" name="question" class="btn btn-primary btn-outline text-center center-block primary"><br/>
+                                <button type="submit" href="#"
+                                        class="btn btn-primary btn-outline text-center center-block primary"
+                                        role="button ">
+                                    <i aria-hidden="true "></i> <span class="glyphicon glyphicon-plus "
+                                                                      aria-hidden="true "></span> Ajouter
+                                </button>
+                            </form>
                         </div>
 
                     </div>
@@ -1293,7 +1322,8 @@
                                             <div class="col-lg-4 col-sm-6">
                                                 <div class="radio">
                                                     <label class="button  active">
-                                                        <img class="logo" src="{{url('/')}}/public/img/logmvola.png" alt="">
+                                                        <img class="logo" src="{{url('/')}}/public/img/logmvola.png"
+                                                             alt="">
                                                         <b class="operateura">Telma Mvola</b>
                                                         <label class="custom-control custom-checkbox che pull-right">
                                                             <input type="checkbox" class="custom-control-input">
@@ -1308,7 +1338,8 @@
                                             <div class="col-lg-4 col-sm-6">
                                                 <div class="radio">
                                                     <label class="button  ">
-                                                        <img class="logo" src="{{url('/')}}/public//img/logmartel.png" alt="">
+                                                        <img class="logo" src="{{url('/')}}/public//img/logmartel.png"
+                                                             alt="">
                                                         <b class="operateura">Airtel money</b>
                                                         <label class="custom-control custom-checkbox che pull-right">
                                                             <input type="checkbox" class="custom-control-input">
@@ -1322,7 +1353,8 @@
                                             <div class="col-lg-4 col-sm-12">
                                                 <div class="radio">
                                                     <label class="button  ">
-                                                        <img class="logo" src="{{url('/')}}/public//img/logmorange.png" alt="">
+                                                        <img class="logo" src="{{url('/')}}/public//img/logmorange.png"
+                                                             alt="">
                                                         <b class="operateura">Orange money</b>
                                                         <label class="custom-control custom-checkbox che pull-right">
                                                             <input type="checkbox" class="custom-control-input">
@@ -1569,24 +1601,24 @@
     <script type="text/javascript">
         $('#enregister').click(function () {
             console.log("click");
-            var datedebut=$('#dated').val();
-            var datefin=$('#datef').val();
+            var datedebut = $('#dated').val();
+            var datefin = $('#datef').val();
 
-            var arrdd=datedebut.split("-");
-            datedebut=arrdd[2]+"-"+arrdd[1]+"-"+arrdd[0];
-            var arrdf=datefin.split("-");
-            datefin=arrdf[2]+"-"+arrdf[1]+"-"+arrdf[0];
+            var arrdd = datedebut.split("-");
+            datedebut = arrdd[2] + "-" + arrdd[1] + "-" + arrdd[0];
+            var arrdf = datefin.split("-");
+            datefin = arrdf[2] + "-" + arrdf[1] + "-" + arrdf[0];
             //console.log(datedebut+" "+$('#heured').val());
-            var dd=new Date(datedebut+" "+$('#heured').val());
-            var df=new Date(datefin+" "+$('#heuref').val());
-            var now= new Date();
+            var dd = new Date(datedebut + " " + $('#heured').val());
+            var df = new Date(datefin + " " + $('#heuref').val());
+            var now = new Date();
             console.log(now);
-            if(dd<now || df<now){
+            if (dd < now || df < now) {
                 $('#message_after_comparaison_date_now').show();
                 //alert("La date fin de l' évenement doit être supérieure à la date debut");
                 return false;
             }
-            if(df<=dd){
+            if (df <= dd) {
                 $('#message_after_comparaison').show();
                 //alert("La date fin de l' évenement doit être supérieure à la date debut");
                 return false;
@@ -1645,10 +1677,10 @@
             document.getElementById("a_cpersonalize").className = "";
             document.getElementById("a_paiement").className = "";
             document.getElementById(aId).className = "select";
-			
-			if (screen.width <= 750) {
-				window.location.hash = id;
-			}
+
+            if (screen.width <= 750) {
+                window.location.hash = id;
+            }
         }
     </script>
 

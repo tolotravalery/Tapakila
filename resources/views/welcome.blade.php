@@ -83,7 +83,7 @@
                             @php
                                 $objects= null;
                                 if($evenement->count() > 3 )
-                                    $objects = $evenement->take(3)->get();
+                                    $objects = $evenement->get()->random(3);
                                 else
                                     $objects = $evenement->get();
                             @endphp
@@ -167,8 +167,8 @@
                         <div class="col-lg-12 pull-right">
                             <div class="pull-right">
                                 <a href="{{url('/event/list/categorie/'.$sm->name.'',[$sm->id])}}"
-                                   style="color: #d70506;">
-                                    <i>Plus d'évènement</i>
+                                   style="color: #5cb85c;">
+                                    <i><b>>> Plus d'évènement >> </b></i>
                                 </a>
                             </div>
                         </div>

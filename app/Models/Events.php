@@ -27,6 +27,7 @@ class Events extends Model
         'siteweb',
         'image_background',
         'additional_note_time',
+        'question_secret'
     ];
 
     public function tickets()
