@@ -460,7 +460,7 @@ width: 90% !important;
 
 @media screen and (min-width:500px) and (max-width: 991px) {
 #sectioncategorie {
-height: 90px;
+height: auto;
 width: 100%;
 background: #ffffffe6;
 font-size: 11pt;
