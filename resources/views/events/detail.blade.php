@@ -23,7 +23,6 @@
                         <a href="{{url('/event/list/categorie/'.$sousmenu->name.'',[$sousmenu->id])}}">{{ucfirst(strtolower($sousmenu->name))}}</a>
                     </li>
                 @endforeach
-
             </ul>
         </div>
     </section>
@@ -35,7 +34,6 @@
                         <img src="{{url('/')}}/public/img/{{$event->image}}" class="image_detail">
                     </div>
                 </div>
-
                 <div class="col-lg-5">
                     <h3 class="couleur_mot">{{$event->title}}</h3>
                     <p style="text-align: justify;padding-right: 10px;">{{$event->additional_note}}
@@ -45,48 +43,45 @@
                             Programme : </strong>{{$event->additional_note_time}}
                     </div>
                     <div class="div_style">
-					<div class="row">
-						<div class="col-lg-5 col-xs-7 col-sm-3">
-						<i class="fa fa-map-marker fa-2x loc zav" aria-hidden="true"></i><strong id="localisation"
-                                                                                                 class="couleur_mot">
-                            Localisation : </strong> 
-							
-						</div>
-						<div class="col-lg-7 col-xs-5 gi">
-							{{$event->localisation_nom }} {{$event->localisation_adresse}}
-						</div>
-					</div>
-                        
-							
-							
-						
-						
+                        <div class="row">
+                            <div class="col-lg-5 col-xs-7 col-sm-3">
+                                <i class="fa fa-map-marker fa-2x loc zav" aria-hidden="true"></i><strong
+                                        id="localisation"
+                                        class="couleur_mot">
+                                    Localisation : </strong>
+                            </div>
+                            <div class="col-lg-7 col-xs-5 gi">
+                                {{$event->localisation_nom }} {{$event->localisation_adresse}}
+                            </div>
+                        </div>
+
                     </div>
                     <div class="div_style">
-					<div class="row">
-						<div class="col-lg-5 col-xs-7 col-sm-3">
-						<i class="fa fa-calendar-o fa-2x  zav" aria-hidden="true"></i><strong id="date"
-                                                                                              class="couleur_mot"> Date
-                            : </strong>
-						</div>
-						<div class="col-lg-7 col-xs-5 gi">
-						{{ \Carbon\Carbon::parse($event->date_debut_envent)->format('d M Y')}}
-						</div>
-					</div>
-                         
+                        <div class="row">
+                            <div class="col-lg-5 col-xs-7 col-sm-3">
+                                <i class="fa fa-calendar-o fa-2x  zav" aria-hidden="true"></i><strong id="date"
+                                                                                                      class="couleur_mot">
+                                    Date
+                                    : </strong>
+                            </div>
+                            <div class="col-lg-7 col-xs-5 gi">
+                                {{ \Carbon\Carbon::parse($event->date_debut_envent)->format('d M Y')}}
+                            </div>
+                        </div>
+
                     </div>
                     <div class="div_style">
-					<div class="row">
-						<div class="col-lg-5 col-xs-7 col-sm-3">
-						<i class="fa fa-clock-o fa-2x zav" aria-hidden="true"></i><strong id="heure"
-                                                                                          class="couleur_mot"> Heure
-                            :</strong>
-						</div>
-						<div class="col-lg-7 col-xs-5 gi">
-						 {{ \Carbon\Carbon::parse($event->date_debut_envent)->format('H:i')}}
-						</div>
-					</div>
-                        
+                        <div class="row">
+                            <div class="col-lg-5 col-xs-7 col-sm-3">
+                                <i class="fa fa-clock-o fa-2x zav" aria-hidden="true"></i>
+                                <strong id="heure" class="couleur_mot"> Heure
+                                    :</strong>
+                            </div>
+                            <div class="col-lg-7 col-xs-5 gi">
+                                {{ \Carbon\Carbon::parse($event->date_debut_envent)->format('H:i')}}
+                            </div>
+                        </div>
+
                     </div>
                     <div class="div_style">
                         <strong class="couleur_mot zav"> Partagez sur :</strong>
@@ -95,7 +90,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="men1">
                 <ul class="nav nav-tabs tabl" role="tablist">
                     @php
@@ -117,7 +111,6 @@
                         </li>
                     @endif
                 </ul>
-
                 <section>
                     <div class="tab-content">
                         @php
@@ -139,7 +132,6 @@
                                             <th>Totale</th>
                                         </tr>
                                         </thead>
-
                                         <tbody>
                                         <form action="{{ url('shopping/cart') }}" method="POST"
                                               class="side-by-side">
@@ -167,10 +159,8 @@
                                                             </td>
                                                         @endif
                                                         <td>
-
                                                             <div class="tableau-center">
                                                                 <div class="input-group number-spinner{{$d}}{{$count_id_price}}  tabdetail">
-
                                                                     <ul>
                                                                         <li>
                                                                             <span class="input-group-btn">
@@ -194,13 +184,13 @@
 																	</span>
                                                                         </li>
                                                                     </ul>
-
                                                                 </div>
                                                             </div>
-
-
                                                         </td>
-                                                        <td><b id="prix{{$d}}{{$count_id_price}}">{{(int)$ticket->price}}</b> Ar</td>
+                                                        <td>
+                                                            <b id="prix{{$d}}{{$count_id_price}}">{{(int)$ticket->price}}</b>
+                                                            Ar
+                                                        </td>
                                                         <td><b id="prixUnit{{$d}}{{$count_id_price}}">0</b> Ar</td>
                                                     </tr>
                                                     @php $count_id_price++; @endphp
@@ -211,7 +201,7 @@
                                                 <td class="td_detail"></td>
                                                 <td class="td_detail"></td>
                                                 <td><strong>Total</strong></td>
-                                                <td><b id="total{{$d}}">0</b> Ar <?php $totaly =0; ?></td>
+                                                <td><b id="total{{$d}}">0</b> Ar <?php $totaly = 0; ?></td>
                                             </tr>
 											
 											<tr>
@@ -227,26 +217,26 @@
                                                 <td></td>
                                                 <td></td>
                                                 <td>
-                                                    <button type="button" class=" btn btn-danger btn_reset" id="reset{{$d}}">
+                                                    <button type="button" class=" btn btn-danger btn_reset"
+                                                            id="reset{{$d}}">
                                                         Reset
                                                     </button>
                                                 </td>
                                                 <td>
-                                                    <button type="submit" class=" btn btn-success btn_acheterr " id="acheter">
+                                                    <button type="submit" class=" btn btn-success btn_acheterr "
+                                                            id="acheter">
                                                         Acheter
                                                     </button>
-                                                        {{--@if(strcmp($totaly,"0")==0)
-                                                            <button type="submit" class=" btn btn-success btn_acheterr" disabled="true">
-                                                                Acheter
-                                                            </button>
-                                                        @else
+                                                    {{--@if(strcmp($totaly,"0")==0)
+                                                        <button type="submit" class=" btn btn-success btn_acheterr" disabled="true">
+                                                            Acheter
+                                                        </button>
+                                                    @else
 
-                                                            <button type="submit" class=" btn btn-success btn_acheterr ">
-                                                                Acheter
-                                                             </button>
-                                                        @endif--}}
-
-
+                                                        <button type="submit" class=" btn btn-success btn_acheterr ">
+                                                            Acheter
+                                                         </button>
+                                                    @endif--}}
                                                 </td>
                                             </tr>
                                             <input type="hidden" id="nombre_id{{$d}}" value="{{$count_id_price}}"/>
@@ -329,11 +319,8 @@
 																	</span>
                                                                         </li>
                                                                     </ul>
-
                                                                 </div>
                                                             </div>
-
-
                                                         </td>
                                                         <td><b>{{(int)$ticket->price}}</b> Ar</td>
                                                         <td><b id="prixUnit{{$count_id_price}}">0</b> Ar</td>
@@ -453,14 +440,14 @@
 
 @section('specificScript')
     <script>
-        var i=0;
+        var i = 0;
         console.log(i);
-        var nbre=<?php echo $d;?>;
+        var nbre =<?php echo $d;?>;
 
-        for(i=0;i<nbre;i++){
+        for (i = 0; i < nbre; i++) {
             /*var classe= "#reset"+i;
-            console.log(classe);*/
-            $('#reset'+i).click(function () {
+             console.log(classe);*/
+            $('#reset' + i).click(function () {
                 window.location.reload(false);
             });
         }
@@ -487,7 +474,7 @@
         @for($u=0;$u<$d;$u++)
             <script>
 
-                    newticket[[{{$i}}]] = {{$event->tickets[$i]->number}};
+                newticket[[{{$i}}]] = {{$event->tickets[$i]->number}};
                 $(document).on('click', '.number-spinner{{$u}}{{$i}} button', function () {
                     var btn = $(this),
                         oldValue = btn.closest('.number-spinner{{$u}}{{$i}}').find('input').val().trim(),
@@ -506,9 +493,9 @@
 
                             btn.closest('.number-spinner{{$u}}{{$i}}').find('input').val(newVal);
                             var total = 0;
-                            var u={{$u}};
+                            var u ={{$u}};
                             for (var j = 0; j < $('#nombre_id{{$u}}').val(); j++) {
-                                total += parseInt($('#prixUnit{{$u}}'+j).html());
+                                total += parseInt($('#prixUnit{{$u}}' + j).html());
                             }
                             $('#total{{$u}}').html(total);
 
@@ -520,7 +507,7 @@
                             var total = 0;
                             for (var j = 0; j < $('#nombre_id{{$u}}').val(); j++) {
                                 //total += parseInt($('#prixUnit' + j).html());
-                                total += parseInt($('#prixUnit{{$u}}'+j).html());
+                                total += parseInt($('#prixUnit{{$u}}' + j).html());
                             }
                             $('#total{{$u}}').html(total);
                         }
@@ -542,11 +529,11 @@
                                 total += parseInt($('#prixUnit{{$u}}' + j).html());
                             }
                             $('#total{{$u}}').html(total);
-                            if(total==0){
+                            if (total == 0) {
                                 $('#acheter').prop('disabled', true);
                             }
                         }
-                        else if(oldValue==0){
+                        else if (oldValue == 0) {
                             $('#acheter').prop('disabled', true);
                         }
                     }
