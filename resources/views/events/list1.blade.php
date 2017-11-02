@@ -33,7 +33,8 @@
                 <li class=" bounce animated2 zoomIn"><a
                             href="{{url('/event/list/categorie',[$sous_menu_event->menus->id])}}"><b>{{ucfirst(strtolower($sous_menu_event->menus->name))}}</b></a>
                 </li>
-                <li class=" bounce animated2 zoomIn dernier"><a href="#"><b>{{ucfirst(strtolower($sous_menu_event->name))}}</b></a>
+                <li class=" bounce animated2 zoomIn dernier"><a
+                            href="#"><b>{{ucfirst(strtolower($sous_menu_event->name))}}</b></a>
                 </li>
             </ul>
         </div>
@@ -47,42 +48,43 @@
                     <h2 class="couleur_mot">{{ucfirst(strtolower($sous_menu_event->name))}}</h2>
                     <div class="row">
                         @if($events->count() > 0)
-                            @foreach($events as $event)
-                                <div class="col-sm-6 col-md-4">
-                                    <div class="thumbnail"
-                                         onmouseover="mouseover('month{{$count_id}}','title{{$count_id}}')"
-                                         onmouseleave="mouseleave('month{{$count_id}}','title{{$count_id}}')">
-                                        <a href="{{url('event/show',[$event->id])}}">
-                                            <div class="mg-image">
-                                                <img src="{{ url('/public/img/'.$event->image.'') }}">
-                                            </div>
-                                        </a>
-                                        <div class="caption taille">
+                            @if($events->count() <= 9)
+                                @foreach($events as $event)
+                                    <div class="col-sm-6 col-md-4">
+                                        <div class="thumbnail"
+                                             onmouseover="mouseover('month{{$count_id}}','title{{$count_id}}')"
+                                             onmouseleave="mouseleave('month{{$count_id}}','title{{$count_id}}')">
                                             <a href="{{url('event/show',[$event->id])}}">
-                                                <div class="limitelengh">
-                                                    <h3>
-                                                        <a href="{{url('event/show',[$event->id])}}"
-                                                           id="title{{$count_id}}">{{str_limit($event->title,$limit=40, $end = ' ...')}}</a>
-                                                    </h3>
+                                                <div class="mg-image">
+                                                    <img src="{{ url('/public/img/'.$event->image.'') }}">
                                                 </div>
-                                                <div class="limite">
-                                                    <a href="{{url('event/show',[$event->id])}}"><p
-                                                                style="text-align: justify">{{ str_limit(ucfirst($event->additional_note), $limit = 100, $end = ' ...') }}</p>
-                                                    </a><br/>
-                                                </div>
-                                                <div class="row cbg">
-                                                    <div class="col-md-3 col-xs-3">
-                                                        <a href="{{url('event/show',[$event->id])}}">
-                                                            <div class="calendar">
-                                                                <h1 class="month"
-                                                                    id="month{{$count_id}}">{{ \Carbon\Carbon::parse($event->date_debut_envent)->format('M')}}</h1>
-                                                                <label class="jour">{{ \Carbon\Carbon::parse($event->date_debut_envent)->format('D')}}</label>
-                                                                <p class="day">{{ \Carbon\Carbon::parse($event->date_debut_envent)->format('d')}}</p>
-                                                            </div>
-                                                        </a>
+                                            </a>
+                                            <div class="caption taille">
+                                                <a href="{{url('event/show',[$event->id])}}">
+                                                    <div class="limitelengh">
+                                                        <h3>
+                                                            <a href="{{url('event/show',[$event->id])}}"
+                                                               id="title{{$count_id}}">{{str_limit($event->title,$limit=40, $end = ' ...')}}</a>
+                                                        </h3>
                                                     </div>
-                                                    <div class="col-md-9 col-xs-9 ">
-                                                        {{--<a>--}}
+                                                    <div class="limite">
+                                                        <a href="{{url('event/show',[$event->id])}}"><p
+                                                                    style="text-align: justify">{{ str_limit(ucfirst($event->additional_note), $limit = 100, $end = ' ...') }}</p>
+                                                        </a><br/>
+                                                    </div>
+                                                    <div class="row cbg">
+                                                        <div class="col-md-3 col-xs-3">
+                                                            <a href="{{url('event/show',[$event->id])}}">
+                                                                <div class="calendar">
+                                                                    <h1 class="month"
+                                                                        id="month{{$count_id}}">{{ \Carbon\Carbon::parse($event->date_debut_envent)->format('M')}}</h1>
+                                                                    <label class="jour">{{ \Carbon\Carbon::parse($event->date_debut_envent)->format('D')}}</label>
+                                                                    <p class="day">{{ \Carbon\Carbon::parse($event->date_debut_envent)->format('d')}}</p>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                        <div class="col-md-9 col-xs-9 ">
+                                                            {{--<a>--}}
                                                             <div class="prixfx">
                                                                 @if($event->tickets()->count() > 0)
                                                                     <i class="fa fa-tag prices"></i>A
@@ -94,25 +96,26 @@
                                                                     disponible
                                                                 @endif
                                                             </div>
-                                                        {{--</a>--}}
-                                                        <a href="{{url('event/show',[$event->id])}}">
-                                                            <div class="price"><i
-                                                                        class="glyphicon glyphicon-time time"></i>{{ \Carbon\Carbon::parse($event->date_debut_envent)->format('H:i')}}
-                                                            </div>
-                                                        </a>
-                                                        <a href="{{url('event/show',[$event->id])}}">
-                                                            <div class="date"><i
-                                                                        class="glyphicon glyphicon-map-marker position"></i>{{ $event->localisation_adresse }}
-                                                            </div>
-                                                        </a>
+                                                            {{--</a>--}}
+                                                            <a href="{{url('event/show',[$event->id])}}">
+                                                                <div class="price"><i
+                                                                            class="glyphicon glyphicon-time time"></i>{{ \Carbon\Carbon::parse($event->date_debut_envent)->format('H:i')}}
+                                                                </div>
+                                                            </a>
+                                                            <a href="{{url('event/show',[$event->id])}}">
+                                                                <div class="date"><i
+                                                                            class="glyphicon glyphicon-map-marker position"></i>{{ $event->localisation_adresse }}
+                                                                </div>
+                                                            </a>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </a>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                @php $count_id++ @endphp
-                            @endforeach
+                                    @php $count_id++ @endphp
+                                @endforeach
+                            @endif
                         @else
                             <div class="bg-custom">
                                 <h2 class="text-center"><strong>Pas d'évènement ajoutés récements</strong></h2>
@@ -180,10 +183,47 @@
                             </div>
                         @endif
                     </div>
+                    <div class="row">
+                        <div class="col-lg-12 pull-right">
+                            @php($page==null? $page=1 : $page=$page)
+                            @if($events->count() >= 9)
+                                <div class="pull-right">
+                                    <form action="{{url('/event/list/categorie/'.$sous_menu_event->name.'',[$sous_menu_event->id])}}"
+                                          method="get">
+                                        <input type="hidden" name="page" value="{{$page+1}}">
+                                        <button type="submit" class="linkButton" style="color: #d70506;">
+                                            <i>>> Suivant >></i>
+                                        </button>
+                                    </form>
+                                </div>
+                                @if($page>1)
+                                    <div class="pull-left">
+                                        <form action="{{url('/event/list/categorie/'.$sous_menu_event->name.'',[$sous_menu_event->id])}}"
+                                              method="get">
+                                            <input type="hidden" name="page" value="{{$page-1}}">
+                                            <button type="submit" class="linkButton" style="color: #d70506;">
+                                                <i><< Précédent <<</i>
+                                            </button>
+                                        </form>
+                                    </div>
+                                @endif
+                            @endif
+                        </div>
+                    </div>
+                    <br/>
                 </div>
             @endif
         </div>
     </section>
+    <style>
+        .linkButton {
+            background: none;
+            border: none;
+            color: #0066ff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
 @endsection
 @section('specificScript')
     <script type="text/javascript">
