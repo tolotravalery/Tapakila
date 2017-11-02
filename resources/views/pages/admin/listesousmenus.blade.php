@@ -126,6 +126,14 @@
                                             {!! Form::button('<i class="fa fa-trash-o fa-fw" aria-hidden="true"></i> <span class="hidden-xs hidden-sm">Delete</span><span class="hidden-xs hidden-sm hidden-md"> sous menu</span>', array('class' => 'btn btn-danger btn-sm','type' => 'button', 'style' =>'width: 100%;' ,'data-toggle' => 'modal', 'data-target' => '#confirmDelete', 'data-title' => 'Delete Sous menu', 'data-message' => 'Are you sure you want to delete this sous menu ?')) !!}
                                             {!! Form::close() !!}
                                         </td>
+                                        <td>
+                                            <a class="btn btn-sm btn-info btn-block" href="{{ URL::to('admin/sousmenus/' . $sousmenu->id . '/edit') }}"
+                                               data-toggle="tooltip" title="Edit">
+                                                <i class="fa fa-pencil fa-fw" aria-hidden="true"></i> <span
+                                                        class="hidden-xs hidden-sm">Edit</span><span
+                                                        class="hidden-xs hidden-sm hidden-md"> sous menu</span>
+                                            </a>
+                                        </td>
                                     </tr>
                                 @endforeach
                                 </tbody>

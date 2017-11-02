@@ -161,6 +161,7 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin'], 'prefix' => '
     ]);
 
     Route::get('home', 'UserController@index')->name('/admin/home');
+    Route::put('event', 'EventController@updateadmin')->name('event');
 
     /*-------------------*/
     /*----slideshow------*/
@@ -196,6 +197,14 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin'], 'prefix' => '
         'names' => [
             'index' => 'sousmenus',
             'destroy' => 'sousmenu.destroy'
+        ],
+        'except' => [
+            'deleted'
+        ]
+    ]);
+    Route::resource('events', 'EventController', [
+        'names' => [
+            'destroy' => 'event.destroy'
         ],
         'except' => [
             'deleted'

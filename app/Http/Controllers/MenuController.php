@@ -82,14 +82,9 @@ class MenuController extends Controller
 
     public function edit($id)
     {
-
+        $alert = Alert::where('vu', '=', '0')->get();
         $menu = Menus::findOrFail($id);
-
-        $data = [
-            'menu' => $menu
-        ];
-
-        return view('pages.admin.edit-menu')->with($data);
+        return view('pages.admin.edit-menu',compact('alert','menu'));
     }
 
     public function update(Request $request, $id)
@@ -97,10 +92,7 @@ class MenuController extends Controller
         $menu = Menus::find($id);
         $menu->name = $request->input('name');
         $menu->save();
-        //return back()->with('success', trans('usersmanagement.updateSuccess'));
-        $alert = Alert::where('vu', '=', '0')->get();
-        return view('pages.admin.createmenu', compact('alert'));
-
+        return redirect(url('admin/menus/'));
     }
 
     /**
