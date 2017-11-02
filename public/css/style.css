@@ -536,7 +536,9 @@ ul.navbar-nav li.open ul.nav-tabs li a {
     list-style: none;
     line-height: 30px;
 }
-
+.lolo{
+	width: 40%;
+}
 .footer-bottom ul li {
     display: inline;
     line-height: 20px;
