@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Events;
 use App\Models\Menus;
 use App\Models\Sous_menus;
+use Illuminate\Http\Request;
 
 class DetailEventController extends Controller
 {
@@ -42,16 +43,37 @@ class DetailEventController extends Controller
         return view('events.list')->with(array('menu_event' => $menu_id, 'menus' => $menus, 'sousmenus' => $sousmenus));
     }
 
-    public function listEventSousMenu($sous_menu_name, $sous_menu)
+    public function listEventSousMenu(Request $req, $sous_menu_name, $sous_menu)
     {
         if (Sous_menus::find($sous_menu) == null) {
             return redirect(url('errors/' . md5('event-detail') . '/' . md5('500')));
+        }
+        $debut = 0;
+        $end = 8;
+        $page = 0;
+        if ($req->input('page') != null) {
+            $page = $req->input('page');
+        }
+        if ($page <= 0) {
+            $debut = 0;
+            $end = 8;
+            $page = 0;
+        } else {
+            $end = $end * $page;
+            $debut = ($end - 8) + 1;
+//            echo 'page : ' . $req->input('page') . ' debut : ' . $debut . ' end : ' . $end;
         }
         $sous_menu_id = Sous_menus::find($sous_menu);
         $menus = Menus::orderBy('id', 'desc')->get();
         $sousmenus = Sous_menus::orderBy('name', 'asc')->get();
         $date_now = date('Y-m-d H:i:s');
-        $events = Events::where('sous_menus_id', '=', $sous_menu)->where('publie', '=', '1')->where('date_debut_envent', '>', $date_now)->get();
-        return view('events.list1')->with(array('sous_menu_event' => $sous_menu_id, 'menus' => $menus, 'sousmenus' => $sousmenus, 'events' => $events));
+        $events = Events::where('sous_menus_id', '=', $sous_menu)
+            ->where('publie', '=', '1')
+            ->where('date_debut_envent', '>', $date_now)
+            ->offset($debut)
+            ->limit($end)
+            ->get();
+        return view('events.list1')->with(array('sous_menu_event' => $sous_menu_id, 'menus' => $menus,
+            'sousmenus' => $sousmenus, 'events' => $events, 'page' => $page));
     }
 }

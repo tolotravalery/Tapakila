@@ -157,7 +157,7 @@
                                                         @if($ticket->number > 0)
                                                             <td class="unlock"><i class="fa fa-unlock fa-2x"
                                                                                   aria-hidden="true"></i>
-                                                                <p id="tickets{{$count_id_price}}">{{$ticket->number}}</p>
+                                                                <p id="tickets{{$d}}{{$count_id_price}}">{{$ticket->number}}</p>
                                                                 tickets
                                                             </td>
                                                         @else
@@ -492,7 +492,7 @@
                             var prixUnit1 = $('#prix{{$u}}{{$i}}').html() * newVal;
                             console.log(prixUnit1);
                             newticket[{{$i}}] -= 1;
-                            $('#tickets{{$i}}').html(newticket[{{$i}}]);
+                            $('#tickets{{$u}}{{$i}}').html(newticket[{{$i}}]);
                             $('#prixUnit{{$u}}{{$i}}').html(0 + prixUnit1);
 
                             btn.closest('.number-spinner{{$u}}{{$i}}').find('input').val(newVal);
@@ -523,7 +523,7 @@
                             var prixUnit1 = $('#prix{{$u}}{{$i}}').html() * newVal;
                             newticket[{{$i}}] += 1;
                             $('#prixUnit{{$u}}{{$i}}').html(0 + prixUnit1);
-                            $('#tickets{{$i}}').html(newticket[{{$i}}]);
+                            $('#tickets{{$u}}{{$i}}').html(newticket[{{$i}}]);
                             $('#btn-up{{$u}}{{$i}}').removeAttr('disabled');
                             $('.clock{{$i}}').removeClass('fa-lock');
                             $('.clock{{$i}}').addClass('fa-unlock');
