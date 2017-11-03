@@ -301,7 +301,7 @@
                                     <!-- organisateur end -->
 
 
-                                    <input type="hidden" name="message" value="Ajout évenement réussie">
+
                                     <p style="text-align: right;margin: 15px;"><span style="color: #FF0000;">*</span><i> Champs olbligatoires</i></p>
                                     <div class="Confirme">
                                         <button type="submit" class="btn btn-default enregistrer " id="enregister">
