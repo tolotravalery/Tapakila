@@ -100,10 +100,16 @@ width: 45%!important;
 		background-color: white;
 		padding-left: 16px;
 		padding-right: 16px;
-		margin-top: 41px;
+		margin-top: 4px;
 		padding-top: 28px;
 		padding-bottom: 36px;
 	}
+	.nav-tabs3>li>a {
+    margin-right: -13px;
+    line-height: 1.42857143;
+    border: 1px solid transparent;
+    border-radius: 4px 4px 0 0;
+}
 	.Confirme {
 		padding: 17px 30px;
 		background-color: #f5f5f5;
@@ -406,6 +412,9 @@ font-size: 14px;
 padding-left: 0 !important;
 padding-left: 9px !important;
 font-size: 14px;
+}
+.nav-tabs3 {
+    font-size: 12px;
 }
 }
 
@@ -757,6 +766,13 @@ background-color: #d70506 !important;
 border: none !important;
 color: white !important;
 margin-right: 0px !important;
+}
+.nav-tabs3 {
+
+    font-size: 12px;
+}
+.foot{
+	font-size:11px;
 }
 .replik >ul>li {
 display: inline-block;
@@ -1190,10 +1206,21 @@ clear: both;
 	.sec {
 		margin-top: 22px;
 		padding-right: 2px;
+		    margin-left: -41px !important;
 	}
 	.lo{
 		width:40%;
 	}
+	.creat ul> li > a {
+    position: relative;
+    display: block;
+    padding: 10px 7px;
+    list-style: none;
+    text-decoration: none;
+    list-style-type: none;
+    color: #727171;
+    font-size: 13px;
+}
 }
 
 /* iPad 3 (landscape) ----------- */
@@ -1216,6 +1243,9 @@ clear: both;
 
 /* iPhone 4 (landscape) ----------- */
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+	.nav-tabs3{
+    font-size: 11px;
+}
 .panel-default > .panel-heading a {
 padding: 0px 0 23px 15px !important;
 }

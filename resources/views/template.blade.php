@@ -67,7 +67,7 @@
                 </ul>
 				
                 <div class="row">
-                    <div class="col-md-5">
+                    <div class="col-md-5 lolo">
                         <div id="custom-search-input">
 							<form action="{{url('/')}}/find/q" method="get" class="input-group searchbox">
 								<input type="text" class="form-control input-lg" name="query"
@@ -106,11 +106,9 @@
                             {{ trans('profile.editAccountTitle') }}-->
 								</li>--}}
 								<li>
-									<a href="{{url('/home')}}">Profile</a>
+									<a href="{{url('/home')}}">Mon compte</a>
 								</li>
-                            @role('organisateur')
-                            <li><a href="{{url('/')}}/organisateur/event">Events</a></li>
-                            @endrole
+
                             <li>
                                 <a href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
@@ -163,7 +161,7 @@
                         Antananarivo<br>
                         Madagascar<br>
                         +33 12 901432<br>
-                        <a href="mailto:contact@Leguichet.mg">contact@Leguichet.mg</a>
+                        <a href="mailto:contact@Leguichet.mg" class="foot">contact@Leguichet.mg</a>
                     </p>
                 </div>
                 <div class="col-sm-3 col-xs-6">

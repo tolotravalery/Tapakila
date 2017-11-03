@@ -1,12 +1,12 @@
-@extends('layouts.app')
+{{--@extends('layouts.app')
 
 @section('template_title')
     Welcome {{ Auth::user()->name }}
 @endsection
 
 @section('head')
-@endsection
-
+@endsection--}}
+@extends("template")
 @section('content')
 
     <section id="sectioncategorie" class="clearfix">
@@ -39,11 +39,11 @@
             {{--<div class="page-menu row">
                 <div class="row">
 
-                    <div class="col-lg-9 col-sm-9 col-lg-push-3 col-sm-push-3 fi">
+                    <div class="col-lg-9 col-sm-8 col-lg-push-3 col-sm-push-3 fi">
                         <h1>Créer un évènement</h1>
                     </div>
 					
-                     <div class="col-lg-3 col-sm-3 col-lg-pull-9 col-sm-pull-9 sec">
+                     <div class="col-lg-3 col-sm-4 col-lg-pull-9 col-sm-pull-9 sec">
                         <div class="btn-group margin-bottom-5">
                             <div class="btn-group" role="group">
                                 <button type="button" class="btn btn-sm nonpublier dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -63,10 +63,10 @@
             </div>--}}
 
             <div class="page-menu row">
-                <div class="col-lg-9 col-sm-9 col-lg-push-3 col-sm-push-3 fi">
+                <div class="col-lg-9 col-sm-8 col-lg-push-3 col-sm-push-4 fi">
                     <h1>Créer un évènement</h1>
                 </div>
-                <div class="col-lg-3 col-sm-3 col-lg-pull-9 col-sm-pull-9 sec">
+                <div class="col-lg-3 col-sm-4 col-lg-pull-9 col-sm-pull-8 sec">
                     <div class="btn-group margin-bottom-5">
                         <div class="btn-group" role="group">
                             <div class="form-group full">
@@ -125,12 +125,12 @@
                                             <input type="text" name="title" id="titre" class="form-control" required>
                                         </div>
 
-                                        <div class="form-group">
+                                        <div class="form-group ">
                                             <label class="control-label ">
                                                 <span>Catégories : </span><span class="champ_required"> *</span>
                                             </label>
-                                            <div class="form-group"
-                                                 style="margin-left: 0px!important;margin-right: 0px!important;">
+                                            <div class="form-group "
+                                                 style="margin-left: 0px!important;margin-right: 0px!important; margin-bottom: -1px !important;">
                                                 <select class="form-control" name="sousmenu">
                                                     <option>--------choisir-----------</option>
                                                     @foreach($sousmenus as $sousmenu)
@@ -161,7 +161,7 @@
                                         </span>
                                         </div>
 
-                                        <div class="form-group form-group-translation et">
+                                        <div class="form-group form-group-translation et" style="margin-top:12px !important;">
                                             <label class="control-label">
                                                 <span>Description : </span>
                                             </label>
@@ -178,9 +178,9 @@
                                     <div class="panel-body border-bottom">
                                         <h2>Heures</h2>
                                         <div class="row" id="event-duration">
-                                            <div class="col-md-6">
+                                            <div class="col-lg-6 col-md-12">
                                                 <div class="row">
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-6 col-sm-6">
                                                         <div class="form-group">
                                                             <label class="control-label required">Début de
                                                                 l'évènement</label><span
@@ -193,14 +193,9 @@
                                                             </div>
 
                                                         </div>
-                                                        <p style="color:red;" id="message_after_comparaison">La date fin
-                                                            de l' évenement doit être supérieure à la date debut</p>
-                                                        <p style="color:red;" id="message_after_comparaison_date_now">La
-                                                            date début ou fin de l' évènement doit être supérieure à la
-                                                            date actuelle</p>
 
                                                     </div>
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-6 col-sm-6">
                                                         <div class="input-group clockpicker">
                                                         <span class="input-group-addon">
 															<span class="glyphicon glyphicon-time"></span>
@@ -216,9 +211,9 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-6">
+                                            <div class="col-lg-6 col-md-12">
                                                 <div class="row">
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-6 col-sm-6">
                                                         <div class="form-group">
                                                             <label class="control-label required">Fin de
                                                                 l'évènement</label><span
@@ -233,7 +228,7 @@
 
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-6 col-sm-6">
                                                         <div class="input-group clockpicker">
                                                         <span class="input-group-addon">
 															<span class="glyphicon glyphicon-time"></span>
@@ -247,7 +242,14 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="form-group form-group-translation et" id="message_comp">
+                                            <p style="color:red;" id="message_after_comparaison">La date fin
+                                                de l' évenement doit être supérieure à la date debut</p>
+                                            <p style="color:red;" id="message_after_comparaison_date_now">La
+                                                date début ou fin de l' évènement doit être supérieure à la
+                                                date actuelle</p>
 
+                                        </div>
                                         <div class="form-group form-group-translation et">
                                             <label class="control-label">
                                                 <span>Notes additionnel sur l'heure</span>
@@ -265,13 +267,13 @@
                                         <h2>Localisation :</h2>
                                         <form>
                                             <div class="form-group">
-                                                <label for="email">Nom:</label><span class="champ_required"> *</span>
+                                                <label for="email">Nom :</label><span class="champ_required"> *</span>
                                                 <input type="Adresse" class="form-control" id="email"
                                                        name="localisation_nom" required>
                                                 <p>E.X : Antananarivo</p>
                                             </div>
                                             <div class="form-group">
-                                                <label for="adresses">Adresse:</label>
+                                                <label for="adresses">Adresse :</label>
                                                 <input type="Adresse" class="form-control" id="adress"
                                                        name="localisation_adresse">
                                                 <em>Entrer l'adresse exact pour l'affichage des directions sur la
@@ -300,6 +302,7 @@
 
 
                                     <input type="hidden" name="message" value="Ajout évenement réussie">
+                                    <p style="text-align: right;margin: 15px;"><span style="color: #FF0000;">*</span><i> Champs olbligatoires</i></p>
                                     <div class="Confirme">
                                         <button type="submit" class="btn btn-default enregistrer " id="enregister">
                                             Enregistrer
@@ -365,7 +368,7 @@
 
                         <div id="rapport" class="com_contenu">
                             <h2>Rapports</h2>
-                            <ul class="nav nav-tabs nav-tabs1">
+                            <ul class="nav nav-tabs nav-tabs3">
                                 <li class="active ">
                                     <a href="#1" data-toggle="tab">Aperçu</a>
                                 </li>
@@ -1595,7 +1598,7 @@
     </section>
 @endsection
 
-@section('footer_scripts')
+@section('specificScript')
     <script type="text/javascript">
         $('#enregister').click(function () {
             console.log("click");
@@ -1634,6 +1637,7 @@
             });
             $('#message_after_comparaison').hide();
             $('#message_after_comparaison_date_now').hide();
+            $('#message_comp').hide();
         });
 
     </script>

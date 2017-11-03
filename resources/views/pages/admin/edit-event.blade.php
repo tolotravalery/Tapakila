@@ -62,7 +62,7 @@
                     <input type="hidden" name="id" value="{{$event->id}}">
                     <div class="form-group has-feedback row {{ $errors->has('name') ? ' has-error ' : '' }}">
                        {{-- {!! Form::label('title', 'Title *', array('class' => 'col-md-3 control-label')) !!}--}}
-                       <label class="col-md-3 control-label">Title (*)</label>
+                        <label class="col-md-3 control-label">Title <span style="color: red">*</span></label>
                         <div class="col-md-9">
                             <div class="input-group">
                                 {!! Form::text('title', $event->title, array('id' => 'title', 'class' => 'form-control', 'placeholder' => 'category title')) !!}
@@ -70,7 +70,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        {!! Form::label('name', 'Menus (*)', array('class' => 'col-md-3 control-label')) !!}
+                        <label class="col-md-3 control-label">Menus <span style="color: red">*</span></label>
                         <div class="col-md-9">
                             <select class="form-control" name="sousmenu">
                                 <option value="{{$event->sous_menus->id}}">Sous-menu actuel
@@ -81,8 +81,40 @@
                             </select>
                         </div>
                     </div>
+                    <div class="form-group has-feedback row {{ $errors->has('name') ? ' has-error ' : '' }}">
+                        {{-- {!! Form::label('title', 'Title *', array('class' => 'col-md-3 control-label')) !!}--}}
+                        <label class="col-md-3 control-label">Image</label>
+                        <div class="col-md-9">
+                            <div class="input-group">
+                                <img src="{{url('/')}}/public/img/{{$event->image}}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group has-feedback row {{ $errors->has('name') ? ' has-error ' : '' }}">
+                        {{-- {!! Form::label('title', 'Title *', array('class' => 'col-md-3 control-label')) !!}--}}
+                        <label class="col-md-3 control-label"></label>
+                        <div class="col-md-9">
+                            <div class="input-group">
+                                {!! Form::file('image') !!}
+                            </div>
+                        </div>
+                    </div>
                     <div class="form-group">
-                        <label class="col-md-3 control-label">Date début</label>
+                        <label class="col-md-3 control-label"></label>
+                        <div class="col-md-9">
+                            <div class="input-group date">
+                                <p style="color:red;" id="message_after_comparaison">La date fin
+                                    de l' évenement doit être supérieure à la date debut</p>
+                                <p style="color:red;" id="message_after_comparaison_date_now">La
+                                    date début ou fin de l' évènement doit être supérieure à la
+                                    date actuelle</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+
+                        <label class="col-md-3 control-label">Date début <span style="color: red">*</span></label>
                         <div class="col-md-9">
                             <div class="input-group date">
                                 <div class="input-group-addon">
@@ -101,7 +133,7 @@
                                     <i class="fa fa-clock-o"></i>
                                 </div>
                                 {{--<input type="text" class="form-control timepicker">--}}
-                                <input type="text" name="heure_debut" value="{{\Carbon\Carbon::parse($event->date_debut_envent)->format('h:i')}}" class="form-control" data-inputmask="&quot;mask&quot;: &quot;99:99&quot;" data-mask  >
+                                <input type="text" id="heured" name="heure_debut" value="{{\Carbon\Carbon::parse($event->date_debut_envent)->format('h:i')}}" class="form-control" data-inputmask="&quot;mask&quot;: &quot;99:99&quot;" data-mask  >
 
                             </div>
                         </div>
@@ -109,7 +141,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="col-md-3 control-label">Date fin</label>
+
+                        <label class="col-md-3 control-label">Date fin <span style="color: red">*</span></label>
                         <div class="col-md-9">
                             <div class="input-group date">
                                 <div class="input-group-addon">
@@ -128,7 +161,7 @@
                                     <i class="fa fa-clock-o"></i>
                                 </div>
                                 {{--<input type="text" class="form-control timepicker">--}}
-                                <input type="text" name="heure_fin" class="form-control" value="{{\Carbon\Carbon::parse($event->date_fin_event)->format('h:i')}}" data-inputmask="&quot;mask&quot;: &quot;99:99&quot;" data-mask  >
+                                <input type="text" id="heuref" name="heure_fin" class="form-control" value="{{\Carbon\Carbon::parse($event->date_fin_event)->format('h:i')}}" data-inputmask="&quot;mask&quot;: &quot;99:99&quot;" data-mask  >
 
                             </div>
                         </div>
@@ -136,7 +169,7 @@
                     </div>
 
                     <div class="form-group has-feedback row {{ $errors->has('name') ? ' has-error ' : '' }}">
-                        {!! Form::label('title', 'Description (*)', array('class' => 'col-md-3 control-label')) !!}
+                        <label class="col-md-3 control-label">Description <span style="color: red">*</span></label>
                         <div class="col-md-9">
                             <div class="input-group">
                                 {!! Form::textarea('description', $event->additional_note, array('id' => 'title', 'class' => 'form-control')) !!}
@@ -144,7 +177,7 @@
                         </div>
                     </div>
                     <div class="form-group has-feedback row {{ $errors->has('name') ? ' has-error ' : '' }}">
-                        {!! Form::label('title', 'Localisation nom (*)', array('class' => 'col-md-3 control-label')) !!}
+                        <label class="col-md-3 control-label">Localisation nom <span style="color: red">*</span></label>
                         <div class="col-md-9">
                             <div class="input-group">
                                 {!! Form::text('localisation_nom', $event->localisation_nom, array('id' => 'title', 'class' => 'form-control')) !!}
@@ -171,11 +204,27 @@
                         {!! Form::label('title', 'Publié organisateur', array('class' => 'col-md-3 control-label')) !!}
                         <div class="col-md-9">
                             <div class="input-group">
-                                {!! Form::textarea('additional_note', $event->additional_note, array('id' => 'title', 'class' => 'form-control')) !!}
+                                @if($event->publie_organisateur == true)
+                                    <td><input type="checkbox" name="publie_organisateur" checked></td>
+                                @else
+                                    <td><input type="checkbox"   name="publie_organisateur"></td>
+                                @endif
                             </div>
                         </div>
                     </div>
-                    {!! Form::button('Update', array('class' => 'btn btn-success btn-flat margin-bottom-1 pull-right','type' => 'submit', )) !!}
+                    <div class="form-group has-feedback row {{ $errors->has('name') ? ' has-error ' : '' }}">
+                        {!! Form::label('title', 'Activé', array('class' => 'col-md-3 control-label')) !!}
+                        <div class="col-md-9">
+                            <div class="input-group">
+                                @if($event->publie == true)
+                                    <td><input type="checkbox" name="publie"  checked></td>
+                                @else
+                                    <td><input type="checkbox"  name="publie"></td>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                    {!! Form::button('Update', array('id'=>'enregister','class' => 'btn btn-success btn-flat margin-bottom-1 pull-right','type' => 'submit', )) !!}
 
 
                     {!! Form::close() !!}
@@ -185,6 +234,41 @@
     </div>
 @endsection
 @section('specificScript')
+    <script>
+        $(document).ready(function () {
+            $('#message_after_comparaison').hide();
+            $('#message_after_comparaison_date_now').hide();
+        });
+
+    </script>
+    <script type="text/javascript">
+        $('#enregister').click(function () {
+            console.log("click");
+            var datedebut = $('#datepicker').val();
+            var datefin = $('#datepicker1').val();
+
+            var arrdd = datedebut.split("/");
+            datedebut = arrdd[2] + "-" + arrdd[1] + "-" + arrdd[0];
+            var arrdf = datefin.split("/");
+            datefin = arrdf[2] + "-" + arrdf[1] + "-" + arrdf[0];
+            //console.log(datedebut+" "+$('#heured').val());
+            var dd = new Date(datedebut + " " + $('#heured').val());
+            var df = new Date(datefin + " " + $('#heuref').val());
+            var now = new Date();
+            console.log(now+"/////"+dd+"/////"+df);
+            if (dd < now || df < now) {
+                $('#message_after_comparaison_date_now').show();
+                //alert("La date fin de l' évenement doit être supérieure à la date debut");
+                return false;
+            }
+            if (df <= dd) {
+                $('#message_after_comparaison').show();
+                //alert("La date fin de l' évenement doit être supérieure à la date debut");
+                return false;
+            }
+
+        });
+    </script>
     <script src="{{url('/')}}/public/js/select2.full.min.js"></script>
     <script src="{{url('/')}}/public/js/jquery.inputmask.js"></script>
     <script src="{{url('/')}}/public/js/jquery.inputmask.date.extensions.js"></script>
