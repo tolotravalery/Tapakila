@@ -10,7 +10,7 @@
                         Antananarivo<br>
                         Madagascar<br>
                         +33 12 901432<br>
-                        <a href="mailto:contact@tapakila.mg">contact@leguichet.mg</a>
+                        <a href="mailto:contact@tapakila.mg" class="foot">contact@leguichet.mg</a>
                     </p>
                 </div>
                 <div class="col-sm-3 col-xs-6">
