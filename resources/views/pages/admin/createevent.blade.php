@@ -39,11 +39,11 @@
             {{--<div class="page-menu row">
                 <div class="row">
 
-                    <div class="col-lg-9 col-sm-9 col-lg-push-3 col-sm-push-3 fi">
+                    <div class="col-lg-9 col-sm-8 col-lg-push-3 col-sm-push-3 fi">
                         <h1>Créer un évènement</h1>
                     </div>
 					
-                     <div class="col-lg-3 col-sm-3 col-lg-pull-9 col-sm-pull-9 sec">
+                     <div class="col-lg-3 col-sm-4 col-lg-pull-9 col-sm-pull-9 sec">
                         <div class="btn-group margin-bottom-5">
                             <div class="btn-group" role="group">
                                 <button type="button" class="btn btn-sm nonpublier dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -64,10 +64,10 @@
 
 
             <div class="page-menu row">
-                <div class="col-lg-9 col-sm-9 col-lg-push-3 col-sm-push-3 fi">
+                <div class="col-lg-9 col-sm-8 col-lg-push-3 col-sm-push-4 fi">
                     <h1>Créer un évènement</h1>
                 </div>
-                <div class="col-lg-3 col-sm-3 col-lg-pull-9 col-sm-pull-9 sec">
+                <div class="col-lg-3 col-sm-4 col-lg-pull-9 col-sm-pull-8 sec">
                     <div class="btn-group margin-bottom-5">
                         <div class="btn-group" role="group">
                             <div class="form-group full">
@@ -367,7 +367,7 @@
 
                         <div id="rapport" class="com_contenu">
                             <h2>Rapports</h2>
-                            <ul class="nav nav-tabs nav-tabs1">
+                            <ul class="nav nav-tabs nav-tabs3">
                                 <li class="active ">
                                     <a href="#1" data-toggle="tab">Aperçu</a>
                                 </li>

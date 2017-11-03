@@ -100,10 +100,16 @@ width: 45%!important;
 		background-color: white;
 		padding-left: 16px;
 		padding-right: 16px;
-		margin-top: 41px;
+		margin-top: 4px;
 		padding-top: 28px;
 		padding-bottom: 36px;
 	}
+	.nav-tabs3>li>a {
+    margin-right: -10px;
+    line-height: 1.42857143;
+    border: 1px solid transparent;
+    border-radius: 4px 4px 0 0;
+}
 	.Confirme {
 		padding: 17px 30px;
 		background-color: #f5f5f5;
@@ -1190,6 +1196,7 @@ clear: both;
 	.sec {
 		margin-top: 22px;
 		padding-right: 2px;
+		    margin-left: -41px !important;
 	}
 	.lo{
 		width:40%;
