@@ -7,6 +7,7 @@ use App\Models\Tapakila;
 use App\Models\Ticket;
 use Faker\Provider\DateTime;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
 
 class TicketController extends Controller
@@ -81,5 +82,15 @@ class TicketController extends Controller
             ]);
         }
         return redirect(url('organisateur/event/' . $event_id . '/edit'));
+    }
+
+    public function delete($id, $event_id)
+    {
+        $event = Events::findOrFail($event_id);
+        if ($event->id == Auth::user()->id) {
+            $ticket = Ticket::findOrFail($id);
+            $ticket->delete();
+        }
+        return redirect(url('organisateur/event/' . $event->id . '/edit'));
     }
 }
