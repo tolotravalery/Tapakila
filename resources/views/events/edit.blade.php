@@ -902,8 +902,8 @@
                                                             <h2>
                                                                 <div class="btn-group pull-right">
                                                                     <button type="button" class="btn btn-default">
-                                                        <span class="glyphicon glyphicon-edit"
-                                                              aria-hidden="true"></span>
+                                                                        <span class="glyphicon glyphicon-edit"
+                                                                              aria-hidden="true"></span>
                                                                         Edit
                                                                     </button>
                                                                     <button type="button"
@@ -911,8 +911,15 @@
                                                                             data-toggle="dropdown" aria-haspopup="true"
                                                                             aria-expanded="false">
                                                                         <span class="caret"></span>
-                                                                        <span class="sr-only">Effacer</span>
+                                                                        <span class="sr-only">Toggle Dropdown</span>
                                                                     </button>
+                                                                    <ul class="dropdown-menu menu_type">
+                                                                        <li>
+                                                                            <a href="{{url('organisateur/event/ticket/delete/'.$ticket->id.'/'.$event->id)}}"><span
+                                                                                        class="glyphicon glyphicon-trash"
+                                                                                        aria-hidden="true"></span>
+                                                                                Effacer</a></li>
+                                                                    </ul>
                                                                 </div>
                                                             </h2>
                                                         </div>
@@ -1279,15 +1286,16 @@
                         <div class="com_contenu_type2">
                             <h2>Champs personnalisés par participant</h2>
                             {!! Form::open(['id' => 'question-form', 'route' => 'question','role' => 'question', 'method' => 'POST'] ) !!}
-                                <input type="text" name="question" class="btn btn-primary btn-outline text-center center-block primary"><br/>
-                                @if(isset($event))
-                                    {!! Form::hidden('events_id', Crypt::encryptString($event->id), ['class' => 'form-control']) !!}
-                                @endif
-                                <button type="submit"
-                                        class="btn btn-primary btn-outline text-center center-block primary">
-                                    <i aria-hidden="true "></i> <span class="glyphicon glyphicon-plus "
-                                                                      aria-hidden="true "></span> Ajouter
-                                </button>
+                            <input type="text" name="question"
+                                   class="btn btn-primary btn-outline text-center center-block primary"><br/>
+                            @if(isset($event))
+                                {!! Form::hidden('events_id', Crypt::encryptString($event->id), ['class' => 'form-control']) !!}
+                            @endif
+                            <button type="submit"
+                                    class="btn btn-primary btn-outline text-center center-block primary">
+                                <i aria-hidden="true "></i> <span class="glyphicon glyphicon-plus "
+                                                                  aria-hidden="true "></span> Ajouter
+                            </button>
                             {!! Form::close() !!}
                         </div>
 

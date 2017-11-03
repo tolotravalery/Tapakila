@@ -109,9 +109,10 @@ class EventController extends Controller
     {
         $event = Events::findOrFail($id);
         $alert = Alert::where('vu', '=', '0')->get();
-        $sousmenus=Sous_menus::all();
+        $sousmenus = Sous_menus::all();
         return view('pages.admin.edit-event', compact('event', 'sousmenus', 'alert'));
     }
+
     public function edit($id)
     {
         $user = User::find(Auth::user()->id);
@@ -126,6 +127,7 @@ class EventController extends Controller
         }
         return view('events.edit', compact('event', 'menus', 'sousmenus'));
     }
+
     public function update_website(Request $request)
     {
         $ev = Events::find(Crypt::decryptString($request->input('id')));
@@ -195,6 +197,7 @@ class EventController extends Controller
 
         return redirect(url('organisateur/event/' . $event->id . '/edit'))->with(compact('message'));;
     }
+
     public function updateadmin(Request $request)
     {
         $event = Events::find($request->input('id'));
@@ -209,6 +212,7 @@ class EventController extends Controller
         $event->save();
         return redirect(url('admin/listevent'));
     }
+
     public function update(Request $request)
     {
         $code = Crypt::decryptString($request->input('id'));
@@ -257,13 +261,13 @@ class EventController extends Controller
         $event->save();
         return redirect(url('organisateur/event/' . $event->id . '/edit'));
     }
-  
+
     public function destroy($id)
     {
         $event = Events::find($id);
         $event->delete();
 
-        $events=Events::all();
+        $events = Events::all();
         $alert = Alert::where('vu', '=', '0')->get();
         /*return view('pages.admin.listeevent1', compact('events', 'alert'));*/
         return redirect(url('admin/listevent'));

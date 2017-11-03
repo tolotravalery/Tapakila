@@ -120,7 +120,7 @@
 							<td class="td_detail"></td>
 							<td class="td_detail"></td>
 							<td class="quiz"><strong>Quel est votre âge?</strong></td>
-							<td><input type="texte" class="form-control placeholder="votre reponse" class="quiz"></td>
+							<td><input type="texte" class="form-control" placeholder="votre reponse" class="quiz"></td>
 						</tr>
 
                         </tbody>

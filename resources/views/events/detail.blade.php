@@ -543,10 +543,5 @@
             </script>
         @endfor
     @endfor
-    <script>
-        function reset() {
-            {{--window.location = '{{url}}'--}}
-        }
-    </script>
     <script type="text/javascript" src="{{ url('/') }}/public/js/share.js"></script>
 @endsection
