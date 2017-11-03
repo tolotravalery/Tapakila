@@ -38,6 +38,15 @@
             <div class="page-menu row">
                 <div class="col-lg-9 col-sm-9 col-lg-push-3 col-sm-push-3 fi">
                     <h1>Modifier votre évènement</h1>
+                    @if (session('message'))
+                        <div class="container">
+                            <div style="">
+                                <div class="alert alert-success col-md-7" style="text-align: left;">
+                                    <p><i>{{ session('message') }}</i></p>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
                 </div>
                 <div class="col-lg-3 col-sm-3 col-lg-pull-9 col-sm-pull-9 sec">
                     <div class="btn-group margin-bottom-5">

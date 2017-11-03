@@ -192,7 +192,7 @@ class EventController extends Controller
             'vu' => 0
         ]);
 
-        $message = $request->input('message');
+        $message = "Ajout évenement réussie";
         session()->flash('message', $message);
 
         return redirect(url('organisateur/event/' . $event->id . '/edit'))->with(compact('message'));;
@@ -243,10 +243,12 @@ class EventController extends Controller
         }
         $event->publie_organisateur = $value;
         $event->publie = $value1;
-
-
         $event->save();
-        return redirect(url('admin/listevent'));
+
+        $message = "Opération réussie";
+        session()->flash('message', $message);
+
+        return redirect(url('admin/listevent'))->with(compact('message'));;
     }
 
     public function update(Request $request)
@@ -286,7 +288,10 @@ class EventController extends Controller
         $event->siteweb = $titre;
         $event->additional_note_time = $request->input('note_time');
         $event->save();
-        return redirect(url('organisateur/event/' . $event->id . '/edit'));
+        $message = "Opération réussie";
+        session()->flash('message', $message);
+
+        return redirect(url('organisateur/event/' . $event->id . '/edit'))->with(compact('message'));;
     }
 
     public function question_secret(Request $req)
