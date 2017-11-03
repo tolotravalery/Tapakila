@@ -39,24 +39,6 @@
                 <div class="col-lg-9 col-sm-9 col-lg-push-3 col-sm-push-3 fi">
                     <h1>Modifier votre évènement</h1>
                 </div>
-                {{--<div class="col-lg-3 col-sm-3 col-lg-pull-9 col-sm-pull-9 sec">
-                    <div class="btn-group margin-bottom-5">
-                        <div class="btn-group" role="group">
-                            <select class="form-control" id="publie" name="publie">
-                                @if($event->publie_organisateur == true)
-                                    <option value="false">Non publié</option>
-                                    <option value="true" selected="selected">Publié</option>
-                                @else
-                                    <option value="false" selected="selected">Non publié</option>
-                                    <option value="true">Publié</option>
-                                @endif
-                            </select>
-                        </div>
-                    </div>
-                    <a class="btn btn-sm btn-default btn-aperçu " href="#" target="_blank">Aperçu</a>
-                    <p><i style="color:red;">La modification d'une publication évènement est accordé par
-                            l'administrateur</i></p>
-                </div>--}}
                 <div class="col-lg-3 col-sm-3 col-lg-pull-9 col-sm-pull-9 sec">
                     <div class="btn-group margin-bottom-5">
                         <div class="btn-group" role="group">
@@ -177,7 +159,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label ">
-                                            <span>Catégories : </span><span class="champ_required"> *</span>
+                                            <span>Catégories : </span> <span class="champ_required"> *</span>
                                         </label>
                                         <div class="form-group"
                                              style="margin-left: 0px!important;margin-right: 0px!important;">
@@ -947,47 +929,7 @@
                                             le type de ticket
                                         </a>
                                     </div>
-                                    <div class="com_contenu_type">
-                                        <h2>Événement complet</h2>
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <label>
-                                                    Nombre maximum de billets</label>
-                                                <div class="input-group group"><input type="number" name="ticket_limit"
-                                                                                      value="15"
-                                                                                      id="ticket_limit"
-                                                                                      class="form-control"
-                                                                                      placeholder="∞"
-                                                                                      min="0">
-                                                    <span class="input-group-addon">tickets</span></div>
-                                                <p>Nombre maximum de billets pour l'ensemble de l'événement. Vous pouvez
-                                                    également définir les
-                                                    limites par type de ticket.</p>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <label>Taxe sur la valeur ajoutée</label>
-                                                <form>
-                                                    <label class="radio-inline">
-                                                        <input type="radio" name="optradio">20%
-                                                    </label>
-                                                    <label class="radio-inline">
-                                                        <input type="radio" name="optradio">21%
-                                                    </label>
-                                                    <label class="radio-inline">
-                                                        <input type="radio" name="optradio">0%
-                                                    </label>
-                                                </form>
 
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-
-                                    <div class="com_contenu_type_foot">
-                                        <button type="button" class="btn btn-danger bout">Enregistrer</button>
-
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1449,10 +1391,10 @@
 
                                 {{ csrf_field() }}
                                 <div class="form-group">
-                                    <label for="usr">Nom du type de ticket:*</label>
+                                    <label for="usr">Nom de ticket: <span style="color:red">*</span></label>
                                     {!! Form::text('type', null, ['class' => 'form-control', 'id' => 'ticket_type', 'required', 'autofocus']) !!}
                                     <span class="help-block">
-					                    Par exemple. "Ticket régulier", "Early Bird", "Student"
+                                        <i>Par exemple. "Ticket régulier", "Early Bird", "Student"</i>
                                     </span>
 
                                 </div>
@@ -1460,19 +1402,22 @@
                                     <label for="usr">La description</label>
                                     <input type="text" name="description" class="form-control"/>
                                     <span class="help-block">
-					                    Par exemple. "Vendu jusqu'au 23 juin" ou "Préparez-vous à montrer votre carte étudiante"
+                                        <i>Par exemple : "Préparez-vous à montrer votre carte étudiante"</i>
 					                </span>
                                 </div>
                                 <div class="form-group">
-                                    <label>Prix unitaire du ticket</label>
+                                    <label>Prix unitaire du ticket <span style="color:red">*</span></label>
+                                    <span class="help-block">
+                                        <i>Prix en nombre (sans espace)</i>
+                                    </span>
                                     <div class="input-group group">
                                         {!! Form::number('price', null, ['class' => 'form-control', 'id' => 'ticket_price','placeholder'=>'','step'=>'1','required', 'autofocus']) !!}
                                         <span class="input-group-addon">AR</span>
                                     </div>
                                     <span class="help-block">
-                                        Prix ​​de l'utilisateur final par billet incluant <a
-                                                href="index.html" target="_blank" class="aa">Frais leguichet</a> Et
-                                        TVA, le cas échéant
+                                        <i>Prix ​​de l'utilisateur final par billet incluant <a
+                                                    href="index.html" target="_blank" class="aa">Frais leguichet</a> Et
+                                            TVA, le cas échéant</i>
                                     </span>
                                 </div>
                                 <div class="form-group">
@@ -1484,16 +1429,19 @@
                                         $i++;
                                     @endphp
                                     @if($i > 1)
-                                        <label>Date du ticket</label>
+                                        <label>Date du ticket <span style="color:red">*</span></label>
+                                        <span class="help-block">
+                                            <i>Votre évènement a @php echo $i @endphp jours. Vous
+                                                devriez entrer la date de ce ticket et créer à nouveau un ticket pour les autres dates</i>
+                                        </span>
                                         {!! Form::text('date',\Carbon\Carbon::parse($event->date_debut_envent)->format('Y-m-d') , ['class' => 'form-control', 'id' => 'date','placeholder'=>'','required', 'autofocus']) !!}
                                         <span class="help-block">
-                                            Votre évènement a @php echo $i @endphp jours. Vous
-                                            devriez entrer la date de ce ticket et créer à nouveau un ticket pour les autres dates<br/>
-                                            Ou simplement:
+                                            <i>Ou simplement:</i>
                                         </span>
-                                        <input type="checkbox" name="isValable"/>Ce ticket est valable dans tous les
-                                        jours de
-                                        l'évènement.
+                                        <input type="checkbox" name="isValable"/>
+                                        <i>Ce ticket est valable dans tous les
+                                            jours de
+                                            l'évènement.</i>
                                     @else
                                         {!! Form::hidden('date', \Carbon\Carbon::parse($event->date_debut_envent)->format('Y-m-d'), ['class' => 'form-control', 'id' => 'date','placeholder'=>'','required', 'autofocus']) !!}
                                     @endif
@@ -1506,7 +1454,7 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <label>
-                                        Nombre maximum de billets
+                                        Nombre de billets <span style="color:red">*</span>
                                     </label>
                                     <div class="input-group group chiffre1">
                                         {!! Form::number('number', null, ['class' => 'form-control', 'id' => 'ticket_number', 'min' => '0','required', 'autofocus']) !!}
@@ -1516,12 +1464,11 @@
                                 <div class="col-lg-6">
                                 </div>
                             </div>
-                            <p class="help-block">Le nombre maximum de tickets pour l'événement entier est défini sur
-                                "15".</p>
-                            <p class="help-block">Ici, vous pouvez définir une limite supplémentaire pour ce type de
-                                ticket uniquement. Il sera caché à partir de la page d'achat une fois épuisé</p>
                             <br/>
-                            <label>Disponible entre les dates, y compris:</label>
+                            <label>Disponible entre les dates, y compris <span style="color:red">*</span> :</label>
+                            <span class="help-block">
+                                <i>Date debut et date fin vente de ce ticket</i>
+                            </span>
                             <div class="row" id="event-duration">
                                 <div class="row">
                                     <div class="col-md-6">
@@ -1546,41 +1493,13 @@
                                     </div>
                                 </div>
                             </div>
-                            <p class="help-block">Toute la vente de billets d'événement commence "Quand je publie
-                                cet événement" et finit "Seulement lorsque tous les billets ont été vendus"</p>
-                            <p class="help-block">Ici, vous pouvez définir une limite supplémentaire pour ce type de
-                                ticket uniquement.</p>
-                            <br/>
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <label for="usr">Code de réduction</label>
-                                        <input type="text" class="form-control" id="usr">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <label>Prix ​​discount</label>
-                                    <div class="input-group group chiffre">
-                                        <input type="number" name="ticket_limit"
-                                               id="ticket_limit" class="form-control" placeholder=""
-                                               min="0" step="0.01">
-                                        <span class="input-group-addon">AR</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="usr">Prix ​​discount</label>
-                                <input type="text" class="form-control" id="usr">
-                            </div>
-                            <label>Commande manuelle</label>
-                            <div class="checkbox">
-                                <label><input type="checkbox" value="">Ce type de billet est temporairement non
-                                    vendu</label>
+                            <div class="pull-right">
+                                <i><span style="color: red;">*</span> Champs obligatoires</i>
                             </div>
                         </div>
                         <div class="com_contenu_type_foot">
-                            <button type="submit" class="btn btn-danger bout"
-                            {{--onClick="changePage('div_type', 'a_type')--}}">Enregistrer
+
+                            <button type="submit" class="btn btn-danger bout">Enregistrer
                             </button>
                             <button type="button" class="btn btn-danger bout1"
                                     onClick="changePage('div_type', 'a_type')">Annuler
@@ -1590,16 +1509,11 @@
                     @if(isset($event))
                         {!! Form::hidden('events_id', $event->id, ['class' => 'form-control']) !!}
                     @endif
-
                     {!! Form::close() !!}
                 </div>
                 <!----------------------------------création ticket-end------------------------------------->
-
                 <!---------------------------ticket-end--------------------------------------------------------------------------------------->
-
-
             </div>
-
         </div>
         </div>
         <!-- End Page -->
@@ -1668,7 +1582,6 @@
     </script>
     <script>
         function changePage(id, aId) {
-            console.log('fghhgfhgfhg');
             document.getElementById("div_details").className = "hide";
             document.getElementById("div_commandes").className = "hide";
             document.getElementById("div_rapport").className = "hide";

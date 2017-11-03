@@ -62,7 +62,6 @@
                 </div>
             </div>--}}
 
-
             <div class="page-menu row">
                 <div class="col-lg-9 col-sm-8 col-lg-push-3 col-sm-push-4 fi">
                     <h1>Créer un évènement</h1>
@@ -86,7 +85,6 @@
             <!-- detail end -->
             <div class="row">
                 <div class="col-lg-3 col-sm-3 creat">
-
                     <ul class="navtab">
                         <li class="categorimenu"><strong>Achats</strong></li>
                         <li><a id="a_rapport" onClick="changePage('div_rapport', 'a_rapport')">Rapports</a></li>
@@ -96,15 +94,15 @@
                         <li class="categorimenu"><strong>Editer</strong></li>
                         <li><a id="a_details" class="select"
                                onClick="changePage('div_details', 'a_details')">Détails</a></li>
-                        <li><a id="a_type" onClick="changePage('div_type', 'a_type')">Types de Ticket &amp; prix</a>
+                        <li><a id="a_type" disabled="disable">Types de Ticket &amp; prix</a>
                         </li>
-                        <li><a id="a_siteweb" onClick="changePage('div_siteweb', 'a_siteweb')">Apparence du site</a>
+                        <li><a id="a_siteweb">Apparence du site</a>
                         </li>
-                        <li><a id="a_pdf" onClick="changePage('div_pdf', 'a_pdf')">PDF</a></li>
-                        <li><a id="a_cpersonalize" onClick="changePage('div_cpersonalize', 'a_cpersonalize')">Champs
+                        <li><a id="a_pdf">PDF</a></li>
+                        <li><a id="a_cpersonalize">Champs
                                 additioneles</a></li>
                         <li class="categorimenu"><strong>Paramètre</strong></li>
-                        <li><a id="a_paiement" onClick="changePage('div_paiement', 'a_paiement')">Méthodes de
+                        <li><a id="a_paiement">Méthodes de
                                 payements</a></li>
                     </ul>
                 </div>
