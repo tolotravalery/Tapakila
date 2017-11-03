@@ -127,12 +127,12 @@
                                             <input type="text" name="title" id="titre" class="form-control" required>
                                         </div>
 
-                                        <div class="form-group">
+                                        <div class="form-group ">
                                             <label class="control-label ">
                                                 <span>Catégories : </span>
                                             </label>
-                                            <div class="form-group"
-                                                 style="margin-left: 0px!important;margin-right: 0px!important;">
+                                            <div class="form-group "
+                                                 style="margin-left: 0px!important;margin-right: 0px!important; margin-bottom: -1px !important;">
                                                 <select class="form-control" name="sousmenu">
                                                     <option>--------choisir-----------</option>
                                                     @foreach($sousmenus as $sousmenu)
@@ -163,7 +163,7 @@
                                         </span>
                                         </div>
 
-                                        <div class="form-group form-group-translation et">
+                                        <div class="form-group form-group-translation et" style="margin-top:12px !important;">
                                             <label class="control-label">
                                                 <span>Description : </span>
                                             </label>
