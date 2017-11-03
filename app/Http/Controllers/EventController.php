@@ -200,12 +200,48 @@ class EventController extends Controller
         $event = Events::find($request->input('id'));
         $event->title = $request->input('title');
         $event->sous_menus_id = $request->input('sousmenu');
-        $event->date_debut_envent = new \DateTime($request->input('date_debut') . " " . $request->input('heure_debut'));
-        $event->date_fin_event = new \DateTime($request->input('date_fin') . " " . $request->input('heure_fin'));
+        //dd($request->input('date_debut') . " " . $request->input('heure_debut'));
+        $dated=explode('/',$request->input('date_debut'));
+        $datede=$dated[1]."/".$dated[0]."/".$dated[2];
+
+        $datef=explode('/',$request->input('date_fin'));
+        $datefi=$datef[1]."/".$datef[0]."/".$datef[2];
+
+        $event->date_debut_envent = new \DateTime( $datede. " " . $request->input('heure_debut'));
+        //dd($event->date_debut_envent);
+        $event->date_fin_event = new \DateTime( $datefi . " " . $request->input('heure_fin'));
         $event->additional_note = $request->input('description');
         $event->localisation_nom = $request->input('localisation_nom');
         $event->localisation_adresse = $request->input('localisation_adresse');
         $event->additional_note_time = $request->input('additional_note');
+        $tmp=$request->input('publie_organisateur');
+        $tmp1=$request->input('publie');
+        $value=true;
+        $value1=true;
+        if(!empty($tmp)){
+            $value=true;
+        }
+        else{
+            $value=false;
+        }
+        if(!empty($tmp1)){
+            $value1=true;
+        }
+        else{
+            $value1=false;
+        }
+        $image = $request->file('image');
+        if ($image != null) {
+            $filename = $image->getClientOriginalExtension();
+            $input['image'] = time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('/img');
+            $image->move($destinationPath, $input['image']);
+            $event->image = $input['image'];
+        }
+        $event->publie_organisateur = $value;
+        $event->publie = $value1;
+
+
         $event->save();
         return redirect(url('admin/listevent'));
     }
