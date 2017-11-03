@@ -88,7 +88,11 @@
                     </div>
                     <hr class="sep">
                     <div class="resum">
-					 <table class="tabl-content">
+                        <p><b>Adresse e-mail de livraison des tickets :</b> &nbsp {{Auth::user()->email}}</p>
+                        <p><b>Méthode de payment :</b></p>
+						<br>
+						<br>
+						<table class="tabl-content">
 						<thead>
 							<tr>
 								<th scope="col" class="th_panier "><b class="bold">Evènement</b></th>
@@ -129,11 +133,6 @@
                         @endforeach
                         </tbody>
                     </table>
-					<br>
-					<br>
-					<br>
-                        <p><b>Adresse e-mail de livraison des tickets :</b> &nbsp {{Auth::user()->email}}</p>
-                        <p><b>Méthode de payment :</b></p>
                     </div>
 
                     <div class="modepaimenent">
