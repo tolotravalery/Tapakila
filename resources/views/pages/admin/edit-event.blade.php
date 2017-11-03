@@ -213,7 +213,7 @@
                         </div>
                     </div>
                     <div class="form-group has-feedback row {{ $errors->has('name') ? ' has-error ' : '' }}">
-                        {!! Form::label('title', 'Publié admin', array('class' => 'col-md-3 control-label')) !!}
+                        {!! Form::label('title', 'Activé', array('class' => 'col-md-3 control-label')) !!}
                         <div class="col-md-9">
                             <div class="input-group">
                                 @if($event->publie == true)
