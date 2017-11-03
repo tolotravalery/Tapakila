@@ -182,7 +182,7 @@
                                         <div class="row" id="event-duration">
                                             <div class="col-lg-6 col-md-12">
                                                 <div class="row">
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-6 col-sm-6">
                                                         <div class="form-group">
                                                             <label class="control-label required">Début de
                                                                 l'évènement</label><span
@@ -197,7 +197,7 @@
                                                         </div>
 
                                                     </div>
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-6 col-sm-6">
                                                         <div class="input-group clockpicker">
                                                         <span class="input-group-addon">
 															<span class="glyphicon glyphicon-time"></span>
@@ -215,7 +215,7 @@
 
                                             <div class="col-lg-6 col-md-12">
                                                 <div class="row">
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-6 col-sm-6">
                                                         <div class="form-group">
                                                             <label class="control-label required">Fin de
                                                                 l'évènement</label><span
@@ -230,7 +230,7 @@
 
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-6 col-sm-6">
                                                         <div class="input-group clockpicker">
                                                         <span class="input-group-addon">
 															<span class="glyphicon glyphicon-time"></span>
