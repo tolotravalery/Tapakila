@@ -106,11 +106,9 @@
                             {{ trans('profile.editAccountTitle') }}-->
 								</li>--}}
 								<li>
-									<a href="{{url('/home')}}">Profile</a>
+									<a href="{{url('/home')}}">Mon compte</a>
 								</li>
-                            @role('organisateur')
-                            <li><a href="{{url('/')}}/organisateur/event">Events</a></li>
-                            @endrole
+
                             <li>
                                 <a href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
