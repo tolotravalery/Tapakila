@@ -97,12 +97,13 @@
                                 <tbody>
                                 @php
                                     $j=0;
+                                    $u=1;
                                 @endphp
                                 @foreach($events as $ev)
                                     <tr>
                                         {{-- {{ Form::open(array('url' => 'admin/updatePublie') ) }}--}}
                                         <input type="hidden" name="id" value="{{$ev->id}}">
-                                        <td>{{$ev->id}}</td>
+                                        <td>{{$u}}</td>
                                         <td>{{$ev->title}} </td>
                                         <td class="hidden-sm hidden-xs hidden-md">{{$ev->sous_menus->name}}</td>
                                         <td class="hidden-sm hidden-xs hidden-md">{{$ev->date_debut_envent}}</td>
@@ -164,6 +165,7 @@
                                         </td>
                                         @php
                                             $j++;
+                                            $u++;
                                         @endphp
                                         {{--{{ Form::close() }}--}}
                                     </tr>
