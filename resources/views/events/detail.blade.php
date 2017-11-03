@@ -389,8 +389,11 @@
                                         </h3>
                                     </div>
                                     <div class="limite">
-                                        <a href="{{url('event/show',[$ev->id])}}"><p
-                                                    style="text-align: justify">{{ str_limit(ucfirst($ev->additional_note), $limit = 100, $end = ' ...') }}</p>
+                                        <a href="{{url('event/show',[$ev->id])}}">
+                                            <?php  if ($ev->additional_note == null) {
+                                                echo "<br/>";
+                                            }?>
+                                            <p style="text-align: justify">{{ str_limit(ucfirst($ev->additional_note), $limit = 100, $end = ' ...') }}</p>
                                         </a><br/>
                                     </div>
                                     <div class="row cbg">

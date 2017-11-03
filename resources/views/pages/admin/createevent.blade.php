@@ -1,12 +1,12 @@
-@extends('layouts.app')
+{{--@extends('layouts.app')
 
 @section('template_title')
     Welcome {{ Auth::user()->name }}
 @endsection
 
 @section('head')
-@endsection
-
+@endsection--}}
+@extends("template")
 @section('content')
 
     <section id="sectioncategorie" class="clearfix">
@@ -129,7 +129,7 @@
 
                                         <div class="form-group">
                                             <label class="control-label ">
-                                                <span>Catégories : </span>
+                                                <span>Catégories : </span><span class="champ_required"> *</span>
                                             </label>
                                             <div class="form-group"
                                                  style="margin-left: 0px!important;margin-right: 0px!important;">
@@ -195,11 +195,6 @@
                                                             </div>
 
                                                         </div>
-                                                        <p style="color:red;" id="message_after_comparaison">La date fin
-                                                            de l' évenement doit être supérieure à la date debut</p>
-                                                        <p style="color:red;" id="message_after_comparaison_date_now">La
-                                                            date début ou fin de l' évènement doit être supérieure à la
-                                                            date actuelle</p>
 
                                                     </div>
                                                     <div class="col-md-6">
@@ -249,7 +244,14 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="form-group form-group-translation et" id="message_comp">
+                                            <p style="color:red;" id="message_after_comparaison">La date fin
+                                                de l' évenement doit être supérieure à la date debut</p>
+                                            <p style="color:red;" id="message_after_comparaison_date_now">La
+                                                date début ou fin de l' évènement doit être supérieure à la
+                                                date actuelle</p>
 
+                                        </div>
                                         <div class="form-group form-group-translation et">
                                             <label class="control-label">
                                                 <span>Notes additionnel sur l'heure</span>
@@ -267,13 +269,13 @@
                                         <h2>Localisation :</h2>
                                         <form>
                                             <div class="form-group">
-                                                <label for="email">Nom:</label><span class="champ_required"> *</span>
+                                                <label for="email">Nom :</label><span class="champ_required"> *</span>
                                                 <input type="Adresse" class="form-control" id="email"
                                                        name="localisation_nom" required>
                                                 <p>E.X : Antananarivo</p>
                                             </div>
                                             <div class="form-group">
-                                                <label for="adresses">Adresse:</label>
+                                                <label for="adresses">Adresse :</label>
                                                 <input type="Adresse" class="form-control" id="adress"
                                                        name="localisation_adresse">
                                                 <em>Entrer l'adresse exact pour l'affichage des directions sur la
@@ -302,6 +304,7 @@
 
 
                                     <input type="hidden" name="message" value="Ajout évenement réussie">
+                                    <p style="text-align: right;margin: 15px;"><span style="color: #FF0000;">*</span><i> Champs olbligatoires</i></p>
                                     <div class="Confirme">
                                         <button type="submit" class="btn btn-default enregistrer " id="enregister">
                                             Enregistrer
@@ -1597,7 +1600,7 @@
     </section>
 @endsection
 
-@section('footer_scripts')
+@section('specificScript')
     <script type="text/javascript">
         $('#enregister').click(function () {
             console.log("click");
@@ -1636,6 +1639,7 @@
             });
             $('#message_after_comparaison').hide();
             $('#message_after_comparaison_date_now').hide();
+            $('#message_comp').hide();
         });
 
     </script>

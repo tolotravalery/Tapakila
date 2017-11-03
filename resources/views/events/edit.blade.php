@@ -1,12 +1,12 @@
-@extends('layouts.app')
+{{--@extends('layouts.app')
 
 @section('template_title')
     Welcome {{ Auth::user()->name }}
 @endsection
 
 @section('head')
-@endsection
-
+@endsection--}}
+@extends("template")
 @section('content')
     <section id="sectioncategorie" class="clearfix">
         <div class="container custom-container">
@@ -177,7 +177,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label ">
-                                            <span>Catégories : </span>
+                                            <span>Catégories : </span><span class="champ_required"> *</span>
                                         </label>
                                         <div class="form-group"
                                              style="margin-left: 0px!important;margin-right: 0px!important;">
@@ -209,7 +209,7 @@
                                                         <div class="input-group">
                                                             <div class="input-group-addon">
                                                                 <i class="fa fa-calendar"></i></div>
-                                                            <input class="form-control" id="date" name="date_debut"
+                                                            <input class="form-control" id="dated" name="date_debut"
                                                                    value="{{\Carbon\Carbon::parse($event->date_debut_envent)->format('Y-m-d')}}"
                                                                    type="text"/>
                                                         </div>
@@ -222,7 +222,7 @@
 															</span>
                                                         <input type="text" class="form-control"
                                                                value="{{\Carbon\Carbon::parse($event->date_debut_envent)->format('h:i:s')}}"
-                                                               name="heure_debut">
+                                                               name="heure_debut" id="heured">
                                                     </div>
                                                 </div>
                                             </div>
@@ -236,7 +236,7 @@
                                                         <div class="input-group">
                                                             <div class="input-group-addon">
                                                                 <i class="fa fa-calendar"></i></div>
-                                                            <input class="form-control" id="date" name="date_fin"
+                                                            <input class="form-control" id="datef" name="date_fin"
                                                                    value="{{ \Carbon\Carbon::parse($event->date_fin_event)->format('Y-m-d')}}"
                                                                    type="text"/>
                                                         </div>
@@ -249,14 +249,22 @@
 															</span>
                                                         <input type="text" class="form-control"
                                                                value="{{ \Carbon\Carbon::parse($event->date_fin_event)->format('h:i:s')}}"
-                                                               name="heure_fin">
+                                                               name="heure_fin" id="heuref">
 
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
 
+                                    </div>
+                                    <div class="form-group form-group-translation et" id="message_comp">
+                                        <p style="color:red;" id="message_after_comparaison">La date fin
+                                            de l' évenement doit être supérieure à la date debut</p>
+                                        <p style="color:red;" id="message_after_comparaison_date_now">La
+                                            date début ou fin de l' évènement doit être supérieure à la
+                                            date actuelle</p>
+
+                                    </div>
                                     <div class="form-group form-group-translation et">
                                         <label class="control-label">
                                             <span>Notes additionnel sur l'heure</span>
@@ -266,6 +274,8 @@
 
                                     </div>
                                 </div>
+
+
                                 <!-- heure end-->
                                 <hr class="separe">
                                 <!-- location start -->
@@ -280,7 +290,7 @@
                                             <p>E.X : Antananarivo</p>
                                         </div>
                                         <div class="form-group">
-                                            <label for="adresses">Adresse:</label>
+                                            <label for="adresses">Adresse :</label>
                                             <input type="Adresse" class="form-control" id="adress"
                                                    name="localisation_adresse" value="{{$event->localisation_adresse}}">
                                             <em>Entrer l'adresse exact pour l'affichage des directions sur la carte</em>
@@ -303,9 +313,9 @@
                                     </div>
                                 </div>
                                 <!-- organisateur end -->
-                                <p style="text-align: right;margin: 15px;"><i>(*) Champs olbligatoires</i></p>
+                                <p style="text-align: right;margin: 15px;"><span style="color:#FF0000;">*</span><i> Champs olbligatoires</i></p>
                                 <div class="Confirme">
-                                    <button type="submit" class="btn btn-default enregistrer ">Enregistrer</button>
+                                    <button id= "enregister" type="submit" class="btn btn-default enregistrer ">Enregistrer</button>
                                 </div>
 
                             </div>
@@ -1596,7 +1606,38 @@
     </section>
 @endsection
 
-@section('footer_scripts')
+@section('specificScript')
+    <script type="text/javascript">
+        $('#enregister').click(function () {
+
+            var datedebut = $('#dated').val();
+            var datefin = $('#datef').val();
+
+            var arrdd = datedebut.split("-");
+            datedebut = arrdd[1] + "-" + arrdd[2] + "-" + arrdd[0];
+            var arrdf = datefin.split("-");
+            datefin = arrdf[1] + "-" + arrdf[2] + "-" + arrdf[0];
+            console.log(datedebut+" "+$('#heured').val());
+            console.log(datefin+" "+$('#heuref').val());
+            var dd = new Date(datedebut + " " + $('#heured').val());
+            var df = new Date(datefin + " " + $('#heuref').val());
+            var now = new Date();
+            console.log(dd+df);
+            if (dd < now || df < now) {
+                $('#message_comp').show();
+                $('#message_after_comparaison_date_now').show();
+                //alert("La date fin de l' évenement doit être supérieure à la date debut");
+                return false;
+            }
+            if (df <= dd) {
+                $('#message_comp').show();
+                $('#message_after_comparaison').show();
+                //alert("La date fin de l' évenement doit être supérieure à la date debut");
+                return false;
+            }
+
+        });
+    </script>
     <script>
         $(document).ready(function () {
 
@@ -1605,10 +1646,10 @@
                 /* var huhu= $('#publie').val( valeur );
                  console.log(huhu);*/
                 var huhu = $('#publie').val(valeur);
-                //console.log(huhu);
-
             });
-
+            $('#message_after_comparaison').hide();
+            $('#message_after_comparaison_date_now').hide();
+            $('#message_comp').hide();
         });
 
     </script>
@@ -1661,7 +1702,7 @@
     <script>
 
         $(document).ready(function () {
-            var date_input = $('input[id="date"]'); //our date input has the name "date"
+            var date_input = $('input[id="dated"]'); //our date input has the name "date"
             var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
             date_input.datepicker({
                 format: 'yyyy-mm-dd',
@@ -1669,7 +1710,17 @@
                 todayHighlight: true,
                 autoclose: true,
             });
+
+            var date_input1 = $('input[id="datef"]'); //our date input has the name "date"
+            var container1 = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
+            date_input1.datepicker({
+                format: 'yyyy-mm-dd',
+                container: container,
+                todayHighlight: true,
+                autoclose: true,
+            });
         })
+
     </script>
 
     <script type="text/javascript">
