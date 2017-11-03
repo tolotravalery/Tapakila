@@ -180,7 +180,7 @@
                                     <div class="panel-body border-bottom">
                                         <h2>Heures</h2>
                                         <div class="row" id="event-duration">
-                                            <div class="col-md-6">
+                                            <div class="col-lg-6 col-md-12">
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
@@ -218,7 +218,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-6">
+                                            <div class="col-lg-6 col-md-12">
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
