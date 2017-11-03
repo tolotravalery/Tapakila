@@ -104,6 +104,9 @@ width: 45%!important;
 		padding-top: 28px;
 		padding-bottom: 36px;
 	}
+	.main{
+	padding-top: 12px !important;
+}
 	.nav-tabs3>li>a {
     margin-right: -13px;
     line-height: 1.42857143;
@@ -213,6 +216,9 @@ display: block;
 float: none;
 width: 100%;
 }
+.main{
+	padding-top: 12px !important;
+}
 #sectioncategorie li a {
 border-bottom: 1px solid #576979;
 margin-left: 20px;
@@ -259,6 +265,9 @@ font-weight: 700 !important;
 }
 .tably {
 border: 0;
+}
+.main{
+	padding-top: 12px !important;
 }
 .jer {
 margin-top: 12px;
@@ -350,6 +359,9 @@ text-align: center;
 margin-top: 13px;
 font-size: 18px;
 }
+.main{
+	padding-top: 12px !important;
+}
 .tabl-content {
 border: 0;
 }
@@ -404,6 +416,9 @@ margin: 0 0 30px 0;
 @media only screen and (max-width: 320px) {
 .panel-default > .panel-heading a {
     padding: 0px 0 20px 18px !important;
+}
+.main{
+	padding-top: 12px !important;
 }
 .panel-default > .panel-heading a {
 font-size: 14px;
@@ -547,6 +562,12 @@ text-align: center;
 }
 #custom-white .alert-success {
 text-align: center;
+}
+.main{
+	padding-top: 17px !important;
+}
+.et {
+    margin-top: 21px;
 }
 .tabs0 li a {
 display: inline-block;
@@ -773,6 +794,9 @@ margin-right: 0px !important;
 }
 .foot{
 	font-size:11px;
+}
+.main{
+	padding-top: 12px !important;
 }
 .replik >ul>li {
 display: inline-block;
