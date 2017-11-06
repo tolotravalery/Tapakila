@@ -183,7 +183,7 @@
                                             <div class="col-lg-6 col-md-12">
                                                 <div class="row">
                                                     <div class="col-md-6 col-sm-6">
-                                                        <div class="form-group">
+                                                        <div class="form-group inp">
                                                             <label class="control-label required">Début de
                                                                 l'évènement</label><span
                                                                     class="champ_required"> *</span>
@@ -221,7 +221,7 @@
                                             <div class="col-lg-6 col-md-12">
                                                 <div class="row main">
                                                     <div class="col-md-6 col-sm-6">
-                                                        <div class="form-group">
+                                                        <div class="form-group inp">
                                                             <label class="control-label required">Fin de
                                                                 l'évènement</label><span
                                                                     class="champ_required"> *</span>
