@@ -29,117 +29,134 @@
         </div>
     </section>
     <section>
-        <div class="container custom-container">
-            <div id="achat-content">
-                <h2 class="titlebuy">Votre Commande</h2>
-                <div class="spacing"></div>
-                <div class="custom-pg">
-                    <table class="tabl-content">
-						<thead>
-							<tr>
-								<th scope="col" class="th_panier "><b class="bold">Evènement</b></th>
-								<th scope="col"><b class="bold">Tickets</b></th>
-								<th scope="col"><b class="bold">Quantité</b></th>
-								<th scope="col"><b class="bold">Prix</b></th>
-							</tr>
-						</thead>
-
-                        <tbody>
-                        @foreach (Cart::content() as $item)
-                            @php
-                                $ticket = \App\Models\Ticket::findOrFail($item->id);
-                                $event = $ticket->events()->take(1)->get()[0];
-                            @endphp
+        <form action="{{url('/shopping/checkout/save')}}" method="POST">
+            <div class="container custom-container">
+                <div id="achat-content">
+                    <h2 class="titlebuy">Votre Commande</h2>
+                    <div class="spacing"></div>
+                    <div class="custom-pg">
+                        <table class="tabl-content">
+                            <thead>
                             <tr>
-                                <td data-label="">
-                                    <div class="row">
-                                        <div class=" col-xs-12 ">
+                                <th scope="col" class="th_panier "><b class="bold">Evènement</b></th>
+                                <th scope="col"><b class="bold">Tickets</b></th>
+                                <th scope="col"><b class="bold">Quantité</b></th>
+                                <th scope="col"><b class="bold">Prix</b></th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            @foreach (Cart::content() as $item)
+                                @foreach($data as $d)
+                                    @php
+                                        $ticket = \App\Models\Ticket::findOrFail($item->id);
+                                        $event = $ticket->events()->take(1)->get()[0];
+                                        $reponse = "";
+                                        if($d['ev'] == $event->id)
+                                            $reponse = $d['ans'];
+                                        else
+                                            $reponse = "";
+                                    @endphp
+                                    <tr>
+                                        <td data-label="">
                                             <div class="row">
-                                                <div class="col-lg-7 ">
-                                                    <div class="thumbnail imgpaiment">
-                                                        <a href="{{url('event/show',[$event->id])}}">
-                                                            <img src="{{url('/public/img/'.$event->image)}}"  class="image_panier">
-                                                        </a>
+                                                <div class=" col-xs-12 ">
+                                                    <div class="row">
+                                                        <div class="col-lg-7 ">
+                                                            <div class="thumbnail imgpaiment">
+                                                                <a href="{{url('event/show',[$event->id])}}">
+                                                                    <img src="{{url('/public/img/'.$event->image)}}"
+                                                                         class="image_panier">
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-5 ">
+                                                            <p class="sor">
+                                                                <b>{{str_limit($event->title,$limit=20,$end=' ...')}}</b>
+                                                            </p>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-5 ">
-                                                    <p class="sor">
-                                                        <b>{{str_limit($event->title,$limit=20,$end=' ...')}}</b></p>
-                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td data-label="Tickets">{{$ticket->type}}</td>
-                                <td data-label="Quantité">{{$item->qty}}</td>
-                                <td data-label="Prix">{{ $ticket->price *  $item->qty}}</td>
-                            </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
-
-                    <div class="row">
-                        <div class="col-md-8 col-md-offset-5 Fraisservice ">
-                            <p><b class="tright">Frais de service :</b>0 AR </p>
-                            <p><b class="t2right">Somme Total à payer : </b>
-                                <label class="TT">{{ Cart::instance('default')->subtotal() }} AR</label>
-                            </p>
-                        </div>
-                    </div>
-                    <hr class="sep">
-                    <div class="resum">
-					 <table class="tabl-content">
-						<thead>
-							<tr>
-								<th scope="col" class="th_panier "><b class="bold">Evènement</b></th>
-								<th scope="col"><b class="bold">Question</b></th>
-								<th scope="col"><b class="bold">Réponse</b></th>
-							</tr>
-						</thead>
-
-                        <tbody>
-                        @foreach (Cart::content() as $item)
-                            @php
-                                $ticket = \App\Models\Ticket::findOrFail($item->id);
-                                $event = $ticket->events()->take(1)->get()[0];
-                            @endphp
-                            <tr>
-                                <td data-label="">
-                                    <div class="row">
-                                        <div class=" col-xs-12 ">
-                                            <div class="row">
-                                                <div class="col-lg-7 ">
-                                                    <div class="thumbnail imgpaiment">
-                                                        <a href="{{url('event/show',[$event->id])}}">
-                                                            <img src="{{url('/public/img/'.$event->image)}}"  class="image_panier">
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-5 ">
-                                                    <p class="sor">
-                                                        <b>{{str_limit($event->title,$limit=20,$end=' ...')}}</b></p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td data-label="Tickets">Quels est votre âge?</td>
-                                <td data-label="Quantité">35 ans </td>
-                            </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
-					<br>
-					<br>
-					<br>
-                        <p><b>Adresse e-mail de livraison des tickets :</b> &nbsp {{Auth::user()->email}}</p>
-                        <p><b>Méthode de payment :</b></p>
-                    </div>
-
-                    <div class="modepaimenent">
+                                        </td>
+                                        <input type="hidden" name="answer[]" value="{{$reponse}}">
+                                        <input type="hidden" name="event[]" value="{{$event->id}}">
+                                        <td data-label="Tickets">{{$ticket->type}}</td>
+                                        <td data-label="Quantité">{{$item->qty}}</td>
+                                        <td data-label="Prix">{{ $ticket->price *  $item->qty}}</td>
+                                    </tr>
+                                @endforeach
+                            @endforeach
+                            </tbody>
+                        </table>
 
                         <div class="row">
-                            <form action="{{url('/shopping/checkout/save')}}" method="POST">
+                            <div class="col-md-8 col-md-offset-5 Fraisservice ">
+                                <p><b class="tright">Frais de service :</b>0 AR </p>
+                                <p><b class="t2right">Somme Total à payer : </b>
+                                    <label class="TT">{{ Cart::instance('default')->subtotal() }} AR</label>
+                                </p>
+                            </div>
+                        </div>
+                        <hr class="sep">
+                        <div class="resum">
+                            <table class="tabl-content">
+                                <thead>
+                                <tr>
+                                    <th scope="col" class="th_panier "><b class="bold">Evènement</b></th>
+                                    <th scope="col"><b class="bold">Question</b></th>
+                                    <th scope="col"><b class="bold">Réponse</b></th>
+                                </tr>
+                                </thead>
+
+                                <tbody>
+                                @foreach (Cart::content() as $item)
+                                    @foreach($data as $d)
+                                        @php
+                                            $ticket = \App\Models\Ticket::findOrFail($item->id);
+                                            $event = $ticket->events()->take(1)->get()[0];
+                                        @endphp
+                                        @if($d['ev'] == $event->id)
+                                            <tr>
+                                                <td data-label="">
+                                                    <div class="row">
+                                                        <div class=" col-xs-12 ">
+                                                            <div class="row">
+                                                                <div class="col-lg-7 ">
+                                                                    <div class="thumbnail imgpaiment">
+                                                                        <a href="{{url('event/show',[$event->id])}}">
+                                                                            <img src="{{url('/public/img/'.$event->image)}}"
+                                                                                 class="image_panier">
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-5 ">
+                                                                    <p class="sor">
+                                                                        <b>{{str_limit($event->title,$limit=20,$end=' ...')}}</b>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td data-label="Tickets">{{$event->question_secret}}</td>
+                                                <td data-label="Quantité">{{$d['ans']}}</td>
+                                            </tr>
+                                        @endif
+                                    @endforeach
+                                @endforeach
+                                </tbody>
+                            </table>
+                            <br>
+                            <br>
+                            <br>
+                            <p><b>Adresse e-mail de livraison des tickets :</b> &nbsp {{Auth::user()->email}}</p>
+                            <p><b>Méthode de payment :</b></p>
+                        </div>
+
+                        <div class="modepaimenent">
+
+                            <div class="row">
                                 {{ csrf_field() }}
                                 <div id="ticket-radio2">
                                     <div class="btn-group" data-toggle="buttons">
@@ -207,14 +224,14 @@
                                         </div>
                                     </div>
                                 </div>
-                            </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </form>
     </section>
-	
+
 @endsection
 @section('specificScript')
 

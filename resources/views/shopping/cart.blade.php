@@ -143,7 +143,7 @@
                                 </div>
 
                                 <div class="col-md-6 col-xs-12">
-                                    <button type="button" class="btn bt_panier" onclick="window.location.href='{{url('shopping/checkout')}}';">Commander</button>{{--<a href="{{url('shopping/checkout')}}" class="btn btn-success caisse">Commander</a>--}}
+                                    <button type="button" class="btn bt_panier" onclick="window.location.href='{{url('shopping/quiz')}}';">Commander</button>{{--<a href="{{url('shopping/checkout')}}" class="btn btn-success caisse">Commander</a>--}}
                                 </div>
                             </div>
                         </div>

@@ -208,11 +208,6 @@
                                                 <td class="td_detail"></td>
                                                 <td class="td_detail"></td>
                                                 <td class="td_detail"></td>
-                                                @if($event->question_secret!=null)
-                                                    <td class="quiz"><strong>{{$event->question_secret}}</strong></td>
-                                                    <td><input type="texte" class="form-control"
-                                                               placeholder="votre reponse" class="quiz"></td>
-                                                @endif
                                             </tr>
                                             <tr>
                                                 <td></td>
