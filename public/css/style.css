@@ -2692,7 +2692,9 @@ padding-bottom: 35px;
     color: red !important;
 }
 
-
+}
+#event-duration .form-group{
+	padding-bottom:-20px !important;
 }
 
 /* panier end */

@@ -1,12 +1,12 @@
-{{--@extends('layouts.app')
+@extends('layouts.app')
 
 @section('template_title')
     Welcome {{ Auth::user()->name }}
 @endsection
 
 @section('head')
-@endsection--}}
-@extends("template")
+@endsection
+
 @section('content')
 
     <section id="sectioncategorie" class="clearfix">
@@ -62,6 +62,7 @@
                 </div>
             </div>--}}
 
+
             <div class="page-menu row">
                 <div class="col-lg-9 col-sm-8 col-lg-push-3 col-sm-push-4 fi">
                     <h1>Créer un évènement</h1>
@@ -85,6 +86,7 @@
             <!-- detail end -->
             <div class="row">
                 <div class="col-lg-3 col-sm-3 creat">
+
                     <ul class="navtab">
                         <li class="categorimenu"><strong>Achats</strong></li>
                         <li><a id="a_rapport" onClick="changePage('div_rapport', 'a_rapport')">Rapports</a></li>
@@ -94,15 +96,15 @@
                         <li class="categorimenu"><strong>Editer</strong></li>
                         <li><a id="a_details" class="select"
                                onClick="changePage('div_details', 'a_details')">Détails</a></li>
-                        <li><a id="a_type" disabled="disable">Types de Ticket &amp; prix</a>
+                        <li><a id="a_type" onClick="changePage('div_type', 'a_type')">Types de Ticket &amp; prix</a>
                         </li>
-                        <li><a id="a_siteweb">Apparence du site</a>
+                        <li><a id="a_siteweb" onClick="changePage('div_siteweb', 'a_siteweb')">Apparence du site</a>
                         </li>
-                        <li><a id="a_pdf">PDF</a></li>
-                        <li><a id="a_cpersonalize">Champs
+                        <li><a id="a_pdf" onClick="changePage('div_pdf', 'a_pdf')">PDF</a></li>
+                        <li><a id="a_cpersonalize" onClick="changePage('div_cpersonalize', 'a_cpersonalize')">Champs
                                 additioneles</a></li>
                         <li class="categorimenu"><strong>Paramètre</strong></li>
-                        <li><a id="a_paiement">Méthodes de
+                        <li><a id="a_paiement" onClick="changePage('div_paiement', 'a_paiement')">Méthodes de
                                 payements</a></li>
                     </ul>
                 </div>
@@ -127,7 +129,7 @@
 
                                         <div class="form-group ">
                                             <label class="control-label ">
-                                                <span>Catégories : </span><span class="champ_required"> *</span>
+                                                <span>Catégories : </span>
                                             </label>
                                             <div class="form-group "
                                                  style="margin-left: 0px!important;margin-right: 0px!important; margin-bottom: -1px !important;">
@@ -181,7 +183,7 @@
                                             <div class="col-lg-6 col-md-12">
                                                 <div class="row">
                                                     <div class="col-md-6 col-sm-6">
-                                                        <div class="form-group">
+                                                        <div class="form-group inp">
                                                             <label class="control-label required">Début de
                                                                 l'évènement</label><span
                                                                     class="champ_required"> *</span>
@@ -193,6 +195,11 @@
                                                             </div>
 
                                                         </div>
+                                                        <p style="color:red;" id="message_after_comparaison">La date fin
+                                                            de l' évenement doit être supérieure à la date debut</p>
+                                                        <p style="color:red;" id="message_after_comparaison_date_now">La
+                                                            date début ou fin de l' évènement doit être supérieure à la
+                                                            date actuelle</p>
 
                                                     </div>
                                                     <div class="col-md-6 col-sm-6">
@@ -214,7 +221,7 @@
                                             <div class="col-lg-6 col-md-12">
                                                 <div class="row main">
                                                     <div class="col-md-6 col-sm-6">
-                                                        <div class="form-group">
+                                                        <div class="form-group inp">
                                                             <label class="control-label required">Fin de
                                                                 l'évènement</label><span
                                                                     class="champ_required"> *</span>
@@ -242,14 +249,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="form-group form-group-translation et" id="message_comp">
-                                            <p style="color:red;" id="message_after_comparaison">La date fin
-                                                de l' évenement doit être supérieure à la date debut</p>
-                                            <p style="color:red;" id="message_after_comparaison_date_now">La
-                                                date début ou fin de l' évènement doit être supérieure à la
-                                                date actuelle</p>
 
-                                        </div>
                                         <div class="form-group form-group-translation et">
                                             <label class="control-label">
                                                 <span>Notes additionnel sur l'heure</span>
@@ -267,13 +267,13 @@
                                         <h2>Localisation :</h2>
                                         <form>
                                             <div class="form-group">
-                                                <label for="email">Nom :</label><span class="champ_required"> *</span>
+                                                <label for="email">Nom:</label><span class="champ_required"> *</span>
                                                 <input type="Adresse" class="form-control" id="email"
                                                        name="localisation_nom" required>
                                                 <p>E.X : Antananarivo</p>
                                             </div>
                                             <div class="form-group">
-                                                <label for="adresses">Adresse :</label>
+                                                <label for="adresses">Adresse:</label>
                                                 <input type="Adresse" class="form-control" id="adress"
                                                        name="localisation_adresse">
                                                 <em>Entrer l'adresse exact pour l'affichage des directions sur la
@@ -301,8 +301,7 @@
                                     <!-- organisateur end -->
 
 
-
-                                    <p style="text-align: right;margin: 15px;"><span style="color: #FF0000;">*</span><i> Champs olbligatoires</i></p>
+                                    <input type="hidden" name="message" value="Ajout évenement réussie">
                                     <div class="Confirme">
                                         <button type="submit" class="btn btn-default enregistrer " id="enregister">
                                             Enregistrer
@@ -1598,7 +1597,7 @@
     </section>
 @endsection
 
-@section('specificScript')
+@section('footer_scripts')
     <script type="text/javascript">
         $('#enregister').click(function () {
             console.log("click");
@@ -1637,7 +1636,6 @@
             });
             $('#message_after_comparaison').hide();
             $('#message_after_comparaison_date_now').hide();
-            $('#message_comp').hide();
         });
 
     </script>
