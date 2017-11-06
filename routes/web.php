@@ -125,11 +125,12 @@ Route::group(['middleware' => ['auth', 'activated', 'currentUser']], function ()
     Route::post('avatar/upload', ['as' => 'avatar.upload', 'uses' => 'ProfilesController@upload']);
 
     Route::group(['prefix' => 'shopping'], function () {
-        Route::get('checkout', 'Shopping\CheckoutController@index');
+        Route::post('checkout', 'Shopping\CheckoutController@index')->name('checkout_index');
         Route::post('checkout/store', 'Shopping\CheckoutController@store');
         Route::post('checkout/save', 'Shopping\CheckoutController@save');
         Route::post('checkout/payment', 'Shopping\CheckoutController@savePayment');
         Route::get('payment/{users_id}/{id}', 'Shopping\CheckoutController@pay');
+        Route::get('quiz', 'Shopping\CheckoutController@quiz');
     });
 
 });
