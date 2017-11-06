@@ -63,6 +63,15 @@
 
     </style>
     <br><br>
+    @if (session('message'))
+        <div class="container">
+            <div style="">
+                <div class="alert alert-success col-md-7" style="text-align: left;">
+                    <p><i>{{ session('message') }}</i></p>
+                </div>
+            </div>
+        </div>
+    @endif
     <div class="container">
         <div class="row">
             <div class="col-sm-12">

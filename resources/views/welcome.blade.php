@@ -168,7 +168,7 @@
                             <div class="pull-right">
                                 <a href="{{url('/event/list/categorie/'.$sm->name.'',[$sm->id])}}"
                                    style="color: #5cb85c;">
-                                    <i><b>>> Plus d'évènement >> </b></i>
+                                    <i><b>Plus d'évènement >> </b></i>
                                 </a>
                             </div>
                         </div>

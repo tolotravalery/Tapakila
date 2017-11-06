@@ -149,8 +149,11 @@
                                                         </h3>
                                                     </div>
                                                     <div class="limite">
-                                                        <a href="{{url('event/show',[$event->id])}}"><p
-                                                                    style="text-align: justify">{!! str_replace($queries,'<span style="background-color: yellow;">'.$queries.'</span>',str_limit(ucfirst($event->additional_note),$limit = 140, $end = ' ...')) !!}</p>
+                                                        <a href="{{url('event/show',[$event->id])}}">
+                                                            <?php  if ($event->additional_note == null) {
+                                                                echo "<br/>";
+                                                            }?>
+                                                            <p style="text-align: justify">{!! str_replace($queries,'<span style="background-color: yellow;">'.$queries.'</span>',str_limit(ucfirst($event->additional_note),$limit = 140, $end = ' ...')) !!}</p>
                                                         </a><br/>
                                                     </div>
                                                     <div class="row cbg">
