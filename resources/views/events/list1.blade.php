@@ -199,18 +199,19 @@
                                         </button>
                                     </form>
                                 </div>
-                                @if($page>1)
-                                    <div class="pull-left">
-                                        <form action="{{url('/event/list/categorie/'.$sous_menu_event->name.'',[$sous_menu_event->id])}}"
-                                              method="get">
-                                            <input type="hidden" name="page" value="{{$page-1}}">
-                                            <button type="submit" class="linkButton" style="color: #d70506;">
-                                                <i><< Précédent <<</i>
-                                            </button>
-                                        </form>
-                                    </div>
-                                @endif
                             @endif
+                            @if($page>1)
+                                <div class="pull-left">
+                                    <form action="{{url('/event/list/categorie/'.$sous_menu_event->name.'',[$sous_menu_event->id])}}"
+                                          method="get">
+                                        <input type="hidden" name="page" value="{{$page-1}}">
+                                        <button type="submit" class="linkButton" style="color: #d70506;">
+                                            <i><< Précédent <<</i>
+                                        </button>
+                                    </form>
+                                </div>
+                            @endif
+
                         </div>
                     </div>
                     <br/>
