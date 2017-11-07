@@ -153,7 +153,6 @@
                             <p><b>Adresse e-mail de livraison des tickets :</b> &nbsp {{Auth::user()->email}}</p>
                             <p><b>Méthode de payment :</b></p>
                         </div>
-
                         <div class="modepaimenent">
 
                             <div class="row">

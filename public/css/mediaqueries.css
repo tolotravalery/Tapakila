@@ -569,6 +569,12 @@ text-align: center;
 .et {
     margin-top: 21px;
 }
+#event-duration .form-group{
+	padding-bottom:-20px !important;
+}
+.inp{
+	margin-bottom: -22px;
+}
 .tabs0 li a {
 display: inline-block;
 text-align: center;
@@ -791,6 +797,9 @@ margin-right: 0px !important;
 .nav-tabs3 {
 
     font-size: 12px;
+}
+.inp{
+	margin-bottom: -22px;
 }
 .foot{
 	font-size:11px;
