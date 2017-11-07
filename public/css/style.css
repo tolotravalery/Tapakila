@@ -4500,6 +4500,12 @@ button {
     padding: 10px 50px 10px 50px;
     margin-top:20px;
 }
+.vie{
+    background-color: white;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: 36px;
+    padding-bottom: 35px;
+}
 
 @media screen and (max-width:768px){
     .ask1{
