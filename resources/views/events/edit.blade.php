@@ -40,7 +40,6 @@
 
                     @if (session('message'))
 					<div class="alert alert1 alert-success">
-						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
 						<span class="glyphicon glyphicon-ok"></span> <strong>{{ session('message') }}</strong>
 						<hr class="message-inner-separator">
 						<p>
@@ -157,7 +156,7 @@
 														<span class="glyphicon glyphicon-remove"></span> Supprimer
 													</button>
 													<div class="btn btn-default image-preview-input">
-														<span class="glyphicon glyphicon-folder-open"></span>
+														<span class="glyphicon glyphicon-folder-open definitive"></span>
 														<span class="image-preview-input-title"></span>
 														<input type="file" accept="image/png, image/jpeg, image/gif"
                                                                name="image"/>

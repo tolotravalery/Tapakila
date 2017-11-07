@@ -51,11 +51,10 @@
                 <?php
                 if(isset($niova)){?>
                 <div class="container">
-                    <div style="margin-left: 36px;">
-                        <div class="alert alert-success col-md-7" style="text-align: left;">
-                            <p style="margin-left: 5px;"><?php echo $niova; ?></p>
-                        </div>
-                    </div>
+				<div class="alert alert1 alert-success col-md-7"style="margin-left:55px;">
+					<span class="glyphicon glyphicon-ok"></span> <strong><?php echo $niova; ?></strong>
+					<hr class="message-inner-separator">
+				</div>
                 </div>
                 <br/>
                 <?php
@@ -252,11 +251,13 @@
                                             <td data-label="Date">{{\Carbon\Carbon::parse($a->pivot->date_achat)->format('d M Y H:i')}}</td>
                                             <td data-label="Quantité">{{$a->pivot->number}}</td>
                                             @if($a->pivot->status_payment=='FAILED')
-                                                <td data-label=""><p><a
-                                                                href="shopping/payment/{{Auth::user()->id}}/{{$a->pivot->id}}"
-                                                                alt="Edit"
-                                                                style="color: #d70506;font-size: 30px !important;">Payer</a>
-                                                    </p>
+												 <td data-label="">
+											
+											<p><a href="#" alt="Edit" style="color: #d70506;font-size: 18px !important;">Annuler</a></p>
+                                                </td>
+                                                <td data-label="">
+											
+											<p><a href="shopping/payment/{{Auth::user()->id}}/{{$a->pivot->id}}" alt="Edit" style="color: #d70506;font-size: 30px !important;">Payer</a></p>
                                                 </td>
                                             @else
                                                 <td data-label=""><p>

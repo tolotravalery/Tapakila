@@ -10,6 +10,10 @@
 /* #d70506;rouge */
 
 
+.definitive{
+	opacity: 1 ! important;
+}
+
 hr.message-inner-separator
 {
     clear: both;
@@ -22,6 +26,29 @@ hr.message-inner-separator
     background-image: -ms-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
     background-image: -o-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
 }
+.pagination{
+	color:#d70506;
+}
+
+.pagination:hover{
+	color:#5cb85c;
+}
+
+.next-prevs{
+	color:#d70506;
+}
+
+.next-prevs:hover{
+	color:#5cb85c;
+}
+
+.btnanul{
+	color: #0b70b6;
+}
+.annultnt{
+	margin-top:23px ! important;
+}
+
 
 .alert1{
 	text-align:left ! important;
@@ -33,6 +60,25 @@ hr.message-inner-separator
 
 .footer-logo {
     margin-bottom: 10px;
+}
+
+.footer-custom {
+    position: absolute; 
+    left: 0;
+    bottom: 0;
+    height: 315px;
+    width: 100%;
+    overflow: hidden;
+}
+@media screen and (max-width:1000px){
+	.footer-custom {
+    position: relative  ! important;
+    left: 0  ! important;
+    bottom: 0  ! important;
+    height: 315px  ! important;
+    width: 100%  ! important;
+    overflow: hidden  ! important;
+}
 }
 
 .btn span.gly-icon2 {
@@ -3842,9 +3888,12 @@ div.tests .number-spinner .test2 .test3 {
 
 /* activation,mots depass,bienvenu */
 #globcontent {
-    background-color: white;
-    margin-top: 30px;
-    padding: 20px 25px 20px 25px;
+background-color: white;
+margin-top: 84px;
+padding: 20px 30px 20px 30px;
+overflow: hidden;
+margin-bottom: 83px;
+border-radius: 3px;
 }
 .border-logo {
     width: 100%;

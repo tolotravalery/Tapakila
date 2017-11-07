@@ -1,4 +1,4 @@
-@extends("template")
+@extends("template-custom")
 @section('content')
     <section id="content">
         <div class="container">
