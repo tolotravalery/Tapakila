@@ -192,9 +192,9 @@ class EventController extends Controller
             'vu' => 0
         ]);
 
-        $message = "Ajout évenement réussie";
+        $message = " Opération réussie";
         session()->flash('message', $message);
-
+        // Send mail to organisateur
         return redirect(url('organisateur/event/' . $event->id . '/edit'))->with(compact('message'));;
     }
 
@@ -204,34 +204,32 @@ class EventController extends Controller
         $event->title = $request->input('title');
         $event->sous_menus_id = $request->input('sousmenu');
         //dd($request->input('date_debut') . " " . $request->input('heure_debut'));
-        $dated=explode('/',$request->input('date_debut'));
-        $datede=$dated[1]."/".$dated[0]."/".$dated[2];
+        $dated = explode('/', $request->input('date_debut'));
+        $datede = $dated[1] . "/" . $dated[0] . "/" . $dated[2];
 
-        $datef=explode('/',$request->input('date_fin'));
-        $datefi=$datef[1]."/".$datef[0]."/".$datef[2];
+        $datef = explode('/', $request->input('date_fin'));
+        $datefi = $datef[1] . "/" . $datef[0] . "/" . $datef[2];
 
-        $event->date_debut_envent = new \DateTime( $datede. " " . $request->input('heure_debut'));
+        $event->date_debut_envent = new \DateTime($datede . " " . $request->input('heure_debut'));
         //dd($event->date_debut_envent);
-        $event->date_fin_event = new \DateTime( $datefi . " " . $request->input('heure_fin'));
+        $event->date_fin_event = new \DateTime($datefi . " " . $request->input('heure_fin'));
         $event->additional_note = $request->input('description');
         $event->localisation_nom = $request->input('localisation_nom');
         $event->localisation_adresse = $request->input('localisation_adresse');
         $event->additional_note_time = $request->input('additional_note');
-        $tmp=$request->input('publie_organisateur');
-        $tmp1=$request->input('publie');
-        $value=true;
-        $value1=true;
-        if(!empty($tmp)){
-            $value=true;
+        $tmp = $request->input('publie_organisateur');
+        $tmp1 = $request->input('publie');
+        $value = true;
+        $value1 = true;
+        if (!empty($tmp)) {
+            $value = true;
+        } else {
+            $value = false;
         }
-        else{
-            $value=false;
-        }
-        if(!empty($tmp1)){
-            $value1=true;
-        }
-        else{
-            $value1=false;
+        if (!empty($tmp1)) {
+            $value1 = true;
+        } else {
+            $value1 = false;
         }
         $image = $request->file('image');
         if ($image != null) {
@@ -245,7 +243,7 @@ class EventController extends Controller
         $event->publie = $value1;
         $event->save();
 
-        $message = "Opération réussie";
+        $message = " Opération réussie";
         session()->flash('message', $message);
 
         return redirect(url('admin/listevent'))->with(compact('message'));;
@@ -288,7 +286,7 @@ class EventController extends Controller
         $event->siteweb = $titre;
         $event->additional_note_time = $request->input('note_time');
         $event->save();
-        $message = "Opération réussie";
+        $message = " Opération réussie";
         session()->flash('message', $message);
 
         return redirect(url('organisateur/event/' . $event->id . '/edit'))->with(compact('message'));;

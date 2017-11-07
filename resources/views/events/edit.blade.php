@@ -29,7 +29,6 @@
                         <a href="{{url('/event/list/categorie/'.$sousmenu->name.'',[$sousmenu->id])}}">{{ucfirst(strtolower($sousmenu->name))}}</a>
                     </li>
                 @endforeach
-
             </ul>
         </div>
     </section>
@@ -38,14 +37,16 @@
             <div class="page-menu row">
                 <div class="col-lg-9 col-sm-9 col-lg-push-3 col-sm-push-3 fi">
                     <h1>Modifier votre évènement</h1>
+
                     @if (session('message'))
-                        <div class="container">
-                            <div style="">
-                                <div class="alert alert-success col-md-7" style="text-align: left;">
-                                    <p><i>{{ session('message') }}</i></p>
-                                </div>
-                            </div>
-                        </div>
+					<div class="alert alert-success">
+						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+						<span class="glyphicon glyphicon-ok"></span> <strong>{{ session('message') }}</strong>
+						<hr class="message-inner-separator">
+						<p>
+						A présent, vous devez ajouter les Types de Ticket dans l'onglet "Types de Ticket & prix"</p>
+					</div>
+                        
                     @endif
                 </div>
                 <div class="col-lg-3 col-sm-3 col-lg-pull-9 col-sm-pull-9 sec">
@@ -304,9 +305,12 @@
                                     </div>
                                 </div>
                                 <!-- organisateur end -->
-                                <p style="text-align: right;margin: 15px;"><span style="color:#FF0000;">*</span><i> Champs olbligatoires</i></p>
+                                <p style="text-align: right;margin: 15px;"><span style="color:#FF0000;">*</span><i>
+                                        Champs olbligatoires</i></p>
                                 <div class="Confirme">
-                                    <button id= "enregister" type="submit" class="btn btn-default enregistrer ">Enregistrer</button>
+                                    <button id="enregister" type="submit" class="btn btn-default enregistrer ">
+                                        Enregistrer
+                                    </button>
                                 </div>
 
                             </div>
@@ -1540,12 +1544,12 @@
             datedebut = arrdd[1] + "-" + arrdd[2] + "-" + arrdd[0];
             var arrdf = datefin.split("-");
             datefin = arrdf[1] + "-" + arrdf[2] + "-" + arrdf[0];
-            console.log(datedebut+" "+$('#heured').val());
-            console.log(datefin+" "+$('#heuref').val());
+            console.log(datedebut + " " + $('#heured').val());
+            console.log(datefin + " " + $('#heuref').val());
             var dd = new Date(datedebut + " " + $('#heured').val());
             var df = new Date(datefin + " " + $('#heuref').val());
             var now = new Date();
-            console.log(dd+df);
+            console.log(dd + df);
             if (dd < now || df < now) {
                 $('#message_comp').show();
                 $('#message_after_comparaison_date_now').show();
@@ -1637,10 +1641,19 @@
             var container1 = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
             date_input1.datepicker({
                 format: 'yyyy-mm-dd',
-                container: container,
+                container: container1,
                 todayHighlight: true,
                 autoclose: true,
             });
+            var date_input2 = $('input[id="date"]'); //our date input has the name "date"
+            var container2 = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
+            date_input2.datepicker({
+                format: 'yyyy-mm-dd',
+                container: container2,
+                todayHighlight: true,
+                autoclose: true,
+            });
+
         })
 
     </script>

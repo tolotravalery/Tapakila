@@ -9,6 +9,23 @@
 
 /* #d70506;rouge */
 
+
+hr.message-inner-separator
+{
+    clear: both;
+    margin-top: 10px;
+    margin-bottom: 13px;
+    border: 0;
+    height: 1px;
+    background-image: -webkit-linear-gradient(left,rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.15),rgba(0, 0, 0, 0));
+    background-image: -moz-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+    background-image: -ms-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+    background-image: -o-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+}
+
+
+
+
 .footer-logo {
     margin-bottom: 10px;
 }
@@ -2603,7 +2620,7 @@ padding-bottom: 35px;
 }
 
 .sor {
-    margin-top: 40px;
+   margin-top: 30px;
 }
 
 .sel {
@@ -3405,7 +3422,7 @@ margin-bottom: 25px;
 .bgcontact {
     background-color: white;
     padding: 20px 38px 20px 38px;
-    margin-top: 70px;
+   margin-top: 25px;
 }
 .infoline > ul > li .fa {
     color: #8e8e8e;
@@ -4431,4 +4448,83 @@ button {
 }
 .champ_required{
     color:#ff0000;
+}
+
+
+/* questionsecrete */
+.bg-back-sustom{
+    margin-top: 50px;
+    background-color:white;
+    padding: 15px 50px 37px 50px;
+}
+
+.quiz {
+    text-align:center;
+}
+.img-quiz {
+    width: 100%;
+}
+
+.separated{
+    width:100%
+}
+
+.ask1{
+    margin-top:40px;
+    text-align:center;
+}
+
+.ask2{
+    margin-top:50px;
+    text-align:center;
+}
+
+.answer1{
+    margin-top:40px;
+    width: 70%;
+    margin-left: 47px;
+}
+
+.answer2{
+    margin-top:35px;
+    width: 70%;
+    margin-left: 47px;
+}
+
+.btn-sub{
+    padding: 10px 50px 10px 50px;
+    margin-top:20px;
+}
+
+@media screen and (max-width:768px){
+    .ask1{
+        margin-top:20px ! important;
+        text-align:center;
+
+    }
+
+    .ask2{
+        margin-top:20px ! important;
+        text-align:center;
+    }
+
+    .answer1{
+        margin-top:20px ! important;
+        width: 100% ! important;
+        margin-left: 0px ! important;
+    }
+
+    .answer2{
+        margin-top:20px ! important;
+        width: 100% ! important;
+        margin-left: 0px ! important;
+    }
+}
+
+@media screen and (min-width:1024px) and (max-width:1040px){
+    .btn-sub{
+        padding: 10px 35px 10px 35px !important;
+        margin-left: 20px;
+        margin-top:20px;
+    }
 }
