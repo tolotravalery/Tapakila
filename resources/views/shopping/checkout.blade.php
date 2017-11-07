@@ -208,20 +208,21 @@
                                 </div>
 
                                 <div class="Ttal row">
-                                    <div class="col-md-5 col-md-offset-7">
-                                        <div class="row">
-                                            <div class="col-md-3 Annulerbtn col-xs-3 col-xs-offset-1">
-                                                <a href="{{url('/')}}/shopping/cart">Annuler</a>
-                                            </div>
+								
+				    <div class="row text-center-xs text-center-sm text-center-md menbottom">
+                        <div class="col-md-3"></div><div class="col-md-2"></div><div class="col-md-3"></div><div class="col-md-4">
+                            <div class="row">
+                                <div class="col-md-6 col-xs-12 achatquiter kit annultnt ">
+                                   <a class="btnanul" href="{{url('/')}}/shopping/cart">Annuler</a>
+                                </div>
 
-                                            <div class="col-md-3 payee col-xs-3">
-                                                <input value="Payer" class="button ticket"
-                                                       name="submit_ticket_order"
-                                                       id="place-order-button"
-                                                       type="submit" @php if(Cart::count() == 0) echo "disabled"; @endphp>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="col-md-6 payee col-xs-12">
+                                    <input value="Payer" class="button ticket" name="submit_ticket_order" id="place-order-button" type="submit" @php if(Cart::count() == 0) echo "disabled"; @endphp>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                   
                                 </div>
                             </div>
                         </div>

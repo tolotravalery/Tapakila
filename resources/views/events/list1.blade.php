@@ -194,9 +194,7 @@
                                     <form action="{{url('/event/list/categorie/'.$sous_menu_event->name.'',[$sous_menu_event->id])}}"
                                           method="get">
                                         <input type="hidden" name="page" value="{{$page+1}}">
-                                        <button type="submit" class="linkButton" style="color: #d70506;">
-                                            <i>>> Suivant >></i>
-                                        </button>
+                                        <button type="submit" class="linkButton"><i><b class="next-prevs"> Suivant >></b></i></button>
                                     </form>
                                 </div>
                             @endif
@@ -205,9 +203,7 @@
                                     <form action="{{url('/event/list/categorie/'.$sous_menu_event->name.'',[$sous_menu_event->id])}}"
                                           method="get">
                                         <input type="hidden" name="page" value="{{$page-1}}">
-                                        <button type="submit" class="linkButton" style="color: #d70506;">
-                                            <i><< Précédent <<</i>
-                                        </button>
+                                        <button type="submit" class="linkButton"><i><b class="next-prevs" ><< Précédent</b></i></button>
                                     </form>
                                 </div>
                             @endif

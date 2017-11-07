@@ -1,19 +1,21 @@
-@extends("template")
+@extends("template-custom")
 
 @section('content')
-	<div class="container">
-		<div class="row">
-			<div class="col-md-10 col-md-offset-1">
-				<div class="panel panel-default">
-					<div class="panel-heading">{{ Lang::get('titles.activation') }}</div>
-					<div class="panel-body">
-						<p>{{ Lang::get('auth.regThanks') }}</p>
-						<p>{{ Lang::get('auth.anEmailWasSent',['email' => $email, 'date' => $date ] ) }}</p>
+
+
+	<section id="content1">
+        <div class="container custom-container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+					<div id="globcontent">
+						<p>{{ Lang::get('auth.regThanks') }}<p>
+						<p>{{ Lang::get('auth.anEmailWasSent') }}</p>
 						<p>{{ Lang::get('auth.clickInEmail') }}</p>
-						<p><a href='{{ url('/') }}/activation' class="btn btn-primary">{{ Lang::get('auth.clickHereResend') }}</a></p>
+						<a href='{{ url('/') }}/activation'><button type="text" class="btn btn-success ">Renvoyer le message de confirmation</button></a>
 					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 @endsection
