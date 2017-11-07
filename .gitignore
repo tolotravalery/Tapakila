@@ -1,5 +1,5 @@
 .env
 .idea
 vendor
-storage/debugbar
-storage/logs
+storage/*
+public/*

@@ -33,39 +33,38 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        $ids=$request->input('id');
-        $types=$request->input('type');
-        $prices=$request->input('price');
-        $nombres=$request->input('nombre');
-        $isa=count($ids);
-        for($i=0;$i<$isa;$i++){            
-            if($nombres[$i]>0){
-               /* $duplicates = Cart::search(function ($cartItem, $rowId) use ($request) {
-                    return $cartItem->id ==  $ids[$i];
-                });        
-                if (!$duplicates->isEmpty()) {
-                    return redirect('shopping/cart')->withSuccessMessage('Ce ticket est déjà dans votre panier');
-                }    */  
-                Cart::add($ids[$i], $types[$i],$nombres[$i], $prices[$i])->associate('App\Models\Ticket');
-                
+        $ids = $request->input('id');
+        $types = $request->input('type');
+        $prices = $request->input('price');
+        $nombres = $request->input('nombre');
+        $isa = count($ids);
+        for ($i = 0; $i < $isa; $i++) {
+            if ($nombres[$i] > 0) {
+                /* $duplicates = Cart::search(function ($cartItem, $rowId) use ($request) {
+                     return $cartItem->id ==  $ids[$i];
+                 });
+                 if (!$duplicates->isEmpty()) {
+                     return redirect('shopping/cart')->withSuccessMessage('Ce ticket est déjà dans votre panier');
+                 }    */
+                Cart::add($ids[$i], $types[$i], $nombres[$i], $prices[$i])->associate('App\Models\Ticket');
+
                 //echo $ids[$i];
-            }
-            else echo "zero";
+            } else echo "zero";
         }
         return redirect('shopping/cart')->withSuccessMessage('Ce ticket est ajouté dans votre panier');
         //echo $isa;
         //var_dump($ids,$types,$prices,$nombres);
         exit();
-       /* $duplicates = Cart::search(function ($cartItem, $rowId) use ($request) {
-            return $cartItem->id === $request->id;
-        });
+        /* $duplicates = Cart::search(function ($cartItem, $rowId) use ($request) {
+             return $cartItem->id === $request->id;
+         });
 
-        if (!$duplicates->isEmpty()) {
-            return redirect('shopping/cart')->withSuccessMessage('Ce ticket est déjà dans votre panier');
-        }
+         if (!$duplicates->isEmpty()) {
+             return redirect('shopping/cart')->withSuccessMessage('Ce ticket est déjà dans votre panier');
+         }
 
-        Cart::add($request->id, $request->type, 1, $request->price)->associate('App\Models\Ticket');
-        return redirect('shopping/cart')->withSuccessMessage('Ce ticket est ajouté dans votre panier');*/
+         Cart::add($request->id, $request->type, 1, $request->price)->associate('App\Models\Ticket');
+         return redirect('shopping/cart')->withSuccessMessage('Ce ticket est ajouté dans votre panier');*/
     }
 
     /**

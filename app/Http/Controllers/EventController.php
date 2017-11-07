@@ -195,7 +195,7 @@ class EventController extends Controller
         $message = " Opération réussie";
         session()->flash('message', $message);
         // Send mail to organisateur
-        return redirect(url('organisateur/event/' . $event->id . '/edit'))->with(compact('message'));;
+        return redirect(url('organisateur/event/' . $event->id . '/edit'))->with(compact('message'));
     }
 
     public function updateadmin(Request $request)
@@ -247,6 +247,60 @@ class EventController extends Controller
         session()->flash('message', $message);
 
         return redirect(url('admin/listevent'))->with(compact('message'));;
+    }
+
+
+    public function create_admin()
+    {
+        $alert = Alert::where('vu', '=', '0')->get();
+        $sousmenus = Sous_menus::all();
+        return view('pages.admin.create_event', compact('alert', 'sousmenus'));
+    }
+
+    public function stroreAdmin(Request $request)
+    {
+        $user = User::find(Auth::user()->id);
+        $isPublie = $request->input('publie');
+        $isPubAdmin = $request->input('publie_admin');
+        $publie = true;
+        $publieOrganisateur = true;
+        if (!empty($isPublie)) {
+            $publie = true;
+        } else {
+            $publie = false;
+        }
+        if (!empty($isPubAdmin)) {
+            $publieOrganisateur = true;
+        } else {
+            $publieOrganisateur = false;
+        }
+        //echo $request->input('publie');break;
+        $this->validator($request->all())->validate();
+        $image = $request->file('image');
+        $filename = $image->getClientOriginalExtension();
+        $input['image'] = time() . '.' . $image->getClientOriginalExtension();
+        $destinationPath = public_path('/img');
+        $image->move($destinationPath, $input['image']);
+        $titre = $request->input('title');
+        $split = explode(" ", $titre);
+        $titre = $split[0];
+        $event = Events::create([
+            'title' => $request->input('title'),
+            'sous_menus_id' => $request->input('sousmenu'),
+            'image' => $input['image'],
+            'date_debut_envent' => new \DateTime($request->input('date_debut') . " " . $request->input('heure_debut')),
+            'date_fin_event' => new \DateTime($request->input('date_fin') . " " . $request->input('heure_fin')),
+            'additional_note' => $request->input('note'),
+            'localisation_nom' => $request->input('localisation_nom'),
+            'localisation_adresse' => $request->input('localisation_adresse'),
+            'user_id' => Auth::user()->id,
+            'publie_organisateur' => $publieOrganisateur,
+            'siteweb' => $titre,
+            'additional_note_time' => $request->input('note_time'),
+            'publie' => $publie,
+        ]);
+        // Send mail to organisateur
+        return redirect(url('admin/events/update/' . $event->id));
     }
 
     public function update(Request $request)
