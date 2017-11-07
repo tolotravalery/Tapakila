@@ -39,7 +39,7 @@
                     <h1>Modifier votre évènement</h1>
 
                     @if (session('message'))
-					<div class="alert alert-success">
+					<div class="alert alert1 alert-success">
 						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
 						<span class="glyphicon glyphicon-ok"></span> <strong>{{ session('message') }}</strong>
 						<hr class="message-inner-separator">
