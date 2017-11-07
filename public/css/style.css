@@ -3839,7 +3839,11 @@ div.tests .number-spinner .test2 .test3 {
 #globcontent {
     background-color: white;
     margin-top: 30px;
-    padding: 20px 25px 20px 25px;
+    padding: 55px 25px 55px 25px;
+}
+.mim{
+border-bottom: 1px solid black;
+padding-bottom: 2px;
 }
 .border-logo {
     width: 100%;

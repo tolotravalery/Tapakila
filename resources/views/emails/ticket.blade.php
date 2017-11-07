@@ -1,56 +1,52 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Leguichets</title>
-    <link rel="stylesheet" href="{{ url('/') }}/public/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ url('/') }}/public/css/style.css">
-    <link rel="stylesheet" href="{{ url('/') }}/public/css/mediaqueries.css">
-    @yield('specificCss')
-    <link rel="stylesheet" href="{{ url('/') }}/public/css/animate.css">
-    <link rel="stylesheet" href="{{ url('/') }}/public/css/font-awesome.css">
-    <script type="text/javascript" src="{{ url('/') }}/public/js/jquery.min.js"></script>
-    <script type="text/javascript" src="{{ url('/') }}/public/js/bootstrap.min.js"></script>
-</head>
-<body>
-<div class="container">
-    <div class="row" style="background-color: #eeeeee;">
-        <div class="menu_int2">
-            <div class="com_contenu_type">
+<style>
+  .ko{
+    background-color: white;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.imga{
+
+        width: 150px;
+        height: 150px;
+}
+.int{
+  
+    padding-bottom: 20px;
+}
+.mou{
+    padding-bottom: 20px;
+    /* border-bottom: 1px solid #ccc; */
+    padding-top: 18px;
+
+}
+.pp{
+    padding-top: 14px;
+}
+</style>
+    <section id="content">
+        <div class="container custom-container">
+            
+            <div class="ko"> 
                 <div class="row">
-                    <div class="col-lg-2">
-                        <a class="navbar-brand" href="{{url('/')}}">
-                            <img src="{{ url('/') }}/public/img/logo.png" title="leguichet">
-                        </a>
-                    </div>
-                    <div class="col-lg-10">
-                        <h2>leguichet</h2>
-                        <p>Merci, voici vos billets! Lorsque vous participez, indiquez le code
-                            dans ce courrier électronique ou utilisez le fichier .pdf
-                            ci-joint</p>
-                    </div>
-
-                </div>
-
-                <hr class="separe">
-                <h2>Mes évènements</h2>
-
-                @foreach($tic as $ticket)
-                    @php
-                        $event = $ticket->events[0];
-                    @endphp
-                    <strong>{{$event->title}}</strong>
-                    <p>Localisation :
-                        {{$event->localisation_nom}}
-                        {{$event->localisation_adresse}}
-                    </p>
-                    {{--<p>Date : {{ \Carbon\Carbon::parse($ticket->pivot->date)->format('d D M Y')}}</p>--}}
-                    <hr class="separe">
-
-                    <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                            <div class="int">
+                                    <img src="{{ url('/') }}/public/img/logo.png" title="leguichet">
+                                    <p class="pp">Merci, voici vos billets! Lorsque vous participez, indiquez le code dans ce courrier électronique ou utilisez le fichier .pdf ci-joint</p>
+                                    <hr class="separate" style="text-align: center;width: 100%;">
+                            </div>
+                            <div class="int">
+                                <h2>Mes évènements</h2>
+								@foreach($tic as $ticket)
+								@php
+									$event = $ticket->events[0];
+								@endphp
+                                 <strong>{{$event->title}}</strong> le {{ \Carbon\Carbon::parse($event->date_debut_envent)->format('d M Y')}}
+                                <p>Localisation: {{$event->localisation_nom}}
+                        {{$event->localisation_adresse}}</p>
+                            </div>
+                            <hr class="separate" style="text-align: center;width: 100%;">
+                            <div>
+                                <div class="row mou">
                         @foreach($tap as $tapakila)
                             <div class="col-lg-4">
                                 <p style="text-align: center; margin: 5px 0; ">{{$ticket->type}}</p>
@@ -61,8 +57,11 @@
                         @endforeach
                         @endforeach
                     </div>
+                            </div>
+                            <hr class="separate" style="text-align: center;width: 100%;">
+                    </div>
+                </div>
+           
             </div>
         </div>
-    </div>
-</div>
-</body>
+    </section>

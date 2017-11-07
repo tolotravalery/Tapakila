@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 use Illuminate\Auth\Events\Registered;
 use App\Models\Events;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Mail;
 
 class EventController extends Controller
 {
@@ -191,7 +192,11 @@ class EventController extends Controller
             'message' => $message,
             'vu' => 0
         ]);
-
+		
+		 Mail::send('emails.ajoutevent',function ($message) {
+            $message->to(Auth::user()->email, Auth::user()->name)->subject('Leguichet');
+        });
+		
         $message = " Opération réussie";
         session()->flash('message', $message);
         // Send mail to organisateur
