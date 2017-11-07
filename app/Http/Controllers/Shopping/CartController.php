@@ -33,6 +33,7 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
+//        dd($request->input());
         $ids = $request->input('id');
         $types = $request->input('type');
         $prices = $request->input('price');

@@ -118,23 +118,23 @@
                             $interval = new DateInterval('P1D');
                             $daterange = new DatePeriod(\Carbon\Carbon::parse($event->date_debut_envent), $interval ,\Carbon\Carbon::parse($event->date_fin_event));
                         @endphp
-                        @foreach($daterange as $date)
-                            <div class="tab-pane tabulation  fade @php if($d == 0)  echo "active in"; else ""; @endphp"
-                                 id="date{{$d}}">
-                                <div class="table-responsive tableau_detail">
-                                    <table class="table table-hover">
-                                        <thead>
-                                        <tr>
-                                            <th>Type de ticket</th>
-                                            <th>Disponiblité</th>
-                                            <th>Quantité</th>
-                                            <th>Prix unitaire</th>
-                                            <th>Totale</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <form action="{{ url('shopping/cart') }}" method="POST"
-                                              class="side-by-side">
+                        <form action="{{ url('shopping/cart') }}" method="POST"
+                              class="side-by-side">
+                            @foreach($daterange as $date)
+                                <div class="tab-pane tabulation  fade @php if($d == 0)  echo "active in"; else ""; @endphp"
+                                     id="date{{$d}}">
+                                    <div class="table-responsive tableau_detail">
+                                        <table class="table table-hover">
+                                            <thead>
+                                            <tr>
+                                                <th>Type de ticket</th>
+                                                <th>Disponiblité</th>
+                                                <th>Quantité</th>
+                                                <th>Prix unitaire</th>
+                                                <th>Totale</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
                                             @php $count_id_price = 0; @endphp
                                             @if($event->tickets->where('date_debut_vente','<',date('Y-m-d H:i:s'))->where('date_fin_vente','>',date('Y-m-d H:i:s'))->count() > 0)
                                                 @foreach($event->tickets()->wherePivot('date',\Carbon\Carbon::parse($date)->format('Y-m-d'))->get() as $ticket)
@@ -209,44 +209,32 @@
                                                 <td class="td_detail"></td>
                                                 <td class="td_detail"></td>
                                             </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td>
-                                                    <button type="button" class=" btn btn-danger btn_reset"
-                                                            id="reset{{$d}}">
-                                                        Reset
-                                                    </button>
-                                                </td>
-                                                <td>
-                                                    <button type="submit" class=" btn btn-success btn_acheterr "
-                                                            id="acheter">
-                                                        Acheter
-                                                    </button>
-                                                    {{--@if(strcmp($totaly,"0")==0)
-                                                        <button type="submit" class=" btn btn-success btn_acheterr" disabled="true">
-                                                            Acheter
-                                                        </button>
-                                                    @else
-
-                                                        <button type="submit" class=" btn btn-success btn_acheterr ">
-                                                            Acheter
-                                                         </button>
-                                                    @endif--}}
-                                                </td>
-                                            </tr>
                                             <input type="hidden" id="nombre_id{{$d}}" value="{{$count_id_price}}"/>
-                                        </form>
-                                        </tbody>
-                                        @if($event->tickets()->wherePivot('date',\Carbon\Carbon::parse($date)->format('Y-m-d'))->get()->count() == 0)
-                                            <p>(*) Les tickets de cette évènements ne sont pas encore disponible</p>
-                                        @endif
-                                    </table>
+                                            </tbody>
+                                            @if($event->tickets()->wherePivot('date',\Carbon\Carbon::parse($date)->format('Y-m-d'))->get()->count() == 0)
+                                                <p>(*) Les tickets de cette évènements ne sont pas encore disponible</p>
+                                            @endif
+                                        </table>
+                                    </div>
+                                </div>
+                                @php $d++ @endphp
+                            @endforeach
+                            <div class="row">
+                                <div class="col-md-2 pull-right padding-custom">
+                                    <button type="submit" class=" btn btn-success btn_acheterr "
+                                            id="acheter">
+                                        Acheter
+                                    </button>
+                                </div>
+                                <div class="col-md-2 pull-right padding-custom">
+                                    <button type="button" class=" btn btn-danger btn_reset"
+                                            id="reset{{$d}}">
+                                        Reset
+                                    </button>
                                 </div>
                             </div>
-                            @php $d++ @endphp
-                        @endforeach
+                            <br/>
+                        </form>
                         @if($d==0)
                             <div class="tab-pane tabulation  fade active in"
                                  id="date">
