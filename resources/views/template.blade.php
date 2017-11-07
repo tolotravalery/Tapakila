@@ -106,9 +106,11 @@
                             {{ trans('profile.editAccountTitle') }}-->
 								</li>--}}
 								<li>
-									<a href="{{url('/home')}}">Mon compte</a>
+									<a href="{{url('/home')}}">Profile</a>
 								</li>
-
+                            @role('organisateur')
+                            <li><a href="{{url('/')}}/organisateur/event">Events</a></li>
+                            @endrole
                             <li>
                                 <a href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
@@ -161,7 +163,7 @@
                         Antananarivo<br>
                         Madagascar<br>
                         +33 12 901432<br>
-                        <a href="mailto:contact@Leguichet.mg" class="foot">contact@Leguichet.mg</a>
+                        <a href="mailto:contact@Leguichet.mg">contact@Leguichet.mg</a>
                     </p>
                 </div>
                 <div class="col-sm-3 col-xs-6">
