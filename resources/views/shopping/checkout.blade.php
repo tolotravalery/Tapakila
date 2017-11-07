@@ -47,15 +47,50 @@
 
                             <tbody>
                             @foreach (Cart::content() as $item)
-                                @foreach($data as $d)
+                                @if($data != null)
+                                    @foreach($data as $d)
+                                        @php
+                                            $ticket = \App\Models\Ticket::findOrFail($item->id);
+                                            $event = $ticket->events()->take(1)->get()[0];
+                                            $reponse = "";
+                                            if($d['ev'] == $event->id)
+                                                $reponse = $d['ans'];
+                                            else
+                                                $reponse = "";
+                                        @endphp
+                                        <tr>
+                                            <td data-label="">
+                                                <div class="row">
+                                                    <div class=" col-xs-12 ">
+                                                        <div class="row">
+                                                            <div class="col-lg-7 ">
+                                                                <div class="thumbnail imgpaiment">
+                                                                    <a href="{{url('event/show',[$event->id])}}">
+                                                                        <img src="{{url('/public/img/'.$event->image)}}"
+                                                                             class="image_panier">
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-5 ">
+                                                                <p class="sor">
+                                                                    <b>{{str_limit($event->title,$limit=20,$end=' ...')}}</b>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <input type="hidden" name="answer[]" value="{{$reponse}}">
+                                            <input type="hidden" name="event[]" value="{{$event->id}}">
+                                            <td data-label="Tickets">{{$ticket->type}}</td>
+                                            <td data-label="Quantité">{{$item->qty}}</td>
+                                            <td data-label="Prix">{{ $ticket->price *  $item->qty}}</td>
+                                        </tr>
+                                    @endforeach
+                                @else
                                     @php
                                         $ticket = \App\Models\Ticket::findOrFail($item->id);
                                         $event = $ticket->events()->take(1)->get()[0];
-                                        $reponse = "";
-                                        if($d['ev'] == $event->id)
-                                            $reponse = $d['ans'];
-                                        else
-                                            $reponse = "";
                                     @endphp
                                     <tr>
                                         <td data-label="">
@@ -79,13 +114,13 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <input type="hidden" name="answer[]" value="{{$reponse}}">
-                                        <input type="hidden" name="event[]" value="{{$event->id}}">
+                                        <input type="hidden" name="answer[]" value="">
+                                        <input type="hidden" name="event[]" value="">
                                         <td data-label="Tickets">{{$ticket->type}}</td>
                                         <td data-label="Quantité">{{$item->qty}}</td>
                                         <td data-label="Prix">{{ $ticket->price *  $item->qty}}</td>
                                     </tr>
-                                @endforeach
+                                @endif
                             @endforeach
                             </tbody>
                         </table>
@@ -151,7 +186,7 @@
                             <br>
                             <br>
                             <p><b>Adresse e-mail de livraison des tickets :</b> &nbsp {{Auth::user()->email}}</p>
-                            <p><b>Méthode de payment :</b></p>
+                            <p><b>Méthode de payment <span style="color:red;">*</span> :</b></p>
                         </div>
                         <div class="modepaimenent">
 
@@ -197,16 +232,17 @@
                                             <div class="checkbox">
                                                 <label>
                                                     <input type="checkbox" value="" name="accept" required>
-
                                                     <b>Cochez cette case pour confirmer que vous avez lu et
                                                         accepté nos terms de
                                                         contrat.</b>
                                                 </label>
                                             </div>
                                         </div>
+                                        <div class="pull-right">
+                                            <p><i><span style="color:red;">*</span> Champs obligatoires</i></p>
+                                        </div>
                                     </div>
                                 </div>
-
                                 <div class="Ttal row">
                                     <div class="col-md-5 col-md-offset-7">
                                         <div class="row">

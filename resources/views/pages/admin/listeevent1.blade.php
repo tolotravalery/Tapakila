@@ -82,6 +82,11 @@
 
                             Showing All Events
 
+                            <a href="{{url('/')}}/admin/events/create" class="btn btn-info btn-xs pull-right">
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                                Créer <span class="hidden-xs"> Event</span>
+                            </a>
+
                         </div>
                     </div>
 

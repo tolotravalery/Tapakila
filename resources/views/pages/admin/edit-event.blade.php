@@ -86,7 +86,7 @@
                         <label class="col-md-3 control-label">Image</label>
                         <div class="col-md-9">
                             <div class="input-group">
-                                <img src="{{url('/')}}/public/img/{{$event->image}}">
+                                <img src="{{url('/')}}/public/img/{{$event->image}}" style="width:295px;height: 218px;">
                             </div>
                         </div>
                     </div>

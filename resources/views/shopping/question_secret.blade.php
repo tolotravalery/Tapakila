@@ -29,8 +29,7 @@
             <div class="bg-back-sustom">
                 <h2 class="titlebuy"><i>Quizz</i></h2>
                 <div class="spacing"></div>
-                <p><i>Pour la raison de sécurité, Leguichet offre un questionnaire pour l'évènement, afin que les
-                        organisateurs (tsek ze tokony ho tohiny)</i></p>
+                <p><i>Pour la raison de sécurité, Leguichet offre un questionnaire pour l'évènement, ... </i></p>
                 {!! Form::open(['id' => 'question-form', 'route' => 'checkout_index','role' => 'question', 'method' => 'POST'] ) !!}
                 @php($i = 0)
                 @foreach (Cart::content() as $item)
@@ -55,7 +54,6 @@
                                     <div class="col-lg-5 ">
                                         <p class="sor"><b>{{str_limit($event->title,$limit=20,$end=' ...')}}</b></p>
                                     </div>
-                                    {{--Crypt::encryptString(--}}
                                     {!! Form::hidden('__hidden_input_ev__[]', $event->id) !!}
                                 </div>
                             </div>
@@ -71,7 +69,7 @@
                                 @if($i==0)
                                     <h2 class="quiz">Réponse</h2>
                                 @endif
-                                <input class="form-control answer1" type="texte" name="__hidden_input_ans__[]" placeholder="votre réponse ici">
+                                <input class="form-control answer1" type="texte" name="__hidden_input_ans__[]" placeholder="votre réponse ici" required>
                             </div>
 
                         </div>

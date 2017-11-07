@@ -43,7 +43,8 @@
                                 <div class="check">
                                     <div class="checkbox">
                                         <label>
-                                            {!!  Form::checkbox('isOrganisateur', old('isOrganisateur')) !!} Je suis un Organisateur
+                                            {!!  Form::checkbox('isOrganisateur', old('isOrganisateur')) !!} Je suis un
+                                            Organisateur
                                         </label>
                                     </div>
                                 </div>
@@ -53,13 +54,46 @@
                                     <a href="{{url('/home')}}" class="a_color">Annuler</a>
                                 </div>
                                 <div class="col-md-6 col-xs-12">
-                                    <button id="modif_info"ype="submit" class="btn bt_modif">Modifier</button>
+                                    {{--<button id="modif_info" type="submit" class="btn bt_modif">Modifier</button>--}}
+                                    {!! Form::button('Modifier',
+                                            array(
+                                                'class' 			=> 'btn bt_modif',
+                                                'id' 				=> 'delete_account_trigger',
+                                                'type' 				=> 'button',
+                                                'data-toggle' 		=> 'modal',
+                                                'data-submit'       => trans('profile.deleteAccountBtnConfirm'),
+                                                'data-target' 		=> '#confirmForm',
+                                                'data-modalClass' 	=> 'modal-danger',
+                                                'data-title' 		=> trans('profile.deleteAccountConfirmTitle'),
+                                                'data-message' 		=> trans('profile.deleteAccountConfirmMsg')
+                                            )
+                                    ) !!}
                                 </div>
-
-
-
                             </div>
-
+                        </div>
+                        <div class="modal fade" id="confirmForm" role="dialog" aria-labelledby="confirmFormLabel"
+                             aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"
+                                                aria-label="Close"><span
+                                                    aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title">
+                                            Modifier mon compte
+                                        </h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>
+                                            Confirmer la modification de vos informations ?
+                                        </p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        {!! Form::button('<i class="fa fa-fw fa-close" aria-hidden="true"></i> Annuler', array('class' => 'btn pull-left', 'type' => 'button', 'data-dismiss' => 'modal' )) !!}
+                                        {!! Form::button('<i class="fa fa-fw fa-check" aria-hidden="true"></i> Confirmer', array('class' => 'btn btn-default pull-right', 'type' => 'submit', 'id' => 'confirm' )) !!}
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         {!! Form::close() !!}
                     </div>
@@ -72,8 +106,8 @@
 
 @section(('specificScript'))
     <script type="text/javascript">
-        $('#modif_info').click(function() {
-            var changer="oui";
+        $('#modif_info').click(function () {
+            var changer = "oui";
             $.ajax({
                 type: "GET",
                 url: '{{ url("/home") }}',
