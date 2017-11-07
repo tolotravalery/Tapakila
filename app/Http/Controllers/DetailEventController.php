@@ -48,20 +48,19 @@ class DetailEventController extends Controller
         if (Sous_menus::find($sous_menu) == null) {
             return redirect(url('errors/' . md5('event-detail') . '/' . md5('500')));
         }
-        $debut = 0;
-        $end = 8;
+        $debut = 1;
+        $end = 9;
         $page = 0;
         if ($req->input('page') != null) {
             $page = $req->input('page');
         }
         if ($page <= 0) {
             $debut = 0;
-            $end = 8;
+            $end = 9;
             $page = 0;
         } else {
             $end = $end * $page;
-            $debut = ($end - 8) + 1;
-//            echo 'page : ' . $req->input('page') . ' debut : ' . $debut . ' end : ' . $end;
+            $debut = ($end - 9);
         }
         $sous_menu_id = Sous_menus::find($sous_menu);
         $menus = Menus::orderBy('id', 'desc')->get();

@@ -30,7 +30,8 @@
             <ul class="herb">
                 <li class=" bounce animated2 zoomIn"><a href="{{url('/')}}"><b>Acceuil</b></a></li>
                 <li class=" bounce animated2 zoomIn"><a href="{{url('/')}}"><b>Evenement</b></a></li>
-                <li class=" bounce animated2 zoomIn dernier"><a href=""><b>{{ucfirst(strtolower($menu_event->name))}}</b></a>
+                <li class=" bounce animated2 zoomIn dernier"><a
+                            href=""><b>{{ucfirst(strtolower($menu_event->name))}}</b></a>
                 </li>
             </ul>
         </div>
@@ -105,13 +106,24 @@
                     @php $count_event = 0; @endphp
                     @php $count_id = 0 @endphp
                     @foreach($menu_event->sousmenus()->orderBy('name','asc')->get() as $sousMenu)
-                        @if($sousMenu->events()->where('publie','=','1')->where('date_debut_envent','>',date('Y-m-d H:i:s'))->count() > 0)
+                        @php($evenement = $sousMenu->events()->where('publie','=','1')->where('date_debut_envent','>',date('Y-m-d H:i:s')))
+                        @if($evenement->count() > 0)
                             @php $count_event++; @endphp
                             <div class="categorie-item">
                                 <h2 class="couleur_mot">{{ucfirst(strtolower($sousMenu->name))}}</h2>
                                 <div class="row">
-                                    @foreach($sousMenu->events as $event)
-                                        @if($event->publie == true && \Carbon\Carbon::parse($event->date_debut_envent)->isFuture() )
+                                    @php
+                                        $objects= null;
+                                        if($evenement->count() > 3 )
+                                            $objects = $evenement->get()->random(3);
+                                        else
+                                            $objects = $evenement->get();
+                                    @endphp
+                                    @foreach($objects as $event)
+                                        @php
+                                            $ev = $event->publie == true && \Carbon\Carbon::parse($event->date_debut_envent)->isFuture();
+                                        @endphp
+                                        @if($ev)
                                             <div class="col-sm-6 col-md-4">
                                                 <div class="thumbnail"
                                                      onmouseover="mouseover('month{{$count_id}}','title{{$count_id}}')"
@@ -148,17 +160,17 @@
                                                                 </div>
                                                                 <div class="col-md-9 col-xs-9 ">
                                                                     {{--<a>--}}
-                                                                        <div class="prixfx">
-                                                                            @if($event->tickets()->count() > 0)
-                                                                                <i class="fa fa-tag prices"></i>A
-                                                                                partir de <b
-                                                                                        class="prx">{{ (int) $event->tickets()->orderBy('price','asc')->take(1)->get()[0]->price  }}</b>
-                                                                                AR
-                                                                            @else
-                                                                                <i class="fa fa-tag prices"></i>Non
-                                                                                disponible
-                                                                            @endif
-                                                                        </div>
+                                                                    <div class="prixfx">
+                                                                        @if($event->tickets()->count() > 0)
+                                                                            <i class="fa fa-tag prices"></i>A
+                                                                            partir de <b
+                                                                                    class="prx">{{ (int) $event->tickets()->orderBy('price','asc')->take(1)->get()[0]->price  }}</b>
+                                                                            AR
+                                                                        @else
+                                                                            <i class="fa fa-tag prices"></i>Non
+                                                                            disponible
+                                                                        @endif
+                                                                    </div>
                                                                     {{--</a>--}}
 
                                                                     <a href="{{url('event/show',[$event->id])}}">
@@ -182,6 +194,20 @@
                                     @endforeach
                                 </div>
                             </div>
+                        @endif
+                        @if($evenement->count() >= 3)
+                            <div class="row">
+                                <div class="col-lg-12 pull-right">
+                                    <div class="pull-right">
+                                        <a href="{{url('/event/list/categorie/'.$sousMenu->name.'',[$sousMenu->id])}}"
+                                           style="color: #5cb85c;">
+                                            <i><b>Plus d'évènement >> </b></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <br/>
+                            @php $count_id++ @endphp
                         @endif
                     @endforeach
                     @if($count_event == 0)
