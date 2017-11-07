@@ -62,6 +62,7 @@ Route::group(['middleware' => 'web'], function () {
         Route::get('contact', 'AproposController@contact');
         Route::get('term', 'AproposController@term');
         Route::get('shop', 'AproposController@achat');
+		Route::get('vie-prive', 'AproposController@vieprive');
         Route::get('shop/ticket', 'AproposController@achatBillet');
     });
 

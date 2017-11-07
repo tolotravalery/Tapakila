@@ -19,6 +19,12 @@ class AproposController extends Controller
     public function contact(){
         return view('tapakila.contact');
     }
+	 public function vieprive(){
+		 $menus = Menus::orderBy('id', 'desc')->get();
+        $sousmenus = Sous_menus::orderBy('name', 'asc')->get();
+       
+        return view('tapakila.vie-prive',compact('menus', 'sousmenus','slides'));
+    }
     public function term(){
         return view('tapakila.term');
     }
