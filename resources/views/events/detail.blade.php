@@ -118,7 +118,7 @@
                             $interval = new DateInterval('P1D');
                             $daterange = new DatePeriod(\Carbon\Carbon::parse($event->date_debut_envent), $interval ,\Carbon\Carbon::parse($event->date_fin_event));
                         @endphp
-                        <form action="{{ url('shopping/cart') }}" method="POST"
+                        <form action="{{ url('shopping/cart') }}" method="POST" 
                               class="side-by-side">
                             @foreach($daterange as $date)
                                 <div class="tab-pane tabulation  fade @php if($d == 0)  echo "active in "; else echo "hidden"; @endphp"
