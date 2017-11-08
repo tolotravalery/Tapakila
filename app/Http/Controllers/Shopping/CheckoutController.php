@@ -9,8 +9,10 @@ use App\Models\User;
 use \Cart as Cart;
 use App\Models\Payement_mode;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use PDF;
 
 class CheckoutController extends Controller
 {
@@ -79,10 +81,14 @@ class CheckoutController extends Controller
         }
         Cart::destroy();
 //        return redirect(url('/shopping/cart'));
-        Mail::send('emails.ticket', ['tic' => $tic, 'tap' => $tap], function ($message) {
-            $message->to(Auth::user()->email, Auth::user()->name)->subject('Leguichet');
-        });
-        return view('emails.ticket', compact('tic', 'tap'));
+        $user = Auth::user();
+//        Mail::send('emails.ticket', ['tic' => $tic, 'tap' => $tap, 'user' => $user], function ($message) {
+//            $message->to(Auth::user()->email, Auth::user()->name)->subject('Leguichet');
+//        });
+        $pdf = App::make('dompdf.wrapper');
+        $pdf->loadHTML(view('emails.ticket', compact('tic', 'tap', 'user'))->render());
+//        return $pdf->stream();
+        return view('emails.ticket', compact('tic', 'tap','user'));
     }
 
     function pay($users_id, $id)

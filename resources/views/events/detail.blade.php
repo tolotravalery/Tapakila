@@ -228,7 +228,8 @@
 								<div class="col-md-2">
 									<button type="submit" class=" btn btn-success btn_acheterr " id="acheter">Acheter</button>
 								</div>
-                            </div>
+							</div>
+
                             <br/>
                         </form>
                         @if($d==0)
