@@ -100,7 +100,7 @@
                     @foreach($daterange as $date)
                         <li class="@php if($c==0) echo "active" ; else echo "" ;@endphp ">
                             <a href="#date{{$c}}" role="tab"
-                               data-toggle="tab">{{$date->format('d M')}}</a>
+                               data-toggle="tab" onclick="hideThis('date{{$c}}')">{{$date->format('d M')}}</a>
                         </li>
                         @php $c++; @endphp
                     @endforeach
@@ -121,7 +121,7 @@
                         <form action="{{ url('shopping/cart') }}" method="POST"
                               class="side-by-side">
                             @foreach($daterange as $date)
-                                <div class="tab-pane tabulation  fade @php if($d == 0)  echo "active in"; else ""; @endphp"
+                                <div class="tab-pane tabulation  fade @php if($d == 0)  echo "active in "; else echo "hidden"; @endphp"
                                      id="date{{$d}}">
                                     <div class="table-responsive tableau_detail">
                                         <table class="table table-hover">
@@ -219,19 +219,15 @@
                                 </div>
                                 @php $d++ @endphp
                             @endforeach
-                            <div class="row">
-                                <div class="col-md-2 pull-right padding-custom">
-                                    <button type="submit" class=" btn btn-success btn_acheterr "
-                                            id="acheter">
-                                        Acheter
-                                    </button>
-                                </div>
-                                <div class="col-md-2 pull-right padding-custom">
-                                    <button type="button" class=" btn btn-danger btn_reset"
-                                            id="reset{{$d}}">
-                                        Reset
-                                    </button>
-                                </div>
+                            <div class="row padding-custom">
+								<div class="col-md-4"></div>
+								<div class="col-md-4"></div>
+								<div class="col-md-2">
+									<button type="button" class=" btn btn-danger btn_reset" onclick="resetPage()">Reset</button>
+								</div>
+								<div class="col-md-2">
+									<button type="submit" class=" btn btn-success btn_acheterr " id="acheter">Acheter</button>
+								</div>
                             </div>
                             <br/>
                         </form>
@@ -440,7 +436,6 @@
             });
         }
         $(document).ready(function () {
-            console.log("huhu");
             $('#acheter').prop('disabled', true);
         });
 
@@ -526,6 +521,14 @@
                         }
                     }
                 });
+                function hideThis(id) {
+                    console.log('hideThis');
+                    $('.tab-pane').addClass('hidden');
+                    $('#' + id).removeClass('hidden');
+                }
+                function resetPage(){
+                    window.location = '{{url()->current()}}'
+                }
             </script>
         @endfor
     @endfor

@@ -106,7 +106,7 @@
                             {{ trans('profile.editAccountTitle') }}-->
 								</li>--}}
 								<li>
-									<a href="{{url('/home')}}"><b>Mon compte</b></a>
+									<a href="{{url('/home')}}">Mon compte</a>
 								</li>
 
                             <li>
