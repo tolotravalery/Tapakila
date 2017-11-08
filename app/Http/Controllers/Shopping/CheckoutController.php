@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use PDF;
+use Illuminate\Support\Facades\Session;
 
 class CheckoutController extends Controller
 {
@@ -80,15 +81,20 @@ class CheckoutController extends Controller
             $j++;
         }
         Cart::destroy();
-//        return redirect(url('/shopping/cart'));
+
         $user = Auth::user();
-//        Mail::send('emails.ticket', ['tic' => $tic, 'tap' => $tap, 'user' => $user], function ($message) {
-//            $message->to(Auth::user()->email, Auth::user()->name)->subject('Leguichet');
-//        });
+
+        $pdfName = time() . '.pdf';
+        $PdfDestinationPath = public_path('/tickets/' . $pdfName);
+        Session::put('pdfDestinationPath', $PdfDestinationPath);
         $pdf = App::make('dompdf.wrapper');
-        $pdf->loadHTML(view('emails.ticket', compact('tic', 'tap', 'user'))->render());
-//        return $pdf->stream();
-        return view('emails.ticket', compact('tic', 'tap','user'));
+        $pdf->loadHTML(view('emails.ticket', compact('tic', 'tap', 'user'))->with(array('send' => 'pdf'))->render());
+        $pdf->save($PdfDestinationPath);
+        Mail::send('emails.ticket', ['tic' => $tic, 'tap' => $tap, 'user' => $user, 'send' => 'mail'], function ($message) {
+            $message->to(Auth::user()->email, Auth::user()->name)->subject('Leguichet');
+            $message->attach(Session::get('pdfDestinationPath'));
+        });
+        return $pdf->stream('download_ticket_leguichet.pdf');
     }
 
     function pay($users_id, $id)
@@ -133,12 +139,20 @@ class CheckoutController extends Controller
         $ticket_to_pay->pivot->save();
         $ticket_to_pay->save();
         $tic[0] = $ticket_to_pay;
-//        $pdf = App::make('dompdf.wrapper');
-//        $pdf->loadHTML(view('emails.ticket', compact('tic', 'tap'))->render());
-        Mail::send('emails.ticket', ['tic' => $tic, 'tap' => $tap], function ($message) {
+
+        $user = Auth::user();
+
+        $pdfName = time() . '.pdf';
+        $PdfDestinationPath = public_path('/tickets/' . $pdfName);
+        Session::put('pdfDestinationPath', $PdfDestinationPath);
+        $pdf = App::make('dompdf.wrapper');
+        $pdf->loadHTML(view('emails.ticket', compact('tic', 'tap', 'user'))->with(array('send' => 'pdf'))->render());
+        $pdf->save($PdfDestinationPath);
+        Mail::send('emails.ticket', ['tic' => $tic, 'tap' => $tap, 'user' => $user, 'send' => 'mail'], function ($message) {
             $message->to(Auth::user()->email, Auth::user()->name)->subject('Leguichet');
-//            $message->embed($pdf->stream());
+            $message->attach(Session::get('pdfDestinationPath'));
         });
+        return $pdf->stream('download_ticket_leguichet.pdf');
 
         return view('emails.ticket', compact('tic', 'tap'));
     }
