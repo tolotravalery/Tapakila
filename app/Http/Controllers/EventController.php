@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 use Illuminate\Auth\Events\Registered;
 use App\Models\Events;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Mail;
 
 class EventController extends Controller
 {
@@ -195,6 +196,9 @@ class EventController extends Controller
         $message = " Opération réussie";
         session()->flash('message', $message);
         // Send mail to organisateur
+        Mail::send('emails.ajoutevenement',['user'=>Auth::user(),'event'=>$event], function ($message) {
+            $message->to(Auth::user()->email, Auth::user()->name)->subject('Leguichet');
+        });
         return redirect(url('organisateur/event/' . $event->id . '/edit'))->with(compact('message'));
     }
 
@@ -305,6 +309,7 @@ class EventController extends Controller
 
     public function update(Request $request)
     {
+        
         $code = Crypt::decryptString($request->input('id'));
         $event = Events::find($code);
         if ($event == null) {
@@ -343,6 +348,11 @@ class EventController extends Controller
         $message = " Opération réussie";
         session()->flash('message', $message);
 
+
+        Mail::send('emails.modifierevenement',['user'=>Auth::user(),'event'=>$event], function ($message) {
+            $message->to(Auth::user()->email, Auth::user()->name)->subject('Leguichet');
+        });
+    
         return redirect(url('organisateur/event/' . $event->id . '/edit'))->with(compact('message'));;
     }
 
