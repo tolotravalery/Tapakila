@@ -100,7 +100,7 @@
                     @foreach($daterange as $date)
                         <li class="@php if($c==0) echo "active" ; else echo "" ;@endphp ">
                             <a href="#date{{$c}}" role="tab"
-                               data-toggle="tab">{{$date->format('d M')}}</a>
+                               data-toggle="tab" onclick="hideThis('date{{$c}}')">{{$date->format('d M')}}</a>
                         </li>
                         @php $c++; @endphp
                     @endforeach
@@ -121,7 +121,7 @@
                         <form action="{{ url('shopping/cart') }}" method="POST"
                               class="side-by-side">
                             @foreach($daterange as $date)
-                                <div class="tab-pane tabulation  fade @php if($d == 0)  echo "active in"; else ""; @endphp"
+                                <div class="tab-pane tabulation  fade @php if($d == 0)  echo "active in "; else echo "hidden"; @endphp"
                                      id="date{{$d}}">
                                     <div class="table-responsive tableau_detail">
                                         <table class="table table-hover">
@@ -228,7 +228,7 @@
                                 </div>
                                 <div class="col-md-2 pull-right padding-custom">
                                     <button type="button" class=" btn btn-danger btn_reset"
-                                            id="reset{{$d}}">
+                                            onclick="resetPage()">
                                         Reset
                                     </button>
                                 </div>
@@ -440,7 +440,6 @@
             });
         }
         $(document).ready(function () {
-            console.log("huhu");
             $('#acheter').prop('disabled', true);
         });
 
@@ -526,6 +525,14 @@
                         }
                     }
                 });
+                function hideThis(id) {
+                    console.log('hideThis');
+                    $('.tab-pane').addClass('hidden');
+                    $('#' + id).removeClass('hidden');
+                }
+                function resetPage(){
+                    window.location = '{{url()->current()}}'
+                }
             </script>
         @endfor
     @endfor
