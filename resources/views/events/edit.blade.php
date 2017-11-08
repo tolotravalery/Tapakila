@@ -45,6 +45,16 @@
 						<p>A présent, vous devez ajouter les Types de Ticket dans l'onglet "Types de Ticket & prix"</p>
 					</div>
                         
+
+                        <div class="alert alert1 alert-success">
+                            <span class="glyphicon glyphicon-ok"></span> <strong>{{ session('message') }}</strong>
+                            <hr class="message-inner-separator">
+                            <p>
+                                A présent, vous devez ajouter les Types de Ticket dans l'onglet "Types de Ticket &
+                                prix"</p>
+                        </div>
+
+
                     @endif
                 </div>
                 <div class="col-lg-3 col-sm-3 col-lg-pull-9 col-sm-pull-9 sec">
@@ -891,45 +901,71 @@
                                     <div class="panel-body border-bottom">
                                         <h2>Type des tickets</h2>
                                         @if(isset($event))
+                                            @php $id=0; @endphp
                                             @foreach($event->tickets as $ticket)
-                                                <div class="ticket_type_contenu">
-                                                    <div class="row">
-                                                        <div class="col-lg-6">
-                                                            <h2>{{$ticket->type}}</h2>
-                                                        </div>
-                                                        <div class="col-lg-2">
-                                                            <h2>{{$ticket->price}}</h2>
-                                                            <p>AR</p>
-                                                        </div>
-                                                        <div class="col-lg-4">
-                                                            <h2>
-                                                                <div class="btn-group pull-right">
-                                                                    <button type="button" class="btn btn-default">
-                                                                        <span class="glyphicon glyphicon-edit"
-                                                                              aria-hidden="true"></span>
-                                                                        Edit
-                                                                    </button>
-                                                                    <button type="button"
-                                                                            class="btn btn-default dropdown-toggle pull-right"
-                                                                            data-toggle="dropdown" aria-haspopup="true"
-                                                                            aria-expanded="false">
-                                                                        <span class="caret"></span>
-                                                                        <span class="sr-only">Toggle Dropdown</span>
-                                                                    </button>
-                                                                    <ul class="dropdown-menu menu_type">
-                                                                        <li>
-                                                                            <a href="{{url('organisateur/event/ticket/delete/'.$ticket->id.'/'.$event->id)}}"><span
-                                                                                        class="glyphicon glyphicon-trash"
-                                                                                        aria-hidden="true"></span>
-                                                                                Effacer</a></li>
-                                                                    </ul>
-                                                                </div>
-                                                            </h2>
-                                                        </div>
-                                                    </div>
-                                                    <p>Nombre de billets: {{$ticket->tapakila()->count()}}</p>
-                                                </div>
+                                                @if($ticket->id != $id)
+                                                    @php
+                                                        $id = $ticket->id;
+                                                    @endphp
+                                                    <div class="ticket_type_contenu">
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
+                                                                <h2>{{$ticket->type}}</h2>
+                                                            </div>
+                                                            <div class="col-lg-2">
+                                                                <h2>{{$ticket->price}}</h2>
+                                                                <p>AR</p>
+                                                            </div>
+                                                            <div class="col-lg-4">
+                                                                <h2>
+                                                                    <div class="btn-group pull-right">
 
+                                                                        {!! Form::button('<i class="fa fa-fw fa-trash" aria-hidden="true"></i> Supprimer',
+                                                                                array(
+                                                                                    'class' 			=> 'btn btn-default',
+                                                                                    'id' 				=> 'delete_ticket_trigger',
+                                                                                    'type' 				=> 'button',
+                                                                                    'data-toggle' 		=> 'modal',
+                                                                                    'data-submit'       => trans('profile.deleteAccountBtnConfirm'),
+                                                                                    'data-target' 		=> '#confirmDelete'
+                                                                                )
+                                                                        ) !!}
+                                                                    </div>
+                                                                </h2>
+                                                                <div class="modal fade modal-danger" id="confirmDelete"
+                                                                     role="dialog" aria-labelledby="confirmDeleteLabel"
+                                                                     aria-hidden="true">
+                                                                    <div class="modal-dialog">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <button type="button" class="close"
+                                                                                        data-dismiss="modal"
+                                                                                        aria-label="Close"><span
+                                                                                            aria-hidden="true">&times;</span>
+                                                                                </button>
+                                                                                <h4 class="modal-title">Confirm
+                                                                                    Delete</h4>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                                <p>Delete this ticket?</p>
+                                                                                <p>La suppression de cette ticket a un
+                                                                                    risque pour les clients</p>
+                                                                            </div>
+                                                                            <div class="modal-footer">
+                                                                                {!! Form::button('<i class="fa fa-fw fa-close" aria-hidden="true"></i> Cancel', array('class' => 'btn btn-outline pull-left btn-flat', 'type' => 'button', 'data-dismiss' => 'modal' )) !!}
+                                                                                <a href="{{url('organisateur/event/ticket/delete/'.$ticket->id.'/'.$event->id)}}"
+                                                                                   class="btn btn-danger pull-right btn-flat"><span
+                                                                                            class="fa fa-fw fa-trash-o"
+                                                                                            aria-hidden="true"></span>Effacer</a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <p>Nombre de billets: {{$ticket->tapakila()->count()}}</p>
+                                                    </div>
+                                                @endif
                                             @endforeach
                                         @endif
                                         <a class="btn btn-primary btn-outline text-center center-block primary"
