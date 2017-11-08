@@ -92,7 +92,7 @@ hr.message-inner-separator
 .navbar-brand >img {
     display: block;
     margin-left: -13px ! important;
-    margin-right: 30px ! important;
+    margin-right: 5px ! important;
 	cursor:pointer ! important;
 }
 
@@ -360,6 +360,10 @@ body {
 .navbar-default .navbar-toggle {
     border-color: #fff!important;
 }
+nav{
+	float:none;
+	vertical-align:top;
+}
 
 .navbar-toggle {
     position: relative;
@@ -531,8 +535,13 @@ ul.navbar-nav li.open ul {
 }
 
 ul.navbar-nav li {
-    margin: 10px 0px;
+    margin: 10px 6px;
     color: #fff!important;
+}
+
+ul.nav-customs li {
+	margin-top:10px;
+	margin-left:6px;
 }
 
 ul.navbar-nav li a,
@@ -604,8 +613,17 @@ ul.navbar-nav li.open ul.nav-tabs li a {
     list-style: none;
     line-height: 30px;
 }
+.alert1 a{
+	color:#d70506 ! important;
+}
+.alert1 a:hover{
+	color:black ! important;;
+}
+@media screen and (min-width:1024px){
 .lolo{
 	width: 40%;
+	margin-left:5px;
+}
 }
 .footer-bottom ul li {
     display: inline;
