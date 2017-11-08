@@ -219,20 +219,17 @@
                                 </div>
                                 @php $d++ @endphp
                             @endforeach
-                            <div class="row">
-                                <div class="col-md-2 pull-right padding-custom">
-                                    <button type="submit" class=" btn btn-success btn_acheterr "
-                                            id="acheter">
-                                        Acheter
-                                    </button>
-                                </div>
-                                <div class="col-md-2 pull-right padding-custom">
-                                    <button type="button" class=" btn btn-danger btn_reset"
-                                            onclick="resetPage()">
-                                        Reset
-                                    </button>
-                                </div>
-                            </div>
+                            <div class="row padding-custom">
+								<div class="col-md-4"></div>
+								<div class="col-md-4"></div>
+								<div class="col-md-2">
+									<button type="button" class=" btn btn-danger btn_reset" onclick="resetPage()">Reset</button>
+								</div>
+								<div class="col-md-2">
+									<button type="submit" class=" btn btn-success btn_acheterr " id="acheter">Acheter</button>
+								</div>
+							</div>
+
                             <br/>
                         </form>
                         @if($d==0)

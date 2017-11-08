@@ -2,6 +2,5 @@
 .idea
 vendor
 storage/*
-public/img
 public/qr_code
 public/slide

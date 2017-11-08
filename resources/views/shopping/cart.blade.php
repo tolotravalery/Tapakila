@@ -174,13 +174,10 @@
                         <div id="custom-white">
                             <h1 class="couleur_mot">Votre Panier</h1>
                             <div class="panier"></div>
-                            <div class="alert alert-success">
-                                <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la
-                                    mise en page avant
-                                    impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis
-                                    les
-                                    années 1500 </p>
-                            </div>
+							<div class="alert alert1 alert-success">
+						<p>Cher client, vous pouvez remplir votre panier des évènements qui vous plaisent  <a class="point" href="{{url('/')}}"><b>ICI</b></a> .</p>
+						<hr class="message-inner-separator">
+					</div>
                             <div class="row panier_3">
                                 <div class="col-lg-6 col-lg-offset-3">
                                     <div class="thumbnail panier1">

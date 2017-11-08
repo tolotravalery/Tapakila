@@ -202,10 +202,10 @@ text-align:center !important;
 .pseudoname{
 color:black !important;
 font-size:25px;
-text-align:center !important;s
+text-align:center !important;
 }
 .padding-custom {
-padding: 0px 0px 0px 0px !important;
+padding: 10px 15px 15px 10px !important;
 }
 }
 /*Smartphone*/
@@ -468,15 +468,6 @@ position: relative;
 text-align: center;
 width: 100%;
 }
-}
-
-@media screen and (min-width:990px) and (max-width:1199px) {
-.searchbox {
-margin-top: 15px !important;
-margin-left: -41px !important;
-width: 90% !important;
-}
-
 }
 
 
