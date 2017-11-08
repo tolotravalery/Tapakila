@@ -47,7 +47,7 @@ padding: 39px;
                                 <p>Localisation: {{$event->localisation_nom}}
                         {{$event->localisation_adresse}}</p>
                             </div>
-                            <hr class="separate" style="text-align: center;width: 100%;">
+                            <hr class="separate" style="text-align: center;width: 100%;color:#">
                             <div>
                                 <div class="row mou">
                         @foreach($tap as $tapakila)
