@@ -2,4 +2,6 @@
 .idea
 vendor
 storage/*
-public/*
+public/img
+public/qr_code
+public/slide
