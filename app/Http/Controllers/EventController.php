@@ -204,6 +204,7 @@ class EventController extends Controller
 
     public function updateadmin(Request $request)
     {
+       
         $event = Events::find($request->input('id'));
         $event->title = $request->input('title');
         $event->sous_menus_id = $request->input('sousmenu');
@@ -249,6 +250,10 @@ class EventController extends Controller
 
         $message = " Opération réussie";
         session()->flash('message', $message);
+        
+        Mail::send('emails.modifierevenement',['user'=>Auth::user(),'event'=>$event], function ($message) {
+            $message->to(Auth::user()->email, Auth::user()->name)->subject('Leguichet');
+        });
 
         return redirect(url('admin/listevent'))->with(compact('message'));;
     }
@@ -304,6 +309,9 @@ class EventController extends Controller
             'publie' => $publie,
         ]);
         // Send mail to organisateur
+        Mail::send('emails.ajoutevenement',['user'=>Auth::user(),'event'=>$event], function ($message) {
+            $message->to(Auth::user()->email, Auth::user()->name)->subject('Leguichet');
+        });
         return redirect(url('admin/events/update/' . $event->id));
     }
 
@@ -373,6 +381,7 @@ class EventController extends Controller
         $events = Events::all();
         $alert = Alert::where('vu', '=', '0')->get();
         /*return view('pages.admin.listeevent1', compact('events', 'alert'));*/
+        
         return redirect(url('admin/listevent'));
     }
 }

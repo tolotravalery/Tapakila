@@ -46,9 +46,12 @@ border-radius: 3px;
                                         
                                         <h2 style="font-size: 14px;color:#333;"><b>Bonjour {{$user->name}},</b></h2>
                                         <p style="font-size: 14px;color:#333;">Votre modification évènement a été bien réussi avec succès.</p>
-                                        <p style="font-size: 14px;color:#333;"><b>{{$event->title}} </b> le {{$event->date_debut_envent->format('d M Y H:i:s')}} à {{$event->date_fin_event->format('d M Y H:i:s')}}</p>
-                                        <p style="font-size: 14px;color:#333;">Localisation: {{$event->localisation_nom}} {{$event->localisation_adresse}}</p>
-                                        <p></p><br>
+                                        <p style="font-size: 14px;color:#333;"><b style="color:#d70506;">Programme : </b>{{$event->title}} </p>
+                                        <p style="font-size: 14px;color:#333;"><b style="color:#d70506;">Localisation : </b>{{$event->localisation_nom}} {{$event->localisation_adresse}}</p>
+                                        <p style="font-size: 14px;color:#333;"><b style="color:#d70506;">Date : </b>le {{$event->date_debut_envent->format('d M Y H:i:s')}} à {{$event->date_fin_event->format('d M Y H:i:s')}} </p>
+                                       
+                                        
+                                        <p style="font-size: 14px;color:#333;"> Veuiller consulter votre <a style="text-decoration: none;color: #62b2eb;"href="{{url('/home')}}"> Compte</a></p><br>
                                         <div style="font-size: 14px;color:#333;text-align: center;background-color: #cccccc; margin-top: 25px; padding: 15px;  margin-bottom: 20px;  border: 1px solid transparent; border-radius: 4px;">
                                             <p>Vous avez des question? consultez notre <a style="text-decoration: none;color: #62b2eb;"href="{{url('')}}/tapakila/faq">FAQ</a> dès maintenant</p>
                                         </div>

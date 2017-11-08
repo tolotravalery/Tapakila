@@ -211,7 +211,7 @@
                             </div>
                         </div>
                         
-                        {!! Form::button('Update', array('id'=>'enregister','class' => 'btn btn-success btn-flat margin-bottom-1 pull-right','type' => 'submit', )) !!}
+                        {!! Form::button('Ajouter', array('id'=>'enregister','class' => 'btn btn-success btn-flat margin-bottom-1 pull-right','type' => 'submit', )) !!}
                     </form>
                 </div>
             </div>
