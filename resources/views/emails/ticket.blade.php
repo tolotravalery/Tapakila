@@ -22,13 +22,16 @@
 .pp{
     padding-top: 14px;
 }
+.ive{
+padding: 39px;
+}
 </style>
     <section id="content">
         <div class="container custom-container">
             
             <div class="ko"> 
                 <div class="row">
-                    <div class="col-md-10 col-md-offset-1">
+                    <div class="col-md-10 col-md-offset-1 ive">
                             <div class="int">
                                     <img src="{{ url('/') }}/public/img/logo.png" title="leguichet">
                                     <p class="pp">Merci, voici vos billets! Lorsque vous participez, indiquez le code dans ce courrier électronique ou utilisez le fichier .pdf ci-joint</p>
