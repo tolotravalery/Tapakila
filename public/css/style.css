@@ -1056,10 +1056,12 @@ ul>li>a:hover {
 }
 
 .bt_modif:hover {
-    background-color: #5cb85c !important;
+	    background-color: #5cb85c !important;
     color: white !important;
-    padding: 10px 30px 10px 30px !important;
+    padding: 10px 43px 10px 42px !important;
     font-size: 20px !important;
+
+  
 }
 
 
@@ -1271,16 +1273,11 @@ a:hover {
 .bt_modif {
     background-color: #5cb85c;
     color: white;
-    padding: 10px 30px 10px 30px;
+    padding: 10px 43px 10px 42px;
     font-size: 20px;
 }
 
-.bt_modif:hover {
-    background-color: #5cb85c;
-    color: white;
-    padding: 10px 30px 10px 30px;
-    font-size: 20px;
-}
+
 
 .btio2 {
     border-radius: 2% !important;
