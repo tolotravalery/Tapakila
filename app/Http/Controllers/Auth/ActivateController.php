@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
 use jeremykenedy\LaravelRoles\Models\Permission;
 use jeremykenedy\LaravelRoles\Models\Role;
+use Illuminate\Support\Facades\Mail;
 
 class ActivateController extends Controller
 {
@@ -187,6 +188,9 @@ class ActivateController extends Controller
         $user->profile()->save($profile);
         $user->save();
 
+        Mail::send('emails.inscription',['user'=>Auth::user()], function ($message) {
+            $message->to(Auth::user()->email, Auth::user()->name)->subject('Leguichet');
+        });
         $allActivations = Activation::where('user_id', $user->id)->get();
         foreach ($allActivations as $anActivation) {
             $anActivation->delete();

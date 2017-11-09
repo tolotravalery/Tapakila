@@ -44,9 +44,9 @@ border-radius: 3px;
                                                         <div style=" border-bottom: 1px solid black; padding-bottom: 2px;"><img class="logoactivate" src="{{url('/')}}/public/img/logo.png" title="Tapakila"></div>
                                         
                                         
-                                        <h2 style="font-size: 14px;color:#333;"><b>Bonjour {{$user->name}},</b></h2>
-                                        <p style="font-size: 14px;color:#333;">La suppréssion de votre évènement a été bien réussi avec succès.</p>
-                                        <p style="font-size: 14px;color:#333;"><b>{{$event->title}} 
+                                        <h2 style="font-size: 26px;color:#333;font-family:Lucida Console;"><b>Bonjour {{$user->name}},</b></h2>
+                                        <p style="font-size: 14px;color:#333;font-family:Lucida Console;">La suppréssion de votre évènement a été bien réussi avec succès.</p>
+                                        <p style="font-size: 14px;color:#333;font-family:Lucida Console;"><b>{{$event->title}} 
                                         <p></p><br>
                                         <div style="font-size: 14px;color:#333;text-align: center;background-color: #cccccc; margin-top: 25px; padding: 15px;  margin-bottom: 20px;  border: 1px solid transparent; border-radius: 4px;">
                                             <p>Vous avez des question? consultez notre <a style="text-decoration: none;color: #62b2eb;"href="{{url('')}}/tapakila/faq">FAQ</a> dès maintenant</p>

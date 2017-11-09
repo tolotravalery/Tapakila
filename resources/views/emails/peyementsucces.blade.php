@@ -41,17 +41,17 @@ border-radius: 3px;
                                     <div style="background-color: white;margin-top: 84px;padding: 20px 30px 20px 30px;overflow: hidden;margin-bottom: 83px;border-radius: 3px;">
                                             <div class="row">
                                                     <div class="col-md-10 col-md-offset-1">
-                                                        <div style=" border-bottom: 1px solid black; padding-bottom: 2px;"><img class="logoactivate" src="{{url('/')}}/public/img/logo.png" title="Leguichet"></div>
+                                                        <div style=" border-bottom: 1px solid black; padding-bottom: 2px;"><img class="logoactivate" src="{{url('/')}}/public/img/logo.png" title="Tapakila"></div>
                                         
                                         
-                                        <h2><b style="font-size: 26px;color:#333;font-family:Lucida Console;">Bonjour {{$user->name}},</b></h2>
-                                        <p style="font-size: 14px;color:#333;font-family:Lucida Console;">Votre ajout évènement a été bien réussi avec succès.</p>
-                                        <p style="font-size: 14px;color:#333;font-family:Lucida Console;"><b style="color:#d70506;">Programme : </b>{{$event->title}} </p>
-                                        <p style="font-size: 14px;color:#333;font-family:Lucida Console;"><b style="color:#d70506;">Localisation : </b>{{$event->localisation_nom}} {{$event->localisation_adresse}}</p>
-                                        <p style="font-size: 14px;color:#333;font-family:Lucida Console;"><b style="color:#d70506;">Date : </b>le {{$event->date_debut_envent->format('d M Y H:i:s')}} à {{$event->date_fin_event->format('d M Y H:i:s')}} </p><br>
+                                        <h2><b style="font-size: 14px;color:#333;">Bonjour {{$user->name}},</b></h2>
+                                        <p style="font-size: 14px;color:#333;">Votre ajout évènement a été bien réussi avec succès.</p>
+                                        <p style="font-size: 14px;color:#333;"><b style="color:#d70506;">Programme : </b>{{$event->title}} </p>
+                                        <p style="font-size: 14px;color:#333;"><b style="color:#d70506;">Localisation : </b>{{$event->localisation_nom}} {{$event->localisation_adresse}}</p>
+                                        <p style="font-size: 14px;color:#333;"><b style="color:#d70506;">Date : </b>le {{$event->date_debut_envent->format('d M Y H:i:s')}} à {{$event->date_fin_event->format('d M Y H:i:s')}} </p>
                                        
                                         
-                                        <p style="font-size: 14px;color:#333;font-family:Lucida Console;"> Veuiller consulter votre <a style="text-decoration: none;color: #62b2eb;"href="{{url('/home')}}"> Compte</a></p><br>
+                                        <p style="font-size: 14px;color:#333;"> Veuiller consulter votre <a style="text-decoration: none;color: #62b2eb;"href="{{url('/home')}}"> Compte</a></p><br>
                                         <div style="font-size: 14px;color:#333;text-align: center;background-color: #cccccc; margin-top: 25px; padding: 15px;  margin-bottom: 20px;  border: 1px solid transparent; border-radius: 4px;">
                                             <p>Vous avez des question? consultez notre <a style="text-decoration: none;color: #62b2eb;"href="{{url('')}}/tapakila/faq">FAQ</a> dès maintenant</p>
                                         </div>
