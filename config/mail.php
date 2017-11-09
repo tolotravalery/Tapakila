@@ -10,7 +10,7 @@ return [
 
     'from' => [
         'address' => env('MAIL_FROM_ADDRESS','contact@trustylabs.mg'),
-        'name' => env('MAIL_FROM_NAME','Tapakila'),
+        'name' => env('MAIL_FROM_NAME','Leguichet'),
     ],
 
 
