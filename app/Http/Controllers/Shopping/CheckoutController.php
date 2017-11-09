@@ -93,6 +93,9 @@ class CheckoutController extends Controller
         $pdf = App::make('dompdf.wrapper');
         $pdf->loadHTML(view('emails.ticket', compact('data', 'user'))->with(array('send' => 'pdf'))->render());
         $pdf->save($PdfDestinationPath);
+        Mail::send('emails.peyementsucces',['user'=>Auth::user(),'event'=>$event], function ($message) {
+            $message->to(Auth::user()->email, Auth::user()->name)->subject('Leguichet');
+        });
         Mail::send('emails.ticket', ['data' => $data, 'user' => $user, 'send' => 'mail'], function ($message) {
             $message->to(Auth::user()->email, Auth::user()->name)->subject('Leguichet');
             $message->attach(Session::get('pdfDestinationPath'));
@@ -154,6 +157,9 @@ class CheckoutController extends Controller
         $pdf = App::make('dompdf.wrapper');
         $pdf->loadHTML(view('emails.ticket', compact('data', 'user'))->with(array('send' => 'pdf'))->render());
         $pdf->save($PdfDestinationPath);
+        Mail::send('emails.peyementsucces',['user'=>Auth::user(),'event'=>$event], function ($message) {
+            $message->to(Auth::user()->email, Auth::user()->name)->subject('Leguichet');
+        });
         Mail::send('emails.ticket', ['data' => $data, 'user' => $user, 'send' => 'mail'], function ($message) {
             $message->to(Auth::user()->email, Auth::user()->name)->subject('Leguichet');
             $message->attach(Session::get('pdfDestinationPath'));

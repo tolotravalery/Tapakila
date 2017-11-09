@@ -11,7 +11,7 @@
     }
 
 </style>
-
+<body style="background-color:#eeeeee;">
 <table class="wrapper" width="100%" cellpadding="0" cellspacing="0">
     <tr>
         <td align="center">
@@ -27,8 +27,8 @@
                                         <img class="logoactivate" src="{{url('/')}}/public/img/logo.png" title="Leguichet">
                                         <hr class="border-logo">
                                         <h2><b style=" color:#333;margin-top: 26px; margin-bottom: 10px;font-size: 30px;word-wrap: break-word;font-weight: 700;font-family:Lucida Console;">Bonjour,</b></h2>
-                                        <p style="font-size: 14px;color:#333;font-family:Lucida Console;">Vous voulez changer votre mot de passe ? pas de problème !</p>
-                                        <p style="font-size: 14px;color:#333;font-family:Lucida Console;">Pour avoir un nouveau mots de passe, cliquer sur le bouton ci-dessous. </p><br>
+                                        <p style="font-size: 14px;color:#333;">Vous voulez changer votre mot de passe ? pas de problème !</p>
+                                        <p style="font-size: 14px;color:#333;">Pour avoir un nouveau mots de passe, cliquer sur le bouton ci-dessous. </p><br>
                                         <div style="  text-align: center;position: relative;min-height: 1px;margin-left: auto; margin-right: auto;width: 33.33333333%;">
                                             <a href="{{$actionUrl}}" style=" display:block;text-decoration: none;background-color: #d70506; color: white;padding: 10px 16px;font-size: 18px; line-height: 1.3333333;border-radius: 6px; "> {{$actionText}} </a>
                                         </div>
@@ -47,7 +47,7 @@
         </td>
     </tr>
 </table>
-
+</body>
     <!--<section id="content">
 
         <div class="container custom-container">
