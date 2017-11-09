@@ -7,7 +7,34 @@
                     <h2 class="initialize">Réinitialiser le mot de passe</h2>
 
                     @if (session('status'))
-                        <div class="row">
+
+                    
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div id="reinitial">
+                                                <div class="row">
+                                                        <div class="col-md-10 col-md-offset-1">
+                                                            <div class="mim"><img src="{{ url('/') }}/public/img/logo.png" title="leguichet"></div>
+                                            
+                                            
+                                            <h2 ><b>Bonjour,</b></h2>
+                                            <p> Nous vous envérons un lien de réinitialisation de mot de passe par <strong>e-mail.</strong><br/></p>
+                                         
+                                            <div class="alert">
+                                            <p> Retour à l'<a href="{{url('/')}}" class="information"><b><u>Acceuil</u></b></a></p>
+                                                <p>Vous avez des question? consultez notre <a href="{{url('/')}}tapakila/faq">FAQ</a> dès maintenant</p>
+                                            </div>
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                         
+
+
+
+
+                        <!-- <div class="row">
                             <div class="col-md-12">
                                 <div class="alert alert-info information">
                                     Nous vous envérons un lien de réinitialisation de mot de passe par
@@ -15,7 +42,7 @@
                                     Retour à l'<a href="{{url('/')}}" class="information"><b><u>Acceuil</u></b></a>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     @else
                         <form class="form-horizontal" role="form" method="POST" id="bg-custom"
                               action="{{ route('password.email') }}">

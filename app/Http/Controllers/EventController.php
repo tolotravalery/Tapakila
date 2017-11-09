@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 use Illuminate\Auth\Events\Registered;
 use App\Models\Events;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Mail;
 
 class EventController extends Controller
 {
@@ -195,11 +196,15 @@ class EventController extends Controller
         $message = " Opération réussie";
         session()->flash('message', $message);
         // Send mail to organisateur
+        Mail::send('emails.ajoutevenement',['user'=>Auth::user(),'event'=>$event], function ($message) {
+            $message->to(Auth::user()->email, Auth::user()->name)->subject('Leguichet');
+        });
         return redirect(url('organisateur/event/' . $event->id . '/edit'))->with(compact('message'));
     }
 
     public function updateadmin(Request $request)
     {
+       
         $event = Events::find($request->input('id'));
         $event->title = $request->input('title');
         $event->sous_menus_id = $request->input('sousmenu');
@@ -245,6 +250,10 @@ class EventController extends Controller
 
         $message = " Opération réussie";
         session()->flash('message', $message);
+        
+        Mail::send('emails.modifierevenement',['user'=>Auth::user(),'event'=>$event], function ($message) {
+            $message->to(Auth::user()->email, Auth::user()->name)->subject('Leguichet');
+        });
 
         return redirect(url('admin/listevent'))->with(compact('message'));;
     }
@@ -300,11 +309,15 @@ class EventController extends Controller
             'publie' => $publie,
         ]);
         // Send mail to organisateur
+        Mail::send('emails.ajoutevenement',['user'=>Auth::user(),'event'=>$event], function ($message) {
+            $message->to(Auth::user()->email, Auth::user()->name)->subject('Leguichet');
+        });
         return redirect(url('admin/events/update/' . $event->id));
     }
 
     public function update(Request $request)
     {
+        
         $code = Crypt::decryptString($request->input('id'));
         $event = Events::find($code);
         if ($event == null) {
@@ -343,6 +356,11 @@ class EventController extends Controller
         $message = " Opération réussie";
         session()->flash('message', $message);
 
+
+        Mail::send('emails.modifierevenement',['user'=>Auth::user(),'event'=>$event], function ($message) {
+            $message->to(Auth::user()->email, Auth::user()->name)->subject('Leguichet');
+        });
+    
         return redirect(url('organisateur/event/' . $event->id . '/edit'))->with(compact('message'));;
     }
 
@@ -363,6 +381,7 @@ class EventController extends Controller
         $events = Events::all();
         $alert = Alert::where('vu', '=', '0')->get();
         /*return view('pages.admin.listeevent1', compact('events', 'alert'));*/
+        
         return redirect(url('admin/listevent'));
     }
 }

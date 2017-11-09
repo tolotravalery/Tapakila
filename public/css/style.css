@@ -92,7 +92,7 @@ hr.message-inner-separator
 .navbar-brand >img {
     display: block;
     margin-left: -13px ! important;
-    margin-right: 30px ! important;
+    margin-right: 5px ! important;
 	cursor:pointer ! important;
 }
 
@@ -360,6 +360,10 @@ body {
 .navbar-default .navbar-toggle {
     border-color: #fff!important;
 }
+nav{
+	float:none;
+	vertical-align:top;
+}
 
 .navbar-toggle {
     position: relative;
@@ -531,8 +535,13 @@ ul.navbar-nav li.open ul {
 }
 
 ul.navbar-nav li {
-    margin: 10px 0px;
+    margin: 10px 6px;
     color: #fff!important;
+}
+
+ul.nav-customs li {
+	margin-top:10px;
+	margin-left:6px;
 }
 
 ul.navbar-nav li a,
@@ -604,8 +613,16 @@ ul.navbar-nav li.open ul.nav-tabs li a {
     list-style: none;
     line-height: 30px;
 }
+.alert1 a{
+	color:#d70506 ! important;
+}
+.alert1 a:hover{
+	color:black ! important;;
+}
+@media screen and (min-width:768px) and (max-width:1024px){
 .lolo{
 	width: 40%;
+}
 }
 .footer-bottom ul li {
     display: inline;
@@ -1315,7 +1332,7 @@ a:link {
 }
 
 .padding-custom {
-    padding: 10px 30px 40px 30px;
+   padding: 0px 30px 0px 0px;
 }
 
 .rapport:hover {
@@ -2855,6 +2872,7 @@ padding-bottom: 35px;
 .btn_reset {
     width: 100%;
     background-color: #d70506;
+	margin-bottom: 15px;
 }
 .btn_acheterr {
     width: 100%;
@@ -3895,6 +3913,13 @@ overflow: hidden;
 margin-bottom: 83px;
 border-radius: 3px;
 }
+#reinitial {
+    background-color: white;
+    padding: 20px 30px 20px 30px;
+    overflow: hidden;
+    margin-bottom: 83px;
+    border-radius: 3px;
+    }
 .border-logo {
     width: 100%;
     color: #b3b3b3;
@@ -4268,6 +4293,10 @@ input[type="checkbox"] {
     text-align: center;
     margin-bottom: 50px;
 }
+.mim{
+    border-bottom: 1px solid black;
+    padding-bottom: 2px;
+    }
 .nav-tabs2 {
     border-bottom: 2px solid #d70506;
 }

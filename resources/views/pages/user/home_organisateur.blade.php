@@ -253,11 +253,11 @@
                                             @if($a->pivot->status_payment=='FAILED')
 												 <td data-label="">
 											
-											<p><a href="#" alt="Edit" style="color: #d70506;font-size: 18px !important;">Annuler</a></p>
+											<p><a href="shopping/payment/{{Auth::user()->id}}/{{$a->pivot->id}}" alt="Edit" style="color: #d70506;font-size: 30px !important;">Payer</a></p>
                                                 </td>
                                                 <td data-label="">
+                                                <p><a href="#" alt="Edit" style="color: #d70506;font-size: 18px !important;">Annuler</a></p>
 											
-											<p><a href="shopping/payment/{{Auth::user()->id}}/{{$a->pivot->id}}" alt="Edit" style="color: #d70506;font-size: 30px !important;">Payer</a></p>
                                                 </td>
                                             @else
                                                 <td data-label=""><p>

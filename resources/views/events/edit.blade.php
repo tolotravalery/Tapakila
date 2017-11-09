@@ -39,13 +39,20 @@
                     <h1>Modifier votre évènement</h1>
 
                     @if (session('message'))
-                        <div class="alert alert1 alert-success">
-                            <span class="glyphicon glyphicon-ok"></span> <strong>{{ session('message') }}</strong>
-                            <hr class="message-inner-separator">
-                            <p>
-                                A présent, vous devez ajouter les Types de Ticket dans l'onglet "Types de Ticket &
-                                prix"</p>
-                        </div>
+					<div class="alert alert1 alert-success">
+						<span class="glyphicon glyphicon-ok"></span> <strong>{{ session('message') }}</strong>
+						<hr class="message-inner-separator">
+
+						
+                        @if($event->tickets->count()==0)
+                        <p>A présent, vous devez ajouter les Types de Ticket dans l'onglet "Types de Ticket & prix"</p>
+                        @else
+                        
+                        @endif
+						
+
+					</div>
+
 
                     @endif
                 </div>
