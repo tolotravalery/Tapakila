@@ -19,7 +19,6 @@
                     <td class="body" width="100%" cellpadding="0" cellspacing="0">
                         <table class="inner-body" align="center" width="100%" cellpadding="0" cellspacing="0"
                                style="margin-right: 50px;">
-
                             <tr>
                                 <td class="content-cell">
                                     <div style="background-color: white; margin-top: 30px; padding: 20px 25px 20px 25px;">
@@ -125,12 +124,20 @@
                                         @endif
 
                                     </div>
+                                    <div style="background-color: white; margin-top: 30px; padding: 20px 25px 20px 25px; text-align: center;">
+                                        <img src="{{url('')}}/public/tickets/guide.png" width="700px" height="120px">
+                                    </div>
                                 </td>
+                            </tr>
+                            <tr width="100%" cellpadding="0" cellspacing="0">
+
                             </tr>
                         </table>
                     </td>
                 </tr>
+
             </table>
         </td>
     </tr>
+
 </table>

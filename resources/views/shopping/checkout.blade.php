@@ -48,6 +48,7 @@
                             <tbody>
                             @foreach (Cart::content() as $item)
                                 @if($data != null)
+                                    @php($temp=0)
                                     @foreach($data as $d)
                                         @php
                                             $ticket = \App\Models\Ticket::findOrFail($item->id);
@@ -58,34 +59,37 @@
                                             else
                                                 $reponse = "";
                                         @endphp
-                                        <tr>
-                                            <td data-label="">
-                                                <div class="row">
-                                                    <div class=" col-xs-12 ">
-                                                        <div class="row">
-                                                            <div class="col-lg-7 ">
-                                                                <div class="thumbnail imgpaiment">
-                                                                    <a href="{{url('event/show',[$event->id])}}">
-                                                                        <img src="{{url('/public/img/'.$event->image)}}"
-                                                                             class="image_panier">
-                                                                    </a>
+                                        @if($temp!=$item->id)
+                                            <tr>
+                                                <td data-label="">
+                                                    <div class="row">
+                                                        <div class=" col-xs-12 ">
+                                                            <div class="row">
+                                                                <div class="col-lg-7 ">
+                                                                    <div class="thumbnail imgpaiment">
+                                                                        <a href="{{url('event/show',[$event->id])}}">
+                                                                            <img src="{{url('/public/img/'.$event->image)}}"
+                                                                                 class="image_panier">
+                                                                        </a>
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="col-lg-5 ">
-                                                                <p class="sor">
-                                                                    <b>{{str_limit($event->title,$limit=20,$end=' ...')}}</b>
-                                                                </p>
+                                                                <div class="col-lg-5 ">
+                                                                    <p class="sor">
+                                                                        <b>{{str_limit($event->title,$limit=20,$end=' ...')}}</b>
+                                                                    </p>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </td>
-                                            <input type="hidden" name="answer[]" value="{{$reponse}}">
-                                            <input type="hidden" name="event[]" value="{{$event->id}}">
-                                            <td data-label="Tickets">{{$ticket->type}}</td>
-                                            <td data-label="Quantité">{{$item->qty}}</td>
-                                            <td data-label="Prix">{{ $ticket->price *  $item->qty}}</td>
-                                        </tr>
+                                                </td>
+                                                <input type="hidden" name="answer[]" value="{{$reponse}}">
+                                                <input type="hidden" name="event[]" value="{{$event->id}}">
+                                                <td data-label="Tickets">{{$ticket->type}}</td>
+                                                <td data-label="Quantité">{{$item->qty}}</td>
+                                                <td data-label="Prix">{{ $ticket->price *  $item->qty}}</td>
+                                            </tr>
+                                            @php($temp=$item->id)
+                                        @endif
                                     @endforeach
                                 @else
                                     @php
@@ -146,37 +150,43 @@
 
                                 <tbody>
                                 @foreach (Cart::content() as $item)
+                                    @php($temporaire = 0)
                                     @foreach($data as $d)
                                         @php
                                             $ticket = \App\Models\Ticket::findOrFail($item->id);
                                             $event = $ticket->events()->take(1)->get()[0];
                                         @endphp
                                         @if($d['ev'] == $event->id)
-                                            <tr>
-                                                <td data-label="">
-                                                    <div class="row">
-                                                        <div class=" col-xs-12 ">
-                                                            <div class="row">
-                                                                <div class="col-lg-7 ">
-                                                                    <div class="thumbnail imgpaiment">
-                                                                        <a href="{{url('event/show',[$event->id])}}">
-                                                                            <img src="{{url('/public/img/'.$event->image)}}"
-                                                                                 class="image_panier">
-                                                                        </a>
+                                            @if($temporaire!=$item->id)
+                                                <tr>
+                                                    <td data-label="">
+                                                        <div class="row">
+                                                            <div class=" col-xs-12 ">
+                                                                <div class="row">
+                                                                    <div class="col-lg-7 ">
+                                                                        <div class="thumbnail imgpaiment">
+                                                                            <a href="{{url('event/show',[$event->id])}}">
+                                                                                <img src="{{url('/public/img/'.$event->image)}}"
+                                                                                     class="image_panier">
+                                                                            </a>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                                <div class="col-lg-5 ">
-                                                                    <p class="sor">
-                                                                        <b>{{str_limit($event->title,$limit=20,$end=' ...')}}</b>
-                                                                    </p>
+                                                                    <div class="col-lg-5 ">
+                                                                        <p class="sor">
+                                                                            <b>{{str_limit($event->title,$limit=20,$end=' ...')}}</b>
+                                                                        </p>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </td>
-                                                <td data-label="Tickets">{{$event->question_secret}}</td>
-                                                <td data-label="Quantité">{{$d['ans']}}</td>
-                                            </tr>
+                                                    </td>
+                                                    <input type="hidden" name="answer[]" value="{{$reponse}}">
+                                                    <input type="hidden" name="event[]" value="{{$event->id}}">
+                                                    <td data-label="Tickets">{{$ticket->type}}</td>
+                                                    <td data-label="Quantité">{{$d['ans']}}</td>
+                                                </tr>
+                                                @php($temporaire=$item->id)
+                                            @endif
                                         @endif
                                     @endforeach
                                 @endforeach
@@ -244,21 +254,26 @@
                                     </div>
                                 </div>
                                 <div class="Ttal row">
-								
-				    <div class="row text-center-xs text-center-sm text-center-md menbottom">
-                        <div class="col-md-3"></div><div class="col-md-2"></div><div class="col-md-3"></div><div class="col-md-4">
-                            <div class="row">
-                                <div class="col-md-6 col-xs-12 achatquiter kit annultnt ">
-                                   <a class="btnanul" href="{{url('/')}}/shopping/cart">Annuler</a>
-                                </div>
 
-                                <div class="col-md-6 payee col-xs-12">
-                                    <input value="Payer" class="button ticket" name="submit_ticket_order" id="place-order-button" type="submit" @php if(Cart::count() == 0) echo "disabled"; @endphp>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                                   
+                                    <div class="row text-center-xs text-center-sm text-center-md menbottom">
+                                        <div class="col-md-3"></div>
+                                        <div class="col-md-2"></div>
+                                        <div class="col-md-3"></div>
+                                        <div class="col-md-4">
+                                            <div class="row">
+                                                <div class="col-md-6 col-xs-12 achatquiter kit annultnt ">
+                                                    <a class="btnanul" href="{{url('/')}}/shopping/cart">Annuler</a>
+                                                </div>
+
+                                                <div class="col-md-6 payee col-xs-12">
+                                                    <input value="Payer" class="button ticket"
+                                                           name="submit_ticket_order" id="place-order-button"
+                                                           type="submit" @php if(Cart::count() == 0) echo "disabled"; @endphp>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
