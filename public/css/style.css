@@ -1820,9 +1820,10 @@ html|* > svg {
 }
 
 .primary {
-    color: #d70506;
-    background-color: transparent;
+ background-color: #d70506!important ;
     border-color: #d70506;
+	color:white;
+	padding:10px 20px 10px 20px;
 }
 
 .separe {
@@ -1830,7 +1831,7 @@ html|* > svg {
 }
 
 .primary:hover {
-    background-color: #d70506;
+    background-color: #d70506! ;
     border-color: #d70506;
 }
 
@@ -4558,12 +4559,12 @@ button {
 }
 
 .ask2{
-    margin-top:50px;
+    margin-top:13px;
     text-align:center;
 }
 
 .answer1{
-    margin-top:40px;
+    margin-top:0px;
     width: 70%;
     margin-left: 47px;
 }
