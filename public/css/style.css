@@ -1056,10 +1056,12 @@ ul>li>a:hover {
 }
 
 .bt_modif:hover {
-    background-color: #5cb85c !important;
+	    background-color: #5cb85c !important;
     color: white !important;
-    padding: 10px 30px 10px 30px !important;
+    padding: 10px 43px 10px 42px !important;
     font-size: 20px !important;
+
+  
 }
 
 
@@ -1271,16 +1273,11 @@ a:hover {
 .bt_modif {
     background-color: #5cb85c;
     color: white;
-    padding: 10px 30px 10px 30px;
+    padding: 10px 43px 10px 42px;
     font-size: 20px;
 }
 
-.bt_modif:hover {
-    background-color: #5cb85c;
-    color: white;
-    padding: 10px 30px 10px 30px;
-    font-size: 20px;
-}
+
 
 .btio2 {
     border-radius: 2% !important;
@@ -1820,9 +1817,10 @@ html|* > svg {
 }
 
 .primary {
-    color: #d70506;
-    background-color: transparent;
+ background-color: #d70506!important ;
     border-color: #d70506;
+	color:white;
+	padding:10px 20px 10px 20px;
 }
 
 .separe {
@@ -1830,7 +1828,7 @@ html|* > svg {
 }
 
 .primary:hover {
-    background-color: #d70506;
+    background-color: #d70506! ;
     border-color: #d70506;
 }
 
@@ -4558,12 +4556,12 @@ button {
 }
 
 .ask2{
-    margin-top:50px;
+    margin-top:13px;
     text-align:center;
 }
 
 .answer1{
-    margin-top:40px;
+    margin-top:0px;
     width: 70%;
     margin-left: 47px;
 }

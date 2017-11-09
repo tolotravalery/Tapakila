@@ -934,8 +934,7 @@
 
                                 <a class="btn btn-primary btn-outline text-center center-block primary" role="button"
                                    onClick="changePage('div_ticket','a_type')">
-                                    <i aria-hidden="true"></i> <span class="glyphicon glyphicon-plus"
-                                                                     aria-hidden="true"></span> Ajouter le type de
+                                    <i aria-hidden="true"></i> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Ajouter le type de
                                     ticket
                                 </a>
                                 </br></br>
@@ -1251,12 +1250,10 @@
                         <div class="com_contenu_type2">
                             <h2>Champs personnalisés par participant</h2>
                             <form action="" method="post">
-                                <input type="text" name="question" class="btn btn-primary btn-outline text-center center-block primary"><br/>
-                                <button type="submit" href="#"
-                                        class="btn btn-primary btn-outline text-center center-block primary"
-                                        role="button ">
-                                    <i aria-hidden="true "></i> <span class="glyphicon glyphicon-plus "
-                                                                      aria-hidden="true "></span> Ajouter
+							<label>Ajouter ici votre question sécrete :</label>
+                                <input type="text" name="question" class="form-control"><br/>
+                                <button type="submit" href="#" class="btn btn-primary btn-outline text-center center-block primary" role="button ">
+                                    <i aria-hidden="true "></i> <span  aria-hidden="true "></span> Ajouter
                                 </button>
                             </form>
                         </div>

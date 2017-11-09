@@ -111,6 +111,7 @@
                                                                 @php($i++)
                                                                 @endforeach
                                                             @endif
+
                                                 </table>
                                             @endforeach
                                         </ul>
@@ -120,8 +121,9 @@
                                                 Vous avez des question? consultez notre <a
                                                         style="text-decoration: none;color: #62b2eb;"
                                                         href="{{url('')}}/tapakila/faq">FAQ</a> dès maintenant</p>
-                                            <p style="text-align: center">L'équie Leguichet.mg</p>
+                                            <p style="text-align: center">L'équipe Leguichet.mg</p>
                                         @endif
+
                                     </div>
                                 </td>
                             </tr>
