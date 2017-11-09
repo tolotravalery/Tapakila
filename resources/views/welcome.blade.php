@@ -182,6 +182,7 @@
     <!-- sectin s'inscrire start -->
     <section>
         <div class="container custom-container ">
+		<hr class="border">
             <div class="sinscrire">
                 <div class="row">
                     <div class="col-lg-9 col-lg-offset-1">
@@ -222,6 +223,7 @@
                     </div>
                 </div>
             </div>
+			<hr class="border">
         </div>
     </section>
     <!-- sectin s'inscrire end -->
