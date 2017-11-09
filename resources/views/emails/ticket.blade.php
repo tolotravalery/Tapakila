@@ -10,7 +10,6 @@
     }
 
 </style>
-
 <table class="wrapper" width="100%" cellpadding="0" cellspacing="0">
     <tr>
         <td align="center">
@@ -40,9 +39,9 @@
                                             <b style=" color:#333;margin-top: 20px; margin-bottom: 10px;font-size: 30px;word-wrap: break-word;font-weight: 700;">Vos
                                                 évènements</b></h4>
                                         <ul>
-                                            @foreach($tic as $ticket)
+                                            @foreach($data as $d)
                                                 @php
-                                                    $event = $ticket->events[0];
+                                                    $event = $d['ticket']->events[0];
                                                 @endphp
                                                 <ol>
                                                     <p style="font-size: 14px;color:#333;">
@@ -56,13 +55,14 @@
                                                     </p>
                                                 </ol>
                                                 <table class="wrapper" width="100%" cellpadding="0" cellspacing="0">
-                                                    @if(count($tap)<=4)
+                                                    @if(count($d['tapakila'])<=4)
                                                         <tr>
-                                                            @foreach($tap as $tapakila)
+                                                            @foreach($d['tapakila'] as $tapakila)
                                                                 <td>
-                                                                    <p style="text-align: center; margin: 5px 0; ">{{$ticket->type}}</p>
+                                                                    <p style="text-align: center; margin: 5px 0; ">{{$d['ticket']->type}} {{$tapakila->qr_code}}</p>
                                                                     <p style="text-align: center">
-                                                                        <img src="{{url('/public/qr_code/'.$tapakila->qr_code)}}" width="100px" height="100px"
+                                                                        <img src="{{url('/public/qr_code/'.$tapakila->qr_code)}}"
+                                                                             width="100px" height="100px"
                                                                              class="qt">
                                                                     </p>
                                                                 </td>
@@ -70,14 +70,15 @@
                                                         </tr>
                                                     @else
                                                         @php($i=0)
-                                                        @foreach($tap as $tapakila)
+                                                        @foreach($d['tapakila'] as $tapakila)
                                                             @if($i%4 == 0)
                                                                 @if($i==0)
                                                                     <tr>
                                                                         <td>
-                                                                            <p style="text-align: center; margin: 5px 0; ">{{$ticket->type}}</p>
+                                                                            <p style="text-align: center; margin: 5px 0; ">{{$d['ticket']->type}} {{$tapakila->qr_code}}</p>
                                                                             <p style="text-align: center">
-                                                                                <img src="{{url('/public/qr_code/'.$tapakila->qr_code)}}" width="100px" height="100px"
+                                                                                <img src="{{url('/public/qr_code/'.$tapakila->qr_code)}}"
+                                                                                     width="100px" height="100px"
                                                                                      class="qt">
                                                                             </p>
                                                                         </td>
@@ -85,23 +86,26 @@
                                                                     </tr>
                                                                     <tr>
                                                                         <td>
-                                                                            <p style="text-align: center; margin: 5px 0; ">{{$ticket->type}}</p>
+                                                                            <p style="text-align: center; margin: 5px 0; ">{{$d['ticket']->type}} {{$tapakila->qr_code}}</p>
                                                                             <p style="text-align: center">
-                                                                                <img src="{{url('/public/qr_code/'.$tapakila->qr_code)}}" width="100px" height="100px"
+                                                                                <img src="{{url('/public/qr_code/'.$tapakila->qr_code)}}"
+                                                                                     width="100px" height="100px"
                                                                                      class="qt">
                                                                             </p>
                                                                         </td>
                                                                         @endif
                                                                         @else
                                                                             <td>
-                                                                                <p style="text-align: center; margin: 5px 0; ">{{$ticket->type}}</p>
+                                                                                <p style="text-align: center; margin: 5px 0; ">{{$d['ticket']->type}} {{$tapakila->qr_code}}</p>
                                                                                 <p style="text-align: center">
-                                                                                    <img src="{{url('/public/qr_code/'.$tapakila->qr_code)}}" width="100px" height="100px"
+                                                                                    <img src="{{url('/public/qr_code/'.$tapakila->qr_code)}}"
+                                                                                         width="100px"
+                                                                                         height="100px"
                                                                                          class="qt">
                                                                                 </p>
                                                                             </td>
                                                                         @endif
-                                                                        @if($i==count($tap))
+                                                                        @if($i==count($d['tapakila']))
                                                                     </tr>
                                                                 @endif
                                                                 @php($i++)
