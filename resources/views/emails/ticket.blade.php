@@ -22,6 +22,8 @@
 
                             <tr>
                                 <td class="content-cell">
+                                <div class="row">
+                                <div class="col-lg-6 col-lg-offset-3">
                                     <div style="background-color: white; margin-top: 30px; padding: 20px 25px 20px 25px;">
                                         <img class="logoactivate" src="{{url('/')}}/public/img/logo.png"
                                              title="Leguichet">
@@ -122,6 +124,8 @@
                                                         href="{{url('')}}/tapakila/faq">FAQ</a> dès maintenant</p>
                                             <p style="text-align: center">L'équie Leguichet.mg</p>
                                         @endif
+                                    </div>
+                                    </div>
                                     </div>
                                 </td>
                             </tr>
