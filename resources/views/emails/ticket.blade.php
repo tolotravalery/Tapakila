@@ -19,9 +19,10 @@
                     <td class="body" width="100%" cellpadding="0" cellspacing="0">
                         <table class="inner-body" align="center" width="100%" cellpadding="0" cellspacing="0"
                                style="margin-right: 50px;">
-
                             <tr>
                                 <td class="content-cell">
+                                <div class="row">
+                                <div class="col-lg-6 col-lg-offset-3">
                                     <div style="background-color: white; margin-top: 30px; padding: 20px 25px 20px 25px;">
                                         <img class="logoactivate" src="{{url('/')}}/public/img/logo.png"
                                              title="Leguichet">
@@ -125,12 +126,22 @@
                                         @endif
 
                                     </div>
+                                    <div style="background-color: white; margin-top: 30px; padding: 20px 25px 20px 25px; text-align: center;">
+                                        <img src="{{url('')}}/public/tickets/guide.png" width="700px" height="120px">
+                                    </div>
+                                    </div>
+                                    </div>
                                 </td>
+                            </tr>
+                            <tr width="100%" cellpadding="0" cellspacing="0">
+
                             </tr>
                         </table>
                     </td>
                 </tr>
+
             </table>
         </td>
     </tr>
+
 </table>
