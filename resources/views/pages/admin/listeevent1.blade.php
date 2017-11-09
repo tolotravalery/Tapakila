@@ -216,38 +216,26 @@
                 for (var i = 0; i < (isanCheckbox);) {
                     if ($('#checkbox' + i).prop('checked') == true) {
                         var update = 1;
-                        var id = $('#checkbox' + i).attr('value-item');
-//                    console.log('id:' + $('#checkbox' + i).val() + " update :" + update);
-                        $.ajax({
-                            type: "GET",
-                            url: '{{ url("/admin/updatePublieAll") }}',
-                            data: {
-                                'id': id,
-                                'active': update
-                            },
-                            success: function (data) {
-                                console.log(data);
-                            }
-                        });
-                    } else {
-                        var update = 0;
-                        var id = $('#checkbox' + i).attr('value-item');
-//                    console.log('id:' + $('#checkbox' + i).val() + " update :" + update);
-                        $.ajax({
-                            type: "GET",
-                            url: '{{ url("/admin/updatePublieAll") }}',
-                            data: {
-                                'id': id,
-                                'active': update,
-                            },
-                            success: function (data) {
-                                console.log(data);
-                            }
-                        });
                     }
+                    else {
+                        var update = 0;
+                    }
+                    var id = $('#checkbox' + i).attr('value-item');
+                    $.ajax({
+                        type: "GET",
+                        url: '{{ url("/admin/updatePublieAll") }}',
+                        data: {
+                            'id': id,
+                            'active': update,
+                        },
+                        success: function (data) {
+                            console.log(data);
+                        }
+                    });
+
                     i++;
                 }
-                // window.location.reload();
+                //window.location.reload(true);
             });
         })();
 
