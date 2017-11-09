@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use PDF;
+use Illuminate\Support\Facades\Session;
 
 class CheckoutController extends Controller
 {
@@ -40,7 +41,8 @@ class CheckoutController extends Controller
         // sending data to payment mode and waiting response
         // if response is success
         $tic = array();
-        $tap = array();
+
+        $data = array();
         $j = 0;
         $temp = array();
         for ($p = 0; $p < count($events); $p++) {
@@ -48,8 +50,15 @@ class CheckoutController extends Controller
         }
         foreach (Cart::content() as $item) {
             $ticket = Ticket::findOrFail($item->id);
+
             $date = date('Y-m-d H:i:s');
+
             $nombre = $item->qty;
+
+            $ticket->users()->attach(array(Auth::user()->id => array('number' => $item->qty, 'date_achat' => $date,
+                'payement_mode_id' => $payement->id)));
+            $tic[$j] = $ticket;
+            $tap = array();
             for ($i = 0; $i < $nombre; $i++) {
                 $tapakila = $ticket->tapakila()->where('vendu', '=', '0')->get()->random(1)[0];
                 $event = $ticket->events()->take(1)->get()[0];
@@ -64,7 +73,7 @@ class CheckoutController extends Controller
                 $renderer->setHeight(256);
                 $renderer->setWidth(256);
                 $writer = new \BaconQrCode\Writer($renderer);
-                $image_name = strtotime('now');
+                $image_name = strtotime('now') . '' . rand();
                 $writer->writeFile($tapakila->code_unique, 'public/qr_code/' . $image_name . '.png');
                 $tapakila->qr_code = $image_name . '.png';
                 $ticket->number = $ticket->number - 1;
@@ -72,23 +81,23 @@ class CheckoutController extends Controller
                 $tapakila->save();
                 $tap[$i] = $tapakila;
             }
-
-            $ticket->users()->attach(array(Auth::user()->id => array('number' => $item->qty, 'date_achat' => $date,
-                'payement_mode_id' => $payement->id)));
+            $data[$j] = array('ticket' => $tic[$j], 'tapakila' => $tap);
             $ticket->save();
-            $tic[$j] = $ticket;
             $j++;
         }
         Cart::destroy();
-//        return redirect(url('/shopping/cart'));
         $user = Auth::user();
-//        Mail::send('emails.ticket', ['tic' => $tic, 'tap' => $tap, 'user' => $user], function ($message) {
-//            $message->to(Auth::user()->email, Auth::user()->name)->subject('Leguichet');
-//        });
+        $pdfName = time() . '.pdf';
+        $PdfDestinationPath = public_path('/tickets/' . $pdfName);
+        Session::put('pdfDestinationPath', $PdfDestinationPath);
         $pdf = App::make('dompdf.wrapper');
-        $pdf->loadHTML(view('emails.ticket', compact('tic', 'tap', 'user'))->render());
-//        return $pdf->stream();
-        return view('emails.ticket', compact('tic', 'tap','user'));
+        $pdf->loadHTML(view('emails.ticket', compact('data', 'user'))->with(array('send' => 'pdf'))->render());
+        $pdf->save($PdfDestinationPath);
+        Mail::send('emails.ticket', ['data' => $data, 'user' => $user, 'send' => 'mail'], function ($message) {
+            $message->to(Auth::user()->email, Auth::user()->name)->subject('Leguichet');
+            $message->attach(Session::get('pdfDestinationPath'));
+        });
+        return $pdf->stream('download_ticket_leguichet.pdf');
     }
 
     function pay($users_id, $id)
@@ -116,31 +125,40 @@ class CheckoutController extends Controller
         $ticket_to_pay->pivot->payement_mode_id = $payement->id;
         $tic = array();
         $tap = array();
+        $data = array();
         for ($i = 0; $i < $req->input('number'); $i++) {
             $tapakila = $ticket_to_pay->tapakila()->where('vendu', '=', '0')->get()->random(1)[0];
+            $event = $ticket_to_pay->events()->take(1)->get()[0];
+            // if payment is success
             $tapakila->vendu = 1;
             $renderer = new \BaconQrCode\Renderer\Image\Png();
             $renderer->setHeight(256);
             $renderer->setWidth(256);
             $writer = new \BaconQrCode\Writer($renderer);
-            $image_name = strtotime('now');
+            $image_name = strtotime('now') . '' . rand();
             $writer->writeFile($tapakila->code_unique, 'public/qr_code/' . $image_name . '.png');
             $tapakila->qr_code = $image_name . '.png';
+            $ticket_to_pay->number = $ticket_to_pay->number - 1;
+//                $ticket->pivot->status_payment = 'SUCCESS';
             $tapakila->save();
             $tap[$i] = $tapakila;
-            $ticket_to_pay->number = $ticket_to_pay->number - 1;
         }
         $ticket_to_pay->pivot->save();
         $ticket_to_pay->save();
         $tic[0] = $ticket_to_pay;
-//        $pdf = App::make('dompdf.wrapper');
-//        $pdf->loadHTML(view('emails.ticket', compact('tic', 'tap'))->render());
-        Mail::send('emails.ticket', ['tic' => $tic, 'tap' => $tap], function ($message) {
+        $data[0] = array('ticket' => $tic[0], 'tapakila' => $tap);
+        $user = Auth::user();
+        $pdfName = time() . '.pdf';
+        $PdfDestinationPath = public_path('/tickets/' . $pdfName);
+        Session::put('pdfDestinationPath', $PdfDestinationPath);
+        $pdf = App::make('dompdf.wrapper');
+        $pdf->loadHTML(view('emails.ticket', compact('data', 'user'))->with(array('send' => 'pdf'))->render());
+        $pdf->save($PdfDestinationPath);
+        Mail::send('emails.ticket', ['data' => $data, 'user' => $user, 'send' => 'mail'], function ($message) {
             $message->to(Auth::user()->email, Auth::user()->name)->subject('Leguichet');
-//            $message->embed($pdf->stream());
+            $message->attach(Session::get('pdfDestinationPath'));
         });
-
-        return view('emails.ticket', compact('tic', 'tap'));
+        return $pdf->stream('download_ticket_leguichet.pdf');
     }
 
     function quiz(Request $req)
