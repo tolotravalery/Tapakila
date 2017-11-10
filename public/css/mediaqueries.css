@@ -17,6 +17,12 @@ ul.nav-customs li {
 }
 }
 
+@media screen and (max-width:768px){
+	.modal-dialog {
+    margin: 100px auto !important;
+}
+}
+
 @media (min-width:675px) and (max-width:750px){
 	ul.tabs li {
     font-size: 16px ! important;
