@@ -2,6 +2,20 @@
 /* text-align by trustylabs */
 /* text-align-xs */
 
+@media screen and (min-width:1000px) and (max-width:1050px){
+	.width-custom {
+    width: 33.667% !important;
+}
+}
+@media screen and (min-width:955px) and (max-width:975px) {
+	.width-custom {
+width: 24.667% !important;
+}
+ul.nav-customs li {
+    margin-top: 10px !important;
+    margin-left: -10px !important;
+}
+}
 
 @media (min-width:675px) and (max-width:750px){
 	ul.tabs li {
@@ -488,7 +502,7 @@ margin-top: -20px;
 }
 @media only screen and (max-width: 1000px) {
 .custom-container {
-padding: 0 5px !important;
+padding: 0 0px !important;
 }
 }
 

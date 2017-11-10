@@ -107,6 +107,31 @@ a{
 	cursor:pointer ! important;
 }
 
+.width-custom{
+width: 43.667%  ! important;
+}
+
+.btn-deleted{
+	color:white;
+	background-color:#d70506;
+	padding:10px 10px 10px 10px;
+}
+.btn-deleted:hover{
+	color:white;
+	background-color:#d70506;
+	padding:10px 10px 10px 10px;
+}
+.btn-deleted:focus{
+	color:white;
+	background-color:#d70506;
+	padding:10px 10px 10px 10px;
+}
+.btn-deleted:click{
+	color:white;
+	background-color:#d70506;
+	padding:10px 10px 10px 10px;
+}
+
 .btn-renvoye {
     color: #fff
 }
@@ -535,13 +560,13 @@ ul.navbar-nav li.open ul {
 }
 
 ul.navbar-nav li {
-    margin: 10px 6px;
+    margin: 10px 12px;
     color: #fff!important;
 }
 
 ul.nav-customs li {
 	margin-top:10px;
-	margin-left:6px;
+	margin-left:12px;
 }
 
 ul.navbar-nav li a,
@@ -1783,11 +1808,11 @@ html|* > svg {
 /*------------------Type_ticket----------------------------*/
 
 .ticket_type_contenu {
-    background-color: #eeeeee;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-top: 15px;
-    margin-bottom: 20px;
+ background-color: #eeeeee;
+padding-left: 20px;
+padding-right: 20px;
+padding-top: 15px;
+margin-bottom: 20px;
 }
 
 .com_contenu_type12 {
