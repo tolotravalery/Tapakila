@@ -56,7 +56,7 @@ Route::group(['middleware' => 'web'], function () {
         Route::get('q', 'RechercheController@find');
         Route::get('filtered', 'RechercheController@filtered');
     });
-    Route::group(['prefix' => 'tapakila'], function () {
+    Route::group(['prefix' => 'leguichet'], function () {
         Route::get('faq', 'AproposController@faq');
         Route::get('about', 'AproposController@apropos');
         Route::get('contact', 'AproposController@contact');

@@ -39,17 +39,13 @@
                                     <div class="row row_recherche">
                                         <div class="col-lg-4 mot_recherche">
                                             <label for="usr">Mot-clé</label>
-
                                         </div>
                                         <div class="col-lg-6  col-xs-10-offset-1">
                                             <input type="text" name="query" class="form-control" value="{{$queries}}">
-
                                         </div>
                                         <div class="col-lg-2">
-
                                         </div>
                                     </div>
-
                                 </div>
                                 <div class="row row_recherche">
                                     <div class="col-lg-4 mot_recherche">
@@ -76,7 +72,6 @@
                                     <div class="row">
                                         <div class="col-lg-4 mot_recherche">
                                             <label for="usr">Cochez la ou le catégories</label>
-
                                         </div>
                                         <div class="col-lg-8 col_recherche">
                                             <div class="row select_recherche">
@@ -87,15 +82,12 @@
                                                                    value="{{$sousmenu->id}}">{{$sousmenu->name}}</label>
                                                     </div>
                                                 @endforeach
-
                                             </div>
                                         </div>
-
                                     </div>
                                 </div>
                                 <div class="row row_recherche">
                                     <div class="col-lg-4 mot_recherche">
-
                                     </div>
                                     <div class="col-lg-8 col_recherche">
                                         <div class="row">
@@ -144,7 +136,7 @@
                                                         <h3>
                                                             <a href="{{url('event/show',[$event->id])}}"
                                                                id="title{{$count_id}}">
-                                                                {!! str_replace($queries,'<span style="background-color: yellow;">'.$queries.'</span>',str_limit($event->title,$limit = 40, $end = ' ...')) !!}
+                                                                {!! str_replace($queries,'<span style="background-color: yellow;">'.$queries.'</span>',ucfirst(strtolower(str_limit($event->title,$limit=40, $end = ' ...')))) !!}
                                                             </a>
                                                         </h3>
                                                     </div>

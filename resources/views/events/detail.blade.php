@@ -35,7 +35,7 @@
                     </div>
                 </div>
                 <div class="col-lg-5">
-                    <h3 class="couleur_mot">{{$event->title}}</h3>
+                    <h3 class="couleur_mot">{{ucfirst(strtolower($event->title))}}</h3>
                     <p style="text-align: justify;padding-right: 10px;">{{$event->additional_note}}
                     <div class="div_style">
                         <i class="fa fa-product-hunt fa-2x zav" aria-hidden="true"></i><strong id="programme"
@@ -172,7 +172,9 @@
                                                                             </span>
                                                                         </li>
                                                                         <li>
-                                                                            <input class="form-control text-center ui tests " readonly value="0" type="text" name="nombre[]"></li>
+                                                                            <input class="form-control text-center ui tests "
+                                                                                   readonly value="0" type="text"
+                                                                                   name="nombre[]"></li>
                                                                         <li>
 																	<span class="input-group-btn">
 																				<button class="btn btn-default btn-circle splus "
@@ -218,15 +220,18 @@
                                 @php $d++ @endphp
                             @endforeach
                             <div class="row padding-custom">
-								<div class="col-md-4"></div>
-								<div class="col-md-4"></div>
-								<div class="col-md-2">
-									<button type="button" class=" btn btn-danger btn_reset" onclick="resetPage()">Reset</button>
-								</div>
-								<div class="col-md-2">
-									<button type="submit" class=" btn btn-success btn_acheterr " id="acheter">Acheter</button>
-								</div>
-							</div>
+                                <div class="col-md-4"></div>
+                                <div class="col-md-4"></div>
+                                <div class="col-md-2">
+                                    <button type="button" class=" btn btn-danger btn_reset" onclick="resetPage()">
+                                        Reset
+                                    </button>
+                                </div>
+                                <div class="col-md-2">
+                                    <button type="submit" class=" btn btn-success btn_acheterr " id="acheter">Acheter
+                                    </button>
+                                </div>
+                            </div>
 
                             <br/>
                         </form>
@@ -279,14 +284,23 @@
                                                                     <ul>
                                                                         <li>
                                                                             <span class="input-group-btn">
-                                                                                        <button class="btn btn-default btn-circle smoins" data-dir="dwn" type="button" id="btn-down{{$count_id_price}}"><span class="fa fa-minus"></span></button>
+                                                                                        <button class="btn btn-default btn-circle smoins"
+                                                                                                data-dir="dwn"
+                                                                                                type="button"
+                                                                                                id="btn-down{{$count_id_price}}"><span
+                                                                                                    class="fa fa-minus"></span></button>
                                                                             </span>
                                                                         </li>
                                                                         <li>
-                                                                            <input class="form-control text-center ui tests " readonly value="0" type="text" name="nombre[]"></li>
+                                                                            <input class="form-control text-center ui tests "
+                                                                                   readonly value="0" type="text"
+                                                                                   name="nombre[]"></li>
                                                                         <li>
 																	<span class="input-group-btn">
-																				<button class="btn btn-default btn-circle splus " data-dir="up" type="button" id="btn-up{{$count_id_price}}"><span class="fa fa-plus"></span></button>
+																				<button class="btn btn-default btn-circle splus "
+                                                                                        data-dir="up" type="button"
+                                                                                        id="btn-up{{$count_id_price}}"><span
+                                                                                            class="fa fa-plus"></span></button>
 																	</span>
                                                                         </li>
                                                                     </ul>
@@ -516,7 +530,7 @@
                     $('.tab-pane').addClass('hidden');
                     $('#' + id).removeClass('hidden');
                 }
-                function resetPage(){
+                function resetPage() {
                     window.location = '{{url()->current()}}'
                 }
             </script>
