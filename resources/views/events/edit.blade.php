@@ -1290,8 +1290,7 @@
                             @endif
                             <button type="submit"
                                     class="btn btn-primary btn-outline text-center center-block primary">
-                                <i aria-hidden="true "></i> <span class="glyphicon glyphicon-plus "
-                                                                  aria-hidden="true "></span> Ajouter
+                                <i aria-hidden="true "></i> <span aria-hidden="true "></span> Ajouter
                             </button>
                             {!! Form::close() !!}
                         </div>
