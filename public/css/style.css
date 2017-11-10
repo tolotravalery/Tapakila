@@ -1060,10 +1060,11 @@ ul>li>a:hover {
     color: white !important;
     padding: 10px 43px 10px 42px !important;
     font-size: 20px !important;
-
-  
 }
-
+.border{
+	border-top: 3px solid #d70506;
+	width:100%
+}
 
 
 .btn-danger:hover {
@@ -2458,8 +2459,8 @@ div.calendar p {
     background: url(../img/spectacle.png) no-repeat;
     background-repeat: no-repeat;
     margin-top: 25px;
-margin-bottom: 50px;
-padding-bottom: 35px;
+margin-bottom: 25px;
+padding-bottom: 55px;
     background-position: 36% 53%;
 
 }

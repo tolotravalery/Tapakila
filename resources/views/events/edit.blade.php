@@ -39,21 +39,17 @@
                     <h1>Modifier votre évènement</h1>
 
                     @if (session('message'))
-					<div class="alert alert1 alert-success">
-						<span class="glyphicon glyphicon-ok"></span> <strong>{{ session('message') }}</strong>
-						<hr class="message-inner-separator">
-
-						
-                        @if($event->tickets->count()==0)
-                        <p>A présent, vous devez ajouter les Types de Ticket dans l'onglet "Types de Ticket & prix"</p>
-                        @else
-                        
-                        @endif
-						
-
-					</div>
-
-
+                        <div class="alert alert1 alert-success">
+                            <span class="glyphicon glyphicon-ok"></span> <strong>{!! session('message') !!} </strong>
+                            <hr class="message-inner-separator">
+                            @if($event->tickets->count()==0)
+                                @if(session('page') == 'details')
+                                    <p>A présent, vous devez ajouter les Types de Ticket dans l'onglet "Types de Ticket
+                                        &
+                                        prix"</p>
+                                @endif
+                            @endif
+                        </div>
                     @endif
                 </div>
                 <div class="col-lg-3 col-sm-3 col-lg-pull-9 col-sm-pull-9 sec">
@@ -90,13 +86,16 @@
                         <li><a id="a_valideTicket" onClick="changePage('div_valideTicket', 'a_valideTicket')">Tickets
                                 Validés</a></li>
                         <li class="categorimenu"><strong>Editer</strong></li>
-                        <li><a id="a_details" class="select"
+                        <li><a id="a_details" @if(session('page')) @if(session('page') == 'details') class="select"
+                               @endif @else class="select" @endif
                                onClick="changePage('div_details', 'a_details')">Détails</a></li>
-                        <li><a id="a_type" onClick="changePage('div_type', 'a_type')">Types de Ticket &amp; prix</a>
+                        <li><a id="a_type" @if(session('page')) @if(session('page')=='tickets') class="select"
+                               @endif @endif onClick="changePage('div_type', 'a_type')">Types de Ticket &amp; prix</a>
                         </li>
-                        <li><a id="a_siteweb" onClick="changePage('div_siteweb', 'a_siteweb')">Apparence du site</a>
+                        <li class="hidden"><a id="a_siteweb" onClick="changePage('div_siteweb', 'a_siteweb')">Apparence
+                                du site</a>
                         </li>
-                        <li><a id="a_pdf" onClick="changePage('div_pdf', 'a_pdf')">PDF</a></li>
+                        <li class="hidden"><a id="a_pdf" onClick="changePage('div_pdf', 'a_pdf')">PDF</a></li>
                         <li><a id="a_cpersonalize" onClick="changePage('div_cpersonalize', 'a_cpersonalize')">Champs
                                 additioneles</a></li>
                         <li class="categorimenu"><strong>Paramètre</strong></li>
@@ -105,8 +104,8 @@
                     </ul>
                 </div>
                 <div class="col-lg-9 col-sm-9">
-                    <div id="div_details">
-
+                    <div id="div_details"
+                         @if(session('page')) @if(session('page')=='tickets') class="hide" @endif @endif>
                         <div class="com_contenu_type">
                             {!! Form::model($event, array('action' => array('EventController@update'), 'method' => 'PUT', 'id' => 'user_basics_form','files' => true,'class'=>'form-horizontal')) !!}
                             {{ csrf_field() }}
@@ -893,7 +892,8 @@
 
                     <!------------------------------------type-ticket-------------------------------------------------------------------------->
 
-                    <div id="div_type" class="hide">
+                    <div id="div_type"
+                         @if(session('page')) @if(session('page') == 'details')  class="hide" @endif @endif>
                         <div id="type_ticket">
                             <div class="com_contenu_type">
                                 <div class="panel panel-content">
@@ -952,10 +952,11 @@
                                                                             </div>
                                                                             <div class="modal-footer">
                                                                                 {!! Form::button('<i class="fa fa-fw fa-close" aria-hidden="true"></i> Cancel', array('class' => 'btn btn-outline pull-left btn-flat', 'type' => 'button', 'data-dismiss' => 'modal' )) !!}
-                                                                                <a href="{{url('organisateur/event/ticket/delete/'.$ticket->id.'/'.$event->id)}}"
-                                                                                   class="btn btn-danger pull-right btn-flat"><span
-                                                                                            class="fa fa-fw fa-trash-o"
-                                                                                            aria-hidden="true"></span>Effacer</a>
+                                                                                <a class="btn btn-danger pull-right btn-flat"
+                                                                                   href="{{ url("organisateur/event/ticket/delete/".$ticket->id."/".$event->id) }}">
+                                                                                        <span class="fa fa-fw fa-trash-o"
+                                                                                              aria-hidden="true"></span>Effacer
+                                                                                </a>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -1284,8 +1285,7 @@
                         <div class="com_contenu_type2">
                             <h2>Champs personnalisés par participant</h2>
                             {!! Form::open(['id' => 'question-form', 'route' => 'question','role' => 'question', 'method' => 'POST'] ) !!}
-                            <input type="text" name="question"
-                                   class="btn btn-primary btn-outline text-center center-block primary"><br/>
+                            <input type="text" name="question" class="form-control"><br/>
                             @if(isset($event))
                                 {!! Form::hidden('events_id', Crypt::encryptString($event->id), ['class' => 'form-control']) !!}
                             @endif
@@ -1567,6 +1567,18 @@
 @endsection
 
 @section('specificScript')
+    <script type="text/javascript">
+        function delete_type_ticket(event_id, ticket_id) {
+            $.ajax({
+                type: "GET",
+                url: '{{ url("organisateur/event/ticket/delete/") }}' + '/' + ticket_id + '/' + event_id,
+                success: function (data) {
+                    console.log(data);
+                    changePage('div_type', 'a_type');
+                }
+            });
+        }
+    </script>
     <script type="text/javascript">
         $('#enregister').click(function () {
 

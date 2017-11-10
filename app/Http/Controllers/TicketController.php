@@ -81,7 +81,10 @@ class TicketController extends Controller
                 'ticket_id' => $ticket->id
             ]);
         }
-        return redirect(url('organisateur/event/' . $event_id . '/edit'));
+        $message = " Opération réussie.<br/> Ticket ajouté avec succès";
+        session()->flash('message', $message);
+        session()->flash('page', "tickets");
+        return redirect(url('organisateur/event/' . $event->id . '/edit'))->with(compact('message'));
     }
 
     public function delete($id, $event_id)
@@ -91,6 +94,9 @@ class TicketController extends Controller
             $ticket = Ticket::findOrFail($id);
             $ticket->delete();
         }
-        return redirect(url('organisateur/event/' . $event->id . '/edit'));
+        $message = " Opération réussie <br/> Ticket supprimé avec succès";
+        session()->flash('message', $message);
+        session()->flash('page', "tickets");
+        return redirect(url('organisateur/event/' . $event->id . '/edit'))->with(compact('message'));
     }
 }
