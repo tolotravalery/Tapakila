@@ -107,6 +107,24 @@ a{
 	cursor:pointer ! important;
 }
 
+.width-custom{
+width: 43.667%  ! important;
+}
+@media screen and (min-width:1000px) and (max-width:1050px){
+	.width-custom {
+    width: 33.667% !important;
+}
+}
+@media screen and (min-width:955px) and (max-width:975px) {
+	.width-custom {
+width: 24.667% !important;
+}
+ul.nav-customs li {
+    margin-top: 10px !important;
+    margin-left: -10px !important;
+}
+}
+
 .btn-renvoye {
     color: #fff
 }
@@ -535,13 +553,13 @@ ul.navbar-nav li.open ul {
 }
 
 ul.navbar-nav li {
-    margin: 10px 6px;
+    margin: 10px 12px;
     color: #fff!important;
 }
 
 ul.nav-customs li {
 	margin-top:10px;
-	margin-left:6px;
+	margin-left:12px;
 }
 
 ul.navbar-nav li a,

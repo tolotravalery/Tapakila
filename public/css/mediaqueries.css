@@ -488,7 +488,7 @@ margin-top: -20px;
 }
 @media only screen and (max-width: 1000px) {
 .custom-container {
-padding: 0 5px !important;
+padding: 0 0px !important;
 }
 }
 
