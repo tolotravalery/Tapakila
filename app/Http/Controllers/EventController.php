@@ -70,7 +70,8 @@ class EventController extends Controller
     {
         $user = User::find(Auth::user()->id);
         if (!$user->hasRole('organisateur')) {
-            return redirect(url('errors/' . md5('event') . '/' . md5('403')));
+            return redirect(url('/home'));
+           // return redirect(url('errors/' . md5('event') . '/' . md5('403')));
         }
         $menus = Menus::orderBy('id', 'desc')->get();
         $sousmenus = Sous_menus::orderBy('id', 'desc')->get();
@@ -124,7 +125,8 @@ class EventController extends Controller
         $sousmenus = Sous_menus::orderBy('id', 'desc')->take(20)->get();
         $event = Events::find($id);
         if ($event->user_id != Auth::user()->id) {
-            return redirect(url('errors/' . md5('event-form-update') . '/' . md5('500')));
+            //return redirect(url('errors/' . md5('event-form-update') . '/' . md5('500')));
+            return redirect(url('/home'));
         }
         return view('events.edit', compact('event', 'menus', 'sousmenus'));
     }
