@@ -143,7 +143,7 @@
                                                    disabled="disabled">
                                             <span class="input-group-btn">
 												<button type="button" class="btn btn-default image-preview-clear"
-                                                        style="display:none;">
+                                                        style="display:none; ">
 													<span class="glyphicon  glyphicon-remove"></span> Suprimmer
                                         </button>
                                         <div class="btn btn-default image-preview-input">
@@ -190,7 +190,7 @@
                                                         </div>
                                                         <p style="color:red;" id="message_after_comparaison">La date fin
                                                             de l' évenement doit être supérieure à la date debut</p>
-                                                        <p style="color:red;" id="message_after_comparaison_date_now">La
+                                                        <p style="color:red;" id="message_after_comparaison_date_now ">La
                                                             date début ou fin de l' évènement doit être supérieure à la
                                                             date actuelle</p>
 
