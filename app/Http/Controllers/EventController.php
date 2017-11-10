@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Ticket;
 use App\Models\Alert;
 use App\Models\Menus;
 use App\Models\Sous_menus;
@@ -15,6 +15,7 @@ use Illuminate\Auth\Events\Registered;
 use App\Models\Events;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Mail;
+
 
 class EventController extends Controller
 {
@@ -70,13 +71,21 @@ class EventController extends Controller
     {
         $user = User::find(Auth::user()->id);
         if (!$user->hasRole('organisateur')) {
-            return redirect(url('errors/' . md5('event') . '/' . md5('403')));
+            return redirect(url('/home'));
+           // return redirect(url('errors/' . md5('event') . '/' . md5('403')));
         }
         $menus = Menus::orderBy('id', 'desc')->get();
         $sousmenus = Sous_menus::orderBy('id', 'desc')->get();
 //        $event = Events::orderBy('id', 'desc')->take(1)->get();
         return view('pages.admin.createevent', compact('menus', 'sousmenus', 'event'));
     }
+    public function showAjouterTicket($id){
+
+        $alert = Alert::where('vu', '=', '0')->get();
+        $event = Events::find($id);
+        return view('pages.admin.ajouter_ticket', compact('event', 'alert'));
+    }
+
 
     public function listEvent()
     {
@@ -120,11 +129,12 @@ class EventController extends Controller
         if (!$user->hasRole('organisateur')) {
             return redirect(url('errors/' . md5('event') . '/' . md5('403')));
         }
-        $menus = Menus::orderBy('id', 'desc')->take(8)->get();
-        $sousmenus = Sous_menus::orderBy('id', 'desc')->take(20)->get();
+        $menus = Menus::all();
+        $sousmenus = Sous_menus::all();
         $event = Events::find($id);
         if ($event->user_id != Auth::user()->id) {
-            return redirect(url('errors/' . md5('event-form-update') . '/' . md5('500')));
+            //return redirect(url('errors/' . md5('event-form-update') . '/' . md5('500')));
+            return redirect(url('/home'));
         }
         return view('events.edit', compact('event', 'menus', 'sousmenus'));
     }

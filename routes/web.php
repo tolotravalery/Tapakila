@@ -184,6 +184,7 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin'], 'prefix' => '
     Route::post('sousmenu', 'SousmenuController@store');
 
     Route::get('listevent', 'EventController@listEvent')->name('listevent');
+    Route::get('ajouterTicket/{id}', 'EventController@showAjouterTicket')->name('ajouterTicket');
     Route::post('updatePublie', 'EventController@updatePublie')->name('updatePublie');
     Route::get('updatePublieAll', 'EventController@updatePublieAll')->name('updatePublieAll');
 
@@ -220,6 +221,7 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin'], 'prefix' => '
     Route::get('events/update/{id}', 'EventController@edit_admin');
     Route::get('events/create', 'EventController@create_admin');
     Route::post('events/create', 'EventController@stroreAdmin')->name('admin_event_create');
+    Route::post('events/create_ticket', 'TicketController@storeTicket')->name('admin_ticket_create');
 
     /*-------------------*/
     Route::get('message', 'AdminDetailsController@message');

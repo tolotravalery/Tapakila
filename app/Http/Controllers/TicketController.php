@@ -87,6 +87,42 @@ class TicketController extends Controller
         return redirect(url('organisateur/event/' . $event->id . '/edit'))->with(compact('message'));
     }
 
+    public function storeTicket(Request $request)
+    {
+        //dd("eto");
+        $event_id = Crypt::decryptString($request->input('id'));
+        $event = Events::find($event_id);
+        $nombre = $request->input('number');
+        $rep = $request->input('isValable');
+        $ticket = Ticket::create(['type' => $request->input('type'),
+            'price' => $request->input('price'),
+            'number' => $request->input('number'),
+            'date_debut_vente' => new \DateTime($request->input('date_debut_vente')),
+            'date_fin_vente' => new \DateTime($request->input('date_fin_vente')),
+            'description' => $request->input('description')]);
+        if ($rep == null) {
+            $date = $request->input('date');
+            $ticket->events()->attach(array($event_id => array('date' => $date)));
+        } else if (strcmp("on", $rep) == 0) {
+            $interval = new \DateInterval('P1D');
+            $daterange = new \DatePeriod(\Carbon\Carbon::parse($event->date_debut_envent), $interval, \Carbon\Carbon::parse($event->date_fin_event));
+            foreach ($daterange as $d) {
+                $ticket->events()->attach(array($event_id => array('date' => $d)));
+            }
+        } else {
+            $ticket->events()->attach(array($event_id => array('date' => $event->date_debut_envent)));
+        }
+        // Creation tapakila
+        for ($i = 0; $i < $nombre; $i++) {
+            //test code_unique tapakila
+            $code_unique = $this->verifyCodeUnique($this->getUniqueCode(16));
+            Tapakila::create([
+                'code_unique' => $code_unique,
+                'ticket_id' => $ticket->id
+            ]);
+        }
+        return redirect(url('admin/listevent'));
+    }
     public function delete($id, $event_id)
     {
         $event = Events::findOrFail($event_id);

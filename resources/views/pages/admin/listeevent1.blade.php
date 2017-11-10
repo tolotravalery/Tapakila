@@ -106,6 +106,7 @@
                                     <th class="hidden-sm hidden-xs hidden-md">Billets</th>
                                     <th>Actions</th>
                                     <th></th>
+                                    <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -175,6 +176,13 @@
                                                 <i class="fa fa-pencil fa-fw" aria-hidden="true"></i> <span
                                                         class="hidden-xs hidden-sm">Edit</span><span
                                                         class="hidden-xs hidden-sm hidden-md"> event</span>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-sm btn-success"  href="{{url('/')}}/admin/ajouterTicket/{{$ev->id}}" data-toggle="tooltip" title="Edit">
+                                                <i class="fa fa-plus fa-fw" aria-hidden="true"></i>
+                                                <span class="hidden-xs hidden-sm">Ajouter</span>
+                                                <span class="hidden-xs hidden-sm hidden-md"> ticket</span>
                                             </a>
                                         </td>
                                         @php
