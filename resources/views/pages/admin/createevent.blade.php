@@ -1,12 +1,4 @@
-@extends('layouts.app')
-
-@section('template_title')
-    Welcome {{ Auth::user()->name }}
-@endsection
-
-@section('head')
-@endsection
-
+@extends('template')
 @section('content')
 
     <section id="sectioncategorie" class="clearfix">
@@ -1594,7 +1586,7 @@
     </section>
 @endsection
 
-@section('footer_scripts')
+@section('specificScript')
     <script type="text/javascript">
         $('#enregister').click(function () {
             console.log("click");
