@@ -110,19 +110,26 @@ a{
 .width-custom{
 width: 43.667%  ! important;
 }
-@media screen and (min-width:1000px) and (max-width:1050px){
-	.width-custom {
-    width: 33.667% !important;
+
+.btn-deleted{
+	color:white;
+	background-color:#d70506;
+	padding:10px 10px 10px 10px;
 }
+.btn-deleted:hover{
+	color:white;
+	background-color:#d70506;
+	padding:10px 10px 10px 10px;
 }
-@media screen and (min-width:955px) and (max-width:975px) {
-	.width-custom {
-width: 24.667% !important;
+.btn-deleted:focus{
+	color:white;
+	background-color:#d70506;
+	padding:10px 10px 10px 10px;
 }
-ul.nav-customs li {
-    margin-top: 10px !important;
-    margin-left: -10px !important;
-}
+.btn-deleted:click{
+	color:white;
+	background-color:#d70506;
+	padding:10px 10px 10px 10px;
 }
 
 .btn-renvoye {
@@ -1801,11 +1808,11 @@ html|* > svg {
 /*------------------Type_ticket----------------------------*/
 
 .ticket_type_contenu {
-    background-color: #eeeeee;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-top: 15px;
-    margin-bottom: 20px;
+ background-color: #eeeeee;
+padding-left: 20px;
+padding-right: 20px;
+padding-top: 15px;
+margin-bottom: 20px;
 }
 
 .com_contenu_type12 {

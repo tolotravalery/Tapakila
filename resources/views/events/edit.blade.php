@@ -921,11 +921,10 @@
 
                                                                         {!! Form::button('<i class="fa fa-fw fa-trash" aria-hidden="true"></i> Supprimer',
                                                                                 array(
-                                                                                    'class' 			=> 'btn btn-default',
+                                                                                    'class' 			=> 'btn  btn-deleted',
                                                                                     'id' 				=> 'delete_ticket_trigger',
                                                                                     'type' 				=> 'button',
                                                                                     'data-toggle' 		=> 'modal',
-                                                                                    'data-submit'       => trans('profile.deleteAccountBtnConfirm'),
                                                                                     'data-target' 		=> '#confirmDelete'
                                                                                 )
                                                                         ) !!}
