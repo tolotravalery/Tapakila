@@ -893,7 +893,7 @@
                     <!------------------------------------type-ticket-------------------------------------------------------------------------->
 
                     <div id="div_type"
-                         @if(session('page')) @if(session('page') == 'details')  class="hide" @endif @endif>
+                         @if(session('page')) @if(session('page') == 'details')  class="hide" @endif @else class="hide" @endif>
                         <div id="type_ticket">
                             <div class="com_contenu_type">
                                 <div class="panel panel-content">
@@ -1566,18 +1566,6 @@
 @endsection
 
 @section('specificScript')
-    <script type="text/javascript">
-        function delete_type_ticket(event_id, ticket_id) {
-            $.ajax({
-                type: "GET",
-                url: '{{ url("organisateur/event/ticket/delete/") }}' + '/' + ticket_id + '/' + event_id,
-                success: function (data) {
-                    console.log(data);
-                    changePage('div_type', 'a_type');
-                }
-            });
-        }
-    </script>
     <script type="text/javascript">
         $('#enregister').click(function () {
 
