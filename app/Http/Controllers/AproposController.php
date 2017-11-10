@@ -8,32 +8,53 @@ use App\Models\Sous_menus;
 
 class AproposController extends Controller
 {
-    public function faq(){
+    public function faq()
+    {
         $menus = Menus::orderBy('id', 'desc')->get();
         $sousmenus = Sous_menus::orderBy('name', 'asc')->get();
-        return view('tapakila.faq', compact('menus', 'sousmenus','slides'));
+        return view('tapakila.faq', compact('menus', 'sousmenus', 'slides'));
     }
-    public function apropos(){
-        return view('tapakila.apropos');
-    }
-    public function contact(){
-        return view('tapakila.contact');
-    }
-	 public function vieprive(){
-		 $menus = Menus::orderBy('id', 'desc')->get();
+
+    public function apropos()
+    {
+        $menus = Menus::orderBy('id', 'desc')->get();
         $sousmenus = Sous_menus::orderBy('name', 'asc')->get();
-       
-        return view('tapakila.vie-prive',compact('menus', 'sousmenus','slides'));
+        return view('tapakila.apropos', compact('menus', 'sousmenus'));
     }
-    public function term(){
-        return view('tapakila.term');
-    }
-    public function achat(){
-		$menus = Menus::orderBy('id', 'desc')->get();
+
+    public function contact()
+    {
+        $menus = Menus::orderBy('id', 'desc')->get();
         $sousmenus = Sous_menus::orderBy('name', 'asc')->get();
-        return view('tapakila.achat',compact('menus', 'sousmenus'));
+        return view('tapakila.contact', compact('menus', 'sousmenus'));
     }
-    public function achatBillet(){
-        return view('tapakila.acheterbillet');
+
+    public function vieprive()
+    {
+        $menus = Menus::orderBy('id', 'desc')->get();
+        $sousmenus = Sous_menus::orderBy('name', 'asc')->get();
+
+        return view('tapakila.vie-prive', compact('menus', 'sousmenus', 'slides'));
+    }
+
+    public function term()
+    {
+        $menus = Menus::orderBy('id', 'desc')->get();
+        $sousmenus = Sous_menus::orderBy('name', 'asc')->get();
+        return view('tapakila.term', compact('menus', 'sousmenus'));
+    }
+
+    public function achat()
+    {
+        $menus = Menus::orderBy('id', 'desc')->get();
+        $sousmenus = Sous_menus::orderBy('name', 'asc')->get();
+        return view('tapakila.achat', compact('menus', 'sousmenus'));
+    }
+
+    public function achatBillet()
+    {
+        $menus = Menus::orderBy('id', 'desc')->get();
+        $sousmenus = Sous_menus::orderBy('name', 'asc')->get();
+        return view('tapakila.acheterbillet', compact('menus', 'sousmenus'));
     }
 }
