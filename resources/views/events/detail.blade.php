@@ -172,9 +172,7 @@
                                                                             </span>
                                                                         </li>
                                                                         <li>
-                                                                            <input class="form-control text-center ui tests "
-                                                                                   value="0"
-                                                                                   type="text" name="nombre[]"></li>
+                                                                            <input class="form-control text-center ui tests " readonly value="0" type="text" name="nombre[]"></li>
                                                                         <li>
 																	<span class="input-group-btn">
 																				<button class="btn btn-default btn-circle splus "
@@ -281,23 +279,14 @@
                                                                     <ul>
                                                                         <li>
                                                                             <span class="input-group-btn">
-                                                                                        <button class="btn btn-default btn-circle smoins"
-                                                                                                data-dir="dwn"
-                                                                                                type="button"
-                                                                                                id="btn-down{{$count_id_price}}"><span
-                                                                                                    class="fa fa-minus"></span></button>
+                                                                                        <button class="btn btn-default btn-circle smoins" data-dir="dwn" type="button" id="btn-down{{$count_id_price}}"><span class="fa fa-minus"></span></button>
                                                                             </span>
                                                                         </li>
                                                                         <li>
-                                                                            <input class="form-control text-center ui tests "
-                                                                                   value="0"
-                                                                                   type="text" name="nombre[]"></li>
+                                                                            <input class="form-control text-center ui tests " readonly value="0" type="text" name="nombre[]"></li>
                                                                         <li>
 																	<span class="input-group-btn">
-																				<button class="btn btn-default btn-circle splus "
-                                                                                        data-dir="up" type="button"
-                                                                                        id="btn-up{{$count_id_price}}"><span
-                                                                                            class="fa fa-plus"></span></button>
+																				<button class="btn btn-default btn-circle splus " data-dir="up" type="button" id="btn-up{{$count_id_price}}"><span class="fa fa-plus"></span></button>
 																	</span>
                                                                         </li>
                                                                     </ul>
