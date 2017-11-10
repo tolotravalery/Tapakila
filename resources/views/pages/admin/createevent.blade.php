@@ -90,9 +90,9 @@
                                onClick="changePage('div_details', 'a_details')">Détails</a></li>
                         <li><a id="a_type">Types de Ticket &amp; prix</a>
                         </li>
-                        <li><a id="a_siteweb">Apparence du site</a>
+                        <li class="hidden"><a id="a_siteweb">Apparence du site</a>
                         </li>
-                        <li><a id="a_pdf">PDF</a></li>
+                        <li class="hidden"><a id="a_pdf">PDF</a></li>
                         <li><a id="a_cpersonalize">Champs
                                 additioneles</a></li>
                         <li class="categorimenu"><strong>Paramètre</strong></li>
