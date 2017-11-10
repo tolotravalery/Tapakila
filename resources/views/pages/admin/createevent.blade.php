@@ -88,15 +88,15 @@
                         <li class="categorimenu"><strong>Editer</strong></li>
                         <li><a id="a_details" class="select"
                                onClick="changePage('div_details', 'a_details')">Détails</a></li>
-                        <li><a id="a_type" onClick="changePage('div_type', 'a_type')">Types de Ticket &amp; prix</a>
+                        <li><a id="a_type">Types de Ticket &amp; prix</a>
                         </li>
-                        <li><a id="a_siteweb" onClick="changePage('div_siteweb', 'a_siteweb')">Apparence du site</a>
+                        <li><a id="a_siteweb">Apparence du site</a>
                         </li>
-                        <li><a id="a_pdf" onClick="changePage('div_pdf', 'a_pdf')">PDF</a></li>
-                        <li><a id="a_cpersonalize" onClick="changePage('div_cpersonalize', 'a_cpersonalize')">Champs
+                        <li><a id="a_pdf">PDF</a></li>
+                        <li><a id="a_cpersonalize">Champs
                                 additioneles</a></li>
                         <li class="categorimenu"><strong>Paramètre</strong></li>
-                        <li><a id="a_paiement" onClick="changePage('div_paiement', 'a_paiement')">Méthodes de
+                        <li><a id="a_paiement">Méthodes de
                                 payements</a></li>
                     </ul>
                 </div>
@@ -155,7 +155,8 @@
                                         </span>
                                         </div>
 
-                                        <div class="form-group form-group-translation et" style="margin-top:12px !important;">
+                                        <div class="form-group form-group-translation et"
+                                             style="margin-top:12px !important;">
                                             <label class="control-label">
                                                 <span>Description : </span>
                                             </label>
@@ -926,7 +927,8 @@
 
                                 <a class="btn btn-primary btn-outline text-center center-block primary" role="button"
                                    onClick="changePage('div_ticket','a_type')">
-                                    <i aria-hidden="true"></i> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Ajouter le type de
+                                    <i aria-hidden="true"></i> <span class="glyphicon glyphicon-plus"
+                                                                     aria-hidden="true"></span> Ajouter le type de
                                     ticket
                                 </a>
                                 </br></br>
@@ -1242,10 +1244,12 @@
                         <div class="com_contenu_type2">
                             <h2>Champs personnalisés par participant</h2>
                             <form action="" method="post">
-							<label>Ajouter ici votre question sécrete :</label>
+                                <label>Ajouter ici votre question sécrete :</label>
                                 <input type="text" name="question" class="form-control"><br/>
-                                <button type="submit" href="#" class="btn btn-primary btn-outline text-center center-block primary" role="button ">
-                                    <i aria-hidden="true "></i> <span  aria-hidden="true "></span> Ajouter
+                                <button type="submit" href="#"
+                                        class="btn btn-primary btn-outline text-center center-block primary"
+                                        role="button ">
+                                    <i aria-hidden="true "></i> <span aria-hidden="true "></span> Ajouter
                                 </button>
                             </form>
                         </div>
