@@ -941,21 +941,15 @@
                                                                                         aria-label="Close"><span
                                                                                             aria-hidden="true">&times;</span>
                                                                                 </button>
-                                                                                <h4 class="modal-title">Confirm
-                                                                                    Delete</h4>
+                                                                                <h4 class="modal-title">Confirmer la supression</h4>
                                                                             </div>
                                                                             <div class="modal-body">
-                                                                                <p>Delete this ticket?</p>
-                                                                                <p>La suppression de cette ticket a un
-                                                                                    risque pour les clients</p>
+                                                                                <p>Suprimer ce ticket?</p>
+                                                                                <p>Attention !!! ,ce ticket pourraît être dèja acheté par des clients, vous êtes sur de votre action ?</p>
                                                                             </div>
                                                                             <div class="modal-footer">
-                                                                                {!! Form::button('<i class="fa fa-fw fa-close" aria-hidden="true"></i> Cancel', array('class' => 'btn btn-outline pull-left btn-flat', 'type' => 'button', 'data-dismiss' => 'modal' )) !!}
-                                                                                <a class="btn btn-danger pull-right btn-flat"
-                                                                                   href="{{ url("organisateur/event/ticket/delete/".$ticket->id."/".$event->id) }}">
-                                                                                        <span class="fa fa-fw fa-trash-o"
-                                                                                              aria-hidden="true"></span>Effacer
-                                                                                </a>
+                                                                                {!! Form::button('<i class="fa fa-fw fa-close" aria-hidden="true"></i>Annuler', array('class' => 'btn  pull-left btn-flat btn-annulation', 'type' => 'button', 'data-dismiss' => 'modal' )) !!}
+                                                                                <a class="btn btn-supr  pull-right btn-flat" href="{{ url("organisateur/event/ticket/delete/".$ticket->id."/".$event->id) }}"> <span class="fa fa-fw fa-trash-o"aria-hidden="true"></span>Suprimer</a>
                                                                             </div>
                                                                         </div>
                                                                     </div>
