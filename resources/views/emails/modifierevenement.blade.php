@@ -45,10 +45,10 @@ border-radius: 3px;
                                         
                                         
                                         <h2 style="font-size: 26px;color:#333;"><b>Bonjour {{$user->name}},</b></h2>
-                                        <p style="font-size: 14px;color:#333;">Votre modification évènement a été bien réussi avec succès.</p>
-                                        <p style="font-size: 14px;color:#333;"><b style="color:#d70506;">Programme : </b>{{$event->title}} </p>
-                                        <p style="font-size: 14px;color:#333;"><b style="color:#d70506;">Localisation : </b>{{$event->localisation_nom}} {{$event->localisation_adresse}}</p>
-                                        <p style="font-size: 14px;color:#333;"><b style="color:#d70506;">Date : </b>le {{$event->date_debut_envent->format('d M Y H:i:s')}} à {{$event->date_fin_event->format('d M Y H:i:s')}} </p>
+                                        <p style="font-size: 14px;color:#333;">Votre modification évènement a été bien réussi. </p>
+                                        <p style="font-size: 14px;color:#333;"><b >Titre : </b>{{$event->title}} </p>
+                                        <p style="font-size: 14px;color:#333;"><b >Localisation : </b>{{$event->localisation_nom}} {{$event->localisation_adresse}}</p>
+                                        <p style="font-size: 14px;color:#333;"><b >Date : </b>le {{$event->date_debut_envent->format('d M Y H:i:s')}} à {{$event->date_fin_event->format('d M Y H:i:s')}} </p>
                                        
                                         
                                         <p style="font-size: 14px;color:#333;font-family:Lucida Console;"> Veuiller consulter votre <a style="text-decoration: none;color: #62b2eb;"href="{{url('/home')}}"> Compte</a></p><br>
