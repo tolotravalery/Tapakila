@@ -39,17 +39,13 @@
                                     <div class="row row_recherche">
                                         <div class="col-lg-4 mot_recherche">
                                             <label for="usr">Mot-clé</label>
-
                                         </div>
                                         <div class="col-lg-6  col-xs-10-offset-1">
                                             <input type="text" name="query" class="form-control" value="{{$queries}}">
-
                                         </div>
                                         <div class="col-lg-2">
-
                                         </div>
                                     </div>
-
                                 </div>
                                 <div class="row row_recherche">
                                     <div class="col-lg-4 mot_recherche">
@@ -76,7 +72,6 @@
                                     <div class="row">
                                         <div class="col-lg-4 mot_recherche">
                                             <label for="usr">Cochez la ou le catégories</label>
-
                                         </div>
                                         <div class="col-lg-8 col_recherche">
                                             <div class="row select_recherche">
@@ -87,15 +82,12 @@
                                                                    value="{{$sousmenu->id}}">{{$sousmenu->name}}</label>
                                                     </div>
                                                 @endforeach
-
                                             </div>
                                         </div>
-
                                     </div>
                                 </div>
                                 <div class="row row_recherche">
                                     <div class="col-lg-4 mot_recherche">
-
                                     </div>
                                     <div class="col-lg-8 col_recherche">
                                         <div class="row">
@@ -144,7 +136,7 @@
                                                         <h3>
                                                             <a href="{{url('event/show',[$event->id])}}"
                                                                id="title{{$count_id}}">
-                                                                {!! str_replace($queries,'<span style="background-color: yellow;">'.$queries.'</span>',str_limit($event->title,$limit = 40, $end = ' ...')) !!}
+                                                                {!! str_replace($queries,'<span style="background-color: yellow;">'.$queries.'</span>',ucfirst(strtolower(str_limit($event->title,$limit=40, $end = ' ...')))) !!}
                                                             </a>
                                                         </h3>
                                                     </div>
@@ -205,12 +197,6 @@
                     <div id="custom-white">
                         <h1 class="couleur_mot">Resultats de votre recherche</h1>
                         <div class="panier"></div>
-                        <div class="alert alert-success">
-                            <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en
-                                page avant
-                                impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années
-                                1500 </p>
-                        </div>
                         <div class="row panier_3">
                             <div class="col-lg-6 col-lg-offset-3">
                                 <div class="thumbnail panier1">
@@ -226,26 +212,7 @@
                         <hr class="couvert">
                     </div>
 
-                    <div class="replik">
-                        <ul>
-                            <li><a href="#"><img src="{{url('/')}}/public/img/items1.png"></a>
-                                <p class="ctgori"><strong><a href="#">Concert</a></strong></p></li>
-                            <li><a href="#"><img src="{{url('/')}}/public/img/items2.png"></a>
-                                <p class="ctgori"><strong><a href="#">Kabaret</a></strong></p></li>
-                            <li><a href="#"><img src="{{url('/')}}/public/img/items3.png"></a>
-                                <p class="ctgori"><strong><a href="#">Sport</a></strong></p></li>
-                            <li><a href="#"><img src="{{url('/')}}/public/img/items4.png"></a>
-                                <p class="ctgori"><strong><a href="#">Soiré</a></strong></p></li>
-                            <li><a href="#"><img src="{{url('/')}}/public/img/items5.png"></a>
-                                <p class="ctgori"><strong><a href="#">Danse</a></strong></p></li>
-                            <li><a href="#"><img src="{{url('/')}}/public/img/items6.png"></a>
-                                <p class="ctgori"><strong><a href="#">Cinema</a></strong></p></li>
-                            <li><a href="#"><img src="{{url('/')}}/public/img/items7.png"></a>
-                                <p class="ctgori"><strong><a href="#">Festivals</a></strong></p></li>
-                            <li><a href="#"><img src="{{url('/')}}/public/img/items8.png"></a>
-                                <p class="ctgori"><strong><a href="#">Dj</a></strong></p></li>
-                        </ul>
-                    </div>
+                  
                 @endif
             </div>
         </section>

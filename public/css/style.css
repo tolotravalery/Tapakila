@@ -160,6 +160,21 @@ width: 43.667%  ! important;
 	 cursor: pointer;
 }
 
+.btn-annulation{
+	background-color: #5cb85c ;
+	color:white;
+}
+.btn-supr{
+	background-color:#d70506;
+	color:white;
+}
+
+
+
+.modal-dialog {
+    margin: 250px auto !important;
+}
+
 .iio {
     margin-left: -12px;
 }
@@ -610,7 +625,7 @@ ul.navbar-nav li.open ul.nav-tabs li a {
 
 .footer {
     font-size: 14px;
-    margin-top: 3%;
+    margin-top: 94px;
     color: #fff!important;
 }
 
