@@ -90,7 +90,6 @@
                             </div>
                         </div>
 
-
                         <div class="form-group">
                             <label class="col-md-3 control-label">Nombre de billets<span style="color: red">*</span></label>
                             <div class="col-md-9">

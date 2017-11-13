@@ -163,13 +163,36 @@ class TicketController extends Controller
         $event = Events::findOrFail($code);
 
         $tic=Ticket::find(Crypt::decryptString($request->input('id')));
+        $tic_number_avant= $tic->number;
+        $tic->number=$request->input('number');
         $tic->type=$request->input('type');
         $tic->price=$request->input('price');
-        $tic->number=$request->input('number');
         $tic->date_debut_vente=new \DateTime($request->input('date_debut_vente'));
         $tic->date_fin_vente=new \DateTime($request->input('date_fin_vente'));
         $tic->description=$request->input('description');
-        $tic->save();
+        $difference=$tic->number-$tic_number_avant;
+        if($difference>0){
+            for ($i = 0; $i < $difference; $i++) {
+                $code_unique = $this->verifyCodeUnique($this->getUniqueCode(16));
+                Tapakila::create([
+                    'code_unique' => $code_unique,
+                    'ticket_id' => $tic->id
+                ]);
+            }
+            $tic->save();
+        }
+        else if($difference<0){
+            $nombre=$difference*(-1);//moins nombre
+            //dd($nombre);
+            //$tap=Tapakila::find($tic->id,'ticket_id')->limit(intval($nombre));
+            $tap=Tapakila::get()->where('ticket_id','=',$tic->id)->take(intval($nombre));
+            //dd($tap);
+            foreach($tap as $tapakila){
+                $tapakila->delete();
+            }
+
+            $tic->save();
+        }
 
         return redirect(url('admin/ajouterTicket/' . $event->id ))->with(compact('message'));
     }
