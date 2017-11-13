@@ -34,6 +34,15 @@
 @endsection
 @section('content')
     <br><br>
+    @if (session('message'))
+        <div class="container">
+            <div style="">
+                <div class="alert alert-success col-md-7" style="text-align: left;">
+                    <p><i>{{ session('message') }}</i></p>
+                </div>
+            </div>
+        </div>
+    @endif
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
@@ -176,6 +185,7 @@
                                     <th>Type</th>
                                     <th>Price</th>
                                     <th>Nombres</th>
+                                    <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -189,6 +199,12 @@
                                             <td>{{$ticket->type}}</td>
                                             <td>{{$ticket->price}}</td>
                                             <td> {{$event->tickets->count()}}</td>
+                                            <td style="width: 25px;">
+                                                {!! Form::open(array('url' => 'admin/ticket/delete/'.$ticket->id."/".$event->id, 'class' => '', 'data-toggle' => 'tooltip', 'title' => 'Delete')) !!}
+                                                {!! Form::hidden('_method', 'get') !!}
+                                                {!! Form::button('<i class="fa fa-trash-o fa-fw" aria-hidden="true"></i> <span class="hidden-xs hidden-sm">Delete</span><span class="hidden-xs hidden-sm hidden-md"> ticket</span>', array('class' => 'btn btn-danger btn-sm','type' => 'button', 'style' =>'width: 100%;' ,'data-toggle' => 'modal', 'data-target' => '#confirmDelete', 'data-title' => 'Delete Ticket', 'data-message' => 'Are you sure you want to delete this ticket ?')) !!}
+                                                {!! Form::close() !!}
+                                            </td>
                                         </tr>
                                     @endif
                                 @endforeach
@@ -206,6 +222,12 @@
 
 @endsection
 @section('specificScript')
+    @include('modals.modal-delete')
+    @if ($event->tickets->count() > 10)
+        @include('scripts.datatables')
+    @endif
+    @include('scripts.delete-modal-script')
+    @include('scripts.save-modal-script')
     <script>
         $(document).ready(function () {
             $('#message_after_comparaison').hide();

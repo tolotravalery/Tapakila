@@ -137,7 +137,7 @@
                                             <tbody>
                                             @php $count_id_price = 0; @endphp
                                             @if($event->tickets->where('date_debut_vente','<',date('Y-m-d H:i:s'))->where('date_fin_vente','>',date('Y-m-d H:i:s'))->count() > 0)
-                                                @foreach($event->tickets()->wherePivot('date',\Carbon\Carbon::parse($date)->format('Y-m-d'))->get() as $ticket)
+                                                @foreach($event->tickets()->where('date_debut_vente','<',date('Y-m-d H:i:s'))->where('date_fin_vente','>',date('Y-m-d H:i:s'))->wherePivot('date',\Carbon\Carbon::parse($date)->format('Y-m-d'))->get() as $ticket)
                                                     {!! csrf_field() !!}
                                                     <input type="hidden" name="id[]" value="{{ $ticket->id }}">
                                                     <input type="hidden" name="type[]" value="{{ $ticket->type }}">

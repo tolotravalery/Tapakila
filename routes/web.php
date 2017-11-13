@@ -218,6 +218,9 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin'], 'prefix' => '
             'deleted'
         ]
     ]);
+
+    Route::delete('ticket/delete/{id}/{event_id}','TicketController@delete_admin')->name('ticket/delete');
+
     Route::get('events/update/{id}', 'EventController@edit_admin');
     Route::get('events/create', 'EventController@create_admin');
     Route::post('events/create', 'EventController@stroreAdmin')->name('admin_event_create');
