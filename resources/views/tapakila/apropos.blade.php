@@ -32,8 +32,8 @@
                 <div class="about-bg">
                     <img src="{{url('/')}}/public/img/aboutus.png">
                     <h3>QUI SOMMES-NOUS ?</h3>
-                    <p style="text-align: justify;">Leguichet est un service de réservation indépendant proposant un accès exclusif aux meilleures
-                        manifestations culturelles ou sportives, en Afrique.</p>
+                    <p style="text-align: justify;">Leguichet.mg est un service de réservation indépendant proposant un accès exlusif aux meilleurs
+                       manifestations culturelles ou sportives, en Afrique.</p>
                     <p style="text-align: justify;">Ressentir le public vibrer avant les premières notes, vivre intensément un moment unique, il y a
                         tout ceci et plus dans un évènement live. Mais tout commence avec l’achat d’un billet et
                         malheureusement, cette étape est bien trop souvent synonyme de frustration pour le consommateur.
@@ -120,7 +120,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="newsletter">
+                <!-- <div class="newsletter">
                     <h3 class="all"><strong>Newletter</strong></h3>
                     Recevez nos dernier actualités !
                     <form>
@@ -144,7 +144,7 @@
                             <button type="button" class="btn btn-primary btn-menu2">Enregistrer</button>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 {{--<div class="vente">
                     <h3 class="all"><strong>Top vente</strong></h3>
                     <div class="row space">

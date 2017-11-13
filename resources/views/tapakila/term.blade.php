@@ -32,6 +32,7 @@
             <div class="col-md-9">
                 <div class="about-bg">
                     <h3>CONDITION GENERALES</h3>
+                    <br>
                     <p style="text-align: justify;">En accédant et/ou en utilisant ce site Web, vous acceptez de vous
                         conformer et d'être lié par les
                         Conditions d'Utilisation figurant ci-dessous. Ces Conditions d'Utilisation peuvent faire l'objet
@@ -166,7 +167,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="newsletter">
+                <!-- <div class="newsletter">
                     <h3 class="all"><strong>Newletter</strong></h3>
                     Recevez nos dernier actualités !
                     <form>
@@ -190,7 +191,7 @@
                             <button type="button" class="btn btn-primary btn-menu2">Enregistrer</button>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 {{--<div class="vente">
                     <h3 class="all"><strong>Top vente</strong></h3>
                     <div class="row space">
