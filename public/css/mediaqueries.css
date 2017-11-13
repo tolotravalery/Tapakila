@@ -1,7 +1,15 @@
 /* team trustylabs */
 /* text-align by trustylabs */
 /* text-align-xs */
+@media screen and (max-width:768px){
+	.nav > li > a {
+    padding: 10px 3px;
+}
+.navbar-brand > img {
+    margin-left: -8px !important;
 
+}
+}
 
 
 @media screen and (min-width:1000px) and (max-width:1050px){

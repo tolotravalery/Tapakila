@@ -126,7 +126,7 @@
 
                 </ul>
                 <div class="row">
-                    <div class="col-lg-5 col-md-4 col-sm-2 width-custom ">
+                    <div class="col-lg-5 col-md-4  width-custom margin-custom ">
                         <div id="custom-search-input">
 							<form action="{{url('/')}}/find/q" method="get" class="input-group searchbox">
 								<input type="text" class="form-control input-lg" name="query"
