@@ -5,7 +5,7 @@
             <div class="col-md-9">
                 <div class="about-bg">
                     <h4><strong>Comment vendre des billets ?</strong></h4>
-                    <p>Tapakila autorise la mise en vente de billets sur sa plateforme. Pour vendre vos billets en trop
+                    <p>leguichet autorise la mise en vente de billets sur sa plateforme. Pour vendre vos billets en trop
                         : </p>
                     <div class="avendre">
                         <ul>
@@ -112,7 +112,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="vente">
+                {{--<div class="vente">
                     <h3 class="all">Top vente</h3>
                     <div class="row space">
                         <div class="col-md-2">
@@ -162,7 +162,7 @@
                         </div>
 
                     </div>
-                </div>
+                </div>--}}
             </div>
         </div>
     </div>
