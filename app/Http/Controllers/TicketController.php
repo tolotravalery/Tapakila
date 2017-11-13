@@ -135,4 +135,18 @@ class TicketController extends Controller
         session()->flash('page', "tickets");
         return redirect(url('organisateur/event/' . $event->id . '/edit'))->with(compact('message'));
     }
+
+    public function delete_admin($id, $event_id)
+    {
+        //dd("test");
+        $event = Events::findOrFail($event_id);
+        if ($event->user_id == Auth::user()->id) {
+            $ticket = Ticket::findOrFail($id);
+            $ticket->delete();
+        }
+        $message = " Opération réussie, Ticket supprimé avec succès";
+        session()->flash('message', $message);
+        session()->flash('page', "tickets");
+        return redirect(url('admin/ajouterTicket/' . $event->id ))->with(compact('message'));
+    }
 }
