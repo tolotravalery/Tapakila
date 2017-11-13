@@ -129,7 +129,7 @@
                     <p style="text-align: justify;">Si vous avez des questions concernant nos Conditions d'Utilisation
                         ou notre politique de
                         protection de la Vie Privée, n'hésitez pas à nous contacter par e-mail à
-                        leguichet@trustylabs.mg. </p><br>
+                        contact@leguichet.mg. </p><br>
                     <p style="text-align: justify;">Dernière mise à jour: NOV 2017.</p>
                 </div>
             </div>

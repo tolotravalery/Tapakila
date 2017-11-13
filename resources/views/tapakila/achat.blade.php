@@ -38,7 +38,7 @@
                         barres unique et différent pour chaque billet. Chaque e-ticket est scanné à l’entrée de la salle
                         et sa validité est contrôlée. Donc, si vous achetez deux billets électroniques, vous imprimerez
                         deux billets sur du papier format A4 blanc et vierge recto/verso.</p><br>
-                    <img src="{{url('/')}}/public/img/ticket.png"><br>
+                    <img src="{{url('/')}}/public/img/guide.png"><br>
 
                     <!-- QUEL EST L'AVANTAGE PRINCIPAL DU E-TICKET ? -->
                     <h4><strong>Quel est l'avantage principal du E-ticket ?</strong></h4>
@@ -122,7 +122,7 @@
 
                     <!--  GUIDE -->
                     <h5><strong> GUIDE</strong></h5>
-                    <p>Acheter des billets sur Tapakila est très simple, il vous suffit de suivre les instructions
+                    <p>Acheter des billets sur Leguichet est très simple, il vous suffit de suivre les instructions
                         ci-dessous:</p>
                     <p><strong>1</strong>  - Commencez par recherchez l'événement auquel vous souhaitez assister dans la
                         barre de recherche où il est écrit: Chercher un événement...</p>
@@ -139,15 +139,13 @@
                             <li> - Achetez vos billets! </li>
                             <li>- Recevez votre e-billet nominatif par mail juste après votre achat.</li>
                             <li>- Imprimez-le à tout moment.</li>
-                            <li>- Vous possédez un smartphone ? Plus besoin d’imprimer ! Téléchargez le code-barres dans
-                                notre application
-                            </li>
+                           
                         </ul>
                     </div>
 
                     <!-- Pourquoi choisir le e-billet ? -->
-                    <h5><strong>Pourquoi choisir le e-billet ?</strong></h5>
-                    <img src="{{url('/')}}/public/img/ebillet.png">
+                    <!-- <h5><strong>Pourquoi choisir le e-billet ?</strong></h5>
+                    <img src="{{url('/')}}/public/img/ebillet.png"> -->
                 </div>
             </div>
 
