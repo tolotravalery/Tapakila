@@ -201,7 +201,7 @@
                                             <td> {{$event->tickets->count()}}</td>
                                             <td style="width: 25px;">
                                                 {!! Form::open(array('url' => 'admin/ticket/delete/'.$ticket->id."/".$event->id, 'class' => '', 'data-toggle' => 'tooltip', 'title' => 'Delete')) !!}
-                                                {!! Form::hidden('_method', 'get') !!}
+                                                {!! Form::hidden('_method', 'delete') !!}
                                                 {!! Form::button('<i class="fa fa-trash-o fa-fw" aria-hidden="true"></i> <span class="hidden-xs hidden-sm">Delete</span><span class="hidden-xs hidden-sm hidden-md"> ticket</span>', array('class' => 'btn btn-danger btn-sm','type' => 'button', 'style' =>'width: 100%;' ,'data-toggle' => 'modal', 'data-target' => '#confirmDelete', 'data-title' => 'Delete Ticket', 'data-message' => 'Are you sure you want to delete this ticket ?')) !!}
                                                 {!! Form::close() !!}
                                             </td>
