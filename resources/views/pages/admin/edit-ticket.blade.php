@@ -48,7 +48,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
 
-                    Ajouter ticket
+                    Edit ticket
 
                     <a href="{{url('/')}}/admin/listevent" class="btn btn-info btn-xs pull-right">
                         <i class="fa fa-fw fa-mail-reply" aria-hidden="true"></i>
@@ -58,14 +58,16 @@
                 </div>
                 <div class="panel-body">
 
-                    <form  class="form-horizontal" role="form" method="POST" action="{{ route('admin_ticket_create') }}">
+                    {{--<form  class="form-horizontal" role="form" method="POST" action="{{ route('admin_ticket_create') }}">--}}
+                    {!! Form::model($ticket, array('files'=>true,'class' =>'form-horizontal','action' => array('TicketController@update_admin', $ticket->id), 'method' => 'PUT')) !!}
                         {{ csrf_field() }}
-                        <input type="hidden" name="id" value="{{Crypt::encryptString($event->id)}}">
+                        <input type="hidden" name="id" value="{{Crypt::encryptString($ticket->id)}}">
+                    <input type="hidden" name="id_event" value="{{Crypt::encryptString($event->id)}}">
                         <div class="form-group">
                             <label class="col-md-3 control-label">Nom du ticket <span style="color: red">*</span></label>
                             <div class="col-md-9">
                                 <div class="input-group">
-                                    {!! Form::text('type', '', array( 'id'=>'title','class' => 'form-control' ,'required')) !!}
+                                    {!! Form::text('type',$ticket->type, array( 'id'=>'title','class' => 'form-control' ,'required')) !!}
                                 </div>
                             </div>
                         </div>
@@ -74,7 +76,7 @@
                             <label class="col-md-3 control-label">Description <span style="color: red">*</span></label>
                             <div class="col-md-9">
                                 <div class="input-group">
-                                    <textarea name="description"></textarea>
+                                    <textarea name="description">{{$ticket->description}}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -83,54 +85,27 @@
                             <label class="col-md-3 control-label">Prix unitaire <span style="color: red">*</span></label>
                             <div class="col-md-9">
                                 <div class="input-group">
-                                    {!! Form::text('price', '', array('class' => 'form-control','required')) !!}
+                                    {!! Form::text('price',$ticket->price, array('class' => 'form-control','required')) !!}
                                 </div>
                             </div>
                         </div>
-
-
-                        @php
-
-                            $i = 0;
-                            $interval = new DateInterval('P1D');
-                            $daterange = new DatePeriod(\Carbon\Carbon::parse($event->date_debut_envent), $interval ,\Carbon\Carbon::parse($event->date_fin_event));
-                            foreach ($daterange as $d)
-                            $i++;
-                        @endphp
-                        @if($i > 1)
-                            <div class="form-group">
-
-                                <label class="col-md-3 control-label">Date du ticket <span style="color: red">*</span></label>
-                                <span class="help-block">
-                                            <i>Votre évènement a @php echo $i @endphp jours. Vous
-                                                devriez entrer la date de ce ticket et créer à nouveau un ticket pour les autres dates</i>
-                                        </span>
-                                <label class="col-md-3 control-label"></label>
-                                <div class="col-md-9">
-                                    <div class="input-group">
-                                        {!! Form::text('date_ticket',\Carbon\Carbon::parse($event->date_debut_envent)->format('Y-m-d') , ['class' => 'form-control', 'id' => 'datepicker','placeholder'=>'','required', 'autofocus']) !!}
-                                    </div>
-                                </div>
-                                <br/><br/>
-                                <label class="col-md-3 control-label"></label>
-                                <span class="help-block"><i>Ou simplement:</i></span>
-                                <label class="col-md-3 control-label"></label>
-                                <input type="checkbox" name="isValable"/> <i>Ce ticket est valable dans tous les jours de l'évènement.</i>
-                            </div>
-
-                        @else
-                            {!! Form::hidden('date_ticket', \Carbon\Carbon::parse($event->date_debut_envent)->format('Y-m-d'), ['class' => 'form-control', 'id' => 'date','placeholder'=>'','required', 'autofocus']) !!}
-                        @endif
-
-
-
 
 
                         <div class="form-group">
                             <label class="col-md-3 control-label">Nombre de billets<span style="color: red">*</span></label>
                             <div class="col-md-9">
                                 <div class="input-group">
-                                    {!! Form::text('number', '', array('class' => 'form-control')) !!}
+                                    {!! Form::text('number',$ticket->number, array('class' => 'form-control')) !!}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label"></label>
+                            <div class="col-md-9">
+                                <div class="input-group date">
+                                    <p style="color:red;" id="message_after_comparaison">La date fin
+                                        de l' évenement doit être supérieure à la date debut</p>
+
                                 </div>
                             </div>
                         </div>
@@ -142,8 +117,7 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-calendar"></i>
                                     </div>
-                                    <input type="text" name="date_debut_vente" class="form-control pull-right"
-                                           id="datepicker1">
+                                    <input type="text" name="date_debut_vente" class="form-control pull-right" id="datepicker1" value={{\Carbon\Carbon::parse($ticket->date_debut_vente)->format('d-m-Y')}}>
                                 </div>
                             </div>
                         </div>
@@ -155,8 +129,7 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-calendar"></i>
                                     </div>
-                                    <input type="text" name="date_fin_vente" class="form-control pull-right"
-                                           id="datepicker2">
+                                    <input type="text" name="date_fin_vente" class="form-control pull-right" id="datepicker2" value={{\Carbon\Carbon::parse($ticket->date_fin_vente)->format('d-m-Y')}}>
                                 </div>
                             </div>
                         </div>
@@ -164,7 +137,7 @@
                             {!! Form::hidden('events_id', $event->id, ['class' => 'form-control']) !!}
                         @endif
 
-                        {!! Form::button('Ajouter', array('id'=>'enregister','class' => 'btn btn-success btn-flat margin-bottom-1 pull-right','type' => 'submit', )) !!}
+                        {!! Form::button('Update', array('id'=>'enregister','class' => 'btn btn-success btn-flat margin-bottom-1 pull-right','type' => 'submit', )) !!}
                     </form>
                 </div>
             </div>
@@ -246,28 +219,24 @@
     <script type="text/javascript">
         $('#enregister').click(function () {
             console.log("click");
-            var datedebut = $('#datepicker').val();
-            var datefin = $('#datepicker1').val();
-
-            var arrdd = datedebut.split("/");
+            var datedebut = $('#datepicker1').val();
+            var datefin = $('#datepicker2').val();
+            console.log(datefin);
+            var arrdd = datedebut.split("-");
             datedebut = arrdd[2] + "-" + arrdd[1] + "-" + arrdd[0];
-            var arrdf = datefin.split("/");
+            var arrdf = datefin.split("-");
             datefin = arrdf[2] + "-" + arrdf[1] + "-" + arrdf[0];
             //console.log(datedebut+" "+$('#heured').val());
-            var dd = new Date(datedebut + " " + $('#heured').val());
-            var df = new Date(datefin + " " + $('#heuref').val());
+            var dd = new Date(datedebut);
+            var df = new Date(datefin);
             var now = new Date();
-            console.log(now + "/////" + dd + "/////" + df);
-            if (dd < now || df < now) {
-                $('#message_after_comparaison_date_now').show();
-                //alert("La date fin de l' évenement doit être supérieure à la date debut");
-                return false;
-            }
+            console.log(dd+" "+df);
             if (df <= dd) {
                 $('#message_after_comparaison').show();
                 //alert("La date fin de l' évenement doit être supérieure à la date debut");
                 return false;
             }
+
 
         });
     </script>
