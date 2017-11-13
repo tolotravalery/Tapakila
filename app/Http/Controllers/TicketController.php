@@ -9,6 +9,7 @@ use Faker\Provider\DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
+use App\Models\Alert;
 
 class TicketController extends Controller
 {
@@ -147,6 +148,29 @@ class TicketController extends Controller
         $message = " Opération réussie, Ticket supprimé avec succès";
         session()->flash('message', $message);
         session()->flash('page', "tickets");
+        return redirect(url('admin/ajouterTicket/' . $event->id ))->with(compact('message'));
+    }
+    public function edit_admin($id,$event_id)
+    {
+        $ticket = Ticket::findOrFail($id);
+        $event = Events::findOrFail($event_id);
+        $alert = Alert::where('vu', '=', '0')->get();
+        return view('pages.admin.edit-ticket', compact('ticket',  'alert','event'));
+    }
+    public function update_admin(Request $request)
+    {
+        $code = Crypt::decryptString($request->input('id_event'));
+        $event = Events::findOrFail($code);
+
+        $tic=Ticket::find(Crypt::decryptString($request->input('id')));
+        $tic->type=$request->input('type');
+        $tic->price=$request->input('price');
+        $tic->number=$request->input('number');
+        $tic->date_debut_vente=$request->input('date_debut_vente');
+        $tic->date_fin_vente=$request->input('date_fin_vente');
+        $tic->description=$request->input('description');
+        $tic->save();
+
         return redirect(url('admin/ajouterTicket/' . $event->id ))->with(compact('message'));
     }
 }
