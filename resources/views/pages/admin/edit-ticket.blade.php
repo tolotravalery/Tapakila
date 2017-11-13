@@ -99,6 +99,16 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label"></label>
+                            <div class="col-md-9">
+                                <div class="input-group date">
+                                    <p style="color:red;" id="message_after_comparaison">La date fin
+                                        de l' évenement doit être supérieure à la date debut</p>
+
+                                </div>
+                            </div>
+                        </div>
 
                         <div class="form-group">
                             <label class="col-md-3 control-label">Date début <span style="color: red">*</span></label>
@@ -107,7 +117,7 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-calendar"></i>
                                     </div>
-                                    <input type="text" name="date_debut_vente" class="form-control pull-right" id="datepicker1" value={{\Carbon\Carbon::parse($ticket->date_debut_vente)->format('Y-m-d')}}>
+                                    <input type="text" name="date_debut_vente" class="form-control pull-right" id="datepicker1" value={{\Carbon\Carbon::parse($ticket->date_debut_vente)->format('d-m-Y')}}>
                                 </div>
                             </div>
                         </div>
@@ -119,7 +129,7 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-calendar"></i>
                                     </div>
-                                    <input type="text" name="date_fin_vente" class="form-control pull-right" id="datepicker2" value={{\Carbon\Carbon::parse($ticket->date_fin_vente)->format('Y-m-d')}}>
+                                    <input type="text" name="date_fin_vente" class="form-control pull-right" id="datepicker2" value={{\Carbon\Carbon::parse($ticket->date_fin_vente)->format('d-m-Y')}}>
                                 </div>
                             </div>
                         </div>
@@ -209,28 +219,24 @@
     <script type="text/javascript">
         $('#enregister').click(function () {
             console.log("click");
-            var datedebut = $('#datepicker').val();
-            var datefin = $('#datepicker1').val();
-
-            var arrdd = datedebut.split("/");
+            var datedebut = $('#datepicker1').val();
+            var datefin = $('#datepicker2').val();
+            console.log(datefin);
+            var arrdd = datedebut.split("-");
             datedebut = arrdd[2] + "-" + arrdd[1] + "-" + arrdd[0];
-            var arrdf = datefin.split("/");
+            var arrdf = datefin.split("-");
             datefin = arrdf[2] + "-" + arrdf[1] + "-" + arrdf[0];
             //console.log(datedebut+" "+$('#heured').val());
-            var dd = new Date(datedebut + " " + $('#heured').val());
-            var df = new Date(datefin + " " + $('#heuref').val());
+            var dd = new Date(datedebut);
+            var df = new Date(datefin);
             var now = new Date();
-            console.log(now + "/////" + dd + "/////" + df);
-            if (dd < now || df < now) {
-                $('#message_after_comparaison_date_now').show();
-                //alert("La date fin de l' évenement doit être supérieure à la date debut");
-                return false;
-            }
+            console.log(dd+" "+df);
             if (df <= dd) {
                 $('#message_after_comparaison').show();
                 //alert("La date fin de l' évenement doit être supérieure à la date debut");
                 return false;
             }
+
 
         });
     </script>

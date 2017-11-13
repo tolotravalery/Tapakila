@@ -166,8 +166,8 @@ class TicketController extends Controller
         $tic->type=$request->input('type');
         $tic->price=$request->input('price');
         $tic->number=$request->input('number');
-        $tic->date_debut_vente=$request->input('date_debut_vente');
-        $tic->date_fin_vente=$request->input('date_fin_vente');
+        $tic->date_debut_vente=new \DateTime($request->input('date_debut_vente'));
+        $tic->date_fin_vente=new \DateTime($request->input('date_fin_vente'));
         $tic->description=$request->input('description');
         $tic->save();
 
