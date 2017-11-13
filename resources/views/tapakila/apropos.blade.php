@@ -32,7 +32,7 @@
                 <div class="about-bg">
                     <img src="{{url('/')}}/public/img/aboutus.png">
                     <h3>QUI SOMMES-NOUS ?</h3>
-                    <p style="text-align: justify;">Tapakila est un service de réservation indépendant proposant un accès exclusif aux meilleures
+                    <p style="text-align: justify;">Leguichet est un service de réservation indépendant proposant un accès exclusif aux meilleures
                         manifestations culturelles ou sportives, en Afrique.</p>
                     <p style="text-align: justify;">Ressentir le public vibrer avant les premières notes, vivre intensément un moment unique, il y a
                         tout ceci et plus dans un évènement live. Mais tout commence avec l’achat d’un billet et
@@ -54,7 +54,7 @@
 
                     <h3>LES PRÉ-RÉSERVATIONS</h3>
                     <p style="text-align: justify;">Pour les évènements à très forte affluence, un service de pré-réservation est susceptible d’être
-                        mis en place. En employant la pré-réservation sur Tapakila, vous mandatez notre équipe pour
+                        mis en place. En employant la pré-réservation sureguichetLeguichet, vous mandatez notre équipe pour
                         obtenir vos billets, et bénéficiez de la garantie d’obtenir vos places côte à côte dans la
                         catégorie souhaitée.</p>
                     <p style="text-align: justify;">Si un évènement vous intéresse, n’hésitez pas à nous contacter pour demander la mise en place
@@ -74,7 +74,7 @@
                     <br>
 
                     <h3>LA GARANTIE LEGUICHET</h3>
-                    <p style="text-align: justify;"><b>Quand vous achetez sur TAPAKILA, vous profitez des avantages suivants :</b></p>
+                    <p style="text-align: justify;"><b>Quand vous achetez sureguichetLeguichet, vous profitez des avantages suivants :</b></p>
                     <ul>
                         <li>La garantie 100% en cas d’annulation de l’évènement par l’organisateur</li>
                         <li>Un paiement en ligne sécurisé</li>

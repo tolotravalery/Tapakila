@@ -30,7 +30,7 @@
         <div class="bgcontact">
             <h1 class="contactpg">Nous Contacter</h1>
             <p class="text-center text1 hidden-xs">Vous n'avez pas trouvé la reponse à votre question dans notre <a
-                        href="#">FAQ ?</a><br>N'hesitez pas à nous écrire ou à nous contactez !</p>
+                        href="{{url('')}}/leguichet/faq">FAQ ?</a><br>N'hesitez pas à nous écrire ou à nous contactez !</p>
             <p class="text-center text1 hidden-lg hidden-md hidden-sm">Ecrivez-vous !</p>
             <div class="row spac">
                 <div class="col-md-6 text-center-lg text-center-md text-center-sm text-center-lg-xs">
@@ -74,7 +74,7 @@
                             </ul>
                         </div>
                         <div class="joinfb">
-                            <a href="#">
+                            <a href="https://www.facebook.com/leguichetmg-1194557627312755/">
                                 <img src="{{url('/')}}/public/img/fbcircle.png">
                                 <p class="joins">Nous suivre sur <br>facebook</p></a>
                         </div>

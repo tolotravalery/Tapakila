@@ -107,28 +107,6 @@ a{
 	cursor:pointer ! important;
 }
 
-
-.btn-deleted{
-	color:white;
-	background-color:#d70506;
-	padding:10px 10px 10px 10px;
-}
-.btn-deleted:hover{
-	color:white;
-	background-color:#d70506;
-	padding:10px 10px 10px 10px;
-}
-.btn-deleted:focus{
-	color:white;
-	background-color:#d70506;
-	padding:10px 10px 10px 10px;
-}
-.btn-deleted:click{
-	color:white;
-	background-color:#d70506;
-	padding:10px 10px 10px 10px;
-}
-
 .btn-renvoye {
     color: #fff
 }
@@ -154,22 +132,6 @@ a{
 
 .mini-submenu:hover {
     cursor: pointer;
-	 cursor: pointer;
-}
-
-.btn-annulation{
-	background-color: #5cb85c ;
-	color:white;
-}
-.btn-supr{
-	background-color:#d70506;
-	color:white;
-}
-
-
-
-.modal-dialog {
-    margin: 250px auto !important;
 }
 
 .iio {
@@ -574,13 +536,13 @@ ul.navbar-nav li.open ul {
 }
 
 ul.navbar-nav li {
-    margin: 10px 12px;
+    margin: 10px 6px;
     color: #fff!important;
 }
 
 ul.nav-customs li {
 	margin-top:10px;
-	margin-left:12px;
+	margin-left:6px;
 }
 
 ul.navbar-nav li a,
@@ -623,7 +585,7 @@ ul.navbar-nav li.open ul.nav-tabs li a {
 
 .footer {
     font-size: 14px;
-    margin-top: 94px;
+    margin-top: 3%;
     color: #fff!important;
 }
 
@@ -1095,15 +1057,12 @@ ul>li>a:hover {
 }
 
 .bt_modif:hover {
-	    background-color: #5cb85c !important;
+    background-color: #5cb85c !important;
     color: white !important;
-    padding: 10px 43px 10px 42px !important;
+    padding: 10px 30px 10px 30px !important;
     font-size: 20px !important;
 }
-.border{
-	border-top: 3px solid #d70506;
-	width:100%
-}
+
 
 
 .btn-danger:hover {
@@ -1313,11 +1272,16 @@ a:hover {
 .bt_modif {
     background-color: #5cb85c;
     color: white;
-    padding: 10px 43px 10px 42px;
+    padding: 10px 30px 10px 30px;
     font-size: 20px;
 }
 
-
+.bt_modif:hover {
+    background-color: #5cb85c;
+    color: white;
+    padding: 10px 30px 10px 30px;
+    font-size: 20px;
+}
 
 .btio2 {
     border-radius: 2% !important;
@@ -1822,11 +1786,11 @@ html|* > svg {
 /*------------------Type_ticket----------------------------*/
 
 .ticket_type_contenu {
- background-color: #eeeeee;
-padding-left: 20px;
-padding-right: 20px;
-padding-top: 15px;
-margin-bottom: 20px;
+    background-color: #eeeeee;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+    margin-bottom: 20px;
 }
 
 .com_contenu_type12 {
@@ -1857,10 +1821,9 @@ margin-bottom: 20px;
 }
 
 .primary {
- background-color: #d70506!important ;
+    color: #d70506;
+    background-color: transparent;
     border-color: #d70506;
-	color:white;
-	padding:10px 20px 10px 20px;
 }
 
 .separe {
@@ -1868,7 +1831,7 @@ margin-bottom: 20px;
 }
 
 .primary:hover {
-    background-color: #d70506! ;
+    background-color: #d70506;
     border-color: #d70506;
 }
 
@@ -2498,8 +2461,8 @@ div.calendar p {
     background: url(../img/spectacle.png) no-repeat;
     background-repeat: no-repeat;
     margin-top: 25px;
-margin-bottom: 25px;
-padding-bottom: 55px;
+margin-bottom: 50px;
+padding-bottom: 35px;
     background-position: 36% 53%;
 
 }
@@ -4309,6 +4272,7 @@ input[type="checkbox"] {
 }
 .custom-pg {
     padding: 10px 70px 10px 70px;
+    
 }
 
 /* FAQ */
@@ -4596,12 +4560,12 @@ button {
 }
 
 .ask2{
-    margin-top:13px;
+    margin-top:50px;
     text-align:center;
 }
 
 .answer1{
-    margin-top:0px;
+    margin-top:40px;
     width: 70%;
     margin-left: 47px;
 }
@@ -4648,4 +4612,11 @@ button {
         margin-left: 20px;
         margin-top:20px;
     }
+}
+
+.vie{
+    background-color: white;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: 36px;
+    padding-bottom: 35px;
 }
