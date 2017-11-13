@@ -5,13 +5,13 @@
             <div class="col-md-9">
                 <div class="about-bg">
                     <h4><strong>Comment vendre des billets ?</strong></h4>
-                    <p>leguichet autorise la mise en vente de billets sur sa plateforme. Pour vendre vos billets en trop
+                    <p>leguichet.mg autorise la mise en vente de billets sur sa plateforme. Pour vendre vos billets en trop
                         : </p>
                     <div class="avendre">
                         <ul>
-                            <li>Cliquez sur le bouton « Vendre des billets » en haut à droite de la page d'accueil.</li>
+                            <li>Cliquez sur le bouton «Ajouter votre evènement » en haut à droite de la page d'accueil.</li>
                             <li>Recherchez l'événement pour lequel vous souhaitez vendre des billets. Si vous ne trouvez
-                                pas votre événement, indiquez-le en cliquant <a href="#">ici</a> et nous l'ajouterons à
+                                pas votre événement, indiquez-le en cliquant <a href="{{url('')}}/leguichet/contact">ici</a> et nous l'ajouterons à
                                 notre site web
                             </li>
                             <li>Suivez les étapes de saisie des informations relatives à votre billet. Important :
@@ -87,7 +87,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="newsletter">
+                <!-- <div class="newsletter">
                     <h3 class="all">Newletter</h3>
                     Recevez nos dernier actualités !
                     <form>
@@ -111,7 +111,7 @@
                             <button type="button" class="btn btn-primary btn-menu2">Enregistrer</button>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 {{--<div class="vente">
                     <h3 class="all">Top vente</h3>
                     <div class="row space">
