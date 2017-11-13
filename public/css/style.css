@@ -561,8 +561,9 @@ nav{
 .navbar ul {
     list-style: none;
 }
-
-
+.test{
+	font-size:22px;
+}
 
 .navbar ul.dropdown-menu {
     display: none;

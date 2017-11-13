@@ -28,11 +28,6 @@
 }
 }
 
-/* @media screen and (min-width:1000px) and (max-width:1024px){ */
-	/* .nav > li > a { */
-    /* padding: 10px 6px; */
-/* } */
-
 
 @media screen and (min-width:1000px) and (max-width:1050px){
 	.width-custom {
@@ -306,6 +301,7 @@ position: absolute;
 right: 15px;
 top: 10px;
 }
+
 .menupull {
 color: black;
 }

@@ -17,7 +17,7 @@
                 @endforeach
 
             </ul>
-            <a href="#" class="menupull" id="pull"><strong>Catégories</strong></a>
+            <a href="#" class="menupull" id="pull"><strong>Catégories <label class="test">&darr;</label></strong></a>
         </div>
     </section>
 

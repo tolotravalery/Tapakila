@@ -18,6 +18,7 @@
     <script type="text/javascript" src="{{ url('/') }}/public/js/bootstrap.min.js"></script>
     <script src="{{ url('/') }}/public/js/datepicker.js"></script>
     <script src="{{ url('/') }}/public/js/clockpicker.js"></script>
+    <script src="{{ url('/') }}/public/js/Tapakila.js"></script>
 
 </head>
 <body>
@@ -216,22 +217,3 @@
         </div>
     </div>
 </footer>
-<script>
-    $(function () {
-        var pull = $('#pull');
-        menu = $('#sectioncategorie ul');
-        menuHeight = menu.height();
-
-        $(pull).on('click', function (e) {
-            e.preventDefault();
-            menu.slideToggle();
-        });
-
-        $(window).resize(function () {
-            var w = $(window).width();
-            if (w > 320 && menu.is(':hidden')) {
-                menu.removeAttr('style');
-            }
-        });
-    });
-</script>
