@@ -6,12 +6,17 @@ $(function() {
 
     $(pull).on('click', function(e) {
         e.preventDefault();
-        menu.slideToggle();
+		if(menu.css('display') == 'block'){
+			$('.test').html('&darr;');
+		}else{
+			$('.test').html('&uarr;');
+		}
+		menu.slideToggle();
     });
 
     $(window).resize(function() {
         var w = $(window).width();
-        if (w > 320 && menu.is(':hidden')) {
+        if (w > 600 && menu.is(':hidden')) {
             menu.removeAttr('style');
         }
     });
