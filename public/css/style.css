@@ -2693,7 +2693,7 @@ padding-bottom: 35px;
 }
 
 .sor {
-   margin-top: 30px;
+       margin-top: 33px;
 }
 
 .sel {
@@ -4564,12 +4564,12 @@ button {
 }
 
 .ask2{
-    margin-top:50px;
+       margin-top: 17px;
     text-align:center;
 }
 
 .answer1{
-    margin-top:40px;
+       margin-top: 10px;
     width: 70%;
     margin-left: 47px;
 }
