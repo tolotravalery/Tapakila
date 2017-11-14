@@ -26,7 +26,7 @@
         </div>
     </section>
     <br/>
-    <div class="container">
+    <div class="container custom-container">
         <div class="row performe">
             <div class="col-md-12">
                 <div class="about-bg">
@@ -129,9 +129,6 @@
                         </ul>
                     </div>
 
-                    <!-- Pourquoi choisir le e-billet ? -->
-                    <!-- <h5><strong>Pourquoi choisir le e-billet ?</strong></h5>
-                    <img src="{{url('/')}}/public/img/ebillet.png"> -->
                 </div>
             </div>
 

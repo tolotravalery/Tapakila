@@ -137,8 +137,12 @@
                                 </p>
                             </div>
                         </div>
-                        <hr class="sep">
-                        <div class="resum">
+                   
+						</div>
+					 <h2 class="titlebuy">Vos questions secrètes</h2>
+						<div class="spacing"></div>
+						<div class="custom-pg">
+							<div class="resum">
                             <table class="tabl-content">
                                 <thead>
                                 <tr>
@@ -195,9 +199,14 @@
                             <br>
                             <br>
                             <br>
+							</div>
+							</div>
+							 <h2 class="titlebuy">Nos mode de paiment</h2>
+                    <div class="spacing"></div>
+					<div class="custom-pg">
                             <p><b>Adresse e-mail de livraison des tickets :</b> &nbsp {{Auth::user()->email}}</p>
                             <p><b>Méthode de payment <span style="color:red;">*</span> :</b></p>
-                        </div>
+                        
                         <div class="modepaimenent">
 
                             <div class="row">
@@ -277,6 +286,7 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
                     </div>
                 </div>
             </div>
