@@ -18,6 +18,7 @@
     <script type="text/javascript" src="{{ url('/') }}/public/js/bootstrap.min.js"></script>
     <script src="{{ url('/') }}/public/js/datepicker.js"></script>
     <script src="{{ url('/') }}/public/js/clockpicker.js"></script>
+    <script src="{{ url('/') }}/public/js/Tapakila.js"></script>
 
 </head>
 <body>
@@ -67,7 +68,7 @@
                 </ul>
 				
                 <div class="row">
-                    <div class=" col-lg-6 col-md-4 custom-width ">
+                    <div class=" col-lg-6 col-md-5 custom-width ">
                         <div id="custom-search-input">
 							<form action="{{url('/')}}/find/q" method="get" class="input-group searchbox">
 								<input type="text" class="form-control input-lg" name="query"
@@ -216,22 +217,3 @@
         </div>
     </div>
 </footer>
-<script>
-    $(function () {
-        var pull = $('#pull');
-        menu = $('#sectioncategorie ul');
-        menuHeight = menu.height();
-
-        $(pull).on('click', function (e) {
-            e.preventDefault();
-            menu.slideToggle();
-        });
-
-        $(window).resize(function () {
-            var w = $(window).width();
-            if (w > 320 && menu.is(':hidden')) {
-                menu.removeAttr('style');
-            }
-        });
-    });
-</script>

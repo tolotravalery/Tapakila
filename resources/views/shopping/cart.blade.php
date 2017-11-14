@@ -8,7 +8,7 @@
                     <li><a href="{{url('/event/list/categorie',[$menu->id])}}">{{$menu->name}}</a></li>
                 @endforeach
             </ul>
-            <a href="#" class="menupull" id="pull"><strong>Catégories</strong></a>
+            <a href="#" class="menupull" id="pull"><strong>Catégories &nbsp <label class="test">&darr;</label></strong></a>
         </div>
     </section>
 
