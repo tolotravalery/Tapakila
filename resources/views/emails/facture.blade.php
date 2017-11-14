@@ -42,9 +42,9 @@
                                                 <div style="background-color: white;margin-top: 84px;padding: 20px 30px 20px 30px;overflow: hidden;margin-bottom: 83px;border-radius: 3px;">
                                                 <div style=" border-bottom: 1px solid black; padding-bottom: 2px;"><img class="logoactivate" src="{{url('/')}}/public/img/logo.png" title="Tapakila"></div>
                                                     <h4 style="color: #333;font-size: 21px;">Bonjour {{$user->name}},</h4>
-                                                    <h4 style="color: #333;font-size: 21px;">Félicitation! Votre paiement est effectué avec succès. </h4>
+                                                    <h4 style="color: #333;font-size: 21px;">Félicitation! Votre paiement a été effectué avec succès. </h4>
                                                     
-                                                    <p style="font-size: 16px;color:#333;">Voici votre liste de vos achats effectués avec le total à payer.</p>
+                                                    <p style="font-size: 16px;color:#333;">Voici votre liste de vos achats effectués.</p>
                                                     <p style="font-size: 16px;color:#333;padding-bottom: 30px;">Nous vous remercions de votre confiance. </p>
                                                     @php($somme=0)
                                                     @foreach($data as $d)
