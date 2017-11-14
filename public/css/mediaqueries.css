@@ -2,7 +2,11 @@
 /* text-align by trustylabs */
 /* text-align-xs */
 
-
+@media (min-width: 1000px) and (max-width:1025px){
+.custom-class {
+    width: 26.333333%;
+}
+}
 
 @media screen and (min-width:1100px){
 	.width-custom {
@@ -485,7 +489,6 @@ font-size: 14px;
 
 
 /*Styles for screen 600px and lower*/
-
 @media screen and (min-width:500px) and (max-width:600px) {
 #sectioncategorie {
 height: 200px ! important;
@@ -563,15 +566,15 @@ min-width: 265px ! important;
 
 @media (max-width: 1030px) {
 .custom-pg {
-padding: 5px 0px 10px 0px !important;
+    padding: 5px 30px 10px 30px !important;
 }
 }
 
 @media screen and (min-width:601px) and  (max-width:1199px) {
 .sor {
     margin-top: 25px !important;
-    text-align: -moz-center !important;
-    margin-left: 30px !important;
+    margin-left: 0px !important;
+	text-align:center  !important;
 }
 }
 

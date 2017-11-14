@@ -133,9 +133,9 @@
                             <div class="col-md-3 achatquiter">
                                 <a href="{{url('/')}}" class="a_color">Continuer vos achats</a>
                             </div>
-                            <div class="col-md-2"></div>
-                            <div class="col-md-3"></div>
-                            <div class="col-md-4">
+                            <div class="col-md-2 col-lg-2"></div>
+                            <div class="col-md-3 col-lg-3"></div>
+                            <div class="col-md-3 col-lg-4">
                                 <div class="row">
                                     <div class="col-md-6 col-xs-12 achatquiter kit">
                                         <form action="{{ url('/shopping/emptyCart') }}" method="POST">

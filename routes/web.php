@@ -127,6 +127,7 @@ Route::group(['middleware' => ['auth', 'activated', 'currentUser']], function ()
 
     Route::group(['prefix' => 'shopping'], function () {
         Route::post('checkout', 'Shopping\CheckoutController@index')->name('checkout_index');
+        Route::get('checkout', 'Shopping\CheckoutController@index')->name('checkout_index');
         Route::post('checkout/store', 'Shopping\CheckoutController@store');
         Route::post('checkout/save', 'Shopping\CheckoutController@save');
         Route::post('checkout/payment', 'Shopping\CheckoutController@savePayment');

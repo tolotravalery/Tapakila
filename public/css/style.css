@@ -2693,7 +2693,7 @@ padding-bottom: 35px;
 }
 
 .sor {
-   margin-top: 30px;
+       margin-top: 33px;
 }
 
 .sel {
@@ -3116,8 +3116,8 @@ margin-bottom: 25px;
     font-size: 30px;
 }
 
-.quiz{
-	padding: 12px ! important;
+.quiz {
+    margin-bottom: 45px;
 }
 
 .joins:hover{
@@ -4564,12 +4564,12 @@ button {
 }
 
 .ask2{
-    margin-top:50px;
+       margin-top: 17px;
     text-align:center;
 }
 
 .answer1{
-    margin-top:40px;
+       margin-top: 10px;
     width: 70%;
     margin-left: 47px;
 }
