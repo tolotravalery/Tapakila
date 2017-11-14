@@ -102,7 +102,7 @@ class TicketController extends Controller
             'date_fin_vente' => new \DateTime($request->input('date_fin_vente')),
             'description' => $request->input('description')]);
         if ($rep == null) {
-            $date = $request->input('date');
+            $date = $request->input('date_ticket');
             $ticket->events()->attach(array($event_id => array('date' => $date)));
         } else if (strcmp("on", $rep) == 0) {
             $interval = new \DateInterval('P1D');
