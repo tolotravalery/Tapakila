@@ -140,7 +140,7 @@
 
                     </div>
                     @if($data!=null)
-                        <h2 class="titlebuy">Question (s) secrtète (s) / Réponse</h2>
+                        <h2 class="titlebuy">Question(s) secrtète(s) / Réponse(s)</h2>
                         <div class="spacing"></div>
                         <div class="custom-pg">
                             <div class="resum">
