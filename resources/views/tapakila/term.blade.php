@@ -45,7 +45,7 @@
                               Par ailleurs, il est interdit de télécharger ou de réutiliser des parties substantielles du site Web, ou d'en télécharger ou d'en réutiliser 
                               systématiquement ou régulièrement des parties moins substantielles. Egalement, il est interdit de diffuser des
                              virus ou toute autre technologie susceptible de porter préjudice au bon fonctionnement de ce site Web ainsi qu'aux intérêts des autres utilisateurs. </p><br>
-                    <p style="text-align: justify;"><b>nformations publiées par des utilisateurs.</b>
+                    <p style="text-align: justify;"><b>Informations publiées par des utilisateurs. </b>
                     L’organisateur qui est également l'auteur d'un contenu qu'il a décidé de diffuser sur ce site Web dans la rubrique
                      " Ajouter un évènement " (que ce soit notamment sous forme de texte, de photographies et/ou de vidéos) (ci-après le " Contenu de Tiers ")
                       est seul responsable de ce qu'il décide de publier. Il s'engage à respecter strictement toutes les lois et réglementations applicables et, 
