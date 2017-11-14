@@ -68,7 +68,7 @@
                 </ul>
 				
                 <div class="row">
-                    <div class=" col-lg-6 col-md-4 custom-width ">
+                    <div class=" col-lg-6 col-md-5 custom-width ">
                         <div id="custom-search-input">
 							<form action="{{url('/')}}/find/q" method="get" class="input-group searchbox">
 								<input type="text" class="form-control input-lg" name="query"
