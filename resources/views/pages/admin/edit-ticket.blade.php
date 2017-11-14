@@ -171,7 +171,7 @@
                                         <tr>
                                             <td>{{$ticket->type}}</td>
                                             <td>{{$ticket->price}}</td>
-                                            <td> {{$event->tickets->count()}}</td>
+                                            <td>{{$ticket->number}}</td>
                                             <td style="width: 25px;">
                                                 {!! Form::open(array('url' => 'admin/ticket/delete/'.$ticket->id."/".$event->id, 'class' => '', 'data-toggle' => 'tooltip', 'title' => 'Delete')) !!}
                                                 {!! Form::hidden('_method', 'delete') !!}
