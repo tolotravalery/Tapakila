@@ -42,8 +42,7 @@
 
                     <!-- QUEL EST L'AVANTAGE PRINCIPAL DU E-TICKET ? -->
                     <h4><strong>Quel est l'avantage principal du E-ticket ?</strong></h4>
-                    <p>Vous obtenez sans attendre votre billet en l’imprimant à la fin de votre commande : plus de
-                        complication ou de délai d’attente lié à la livraison.</p>
+                    <p>Vous obtenez sans attendre votre billet (complication ou de délai d’attente lié à la livraison) en l’imprimant à la fin de votre commande.</p>
                     <br>
 
                     <!-- COMMENT SE PASSE L'ÉDITION DE MES E-TICKETS A LA FIN DE MA COMMANDE ? -->
@@ -64,40 +63,27 @@
 
                     <!-- DOIS-JE AVOIR UNE IMPRIMANTE COULEUR ? -->
                     <h4><strong>Dois-je avoir une imprimante couleur ?</strong></h4>
-                    <p>Vous pouvez imprimer votre e-ticket sur une imprimante couleur ou noir et blanc. Les billets
-                        doivent êtres imprimés sur du papier format A4 blanc et vierge recto/verso.</p>
+                    <p>Vous pouvez imprimer votre billet éléctronique sur une imprimante couleur ou noir et blanc.
+                     Les billets doivent êtres imprimés sur du papier format A4 blanc et vierge recto/verso.</p>
                     <br>
 
                     <!-- COMMENT S'EFFECTUE LE CONTRÔLE A L'ENTRÉE DE LA SALLE ? -->
                     <h4><strong>Comment s'effectue le contrôme à l'entrée de la salle ?</strong></h4>
-                    <p>Chaque e-ticket dispose d’un code barre, donnée unique d’un billet, qui est scannée par un
-                        contrôleur à l’entrée de la salle afin de vérifier si le billet est valide.</p>
-                    <p> - Si le placement est numéroté (place assise attribuée à un acheteur identifié), l'identité
-                        légitime de l'acheteur peut être établie par un responsable à l'entrée de la salle en demandant
-                        une carte d'identité avec photo valide. Ainsi s'il y a plus d'une copie du même billet
-                        électronique, il sera à même d'identifier l'acheteur réel. Veuillez donc apporter votre pièce
-                        d'identité avec photo et prenez soin de bien détruire les copies inutiles de vos billets.</p>
-                    <p> - Si le e-ticket est en placement libre, seule la première copie de votre billet électronique
-                        présentée au lecteur de code à barres donnera accès à la salle. Toutes les autres copies du même
-                        billet seront refusées</p>
+                    <p>Chaque billet dispose d’un code, donnée unique d’un billet, qui est scannée par un contrôleur à l’entrée de la salle afin de vérifier si le billet est valide.</p>
+                    <p> Seule la première copie de votre billet électronique présentée au lecteur de qrcode donnera accès à la salle. Toutes les autres copies du même billet seront refusées.</p>
+                    
                     <br>
 
                     <!-- J'AI IMPRIMÉ PLUSIEURS FOIS MES E-TICKET, QUE DOIS-JE FAIRE DES IMPRESSIONS INUTILES ? -->
                     <h4><strong>J'ai imprimé pluisieurs fois mes E-ticket,que dois-je faire des impressions inutiles
                             ?</strong></h4>
-                    <p>Seule la première copie de votre billet électronique présentée au lecteur de code à barres
-                        donnera accès à la salle.</p>
-                    <p>Vous êtes responsable de vos e-ticket, conservez-le précieusement et prenez la peine de détruire
-                        les copies inutiles</p>
+                    <p>Seule la première copie de votre billet électronique présentée au lecteur de qrcode donnera accès à la salle.</p>
+                    <p>Vous êtes responsable de vos billet, conservez-le précieusement et prenez la peine de détruire les copies inutiles.</p>
                     <br>
 
                     <!-- Y-A-T-IL DES FRAIS DE E-TICKETS ? -->
                     <h4><strong>Y-a-t-il des frais de E-tickets ?</strong></h4>
-                    <p>Des frais E-ticket sont applicables lorsque vous choisissez ce mode d’obtention des billets
-                        électronique (1.40€ par commande). Un système élaboré de gestion des données, un personnel
-                        technique s'assurant du bon fonctionnement du service et un équipement pour numériser les
-                        billets le soir du spectacle occasionnent bien sûr frais et main d'œuvre, ce qui explique les
-                        frais associés spécifiquement aux billets électroniques.</p>
+                    <p>Oui, les frais associés spécifiquement aux billets électroniques sont mentionnés à chaque évènement.</p>
                     <br>
 
                     <!-- PUIS-JE ANNULER MA COMMANDE DE E-TICKET ? -->
