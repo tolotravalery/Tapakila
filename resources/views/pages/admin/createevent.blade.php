@@ -188,12 +188,6 @@
                                                             </div>
 
                                                         </div>
-                                                        <p style="color:red;" id="message_after_comparaison">La date fin
-                                                            de l' évenement doit être supérieure à la date debut</p>
-                                                        <p style="color:red;" id="message_after_comparaison_date_now ">La
-                                                            date début ou fin de l' évènement doit être supérieure à la
-                                                            date actuelle</p>
-
                                                     </div>
                                                     <div class="col-md-6 col-sm-6">
                                                         <div class="input-group clockpicker">
@@ -242,7 +236,14 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="form-group form-group-translation et" id="message_comp">
+                                            <p style="color:red;" id="message_after_comparaison">La date fin
+                                                de l' évenement doit être supérieure à la date debut</p>
+                                            <p style="color:red;" id="message_after_comparaison_date_now">La
+                                                date début ou fin de l' évènement doit être supérieure à la
+                                                date actuelle</p>
 
+                                        </div>
                                         <div class="form-group form-group-translation et">
                                             <label class="control-label">
                                                 <span>Notes additionnel sur l'heure</span>
@@ -1632,6 +1633,7 @@
         });
 
     </script>
+
 
     <script type="text/javascript">
         $(document).ready(function () {
