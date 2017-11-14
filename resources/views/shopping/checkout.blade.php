@@ -137,78 +137,78 @@
                                 </p>
                             </div>
                         </div>
-                   
-						</div>
-					 <h2 class="titlebuy">Vos questions secrètes</h2>
-						<div class="spacing"></div>
-						<div class="custom-pg">
-							<div class="resum">
-                            <table class="tabl-content">
-                                <thead>
-                                <tr>
-                                    <th scope="col" class="th_panier "><b class="bold">Evènement</b></th>
-                                    <th scope="col"><b class="bold">Question</b></th>
-                                    <th scope="col"><b class="bold">Réponse</b></th>
-                                </tr>
-                                </thead>
 
-                                <tbody>
-                                @foreach (Cart::content() as $item)
-                                    @php($temporaire = 0)
-                                    @foreach($data as $d)
-                                        @php
-                                            $ticket = \App\Models\Ticket::findOrFail($item->id);
-                                            $event = $ticket->events()->take(1)->get()[0];
-                                        @endphp
-                                        @if($d['ev'] == $event->id)
-                                            @if($temporaire!=$item->id)
-                                                <tr>
-                                                    <td data-label="">
-                                                        <div class="row">
-                                                            <div class=" col-xs-12 ">
-                                                                <div class="row">
-                                                                    <div class="col-lg-7 ">
-                                                                        <div class="thumbnail imgpaiment">
-                                                                            <a href="{{url('event/show',[$event->id])}}">
-                                                                                <img src="{{url('/public/img/'.$event->image)}}"
-                                                                                     class="image_panier">
-                                                                            </a>
+                    </div>
+                    @if($data!=null)
+                        <h2 class="titlebuy">Vos réponses à notre question secrètes</h2>
+                        <div class="spacing"></div>
+                        <div class="custom-pg">
+                            <div class="resum">
+                                <table class="tabl-content">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col" class="th_panier "><b class="bold">Evènement</b></th>
+                                        <th scope="col"><b class="bold">Question</b></th>
+                                        <th scope="col"><b class="bold">Réponse</b></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach (Cart::content() as $item)
+                                        @php($temporaire = 0)
+                                        @foreach($data as $d)
+                                            @php
+                                                $ticket = \App\Models\Ticket::findOrFail($item->id);
+                                                $event = $ticket->events()->take(1)->get()[0];
+                                            @endphp
+                                            @if($d['ev'] == $event->id)
+                                                @if($temporaire!=$item->id)
+                                                    <tr>
+                                                        <td data-label="">
+                                                            <div class="row">
+                                                                <div class=" col-xs-12 ">
+                                                                    <div class="row">
+                                                                        <div class="col-lg-7 ">
+                                                                            <div class="thumbnail imgpaiment">
+                                                                                <a href="{{url('event/show',[$event->id])}}">
+                                                                                    <img src="{{url('/public/img/'.$event->image)}}"
+                                                                                         class="image_panier">
+                                                                                </a>
+                                                                            </div>
                                                                         </div>
-                                                                    </div>
-                                                                    <div class="col-lg-5 ">
-                                                                        <p class="sor">
-                                                                            <b>{{str_limit($event->title,$limit=20,$end=' ...')}}</b>
-                                                                        </p>
+                                                                        <div class="col-lg-5 ">
+                                                                            <p class="sor">
+                                                                                <b>{{str_limit($event->title,$limit=20,$end=' ...')}}</b>
+                                                                            </p>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                    </td>
-                                                    <input type="hidden" name="answer[]" value="{{$reponse}}">
-                                                    <input type="hidden" name="event[]" value="{{$event->id}}">
-                                                    <td data-label="Tickets">{{$ticket->type}}</td>
-                                                    <td data-label="Quantité">{{$d['ans']}}</td>
-                                                </tr>
-                                                @php($temporaire=$item->id)
+                                                        </td>
+                                                        <input type="hidden" name="answer[]" value="{{$reponse}}">
+                                                        <input type="hidden" name="event[]" value="{{$event->id}}">
+                                                        <td data-label="Question">{{$event->question_secret}}</td>
+                                                        <td data-label="Réponse">{{$d['ans']}}</td>
+                                                    </tr>
+                                                    @php($temporaire=$item->id)
+                                                @endif
                                             @endif
-                                        @endif
+                                        @endforeach
                                     @endforeach
-                                @endforeach
-                                </tbody>
-                            </table>
-                            <br>
-                            <br>
-                            <br>
-							</div>
-							</div>
-							 <h2 class="titlebuy">Nos mode de paiment</h2>
+                                    </tbody>
+                                </table>
+                                <br>
+                                <br>
+                                <br>
+                            </div>
+                        </div>
+                    @endif
+                    <h2 class="titlebuy">Nos mode de paiment</h2>
                     <div class="spacing"></div>
-					<div class="custom-pg">
-                            <p><b>Adresse e-mail de livraison des tickets :</b> &nbsp {{Auth::user()->email}}</p>
-                            <p><b>Méthode de payment <span style="color:red;">*</span> :</b></p>
-                        
+                    <div class="custom-pg">
+                        <p><b>Adresse e-mail de livraison des tickets :</b> &nbsp {{Auth::user()->email}}&nbsp;&nbsp;&nbsp;<a
+                                    href="{{url('/home')}}" style="color: #d70506">Edit</a></p>
+                        <p><b>Méthode de payment <span style="color:red;">*</span> :</b></p>
                         <div class="modepaimenent">
-
                             <div class="row">
                                 {{ csrf_field() }}
                                 <div id="ticket-radio2">
@@ -282,17 +282,14 @@
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
-                    </div>
                     </div>
                 </div>
             </div>
         </form>
     </section>
-
 @endsection
 @section('specificScript')
 
