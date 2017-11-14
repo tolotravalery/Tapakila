@@ -69,8 +69,8 @@
                         <div class=" infoline">
                             <ul>
                                 <li class=" statictitle"><i class="fa fa-map-marker"></i><b>Mahamasina</b></li>
-                                <li class=" statictitle"><i class="fa fa-phone"></i><b>032 54 230 24</b></li>
-                                <li class=" statictitle"><i class="fa fa-envelope"></i><b>Leguichet@gmail.com</b></li>
+                                <li class=" statictitle"><i class="fa fa-phone"></i><b>034 46 879 10</b></li>
+                                <li class=" statictitle"><i class="fa fa-envelope"></i><b>contact@leguichet.mg</b></li>
                             </ul>
                         </div>
                         <div class="joinfb">

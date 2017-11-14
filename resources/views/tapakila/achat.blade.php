@@ -116,7 +116,7 @@
                     <p><strong>9</strong>	- Achetez vos billets! </p>
                     <p><strong>10</strong>	- Recevez votre e-billet nominatif par mail juste après votre achat.</p>
                     <p><strong>11</strong>	- Imprimez-le à tout moment.</p>
-                    <p><strong>12</strong>	- Vous possédez un smartphone ? Plus besoin d’imprimer ! Téléchargez le code-barres dans notre application</p>
+                
 
                   
                     <!-- Pourquoi choisir le e-billet ? -->
