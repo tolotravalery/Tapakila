@@ -50,7 +50,7 @@
                 
 
                     <h3>LA GARANTIE LEGUICHET</h3>
-                    <p style="text-align: justify;"><b>Quand vous achetez sureguichetLeguichet, vous profitez des avantages suivants :</b></p>
+                    <p style="text-align: justify;"><b>Quand vous achetez sureb Leguichet, vous profitez des avantages suivants :</b></p>
                     <ul>
                         <li>	La garantie 100% en cas d’annulation de l’évènement par l’organisateur</li>
                         <li>	Un paiement en ligne sécurisé</li>
