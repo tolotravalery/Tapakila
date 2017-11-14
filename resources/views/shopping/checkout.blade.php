@@ -137,9 +137,13 @@
                                 </p>
                             </div>
                         </div>
-                        <hr class="sep">
-                        <div class="resum">
-                            @if($data!=null)
+
+                    </div>
+                    @if($data!=null)
+                        <h2 class="titlebuy">Vos réponses à notre question secrètes</h2>
+                        <div class="spacing"></div>
+                        <div class="custom-pg">
+                            <div class="resum">
                                 <table class="tabl-content">
                                     <thead>
                                     <tr>
@@ -148,7 +152,6 @@
                                         <th scope="col"><b class="bold">Réponse</b></th>
                                     </tr>
                                     </thead>
-
                                     <tbody>
                                     @foreach (Cart::content() as $item)
                                         @php($temporaire = 0)
@@ -183,8 +186,8 @@
                                                         </td>
                                                         <input type="hidden" name="answer[]" value="{{$reponse}}">
                                                         <input type="hidden" name="event[]" value="{{$event->id}}">
-                                                        <td data-label="Tickets">{{$event->question_secret}}</td>
-                                                        <td data-label="Quantité">{{$d['ans']}}</td>
+                                                        <td data-label="Question">{{$event->question_secret}}</td>
+                                                        <td data-label="Réponse">{{$d['ans']}}</td>
                                                     </tr>
                                                     @php($temporaire=$item->id)
                                                 @endif
@@ -193,15 +196,19 @@
                                     @endforeach
                                     </tbody>
                                 </table>
-                            @endif
-                            <br>
-                            <br>
-                            <br>
-                            <p><b>Adresse e-mail de livraison des tickets :</b> &nbsp {{Auth::user()->email}}</p>
-                            <p><b>Méthode de payment <span style="color:red;">*</span> :</b></p>
+                                <br>
+                                <br>
+                                <br>
+                            </div>
                         </div>
+                    @endif
+                    <h2 class="titlebuy">Nos mode de paiment</h2>
+                    <div class="spacing"></div>
+                    <div class="custom-pg">
+                        <p><b>Adresse e-mail de livraison des tickets :</b> &nbsp {{Auth::user()->email}}&nbsp;&nbsp;&nbsp;<a
+                                    href="{{url('/home')}}" style="color: #d70506">Edit</a></p>
+                        <p><b>Méthode de payment <span style="color:red;">*</span> :</b></p>
                         <div class="modepaimenent">
-
                             <div class="row">
                                 {{ csrf_field() }}
                                 <div id="ticket-radio2">
@@ -275,7 +282,6 @@
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -284,7 +290,6 @@
             </div>
         </form>
     </section>
-
 @endsection
 @section('specificScript')
 

@@ -8,7 +8,10 @@
 
 
 /* #d70506;rouge */
-
+.border{
+	width:100%;
+	border:2px solid  #d70506;
+}
 
 .definitive{
 	opacity: 1 ! important;
@@ -2462,7 +2465,7 @@ div.calendar p {
     background: url(../img/spectacle.png) no-repeat;
     background-repeat: no-repeat;
     margin-top: 25px;
-margin-bottom: 50px;
+margin-bottom: 25px;
 padding-bottom: 35px;
     background-position: 36% 53%;
 
@@ -2690,7 +2693,7 @@ padding-bottom: 35px;
 }
 
 .sor {
-   margin-top: 30px;
+       margin-top: 33px;
 }
 
 .sel {
@@ -4561,12 +4564,12 @@ button {
 }
 
 .ask2{
-    margin-top:50px;
+       margin-top: 17px;
     text-align:center;
 }
 
 .answer1{
-    margin-top:40px;
+       margin-top: 10px;
     width: 70%;
     margin-left: 47px;
 }

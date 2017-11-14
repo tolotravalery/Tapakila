@@ -2,24 +2,26 @@
 @section('content')
     <div class="container">
         <div class="row performe">
-            <div class="col-md-9">
+            <div class="col-md-12">
                 <div class="about-bg">
                     <h4><strong>Comment vendre des billets ?</strong></h4>
                     <p>leguichet.mg autorise la mise en vente de billets sur sa plateforme. Pour vendre vos billets en trop
                         : </p>
                     <div class="avendre">
                         <ul>
-                            <li>Cliquez sur le bouton «Ajouter votre evènement » en haut à droite de la page d'accueil.</li>
-                            <li>Recherchez l'événement pour lequel vous souhaitez vendre des billets. Si vous ne trouvez
-                                pas votre événement, indiquez-le en cliquant <a href="{{url('')}}/leguichet/contact">ici</a> et nous l'ajouterons à
-                                notre site web
+                            <li>
+                            	Vous devez être inscrit en tant qu’organisateur. Pour ce faire
                             </li>
-                            <li>Suivez les étapes de saisie des informations relatives à votre billet. Important :
-                                indiquez la manière dont vous souhaitez être payé(e) une fois que les billets auront été
-                                vendus.
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BQ>  -	Si vous avez déjà un compte sur leguichet.mg il suffit de vous s’authentifier et allez dans le lien <a href="#">« Modifier mes Informations »</a> et cochez « Je suis un Organisateur »</BQ>
+                            </p>
+                            <p>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BQ>  - Si vous n’avez pas encore un compte sur leguichet.mg, vous devez remplier les champs dans le menu s’inscrire et n’oubliez pas de cocher « Je suis un Organisateur »   </BQ>                         
+                            </p>
+                            <li>	Cliquez sur le bouton vert « Ajouter votre évènement » en haut à droite de la page d'accueil.<br>Important : indiquez la manière dont vous souhaitez être payé(e) une fois que les billets auront été vendus.
                             </li>
-                            <li>Vérifiez et confirmez votre annonce afin qu'elle puisse être mise à la disposition de
-                                millions d'acheteurs potentiels dans le monde entier.
+                            <li>
+                                Vérifiez et confirmez votre annonce afin qu'elle puisse être mise à la disposition de millions d'acheteurs potentiels dans le monde entier en sélectionner « publié » dans le select haut à gauche.
+
                             </li>
                         </ul>
                         <br>
@@ -52,117 +54,6 @@
                         <br>
                     </div>
                 </div>
-            </div>
-
-            <div class="col-md-3 social-bg">
-                <div class="espacepersonnel">
-                    <h3 class="all">Espace personnel</h3>
-                    <form>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Nom d'utilisateur : <sup
-                                        class="champsobligatoire">*</sup></label>
-                            <input type="email" class="form-control" id="exampleInputEmail1"
-                                   aria-describedby="emailHelp">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Mots de passe : <sup
-                                        class="champsobligatoire">*</sup></label>
-                            <input type="email" class="form-control" id="exampleInputEmail1"
-                                   aria-describedby="emailHelp">
-                        </div>
-                    </form>
-
-                    <div class="row">
-                        <div class="col-md-7">
-                            <div>
-                                <a href="#"><span class="fa fa-caret-square-o-right label"> Créer un compte</span></a>
-                            </div>
-                            <div>
-                                <a href="#"><span
-                                            class="fa fa-caret-square-o-right label"> Mots de passe oubliè ?</span></a>
-                            </div>
-                        </div>
-                        <div class="col-md-5">
-                            <button type="button" class="btn btn-primary btn-menu">connecter</button>
-                        </div>
-                    </div>
-                </div>
-                <!-- <div class="newsletter">
-                    <h3 class="all">Newletter</h3>
-                    Recevez nos dernier actualités !
-                    <form>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Adresse e-mail : <sup
-                                        class="champsobligatoire">*</sup></label>
-                            <input type="email" class="form-control" id="exampleInputEmail1"
-                                   aria-describedby="emailHelp">
-                        </div>
-                    </form>
-                    <div class="row">
-                        <div class="col-md-7">
-                            <div class="radio">
-                                <label><input type="radio" name="optradio">s'inscrire</label>
-                            </div>
-                            <div class="radio">
-                                <label><input type="radio" name="optradio">Se desinscrire</label>
-                            </div>
-                        </div>
-                        <div class="col-md-5">
-                            <button type="button" class="btn btn-primary btn-menu2">Enregistrer</button>
-                        </div>
-                    </div>
-                </div> -->
-                {{--<div class="vente">
-                    <h3 class="all">Top vente</h3>
-                    <div class="row space">
-                        <div class="col-md-2">
-                            <label class="top10">1</label>
-                        </div>
-                        <div class="col-md-8">
-                            <h5 class="Titre"><strong>Mahaleo</strong></h5>
-                            <p>
-                            <div class="price"><i class="glyphicon glyphicon-time time"></i> Apr 1, 100rmb</div>
-                            <div class="date"><i class="glyphicon glyphicon-map-marker position"></i>Paris</div>
-                        </div>
-                        </p>
-                        <div class="col-md-2">
-                            <a href="#"><label class="glyphicon glyphicon-plus mytop"></label></a>
-                        </div>
-
-                    </div>
-                    <div class="row space">
-                        <div class="col-md-2">
-                            <label class="top10">2</label>
-                        </div>
-                        <div class="col-md-8">
-                            <h5 class="Titre"><strong>Ambondrona</strong></h5>
-                            <p>
-                            <div class="price"><i class="glyphicon glyphicon-time time"></i> Apr 1, 100rmb</div>
-                            <div class="date"><i class="glyphicon glyphicon-map-marker position"></i>Paris</div>
-                        </div>
-                        </p>
-                        <div class="col-md-2">
-                            <a href="#"><label class="glyphicon glyphicon-plus mytop"></label></a>
-                        </div>
-
-                    </div>
-                    <div class="row space">
-                        <div class="col-md-2">
-                            <label class="top10">3</label>
-                        </div>
-                        <div class="col-md-8">
-                            <h5 class="Titre"><strong>Bodo</strong></h5>
-                            <p>
-                            <div class="price"><i class="glyphicon glyphicon-time time"></i> Apr 1, 100rmb</div>
-                            <div class="date"><i class="glyphicon glyphicon-map-marker position"></i>Paris</div>
-                        </div>
-                        </p>
-                        <div class="col-md-2">
-                            <a href="#"><label class="glyphicon glyphicon-plus mytop"></label></a>
-                        </div>
-
-                    </div>
-                </div>--}}
             </div>
         </div>
     </div>
