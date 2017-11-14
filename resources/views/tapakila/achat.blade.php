@@ -26,7 +26,7 @@
         </div>
     </section>
     <br/>
-    <div class="container">
+    <div class="container custom-container">
         <div class="row performe">
             <div class="col-md-12">
                 <div class="about-bg">
@@ -105,6 +105,7 @@
                     <h5><strong> GUIDE</strong></h5>
                     <p>Acheter des billets sur Leguichet est très simple, il vous suffit de suivre les instructions
                         ci-dessous:</p>
+
                     <p><strong>1</strong>	- Commencez par recherchez l'événement auquel vous souhaitez assister dans les menus ou la barre de recherche où il est écrit: Chercher un événement...</p>
                     <p><strong>2</strong>	- Cliquez sur l’évènement que vous souhaitez</p>
                     <p><strong>3</strong>	- Cliquez sur la date que vous souhaitez</p>
@@ -122,6 +123,7 @@
                     <!-- Pourquoi choisir le e-billet ? -->
                     <!-- <h5><strong>Pourquoi choisir le e-billet ?</strong></h5>
                     <img src="{{url('/')}}/public/img/ebillet.png"> -->
+
                 </div>
             </div>
 
