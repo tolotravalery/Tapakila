@@ -265,10 +265,10 @@
                                 <div class="Ttal row">
 
                                     <div class="row text-center-xs text-center-sm text-center-md menbottom">
-                                        <div class="col-md-3"></div>
-                                        <div class="col-md-2"></div>
-                                        <div class="col-md-3"></div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-3 col-lg-3"></div>
+                                        <div class="col-md-2 col-lg-2"></div>
+                                        <div class="col-md-3 col-lg-3"></div>
+                                        <div class="col-md-3 col-lg-4">
                                             <div class="row">
                                                 <div class="col-md-6 col-xs-12 achatquiter kit annultnt ">
                                                     <a class="btnanul" href="{{url('/')}}/shopping/cart">Annuler</a>
