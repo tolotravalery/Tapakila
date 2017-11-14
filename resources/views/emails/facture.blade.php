@@ -38,7 +38,7 @@
                                 <td class="content-cell">
                                     <table class="wrapper" width="100%" cellpadding="0" cellspacing="0">
                                         <tr>
-                                            <td align="center">
+                                            <td>
                                                 <div style="background-color: white;margin-top: 84px;padding: 20px 30px 20px 30px;overflow: hidden;margin-bottom: 83px;border-radius: 3px;">
                                                 <div style=" border-bottom: 1px solid black; padding-bottom: 2px;"><img class="logoactivate" src="{{url('/')}}/public/img/logo.png" title="Tapakila"></div>
                                                     <h4 style="color: #333;font-size: 21px;">Bonjour {{$user->name}},</h4>
