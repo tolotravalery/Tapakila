@@ -29,7 +29,7 @@
 
     @if($slides->count()>0)
 
-        <section id="carousel-slide" class="hidden-xs">
+        <section id="carousel-slide">
             <div class="container custom-container">
                 <div id="myCarousel" class="carousel slide" data-ride="carousel">
                     <!-- Indicators -->
