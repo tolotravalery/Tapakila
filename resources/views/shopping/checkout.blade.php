@@ -140,7 +140,7 @@
 
                     </div>
                     @if($data!=null)
-                        <h2 class="titlebuy">Vos réponses à notre question secrètes</h2>
+                        <h2 class="titlebuy">Question (s) secrtète (s) / Réponse</h2>
                         <div class="spacing"></div>
                         <div class="custom-pg">
                             <div class="resum">
@@ -202,7 +202,7 @@
                             </div>
                         </div>
                     @endif
-                    <h2 class="titlebuy">Nos mode de paiment</h2>
+                    <h2 class="titlebuy">Mode de paiement</h2>
                     <div class="spacing"></div>
                     <div class="custom-pg">
                         <p><b>Adresse e-mail de livraison des tickets :</b> &nbsp {{Auth::user()->email}}&nbsp;&nbsp;&nbsp;<a
