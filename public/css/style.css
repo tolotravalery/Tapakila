@@ -8,7 +8,10 @@
 
 
 /* #d70506;rouge */
-
+.border{
+	width:100%;
+	border:2px solid  #d70506;
+}
 
 .definitive{
 	opacity: 1 ! important;
@@ -2462,7 +2465,7 @@ div.calendar p {
     background: url(../img/spectacle.png) no-repeat;
     background-repeat: no-repeat;
     margin-top: 25px;
-margin-bottom: 50px;
+margin-bottom: 25px;
 padding-bottom: 35px;
     background-position: 36% 53%;
 
