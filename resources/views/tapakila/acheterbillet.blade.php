@@ -12,15 +12,15 @@
                             <li>
                             	Vous devez être inscrit en tant qu’organisateur. Pour ce faire
                             </li>
-                            <li>	Si vous avez déjà un compte sur leguichet.mg il suffit de vous s’authentifier et allez dans le lien <a href="#">« Modifier mes Informations »</a> et cochez « Je suis un Organisateur »
-                            </li>
-                            <li>
-                            	Si vous n’avez pas encore un compte sur leguichet.mg, vous devez remplier les champs dans le menu s’inscrire et n’oubliez pas de cocher « Je suis un Organisateur »                            
-                            </li>
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BQ>  -	Si vous avez déjà un compte sur leguichet.mg il suffit de vous s’authentifier et allez dans le lien <a href="#">« Modifier mes Informations »</a> et cochez « Je suis un Organisateur »</BQ>
+                            </p>
+                            <p>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BQ>  - Si vous n’avez pas encore un compte sur leguichet.mg, vous devez remplier les champs dans le menu s’inscrire et n’oubliez pas de cocher « Je suis un Organisateur »   </BQ>                         
+                            </p>
                             <li>	Cliquez sur le bouton vert « Ajouter votre évènement » en haut à droite de la page d'accueil.<br>Important : indiquez la manière dont vous souhaitez être payé(e) une fois que les billets auront été vendus.
                             </li>
                             <li>
-                                Vérifiez et confirmez votre annonce afin qu'elle puisse être mise à la disposition de millions d'acheteurs potentiels dans le monde entier en sélectionner « publié » dans le select haut à guache.
+                                Vérifiez et confirmez votre annonce afin qu'elle puisse être mise à la disposition de millions d'acheteurs potentiels dans le monde entier en sélectionner « publié » dans le select haut à gauche.
 
                             </li>
                         </ul>
