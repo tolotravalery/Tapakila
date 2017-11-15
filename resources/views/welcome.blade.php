@@ -180,7 +180,7 @@
     </section>
 
     <!-- sectin s'inscrire start -->
-    <section>
+    <!-- <section>
         <div class="container custom-container ">
 		<hr class="border">
             <div class="sinscrire">
@@ -225,7 +225,7 @@
             </div>
 			<hr class="border">
         </div>
-    </section>
+    </section> -->
     <!-- sectin s'inscrire end -->
 @endsection
 @section('specificScript')

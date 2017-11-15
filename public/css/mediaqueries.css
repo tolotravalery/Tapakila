@@ -161,7 +161,7 @@ width: 45%!important;
 	padding-top: 12px !important;
 }
 	.nav-tabs3>li>a {
-    margin-right: -13px;
+    margin-right: 6px;
     line-height: 1.42857143;
     border: 1px solid transparent;
     border-radius: 4px 4px 0 0;
@@ -747,7 +747,7 @@ margin-left: -14px;
 margin-right: -14px;
 }
 .tableau_detail {
-margin-left: -12px;
+margin-left: 0px;
 }
 .hier2 {
 margin-left: -14px;
