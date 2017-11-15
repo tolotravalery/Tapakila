@@ -39,12 +39,12 @@
                     <p style="text-align: justify;padding-right: 10px;">{{$event->additional_note}}
                     <div class="div_style">
                     <div class="row">
-                            <div class="col-lg-5 col-xs-7 col-sm-3">
+                            <div class="col-lg-5 col-xs-6 col-sm-3">
                             <i class="fa fa-product-hunt fa-2x zav" aria-hidden="true"></i><strong id="programme"
                                                                                                class="couleur_mot">
                             Programme : </strong>
                             </div>
-                            <div class="col-lg-7 col-xs-5 gi">
+                            <div class="col-lg-7 col-xs-6 gi">
                             {{$event->additional_note_time}}
                             </div>
                             </div>
@@ -52,13 +52,13 @@
                     </div>
                     <div class="div_style">
                         <div class="row">
-                            <div class="col-lg-5 col-xs-7 col-sm-3">
+                            <div class="col-lg-5 col-xs-6 col-sm-3">
                                 <i class="fa fa-map-marker fa-2x loc zav" aria-hidden="true"></i><strong
                                         id="localisation"
                                         class="couleur_mot">
                                     Localisation : </strong>
                             </div>
-                            <div class="col-lg-7 col-xs-5 gi">
+                            <div class="col-lg-7 col-xs-6 gi">
                                 {{$event->localisation_nom }} {{$event->localisation_adresse}}
                             </div>
                         </div>
@@ -66,13 +66,13 @@
                     </div>
                     <div class="div_style">
                         <div class="row">
-                            <div class="col-lg-5 col-xs-7 col-sm-3">
+                            <div class="col-lg-5 col-xs-6 col-sm-3">
                                 <i class="fa fa-calendar-o fa-2x  zav" aria-hidden="true"></i><strong id="date"
                                                                                                       class="couleur_mot">
                                     Date
                                     : </strong>
                             </div>
-                            <div class="col-lg-7 col-xs-5 gi">
+                            <div class="col-lg-7 col-xs-6 gi">
                                 {{ \Carbon\Carbon::parse($event->date_debut_envent)->format('d M Y')}}
                             </div>
                         </div>
@@ -228,14 +228,14 @@
                                 @php $d++ @endphp
                             @endforeach
                             <div class="row padding-custom">
-                                <div class="col-md-4"></div>
-                                <div class="col-md-4"></div>
-                                <div class="col-md-2">
+                                <div class="col-md-4 col-sm-4 col-xs-0"></div>
+                                <div class="col-md-4 col-sm-4 col-xs-2"></div>
+                                <div class="col-md-2 col-sm-2 col-xs-5">
                                     <button type="button" class=" btn btn-danger btn_reset" onclick="resetPage()">
                                         Reset
                                     </button>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-2 col-sm-2 col-xs-5">
                                     <button type="submit" class=" btn btn-success btn_acheterr " id="acheter">Acheter
                                     </button>
                                 </div>
