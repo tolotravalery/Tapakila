@@ -17,8 +17,8 @@ class CheckIsUserActivated
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @param  \Illuminate\Http\Request $request
+     * @param  \Closure $next
      * @return mixed
      */
     public function handle($request, Closure $next)
@@ -26,9 +26,9 @@ class CheckIsUserActivated
 
         if (config('settings.activation')) {
 
-            $user           = Auth::user();
-            $currentRoute   = Route::currentRouteName();
-            $routesAllowed  = [
+            $user = Auth::user();
+            $currentRoute = Route::currentRouteName();
+            $routesAllowed = [
                 'activation-required',
                 'activate/{token}',
                 'activate',
@@ -50,7 +50,7 @@ class CheckIsUserActivated
                     return redirect()->route('activation-required')
                         ->with([
                             'message' => 'Activation is required. ',
-                            'status'  => 'danger'
+                            'status' => 'danger'
                         ]);
                 }
 

@@ -124,6 +124,7 @@ class TicketController extends Controller
         }
         return redirect(url('admin/listevent'));
     }
+
     public function delete($id, $event_id)
     {
         $event = Events::findOrFail($event_id);
@@ -148,30 +149,32 @@ class TicketController extends Controller
         $message = " Opération réussie, Ticket supprimé avec succès";
         session()->flash('message', $message);
         session()->flash('page', "tickets");
-        return redirect(url('admin/ajouterTicket/' . $event->id ))->with(compact('message'));
+        return redirect(url('admin/ajouterTicket/' . $event->id))->with(compact('message'));
     }
-    public function edit_admin($id,$event_id)
+
+    public function edit_admin($id, $event_id)
     {
         $ticket = Ticket::findOrFail($id);
         $event = Events::findOrFail($event_id);
         $alert = Alert::where('vu', '=', '0')->get();
-        return view('pages.admin.edit-ticket', compact('ticket',  'alert','event'));
+        return view('pages.admin.edit-ticket', compact('ticket', 'alert', 'event'));
     }
+
     public function update_admin(Request $request)
     {
         $code = Crypt::decryptString($request->input('id_event'));
         $event = Events::findOrFail($code);
 
-        $tic=Ticket::find(Crypt::decryptString($request->input('id')));
-        $tic_number_avant= $tic->number;
-        $tic->number=$request->input('number');
-        $tic->type=$request->input('type');
-        $tic->price=$request->input('price');
-        $tic->date_debut_vente=new \DateTime($request->input('date_debut_vente'));
-        $tic->date_fin_vente=new \DateTime($request->input('date_fin_vente'));
-        $tic->description=$request->input('description');
-        $difference=$tic->number-$tic_number_avant;
-        if($difference>0){
+        $tic = Ticket::find(Crypt::decryptString($request->input('id')));
+        $tic_number_avant = $tic->number;
+        $tic->number = $request->input('number');
+        $tic->type = $request->input('type');
+        $tic->price = $request->input('price');
+        $tic->date_debut_vente = new \DateTime($request->input('date_debut_vente'));
+        $tic->date_fin_vente = new \DateTime($request->input('date_fin_vente'));
+        $tic->description = $request->input('description');
+        $difference = $tic->number - $tic_number_avant;
+        if ($difference > 0) {
             for ($i = 0; $i < $difference; $i++) {
                 $code_unique = $this->verifyCodeUnique($this->getUniqueCode(16));
                 Tapakila::create([
@@ -180,20 +183,19 @@ class TicketController extends Controller
                 ]);
             }
             $tic->save();
-        }
-        else if($difference<0){
-            $nombre=$difference*(-1);//moins nombre
+        } else if ($difference < 0) {
+            $nombre = $difference * (-1);//moins nombre
             //dd($nombre);
             //$tap=Tapakila::find($tic->id,'ticket_id')->limit(intval($nombre));
-            $tap=Tapakila::get()->where('ticket_id','=',$tic->id)->take(intval($nombre));
+            $tap = Tapakila::get()->where('ticket_id', '=', $tic->id)->take(intval($nombre));
             //dd($tap);
-            foreach($tap as $tapakila){
+            foreach ($tap as $tapakila) {
                 $tapakila->delete();
             }
 
             $tic->save();
         }
 
-        return redirect(url('admin/ajouterTicket/' . $event->id ))->with(compact('message'));
+        return redirect(url('admin/ajouterTicket/' . $event->id))->with(compact('message'));
     }
 }

@@ -137,10 +137,9 @@
                                 </p>
                             </div>
                         </div>
-
                     </div>
                     @if($data!=null)
-                        <h2 class="titlebuy">Question(s) secrtète(s) / Réponse(s)</h2>
+                        <h2 class="titlebuy">Question(s) secrète(s) / Réponse(s)</h2>
                         <div class="spacing"></div>
                         <div class="custom-pg">
                             <div class="resum">
@@ -205,8 +204,16 @@
                     <h2 class="titlebuy">Mode de paiement</h2>
                     <div class="spacing"></div>
                     <div class="custom-pg">
-                        <p><b>Adresse e-mail de livraison des tickets :</b> &nbsp {{Auth::user()->email}}&nbsp;&nbsp;&nbsp;<a
-                                    href="{{url('/home')}}" style="color: #d70506">Edit</a></p>
+                        @if(strpos(Auth::user()->email,'@test.com')!== false && strpos(Auth::user()->email,'missing') !== false)
+                            <p><b>Adresse e-mail de livraison des tickets <span style="color:red;">*</span>:</b></p>
+                            <p><i>Nous vous enverrons les infos payment dans cet email</i></p>
+                            <input type="email" class="form-control" name="email_livraison" required>
+                            <br>
+                        @else
+                            <p><b>Adresse e-mail de livraison des tickets :</b> &nbsp {{Auth::user()->email}}&nbsp;&nbsp;&nbsp;<a
+                                        href="{{url('/home')}}" style="color: #d70506">Edit</a></p>
+                            <br>
+                        @endif
                         <p><b>Méthode de payment <span style="color:red;">*</span> :</b></p>
                         <div class="modepaimenent">
                             <div class="row">
