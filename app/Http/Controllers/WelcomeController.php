@@ -20,10 +20,9 @@ class WelcomeController extends Controller
     {
         $menus = Menus::orderBy('id', 'desc')->get();
         $sousmenus = Sous_menus::orderBy('name', 'asc')->get();
-       // $slides= Slides::orderBy('id','desc')->where('active','=','1');
-        $slides= Slides::orderBy('id', 'desc')->where('active','=',true)->get();
-
-        return View('/welcome', compact('menus', 'sousmenus','slides'));
+        // $slides= Slides::orderBy('id','desc')->where('active','=','1');
+        $slides = Slides::orderBy('id', 'desc')->where('active', '=', true)->get();
+        return View('/welcome', compact('menus', 'sousmenus', 'slides'));
 
     }
 

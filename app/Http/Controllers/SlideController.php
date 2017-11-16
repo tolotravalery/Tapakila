@@ -42,7 +42,6 @@ class SlideController extends Controller
     }
 
 
-
     protected function validator(array $data)
     {
 

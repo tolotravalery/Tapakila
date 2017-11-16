@@ -100,8 +100,18 @@
                             </div>
                             <hr class="sep">
                             <div class="resum">
-                                <p><b>Adresse e-mail de livraison des tickets :</b> &nbsp {{Auth::user()->email}}</p>
-                                <p><b>Méthode de payment :</b></p>
+                                @if(strpos(Auth::user()->email,'@test.com')!== false && strpos(Auth::user()->email,'missing') !== false)
+                                    <p><b>Adresse e-mail de livraison des tickets <span style="color:red;">*</span>:</b>
+                                    </p>
+                                    <p><i>Nous vous enverrons les infos payment dans cet email</i></p>
+                                    <input type="email" class="form-control" name="email_livraison" required>
+                                    <br>
+                                @else
+                                    <p><b>Adresse e-mail de livraison des tickets :</b> &nbsp {{Auth::user()->email}}
+                                        &nbsp;&nbsp;&nbsp;<a
+                                                href="{{url('/home')}}" style="color: #d70506">Edit</a></p>hsklqfhsldjkfhkqjsdhfkjqshdfkjqshlf
+                                    <br>
+                                @endif
                             </div>
 
                             <div class="modepaimenent">
@@ -257,12 +267,21 @@
                             </div>
                             <hr class="sep">
                             <div class="resum">
-                                <p><b>Adresse e-mail de livraison des tickets :</b> &nbsp {{Auth::user()->email}}</p>
-                                <p><b>Méthode de payment :</b></p>
+                                @if(strpos(Auth::user()->email,'@test.com')!== false && strpos(Auth::user()->email,'missing') !== false)
+                                    <p><b>Adresse e-mail de livraison des tickets <span style="color:red;">*</span>:</b>
+                                    </p>
+                                    <p><i>Nous vous enverrons les infos payment dans cet email</i></p>
+                                    <input type="email" class="form-control" name="email_livraison" required>
+                                    <br>
+                                @else
+                                    <p><b>Adresse e-mail de livraison des tickets :</b> &nbsp {{Auth::user()->email}}
+                                        &nbsp;&nbsp;&nbsp;<a
+                                                href="{{url('/home')}}" style="color: #d70506">Edit</a></p>hsklqfhsldjkfhkqjsdhfkjqshdfkjqshlf
+                                    <br>
+                                @endif
                             </div>
 
                             <div class="modepaimenent">
-
                                 <div class="row">
                                     {{ csrf_field() }}
                                     <div id="ticket-radio2">

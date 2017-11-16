@@ -93,12 +93,19 @@ class CheckoutController extends Controller
         $pdf = App::make('dompdf.wrapper');
         $pdf->loadHTML(view('emails.ticket', compact('data', 'user'))->with(array('send' => 'pdf'))->render());
         $pdf->save($PdfDestinationPath);
+        if ($request->input('email_livraison')) {
+            Session::put('email_livraison', $request->input('email_livraison'));
+        } else {
+            Session::put('email_livraison', Auth::user()->email);
+        }
         Mail::send('emails.ticket', ['data' => $data, 'user' => $user, 'send' => 'mail'], function ($message) {
-            $message->to(Auth::user()->email, Auth::user()->name)->subject('Leguichet');
+            $message->to(Session::get('email_livraison'), Auth::user()->name)->subject('Leguichet');
+            $message->cc('contact@leguichet.mg', 'Leguichet.mg')->subject('Leguichet payment');
             $message->attach(Session::get('pdfDestinationPath'));
         });
         Mail::send('emails.facture', ['data' => $data, 'user' => $user, 'payment_mode' => $payement], function ($message) {
-            $message->to(Auth::user()->email, Auth::user()->name)->subject('Leguichet');
+            $message->to(Session::get('email_livraison'), Auth::user()->name)->subject('Leguichet');
+            $message->cc('contact@leguichet.mg', 'Leguichet.mg')->subject('Leguichet payment facture');
         });
         return $pdf->stream('download_ticket_leguichet.pdf');
     }
@@ -157,12 +164,19 @@ class CheckoutController extends Controller
         $pdf = App::make('dompdf.wrapper');
         $pdf->loadHTML(view('emails.ticket', compact('data', 'user'))->with(array('send' => 'pdf'))->render());
         $pdf->save($PdfDestinationPath);
+        if ($req->input('email_livraison')) {
+            Session::put('email_livraison', $req->input('email_livraison'));
+        } else {
+            Session::put('email_livraison', Auth::user()->email);
+        }
         Mail::send('emails.ticket', ['data' => $data, 'user' => $user, 'send' => 'mail'], function ($message) {
-            $message->to(Auth::user()->email, Auth::user()->name)->subject('Leguichet');
+            $message->to(Session::get('email_livraison'), Auth::user()->name)->subject('Leguichet');
+            $message->cc('contact@leguichet.mg', 'Leguichet.mg')->subject('Leguichet payment');
             $message->attach(Session::get('pdfDestinationPath'));
         });
         Mail::send('emails.facture', ['data' => $data, 'user' => $user, 'payment_mode' => $payement], function ($message) {
-            $message->to(Auth::user()->email, Auth::user()->name)->subject('Leguichet');
+            $message->to(Session::get('email_livraison'), Auth::user()->name)->subject('Leguichet');
+            $message->cc('contact@leguichet.mg', 'Leguichet.mg')->subject('Leguichet payment');
         });
         return $pdf->stream('download_ticket_leguichet.pdf');
     }

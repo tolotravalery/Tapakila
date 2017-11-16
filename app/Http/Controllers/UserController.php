@@ -29,7 +29,7 @@ class UserController extends Controller
     public function index()
     {
         session()->keep(['niova']);
-        $niova=session()->get('niova');
+        $niova = session()->get('niova');
         //dd($huhu);
         $user = Auth::user();
 
@@ -44,14 +44,14 @@ class UserController extends Controller
             $events_passe = $user->events()->where('date_fin_event', '<', date('Y-m-d'))->get();
             $events_futur = $user->events()->where('date_debut_envent', '>', date('Y-m-d'))->get();
             $achats = $user->tickets;
-            return view('pages.user.home_organisateur')->with(compact('menus', 'sousmenus', 'events_passe', 'events_futur', 'achats','niova'));
+            return view('pages.user.home_organisateur')->with(compact('menus', 'sousmenus', 'events_passe', 'events_futur', 'achats', 'niova'));
         }
-        if($user->hasRole('user')) {
+        if ($user->hasRole('user')) {
             $menus = Menus::orderBy('id', 'desc')->get();
             $sousmenus = Sous_menus::orderBy('name', 'asc')->get();
 
             $achats = $user->tickets;
-            return view('pages.user.home')->with(compact('menus', 'sousmenus', 'achats','niova'));
+            return view('pages.user.home')->with(compact('menus', 'sousmenus', 'achats', 'niova'));
         }
         return view('pages.user.home');
 

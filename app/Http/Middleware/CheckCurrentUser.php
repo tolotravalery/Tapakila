@@ -15,15 +15,14 @@ class CheckCurrentUser
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @param  \Illuminate\Http\Request $request
+     * @param  \Closure $next
      * @return mixed
      */
     public function handle($request, Closure $next)
     {
 
-        if (!$request->user())
-        {
+        if (!$request->user()) {
             abort(403, 'Unauthorized action.');
         }
 
@@ -34,8 +33,8 @@ class CheckCurrentUser
     public function terminate($request, $response)
     {
 
-        $user           = Auth::user();
-        $currentRoute   = Route::currentRouteName();
+        $user = Auth::user();
+        $currentRoute = Route::currentRouteName();
         Log::info('CheckCurrentUser middlware was used: ' . $currentRoute . '. ', [$user]);
 
     }

@@ -29,7 +29,6 @@ class DetailEventController extends Controller
         $date_now = date('Y-m-d H:i:s');
         $events = Events::where('siteweb', 'like', '%' . $event_name . '%')->where('publie', '=', '1')->where('date_debut_envent', '>', $date_now)->get();
         $event = $events[0];
-        //dd($event->id);
         $interested = Events::where('id', '!=', $event->id)->where('publie', '=', '1')->where('date_debut_envent', '>', $date_now)->get();;;
         if ($interested->count() > 3) $interested = $interested->random(3);
         return view('events.detail', array('event' => $event, 'interested' => $interested, 'menus' => $menus, 'sousmenus' => $sousmenus));
