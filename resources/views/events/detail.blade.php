@@ -135,7 +135,7 @@
                                         <table class="table table-hover">
                                             <thead>
                                             <tr>
-                                                <th>Type de ticket</th>
+                                                <th style="width: 227px !important;">Type de ticket</th>
                                                 <th>Disponiblité</th>
                                                 <th>Quantité</th>
                                                 <th>Prix unitaire</th>
