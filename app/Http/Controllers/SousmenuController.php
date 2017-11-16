@@ -54,26 +54,28 @@ class SousmenuController extends Controller
         );
 
     }
+
     public function update(Request $request, $id)
     {
         $sousmenu = Sous_menus::find($id);
         //dd($sousmenu);
-        $sousmenu->name=$request->input('name');
-        $sousmenu->menus_id=$request->input('menu');
+        $sousmenu->name = $request->input('name');
+        $sousmenu->menus_id = $request->input('menu');
         $sousmenu->save();
         //return View('/pages.admin.listesousmenus', compact('sousmenus', 'alert'));
         return redirect(url('admin/sousmenus/'));
     }
+
     public function edit($id)
     {
         $alert = Alert::where('vu', '=', '0')->get();
         $sousmenu = Sous_menus::findOrFail($id);
         $menus = Menus::all();
-       /* $data = [
-            'sousmenu' => $sousmenu
-        ];*/
+        /* $data = [
+             'sousmenu' => $sousmenu
+         ];*/
 
-        return view('pages.admin.edit-sousmenu',compact('sousmenu','alert','menus'));
+        return view('pages.admin.edit-sousmenu', compact('sousmenu', 'alert', 'menus'));
     }
 
     public function showSousmenuForm()

@@ -132,8 +132,9 @@
                                                         </tr>
                                                         <tr>
                                                             <td colspan="2">
-                                                                <p style="color: #333;">Leguichet vous remercie de votre fidélité</p>
-                                                                <p style="color: #333;">Pour tout information : <a href="www.leguichet.mg">www.leguichet.mg</a>
+                                                                <p style="color: #333;">Leguichet vous remercie de votre fidélité,</p>
+                                                                <p style="color: #333;">L'équipe Leguichet.mg</p>
+                                                                <p style="color: #333;">Pour tout information, visitez notre site : <a href="www.leguichet.mg">www.leguichet.mg</a>
                                                                 </p>
                                                             </td>
                                                         </tr>

@@ -212,50 +212,10 @@ class ProfilesController extends Controller
     public function updateUserAccount(Request $request, $id)
     {
 
-        /*$currentUser = \Auth::user();
-        $user        = User::findOrFail($id);
-        $emailCheck  = ($request->input('email') != '') && ($request->input('email') != $user->email);
-        $ipAddress   = new CaptureIpTrait;
-
-        $validator = Validator::make($request->all(), [
-            'name'      => 'required|max:255',
-        ]);
-
-        $rules = [];
-
-        if ($emailCheck) {
-            $rules = [
-                'email'     => 'email|max:255|unique:users'
-            ];
-        }
-
-        $validator = $this->validator($request->all(), $rules);
-
-        if ($validator->fails()) {
-            $this->throwValidationException(
-                $request, $validator
-            );
-        }
-
-        $user->name         = $request->input('name');
-        $user->first_name   = $request->input('first_name');
-        $user->last_name    = $request->input('last_name');
-
-        if ($emailCheck) {
-            $user->email = $request->input('email');
-        }
-
-        $user->updated_ip_address = $ipAddress->getClientIp();
-
-        $user->save();
-
-        return redirect('profile/'.$user->name.'/edit')->with('success', trans('profile.updateAccountSuccess'));*/
-
         $currentUser = \Auth::user();
         $user = User::findOrFail($id);
         $emailCheck = ($request->input('email') != '') && ($request->input('email') != $user->email);
         $ipAddress = new CaptureIpTrait;
-
         $validator = Validator::make($request->all(), [
             'name' => 'required|max:255',
             'password' => 'required|min:6|max:20|confirmed',
@@ -286,7 +246,6 @@ class ProfilesController extends Controller
         }
         $isOrganisateur = false;
         if ($request->input('isOrganisateur')) $isOrganisateur = true;
-
         $user->name = $request->input('name');
         $user->first_name = $request->input('first_name');
         $user->last_name = $request->input('last_name');
@@ -305,36 +264,11 @@ class ProfilesController extends Controller
         if ($request->input('password') != null) {
             $user->password = bcrypt($request->input('password'));
         }
-
         $user->updated_ip_address = $ipAddress->getClientIp();
-
         $user->save();
-        $niova=$request->input('changer');
-        /*return redirect('profile/' . $user->id . '/edit')->with('success', trans('profile.updateAccountSuccess'));*/
+        $niova = $request->input('changer');
         session()->flash('niova', $niova);
         return redirect('/home')->with(compact('niova'));
-
-        /*if ($user->isAdmin()) {
-            $alert = Alert::where('vu', '=', '0')->get();
-            return view('pages.admin.home', compact('alert'));
-
-        }
-        if ($user->hasRole('organisateur')) {
-            $menus = Menus::orderBy('id', 'desc')->get();
-            $sousmenus = Sous_menus::orderBy('name', 'asc')->take(20)->get();
-            $events_passe = $user->events()->where('date_fin_event', '<', date('Y-m-d H:i:s'))->get();
-            $events_futur = $user->events()->where('date_debut_envent', '>', date('Y-m-d H:i:s'))->get();
-            $achats = $user->tickets;
-            return view('pages.user.home_organisateur')->with(compact('menus', 'sousmenus', 'events_passe', 'events_futur', 'achats','niova'));
-        }
-        if($user->hasRole('user')) {
-            $menus = Menus::orderBy('id', 'desc')->get();
-            $sousmenus = Sous_menus::orderBy('name', 'asc')->take(20)->get();
-
-            $achats = $user->tickets;
-            return view('panels.welcome-panel')->with(compact('menus', 'sousmenus', 'achats','niova'));
-        }
-        return view('pages.user.home');*/
 
     }
 

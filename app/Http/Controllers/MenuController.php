@@ -28,15 +28,6 @@ class MenuController extends Controller
 
     }
 
-    /*public function welcome()
-    {
-
-        $menus = Menu::all()->take(1)->get();
-
-        return View('/welcome', compact('menus'));
-
-    }*/
-
     protected $redirectTo = '/listemenus';
 
     protected function validator(array $data)
@@ -52,13 +43,10 @@ class MenuController extends Controller
 
     protected function create(array $data)
     {
-
         $menu = Menus::create([
             'name' => $data['name']
         ]);
-
         return $menu;
-
     }
 
     public function showMenuForm()
@@ -84,7 +72,7 @@ class MenuController extends Controller
     {
         $alert = Alert::where('vu', '=', '0')->get();
         $menu = Menus::findOrFail($id);
-        return view('pages.admin.edit-menu',compact('alert','menu'));
+        return view('pages.admin.edit-menu', compact('alert', 'menu'));
     }
 
     public function update(Request $request, $id)
@@ -103,21 +91,6 @@ class MenuController extends Controller
      */
     public function destroy($id)
     {
-
-        /*$currentUser = Auth::user();
-        $user        = User::findOrFail($id);
-        $ipAddress   = new CaptureIpTrait;
-
-        if ($user->id != $currentUser->id) {
-
-            $user->deleted_ip_address = $ipAddress->getClientIp();
-            $user->save();
-            $user->delete();
-            return redirect('users')->with('success', trans('usersmanagement.deleteSuccess'));
-        }
-        return back()->with('error', trans('usersmanagement.deleteSelfError'));
-        */
-
         $sousmenus = Sous_menus::all()->where('menus_id', $id);
         $count = $sousmenus->count();
         //dd($sousmenus);break;
@@ -130,10 +103,7 @@ class MenuController extends Controller
             }
         }
         $menu = Menus::find($id);
-        // dd($menu);break;
         $menu->delete();
-        //dd($sousmenus);
-        //return back()->with('error', trans('usersmanagement.deleteSelfError'));
         return view('pages.admin.createmenu');
 
     }
