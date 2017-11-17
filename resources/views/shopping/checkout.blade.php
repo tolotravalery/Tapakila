@@ -130,7 +130,7 @@
                         </table>
 
                         <div class="row">
-                            <div class="col-md-8 col-md-offset-5 Fraisservice ">
+                            <div class="col-lg-8 col-lg-offset-5 col-md-8 col-md-offset-4 Fraisservice ">
                                 <p><b class="tright">Frais de service :</b>0 AR </p>
                                 <p><b class="t2right">Somme Total à payer : </b>
                                     <label class="TT">{{ Cart::instance('default')->subtotal() }} AR</label>
