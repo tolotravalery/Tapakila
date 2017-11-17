@@ -62,7 +62,7 @@ Route::group(['middleware' => 'web'], function () {
         Route::get('contact', 'AproposController@contact');
         Route::get('term', 'AproposController@term');
         Route::get('shop', 'AproposController@achat');
-		Route::get('vie-prive', 'AproposController@vieprive');
+        Route::get('vie-prive', 'AproposController@vieprive');
         Route::get('shop/ticket', 'AproposController@achatBillet');
     });
 
@@ -220,8 +220,8 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin'], 'prefix' => '
         ]
     ]);
 
-    Route::delete('ticket/delete/{id}/{event_id}','TicketController@delete_admin')->name('ticket/delete');
-    Route::get('tickets/update/{id}/{event_id}','TicketController@edit_admin');
+    Route::delete('ticket/delete/{id}/{event_id}', 'TicketController@delete_admin')->name('ticket/delete');
+    Route::get('tickets/update/{id}/{event_id}', 'TicketController@edit_admin');
     Route::put('tickets', 'TicketController@update_admin')->name('ticket');
     Route::get('events/update/{id}', 'EventController@edit_admin');
     Route::get('events/create', 'EventController@create_admin');
@@ -254,4 +254,11 @@ Route::group(['middleware' => ['auth', 'activated'], 'prefix' => 'organisateur']
     Route::post('question', 'EventController@question_secret')->name('question');
     Route::put('event', 'EventController@update')->name('event');
     Route::get('event/ticket/delete/{id}/{event_id}', 'TicketController@delete');
+});
+
+Route::group(['middleware' => ['service'], 'prefix' => 'service'], function () {
+    Route::resource('login', 'Services\LoginController');
+    Route::resource('event', 'Services\EventController');
+    Route::resource('ticket', 'Services\TicketController');
+    Route::get('tapakila', 'Services\TapakilaController@scan');
 });
