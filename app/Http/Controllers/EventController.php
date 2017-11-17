@@ -396,4 +396,9 @@ class EventController extends Controller
 
         return redirect(url('admin/listevent'));
     }
+
+    public function rapport_vue($id){
+        session()->flash('page', "rapport");
+        return redirect(url('organisateur/event/' . $id . '/edit'));;
+    }
 }

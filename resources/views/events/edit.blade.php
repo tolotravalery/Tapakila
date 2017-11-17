@@ -81,7 +81,8 @@
 
                     <ul class="navtab">
                         <li class="categorimenu"><strong>Achats</strong></li>
-                        <li><a id="a_rapport" onClick="changePage('div_rapport', 'a_rapport')">Rapports</a></li>
+                        <li><a id="a_rapport" @if(session('page')) @if(session('page') == 'rapport') class="select"
+                               @endif @else  @endif onClick="changePage('div_rapport', 'a_rapport')">Rapports</a></li>
                        {{-- <li><a id="a_commandes" onClick="changePage('div_commandes', 'a_commandes')">Commandes</a></li>--}}
                        {{-- <li><a id="a_valideTicket" onClick="changePage('div_valideTicket', 'a_valideTicket')">Tickets Validés</a></li>--}}
                         <li class="categorimenu"><strong>Editer</strong></li>
@@ -104,7 +105,7 @@
                 </div>
                 <div class="col-lg-9 col-sm-9">
                     <div id="div_details"
-                         @if(session('page')) @if(session('page')=='tickets') class="hide" @endif @endif>
+                         @if(session('page')) @if(session('page')=='tickets') class="hide"  @elseif(session('page')=='rapport') class="hide" @endif @endif>
                         <div class="com_contenu_type">
                             {!! Form::model($event, array('action' => array('EventController@update'), 'method' => 'PUT', 'id' => 'user_basics_form','files' => true,'class'=>'form-horizontal')) !!}
                             {{ csrf_field() }}
@@ -362,7 +363,7 @@
 
                     <!-------------------------------------rapport------------------------------------------------------------------------->
 
-                    <div id="div_rapport" class="hide">
+                    <div id="div_rapport" @if(session('page')) @if(session('page')=='rapport') class="show" @elseif(session('page') == 'tickets') class="hide" @endif @endif >
                          <div id="rapport">
                              <div class="com_contenu_type">
                                  <div class="table-responsive users-table">
@@ -370,7 +371,7 @@
                                          <thead>
                                          <tr>
                                              <th>Type de ticket</th>
-                                             <th>Nombre généré</th>
+                                             <th>Nombre total</th>
                                              <th>Ticket vendu</th>
                                              <th>Ticket non vendu</th>
                                              <th>Ticket payé</th>
@@ -423,7 +424,7 @@
                     <!------------------------------------type-ticket-------------------------------------------------------------------------->
 
                     <div id="div_type"
-                         @if(session('page')) @if(session('page') == 'details')  class="hide" @endif @else class="hide" @endif>
+                         @if(session('page')) @if(session('page') == 'details')  class="hide" @elseif(session('page') == 'rapport') class="hide" @endif  @endif>
                         <div id="type_ticket">
                             <div class="com_contenu_type">
                                 <div class="panel panel-content">
