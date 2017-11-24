@@ -36,15 +36,17 @@
         <div class="container custom-container">
             <div class="page-menu row">
                 <div class="col-lg-9 col-sm-9 col-lg-push-3 col-sm-push-3 fi">
-                    <h1>Modifier votre évènement</h1>
+                    <h1>Modifier votre évènement </h1>
 
                     @if (session('message'))
                         <div class="alert alert1 alert-success">
-                            <span class="glyphicon glyphicon-ok"></span> <strong>{!! session('message') !!} </strong>
+                            <span class="glyphicon glyphicon-ok"></span>
+                            <strong>{!! session('message') !!} </strong>
                             <hr class="message-inner-separator">
                             @if($event->tickets->count()==0)
                                 @if(session('page') == 'details')
-                                    <p>A présent, vous devez ajouter les Types de Ticket dans l'onglet "Types de Ticket
+                                    <p>A présent, vous devez ajouter les Types de Ticket dans l'onglet "Types de
+                                        Ticket
                                         &
                                         prix"</p>
                                 @endif
@@ -73,6 +75,13 @@
                     <p><i style="color:red;">La modification d'une publication évènement est accordé par
                             l'administrateur</i></p>
                 </div>
+                <div class="row">
+                    <div class="col-lg-11 col-sm-10"></div>
+                    <div class="col-lg-1 col-sm-2" style="text-align: center;">
+                        <a href="{{url('/home')}}" style="text-align: center;color: #428bca !important;font-size: 16px;">retour</a>
+                    </div>
+                </div>
+
             </div>
 
             <!-- detail end -->
@@ -82,15 +91,17 @@
                     <ul class="navtab">
                         <li class="categorimenu"><strong>Achats</strong></li>
                         <li><a id="a_rapport" @if(session('page')) @if(session('page') == 'rapport') class="select"
-                               @endif @else  @endif onClick="changePage('div_rapport', 'a_rapport')">Rapports</a></li>
-                       {{-- <li><a id="a_commandes" onClick="changePage('div_commandes', 'a_commandes')">Commandes</a></li>--}}
-                       {{-- <li><a id="a_valideTicket" onClick="changePage('div_valideTicket', 'a_valideTicket')">Tickets Validés</a></li>--}}
+                               @endif @else  @endif onClick="changePage('div_rapport', 'a_rapport')">Rapports</a>
+                        </li>
+                        {{-- <li><a id="a_commandes" onClick="changePage('div_commandes', 'a_commandes')">Commandes</a></li>--}}
+                        {{-- <li><a id="a_valideTicket" onClick="changePage('div_valideTicket', 'a_valideTicket')">Tickets Validés</a></li>--}}
                         <li class="categorimenu"><strong>Editer</strong></li>
                         <li><a id="a_details" @if(session('page')) @if(session('page') == 'details') class="select"
                                @endif @else class="select" @endif
                                onClick="changePage('div_details', 'a_details')">Détails</a></li>
                         <li><a id="a_type" @if(session('page')) @if(session('page')=='tickets') class="select"
-                               @endif @endif onClick="changePage('div_type', 'a_type')">Types de Ticket &amp; prix</a>
+                               @endif @endif onClick="changePage('div_type', 'a_type')">Types de Ticket &amp;
+                                prix</a>
                         </li>
                         <li class="hidden"><a id="a_siteweb" onClick="changePage('div_siteweb', 'a_siteweb')">Apparence
                                 du site</a>
@@ -105,7 +116,8 @@
                 </div>
                 <div class="col-lg-9 col-sm-9">
                     <div id="div_details"
-                         @if(session('page')) @if(session('page')=='tickets') class="hide"  @elseif(session('page')=='rapport') class="hide" @endif @endif>
+                         @if(session('page')) @if(session('page')=='tickets') class="hide"
+                         @elseif(session('page')=='rapport') class="hide" @endif @endif>
                         <div class="com_contenu_type">
                             {!! Form::model($event, array('action' => array('EventController@update'), 'method' => 'PUT', 'id' => 'user_basics_form','files' => true,'class'=>'form-horizontal')) !!}
                             {{ csrf_field() }}
@@ -203,7 +215,8 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label required">Début de
-                                                            l'évenement</label><span class="champ_required"> *</span>
+                                                            l'évenement</label><span
+                                                                class="champ_required"> *</span>
                                                         <div class="input-group">
                                                             <div class="input-group-addon">
                                                                 <i class="fa fa-calendar"></i></div>
@@ -229,7 +242,8 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label class="control-label required">Fin de l'évenement</label><span
+                                                        <label class="control-label required">Fin de
+                                                            l'évenement</label><span
                                                                 class="champ_required"> *</span>
                                                         <div class="input-group">
                                                             <div class="input-group-addon">
@@ -290,8 +304,10 @@
                                         <div class="form-group">
                                             <label for="adresses">Adresse :</label>
                                             <input type="Adresse" class="form-control" id="adress"
-                                                   name="localisation_adresse" value="{{$event->localisation_adresse}}">
-                                            <em>Entrer l'adresse exact pour l'affichage des directions sur la carte</em>
+                                                   name="localisation_adresse"
+                                                   value="{{$event->localisation_adresse}}">
+                                            <em>Entrer l'adresse exact pour l'affichage des directions sur la
+                                                carte</em>
                                             <p>E.X : Palais des sports</p>
                                         </div>
 
@@ -325,106 +341,108 @@
                     </div>
                     <!------------------------------------Commandes--------------------------------------------------------------------------->
 
-                    {{--<div id="div_commandes" class="hide">
-                        <div id="commande">
-                            <div class="com_contenu">
-                                <h2>Commandes</h2>
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead>
-                                        <tr>
-                                            <th class="num">ID</th>
-                                            <th>Date</th>
-                                            <th>Client</th>
-                                            <th>Totale</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td><input type="text" class="form-control" id="usr"></td>
-                                            <td><input type="text" class="form-control" id="usr"></td>
-                                            <td><input type="text" class="form-control" id="usr"></td>
-                                            <td><select class="form-control">
-                                                    <option>Terminé</option>
-                                                    <option>En attendant</option>
-                                                    <option>Expiré</option>
-                                                    <option>Annulé</option>
-                                                    <option>Remboursé</option>
-                                                </select></td>
-                                        </tbody>
-                                    </table>
-                                </div>
+                {{--<div id="div_commandes" class="hide">
+                    <div id="commande">
+                        <div class="com_contenu">
+                            <h2>Commandes</h2>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th class="num">ID</th>
+                                        <th>Date</th>
+                                        <th>Client</th>
+                                        <th>Totale</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td><input type="text" class="form-control" id="usr"></td>
+                                        <td><input type="text" class="form-control" id="usr"></td>
+                                        <td><input type="text" class="form-control" id="usr"></td>
+                                        <td><select class="form-control">
+                                                <option>Terminé</option>
+                                                <option>En attendant</option>
+                                                <option>Expiré</option>
+                                                <option>Annulé</option>
+                                                <option>Remboursé</option>
+                                            </select></td>
+                                    </tbody>
+                                </table>
                             </div>
-
                         </div>
-                    </div>--}}
 
-                    <!------------------------------------Commande-end--------------------------------------------------------------------------->
+                    </div>
+                </div>--}}
+
+                <!------------------------------------Commande-end--------------------------------------------------------------------------->
 
                     <!-------------------------------------rapport------------------------------------------------------------------------->
 
-                    <div id="div_rapport" @if(session('page')) @if(session('page')=='rapport') class="show" @elseif(session('page') == 'tickets') class="hide" @endif @else class="hide" @endif >
-                         <div id="rapport">
-                             <div class="com_contenu_type">
-                                 <div class="table-responsive users-table">
-                                     <table class="table table-striped table-condensed data-table">
-                                         <thead>
-                                         <tr>
-                                             <th>Type de ticket</th>
-                                             <th>Nombre total</th>
-                                             <th>Ticket vendu</th>
-                                             <th>Ticket non vendu</th>
-                                             <th>Ticket payé</th>
+                    <div id="div_rapport" @if(session('page')) @if(session('page')=='rapport') class="show"
+                         @elseif(session('page') == 'tickets') class="hide" @endif @else class="hide" @endif >
+                        <div id="rapport">
+                            <div class="com_contenu_type">
+                                <div class="table-responsive users-table">
+                                    <table class="table table-striped table-condensed data-table">
+                                        <thead>
+                                        <tr>
+                                            <th>Type de ticket</th>
+                                            <th>Nombre total</th>
+                                            <th>Ticket vendu</th>
+                                            <th>Ticket non vendu</th>
+                                            <th>Ticket payé</th>
 
-                                         </tr>
-                                         </thead>
-                                         <tbody>
-                                         @php $id=0; @endphp
-                                         @foreach($event->tickets as $ticket)
-                                             @if($ticket->id != $id)
-                                                 @php
-                                                     $id = $ticket->id;
-                                                 @endphp
-                                                 <tr>
-                                                     <td>{{$ticket->type}}</td>
-                                                     <td>{{$ticket->tapakila()->count()}}</td>
-                                                     @php
-                                                         $tapakilas=$ticket->tapakila();
-                                                         $tapakila_vendu = $ticket->tapakila()->where('vendu', '=', '1')->get();
-                                                         $tapakila_non_vendu = $ticket->tapakila()->where('vendu', '=', '0')->get();
-                                                         $nbre_vendu=$tapakila_vendu->count();
-                                                         $nbre_non_vendu=$tapakila_non_vendu->count();
-                                                         $nbre_paye=0;
-                                                         $users=$ticket->users()->wherePivot('ticket_id', '=', $ticket->id)->get();
-                                                     @endphp
-                                                     @foreach($users as $user)
-                                                         @php
-                                                             $ticket_users=$user->tickets()->wherePivot('ticket_id', '=',$ticket->id )->wherePivot('status_payment', '=',"SUCCESS")->get();;
-                                                             $nbre_paye=$ticket_users->count();
-                                                         @endphp
-                                                     @endforeach
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @php $id=0; @endphp
+                                        @foreach($event->tickets as $ticket)
+                                            @if($ticket->id != $id)
+                                                @php
+                                                    $id = $ticket->id;
+                                                @endphp
+                                                <tr>
+                                                    <td>{{$ticket->type}}</td>
+                                                    <td>{{$ticket->tapakila()->count()}}</td>
+                                                    @php
+                                                        $tapakilas=$ticket->tapakila();
+                                                        $tapakila_vendu = $ticket->tapakila()->where('vendu', '=', '1')->get();
+                                                        $tapakila_non_vendu = $ticket->tapakila()->where('vendu', '=', '0')->get();
+                                                        $nbre_vendu=$tapakila_vendu->count();
+                                                        $nbre_non_vendu=$tapakila_non_vendu->count();
+                                                        $nbre_paye=0;
+                                                        $users=$ticket->users()->wherePivot('ticket_id', '=', $ticket->id)->get();
+                                                    @endphp
+                                                    @foreach($users as $user)
+                                                        @php
+                                                            $ticket_users=$user->tickets()->wherePivot('ticket_id', '=',$ticket->id )->wherePivot('status_payment', '=',"SUCCESS")->get();;
+                                                            $nbre_paye=$ticket_users->count();
+                                                        @endphp
+                                                    @endforeach
 
-                                                     <td>{{ $nbre_vendu}}</td>
-                                                     <td>{{ $nbre_non_vendu}}</td>
+                                                    <td>{{ $nbre_vendu}}</td>
+                                                    <td>{{ $nbre_non_vendu}}</td>
 
-                                                     <td>{{$nbre_paye}}</td>
-                                                 </tr>
-                                             @endif
-                                         @endforeach
-                                         </tbody>
-                                     </table>
+                                                    <td>{{$nbre_paye}}</td>
+                                                </tr>
+                                            @endif
+                                        @endforeach
+                                        </tbody>
+                                    </table>
 
 
-                                 </div>
-                             </div>
-                         </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <!------------------------------------Rapport-end--------------------------------------------------------------------------->
 
                     <!------------------------------------type-ticket-------------------------------------------------------------------------->
 
                     <div id="div_type"
-                         @if(session('page')) @if(session('page') == 'details')  class="hide" @elseif(session('page') == 'rapport') class="hide" @endif @else class="hide" @endif>
+                         @if(session('page')) @if(session('page') == 'details')  class="hide"
+                         @elseif(session('page') == 'rapport') class="hide" @endif @else class="hide" @endif>
                         <div id="type_ticket">
                             <div class="com_contenu_type">
                                 <div class="panel panel-content">
@@ -461,8 +479,10 @@
                                                                         ) !!}
                                                                     </div>
                                                                 </h2>
-                                                                <div class="modal fade modal-danger" id="confirmDelete"
-                                                                     role="dialog" aria-labelledby="confirmDeleteLabel"
+                                                                <div class="modal fade modal-danger"
+                                                                     id="confirmDelete"
+                                                                     role="dialog"
+                                                                     aria-labelledby="confirmDeleteLabel"
                                                                      aria-hidden="true">
                                                                     <div class="modal-dialog">
                                                                         <div class="modal-content">
@@ -472,15 +492,22 @@
                                                                                         aria-label="Close"><span
                                                                                             aria-hidden="true">&times;</span>
                                                                                 </button>
-                                                                                <h4 class="modal-title">Confirmer la supression</h4>
+                                                                                <h4 class="modal-title">Confirmer la
+                                                                                    supression</h4>
                                                                             </div>
                                                                             <div class="modal-body">
                                                                                 <p>Suprimer ce ticket?</p>
-                                                                                <p>Attention !!! ,ce ticket pourraît être dèja acheté par des clients, vous êtes sur de votre action ?</p>
+                                                                                <p>Attention !!! ,ce ticket pourraît
+                                                                                    être dèja acheté par des
+                                                                                    clients, vous êtes sur de votre
+                                                                                    action ?</p>
                                                                             </div>
                                                                             <div class="modal-footer">
                                                                                 {!! Form::button('<i class="fa fa-fw fa-close" aria-hidden="true"></i>Annuler', array('class' => 'btn  pull-left btn-flat btn-annulation', 'type' => 'button', 'data-dismiss' => 'modal' )) !!}
-                                                                                <a class="btn btn-supr  pull-right btn-flat" href="{{ url("organisateur/event/ticket/delete/".$ticket->id."/".$event->id) }}"> <span class="fa fa-fw fa-trash-o"aria-hidden="true"></span>Suprimer</a>
+                                                                                <a class="btn btn-supr  pull-right btn-flat"
+                                                                                   href="{{ url("organisateur/event/ticket/delete/".$ticket->id."/".$event->id) }}">
+                                                                                        <span class="fa fa-fw fa-trash-o"
+                                                                                              aria-hidden="true"></span>Suprimer</a>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -509,46 +536,46 @@
 
                     <!------------------------------------Ticket validé--------------------------------------------------------------------------->
 
-                    {{--<div id="div_valideTicket" class="hide">
-                        <div id="billet">
-                            <div class="com_contenu">
-                                <div class="panel panel-content">
-                                    <div class="panel-body border-bottom">
-                                        <h2>Validation des billets</h2>
-                                        <p>
-                                            Pour valider les tickets, vous aurez besoin d'un appareil mobile ou d'un
-                                            ordinateur
-                                            et d'une connexion Internet.
+                {{--<div id="div_valideTicket" class="hide">
+                    <div id="billet">
+                        <div class="com_contenu">
+                            <div class="panel panel-content">
+                                <div class="panel-body border-bottom">
+                                    <h2>Validation des billets</h2>
+                                    <p>
+                                        Pour valider les tickets, vous aurez besoin d'un appareil mobile ou d'un
+                                        ordinateur
+                                        et d'une connexion Internet.
 
-                                            Vous pouvez utiliser cet <a href="#" target="_blank">Exemple de ticket</a>
-                                            pour
-                                            vérifier si la validation fonctionne correctement.</p><br>
-                                        <h3>Appareils mobiles</h3>
-                                        <hr class="separe">
-                                        <p>Téléchargez notre application gratuite:</p>
-                                        <a href="#" target="_blank"><img src="img/download-appstore.png"></a>
-                                        <a href="#" target="_blank"><img src="img/download-playstore.png"></a>
-                                        <p class="a1">Ou utiliser payé <a href="#" data-toggle="collapse">Pic2Shop
-                                                Pro</a>.</p>
-                                        <h3 class="h14">Ordinateurs et périphériques spéciaux</h3>
-                                        <hr class="separe">
-                                        <p>Vous pouvez également utiliser différentes combinaisons de scanners et
-                                            d'ordinateurs
-                                            de codes à barres pour valider les tickets. Configurez votre scanner pour
-                                            décoder
-                                            les formats "Code QR" et "Code 128" et soumettre le formulaire au <a
-                                                    href="#">https://------ </a>Qui
-                                            renvoie l'état actuel du ticket et le marque comme étant utilisé.</p>
-
-                                    </div>
+                                        Vous pouvez utiliser cet <a href="#" target="_blank">Exemple de ticket</a>
+                                        pour
+                                        vérifier si la validation fonctionne correctement.</p><br>
+                                    <h3>Appareils mobiles</h3>
+                                    <hr class="separe">
+                                    <p>Téléchargez notre application gratuite:</p>
+                                    <a href="#" target="_blank"><img src="img/download-appstore.png"></a>
+                                    <a href="#" target="_blank"><img src="img/download-playstore.png"></a>
+                                    <p class="a1">Ou utiliser payé <a href="#" data-toggle="collapse">Pic2Shop
+                                            Pro</a>.</p>
+                                    <h3 class="h14">Ordinateurs et périphériques spéciaux</h3>
+                                    <hr class="separe">
+                                    <p>Vous pouvez également utiliser différentes combinaisons de scanners et
+                                        d'ordinateurs
+                                        de codes à barres pour valider les tickets. Configurez votre scanner pour
+                                        décoder
+                                        les formats "Code QR" et "Code 128" et soumettre le formulaire au <a
+                                                href="#">https://------ </a>Qui
+                                        renvoie l'état actuel du ticket et le marque comme étant utilisé.</p>
 
                                 </div>
+
                             </div>
                         </div>
-                    </div>--}}
+                    </div>
+                </div>--}}
 
 
-                    <!------------------------------------Ticket validé-end------------------------------------------------------------------------->
+                <!------------------------------------Ticket validé-end------------------------------------------------------------------------->
 
 
                     <!------------------------------------Site web-------------------------------------------------------------------------->
@@ -594,7 +621,8 @@
                                             <div class="dropify-wrapper" onmouseover="mouseOverFunction()"
                                                  onmouseout="mouseOutFunction()">
 
-                                                <div class="dropify-message" id="mot"><span class="file-icon"></span>
+                                                <div class="dropify-message" id="mot"><span
+                                                            class="file-icon"></span>
                                                     <i class="glyphicon glyphicon-open"></i>
                                                     <p>Cliquez ou faites glisser votre fichier ici</p>
                                                 </div>
@@ -669,7 +697,8 @@
                                         </div>
                                         <input type="hidden" class="delete" name="en[image_pdf_delete]"
                                                id="en[image_pdf_delete]">
-                                        <input type="hidden" class="filename" name="en[image_pdf]" id="en[image_pdf]"
+                                        <input type="hidden" class="filename" name="en[image_pdf]"
+                                               id="en[image_pdf]"
                                                value="">
                                         <span class="help-block">L'image couvrira le ticket d'un côté à l'autre. Utilisez un fichier JPG ou PNG de 1240px. Lorsque vous choisissez la hauteur, assurez-vous que tout sur le ticket PDF correspond à une seule page. Les fichiers les plus étendus sont automatiquement réduits.</span>
                                     </div>
@@ -698,7 +727,8 @@
 
                                 <div class="com_contenu_type">
                                     <h2>Aperçu des tickets</h2>
-                                    <p>Toutes les données du ticket sont incluses dans le corps du courrier électronique
+                                    <p>Toutes les données du ticket sont incluses dans le corps du courrier
+                                        électronique
                                         et dans
                                         le fichier .pdf
                                         joint.</p>
@@ -714,13 +744,15 @@
 
                                     <div class="tab-content ">
                                         <div class="tab-pane active" id="1a">
-                                            <button type="button" class="btn pull-right c1">Envoyez-moi un email de test
+                                            <button type="button" class="btn pull-right c1">Envoyez-moi un email de
+                                                test
                                             </button>
                                             <div class=" row menu_int1">
                                                 <div class="menu_int2">
                                                     <div class="com_contenu_type">
                                                         <h2>Tapakila</h2>
-                                                        <p>Merci, voici vos billets! Lorsque vous participez, indiquez
+                                                        <p>Merci, voici vos billets! Lorsque vous participez,
+                                                            indiquez
                                                             le code
                                                             dans ce courrier
                                                             électronique ou utilisez le fichier .pdf ci-joint</p>
@@ -737,18 +769,21 @@
                                                             <img src="img/123456TEST.png" class="qt">
 
                                                         </p>
-                                                        <p class="small" style="text-align: center; font-size: 13px;">
+                                                        <p class="small"
+                                                           style="text-align: center; font-size: 13px;">
                                                             123456TEST</p>
                                                     </div>
 
                                                 </div>
-                                                <table role="presentation" cellspacing="0" cellpadding="0" border="0"
+                                                <table role="presentation" cellspacing="0" cellpadding="0"
+                                                       border="0"
                                                        align="center"
                                                        width="100%" style="max-width: 680px;">
                                                     <tbody>
                                                     <tr>
                                                         <td style="padding: 15px 10px 40px 10px; width: 100%; font-family: sans-serif; text-align: center; color: #888888;">
-                                                            <p class="small" style="font-size: 13px; line-height:22px;">
+                                                            <p class="small"
+                                                               style="font-size: 13px; line-height:22px;">
                                                                 Ticket order 123456<br>
                                                                 This email has been sent to <a
                                                                         href="mailto:dinavonjy@icloud.com">dinavonjy@icloud
@@ -803,7 +838,8 @@
                             <h2>Les champs additioneles</h2>
                             <p>
                                 Par défaut, les clients sont invités à fournir une seule adresse électronique et un
-                                numéro de téléphone obligatoires. Ici, vous pouvez ajouter d'autres questions telles que
+                                numéro de téléphone obligatoires. Ici, vous pouvez ajouter d'autres questions telles
+                                que
                                 le prénom, l'adresse etc.</p>
                         </div>
                         <div class="com_contenu_type2">
@@ -854,7 +890,8 @@
                                             <div class="col-lg-4 col-sm-6">
                                                 <div class="radio">
                                                     <label class="button  ">
-                                                        <img class="logo" src="{{url('/')}}/public//img/logmartel.png"
+                                                        <img class="logo"
+                                                             src="{{url('/')}}/public//img/logmartel.png"
                                                              alt="">
                                                         <b class="operateura">Airtel money</b>
                                                         <label class="custom-control custom-checkbox che pull-right">
@@ -869,7 +906,8 @@
                                             <div class="col-lg-4 col-sm-12">
                                                 <div class="radio">
                                                     <label class="button  ">
-                                                        <img class="logo" src="{{url('/')}}/public//img/logmorange.png"
+                                                        <img class="logo"
+                                                             src="{{url('/')}}/public//img/logmorange.png"
                                                              alt="">
                                                         <b class="operateura">Orange money</b>
                                                         <label class="custom-control custom-checkbox che pull-right">
@@ -899,7 +937,8 @@
                                         <div class="checkbox">
                                             <label>
                                                 <input type="checkbox" value="" id="check" onchange="changing()">
-                                                Autoriser le paiement par facture. L'acheteur recevra une facture émise
+                                                Autoriser le paiement par facture. L'acheteur recevra une facture
+                                                émise
                                                 au nom de ma société. La réception du paiement et l'exécution de la
                                                 commande seront traitées par Piletimasin.
                                                 <a href="#" target="_blank">Aperçu de l'exemple de facturation.</a>.
@@ -913,14 +952,16 @@
                                         <label>Tickets</label>
                                         <div class="radio">
                                             <label>
-                                                <input type="radio" name="optradio" checked="checked">Les billets sont
+                                                <input type="radio" name="optradio" checked="checked">Les billets
+                                                sont
                                                 envoyés à la réception du paiement.
                                             </label>
                                         </div>
                                         <div class="radio">
                                             <label>
                                                 <input type="radio" name="optradio">Les billets sont envoyés
-                                                immédiatement lorsque la commande est effectuée, ainsi que la facture.
+                                                immédiatement lorsque la commande est effectuée, ainsi que la
+                                                facture.
                                                 En tant qu'organisateur, je risque de recevoir le paiement.</label>
                                         </div>
                                     </div>
