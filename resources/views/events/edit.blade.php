@@ -363,7 +363,7 @@
 
                     <!-------------------------------------rapport------------------------------------------------------------------------->
 
-                    <div id="div_rapport" @if(session('page')) @if(session('page')=='rapport') class="show" @elseif(session('page') == 'tickets') class="hide" @endif @endif >
+                    <div id="div_rapport" @if(session('page')) @if(session('page')=='rapport') class="show" @elseif(session('page') == 'tickets') class="hide" @endif @else class="hide" @endif >
                          <div id="rapport">
                              <div class="com_contenu_type">
                                  <div class="table-responsive users-table">
@@ -424,7 +424,7 @@
                     <!------------------------------------type-ticket-------------------------------------------------------------------------->
 
                     <div id="div_type"
-                         @if(session('page')) @if(session('page') == 'details')  class="hide" @elseif(session('page') == 'rapport') class="hide" @endif  @endif>
+                         @if(session('page')) @if(session('page') == 'details')  class="hide" @elseif(session('page') == 'rapport') class="hide" @endif @else class="hide" @endif>
                         <div id="type_ticket">
                             <div class="com_contenu_type">
                                 <div class="panel panel-content">
