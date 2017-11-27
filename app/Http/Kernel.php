@@ -3,6 +3,7 @@
 namespace App\Http;
 
 use App\Http\Middleware\CheckIsUserActivated;
+use App\Http\Middleware\Service;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -19,6 +20,7 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
+        \Barryvdh\Cors\HandleCors::class,
     ];
 
     /**
@@ -35,6 +37,7 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            \Barryvdh\Cors\HandleCors::class,
         ],
         'api' => [
             'throttle:60,1',
@@ -63,6 +66,7 @@ class Kernel extends HttpKernel
         'role' => \jeremykenedy\LaravelRoles\Middleware\VerifyRole::class,
         'permission' => \jeremykenedy\LaravelRoles\Middleware\VerifyPermission::class,
         'level' => \jeremykenedy\LaravelRoles\Middleware\VerifyLevel::class,
-        'currentUser'   => \App\Http\Middleware\CheckCurrentUser::class,
+        'currentUser' => \App\Http\Middleware\CheckCurrentUser::class,
+        'service' => Service::class
     ];
 }

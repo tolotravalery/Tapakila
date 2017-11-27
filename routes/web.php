@@ -62,7 +62,7 @@ Route::group(['middleware' => 'web'], function () {
         Route::get('contact', 'AproposController@contact');
         Route::get('term', 'AproposController@term');
         Route::get('shop', 'AproposController@achat');
-		Route::get('vie-prive', 'AproposController@vieprive');
+        Route::get('vie-prive', 'AproposController@vieprive');
         Route::get('shop/ticket', 'AproposController@achatBillet');
     });
 
@@ -133,7 +133,7 @@ Route::group(['middleware' => ['auth', 'activated', 'currentUser']], function ()
         Route::post('checkout/payment', 'Shopping\CheckoutController@savePayment');
         Route::get('payment/{users_id}/{id}', 'Shopping\CheckoutController@pay');
         Route::get('quiz', 'Shopping\CheckoutController@quiz');
-        Route::get('annuler/{users_id}/{id}','UserController@annuler');
+        Route::get('annuler/{users_id}/{id}', 'UserController@annuler');
     });
 
 });
@@ -221,8 +221,8 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin'], 'prefix' => '
         ]
     ]);
 
-    Route::delete('ticket/delete/{id}/{event_id}','TicketController@delete_admin')->name('ticket/delete');
-    Route::get('tickets/update/{id}/{event_id}','TicketController@edit_admin');
+    Route::delete('ticket/delete/{id}/{event_id}', 'TicketController@delete_admin')->name('ticket/delete');
+    Route::get('tickets/update/{id}/{event_id}', 'TicketController@edit_admin');
     Route::put('tickets', 'TicketController@update_admin')->name('ticket');
     Route::get('events/update/{id}', 'EventController@edit_admin');
     Route::get('events/create', 'EventController@create_admin');
@@ -255,5 +255,13 @@ Route::group(['middleware' => ['auth', 'activated'], 'prefix' => 'organisateur']
     Route::post('question', 'EventController@question_secret')->name('question');
     Route::put('event', 'EventController@update')->name('event');
     Route::get('event/ticket/delete/{id}/{event_id}', 'TicketController@delete');
-    Route::get('rapport/{id}','EventController@rapport_vue');
+    Route::get('rapport/{id}', 'EventController@rapport_vue');
+});
+
+Route::group(['middleware' => ['service'], 'prefix' => 'service'], function () {
+    Route::get('login', 'Services\LoginController@index');
+    Route::get('event', 'Services\EventController@index');
+    Route::get('ticket', 'Services\TicketController@index');
+    Route::get('tapakila', 'Services\TapakilaController@scan');
+    Route::get('tapakila/load', 'Services\TapakilaController@load');
 });
