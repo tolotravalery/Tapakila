@@ -132,6 +132,7 @@
                                     <th scope="col"><b class="bold">Tickets</b></th>
                                     <th scope="col"><b class="bold">Prix Unitaire</b></th>
                                     <th scope="col"><b class="bold"></b></th>
+                                    <th scope="col"><b class="bold"></b></th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -169,8 +170,10 @@
                                                 Indisponible
                                             @endif
                                         </td>
-                                        <td data-label=""><p><a href="organisateur/event/{{$e->id}}/edit" alt="Edit"
-                                                                class="rapport">Editer</a></p>
+                                        <td data-label=""><p><a href="organisateur/event/{{$e->id}}/edit" alt="Edit" class="rapport">Editer</a></p>
+                                        </td>
+                                        <td data-label="">
+                                            <p><a href="organisateur/rapport/{{$e->id}}" alt="Edit" class="rapport">Rapport</a></p>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -256,7 +259,7 @@
 											<p><a href="shopping/payment/{{Auth::user()->id}}/{{$a->pivot->id}}" alt="Edit" style="color: #d70506;font-size: 30px !important;">Payer</a></p>
                                                 </td>
                                                 <td data-label="">
-                                                <p><a href="#" alt="Edit" style="color: #d70506;font-size: 18px !important;">Annuler</a></p>
+                                                <p><a href="shopping/annuler/{{Auth::user()->id}}/{{$a->pivot->id}}" alt="Edit" style="color: #d70506;font-size: 18px !important;">Annuler</a></p>
 											
                                                 </td>
                                             @else

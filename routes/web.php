@@ -133,6 +133,7 @@ Route::group(['middleware' => ['auth', 'activated', 'currentUser']], function ()
         Route::post('checkout/payment', 'Shopping\CheckoutController@savePayment');
         Route::get('payment/{users_id}/{id}', 'Shopping\CheckoutController@pay');
         Route::get('quiz', 'Shopping\CheckoutController@quiz');
+        Route::get('annuler/{users_id}/{id}', 'UserController@annuler');
     });
 
 });
@@ -254,11 +255,13 @@ Route::group(['middleware' => ['auth', 'activated'], 'prefix' => 'organisateur']
     Route::post('question', 'EventController@question_secret')->name('question');
     Route::put('event', 'EventController@update')->name('event');
     Route::get('event/ticket/delete/{id}/{event_id}', 'TicketController@delete');
+    Route::get('rapport/{id}', 'EventController@rapport_vue');
 });
 
 Route::group(['middleware' => ['service'], 'prefix' => 'service'], function () {
-    Route::resource('login', 'Services\LoginController');
-    Route::resource('event', 'Services\EventController');
-    Route::resource('ticket', 'Services\TicketController');
+    Route::get('login', 'Services\LoginController@index');
+    Route::get('event', 'Services\EventController@index');
+    Route::get('ticket', 'Services\TicketController@index');
     Route::get('tapakila', 'Services\TapakilaController@scan');
+    Route::get('tapakila/load', 'Services\TapakilaController@load');
 });

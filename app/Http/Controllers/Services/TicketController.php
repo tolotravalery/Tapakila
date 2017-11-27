@@ -10,7 +10,6 @@ namespace App\Http\Controllers\Services;
 
 
 use App\Models\Events;
-use App\Models\Ticket;
 use Illuminate\Http\Request;
 
 class TicketController

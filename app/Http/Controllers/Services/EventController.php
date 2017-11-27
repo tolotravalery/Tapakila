@@ -16,7 +16,8 @@ class EventController
 {
     public function index(Request $request)
     {
-        $data = array('list' => Events::where('user_id', '=', $request->input('user_id'))->get());
+        $event = Events::where('user_id', '=', $request->input('user_id'))->get();
+        $data = array('list' => $event);
         return response()->json($data, 201);
     }
 }

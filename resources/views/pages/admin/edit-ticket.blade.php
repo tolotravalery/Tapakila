@@ -154,9 +154,12 @@
                             <table class="table table-striped table-condensed data-table">
                                 <thead>
                                 <tr>
-                                    <th>Type</th>
+                                    <th width="20%">Type</th>
                                     <th>Price</th>
-                                    <th>Nombres</th>
+                                    <th width="10%">Nombres</th>
+                                    <th width="10%">Ticket vendu</th>
+                                    <th width="10%">Ticket non vendu</th>
+                                    <th width="10%">Ticket payé</th>
                                     <th></th>
                                     <th></th>
                                 </tr>
@@ -171,7 +174,25 @@
                                         <tr>
                                             <td>{{$ticket->type}}</td>
                                             <td>{{$ticket->price}}</td>
-                                            <td>{{$ticket->number}}</td>
+                                            <td>{{$ticket->tapakila()->count()}}</td>
+                                            @php
+                                                $tapakilas=$ticket->tapakila();
+                                                $tapakila_vendu = $ticket->tapakila()->where('vendu', '=', '1')->get();
+                                                $tapakila_non_vendu = $ticket->tapakila()->where('vendu', '=', '0')->get();
+                                                $nbre_vendu=$tapakila_vendu->count();
+                                                $nbre_non_vendu=$tapakila_non_vendu->count();
+                                                $nbre_paye=0;
+                                                $users=$ticket->users()->wherePivot('ticket_id', '=', $ticket->id)->get();
+                                            @endphp
+                                            @foreach($users as $user)
+                                                @php
+                                                    $ticket_users=$user->tickets()->wherePivot('ticket_id', '=',$ticket->id )->wherePivot('status_payment', '=',"SUCCESS")->get();;
+                                                    $nbre_paye=$ticket_users->count();
+                                                @endphp
+                                            @endforeach
+                                            <td>{{ $nbre_vendu}}</td>
+                                            <td>{{ $nbre_non_vendu}}</td>
+                                            <td>{{$nbre_paye}}</td>
                                             <td style="width: 25px;">
                                                 {!! Form::open(array('url' => 'admin/ticket/delete/'.$ticket->id."/".$event->id, 'class' => '', 'data-toggle' => 'tooltip', 'title' => 'Delete')) !!}
                                                 {!! Form::hidden('_method', 'delete') !!}

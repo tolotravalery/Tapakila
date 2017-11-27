@@ -12,7 +12,7 @@
                 @endforeach
 
             </ul>
-            <a href="#" class="menupull" id="pull"><strong>Catégories &nbsp <label class="test">&darr;</label></strong></a>
+            <a href="#" class="menupull" id="pull"><strong>Catégories</strong></a>
         </div>
     </section>
 
@@ -88,7 +88,7 @@
                                                     <br> Les billets faisant partie de la catégorie « Place non réservée » n'ont pas d'emplacement spécifique. Les billets faisant partie de la catégorie « admission générale » correspondent généralement à des places debout.
                                                 </label>
                                             </p>
-
+<!-- 
                                             <p onclick="accord3()"><span style="cursor: pointer">Où mes places sereont-elles situés ?</span>
                                                 <br>
                                                 <label id="demo3" class="hidden padd">
@@ -101,7 +101,7 @@
                                                     <br>
                                                     <br>
                                                 </label>
-                                            </p>
+                                            </p> -->
 
                                             <p onclick="accord4()"><span style="cursor: pointer">Puis-je acheter des billets personnalisé sur lesquels figure le nom de quelqu'un d'autre ?</span>
                                                 <br>
@@ -385,7 +385,7 @@
                                                     <br>
                                                     <br> Service(s) : désigne tous les services offerts sur le site www.Leguichet.com.
                                                     <br>
-                                                    <br> Site : désigne le site<a href="#"> www.Leguichet.com.</a>
+                                                    <br> Site : désigne le site<a href="www.leguichet.com"> www.Leguichet.com.</a>
                                                     <br>
                                                     <br> Titulaire des Droits d’Exploitation ou TDE : désigne toute personne responsable, à quelque titre que ce soit, de l’organisation de la manifestation ou du spectacle pour laquelle/lequel un Listing est mis en ligne sur le Site par un Vendeur et disposant en cette qualité de droits d’exploitation sur ladite/ledit manifestation ou spectacle. Cette définition vise notamment, sans que cette liste soit limitative, le producteur, l'organisateur ou le propriétaire des droits d'exploitation de la manifestation ou du spectacle.
                                                     <br>
@@ -463,7 +463,7 @@
                                                     <br>
                                                     <br> 4.1 Faire une offre : Un Membre qui désire acheter un Billet doit tout d'abord consulter la Plateforme Leguichet afin de trouver les Billets correspondant à ses critères de recherches. Lorsque ces Billets ont été trouvés par l'Acheteur, il matérialise sa décision par l'intermédiaire d'une « offre » d'achat des Billets. Nous attirons votre attention sur le fait que Vous êtes seul responsable du choix des Billets que Vous souhaitez acquérir.
                                                     <br>
-                                                    <br> En plaçant une « offre » d’achat, Vous, en tant qu'Acheteur, octroyez à Leguichet le droit de débiter du Prix de la Transaction votre carte de crédit ou de débit, votre compte PayPal ou votre compte bancaire pour l'achat des Billets choisis.
+                                                    <br> En plaçant une « offre » d’achat, Vous, en tant qu'Acheteur, octroyez à Leguichet le droit de débiter du Prix de la Transaction votre carte de crédit ou de débit, votre compte mobile ou votre compte bancaire pour l'achat des Billets choisis.
                                                     <br>
                                                     <br> 4.2 Changement de places : Les Billets mis en vente sont une représentation de la place réelle. Il est possible que ces Billets soient échangés contre des places comparables ou mieux situées après approbation de l'Acheteur.
                                                     <br>
@@ -471,7 +471,7 @@
                                                     <br>
                                                     <br> 5.1 Paiement : Conformément à l’article 4.1 des présentes Conditions Générales d’Utilisation, en cas de paiement par carte de crédit ou de débit, Nous obtenons une autorisation de prélèvement auprès de l’émetteur de la carte de crédit ou de débit de l'Acheteur équivalente au Prix de la Transaction. L'autorisation restera valable jusqu'à ce que la vente soit exécutée ou la commande annulée.
                                                     <br>
-                                                    <br> En cas de paiement par PayPal, Nous obtiendrons une autorisation auprès du compte PayPal de l'Acheteur équivalente à la somme du Prix, des commissions et frais de livraison des Billets. Nous ajouterons, le cas échéant, la TVA à nos frais et commissions.
+                                                    <br> En cas de paiement par mobile, Nous obtiendrons une autorisation auprès du compte mobile de l'Acheteur équivalente à la somme du Prix, des commissions et frais de livraison des Billets. Nous ajouterons, le cas échéant, la TVA à nos frais et commissions.
                                                     <br>
                                                     <br> En cas de paiement par virement bancaire, Nous vérifierons la validité du compte bancaire émetteur du virement.
                                                     <br>
@@ -485,7 +485,7 @@
                                                     <br>
                                                     <br> 6.3 Divulgation d'informations : Vous acceptez que Leguichet fasse état, aux autorités règlementaires, aux autorités de régulation et/ou à tout tiers compétent, de toute activité dont elle soupçonne qu’elle constitue une violation à la loi. Leguichet coopérera afin de garantir que les auteurs de violations soient poursuivis conformément à la loi.
                                                     <br>
-                                                    <br> 6.4 Exécution d'ajustements : Vous Nous autorisez à différer le paiement ou à débiter votre carte de crédit ou de débit, ou votre compte Paypal, dans le cadre de l’autorisation de prélèvement que Vous Nous accordez, de tout montant que Vous Nous devrez si (a) un ajustement est effectué du fait de l’exécution de notre garantie Leguichet ; (b) Nous soupçonnons qu’une fraude ou un autre acte illégal a été commis lors des activités de vente ou d'achat et si une autorité compétente Nous fait la demande de différer le paiement ou de débiter votre moyen de paiement à titre provisoire ; (c) Vous ne livrez pas les mêmes Billets que ceux que Vous avez mis en vente sur le Site et dont la transaction a été confirmée ; (d) Vous adressez des objets promotionnels à un Acheteur ; ou (e) si Vous Nous devez de l'argent. Si l'une des situations citées devait se produire, Nous Nous réservons le droit de déduire de votre paiement le montant que Vous Nous devez.
+                                                    <br> 6.4 Exécution d'ajustements : Vous Nous autorisez à différer le paiement ou à débiter votre carte de crédit ou de débit, ou votre compte mobile, dans le cadre de l’autorisation de prélèvement que Vous Nous accordez, de tout montant que Vous Nous devrez si (a) un ajustement est effectué du fait de l’exécution de notre garantie Leguichet ; (b) Nous soupçonnons qu’une fraude ou un autre acte illégal a été commis lors des activités de vente ou d'achat et si une autorité compétente Nous fait la demande de différer le paiement ou de débiter votre moyen de paiement à titre provisoire ; (c) Vous ne livrez pas les mêmes Billets que ceux que Vous avez mis en vente sur le Site et dont la transaction a été confirmée ; (d) Vous adressez des objets promotionnels à un Acheteur ; ou (e) si Vous Nous devez de l'argent. Si l'une des situations citées devait se produire, Nous Nous réservons le droit de déduire de votre paiement le montant que Vous Nous devez.
                                                     <br>
                                                     <br> 7.1 Non garantie : À l'exception des garanties explicites déclarées dans cet Accord, Leguichet fournit les logiciels, le Site et les Services « tels qu'ils sont présentés » et « selon leur disponibilité » sans aucune garantie de quelque sorte que ce soit. Leguichet n'offre aucune garantie concernant ses logiciels, les Billets, les événements, les Services que Leguichet offre, ou la bonne exécution des promesses des Vendeurs ou des Acheteurs au-delà des garanties légales telles que prévues par les textes applicables. En particulier, Leguichet décline toute garantie, qu'elle soit explicite, obligatoire ou implicite, y compris et sans réserve(s), les garanties de qualité, de titre, de non violation des droits de tiers, etc. autant que la réglementation applicable le permet.
                                                     <br>
@@ -744,7 +744,7 @@
                                             <p onclick="accord38()"><span style="cursor: pointer">Comment réinitialiser mon mot de passe ?</span>
                                                 <br>
                                                 <label id="demo38" class="hidden padd">
-                                                    Cliquez <a href="#">ici</a> pour réinitialiser votre mot de passe.
+                                                    Cliquez <a href="{{ route('password.request') }}">ici</a> pour réinitialiser votre mot de passe.
                                                 </label>
                                             </p>
 
@@ -935,7 +935,7 @@
                                                     <br>
                                                     <br> 4.1 Faire une offre : Un Membre qui désire acheter un Billet doit tout d'abord consulter la Plateforme Leguichet afin de trouver les Billets correspondant à ses critères de recherches. Lorsque ces Billets ont été trouvés par l'Acheteur, il matérialise sa décision par l'intermédiaire d'une « offre » d'achat des Billets. Nous attirons votre attention sur le fait que Vous êtes seul responsable du choix des Billets que Vous souhaitez acquérir.
                                                     <br>
-                                                    <br> En plaçant une « offre » d’achat, Vous, en tant qu'Acheteur, octroyez à Leguichet le droit de débiter du Prix de la Transaction votre carte de crédit ou de débit, votre compte PayPal ou votre compte bancaire pour l'achat des Billets choisis.
+                                                    <br> En plaçant une « offre » d’achat, Vous, en tant qu'Acheteur, octroyez à Leguichet le droit de débiter du Prix de la Transaction votre carte de crédit ou de débit, votre compte mobile ou votre compte bancaire pour l'achat des Billets choisis.
                                                     <br>
                                                     <br> 4.2 Changement de places : Les Billets mis en vente sont une représentation de la place réelle. Il est possible que ces Billets soient échangés contre des places comparables ou mieux situées après approbation de l'Acheteur.
                                                     <br>
@@ -943,7 +943,7 @@
                                                     <br>
                                                     <br> 5.1 Paiement : Conformément à l’article 4.1 des présentes Conditions Générales d’Utilisation, en cas de paiement par carte de crédit ou de débit, Nous obtenons une autorisation de prélèvement auprès de l’émetteur de la carte de crédit ou de débit de l'Acheteur équivalente au Prix de la Transaction. L'autorisation restera valable jusqu'à ce que la vente soit exécutée ou la commande annulée.
                                                     <br>
-                                                    <br> En cas de paiement par PayPal, Nous obtiendrons une autorisation auprès du compte PayPal de l'Acheteur équivalente à la somme du Prix, des commissions et frais de livraison des Billets. Nous ajouterons, le cas échéant, la TVA à nos frais et commissions.
+                                                    <br> En cas de paiement par mobile, Nous obtiendrons une autorisation auprès du compte mobile de l'Acheteur équivalente à la somme du Prix, des commissions et frais de livraison des Billets. Nous ajouterons, le cas échéant, la TVA à nos frais et commissions.
                                                     <br>
                                                     <br> En cas de paiement par virement bancaire, Nous vérifierons la validité du compte bancaire émetteur du virement.
                                                     <br>
@@ -957,7 +957,7 @@
                                                     <br>
                                                     <br> 6.3 Divulgation d'informations : Vous acceptez que Leguichet fasse état, aux autorités règlementaires, aux autorités de régulation et/ou à tout tiers compétent, de toute activité dont elle soupçonne qu’elle constitue une violation à la loi. Leguichet coopérera afin de garantir que les auteurs de violations soient poursuivis conformément à la loi.
                                                     <br>
-                                                    <br> 6.4 Exécution d'ajustements : Vous Nous autorisez à différer le paiement ou à débiter votre carte de crédit ou de débit, ou votre compte Paypal, dans le cadre de l’autorisation de prélèvement que Vous Nous accordez, de tout montant que Vous Nous devrez si (a) un ajustement est effectué du fait de l’exécution de notre garantie Leguichet ; (b) Nous soupçonnons qu’une fraude ou un autre acte illégal a été commis lors des activités de vente ou d'achat et si une autorité compétente Nous fait la demande de différer le paiement ou de débiter votre moyen de paiement à titre provisoire ; (c) Vous ne livrez pas les mêmes Billets que ceux que Vous avez mis en vente sur le Site et dont la transaction a été confirmée ; (d) Vous adressez des objets promotionnels à un Acheteur ; ou (e) si Vous Nous devez de l'argent. Si l'une des situations citées devait se produire, Nous Nous réservons le droit de déduire de votre paiement le montant que Vous Nous devez.
+                                                    <br> 6.4 Exécution d'ajustements : Vous Nous autorisez à différer le paiement ou à débiter votre carte de crédit ou de débit, ou votre compte mobile, dans le cadre de l’autorisation de prélèvement que Vous Nous accordez, de tout montant que Vous Nous devrez si (a) un ajustement est effectué du fait de l’exécution de notre garantie Leguichet ; (b) Nous soupçonnons qu’une fraude ou un autre acte illégal a été commis lors des activités de vente ou d'achat et si une autorité compétente Nous fait la demande de différer le paiement ou de débiter votre moyen de paiement à titre provisoire ; (c) Vous ne livrez pas les mêmes Billets que ceux que Vous avez mis en vente sur le Site et dont la transaction a été confirmée ; (d) Vous adressez des objets promotionnels à un Acheteur ; ou (e) si Vous Nous devez de l'argent. Si l'une des situations citées devait se produire, Nous Nous réservons le droit de déduire de votre paiement le montant que Vous Nous devez.
                                                     <br>
                                                     <br> 7.1 Non garantie : À l'exception des garanties explicites déclarées dans cet Accord, Leguichet fournit les logiciels, le Site et les Services « tels qu'ils sont présentés » et « selon leur disponibilité » sans aucune garantie de quelque sorte que ce soit. Leguichet n'offre aucune garantie concernant ses logiciels, les Billets, les événements, les Services que Leguichet offre, ou la bonne exécution des promesses des Vendeurs ou des Acheteurs au-delà des garanties légales telles que prévues par les textes applicables. En particulier, Leguichet décline toute garantie, qu'elle soit explicite, obligatoire ou implicite, y compris et sans réserve(s), les garanties de qualité, de titre, de non violation des droits de tiers, etc. autant que la réglementation applicable le permet.
                                                     <br>
