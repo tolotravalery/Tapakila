@@ -32,7 +32,7 @@
                 <div class="row">
 
                     <div class="col-lg-9 col-sm-8 col-lg-push-3 col-sm-push-3 fi">
-                        <h1>Créer un évènement</h1>
+                        <h1>Créer un événement</h1>
                     </div>
 					
                      <div class="col-lg-3 col-sm-4 col-lg-pull-9 col-sm-pull-9 sec">
@@ -57,7 +57,7 @@
 
             <div class="page-menu row">
                 <div class="col-lg-9 col-sm-8 col-lg-push-3 col-sm-push-4 fi">
-                    <h1>Créer un évènement</h1>
+                    <h1>Créer un événement</h1>
                 </div>
                 <div class="col-lg-3 col-sm-4 col-lg-pull-9 col-sm-pull-8 sec">
                     <div class="btn-group margin-bottom-5">
@@ -109,7 +109,7 @@
                                 {{ csrf_field() }}
                                 <div class="panel panel-content">
                                     <div class="panel-body border-bottom">
-                                        <h2>Details</h2>
+                                        <h2>Détails</h2>
                                         <input type="hidden" id="huhu" name="publie">
                                         <div class="clearfix"></div>
                                         <div class="form-group ">
@@ -178,7 +178,7 @@
                                                     <div class="col-md-6 col-sm-6">
                                                         <div class="form-group inp">
                                                             <label class="control-label required">Début de
-                                                                l'évènement</label><span
+                                                                l'événement</label><span
                                                                     class="champ_required"> *</span>
                                                             <div class="input-group">
                                                                 <div class="input-group-addon">
@@ -210,7 +210,7 @@
                                                     <div class="col-md-6 col-sm-6">
                                                         <div class="form-group inp">
                                                             <label class="control-label required">Fin de
-                                                                l'évènement</label><span
+                                                                l'événement</label><span
                                                                     class="champ_required"> *</span>
                                                             <div class="input-group">
                                                                 <div class="input-group-addon">
@@ -238,7 +238,7 @@
                                         </div>
                                         <div class="form-group form-group-translation et" id="message_comp">
                                             <p style="color:red;" id="message_after_comparaison">La date fin
-                                                de l' évenement doit être supérieure à la date debut</p>
+                                                de l' événement doit être supérieure à la date debut</p>
                                             <p style="color:red;" id="message_after_comparaison_date_now">La
                                                 date début ou fin de l' évènement doit être supérieure à la
                                                 date actuelle</p>
@@ -1444,7 +1444,7 @@
 
                                     </div>
                                     <div class="form-group">
-                                        <label for="usr">La description</label>
+                                        <label for="usr">La déscription</label>
                                         <input type="text" class="form-control" id="usr">
                                         <span class="help-block">
 					  Par exemple. "Vendu jusqu'au 23 juin" ou "Préparez-vous à montrer votre carte étudiante"
