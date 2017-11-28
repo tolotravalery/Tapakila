@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Leguichets</title>
+    <title>Le Guichet | Reservations de billets electronique</title>
     <link rel="stylesheet" href="{{ url('/') }}/public/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ url('/') }}/public/css/style.css">
     <link rel="stylesheet" href="{{ url('/') }}/public/css/mediaqueries.css">
@@ -158,7 +158,6 @@
                     <img class="footer-logo" alt="Leguichet" src="{{ url('/') }}/public/img/logo.png">
                     <p class="small custom">
                         By Leguichet.mg<br>
-                        IIB 63 Mahamasina<br>
                         Antananarivo<br>
                         Madagascar<br>
                         +33 12 901432<br>
