@@ -4,3 +4,4 @@ vendor
 storage/*
 public/qr_code
 public/slide
+composer.lock

@@ -68,13 +68,13 @@
                     <div class="row">
                         <div class=" infoline">
                             <ul>
-                                <li class=" statictitle"><i class="fa fa-map-marker"></i><b>Mahamasina</b></li>
-                                <li class=" statictitle"><i class="fa fa-phone"></i><b>034 46 879 10</b></li>
+                                <li class=" statictitle"><i class="fa fa-map-marker"></i><b>Antananarivo</b></li>
+                                <li class=" statictitle"><i class="fa fa-phone"></i><b>034 44 892 80  /  032 67 530 94</b></li>
                                 <li class=" statictitle"><i class="fa fa-envelope"></i><b>contact@leguichet.mg</b></li>
                             </ul>
                         </div>
                         <div class="joinfb">
-                            <a href="https://www.facebook.com/leguichetmg-1194557627312755/">
+                            <a target="_blank" href="https://www.facebook.com/leguichetmg-1194557627312755/">
                                 <img src="{{url('/')}}/public/img/fbcircle.png">
                                 <p class="joins">Nous suivre sur <br>facebook</p></a>
                         </div>
