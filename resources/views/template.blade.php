@@ -160,7 +160,7 @@
                         By Leguichet.mg<br>
                         Antananarivo<br>
                         Madagascar<br>
-                        +33 12 901432<br>
+                        +261 34 44 892 80 / +261 32 67 530 94<br>
                         <a href="mailto:contact@Leguichet.mg" class="foot">contact@Leguichet.mg</a>
                     </p>
                 </div>
