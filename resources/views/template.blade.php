@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="google-site-verification" content="bagVV1tUOWsM9782R2w0ztB9Ba0o1-S703zy9kkJrAk" />
     <title>Le Guichet | Reservations de billets electronique</title>
     <link rel="stylesheet" href="{{ url('/') }}/public/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ url('/') }}/public/css/style.css">
