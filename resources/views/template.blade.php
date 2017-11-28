@@ -15,12 +15,12 @@
     <link rel="stylesheet" href="{{ url('/') }}/public/css/font-awesome.css">
     <link href="{{ url('/') }}/public/css/datepicker.css" rel="stylesheet">
     <link href="{{ url('/') }}/public/css/clockpiker.css" rel="stylesheet">
+    <link rel="icon" href="{{ url('/') }}/public/img/logo.png"/>
     <script type="text/javascript" src="{{ url('/') }}/public/js/jquery.min.js"></script>
     <script type="text/javascript" src="{{ url('/') }}/public/js/bootstrap.min.js"></script>
     <script src="{{ url('/') }}/public/js/datepicker.js"></script>
     <script src="{{ url('/') }}/public/js/clockpicker.js"></script>
     <script src="{{ url('/') }}/public/js/Tapakila.js"></script>
-
 </head>
 <body>
 <!-- header start -->
@@ -159,10 +159,11 @@
                     <img class="footer-logo" alt="Leguichet" src="{{ url('/') }}/public/img/logo.png">
                     <p class="small custom">
                         By Leguichet.mg<br>
-                        Antananarivo<br>
-                        Madagascar<br>
-                        +261 34 44 892 80 / +261 32 67 530 94<br>
-                        <a href="mailto:contact@Leguichet.mg" class="foot">contact@Leguichet.mg</a>
+                        {{--IIB 63 Mahamasina<br>--}}
+                        {{--Antananarivo<br>--}}
+                        {{--Madagascar<br>--}}
+                        {{--+33 12 901432<br>--}}
+                        <a href="mailto:contact@leguichet.mg" class="foot">contact@leguichet.mg</a>
                     </p>
                 </div>
                 <div class="col-sm-3 col-xs-6">
@@ -183,11 +184,11 @@
                 </div>
                 <div class="col-sm-2 col-xs-6 ">
 
-                    <a class="fb-link-icon" href="https://www.facebook.com/Leguichet/" target="_blank"><i
+                    <a class="fb-link-icon" href="https://www.facebook.com/leguichetmg-1194557627312755/" target="_blank"><i
                                 class="fa fa-facebook-square facebookico" aria-hidden="true"></i></a>
 
                     <div id="fb-root"></div>
-                    <div class="fb-like" data-href="https://www.facebook.com/Leguichet/" data-layout="button"
+                    <div class="fb-like" data-href="https://www.facebook.com/leguichetmg-1194557627312755/" data-layout="button"
                          data-action="like" data-size="small" data-show-faces="false" data-colorscheme="dark"
                          data-share="false"></div>
 

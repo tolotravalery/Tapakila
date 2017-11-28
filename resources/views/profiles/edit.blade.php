@@ -10,10 +10,6 @@
                         <br>
                         <strong>{{ Auth::user()->name }}</strong>
                     </div>
-                    @role('user')
-                    <p>Vous devriez changer votre profile en organisateur d'évèmenet si vous voulez ajouter un
-                        évènement.</p>
-                    @endrole
                     <div class="col-md-9">
                         {!! Form::model($user, array('action' => array('ProfilesController@updateUserAccount', $user->id), 'method' => 'PUT', 'class'=>'form-group')) !!}
                         {!! csrf_field() !!}
