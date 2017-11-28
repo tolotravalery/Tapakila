@@ -68,7 +68,7 @@
                     <p style="text-align: justify;"><b>Hyperliens vers des sites web de tiers.</b> Les sites web vers lesquels des hyperliens peuvent avoir lieu depuis ce site Web ne sont pas contrôlés par leguichet.mg et leguichet.mg ne peut pas être tenue responsable du contenu illégal sur ces sites web ni des hyperliens renvoyant eux-mêmes vers d'autres sites web. La présence d'un hyperlien vers les sites web de tiers sur ce site Web n'implique en aucune façon une approbation ou une garantie de qualité de la part de leguichet.mg.<br>
                     <p style="text-align: justify;"><b>Droit applicable et juridictions compétentes.</b> Ce site Web, son exploitation et son usage sont régis par le droit malgache. Sauf disposition légale contraire impérative, les tribunaux de Tananarive sont seuls compétents pour toute dispute liée à l'accès et/ou à l'utilisation de ce site Web.</p><br>
                     <p style="text-align: justify;">Si vous avez des questions concernant nos Conditions d'Utilisation ou notre politique de protection de la Vie Privée, n'hésitez pas à nous contacter par e-mail à contact@leguichet.mg. </p><br>
-                    <p style="text-align: justify;">Dernière mise à jour: Sept 2017.</p>
+                    <p style="text-align: justify;">Dernière mise à jour: Novembre 2017.</p>
                 </div>
             </div>
 
