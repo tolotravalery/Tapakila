@@ -264,4 +264,5 @@ Route::group(['middleware' => ['service'], 'prefix' => 'service'], function () {
     Route::get('ticket', 'Services\TicketController@index');
     Route::get('tapakila', 'Services\TapakilaController@scan');
     Route::get('tapakila/load', 'Services\TapakilaController@load');
+    Route::get('tapakila/export', 'Services\TapakilaController@getDataFromMobile');
 });

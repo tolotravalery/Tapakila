@@ -55,4 +55,12 @@ class TapakilaController extends Controller
         return response()->json($data, 201);
     }
 
+    public function getDataFromMobile(Request $request)
+    {
+        $tapakila = Tapakila::findOrFail($request->input('id'));
+        $tapakila->scanne = $request->input('scanne');
+        $tapakila->save();
+        return response()->json(array("message"=>"update success"), 201);
+    }
+
 }
