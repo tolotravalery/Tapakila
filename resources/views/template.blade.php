@@ -206,8 +206,6 @@
                 |
                 <li><a href="{{url('/')}}/organisateur/event">Ajouter votre evenement</a></li>
                 |
-                <li><a href="#">Publicite</a></li>
-                |
                 <li><a href="{{url('')}}/leguichet/faq">FAQ</a></li>
                 |
                 <li><a href="{{url('')}}/leguichet/vie-prive">Vie privee</a></li>
