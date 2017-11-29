@@ -109,7 +109,7 @@
                                 @else
                                     <p><b>Adresse e-mail de livraison des tickets :</b> &nbsp {{Auth::user()->email}}
                                         &nbsp;&nbsp;&nbsp;<a
-                                                href="{{url('/home')}}" style="color: #d70506">Edit</a></p>hsklqfhsldjkfhkqjsdhfkjqshdfkjqshlf
+                                                href="{{url('/home')}}" style="color: #d70506">Edit</a></p>
                                     <br>
                                 @endif
                             </div>
