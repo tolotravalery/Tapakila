@@ -51,10 +51,10 @@
                 <?php
                 if(isset($niova)){?>
                 <div class="container">
-				<div class="alert alert1 alert-success col-md-7"style="margin-left:55px;">
-					<span class="glyphicon glyphicon-ok"></span> <strong><?php echo $niova; ?></strong>
-					<hr class="message-inner-separator">
-				</div>
+                    <div class="alert alert1 alert-success col-md-7" style="margin-left:55px;">
+                        <span class="glyphicon glyphicon-ok"></span> <strong><?php echo $niova; ?></strong>
+                        <hr class="message-inner-separator">
+                    </div>
                 </div>
                 <br/>
                 <?php
@@ -98,9 +98,9 @@
                                         </td>
                                         <td data-label="Tickets">
                                             @if($e->tickets()->count())
-                                            @foreach($e->tickets() as $t)
-                                                {{$t->type}}<br/>
-                                            @endforeach
+                                                @foreach($e->tickets() as $t)
+                                                    {{$t->type}}<br/>
+                                                @endforeach
                                             @else
                                                 Ticket indisponible
                                             @endif
@@ -108,9 +108,9 @@
 
                                         <td data-label="Prix">
                                             @if($e->tickets()->count())
-                                            @foreach($e->tickets() as $t)
-                                                {{$t->price}}<br/>
-                                            @endforeach
+                                                @foreach($e->tickets() as $t)
+                                                    {{$t->price}}<br/>
+                                                @endforeach
                                             @else
                                                 Indisponible
                                             @endif
@@ -141,7 +141,8 @@
                                         <td data-label="">
                                             <div class="thumbnail imgpaiment">
                                                 <a href="event/show/{{$e->id}}">
-                                                    <img src="{{url('/')}}/public/img/{{$e->image}}" class="image_panier">
+                                                    <img src="{{url('/')}}/public/img/{{$e->image}}"
+                                                         class="image_panier">
                                                 </a>
 
                                             </div>
@@ -170,17 +171,18 @@
                                                 Indisponible
                                             @endif
                                         </td>
-                                        <td data-label=""><p><a href="organisateur/event/{{$e->id}}/edit" alt="Edit" class="rapport">Editer</a></p>
+                                        <td data-label=""><p><a href="organisateur/event/{{$e->id}}/edit" alt="Edit"
+                                                                class="rapport">Editer</a></p>
                                         </td>
                                         <td data-label="">
-                                            <p><a href="organisateur/rapport/{{$e->id}}" alt="Edit" class="rapport">Rapport</a></p>
+                                            <p><a href="organisateur/rapport/{{$e->id}}" alt="Edit" class="rapport">Rapport</a>
+                                            </p>
                                         </td>
                                     </tr>
                                 @endforeach
                                 </tbody>
                             </table>
                         </div>
-
                         <!-- #tab2 -->
                         <h3 class="tab_drawer_heading" rel="tab3">Mes achat passés</h3>
                         <div id="tab3" class="tab_content">
@@ -191,32 +193,38 @@
                                     <th scope="col"><b class="bold">Tickets</b></th>
                                     <th scope="col"><b class="bold">Date Achat</b></th>
                                     <th scope="col"><b class="bold">Nombre</b></th>
-                                    <th scope="col"><b class="bold"></b></th>
+                                    <th scope="col"><b class="bold">PDF File</b></th>
                                 </tr>
                                 </thead>
 
                                 <tbody>
-								@if(count($achats)>0)
-                                @foreach($achats as $a)
-                                    @php
-                                        $event = $a->events[0];
-                                    @endphp
-                                    @if(date($event->date_fin_event) < date('now'))
-                                        <tr>
-                                            <td data-label="">
-                                                <div class="thumbnail imgpaiment">
-                                                    <img src="{{url('/')}}/public/img/{{$event->image}}"
-                                                         class="image_panier">
-                                                </div>
-                                            </td>
-                                            <td data-label="Tickets">{{$a->type}}</td>
-                                            <td data-label="Date">{{\Carbon\Carbon::parse($a->pivot->date_achat)->format('d M Y H:i')}}</td>
-                                            <td data-label="Quantité">{{$a->pivot->number}}</td>
-
-                                        </tr>
-                                    @endif
-                                @endforeach
-								@endif
+                                @if(count($achats)>0)
+                                    @foreach($achats as $a)
+                                        @php
+                                            $event = $a->events[0];
+                                        @endphp
+                                        @if(date($event->date_fin_event) < date('now'))
+                                            @if($a->pivot->status_payment!='FAILED')
+                                                <tr>
+                                                    <td data-label="">
+                                                        <div class="thumbnail imgpaiment">
+                                                            <img src="{{url('/')}}/public/img/{{$event->image}}"
+                                                                 class="image_panier">
+                                                        </div>
+                                                    </td>
+                                                    <td data-label="Tickets">{{$a->type}}</td>
+                                                    <td data-label="Date">{{\Carbon\Carbon::parse($a->pivot->date_achat)->format('d M Y H:i')}}</td>
+                                                    <td data-label="Quantité">{{$a->pivot->number}}</td>
+                                                    <td data-label="pdf" target="_blank">
+                                                        <a href="{{url('/public/tickets/' . $a->pivot->ticket_pdf)}}">
+                                                            Télécharger le Fichier
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            @endif
+                                        @endif
+                                    @endforeach
+                                @endif
                                 </tbody>
                             </table>
                         </div>
@@ -230,51 +238,54 @@
                                     <th scope="col"><b class="bold">Tickets</b></th>
                                     <th scope="col"><b class="bold">Date Achat</b></th>
                                     <th scope="col"><b class="bold">Nombre</b></th>
+                                    <th scope="col"><b class="bold">PDF File</b></th>
                                     <th scope="col"><b class="bold"></b></th>
                                 </tr>
                                 </thead>
 
                                 <tbody>
-								@if(count($achats)>0)
-                                @foreach($achats as $a)
-                                    @php
-                                        $event = $a->events[0];
-                                    @endphp
-                                    @if(date($event->date_debut_envent) > date('now'))
-                                        <tr>
-                                            <td data-label="">
-                                                <div class="thumbnail imgpaiment">
-                                                    <a href="event/show/{{$event->id}}">
-                                                        <img src="{{url('/')}}/public/img/{{$event->image}}" class="image_panier">
-                                                    </a>
+                                @if(count($achats)>0)
+                                    @foreach($achats as $a)
+                                        @php
+                                            $event = $a->events[0];
+                                        @endphp
+                                        @if(date($event->date_debut_envent) > date('now'))
+                                            <tr>
+                                                <td data-label="">
+                                                    <div class="thumbnail imgpaiment">
+                                                        <a href="event/show/{{$event->id}}">
+                                                            <img src="{{url('/')}}/public/img/{{$event->image}}"
+                                                                 class="image_panier">
+                                                        </a>
 
-                                                </div>
-                                            </td>
-                                            <td data-label="Tickets">{{$a->type}}</td>
-                                            <td data-label="Date">{{\Carbon\Carbon::parse($a->pivot->date_achat)->format('d M Y H:i')}}</td>
-                                            <td data-label="Quantité">{{$a->pivot->number}}</td>
-                                            @if($a->pivot->status_payment=='FAILED')
-												 <td data-label="">
-											
-											<p><a href="shopping/payment/{{Auth::user()->id}}/{{$a->pivot->id}}" alt="Edit" style="color: #d70506;font-size: 30px !important;">Payer</a></p>
+                                                    </div>
+                                                </td>
+                                                <td data-label="Tickets">{{$a->type}}</td>
+                                                <td data-label="Date">{{\Carbon\Carbon::parse($a->pivot->date_achat)->format('d M Y H:i')}}</td>
+                                                <td data-label="Quantité">{{$a->pivot->number}}</td>
+                                                <td data-label="pdf">
+                                                    <a href="{{url('/public/tickets/' . $a->pivot->ticket_pdf)}}" target="_blank">
+                                                        Télécharger le Fichier
+                                                    </a>
                                                 </td>
                                                 <td data-label="">
-                                                <p><a href="shopping/annuler/{{Auth::user()->id}}/{{$a->pivot->id}}" alt="Edit" style="color: #d70506;font-size: 18px !important;">Annuler</a></p>
-											
+                                                    @if($a->pivot->status_payment=='FAILED')
+                                                        <p>
+                                                            <a href="shopping/payment/{{Auth::user()->id}}/{{$a->pivot->id}}"
+                                                               alt="Edit"
+                                                               style="color: #d70506;font-size: 30px !important;">Payer</a>
+                                                        </p>
+                                                        <p>
+                                                            <a href="shopping/annuler/{{Auth::user()->id}}/{{$a->pivot->id}}"
+                                                               alt="Edit"
+                                                               style="color: #d70506;font-size: 18px !important;">Annuler</a>
+                                                        </p>
+                                                    @endif
                                                 </td>
-                                            @else
-                                                <td data-label=""><p>
-                                                        <a alt="payement"
-                                                           style="color: #5cb85c;font-size: 30px !important;">
-                                                            Success
-                                                        </a>
-                                                    </p>
-                                                </td>
-                                            @endif
-                                        </tr>
-                                    @endif
-                                @endforeach
-								@endif
+                                            </tr>
+                                        @endif
+                                    @endforeach
+                                @endif
                                 </tbody>
                             </table>
                         </div>

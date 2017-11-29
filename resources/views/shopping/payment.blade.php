@@ -101,10 +101,10 @@
                             <hr class="sep">
                             <div class="resum">
                                 @if(strpos(Auth::user()->email,'@test.com')!== false && strpos(Auth::user()->email,'missing') !== false)
-                                    <p><b>Adresse e-mail de livraison des tickets <span style="color:red;">*</span>:</b>
+                                    <p><b>Adresse e-mail de livraison des tickets :</b>
                                     </p>
                                     <p><i>Nous vous enverrons les infos payment dans cet email</i></p>
-                                    <input type="email" class="form-control" name="email_livraison" required>
+                                    <input type="email" class="form-control" name="email_livraison">
                                     <br>
                                 @else
                                     <p><b>Adresse e-mail de livraison des tickets :</b> &nbsp {{Auth::user()->email}}
