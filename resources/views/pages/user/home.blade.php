@@ -41,6 +41,10 @@
                                 <p><i class="fa fa-envelope fenalope" aria-hidden="true"></i>{{Auth::user()->email}}</p>
                             </div>
                         </div>
+                        @role('user')
+                        <p>Vous devriez changer votre profile en organisateur d'évèmenet si vous voulez ajouter un
+                            évènement.</p>
+                        @endrole
                     </div>
                     <div class="col-md-7 text-right-md text-right-lg text-center-xs text-center-sm ">
                         <a class="modifinfo" href="{{url('/profile/'.Auth::user()->id.'/edit')}}">Modifier mes
