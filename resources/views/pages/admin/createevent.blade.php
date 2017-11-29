@@ -94,7 +94,7 @@
                         </li>
                         <li class="hidden"><a id="a_pdf">PDF</a></li>
                         <li><a id="a_cpersonalize">Champs
-                                additioneles</a></li>
+                        additionnelles</a></li>
                         <li class="categorimenu"><strong>Paramètre</strong></li>
                         <li><a id="a_paiement">Méthodes de
                                 payements</a></li>
