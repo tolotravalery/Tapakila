@@ -38,7 +38,13 @@
                             </div>
                             <div class="col-md-8 text-left-md text-left-lg text-center-xs text-center-sm">
                                 <label class="pseudoname">{{Auth::user()->name}}</label><br>
-                                <p><i class="fa fa-envelope fenalope" aria-hidden="true"></i>{{Auth::user()->email}}</p>
+                                @if(strpos(Auth::user()->email,'@test.com')!== false && strpos(Auth::user()->email,'missing') !== false)
+                                    <p><i class="fa fa-facebook-official fenalope" aria-hidden="true"></i>S'authentifier via compte facebook
+                                    </p>
+                                @else
+                                    <p><i class="fa fa-envelope fenalope" aria-hidden="true"></i>{{Auth::user()->email}}
+                                    </p>
+                                @endif
                             </div>
                         </div>
                         @role('user')
@@ -80,6 +86,7 @@
                                     <th scope="col"><b class="bold">Tickets</b></th>
                                     <th scope="col"><b class="bold">Date Achat</b></th>
                                     <th scope="col"><b class="bold">Nombre</b></th>
+                                    <th scope="col"><b class="bold">PDF File</b></th>
                                     <th scope="col"><b class="bold"></b></th>
                                 </tr>
                                 </thead>
@@ -90,17 +97,24 @@
                                         $event = $a->events[0];
                                     @endphp
                                     @if(date($event->date_fin_event) < date('now'))
-                                        <tr>
-                                            <td data-label="">
-                                                <div class="thumbnail imgpaiment">
-                                                    <img src="{{url('/')}}/public/img/{{$event->image}}"
-                                                         class="image_panier">
-                                                </div>
-                                            </td>
-                                            <td data-label="Tickets">{{$a->type}}</td>
-                                            <td data-label="Date">{{\Carbon\Carbon::parse($a->pivot->date_achat)->format('d M Y H:i')}}</td>
-                                            <td data-label="Quantité">{{$a->pivot->number}}</td>
-                                        </tr>
+                                        @if($a->pivot->status_payment!='FAILED')
+                                            <tr>
+                                                <td data-label="">
+                                                    <div class="thumbnail imgpaiment">
+                                                        <img src="{{url('/')}}/public/img/{{$event->image}}"
+                                                             class="image_panier">
+                                                    </div>
+                                                </td>
+                                                <td data-label="Tickets">{{$a->type}}</td>
+                                                <td data-label="Date">{{\Carbon\Carbon::parse($a->pivot->date_achat)->format('d M Y H:i')}}</td>
+                                                <td data-label="Quantité">{{$a->pivot->number}}</td>
+                                                <td data-label="pdf">
+                                                    <a href="{{url('/public/tickets/' . $a->pivot->ticket_pdf)}}" target="_blank">
+                                                        Télécharger le Fichier
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        @endif
                                     @endif
                                 @endforeach
                                 </tbody>
@@ -116,6 +130,7 @@
                                     <th scope="col"><b class="bold">Tickets</b></th>
                                     <th scope="col"><b class="bold">Date Achat</b></th>
                                     <th scope="col"><b class="bold">Nombre</b></th>
+                                    <th scope="col"><b class="bold">PDF File</b></th>
                                     <th scope="col"><b class="bold"></b></th>
                                 </tr>
                                 </thead>
@@ -136,14 +151,25 @@
                                             <td data-label="Tickets">{{$a->type}}</td>
                                             <td data-label="Date">{{\Carbon\Carbon::parse($a->pivot->date_achat)->format('d M Y H:i')}}</td>
                                             <td data-label="Quantité">{{$a->pivot->number}}</td>
-                                            @if($a->pivot->status_payment=='FAILED')
-                                                <td data-label=""><p><a
-                                                                href="shopping/payment/{{Auth::user()->id}}/{{$a->pivot->id}}"
-                                                                alt="Edit"
-                                                                style="color: #d70506;font-size: 30px !important;">Payer</a>
+                                            <td data-label="pdf">
+                                                <a href="{{url('/public/tickets/' . $a->pivot->ticket_pdf)}}" target="_blank">
+                                                    Télécharger le Fichier
+                                                </a>
+                                            </td>
+                                            <td data-label="action">
+                                                @if($a->pivot->status_payment=='FAILED')
+                                                    <p>
+                                                        <a href="shopping/payment/{{Auth::user()->id}}/{{$a->pivot->id}}"
+                                                           alt="Edit"
+                                                           style="color: #d70506;font-size: 30px !important;">Payer</a>
                                                     </p>
-                                                </td>
-                                            @endif
+                                                    <p>
+                                                        <a href="shopping/annuler/{{Auth::user()->id}}/{{$a->pivot->id}}"
+                                                           alt="Edit"
+                                                           style="color: #d70506;font-size: 18px !important;">Annuler</a>
+                                                    </p>
+                                                @endif
+                                            </td>
                                         </tr>
                                     @endif
                                 @endforeach

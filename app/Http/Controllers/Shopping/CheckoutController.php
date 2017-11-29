@@ -40,6 +40,7 @@ class CheckoutController extends Controller
         $payement = Payement_mode::where('slug', '=', $options)->get()[0];
         // sending data to payment mode and waiting response
         // if response is success
+        $pdfName = time() . rand() . '.pdf';
         $tic = array();
 
         $data = array();
@@ -56,7 +57,7 @@ class CheckoutController extends Controller
             $nombre = $item->qty;
 
             $ticket->users()->attach(array(Auth::user()->id => array('number' => $item->qty, 'date_achat' => $date,
-                'payement_mode_id' => $payement->id)));
+                'payement_mode_id' => $payement->id, 'ticket_pdf' => $pdfName)));
             $tic[$j] = $ticket;
             $tap = array();
             for ($i = 0; $i < $nombre; $i++) {
@@ -87,7 +88,6 @@ class CheckoutController extends Controller
         }
         Cart::destroy();
         $user = Auth::user();
-        $pdfName = time() . '.pdf';
         $PdfDestinationPath = public_path('/tickets/' . $pdfName);
         Session::put('pdfDestinationPath', $PdfDestinationPath);
         $pdf = App::make('dompdf.wrapper');
@@ -107,7 +107,7 @@ class CheckoutController extends Controller
             $message->to(Session::get('email_livraison'), Auth::user()->name)->subject('Leguichet');
             $message->cc('contact@leguichet.mg', 'Leguichet.mg')->subject('Leguichet payment facture');
         });
-        return $pdf->stream('download_ticket_leguichet.pdf');
+        return redirect(url('/home'));
     }
 
     function pay($users_id, $id)
@@ -129,6 +129,7 @@ class CheckoutController extends Controller
         $users = Auth::user();
         // sending data to payment mode and waiting response
         // if response is success
+        $pdfName = time() . rand() . '.pdf';
         $ticket_to_pay = $users->tickets()->wherePivot('id', '=', $req->input('id'))->get()[0];
         $ticket_to_pay->pivot->number = $req->input('number');
         $ticket_to_pay->pivot->date_achat = $date;
@@ -153,12 +154,12 @@ class CheckoutController extends Controller
             $tapakila->save();
             $tap[$i] = $tapakila;
         }
+        $ticket_to_pay->pivot->ticket_pdf = $pdfName;
         $ticket_to_pay->pivot->save();
         $ticket_to_pay->save();
         $tic[0] = $ticket_to_pay;
         $data[0] = array('ticket' => $tic[0], 'tapakila' => $tap);
         $user = Auth::user();
-        $pdfName = time() . '.pdf';
         $PdfDestinationPath = public_path('/tickets/' . $pdfName);
         Session::put('pdfDestinationPath', $PdfDestinationPath);
         $pdf = App::make('dompdf.wrapper');
@@ -178,7 +179,7 @@ class CheckoutController extends Controller
             $message->to(Session::get('email_livraison'), Auth::user()->name)->subject('Leguichet');
             $message->cc('contact@leguichet.mg', 'Leguichet.mg')->subject('Leguichet payment');
         });
-        return $pdf->stream('download_ticket_leguichet.pdf');
+        return redirect(url('/home'));
     }
 
     function quiz(Request $req)

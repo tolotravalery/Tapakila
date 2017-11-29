@@ -236,7 +236,6 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin'], 'prefix' => '
     Route::get('php', 'AdminDetailsController@listPHPInfo');
     Route::get('routes', 'AdminDetailsController@listRoutes');
 
-
 });// Organisateur
 Route::group(['middleware' => ['auth', 'activated'], 'prefix' => 'organisateur'], function () {
     Route::get('event', 'EventController@showEventForm')->name('event');
