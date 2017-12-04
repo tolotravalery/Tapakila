@@ -33,36 +33,39 @@
                         href="{{url('')}}/leguichet/faq">FAQ ?</a><br>N'hesitez pas à nous écrire ou à nous contactez !</p>
             <p class="text-center text1 hidden-lg hidden-md hidden-sm">Ecrivez-vous !</p>
             <div class="row spac">
-                <div class="col-md-6 text-center-lg text-center-md text-center-sm text-center-lg-xs">
-                    <form>
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nom*">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Mail*">
-                        </div>
-                        <div class="form-group">
-                            <select class="form-control border">
-                                <option>Organisateur</option>
-                                <option>Achateur</option>
-                                <option>Vendeur</option>
-                            </select>
-                        </div>
-                        <div class="form-group ">
+                <form action="{{url('/')}}/leguichet/contact" method="post">
+                    {!! csrf_field() !!}
+                    <div class="col-md-6 text-center-lg text-center-md text-center-sm text-center-lg-xs">
                             <div class="form-group">
-                                <textarea class="form-control" rows="5" placeholder="Message" id="comment"></textarea>
+                                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nom*" name="contacter_name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Mail*" name="contacter_mail" required>
+                            </div>
+                            <div class="form-group">
+                                <select class="form-control border">
+                                    <option>Organisateur</option>
+                                    <option>Acheteur</option>
+                                    <option>Vendeur</option>
+                                </select>
+                            </div>
+                            <div class="form-group ">
+                                <div class="form-group">
+                                    <textarea class="form-control" rows="5" placeholder="Message" id="comment" name="contacter_message" required></textarea>
+                                </div>
+                            </div>
+                            <p class="pull-right olig"><sup>*</sup>&nbsp Champs obligatoire</p>
+                        @if (session('message'))
+                            <p>{!! session('message') !!}</p>
+                        @endif
+                        <div class="row">
+                            <div class="col-md-3 col-md-offset-4 col-xs-3 col-xs-offset-3 col-sm-3 col-sm-offset-4">
+                                <button type="submit" class="btn btn-envoye btn-lg">Envoyer</button>
                             </div>
                         </div>
-                        <p class="pull-right olig"><sup>*</sup>&nbsp Champs obligatoire</p>
-                    </form>
-                    <div class="row">
-                        <div class="col-md-3 col-md-offset-4 col-xs-3 col-xs-offset-3 col-sm-3 col-sm-offset-4">
-                            <button type="button" class="btn btn-envoye btn-lg">Envoyer</button>
-                        </div>
+
                     </div>
-
-
-                </div>
+                </form>
 
                 <div class="col-md-6 ">
                     <div class="row">
@@ -81,8 +84,6 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
     </div>
 

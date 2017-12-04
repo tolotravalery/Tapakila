@@ -78,7 +78,7 @@
                 <div class="row">
                     <div class="col-lg-11 col-sm-10"></div>
                     <div class="col-lg-1 col-sm-2" style="text-align: center;">
-                        <a href="{{url('/home')}}" style="text-align: center;color: #428bca !important;font-size: 16px;">retour</a>
+                        <a href="{{url('/home')}}" style="text-align: center;color: #428bca !important;font-size: 16px;">Retour</a>
                     </div>
                 </div>
 
@@ -107,10 +107,10 @@
                                 du site</a>
                         </li>
                         <li class="hidden"><a id="a_pdf" onClick="changePage('div_pdf', 'a_pdf')">PDF</a></li>
-                        <li><a id="a_cpersonalize" onClick="changePage('div_cpersonalize', 'a_cpersonalize')">Champs
+                        <li class="hidden"><a id="a_cpersonalize" onClick="changePage('div_cpersonalize', 'a_cpersonalize')">Champs
                                 additioneles</a></li>
-                        <li class="categorimenu"><strong>Paramètre</strong></li>
-                        <li><a id="a_paiement" onClick="changePage('div_paiement', 'a_paiement')">Méthodes de
+                        <li class="categorimenu hidden"><strong>Paramètre</strong></li>
+                        <li class="hidden"><a id="a_paiement" onClick="changePage('div_paiement', 'a_paiement')">Méthodes de
                                 payements</a></li>
                     </ul>
                 </div>

@@ -157,28 +157,30 @@
                     <img class="footer-logo" alt="Leguichet" src="{{ url('/') }}/public/img/logo.png">
                     <p class="small custom">
                         By Leguichet.mg<br>
-                        IIB 63 Mahamasina<br>
+                       {{-- IIB 63 Mahamasina<br>
                         Antananarivo<br>
                         Madagascar<br>
-                        +33 12 901432<br>
-                        <a href="mailto:contact@Leguichet.mg" class="foot">contact@Leguichet.mg</a>
+                        +33 12 901432<br>--}}
+                        <a href="mailto:contact@leguichet.mg" class="foot">contact@leguichet.mg</a>
                     </p>
                 </div>
                 <div class="col-sm-3 col-xs-6">
                     <p class="titled"><strong>Acheter des tickets</strong></p>
                     <ul class="list-unstyled">
-                        <li><a href="{{url('')}}/tapakila/shop">Comment acheter</a></li>
-                        <li><a href="{{url('')}}/tapakila/faq">Foire aux questions</a></li>
-                        <li><a href="{{url('')}}/tapakila/term">Terms of service</a></li>
+                        <li><a href="{{url('')}}/leguichet/shop">Comment acheter</a></li>
+                        <li><a href="{{url('')}}/leguichet/faq">Foire aux questions</a></li>
+                        <li><a href="{{url('')}}/leguichet/term">Terms of service</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-3 col-xs-6">
-                    <p class="titled"><strong>Organisateurs</strong></p>
-                    <ul class="list-unstyled">
-                        <li><a href="{{url('')}}/tapakila/shop/ticket">Pour les Organisateurs</a></li>
-                        <li><a href="{{ url('/register') }}">S'enregistrer</a></li>
-                        <li><a href="{{ url('/login') }}">Connexion</a></li>
-                    </ul>
+                    @if (Auth::guest())
+                        <p class="titled"><strong>Organisateurs</strong></p>
+                        <ul class="list-unstyled">
+                            <li><a href="{{url('')}}/leguichet/shop/ticket">Pour les Organisateurs</a></li>
+                            <li><a href="{{ url('/register') }}">S'enregistrer</a></li>
+                            <li><a href="{{ url('/login') }}">Connexion</a></li>
+                        </ul>
+                    @endif
                 </div>
                 <div class="col-sm-2 col-xs-6 ">
 
@@ -199,15 +201,15 @@
     <div class="footer-bottom">
         <div class="container small custom-container">
             <ul>
-                <li><a href="{{url('')}}/tapakila/about">A propos de nous</a></li>
+                <li><a href="{{url('')}}/leguichet/about">A propos de nous</a></li>
                 |
-                <li><a href="{{url('')}}/tapakila/contact">Contact</a></li>
+                <li><a href="{{url('')}}/leguichet/contact">Contact</a></li>
                 |
                 <li><a href="{{url('/')}}/organisateur/event">Ajouter votre evenement</a></li>
                 |
                 <li><a href="#">Publicite</a></li>
                 |
-                <li><a href="{{url('')}}/tapakila/faq">FAQ</a></li>
+                <li><a href="{{url('')}}/leguichet/faq">FAQ</a></li>
                 |
                 <li><a href="#">Vie privee</a></li>
                
