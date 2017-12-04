@@ -173,12 +173,14 @@
                     </ul>
                 </div>
                 <div class="col-sm-3 col-xs-6">
-                    <p class="titled"><strong>Organisateurs</strong></p>
-                    <ul class="list-unstyled">
-                        <li><a href="{{url('')}}/leguichet/shop/ticket">Pour les Organisateurs</a></li>
-                        <li><a href="{{ url('/register') }}">S'enregistrer</a></li>
-                        <li><a href="{{ url('/login') }}">Connexion</a></li>
-                    </ul>
+                    @if (Auth::guest())
+                        <p class="titled"><strong>Organisateurs</strong></p>
+                        <ul class="list-unstyled">
+                            <li><a href="{{url('')}}/leguichet/shop/ticket">Pour les Organisateurs</a></li>
+                            <li><a href="{{ url('/register') }}">S'enregistrer</a></li>
+                            <li><a href="{{ url('/login') }}">Connexion</a></li>
+                        </ul>
+                    @endif
                 </div>
                 <div class="col-sm-2 col-xs-6 ">
 
