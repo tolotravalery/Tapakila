@@ -55,11 +55,15 @@
                                 </div>
                             </div>
                             <p class="pull-right olig"><sup>*</sup>&nbsp Champs obligatoire</p>
+                        @if (session('message'))
+                            <p>{!! session('message') !!}</p>
+                        @endif
                         <div class="row">
                             <div class="col-md-3 col-md-offset-4 col-xs-3 col-xs-offset-3 col-sm-3 col-sm-offset-4">
                                 <button type="submit" class="btn btn-envoye btn-lg">Envoyer</button>
                             </div>
                         </div>
+
                     </div>
                 </form>
 
