@@ -115,7 +115,7 @@
                                 <a href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
-                                    {!! trans('titles.logout') !!} 
+                                    Se déconnecter
                                 </a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST"

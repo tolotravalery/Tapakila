@@ -115,6 +115,13 @@
                                                 Indisponible
                                             @endif
                                         </td>
+                                        <td data-label=""><p><a href="organisateur/event/{{$e->id}}/edit" alt="Edit"
+                                                                class="rapport">Editer</a></p>
+                                        </td>
+                                        <td data-label="">
+                                            <p><a href="organisateur/rapport/{{$e->id}}" alt="Edit" class="rapport">Rapport</a>
+                                            </p>
+                                        </td>
 
                                     </tr>
                                 @endforeach
@@ -144,7 +151,6 @@
                                                     <img src="{{url('/')}}/public/img/{{$e->image}}"
                                                          class="image_panier">
                                                 </a>
-
                                             </div>
                                         </td>
                                         <td data-label="Date">
