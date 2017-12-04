@@ -85,7 +85,7 @@
                                         </p>
                                     </div>
                                     <div class="modal-footer">
-                                        {!! Form::button('<i class="fa fa-fw fa-close" aria-hidden="true"></i> Annuler', array('class' => 'btn pull-left', 'type' => 'button', 'data-dismiss' => 'modal' )) !!}
+                                        {!! Form::button('<i class="fa fa-fw fa-close" aria-hidden="true"></i> Annuler', array('class' => 'btn pull-left iko', 'type' => 'button', 'data-dismiss' => 'modal' )) !!}
                                         {!! Form::button('<i class="fa fa-fw fa-check" aria-hidden="true"></i> Confirmer', array('class' => 'btn btn-default pull-right', 'type' => 'submit', 'id' => 'confirm' )) !!}
                                     </div>
                                 </div>
