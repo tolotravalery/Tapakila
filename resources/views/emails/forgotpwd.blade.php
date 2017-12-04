@@ -24,8 +24,8 @@
                             <tr>
                                 <td class="content-cell">
                                     <div style="background-color: white; margin-top: 30px; padding: 20px 25px 20px 25px;">
-                                        <img class="logoactivate" src="{{url('/')}}/public/img/logo.png" title="Leguichet">
-                                        <hr class="border-logo">
+                                        <!-- <img class="logoactivate" src="{{url('/')}}/public/img/logo.png" title="Leguichet">
+                                        <hr class="border-logo"> -->
                                         <h2><b style=" color:#333;margin-top: 26px; margin-bottom: 10px;font-size: 30px;word-wrap: break-word;font-weight: 700;font-family:Lucida Console;">Bonjour,</b></h2>
                                         <p style="font-size: 14px;color:#333;">Vous voulez changer votre mot de passe ? pas de problème !</p>
                                         <p style="font-size: 14px;color:#333;">Pour avoir un nouveau mots de passe, cliquer sur le bouton ci-dessous. </p><br>
@@ -35,6 +35,7 @@
 
 
                                         <p style="font-size: 14px;color:#333;text-align: center;background-color: #cccccc; margin-top: 25px; padding: 15px;  margin-bottom: 20px;  border: 1px solid transparent; border-radius: 4px;">Vous avez des question? consultez notre <a style="text-decoration: none;color: #62b2eb;"href="{{url('')}}/leguichet/faq">FAQ</a> dès maintenant</p>
+                                        <p style="text-align:center;">Retourner vers <a href="https://leguichet.mg">leguichet.mg</a></p>
 
                                     </div>
 
