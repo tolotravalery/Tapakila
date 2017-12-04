@@ -71,7 +71,6 @@
                             </div>
                         </div>
                     </div>
-                    <a class="btn btn-sm btn-default btn-aperçu " href="#" target="_blank">Aperçu</a>
                 </div>
             </div>
 
@@ -81,9 +80,9 @@
 
                     <ul class="navtab">
                         <li class="categorimenu"><strong>Achats</strong></li>
-                        <li><a id="a_rapport" onClick="changePage('div_rapport', 'a_rapport')">Rapports</a></li>
-                        <li><a id="a_commandes" onClick="changePage('div_commandes', 'a_commandes')">Commandes</a></li>
-                        <li><a id="a_valideTicket" onClick="changePage('div_valideTicket', 'a_valideTicket')">Tickets
+                        <li><a id="a_rapport">Rapports</a></li>
+                        <li class="hidden"><a id="a_commandes" onClick="changePage('div_commandes', 'a_commandes')">Commandes</a></li>
+                        <li class="hidden"><a id="a_valideTicket" onClick="changePage('div_valideTicket', 'a_valideTicket')">Tickets
                                 Validés</a></li>
                         <li class="categorimenu"><strong>Editer</strong></li>
                         <li><a id="a_details" class="select"
@@ -93,10 +92,10 @@
                         <li class="hidden"><a id="a_siteweb">Apparence du site</a>
                         </li>
                         <li class="hidden"><a id="a_pdf">PDF</a></li>
-                        <li><a id="a_cpersonalize">Champs
+                        <li class="hidden"><a id="a_cpersonalize">Champs
                         additionnelles</a></li>
-                        <li class="categorimenu"><strong>Paramètre</strong></li>
-                        <li><a id="a_paiement">Méthodes de
+                        <li class="categorimenu hidden"><strong>Paramètre</strong></li>
+                        <li class="hidden"><a id="a_paiement">Méthodes de
                                 payements</a></li>
                     </ul>
                 </div>

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Menus;
 use App\Models\Sous_menus;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Session;
 
 class AproposController extends Controller
 {
@@ -56,5 +58,16 @@ class AproposController extends Controller
         $menus = Menus::orderBy('id', 'desc')->get();
         $sousmenus = Sous_menus::orderBy('name', 'asc')->get();
         return view('tapakila.acheterbillet', compact('menus', 'sousmenus'));
+    }
+
+    public function contactAction(Request $request){
+
+        Mail::send('emails.contact',['message_corps' => $request->input('contacter_message'),
+            'message_from_mail'=>$request->input('contacter_mail'),
+            'message_from_name'=>$request->input('contacter_name')], function ($message) {
+            $message->to('contact@leguichet.mg', 'Leguichet.mg')->subject('Leguichet contact');
+        });
+        session()->flash('message', "Votre message a été bien envoyé");
+        return redirect('leguichet/contact');
     }
 }

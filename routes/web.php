@@ -60,6 +60,7 @@ Route::group(['middleware' => 'web'], function () {
         Route::get('faq', 'AproposController@faq');
         Route::get('about', 'AproposController@apropos');
         Route::get('contact', 'AproposController@contact');
+        Route::post('contact', 'AproposController@contactAction');
         Route::get('term', 'AproposController@term');
         Route::get('shop', 'AproposController@achat');
         Route::get('vie-prive', 'AproposController@vieprive');
