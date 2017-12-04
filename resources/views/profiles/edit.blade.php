@@ -14,19 +14,19 @@
                         {!! Form::model($user, array('action' => array('ProfilesController@updateUserAccount', $user->id), 'method' => 'PUT', 'class'=>'form-group')) !!}
                         {!! csrf_field() !!}
                         <label for="usr">Nom :</label>
-                        {!! Form::text('name', old('name'), array('id' => 'disabledInput', 'class' => 'form-control form-text', 'placeholder' => trans('forms.ph-username'))) !!}
+                        {!! Form::text('name', old('name'), array('id' => 'disabledInput', 'class' => 'form-control form-text', 'placeholder' => 'Name')) !!}
                         <label for="usr">Prénom :</label>
-                        {!! Form::text('first_name', old('first_name'), array('id' => 'disabledInput', 'class' => 'form-control form-text', 'placeholder' => trans('forms.create_user_ph_firstname'))) !!}
+                        {!! Form::text('first_name', old('first_name'), array('id' => 'disabledInput', 'class' => 'form-control form-text', 'placeholder' => 'First name')) !!}
                         <label for="usr">Adresse e-mail :</label>
-                        {!! Form::text('email', old('email'), array('id' => 'email', 'class' => 'form-control form-text', 'placeholder' => trans('forms.ph-useremail'))) !!}
+                        {!! Form::text('email', old('email'), array('id' => 'email', 'class' => 'form-control form-text', 'placeholder' => 'user\'s mail')) !!}
                         <label for="usr">Mots de passe :</label>
-                        {!! Form::password('password', array('id' => 'password', 'class' => 'form-control form-text-1', 'placeholder' => trans('forms.create_user_ph_password'), 'autocomplete' => 'new-password')) !!}
+                        {!! Form::password('password', array('id' => 'password', 'class' => 'form-control form-text-1', 'placeholder' => '***********', 'autocomplete' => 'new-password')) !!}
                         @if ($errors->has('password'))
                             <span class="help-block">
                                                             <strong>{{ $errors->first('password') }}</strong>
                                                         </span>
                         @endif
-                        {!! Form::password('password_confirmation', array('id' => 'password_confirmation', 'class' => 'form-control form-text-1', 'placeholder' => trans('forms.create_user_ph_pw_confirmation'))) !!}
+                        {!! Form::password('password_confirmation', array('id' => 'password_confirmation', 'class' => 'form-control form-text-1', 'placeholder' => '***********')) !!}
                         @if ($errors->has('password_confirmation'))
                             <span class="help-block">
                                                         <strong>{{ $errors->first('password_confirmation') }}</strong>
@@ -57,7 +57,7 @@
                                                 'id' 				=> 'delete_account_trigger',
                                                 'type' 				=> 'button',
                                                 'data-toggle' 		=> 'modal',
-                                                'data-submit'       => trans('profile.deleteAccountBtnConfirm'),
+                                                'data-submit'       => 'Modifier',
                                                 'data-target' 		=> '#confirmForm',
                                                 'data-modalClass' 	=> 'modal-danger',
                                                 'data-title' 		=> trans('profile.deleteAccountConfirmTitle'),
