@@ -40,7 +40,7 @@
                                         <tr>
                                             <td>
                                                 <div style="background-color: white;margin-top: 84px;padding: 20px 30px 20px 30px;overflow: hidden;margin-bottom: 83px;border-radius: 3px;">
-                                                <div style=" border-bottom: 1px solid black; padding-bottom: 2px;"><img class="logoactivate" src="{{url('/')}}/public/img/logo.png" title="leguichet"></div>
+                                                <!-- <div style=" border-bottom: 1px solid black; padding-bottom: 2px;"><img class="logoactivate" src="{{url('/')}}/public/img/logo.png" title="leguichet"></div> -->
                                                     <h4 style="color: #333;font-size: 21px;">Bonjour {{$user->name}},</h4>
                                                     <h4 style="color: #333;font-size: 21px;">Félicitation! Votre paiement a été effectué avec succès. </h4>
                                                     
@@ -134,7 +134,7 @@
                                                             <td colspan="2">
                                                                 <p style="color: #333;">Leguichet vous remercie de votre fidélité,</p>
                                                                 <p style="color: #333;">L'équipe Leguichet.mg</p>
-                                                                <p style="color: #333;">Pour tout information, visitez notre site : <a href="www.leguichet.mg">www.leguichet.mg</a>
+                                                                <p style="color: #333;">Pour tout information, visitez notre site : <a href="https://leguichet.mg">https://leguichet.mg</a>
                                                                 </p>
                                                             </td>
                                                         </tr>

@@ -1172,6 +1172,14 @@ a:hover {
     border-bottom-right-radius: 3px;
     border-bottom-left-radius: 3px;
 }
+#confirm{
+    background-color: #5cb85c;
+    color: white;
+}
+.iko{
+    background-color: #d70506;
+    color: white;
+}
 
 .page-menu {
     padding-bottom: 9px;

@@ -208,7 +208,7 @@ class EventController extends Controller
         // Send mail to organisateur
         Mail::send('emails.ajoutevenement', ['user' => Auth::user(), 'event' => $event], function ($message) {
             $message->to(Auth::user()->email, Auth::user()->name)->subject('Leguichet');
-            $message->cc('contact@leguichet.mg','Leguichet.mg')->subject('Leguichet new event');
+            $message->cc('reservations@leguichet.mg','Leguichet.mg')->subject('Leguichet new event');
         });
         return redirect(url('organisateur/event/' . $event->id . '/edit'))->with(compact('message'));
     }
@@ -264,7 +264,7 @@ class EventController extends Controller
 
         Mail::send('emails.modifierevenement', ['user' => Auth::user(), 'event' => $event], function ($message) {
             $message->to(Auth::user()->email, Auth::user()->name)->subject('Leguichet');
-            $message->cc('contact@leguichet.mg','Leguichet.mg')->subject('Leguichet update event from Admin');
+            $message->cc('reservations@leguichet.mg','Leguichet.mg')->subject('Leguichet update event from Admin');
         });
 
         return redirect(url('admin/listevent'))->with(compact('message'));;
@@ -323,7 +323,7 @@ class EventController extends Controller
         // Send mail to organisateur
         Mail::send('emails.ajoutevenement', ['user' => Auth::user(), 'event' => $event], function ($message) {
             $message->to(Auth::user()->email, Auth::user()->name)->subject('Leguichet');
-            $message->cc('contact@leguichet.mg','Leguichet.mg')->subject('Leguichet new event from Admin');
+            $message->cc('reservations@leguichet.mg','Leguichet.mg')->subject('Leguichet new event from Admin');
         });
         return redirect(url('admin/events/update/' . $event->id));
     }
@@ -371,7 +371,7 @@ class EventController extends Controller
         session()->flash('page', "details");
         Mail::send('emails.modifierevenement', ['user' => Auth::user(), 'event' => $event], function ($message) {
             $message->to(Auth::user()->email, Auth::user()->name)->subject('Leguichet');
-            $message->cc('contact@leguichet.mg','Leguichet.mg')->subject('Leguichet update event');
+            $message->cc('reservations@leguichet.mg','Leguichet.mg')->subject('Leguichet update event');
         });
         return redirect(url('organisateur/event/' . $event->id . '/edit'))->with(compact('message'));;
     }

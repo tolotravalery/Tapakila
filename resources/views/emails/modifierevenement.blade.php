@@ -41,8 +41,8 @@ border-radius: 3px;
                                     <div style="background-color: white;margin-top: 84px;padding: 20px 30px 20px 30px;overflow: hidden;margin-bottom: 83px;border-radius: 3px;">
                                             <div class="row">
                                                     <div class="col-md-10 col-md-offset-1">
-                                                        <div style=" border-bottom: 1px solid black; padding-bottom: 2px;"><img class="logoactivate" src="{{url('/')}}/public/img/logo.png" title="Tapakila"></div>
-                                        
+                                                        <!-- <div style=" border-bottom: 1px solid black; padding-bottom: 2px;"><img class="logoactivate" src="{{url('/')}}/public/img/logo.png" title="Tapakila"></div>
+                                         -->
                                         
                                         <h2 style="font-size: 26px;color:#333;"><b>Bonjour {{$user->name}},</b></h2>
                                         <p style="font-size: 14px;color:#333;">Votre modification évènement a été bien réussi. </p>
@@ -54,6 +54,7 @@ border-radius: 3px;
                                         <p style="font-size: 14px;color:#333;font-family:Lucida Console;"> Veuiller consulter votre <a style="text-decoration: none;color: #62b2eb;"href="{{url('/home')}}"> Compte</a></p><br>
                                         <div style="font-size: 14px;color:#333;text-align: center;background-color: #cccccc; margin-top: 25px; padding: 15px;  margin-bottom: 20px;  border: 1px solid transparent; border-radius: 4px;">
                                             <p>Vous avez des question? consultez notre <a style="text-decoration: none;color: #62b2eb;"href="{{url('')}}/leguichet/faq">FAQ</a> dès maintenant</p>
+                                            <p style="text-align:center;">Retourner vers <a href="https://leguichet.mg">leguichet.mg</a></p>
                                         </div>
                                         </div>
                                         </div>

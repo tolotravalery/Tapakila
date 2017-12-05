@@ -24,9 +24,9 @@
                                     <div class="row">
                                         <div class="col-lg-6 col-lg-offset-3">
                                             <div style="background-color: white; margin-top: 30px; padding: 20px 25px 20px 25px;">
-                                                <img class="logoactivate" src="{{url('/')}}/public/img/logo.png"
+                                                <!-- <img class="logoactivate" src="{{url('/')}}/public/img/logo.png"
                                                      title="Leguichet">
-                                                <hr class="border-logo">
+                                                <hr class="border-logo"> -->
                                                 @if($send == 'mail')
                                                     <h2>
                                                         <b style="color:#333;margin-top: 20px; margin-bottom: 10px;font-size: 30px;word-wrap: break-word;font-weight: 700;">Merci {{$user->name}}

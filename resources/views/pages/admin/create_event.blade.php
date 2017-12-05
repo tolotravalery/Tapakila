@@ -155,7 +155,7 @@
                         
 
                         <div class="form-group">
-                            <label class="col-md-3 control-label">Description <span style="color: red">*</span></label>
+                            <label class="col-md-3 control-label">Déscription <span style="color: red">*</span></label>
                             <div class="col-md-9">
                                 <div class="input-group">
                                     {{--                                {!! Form::textarea('description', '', array('id' => 'description', 'class' => 'form-control')) !!}--}}
