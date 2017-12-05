@@ -67,7 +67,7 @@ class AproposController extends Controller
             'message_from_name'=>$request->input('contacter_name')], function ($message) {
             $message->to('contact@leguichet.mg', 'Leguichet.mg')->subject('Leguichet contact');
         });
-        session()->flash('message', "Votre message a été bien envoyé");
+        session()->flash('message', "SUCCES! votre message a été bien envoyée");
         return redirect('leguichet/contact');
     }
 }

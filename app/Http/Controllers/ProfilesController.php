@@ -137,7 +137,6 @@ class ProfilesController extends Controller
             'currentTheme' => $currentTheme
 
         ];
-        //dd($user);
 
         return view('profiles.edit')->with($data);
 

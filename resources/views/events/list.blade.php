@@ -43,42 +43,32 @@
                 @if($menu_event->sousmenus()->count() == 0)
                     <div class="bg-custom">
                         <h2 class="text-center"><strong>Pas d'évènement ajoutés récements</strong></h2>
-                        <p class="text-center"><strong>Inscrivez-vous dès maintenant, pour ne pas rater les prochaines
-                                Evènements</strong></p>
-                        <div class="sinscrire">
-                            <div class="row">
-                                <div class="col-md-8 col-md-offset-2">
-                                    <div class="infopers">
-                                        <h1 class="inscriptioin"><strong>S'inscrire</strong></h1>
-                                        <label><strong>Une mise à jour mensuel des évènements à
-                                                Madagascar</strong></label>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-8 col-xs-10 col-md-offset-2 col-xs-offset-1">
-                                            <div class="row">
-                                                <div class="col-md-10 col-md-offset-1">
-                                                    <form>
-                                                        <div class="form-group">
-                                                            <input type="email"
-                                                                   class="form-control email-subscribe placehold"
-                                                                   id="input-mail" aria-describedby="emailHelp"
-                                                                   placeholder="| Enter l'adresse E-mail">
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-10 col-md-offset-1">
-                                                    <button type="button" class="btn btn-sinscrire btn-lg btn-block">
-                                                        S'inscrire
-                                                    </button>
+                        @if (Auth::guest())
+                            <p class="text-center"><strong>Inscrivez-vous dès maintenant, pour ne pas rater les prochaines
+                                    Evènements</strong></p>
+                            <div class="sinscrire">
+                                <div class="row">
+                                    <div class="col-md-8 col-md-offset-2">
+                                        <div class="infopers">
+                                            <h1 class="inscriptioin"><strong>S'inscrire</strong></h1>
+                                            <label><strong>Une mise à jour mensuel des évènements à
+                                                    Madagascar</strong></label>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-8 col-xs-10 col-md-offset-2 col-xs-offset-1">
+                                                <div class="row">
+                                                    <div class="col-md-10 col-md-offset-1">
+                                                        <a type="button" class="btn btn-sinscrire btn-lg btn-block" href="{{url('')}}/register">
+                                                            S'inscrire
+                                                        </a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        @endif
                         <hr class="couvert">
                         <div class="replik">
                             <ul>
@@ -213,44 +203,32 @@
                     @if($count_event == 0)
                         <div class="bg-custom">
                             <h2 class="text-center"><strong>Pas d'évènement ajoutés récements</strong></h2>
-                            <p class="text-center"><strong>Inscrivez-vous dès maintenant, pour ne pas rater les
-                                    prochaines
-                                    Evènements</strong></p>
-                            <div class="sinscrire">
-                                <div class="row">
-                                    <div class="col-md-8 col-md-offset-2">
-                                        <div class="infopers">
-                                            <h1 class="inscriptioin"><strong>S'inscrire</strong></h1>
-                                            <label><strong>Une mise à jour mensuel des évènements à
-                                                    Madagascar</strong></label>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-8 col-xs-10 col-md-offset-2 col-xs-offset-1">
-                                                <div class="row">
-                                                    <div class="col-md-10 col-md-offset-1">
-                                                        <form>
-                                                            <div class="form-group">
-                                                                <input type="email"
-                                                                       class="form-control email-subscribe placehold"
-                                                                       id="input-mail" aria-describedby="emailHelp"
-                                                                       placeholder="| Enter l'adresse E-mail">
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-10 col-md-offset-1">
-                                                        <button type="button"
-                                                                class="btn btn-sinscrire btn-lg btn-block">
-                                                            S'inscrire
-                                                        </button>
+                            @if (Auth::guest())
+                                <p class="text-center"><strong>Inscrivez-vous dès maintenant, pour ne pas rater les prochaines
+                                        Evènements</strong></p>
+                                <div class="sinscrire">
+                                    <div class="row">
+                                        <div class="col-md-8 col-md-offset-2">
+                                            <div class="infopers">
+                                                <h1 class="inscriptioin"><strong>S'inscrire</strong></h1>
+                                                <label><strong>Une mise à jour mensuel des évènements à
+                                                        Madagascar</strong></label>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-8 col-xs-10 col-md-offset-2 col-xs-offset-1">
+                                                    <div class="row">
+                                                        <div class="col-md-10 col-md-offset-1">
+                                                            <a type="button" class="btn btn-sinscrire btn-lg btn-block" href="{{url('')}}/register">
+                                                                S'inscrire
+                                                            </a>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            @endif
                             <hr class="couvert">
                             <div class="replik">
                                 <ul>

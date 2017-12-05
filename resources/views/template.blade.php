@@ -121,7 +121,7 @@
                                 <a href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
-                                    Se déconnecter
+                                    {{ trans('titles.logout') }}
                                 </a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST"
@@ -181,14 +181,11 @@
                     </ul>
                 </div>
                 <div class="col-sm-3 col-xs-6">
-                    @if (Auth::guest())
-                        <p class="titled"><strong>Organisateurs</strong></p>
-                        <ul class="list-unstyled">
-                            <li><a href="{{url('')}}/leguichet/shop/ticket">Pour les Organisateurs</a></li>
-                            <li><a href="{{ url('/register') }}">S'enregistrer</a></li>
-                            <li><a href="{{ url('/login') }}">Connexion</a></li>
-                        </ul>
-                    @endif
+                    <p class="titled"><strong>Organisateurs</strong></p>
+                    <ul class="list-unstyled">
+                        <li><a href="{{url('/')}}/organisateur/event">Ajouter événement</a></li>
+                        <li><a href="{{url('')}}/leguichet/contact">Nous contacter</a></li>
+                    </ul>
                 </div>
                 <div class="col-sm-2 col-xs-6 ">
 

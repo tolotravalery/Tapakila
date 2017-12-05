@@ -134,4 +134,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\Events');
     }
+
+    public function newsletter(){
+        return $this->belongsToMany('App\Models\Newsletter')->withPivot('activated');
+    }
+
 }
