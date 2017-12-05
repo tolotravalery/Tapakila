@@ -32,18 +32,18 @@ return [
 
     // Labels
     'whoops'            => 'Whoops! ',
-    'someProblems'      => 'There were some problems with your input.',
+    'someProblems'      => 'Il y a eu quelques problèmes avec votre entrée.',
     'email'             => 'E-Mail Address',
     'password'          => 'Password',
-    'rememberMe'        => ' Remember Me',
+    'rememberMe'        => ' Se souvenir de moi',
     'login'             => 'Login',
-    'forgot'            => 'Forgot Your Password?',
-    'forgot_message'    => 'Password Troubles?',
+    'forgot'            => 'Mot de passe oublié?',
+    'forgot_message'    => 'Mot de passe Problèmes?',
     'name'              => 'Username',
     'first_name'        => 'First Name',
     'last_name'         => 'Last Name',
-    'confirmPassword'   => 'Confirm Password',
-    'register'          => 'Register',
+    'confirmPassword'   => 'Confirmer le mot',
+    'register'          => 'S\'enregistrer',
 
     // Placeholders
     'ph_name'           => 'Username',
@@ -59,22 +59,22 @@ return [
     'loggedIn'          => 'You are logged in!',
 
     // email links
-    'pleaseActivate'    => 'Please activate your account.',
-    'clickHereReset'    => 'Click here to reset your password: ',
-    'clickHereActivate' => 'Click here to activate your account: ',
+    'pleaseActivate'    => 'Veuillez activer votre compte.',
+    'clickHereReset'    => 'Cliquez ici pour réinitialiser votre mot de passe: ',
+    'clickHereActivate' => 'Cliquez ici pour activer votre compte: ',
 
     // Validators
-    'userNameTaken'     => 'Username is taken',
-    'userNameRequired'  => 'Username is required',
-    'fNameRequired'     => 'First Name is required',
-    'lNameRequired'     => 'Last Name is required',
-    'emailRequired'     => 'Email is required',
-    'emailInvalid'      => 'Email is invalid',
-    'passwordRequired'  => 'Password is required',
-    'PasswordMin'       => 'Password needs to have at least 6 characters',
-    'PasswordMax'       => 'Password maximum length is 20 characters',
-    'captchaRequire'    => 'Captcha is required',
-    'CaptchaWrong'      => 'Wrong captcha, please try again.',
-    'roleRequired'      => 'User role is required.'
+    'userNameTaken'     => 'Nom d\'utilisateur est pris',
+    'userNameRequired'  => 'Nom d\'utilisateur est requis',
+    'fNameRequired'     => 'Le prénom est requis',
+    'lNameRequired'     => 'Nom de famille est requis',
+    'emailRequired'     => 'L\'email est requis',
+    'emailInvalid'      => 'L\'email est invalide',
+    'passwordRequired'  => 'Mot de passe requis',
+    'PasswordMin'       => 'Le mot de passe doit avoir au moins 6 caractères',
+    'PasswordMax'       => 'La longueur maximale du mot de passe est de 20 caractères',
+    'captchaRequire'    => 'Captcha est requis',
+    'CaptchaWrong'      => 'Mauvais captcha, veuillez réessayer.',
+    'roleRequired'      => 'Le rôle de l\'utilisateur est requis.'
 
 ];
