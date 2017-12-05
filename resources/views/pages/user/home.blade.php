@@ -48,7 +48,7 @@
                             </div>
                         </div>
                         @role('user')
-                        <p>Vous devriez changer votre profile en organisateur d'évèmenet si vous voulez ajouter un
+                        <p>Vous devriez changer votre profile en organisateur d'évémenet si vous voulez ajouter un
                             évènement.</p>
                         @endrole
                     </div>
@@ -72,8 +72,8 @@
                 ?>
                 <div class="padding-custom">
                     <ul class="tabs">
-                        <li class="active" rel="tab3"><b>Mes achat <br>passés</b></li>
-                        <li rel="tab4"><b>Mes achats<br> Actuels</b></li>
+                        <li class="active" rel="tab3"><b>Mes Achats <br>passés</b></li>
+                        <li rel="tab4"><b>Mes Achats<br> Actuelles</b></li>
                     </ul>
                     <div class="tab_container">
                         <!-- #tab2 -->
@@ -121,7 +121,7 @@
                             </table>
                         </div>
                         <!-- #tab3 -->
-                        <h3 class="tab_drawer_heading" rel="tab4">Mes achats Actuels</h3>
+                        <h3 class="tab_drawer_heading" rel="tab4">Mes Achats Actuelles</h3>
                         <div id="tab4" class="tab_content">
                             <table class="tabl-content table-custom">
                                 <thead>

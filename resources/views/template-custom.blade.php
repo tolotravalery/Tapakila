@@ -71,7 +71,7 @@
                         <div id="custom-search-input">
 							<form action="{{url('/')}}/find/q" method="get" class="input-group searchbox">
 								<input type="text" class="form-control input-lg" name="query"
-									   placeholder="Rechercher..." autocomplete="off" style="font-size:16px;">
+									   placeholder="Rechercher..." autocomplete="off" style="font-size:16px;" required>
 								<span class="input-group-btn">
 									<button class="btn btn-info1 btn-lg" type="submit">
 										<i class="glyphicon glyphicon-search"></i>
@@ -130,7 +130,7 @@
                         <div id="custom-search-input">
 							<form action="{{url('/')}}/find/q" method="get" class="input-group searchbox">
 								<input type="text" class="form-control input-lg" name="query"
-									   placeholder="Rechercher..." autocomplete="off" style="font-size:16px;">
+									   placeholder="Rechercher..." autocomplete="off" style="font-size:16px;" required>
 								<span class="input-group-btn">
 									<button class="btn btn-info1 btn-lg" type="submit">
 										<i class="glyphicon glyphicon-search"></i>
