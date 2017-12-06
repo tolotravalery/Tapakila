@@ -12,7 +12,7 @@
     </div>
     <div class="container">
         <div class="box1">
-            <h2 class="text-center">Detail sur l'événement</h2>
+            <h2 class="text-center">Détail sur l'événement</h2>
             <div class="Pcenter">
                 <img class="imgdetails" src="{{url('/')}}/public/img/{{$img}}" style="width:100%;">
             </div>
@@ -59,7 +59,7 @@
                             
                                 <tr>
                                     <td><strong>{{$ticket->type}}</strong>
-                                        <p>Description tickets</p></td>
+                                        <p>Déscription tickets</p></td>
                                     <td><b>{{$ticket->price}} Ar</b></td>
                                     <td>
                                         <div class="row position">

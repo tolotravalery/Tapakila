@@ -67,7 +67,7 @@
                         <li class="active" rel="tab1"><b>Mes Ventes<br> passés</b></li>
                         <li rel="tab2"><b>Mes ventes <br> Actuelles</b></li>
                         <li rel="tab3"><b>Mes Achats <br>passés</b></li>
-                        <li rel="tab4"><b>Mes Achats<br> Actuelles</b></li>
+                        <li rel="tab4"><b>Mes Achats<br> Actuels </b></li>
                     </ul>
                     <div class="tab_container">
                         <h3 class="d_active tab_drawer_heading" rel="tab1">Mes Ventes passés</h3>
@@ -75,7 +75,7 @@
                             <table class="tabl-content table-custom">
                                 <thead>
                                 <tr>
-                                    <th scope="col" class=""><b class="bold">Evènement</b></th>
+                                    <th scope="col" class=""><b class="bold">Evénement</b></th>
                                     <th scope="col" class=""><b class="bold">Date</b></th>
                                     <th scope="col"><b class="bold">Tickets</b></th>
                                     <th scope="col"><b class="bold">Prix Unitaire</b></th>
@@ -134,7 +134,7 @@
                             <table class="tabl-content table-custom">
                                 <thead>
                                 <tr>
-                                    <th scope="col" class=""><b class="bold">Evènement</b></th>
+                                    <th scope="col" class=""><b class="bold">Evénement</b></th>
                                     <th scope="col"><b class="bold">Date</b></th>
                                     <th scope="col"><b class="bold">Tickets</b></th>
                                     <th scope="col"><b class="bold">Prix Unitaire</b></th>
@@ -195,7 +195,7 @@
                             <table class="tabl-content table-custom">
                                 <thead>
                                 <tr>
-                                    <th scope="col" class=""><b class="bold">Evènement</b></th>
+                                    <th scope="col" class=""><b class="bold">Evénement</b></th>
                                     <th scope="col"><b class="bold">Tickets</b></th>
                                     <th scope="col"><b class="bold">Date Achat</b></th>
                                     <th scope="col"><b class="bold">Nombre</b></th>
@@ -235,12 +235,12 @@
                             </table>
                         </div>
                         <!-- #tab3 -->
-                        <h3 class="tab_drawer_heading" rel="tab4">Mes achats Actuelles</h3>
+                        <h3 class="tab_drawer_heading" rel="tab4">Mes achats Actuels</h3>
                         <div id="tab4" class="tab_content">
                             <table class="tabl-content table-custom">
                                 <thead>
                                 <tr>
-                                    <th scope="col" class=""><b class="bold">Evènement</b></th>
+                                    <th scope="col" class=""><b class="bold">Evénement</b></th>
                                     <th scope="col"><b class="bold">Tickets</b></th>
                                     <th scope="col"><b class="bold">Date Achat</b></th>
                                     <th scope="col"><b class="bold">Nombre</b></th>
