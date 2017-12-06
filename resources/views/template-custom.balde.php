@@ -100,15 +100,9 @@
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu " id="menu3" aria-labelledby="drop6">
-                            {{--<li {{ Request::is('profile/'.Auth::user()->id, 'profile/'.Auth::user()->id . '/edit') ?  : null }}>
-                            {!! HTML::link(url('/profile/'.Auth::user()->id.'/edit'), trans('titles.profile')) !!}
-                            <!--{!! HTML::icon_link(URL::to('/profile/'.Auth::user()->id.'/edit'), 'fa fa-fw fa-cog', trans('titles.editProfile'), array('class' => 'btn btn-small btn-info btn-block')) !!}
-                            {{ trans('profile.editAccountTitle') }}-->
-								</li>--}}
 								<li>
 									<a href="{{url('/home')}}">Mon compte</a>
 								</li>
-
                             <li>
                                 <a href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
@@ -175,9 +169,11 @@
                 <div class="col-sm-3 col-xs-6">
                     <p class="titled"><strong>Organisateurs</strong></p>
                     <ul class="list-unstyled">
-                        <li><a href="{{url('')}}/leguichet/shop/ticket">Pour les Organisateurs</a></li>
-                        <li><a href="{{ url('/register') }}">S'enregistrer</a></li>
-                        <li><a href="{{ url('/login') }}">Connexion</a></li>
+                        <p class="titled"><strong>Organisateurs</strong></p>
+                        <ul class="list-unstyled">
+                            <li><a href="{{url('/')}}/organisateur/event">Ajouter événement</a></li>
+                            <li><a href="{{url('')}}/leguichet/contact">Nous contacter</a></li>
+                        </ul>
                     </ul>
                 </div>
                 <div class="col-sm-2 col-xs-6 ">

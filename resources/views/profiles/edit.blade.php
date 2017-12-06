@@ -8,7 +8,22 @@
                     <div class="col-md-3 text-center-md usercompte">
                         <img src="{{ url('/') }}/public/img/user.png" id="sary">
                         <br>
-                        <strong>{{ Auth::user()->name }}</strong>
+                        <strong>{{ Auth::user()->name }}</strong><br/><br/>
+                        <div class="row">
+                            <form class="form-horizontal" role="form" method="POST"
+                                  action="{{ url('/') }}/newsletter">
+                                {!! csrf_field() !!}
+                                @if($user->has('newsletter')->get()->count() == 0)
+                                    <input type="checkbox" name="checked"> <i>S'abonner à notre News Letter</i><br/>
+                                    <br/>
+                                @else
+                                    <input type="checkbox" name="checked" checked> <i>S'abonner à notre News Letter</i>
+                                    <br/>
+                                @endif
+                                <input type="hidden" name="users" value="{{$user->id}}">
+                                <button class="btn btn-default" type="submit">Modifier</button>
+                            </form>
+                        </div>
                     </div>
                     <div class="col-md-9">
                         {!! Form::model($user, array('action' => array('ProfilesController@updateUserAccount', $user->id), 'method' => 'PUT', 'class'=>'form-group')) !!}

@@ -179,7 +179,7 @@
                                             </a>
                                         </td>
                                         <td>
-                                            <a class="btn btn-sm btn-success"  href="{{url('/')}}/admin/ajouterTicket/{{$ev->id}}" data-toggle="tooltip" title="Edit">
+                                            <a class="btn btn-sm btn-success"  href="{{url('/')}}/admin/ajouterTicket/{{$ev->id}}" data-toggle="tooltip" title="Add">
                                                 <i class="fa fa-plus fa-fw" aria-hidden="true"></i>
                                                 <span class="hidden-xs hidden-sm">Ajouter</span>
                                                 <span class="hidden-xs hidden-sm hidden-md"> ticket</span>

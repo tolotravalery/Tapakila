@@ -136,6 +136,7 @@ Route::group(['middleware' => ['auth', 'activated', 'currentUser']], function ()
         Route::get('quiz', 'Shopping\CheckoutController@quiz');
         Route::get('annuler/{users_id}/{id}', 'UserController@annuler');
     });
+    Route::post('newsletter','NewsLetterUserController@store');
 
 });
 
