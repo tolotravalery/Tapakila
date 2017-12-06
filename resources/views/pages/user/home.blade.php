@@ -48,8 +48,8 @@
                             </div>
                         </div>
                         @role('user')
-                        <p>Vous devriez changer votre profile en organisateur d'évémenet si vous voulez ajouter un
-                            évènement.</p>
+                        <p>Vous pouvez changer votre profile en organisateur pour ajouter un
+                            événement.</p>
                         @endrole
                     </div>
                     <div class="col-md-7 text-right-md text-right-lg text-center-xs text-center-sm ">
@@ -73,16 +73,16 @@
                 <div class="padding-custom">
                     <ul class="tabs">
                         <li class="active" rel="tab3"><b>Mes Achats <br>passés</b></li>
-                        <li rel="tab4"><b>Mes Achats<br> Actuelles</b></li>
+                        <li rel="tab4"><b>Mes Achats<br> Actuels</b></li>
                     </ul>
                     <div class="tab_container">
                         <!-- #tab2 -->
-                        <h3 class="tab_drawer_heading" rel="tab3">Mes achat passés</h3>
+                        <h3 class="tab_drawer_heading" rel="tab3">Mes achats passés</h3>
                         <div id="tab3" class="tab_content">
                             <table class="tabl-content table-custom">
                                 <thead>
                                 <tr>
-                                    <th scope="col" class=""><b class="bold">Evènement</b></th>
+                                    <th scope="col" class=""><b class="bold">Evénement</b></th>
                                     <th scope="col"><b class="bold">Tickets</b></th>
                                     <th scope="col"><b class="bold">Date Achat</b></th>
                                     <th scope="col"><b class="bold">Nombre</b></th>
@@ -121,12 +121,12 @@
                             </table>
                         </div>
                         <!-- #tab3 -->
-                        <h3 class="tab_drawer_heading" rel="tab4">Mes Achats Actuelles</h3>
+                        <h3 class="tab_drawer_heading" rel="tab4">Mes Achats Actuels</h3>
                         <div id="tab4" class="tab_content">
                             <table class="tabl-content table-custom">
                                 <thead>
                                 <tr>
-                                    <th scope="col" class=""><b class="bold">Evènement</b></th>
+                                    <th scope="col" class=""><b class="bold">Evénement</b></th>
                                     <th scope="col"><b class="bold">Tickets</b></th>
                                     <th scope="col"><b class="bold">Date Achat</b></th>
                                     <th scope="col"><b class="bold">Nombre</b></th>
