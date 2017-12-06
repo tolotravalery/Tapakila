@@ -112,6 +112,9 @@
                                                             </a>
                                                         </div>
                                                     </div>
+                                                    <div style="text-align:center;">
+                                                            <button type="submit" class=" btn btn-danger btn_reset">Réserver</button>
+                                                            </div>
                                                 </a>
                                             </div>
                                         </div>

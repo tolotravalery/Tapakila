@@ -137,7 +137,7 @@
                                     <?php
                                     }
                                     ?>
-                                    <h2>Details</h2>
+                                    <h2>Détails</h2>
                                     <?php
                                     $publie_org = $event->publie_organisateur;
                                     if ($publie_org == 0) {
