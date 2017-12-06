@@ -145,8 +145,12 @@
                                                                             class="glyphicon glyphicon-map-marker position"></i>{{ str_limit($event->localisation_adresse, $limit = 15, $end = ' ...')}}
                                                                 </div>
                                                             </a>
+                                                           
                                                         </div>
                                                     </div>
+                                                    <div style="text-align:center;">
+                                                            <button type="submit" class=" btn btn-danger btn_reset">Réserver</button>
+                                                            </div>
                                                 </a>
                                             </div>
                                         </a>
