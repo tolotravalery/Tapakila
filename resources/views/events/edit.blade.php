@@ -36,7 +36,7 @@
         <div class="container custom-container">
             <div class="page-menu row">
                 <div class="col-lg-9 col-sm-9 col-lg-push-3 col-sm-push-3 fi">
-                    <h1>Modifier votre évènement </h1>
+                    <h1>Modifier votre événement </h1>
 
                     @if (session('message'))
                         <div class="alert alert1 alert-success">
@@ -72,7 +72,7 @@
                         </div>
                     </div>
                     <a class="btn btn-sm btn-default btn-aperçu " href="#" target="_blank">Aperçu</a>
-                    <p><i style="color:red;">La modification d'une publication évènement est accordé par
+                    <p><i style="color:red;">La modification d'une publication de l'événement est accordé par
                             l'administrateur</i></p>
                 </div>
                 <div class="row">
