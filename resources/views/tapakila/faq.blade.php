@@ -518,7 +518,7 @@
                             <div id="2" role="tablist" aria-multiselectable="true" class="panel-group">
                                 <div class="panel panel-default">
                                     <div role="tab" id="header-6" class="panel-heading">
-                                        <h4 class="panel-title"><a aria-controls="collapse-6" aria-expanded="false" data-parent="#1" data-toggle="collapse" href="#collapse-6" role="button" class="collapsed">Acheter les billets</a></h4>
+                                        <h4 class="panel-title"><a aria-controls="collapse-6" aria-expanded="false" data-parent="#1" data-toggle="collapse" href="#collapse-6" role="button" class="collapsed">Vendre les billets</a></h4>
                                     </div>
 
                                     <div id="collapse-6" role="tabpanel" aria-labelledby="header-0" id="accordion" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
