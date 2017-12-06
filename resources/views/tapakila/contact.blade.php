@@ -36,6 +36,12 @@
                 <form action="{{url('/')}}/leguichet/contact" method="post">
                     {!! csrf_field() !!}
                     <div class="col-md-6 text-center-lg text-center-md text-center-sm text-center-lg-xs">
+                            @if (session('message'))
+                                <div class="alert alert1 alert-success">
+                                    <span class="glyphicon glyphicon-ok"></span>
+                                    <strong>{!! session('message') !!}</strong>
+                                </div>
+                            @endif
                             <div class="form-group">
                                 <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nom*" name="contacter_name" required>
                             </div>
@@ -55,9 +61,6 @@
                                 </div>
                             </div>
                             <p class="pull-right olig"><sup>*</sup>&nbsp Champs obligatoire</p>
-                        @if (session('message'))
-                            <p>{!! session('message') !!}</p>
-                        @endif
                         <div class="row">
                             <div class="col-md-3 col-md-offset-4 col-xs-3 col-xs-offset-3 col-sm-3 col-sm-offset-4">
                                 <button type="submit" class="btn btn-envoye btn-lg">Envoyer</button>

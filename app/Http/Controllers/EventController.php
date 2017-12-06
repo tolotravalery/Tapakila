@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Newsletter;
 use App\Models\Ticket;
 use App\Models\Alert;
 use App\Models\Menus;
@@ -8,6 +9,7 @@ use App\Models\Sous_menus;
 use App\Models\User;
 use Auth;
 use App\Data;
+use Illuminate\Support\Facades\Session;
 use Validator;
 use Response;
 use Illuminate\Http\Request;
@@ -110,9 +112,22 @@ class EventController extends Controller
     public function updatePublieAll(Request $request)
     {
         $ev = Events::find($request->input('id'));
+        $old_publie = $ev->publie;
+        if($old_publie == $request->input('active')){
+            // send mail for all members of news letter
+            $newsLetter = Newsletter::findOrFail(1);
+            foreach ($newsLetter->users as $user){
+                Session::put('news_letter_user_email',$user->emai);
+                Session::put('news_letter_user_name',$user->name);
+                Mail::send('emails.newsletter', ['user' => Auth::user(), 'event' => $ev], function ($message) {
+                    $message->to(Session::get('news_letter_user_email'), Session::get('news_letter_user_name'));
+                    $message->cc('reservations@leguichet.mg','Leguichet.mg')->subject('Leguichet new event');
+                });
+            }
+        }
         $ev->publie = $request->input('active');
         $ev->save();
-        return "update " . $request->input('id') . "to " . $request->input('active') . " finished";
+        return "update " . $request->input('id') . " to " . $request->input('active') . " finished";
     }
 
     public function edit_admin($id)
