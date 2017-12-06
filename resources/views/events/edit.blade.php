@@ -72,8 +72,7 @@
                         </div>
                     </div>
                     <a class="btn btn-sm btn-default btn-aperçu " href="#" target="_blank">Aperçu</a>
-                    <p><i style="color:red;">La modification d'une publication évènement est accordé par
-                            l'administrateur</i></p>
+                    <p><i style="color:red;">Votre événement est en cours d'analyse, nous vous enverrons un email pour confirmer l'activation d'ici quelques heures</i></p>
                 </div>
                 <div class="row">
                     <div class="col-lg-11 col-sm-10"></div>

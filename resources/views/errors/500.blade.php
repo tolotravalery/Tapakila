@@ -41,6 +41,7 @@
         <div class="container">
             <div class="content">
                 <div class="title">Internal Server Error 500</div>
+                <p>{{ $exception->getMessage() }}</p>
             </div>
         </div>
     </body>

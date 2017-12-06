@@ -55,7 +55,6 @@ class UserController extends Controller
             return view('pages.user.home')->with(compact('menus', 'sousmenus', 'achats', 'niova'));
         }
         return view('pages.user.home');
-
     }
 
     public function editUser($userId)
@@ -80,12 +79,13 @@ class UserController extends Controller
         return view('profiles.edit')->with($data);
     }
     public function annuler($user_id,$id){
-        echo "annuler".$id.$user_id;
         $user=User::find($user_id);
-        $ticket_user=$user->tickets()->wherePivot('id', '=',$id )->get();
-        foreach ($ticket_user as $t_u){
-            $t_u->pivot->delete();
-        }
+        $ticket_to_delete = $user->tickets()->wherePivot('id', '=', $id)->get();
+//        foreach ($ticket_to_delete as $t_u){
+//            $t_u->pivot->delete();
+//        }
+//        dd($ticket_to_delete[0]->users()->sync([]));
+        $user->tickets()->detach($ticket_to_delete[0]->id);
         return redirect(url('/home'));
     }
 

@@ -209,7 +209,7 @@
                                         @php
                                             $event = $a->events[0];
                                         @endphp
-                                        @if(date($event->date_fin_event) < date('now'))
+                                        @if(date($event->date_debut_envent) < date('now'))
                                             @if($a->pivot->status_payment!='FAILED')
                                                 <tr>
                                                     <td data-label="">
@@ -255,7 +255,7 @@
                                         @php
                                             $event = $a->events[0];
                                         @endphp
-                                        @if(date($event->date_debut_envent) > date('now'))
+                                        @if(date($event->date_debut_envent) >= date('now'))
                                             <tr>
                                                 <td data-label="">
                                                     <div class="thumbnail imgpaiment">
