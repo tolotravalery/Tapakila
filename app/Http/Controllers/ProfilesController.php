@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Newsletter;
 use App\Models\Profile;
 use App\Models\Theme;
 use App\Models\Ticket;
@@ -210,7 +211,6 @@ class ProfilesController extends Controller
      */
     public function updateUserAccount(Request $request, $id)
     {
-
         $currentUser = \Auth::user();
         $user = User::findOrFail($id);
         $emailCheck = ($request->input('email') != '') && ($request->input('email') != $user->email);
@@ -265,9 +265,17 @@ class ProfilesController extends Controller
         }
         $user->updated_ip_address = $ipAddress->getClientIp();
         $user->save();
+        $checked = $request->input('checked');
+        $news_letter = Newsletter::findOrFail(1);
+        if($checked){
+            $news_letter->users()->sync(array($user->id=>array('activated'=>'1')));
+        }else{
+            $news_letter->users()->sync([]);
+        }
         $niova = $request->input('changer');
         session()->flash('niova', $niova);
-        return redirect('/home')->with(compact('niova'));
+        session()->flash('message', "SUCCES! Votre infomation a été mis à jour.");
+        return redirect(url('profile/'.$user->id.'/edit'));
 
     }
 
