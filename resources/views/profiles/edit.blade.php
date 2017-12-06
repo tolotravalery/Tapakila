@@ -9,23 +9,14 @@
                         <img src="{{ url('/') }}/public/img/user.png" id="sary">
                         <br>
                         <strong>{{ Auth::user()->name }}</strong><br/><br/>
-                        <div class="row">
-                            <form class="form-horizontal" role="form" method="POST"
-                                  action="{{ url('/') }}/newsletter">
-                                {!! csrf_field() !!}
-                                @if($user->has('newsletter')->get()->count() == 0)
-                                    <input type="checkbox" name="checked"> <i>S'abonner à notre News Letter</i><br/>
-                                    <br/>
-                                @else
-                                    <input type="checkbox" name="checked" checked> <i>S'abonner à notre News Letter</i>
-                                    <br/>
-                                @endif
-                                <input type="hidden" name="users" value="{{$user->id}}">
-                                <button class="btn btn-default" type="submit">Modifier</button>
-                            </form>
-                        </div>
                     </div>
                     <div class="col-md-9">
+                        @if (session('message'))
+                            <div class="alert alert1 alert-success">
+                                <span class="glyphicon glyphicon-ok"></span>
+                                <strong>{!! session('message') !!}</strong>
+                            </div>
+                        @endif
                         {!! Form::model($user, array('action' => array('ProfilesController@updateUserAccount', $user->id), 'method' => 'PUT', 'class'=>'form-group')) !!}
                         {!! csrf_field() !!}
                         <label for="usr">Nom :</label>
@@ -60,56 +51,75 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6  text-right-md  text-right-lg text-center-xs text-center-sm  ">
-                                <div class="col-md-6 col-xs-12" style="margin-top: 20px;">
-                                    <a href="{{url('/home')}}" class="a_color">Annuler</a>
-                                </div>
-                                <div class="col-md-6 col-xs-12">
-                                    {{--<button id="modif_info" type="submit" class="btn bt_modif">Modifier</button>--}}
-                                    {!! Form::button('Modifier',
-                                            array(
-                                                'class' 			=> 'btn bt_modif',
-                                                'id' 				=> 'delete_account_trigger',
-                                                'type' 				=> 'button',
-                                                'data-toggle' 		=> 'modal',
-                                                'data-submit'       => 'Modifier',
-                                                'data-target' 		=> '#confirmForm',
-                                                'data-modalClass' 	=> 'modal-danger',
-                                                'data-title' 		=> trans('profile.deleteAccountConfirmTitle'),
-                                                'data-message' 		=> trans('profile.deleteAccountConfirmMsg')
-                                            )
-                                    ) !!}
-                                </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 ">
+                                @if($user->has('newsletter')->get()->count() == 0)
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="checked"> <i>S'abonner à notre NewsLetter</i>
+                                        </label>
+                                    </div>
+                                @else
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="checked" checked> <i>S'abonner à notre
+                                                NewsLetter</i>
+                                        </label>
+                                    </div>
+                                @endif
                             </div>
                         </div>
-                        <div class="modal fade" id="confirmForm" role="dialog" aria-labelledby="confirmFormLabel"
-                             aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Close"><span
-                                                    aria-hidden="true">&times;</span></button>
-                                        <h4 class="modal-title">
-                                            Modifier mon compte
-                                        </h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <p>
-                                            Confirmer la modification de vos informations ?
-                                        </p>
-                                    </div>
-                                    <div class="modal-footer">
-                                        {!! Form::button('<i class="fa fa-fw fa-close" aria-hidden="true"></i> Annuler', array('class' => 'btn pull-left iko', 'type' => 'button', 'data-dismiss' => 'modal' )) !!}
-                                        {!! Form::button('<i class="fa fa-fw fa-check" aria-hidden="true"></i> Confirmer', array('class' => 'btn btn-default pull-right', 'type' => 'submit', 'id' => 'confirm' )) !!}
-                                    </div>
-                                </div>
+                        <div class="col-md-6  text-right-md  text-right-lg text-center-xs text-center-sm  ">
+                            <div class="col-md-6 col-xs-12" style="margin-top: 20px;">
+                                <a href="{{url('/home')}}" class="a_color">Annuler</a>
+                            </div>
+                            <div class="col-md-6 col-xs-12">
+                                {{--<button id="modif_info" type="submit" class="btn bt_modif">Modifier</button>--}}
+                                {!! Form::button('Modifier',
+                                        array(
+                                            'class' 			=> 'btn bt_modif',
+                                            'id' 				=> 'delete_account_trigger',
+                                            'type' 				=> 'button',
+                                            'data-toggle' 		=> 'modal',
+                                            'data-submit'       => 'Modifier',
+                                            'data-target' 		=> '#confirmForm',
+                                            'data-modalClass' 	=> 'modal-danger',
+                                            'data-title' 		=> trans('profile.deleteAccountConfirmTitle'),
+                                            'data-message' 		=> trans('profile.deleteAccountConfirmMsg')
+                                        )
+                                ) !!}
                             </div>
                         </div>
-                        {!! Form::close() !!}
                     </div>
+                    <div class="modal fade" id="confirmForm" role="dialog" aria-labelledby="confirmFormLabel"
+                         aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal"
+                                            aria-label="Close"><span
+                                                aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">
+                                        Modifier mon compte
+                                    </h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p>
+                                        Confirmer la modification de vos informations ?
+                                    </p>
+                                </div>
+                                <div class="modal-footer">
+                                    {!! Form::button('<i class="fa fa-fw fa-close" aria-hidden="true"></i> Annuler', array('class' => 'btn pull-left iko', 'type' => 'button', 'data-dismiss' => 'modal' )) !!}
+                                    {!! Form::button('<i class="fa fa-fw fa-check" aria-hidden="true"></i> Confirmer', array('class' => 'btn btn-default pull-right', 'type' => 'submit', 'id' => 'confirm' )) !!}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {!! Form::close() !!}
                 </div>
             </div>
+        </div>
         </div>
     </section>
 @endsection
