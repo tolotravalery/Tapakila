@@ -72,7 +72,7 @@
                         </div>
                     </div>
                     <a class="btn btn-sm btn-default btn-aperçu " href="#" target="_blank">Aperçu</a>
-                    <p><i style="color:red;">La modification d'une publication évènement est accordé par
+                    <p><i style="color:red;">La modification d'une publication de l'événement est accordé par
                             l'administrateur</i></p>
                 </div>
                 <div class="row">
