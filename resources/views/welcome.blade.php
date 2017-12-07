@@ -174,7 +174,7 @@
                         <div class="col-lg-12 pull-right">
                             <div class="pull-right">
                                 <a class="pagination" href="{{url('/event/list/categorie/'.$sm->name.'',[$sm->id])}}">
-                                    <i><b>Plus d'évènement >> </b></i>
+                                    <i><b>Plus d'événement >> </b></i>
                                 </a>
                             </div>
                         </div>
