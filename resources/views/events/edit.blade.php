@@ -215,7 +215,7 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label required">Début de
-                                                            l'évenement</label><span
+                                                            l'événement</label><span
                                                                 class="champ_required"> *</span>
                                                         <div class="input-group">
                                                             <div class="input-group-addon">
@@ -243,7 +243,7 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label required">Fin de
-                                                            l'évenement</label><span
+                                                            l'événement</label><span
                                                                 class="champ_required"> *</span>
                                                         <div class="input-group">
                                                             <div class="input-group-addon">
@@ -271,9 +271,9 @@
                                     </div>
                                     <div class="form-group form-group-translation et" id="message_comp">
                                         <p style="color:red;" id="message_after_comparaison">La date fin
-                                            de l' évenement doit être supérieure à la date debut</p>
+                                            de l' événement doit être supérieure à la date debut</p>
                                         <p style="color:red;" id="message_after_comparaison_date_now">La
-                                            date début ou fin de l' évènement doit être supérieure à la
+                                            date début ou fin de l' événement doit être supérieure à la
                                             date actuelle</p>
 
                                     </div>
@@ -757,7 +757,7 @@
                                                             dans ce courrier
                                                             électronique ou utilisez le fichier .pdf ci-joint</p>
                                                         <hr class="separe">
-                                                        <h2>Mes évènements</h2>
+                                                        <h2>Mes événements</h2>
                                                         <strong>Tue 25. July 2017 - 14:00</strong>
                                                         <p>Location · . Viru 12-34, Tallinn, Estonia <a href="#"
                                                                                                         target="_blank">Map</a>
@@ -1041,7 +1041,7 @@
                                     @if($i > 1)
                                         <label>Date du ticket <span style="color:red">*</span></label>
                                         <span class="help-block">
-                                            <i>Votre évènement a @php echo $i @endphp jours. Vous
+                                            <i>Votre événement a @php echo $i @endphp jours. Vous
                                                 devriez entrer la date de ce ticket et créer à nouveau un ticket pour les autres dates</i>
                                         </span>
                                         {!! Form::text('date',\Carbon\Carbon::parse($event->date_debut_envent)->format('Y-m-d') , ['class' => 'form-control', 'id' => 'date','placeholder'=>'','required', 'autofocus']) !!}
@@ -1051,7 +1051,7 @@
                                         <input type="checkbox" name="isValable"/>
                                         <i>Ce ticket est valable dans tous les
                                             jours de
-                                            l'évènement.</i>
+                                            l'événement.</i>
                                     @else
                                         {!! Form::hidden('date', \Carbon\Carbon::parse($event->date_debut_envent)->format('Y-m-d'), ['class' => 'form-control', 'id' => 'date','placeholder'=>'','required', 'autofocus']) !!}
                                     @endif

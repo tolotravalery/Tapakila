@@ -29,7 +29,7 @@
         <div class="container custom-container">
             <ul class="herb">
                 <li class=" bounce animated2 zoomIn"><a href="{{url('/')}}"><b>Acceuil</b></a></li>
-                <li class=" bounce animated2 zoomIn"><a href="{{url('/')}}"><b>Evenement</b></a></li>
+                <li class=" bounce animated2 zoomIn"><a href="{{url('/')}}"><b>Evénement</b></a></li>
                 <li class=" bounce animated2 zoomIn"><a
                             href="{{url('/event/list/categorie',[$sous_menu_event->menus->id])}}"><b>{{ucfirst(strtolower($sous_menu_event->menus->name))}}</b></a>
                 </li>
@@ -124,16 +124,16 @@
                             @endif
                         @else
                             <div class="bg-custom">
-                                <h2 class="text-center"><strong>Pas d'évènement ajoutés récements</strong></h2>
+                                <h2 class="text-center"><strong>Pas d'événement ajoutés récements</strong></h2>
                                 @if (Auth::guest())
                                     <p class="text-center"><strong>Inscrivez-vous dès maintenant, pour ne pas rater les prochaines
-                                            Evènements</strong></p>
+                                            Evénements</strong></p>
                                     <div class="sinscrire">
                                         <div class="row">
                                             <div class="col-md-8 col-md-offset-2">
                                                 <div class="infopers">
                                                     <h1 class="inscriptioin"><strong>S'inscrire</strong></h1>
-                                                    <label><strong>Une mise à jour mensuel des évènements à
+                                                    <label><strong>Une mise à jour mensuel des événements à
                                                             Madagascar</strong></label>
                                                 </div>
                                                 <div class="row">
