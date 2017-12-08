@@ -182,7 +182,7 @@
                                             <p onclick="accord11()"><span style="cursor: pointer">Puis-je annuler ou modifier mon achat ?</span>
                                                 <br>
                                                 <label id="demo11" class="hidden padd">
-                                                    Il n'est pas possible d'annuler ou d'échanger les billets une fois l'achat finalisé car les commandes sont considérées comme définitives. Si vous ne pouvez pas utiliser les billets achetés, et qu'il reste du temps avant la date de l'événement, nous vous recommandons de les re-lister en cliquant sur le lien "Vendre" sur l'événement pour lequel vous avez des billets. Nous commercialiserons vos billets sur notre plateforme pour trouver un nouvel acheteur. Nous ne facturons pas de frais supplémentaires pour relister des billets que vous auriez acheté chez nous. Occasionellement, il se peut qu'il y ai des raisons pour que les billets ne puissent être relistés.
+                                                    Il n'est pas possible d'annuler ou d'échanger les billets une fois l'achat finalisé car les commandes sont considérées comme définitives.
 
                                                 </label>
                                             </p>
@@ -217,7 +217,7 @@
                                             <p onclick="accord13()"><span style="cursor: pointer">Quelles sont les méthodes de paiement acceptées ? ?</span>
                                                 <br>
                                                 <label id="demo13" class="hidden padd">
-                                                    leguichet accepte la plupart des paiements mobiles comme Mvola, Orange Money et Aiter Money. 
+                                                    leguichet accepte la plupart des paiements mobiles comme Mvola, Orange Money. 
                                                     <br>
                                                     <br> Les options de paiement disponibles seront indiquées lors du processus de paiement.
                                                 </label>
@@ -231,7 +231,7 @@
                                                     <br>
                                                         Vérifier votre numéro de téléphone et le numéro de transaction.
                                                     <br>
-                                                    <br> Si nous ne sommes pas en mesure de valider votre paiment dans les 30 minutes suivant votre achat, nous devrons l'annuler et vous ne serez pas prélevé(e).
+                                                   
 
                                                 </label>
                                             </p>
@@ -251,14 +251,14 @@
                                             <p onclick="accord15()"><span style="cursor: pointer">J'ai saisi une adresse e-mail incorrecte lors de l'inscription, comment puis-je la modifier ?</span>
                                                 <br>
                                                 <label id="demo15" class="hidden padd">
-                                                    Consultez la rubrique Configuration du compte en vous connectant à l'aide de l'e-mail « incorrect » utilisé lors de la première inscription. Cliquez sur le lien « Modifier » situé à côté de l'adresse e-mail.
+                                                Consultez sur << <a href="{{url('/home')}}">mon compte</a> >>puis cliquez sur << modifier mes information>> au haut à droite
                                                 </label>
                                             </p>
 
                                             <p onclick="accord16()"><span style="cursor: pointer">Comment modifier l'adresse e-mail de mon compte ?</span>
                                                 <br>
                                                 <label id="demo16" class="hidden padd">
-                                                    Consultez la rubrique Configuration du compte en vous connectant à l'aide de l'e-mail « incorrect » utilisé lors de la première inscription. Cliquez sur le lien « Modifier » situé à côté de l'adresse e-mail.
+                                                    Consultez sur << <a href="{{url('/home')}}">mon compte</a> >>puis cliquez sur << modifier mes information>> au haut à droite.
                                                 </label>
                                             </p>
 
@@ -287,9 +287,9 @@
                                             <p onclick="accord20()"><span style="cursor: pointer">Qu'est-ce que leguichet ?</span>
                                                 <br>
                                                 <label id="demo20" class="hidden padd">
-                                                    leguichet est une plate-forme en ligne d'échelle mondiale pour les billets d'événements sportifs, musicaux, et de divertissement en direct. leguichet vise à fournir aux acheteurs de billets la plus grande sélection de billets possible pour des événements à travers le monde, et aide les vendeurs de billets, des personnes détenant un billet supplémentaire aux grandes organisations événementielles multi-nationales, à atteindre un large public.
+                                                    leguichet est une plate-forme en ligne à Madagascar pour les billets d'événements sportifs, musicaux, et de divertissement en direct. leguichet vise à fournir aux acheteurs de billets la plus grande sélection de billets possible pour des événements à Madagascar, et aide les vendeurs de billets, des personnes détenant un billet supplémentaire aux grandes organisations événementielles, à atteindre un large public.
                                                     <br>
-                                                    <br> leguichet est en partenariat avec un grand nombre des marques mondiales les plus éminentes dans le sport et le divertissement, et a aidé des clients venant de presque tous les pays du monde à avoir accès à des billets dans la langue, devise, et depuis l'appareil de leur choix.
+                                                    <br> leguichet est en partenariat avec un grand nombres des personnes les plus éminentes dans le sport et le divertissement, et a aidé des clients venant de presque tous à Madagascar à avoir accès à des billets dans la langue, devise, et depuis l'appareil de leur choix.
                                                     <br>
                                                     <br> Pour toute demande client, merci de visiter la section Aide du site internet leguichet.
                                                 </label>
@@ -550,7 +550,7 @@
                                                 <br>
                                                 <label id="demo25" class="hidden padd">
                                                     Vous pouvez modifier votre offre si les billets n'ont pas encore été vendus. <br><br>
-                                                    Pour modifier votre offre, veuillez vous rendre à la rubrique Offres. Cliquez sur le lien « Modifier l'offre » pour corriger les données. Une fois les changements effectués, n'oubliez pas de « Sauvegarder ». <br><br>
+                        
                                                 </label>
                                             </p>
 
@@ -563,20 +563,7 @@
                                                 </label>
                                             </p>
 
-                                            <p onclick="accord27()"><span style="cursor: pointer">Que signifient les options de séparation de billets ?</span>
-                                                <br>
-                                                <label id="demo27" class="hidden padd">
-                                                    Les options de séparation vous permettent de choisir la manière dont vous souhaitez vendre vos billets. Un groupe de billets peut être vendu en bloc ou peut être séparé et vendu à plusieurs acheteurs différents.
-
-                                                    Peu importe : n'importe quelle quantité de billets peut être achetée, à hauteur du nombre maximum mis en vente
-                                                    Aucun : aucun billet ne peut être vendu séparément
-                                                    Éviter de laisser un billet : aucun billet ne peut être vendu séparément
-                                                    Éviter les nombres impairs : les billets peuvent être uniquement vendus par deux
-                                                    <br><br>
-                                                    Veuillez noter que les places assises se vendent plus facilement si elles sont vendues par groupe de deux ou plus.
-
-                                                </label>
-                                            </p>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -593,7 +580,7 @@
                                                 <br>
                                                 <label id="demo30" class="hidden padd">
                                                     Veuillez vous rendre à la rubrique Ventes dès que vous aurez reçu vos billets et que vous serez en mesure de les télécharger. <br><br>
-                                                    Cliquez uniquement sur le bouton « Télécharger des billets électroniques » si vous êtes prêt à le faire. Vous recevrez des informations relatives au chargement des billets ainsi que le paiement de votre vente.<br><br>
+                                                    Cliquez uniquement sur le bouton « Télécharger des billets  » si vous êtes prêt à le faire. Vous recevrez des informations relatives au chargement des billets ainsi que le paiement de votre vente.<br><br>
                                                 </label>
                                             </p>
 
@@ -667,11 +654,12 @@
                                                 </label>
                                             </p>
 
-                                            <p onclick="accord37()"><span style="cursor: pointer">Comment modifier l'adresse e-mail de mon compte ?</span>
-                                                <br>
-                                                <label id="demo37" class="hidden padd">
-                                                    Consultez la rubrique Configuration du compte en vous connectant à l'aide de l'e-mail « incorrect » utilisé lors de la première inscription. Cliquez sur le lien « Modifier » situé à côté de l'adresse e-mail. </label>
-                                            </p>
+                                            <p onclick="accord16()"><span style="cursor: pointer">Comment modifier l'adresse e-mail de mon compte ?</span>
+                                            <br>
+                                            <label id="demo16" class="hidden padd">
+                                                Consultez <a href="{{url('/home')}}">mon compte</a> puis cliquez sur << modifier mes information>> au haut à droite.
+                                            </label>
+                                        </p>
 
                                             <p onclick="accord38()"><span style="cursor: pointer">Comment réinitialiser mon mot de passe ?</span>
                                                 <br>
@@ -716,10 +704,9 @@
                                             <p onclick="accord41()"><span style="cursor: pointer">Qu'est-ce que leguichet ?</span>
                                                 <br>
                                                 <label id="demo41" class="hidden padd">
-                                                    leguichet est une plate-forme en ligne d'échelle mondiale pour les billets d'événements sportifs, musicaux, et de divertissement en direct. leguichet vise à fournir aux acheteurs de billets la plus grande sélection de billets possible pour des événements à travers le monde, et aide les vendeurs de billets, des personnes détenant un billet supplémentaire aux grandes organisations événementielles multi-nationales, à atteindre un large public.
+                                                    leguichet est une plate-forme en ligne à Madagascar pour les billets d'événements sportifs, musicaux, et de divertissement en direct. leguichet vise à fournir aux acheteurs de billets la plus grande sélection de billets possible pour des événements à Madagascar, et aide les vendeurs de billets, des personnes détenant un billet supplémentaire aux grandes organisations événementielles multi-nationales, à atteindre un large public.
                                                     <br>
-                                                    <br> leguichet est en partenariat avec un grand nombre des marques mondiales les plus éminentes dans le sport et le divertissement, et a aidé des clients venant de presque tous les pays du monde à avoir accès à des billets dans la langue, devise, et depuis l'appareil de leur choix.
-                                                    <br>
+                                                    
                                                     <br> Pour toute demande client, merci de visiter la section Aide du site internet leguichet.
                                                 </label>
                                             </p>
@@ -789,8 +776,8 @@
                                                 <br> 1.3 Commissions et Services : L'inscription, la mise en vente d’un Billet et l'action de se porter acquéreur 
                                                 de Billets proposés sur notre Site sont gratuites. Cependant, l'utilisation d'autres Services, tels que l’achat effectif d’un Billet, 
                                                 est payante. Lorsque Vous mettez en vente un Billet, Vous avez la possibilité de passer en revue les taux de Commission tels qu’ils sont détaillés 
-                                                dans la rubrique « Quels frais de gestion sont déduits du prix de vente » des pages d’aide du Site disponibles à l’adresse URL suivante 
-                                                http://www.Leguichet.com/service-clientele.html. Vous devez accepter ces tarifs pour mettre en ligne votre Offre de Vente. Sauf mention contraire, 
+                                                dans la rubrique « Quels frais de gestion sont déduits du prix de vente » 
+                                                . Vous devez accepter ces tarifs pour mettre en ligne votre Offre de Vente. Sauf mention contraire, 
                                                 les taux de Commission sont indiqués sous forme de pourcentage du Prix de Vente et sont facturés en AR (Ariary).
                                                 <br>
                                                 <br> 1.4 Garantie Leguichet : Lorsque Vous achetez des billets sur Leguichet, Leguichet vous garantit que vous recevrez 
