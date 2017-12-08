@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Shopping;
 
 use App\Models\Menus;
+use App\Models\Payement_mode;
 use App\Models\Sous_menus;
 use Illuminate\Http\Request;
 
@@ -22,7 +23,8 @@ class CartController extends Controller
     {
         $menus = Menus::orderBy('id', 'desc')->get();
         $sousmenus = Sous_menus::orderBy('name', 'asc')->get();
-        return view('shopping.cart', array('menus' => $menus, 'sousmenus' => $sousmenus));
+        $payement_mode = Payement_mode::get();
+        return view('shopping.cart', array('menus' => $menus, 'sousmenus' => $sousmenus,'payement_mode'=>$payement_mode));
     }
 
     /**
@@ -103,7 +105,7 @@ class CartController extends Controller
     public function destroy($id)
     {
         Cart::remove($id);
-        return redirect('shopping/cart')->withSuccessMessage('Ce ticket est enlevé dans votre panier');
+        return response()->json(['success' => true]);
     }
 
     /**

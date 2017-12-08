@@ -47,11 +47,6 @@ Route::group(['middleware' => 'web'], function () {
 
 
     });
-
-    Route::group(['prefix' => 'shopping'], function () {
-        Route::resource('cart', 'Shopping\CartController');
-        Route::delete('emptyCart', 'Shopping\CartController@emptyCart');
-    });
     Route::group(['prefix' => 'find'], function () {
         Route::get('q', 'RechercheController@find');
         Route::get('filtered', 'RechercheController@filtered');
@@ -135,8 +130,13 @@ Route::group(['middleware' => ['auth', 'activated', 'currentUser']], function ()
         Route::get('payment/{users_id}/{id}', 'Shopping\CheckoutController@pay');
         Route::get('quiz', 'Shopping\CheckoutController@quiz');
         Route::get('annuler/{users_id}/{id}', 'UserController@annuler');
+
+        Route::resource('cart', 'Shopping\CartController');
+        Route::delete('emptyCart', 'Shopping\CartController@emptyCart');
+
+
     });
-    Route::post('newsletter','NewsLetterUserController@store');
+    Route::post('newsletter', 'NewsLetterUserController@store');
 
 });
 
