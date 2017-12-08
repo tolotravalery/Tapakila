@@ -1,5 +1,13 @@
 @extends('template')
-
+@section('specificMeta')
+    <meta property="og:url"
+          content="{{url('event/show/'.$event->id)}}"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:title" content="{{$event->title}}"/>
+    <meta property="og:description" content="{{$event->additional_note}}"/>
+    <meta property="og:image"
+          content="{{url('/')}}/public/img/{{$event->image}}"/>
+@endsection
 @section('content')
 
     <section id="sectioncategorie" class="clearfix">
@@ -38,17 +46,17 @@
                     <h3 class="couleur_mot">{{ucfirst(strtolower($event->title))}}</h3>
                     <p style="text-align: justify;padding-right: 10px;">{{$event->additional_note}}
                     <div class="div_style">
-                    <div class="row">
+                        <div class="row">
                             <div class="col-lg-5 col-xs-7 col-sm-3">
-                            <i class="fa fa-product-hunt fa-2x zav" aria-hidden="true"></i><strong id="programme"
-                                                                                               class="couleur_mot">
-                            Programme : </strong>
+                                <i class="fa fa-product-hunt fa-2x zav" aria-hidden="true"></i><strong id="programme"
+                                                                                                       class="couleur_mot">
+                                    Programme : </strong>
                             </div>
                             <div class="col-lg-7 col-xs-5 gi">
-                            {{$event->additional_note_time}}
+                                {{$event->additional_note_time}}
                             </div>
-                            </div>
-                    
+                        </div>
+
                     </div>
                     <div class="div_style">
                         <div class="row">
@@ -423,8 +431,9 @@
                                         </div>
                                     </div>
                                     <div style="text-align:center;">
-                                         <a  style="color:white !important;" href="{{url('event/show',[$event->id])}}" class="btn btn-danger btn_reset">Réserver</a>
-                                         </div>
+                                        <a style="color:white !important;" href="{{url('event/show',[$event->id])}}"
+                                           class="btn btn-danger btn_reset">Réserver</a>
+                                    </div>
                                 </a>
                             </div>
                         </div>
