@@ -184,6 +184,9 @@
                                                             </a>
                                                         </div>
                                                     </div>
+                                                    <div style="text-align:center;">
+                                                            <a  style="color:white !important;" href="{{url('event/show',[$event->id])}}" class="btn btn-danger btn_reset">Réserver</a>
+                                                            </div>
                                                 </a>
                                             </div>
                                         </a>
