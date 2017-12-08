@@ -91,7 +91,7 @@ class CheckoutController extends Controller
         $PdfDestinationPath = public_path('/tickets/' . $pdfName);
         Session::put('pdfDestinationPath', $PdfDestinationPath);
         $pdf = App::make('dompdf.wrapper');
-        $pdf->loadHTML(view('emails.ticket', compact('data', 'user'))->with(array('send' => 'pdf'))->render());
+        $pdf->setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])->loadHTML(view('emails.ticket', compact('data', 'user'))->with(array('send' => 'pdf'))->render());
         $pdf->save($PdfDestinationPath);
         if ($request->input('email_livraison')) {
             Session::put('email_livraison', $request->input('email_livraison'));
@@ -163,7 +163,7 @@ class CheckoutController extends Controller
         $PdfDestinationPath = public_path('/tickets/' . $pdfName);
         Session::put('pdfDestinationPath', $PdfDestinationPath);
         $pdf = App::make('dompdf.wrapper');
-        $pdf->loadHTML(view('emails.ticket', compact('data', 'user'))->with(array('send' => 'pdf'))->render());
+        $pdf->setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])->loadHTML(view('emails.ticket', compact('data', 'user'))->with(array('send' => 'pdf'))->render());
         $pdf->save($PdfDestinationPath);
         if ($req->input('email_livraison')) {
             Session::put('email_livraison', $req->input('email_livraison'));
