@@ -151,6 +151,13 @@
                                         </div>
                                     </div>
 
+                                    <div class="resum">
+                                        <p><b>Numéro téléphone de payment :  <span style="color:red;">*</span>:</b>
+                                        </p>
+                                        <input type="tel" class="form-control" name="num__phone" required>
+                                        <br>
+                                    </div>
+
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="check">
@@ -171,7 +178,7 @@
                                         <div class="col-md-5 col-md-offset-7">
                                             <div class="row">
                                                 <div class="col-md-3 Annulerbtn col-xs-3 col-xs-offset-1">
-                                                    <a href="{{url('/')}}/shopping/cart">Annuler</a>
+                                                    <a href="{{url('/')}}/home">Annuler</a>
                                                 </div>
 
                                                 <div class="col-md-3 payee col-xs-3">
@@ -276,7 +283,8 @@
                                 @else
                                     <p><b>Adresse e-mail de livraison des tickets :</b> &nbsp {{Auth::user()->email}}
                                         &nbsp;&nbsp;&nbsp;<a
-                                                href="{{url('/home')}}" style="color: #d70506">Edit</a></p>hsklqfhsldjkfhkqjsdhfkjqshdfkjqshlf
+                                                href="{{url('/home')}}" style="color: #d70506">Edit</a></p>
+                                    hsklqfhsldjkfhkqjsdhfkjqshdfkjqshlf
                                     <br>
                                 @endif
                             </div>
@@ -316,6 +324,12 @@
                                                 </div>
                                             @endforeach
                                         </div>
+                                    </div>
+                                    <div class="resum">
+                                        <p><b>Numéro téléphone de payment :  <span style="color:red;">*</span>:</b>
+                                        </p>
+                                        <input type="tel" class="form-control" name="num__phone" required>
+                                        <br>
                                     </div>
 
                                     <div class="row">
