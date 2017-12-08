@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-site-verification" content="bagVV1tUOWsM9782R2w0ztB9Ba0o1-S703zy9kkJrAk"/>
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="description" content="
-Leguichet, vente des billets electroniques à Madagascar, des listes d'événements, musicaux, et de divertissement en direct, des guides, des petites annonces, des critiques, et plus encore.">
-    <title>Leguichets</title>
+    <meta name="description" content="Leguichet, vente des billets electroniques à Madagascar, des listes d'événements, musicaux, et de divertissement en direct, des guides, des petites annonces, des critiques, et plus encore.">
+    <title>Le Guichet | Reservations de billets electronique</title>
     <link rel="stylesheet" href="{{ url('/') }}/public/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ url('/') }}/public/css/style.css">
     <link rel="stylesheet" href="{{ url('/') }}/public/css/mediaqueries.css">
@@ -16,10 +16,12 @@ Leguichet, vente des billets electroniques à Madagascar, des listes d'événeme
     <link rel="stylesheet" href="{{ url('/') }}/public/css/font-awesome.css">
     <link href="{{ url('/') }}/public/css/datepicker.css" rel="stylesheet">
     <link href="{{ url('/') }}/public/css/clockpiker.css" rel="stylesheet">
+    <link rel="icon" href="{{ url('/') }}/public/img/favicon.ico"/>
     <script type="text/javascript" src="{{ url('/') }}/public/js/jquery.min.js"></script>
     <script type="text/javascript" src="{{ url('/') }}/public/js/bootstrap.min.js"></script>
     <script src="{{ url('/') }}/public/js/datepicker.js"></script>
     <script src="{{ url('/') }}/public/js/clockpicker.js"></script>
+    <script src="{{ url('/') }}/public/js/Tapakila.js"></script>
 
 </head>
 <body>
