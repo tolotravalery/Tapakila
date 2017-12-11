@@ -918,7 +918,18 @@
         {{--</div>--}}
         <!-- /.col -->
             <div class="content-calendar">
-                <div id="calendar" class="fc fc-unthemed fc-ltr"></div>
+
+                    <div class="col-md-2">
+
+                    </div>
+                    <div class="col-md-8">
+                        <div id="calendar" class="fc fc-unthemed fc-ltr" ></div>
+                    </div>
+                    <div class="col-md-2">
+
+                    </div>
+
+
             </div>
         </div>
         <!-- /.row -->
