@@ -4975,3 +4975,9 @@ table.text-center th {
     white-space: normal !important;
   }
 }
+
+.content-calendar{
+  width: 99%;
+  display: table-cell;
+  vertical-align: top;
+}

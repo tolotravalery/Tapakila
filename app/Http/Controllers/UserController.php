@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Alert;
+use App\Models\Events;
 use App\Models\Menus;
 use App\Models\Sous_menus;
 use App\Models\User;
@@ -36,7 +37,8 @@ class UserController extends Controller
 
         if ($user->isAdmin()) {
             $alert = Alert::where('vu', '=', '0')->get();
-            return view('pages.admin.home', compact('alert'));
+            $all_events = Events::all();
+            return view('pages.admin.home', compact('alert','all_events'));
 
         }
         if ($user->hasRole('organisateur')) {
