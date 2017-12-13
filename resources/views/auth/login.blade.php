@@ -9,7 +9,7 @@
                         <!-- menutab start -->
                         <div class="panel-heading">
                             <div class="row">
-                                <div class="col-xs-6">
+                                <div class="col-xs-6" style="border-right:1px solid white;">
                                     <a href="#" class="active" id="login-form-link">Connexion</a>
                                 </div>
                                 <div class="col-xs-6">
