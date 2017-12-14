@@ -179,7 +179,7 @@
                     <ul class="list-unstyled">
                         <li><a href="{{url('')}}/leguichet/shop">Comment acheter</a></li>
                         <li><a href="{{url('')}}/leguichet/faq">Foire aux questions</a></li>
-                        <li><a href="{{url('')}}/leguichet/term">Terms of service</a></li>
+                        <li><a href="{{url('')}}/leguichet/conditions-generales">Terms of service</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-3 col-xs-6">
