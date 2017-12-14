@@ -77,6 +77,7 @@ class MenuController extends Controller
 
     public function update(Request $request, $id)
     {
+        $this->validator($request->all())->validate();
         $menu = Menus::find($id);
         $menu->name = $request->input('name');
         $menu->save();

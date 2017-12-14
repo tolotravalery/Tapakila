@@ -46,7 +46,6 @@ class SousmenuController extends Controller
 
     protected function validator(array $data)
     {
-
         return Validator::make($data,
             [
                 'name' => 'required|max:255|unique:sous_menus',
@@ -58,7 +57,7 @@ class SousmenuController extends Controller
     public function update(Request $request, $id)
     {
         $sousmenu = Sous_menus::find($id);
-        //dd($sousmenu);
+        $this->validator($request->all())->validate();
         $sousmenu->name = $request->input('name');
         $sousmenu->menus_id = $request->input('menu');
         $sousmenu->save();

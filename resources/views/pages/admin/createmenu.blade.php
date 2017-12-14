@@ -65,6 +65,11 @@
                                 <div class="input-group">
                                     {!! Form::text('name', NULL, array('id' => 'name', 'class' => 'form-control', 'placeholder' => 'category name')) !!}
                                 </div>
+                                @if ($errors->has('name'))
+                                    <span style="color: red;">
+                                        <strong>Ce nom existe déja.</strong>
+                                    </span>
+                                @endif
                             </div>
                         </div>
                         {!! Form::button('Créer', array('class' => 'btn btn-success btn-flat margin-bottom-1 pull-right','type' => 'submit', )) !!}
