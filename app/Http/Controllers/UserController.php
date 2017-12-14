@@ -32,14 +32,21 @@ class UserController extends Controller
     {
         session()->keep(['niova']);
         $niova = session()->get('niova');
-        //dd($huhu);
         $user = Auth::user();
 
         if ($user->isAdmin()) {
             $alert = Alert::where('vu', '=', '0')->get();
             $all_events = Events::all();
-            return view('pages.admin.home', compact('alert','all_events'));
-
+            $all_users = User::all();
+            $nombreOrganisateur = 0;
+            $nombrePayment = 0;
+            foreach ($all_users as $u) {
+                if ($u->hasRole('organisateur')) $nombreOrganisateur++;
+                foreach ($u->tickets as $achat) {
+                    if ($achat->pivot->status_payment == 'SUCCESS') $nombrePayment++;
+                }
+            }
+            return view('pages.admin.home', compact('alert', 'all_events', 'all_users', 'nombreOrganisateur','nombrePayment'));
         }
         if ($user->hasRole('organisateur')) {
             $menus = Menus::orderBy('id', 'desc')->get();
@@ -52,7 +59,6 @@ class UserController extends Controller
         if ($user->hasRole('user')) {
             $menus = Menus::orderBy('id', 'desc')->get();
             $sousmenus = Sous_menus::orderBy('name', 'asc')->get();
-
             $achats = $user->tickets;
             return view('pages.user.home')->with(compact('menus', 'sousmenus', 'achats', 'niova'));
         }
@@ -80,8 +86,10 @@ class UserController extends Controller
         ];
         return view('profiles.edit')->with($data);
     }
-    public function annuler($user_id,$id){
-        $user=User::find($user_id);
+
+    public function annuler($user_id, $id)
+    {
+        $user = User::find($user_id);
         $ticket_to_delete = $user->tickets()->wherePivot('id', '=', $id)->get();
 //        foreach ($ticket_to_delete as $t_u){
 //            $t_u->pivot->delete();
