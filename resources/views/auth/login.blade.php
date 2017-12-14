@@ -9,7 +9,7 @@
                         <!-- menutab start -->
                         <div class="panel-heading">
                             <div class="row">
-                                <div class="col-xs-6">
+                                <div class="col-xs-6" style="border-right:1px solid white;">
                                     <a href="#" class="active" id="login-form-link">Connexion</a>
                                 </div>
                                 <div class="col-xs-6">
@@ -53,11 +53,13 @@
 
                                         <div class="form-group">
                                             <div class="row">
-                                                <div class="col-sm-6 col-md-offset-0">
+                                                <div class="col-sm-3"></div>
+                                                <div class="col-sm-6 col-sm-offset-3 col-md-offset-0">
                                                     <input name="login-submit" id="login-submit" tabindex="4"
-                                                           class="form-control btn btn-login" value="Se connecter"
+                                                           class="form-control btn btn-login boutt" value="Se connecter"
                                                            type="submit">
                                                 </div>
+                                                <div class="col-sm-3"></div>
                                             </div>
                                         </div>
 
@@ -151,11 +153,13 @@
                                     </div>
                                     <div class="form-group">
                                         <div class="row">
+                                        <div class="col-sm-3"></div>
                                             <div class="col-sm-6 col-md-offset-0 ">
                                                 <input name="register-submit" id="register-submit" tabindex="4"
-                                                       class="form-control btn btn-register" value="S'inscrire"
+                                                       class="form-control btn btn-register boutt" value="S'inscrire"
                                                        type="submit">
                                             </div>
+                                            <div class="col-sm-3"></div>
                                         </div>
                                     </div>
                                     </form>
