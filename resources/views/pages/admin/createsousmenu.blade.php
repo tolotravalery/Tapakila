@@ -66,8 +66,14 @@
                                 <div class="input-group">
                                     {!! Form::text('name', NULL, array('id' => 'name', 'class' => 'form-control', 'placeholder' => 'category name')) !!}
                                 </div>
+                                @if ($errors->has('name'))
+                                    <span style="color: red;">
+                                        <strong>Ce nom existe déja.</strong>
+                                    </span>
+                                @endif
                             </div>
                         </div>
+
                         <div class="form-group">
                             {!! Form::label('name', 'Menus (*)', array('class' => 'col-md-3 control-label')) !!}
                             <div class="col-md-9">
