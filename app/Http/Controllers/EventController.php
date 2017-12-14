@@ -51,6 +51,10 @@ class EventController extends Controller
             [
                 'title' => 'required|max:255',
                 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+                'additional_note' => 'max:250',
+                'localisation_nom'=>'max:180',
+                'localisation_adresse'=>'max:180',
+                'description'=>'max:500',
             ]
         );
 
@@ -230,8 +234,9 @@ class EventController extends Controller
 
     public function updateadmin(Request $request)
     {
-
         $event = Events::find($request->input('id'));
+        $user=User::find($event->user_id);
+        $this->validator($request->all())->validate();
         $event->title = $request->input('title');
         $event->sous_menus_id = $request->input('sousmenu');
         //dd($request->input('date_debut') . " " . $request->input('heure_debut'));
@@ -277,7 +282,8 @@ class EventController extends Controller
         $message = " Opération réussie";
         session()->flash('message', $message);
 
-        Mail::send('emails.modifierevenement', ['user' => Auth::user(), 'event' => $event], function ($message) {
+
+        Mail::send('emails.modifierevenement', ['user' => Auth::user(), 'event' => $event], function ($message){
             $message->to(Auth::user()->email, Auth::user()->name)->subject('Leguichet');
             $message->cc('reservations@leguichet.mg','Leguichet.mg')->subject('Leguichet update event from Admin');
         });
@@ -326,13 +332,13 @@ class EventController extends Controller
             'image' => $input['image'],
             'date_debut_envent' => new \DateTime($request->input('date_debut') . " " . $request->input('heure_debut')),
             'date_fin_event' => new \DateTime($request->input('date_fin') . " " . $request->input('heure_fin')),
-            'additional_note' => $request->input('note'),
+            'additional_note' => $request->input('description'),
             'localisation_nom' => $request->input('localisation_nom'),
             'localisation_adresse' => $request->input('localisation_adresse'),
             'user_id' => Auth::user()->id,
             'publie_organisateur' => $publieOrganisateur,
             'siteweb' => $titre,
-            'additional_note_time' => $request->input('note_time'),
+            'additional_note_time' => $request->input('additional_note'),
             'publie' => $publie,
         ]);
         // Send mail to organisateur
