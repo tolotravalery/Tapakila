@@ -155,12 +155,17 @@
                         
 
                         <div class="form-group">
-                            <label class="col-md-3 control-label">Déscription <span style="color: red">*</span></label>
+                            <label class="col-md-3 control-label">Description <span style="color: red">*</span></label>
                             <div class="col-md-9">
                                 <div class="input-group">
                                     {{--                                {!! Form::textarea('description', '', array('id' => 'description', 'class' => 'form-control')) !!}--}}
-                                    <textarea name="note"></textarea>
+                                    {!! Form::textarea('description', '', array('id' => 'description', 'class' => 'form-control')) !!}
                                 </div>
+                                @if ($errors->has('description'))
+                                    <span style="color: red;">
+                                        <strong>Le text de la description est trop long.</strong>
+                                    </span>
+                                @endif
                             </div>
                         </div>
                         
@@ -171,6 +176,11 @@
                                 <div class="input-group">
                                     {!! Form::text('localisation_nom', '', array('id' => 'localisation_nom', 'class' => 'form-control')) !!}
                                 </div>
+                                @if ($errors->has('localisation_nom'))
+                                    <span style="color: red;">
+                                        <strong>Le text de la localisation nom est trop long.</strong>
+                                    </span>
+                                @endif
                             </div>
                         </div>
                         
@@ -180,6 +190,11 @@
                                 <div class="input-group">
                                     {!! Form::text('localisation_adresse', '', array('id' => 'localisation_adresse', 'class' => 'form-control')) !!}
                                 </div>
+                                @if ($errors->has('localisation_adresse'))
+                                    <span style="color: red;">
+                                        <strong>Le texte de la localisation addresse est trop long.</strong>
+                                    </span>
+                                @endif
                             </div>
                         </div>
                         
@@ -188,8 +203,13 @@
                             <div class="col-md-9">
                                 <div class="input-group">
                                     {{--{!! Form::textarea('additional_note', '', array('id' => 'additional_note', 'class' => 'form-control')) !!}--}}
-                                    <textarea name="note_time"></textarea>
+                                    {!! Form::textarea('description', '', array('id' => 'additional_note', 'class' => 'form-control')) !!}
                                 </div>
+                                @if ($errors->has('additional_note'))
+                                    <span style="color: red;">
+                                        <strong>Le texte de l'additionnal note est trop long.</strong>
+                                    </span>
+                                @endif
                             </div>
                         </div>
                         

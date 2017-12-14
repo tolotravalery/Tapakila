@@ -166,6 +166,11 @@
                             <div class="input-group">
                                 {!! Form::textarea('description', $event->additional_note, array('id' => 'title', 'class' => 'form-control')) !!}
                             </div>
+                            @if ($errors->has('description'))
+                                <span style="color: red;">
+                                        <strong>Le text de la description est trop long.</strong>
+                                    </span>
+                            @endif
                         </div>
                     </div>
                     <div class="form-group has-feedback row {{ $errors->has('name') ? ' has-error ' : '' }}">
@@ -174,6 +179,11 @@
                             <div class="input-group">
                                 {!! Form::text('localisation_nom', $event->localisation_nom, array('id' => 'title', 'class' => 'form-control')) !!}
                             </div>
+                            @if ($errors->has('localisation_nom'))
+                                <span style="color: red;">
+                                        <strong>Le text de la localisation nom est trop long.</strong>
+                                    </span>
+                            @endif
                         </div>
                     </div>
                     <div class="form-group has-feedback row {{ $errors->has('name') ? ' has-error ' : '' }}">
@@ -182,14 +192,24 @@
                             <div class="input-group">
                                 {!! Form::text('localisation_adresse', $event->localisation_addresse, array('id' => 'title', 'class' => 'form-control')) !!}
                             </div>
+                            @if ($errors->has('localisation_adresse'))
+                                <span style="color: red;">
+                                        <strong>Le texte de la localisation addresse est trop long.</strong>
+                                    </span>
+                            @endif
                         </div>
                     </div>
                     <div class="form-group has-feedback row {{ $errors->has('name') ? ' has-error ' : '' }}">
                         {!! Form::label('title', 'Additional note', array('class' => 'col-md-3 control-label')) !!}
                         <div class="col-md-9">
                             <div class="input-group">
-                                {!! Form::textarea('additional_note', $event->additional_note, array('id' => 'title', 'class' => 'form-control')) !!}
+                                {!! Form::textarea('additional_note', $event->additional_note_time, array('id' => 'title', 'class' => 'form-control')) !!}
                             </div>
+                            @if ($errors->has('additional_note'))
+                                <span style="color: red;">
+                                        <strong>Le texte de l'additionnal note est trop long.</strong>
+                                    </span>
+                            @endif
                         </div>
                     </div>
                     <div class="form-group has-feedback row {{ $errors->has('name') ? ' has-error ' : '' }}">
