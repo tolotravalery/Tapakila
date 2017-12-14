@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Shopping;
 
+use App\APIPayment\OrangeMoney;
 use App\Models\Menus;
 use App\Models\Sous_menus;
 use App\Models\Ticket;
@@ -39,6 +40,9 @@ class CheckoutController extends Controller
 //        dd($answer);
         $payement = Payement_mode::where('slug', '=', $options)->get()[0];
         // sending data to payment mode and waiting response
+        $om = new OrangeMoney();
+        dd($om->getAccessToken());
+
         // if response is success
         $pdfName = time() . rand() . '.pdf';
         $tic = array();
