@@ -204,8 +204,6 @@
             <ul>
                 <li><a href="{{url('')}}/leguichet/about">A propos de nous</a></li>
                 |
-                <li><a href="{{url('')}}/leguichet/contact">Contact</a></li>
-                |
                 <li><a href="{{url('/')}}/organisateur/event">Ajouter votre evenement</a></li>
                 |
                 <li><a href="#">Publicite</a></li>
