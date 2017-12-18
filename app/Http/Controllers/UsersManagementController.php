@@ -118,8 +118,8 @@ class UsersManagementController extends Controller
             $user->profile()->save($profile);
             $user->attachRole($request->input('role'));
             $user->save();
-
-            return redirect('users')->with('success', trans('usersmanagement.createSuccess'));
+            return redirect(url('/admin/users'));
+            //return redirect('users')->with('success', trans('usersmanagement.createSuccess'));
 
         }
     }
@@ -230,16 +230,11 @@ class UsersManagementController extends Controller
 
         $currentUser = Auth::user();
         $user = User::findOrFail($id);
-        $ipAddress = new CaptureIpTrait;
-
         if ($user->id != $currentUser->id) {
-
-            $user->deleted_ip_address = $ipAddress->getClientIp();
-            $user->save();
             $user->delete();
-            return redirect('users')->with('success', trans('usersmanagement.deleteSuccess'));
+            return redirect(url('/admin/users'));
         }
-        return back()->with('error', trans('usersmanagement.deleteSelfError'));
+        //return redirect(url('/admin/users'));
 
     }
 }

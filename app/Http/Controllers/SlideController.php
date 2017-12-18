@@ -81,4 +81,10 @@ class SlideController extends Controller
         return redirect(url('admin/slides'));
     }
 
+    public function destroy($id){
+        $slide=Slides::find($id);
+        $slide->delete();
+        return redirect(url('admin/slides'));
+    }
+
 }

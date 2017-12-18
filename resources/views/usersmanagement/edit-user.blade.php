@@ -1,5 +1,11 @@
 @extends("template-admin")
 
+@section('specificCss')
+    <link rel="stylesheet" href="{{url('/')}}/public/css/bootstrap.min.css">
+    <script src="{{url('/')}}/public/js/jquery.min.js"></script>
+    <script src="{{url('/')}}/public/js/bootstrap.min.js"></script>
+@endsection
+
 @section('content')
     <style type="text/css">
         .btn-save,
@@ -155,7 +161,7 @@
                                 </a>
                             </div>
                             <div class="col-xs-6">
-                                {!! Form::button('<i class="fa fa-fw fa-save" aria-hidden="true"></i> Save Changes', array('class' => 'btn btn-success btn-block margin-bottom-1 btn-save','type' => 'button', 'data-toggle' => 'modal', 'data-target' => '#confirmSave', 'data-title' => trans('modals.edit_user__modal_text_confirm_title'), 'data-message' => trans('modals.edit_user__modal_text_confirm_message'))) !!}
+                                {!! Form::button('<i class="fa fa-fw fa-save" aria-hidden="true"></i> Save Changes', array('class' => 'btn btn-success btn-block margin-bottom-1','type' => 'button', 'data-toggle' => 'modal', 'data-target' => '#confirmSave', 'data-title' => trans('modals.edit_user__modal_text_confirm_title'), 'data-message' => trans('modals.edit_user__modal_text_confirm_message'))) !!}
                             </div>
                         </div>
                     </div>
