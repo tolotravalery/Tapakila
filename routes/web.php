@@ -192,6 +192,15 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin'], 'prefix' => '
     Route::post('updatePublie', 'EventController@updatePublie')->name('updatePublie');
     Route::get('updatePublieAll', 'EventController@updatePublieAll')->name('updatePublieAll');
 
+    Route::resource('slides', 'SlideController', [
+        'names' => [
+            'index' => 'slides',
+            'destroy' => 'slide.destroy'
+        ],
+        'except' => [
+            'deleted'
+        ]
+    ]);
     Route::resource('menus', 'MenuController', [
         'names' => [
             'index' => 'menus',

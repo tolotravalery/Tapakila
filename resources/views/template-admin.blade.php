@@ -13,6 +13,10 @@
     <link rel="stylesheet" href="{{url('/')}}/public/admin-assets/bower_components/jvectormap/jquery-jvectormap.css">
     <link rel="stylesheet" href="{{url('/')}}/public/admin-assets/dist/css/AdminLTE.css">
     <link rel="stylesheet" href="{{url('/')}}/public/admin-assets/dist/css/skins/_all-skins.min.css">
+    {{--<link rel="stylesheet" href="{{url('/')}}/public/css/bootstrap.min.css">
+    <script src="{{url('/')}}/public/js/jquery.min.js"></script>
+    <script src="{{url('/')}}/public/js/bootstrap.min.js"></script>--}}
+
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @yield('specificCss')
 </head>
@@ -140,12 +144,19 @@
                         </span>
                     </a>
                 </li>
-                <li>
-                    <a href="{{url('/admin/users')}}">
-                        <i class="fa fa-users"></i> <span>Users</span>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-users"></i>
+                        <span>Users</span>
                         <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
                         </span>
                     </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{url('/admin/users')}}"><i class="fa fa-users"></i> Liste users</a></li>
+                        <li><a href="{{url('/')}}/admin/users/create"><i class="fa fa-users"></i>Nouveau user</a></li>
+                        <li><a href="{{url('/')}}/admin/users/deleted"><i class="fa fa-users"></i>Users supprimés</a></li>
+                    </ul>
                 </li>
                 <li class="treeview">
                     <a href="#">
