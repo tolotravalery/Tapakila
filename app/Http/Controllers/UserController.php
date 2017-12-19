@@ -87,7 +87,6 @@ class UserController extends Controller
         ];
         return view('profiles.edit')->with($data);
     }
-
     public function annulerCommande($user_id, $id)
     {
         $user = User::find($user_id);
@@ -97,6 +96,7 @@ class UserController extends Controller
                 $ut->delete();
             }
         }
+
         return redirect(url('/home'));
     }
 
