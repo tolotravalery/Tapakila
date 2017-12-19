@@ -8,6 +8,11 @@
 {{--@endsection--}}
 
 @extends("template-admin")
+@section('specificCss')
+    <link rel="stylesheet" href="{{url('/')}}/public/css/bootstrap.min.css">
+    <script src="{{url('/')}}/public/js/jquery.min.js"></script>
+    <script src="{{url('/')}}/public/js/bootstrap.min.js"></script>
+@endsection
 @section('content')
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css">
     <style type="text/css" media="screen">
@@ -123,7 +128,7 @@
                                         <td>
                                             {!! Form::open(array('url' => 'admin/users/' . $user->id, 'class' => '', 'data-toggle' => 'tooltip', 'title' => 'Delete')) !!}
                                             {!! Form::hidden('_method', 'DELETE') !!}
-                                            {!! Form::button('<i class="fa fa-trash-o fa-fw" aria-hidden="true"></i> <span class="hidden-xs hidden-sm">Delete</span><span class="hidden-xs hidden-sm hidden-md"> User</span>', array('class' => 'btn btn-danger btn-sm','type' => 'button', 'style' =>'width: 100%;' ,'data-toggle' => 'modal', 'data-target' => '#confirmDelete', 'data-title' => 'Delete User', 'data-message' => 'Are you sure you want to delete this user ?')) !!}
+                                            {!! Form::button('<i class="fa fa-trash-o fa-fw" aria-hidden="true"></i> <span class="hidden-xs hidden-sm" type="button">Delete</span><span class="hidden-xs hidden-sm hidden-md"> User</span>', array('class' => 'btn btn-danger btn-sm','type' => 'button', 'style' =>'width: 100%;' ,'data-toggle' => 'modal', 'data-target' => '#confirmDelete', 'data-title' => 'Delete User', 'data-message' => 'Are you sure you want to delete this user ?')) !!}
                                             {!! Form::close() !!}
                                         </td>
                                         <td>

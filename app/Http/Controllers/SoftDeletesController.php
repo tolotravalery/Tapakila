@@ -22,7 +22,7 @@ class SoftDeletesController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('actived');
+//        $this->middleware('actived');
         $this->middleware('role:admin');
     }
 

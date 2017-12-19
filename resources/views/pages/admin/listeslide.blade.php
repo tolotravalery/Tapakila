@@ -99,33 +99,40 @@
                                     <th class="hidden-sm hidden-xs hidden-md">Created</th>
                                     <th class="hidden-sm hidden-xs hidden-md">Updated</th>
                                     <th>Actions</th>
+                                    <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>
 
                                 @foreach($slides as $slide)
-                                    {{ Form::open(array('url' => 'admin/updateActive') ) }}
+
                                     <tr>
-                                        <input type="hidden" name="id" value="{{$slide->id}}">
                                         <td>{{$slide->id}}</td>
                                         <td>{{$slide->title}}</td>
-                                        @if($slide->active == true)
-                                            <td><input type="checkbox" name="active"  value-item="{{$slide->id}}" checked></td>
-                                        @else
-                                            <td><input type="checkbox"  value-item="{{$slide->id}}" name="active"></td>
-                                        @endif
-                                        <td class="hidden-sm hidden-xs hidden-md">{{$slide->created_at}}</td>
-                                        <td class="hidden-sm hidden-xs hidden-md">{{$slide->updated_at}}</td>
+                                        {{ Form::open(array('url' => 'admin/updateActive') ) }}
+                                            @if($slide->active == true)
+                                                <td><input type="checkbox" name="active"  value-item="{{$slide->id}}" checked></td>
+                                            @else
+                                                <td><input type="checkbox"  value-item="{{$slide->id}}" name="active"></td>
+                                            @endif
+                                            <td class="hidden-sm hidden-xs hidden-md">{{$slide->created_at}}</td>
+                                            <td class="hidden-sm hidden-xs hidden-md">{{$slide->updated_at}}</td>
+                                            <td>
+
+                                                    <input type="hidden" name="id" value="{{$slide->id}}">
+                                                    <button class="btn btn-sm btn-success btn-block" data-toggle="tooltip">
+                                                        <span class="hidden-xs hidden-sm">Update</span>
+                                                    </button>
+                                            </td>
+                                        {{ Form::close() }}
                                         <td>
-
-
-                                            <button class="btn btn-sm btn-success btn-block" data-toggle="tooltip">
-                                                <span class="hidden-xs hidden-sm">Update</span>
-                                            </button>
-
+                                            {!! Form::open(array('url' => 'admin/slides/' . $slide->id, 'class' => '', 'data-toggle' => 'tooltip', 'title' => 'Delete')) !!}
+                                            {!! Form::hidden('_method', 'DELETE') !!}
+                                            {!! Form::button('<span class="hidden-xs hidden-sm">Delete</span>', array('class' => 'btn btn-danger btn-sm','type' => 'submit', 'style' =>'width: 100%;' )) !!}
+                                            {!! Form::close() !!}
                                         </td>
                                     </tr>
-                                    {{ Form::close() }}
+
                                 @endforeach
 
                                 </tbody>
