@@ -131,7 +131,6 @@ Route::group(['middleware' => ['auth', 'activated', 'currentUser']], function ()
         Route::get('payment/{users_id}/{id}', 'Shopping\CheckoutController@pay');
         Route::get('quiz', 'Shopping\CheckoutController@quiz');
         Route::get('annuler/{users_id}/{id}', 'UserController@annulerCommande');
-
         Route::resource('cart', 'Shopping\CartController');
         Route::delete('emptyCart', 'Shopping\CartController@emptyCart');
 
