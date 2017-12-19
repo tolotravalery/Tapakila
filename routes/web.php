@@ -125,12 +125,12 @@ Route::group(['middleware' => ['auth', 'activated', 'currentUser']], function ()
         Route::post('checkout', 'Shopping\CheckoutController@index')->name('checkout_index');
         Route::get('checkout', 'Shopping\CheckoutController@index')->name('checkout_index');
         Route::post('checkout/store', 'Shopping\CheckoutController@store');
-        Route::post('checkout/save', 'Shopping\CheckoutController@save');
+        Route::post('checkout/save', 'Shopping\CheckoutController@saveOrange');
+        Route::get('checkout/save', 'Shopping\CheckoutController@saveOrange');
         Route::post('checkout/payment', 'Shopping\CheckoutController@savePayment');
         Route::get('payment/{users_id}/{id}', 'Shopping\CheckoutController@pay');
         Route::get('quiz', 'Shopping\CheckoutController@quiz');
-        Route::get('annuler/{users_id}/{id}', 'UserController@annuler');
-
+        Route::get('annuler/{users_id}/{id}', 'UserController@annulerCommande');
         Route::resource('cart', 'Shopping\CartController');
         Route::delete('emptyCart', 'Shopping\CartController@emptyCart');
 
@@ -275,4 +275,9 @@ Route::group(['middleware' => ['service'], 'prefix' => 'service'], function () {
     Route::get('tapakila', 'Services\TapakilaController@scan');
     Route::get('tapakila/load', 'Services\TapakilaController@load');
     Route::get('tapakila/export', 'Services\TapakilaController@getDataFromMobile');
+});
+
+
+Route::group(['prefix' => 'payments/notify'], function () {
+    Route::any('orange', 'Shopping\CheckoutController@NotifyOrange');
 });

@@ -6,6 +6,7 @@ use App\Models\Alert;
 use App\Models\Events;
 use App\Models\Menus;
 use App\Models\Sous_menus;
+use App\Models\TicketUser;
 use App\Models\User;
 use Auth;
 use Illuminate\Http\Request;
@@ -86,16 +87,16 @@ class UserController extends Controller
         ];
         return view('profiles.edit')->with($data);
     }
-
-    public function annuler($user_id, $id)
+    public function annulerCommande($user_id, $id)
     {
         $user = User::find($user_id);
-        $ticket_to_delete = $user->tickets()->wherePivot('id', '=', $id)->get();
-//        foreach ($ticket_to_delete as $t_u){
-//            $t_u->pivot->delete();
-//        }
-//        dd($ticket_to_delete[0]->users()->sync([]));
-        $user->tickets()->detach($ticket_to_delete[0]->id);
+        foreach ($user->tickets as $u) {
+            if ($u->pivot->id == $id) {
+                $ut = TicketUser::find($u->pivot->id);
+                $ut->delete();
+            }
+        }
+
         return redirect(url('/home'));
     }
 
