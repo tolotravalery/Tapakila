@@ -146,7 +146,7 @@
                 </li>
                 <li class="treeview">
                     <a href="#">
-                        <i class="fa fa-users"></i>
+                        <i class="fa fa-user-circle"></i>
                         <span>Users</span>
                         <span class="pull-right-container">
                             <i class="fa fa-angle-left pull-right"></i>
@@ -154,8 +154,8 @@
                     </a>
                     <ul class="treeview-menu">
                         <li><a href="{{url('/admin/users')}}"><i class="fa fa-users"></i> Liste users</a></li>
-                        <li><a href="{{url('/')}}/admin/users/create"><i class="fa fa-users"></i>Nouveau user</a></li>
-                        <li><a href="{{url('/')}}/admin/users/deleted"><i class="fa fa-users"></i>Users supprimés</a></li>
+                        <li><a href="{{url('/')}}/admin/users/create"><i class="fa fa-user-plus"></i>Nouveau user</a></li>
+                        <li><a href="{{url('/')}}/admin/users/deleted"><i class="fa fa-user-md"></i>Users supprimés</a></li>
                     </ul>
                 </li>
                 <li class="treeview">
