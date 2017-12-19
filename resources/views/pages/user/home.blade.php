@@ -39,7 +39,8 @@
                             <div class="col-md-8 text-left-md text-left-lg text-center-xs text-center-sm">
                                 <label class="pseudoname">{{Auth::user()->name}}</label><br>
                                 @if(strpos(Auth::user()->email,'@test.com')!== false && strpos(Auth::user()->email,'missing') !== false)
-                                    <p><i class="fa fa-facebook-official fenalope" aria-hidden="true"></i>S'authentifier via compte facebook
+                                    <p><i class="fa fa-facebook-official fenalope" aria-hidden="true"></i>S'authentifier
+                                        via compte facebook
                                     </p>
                                 @else
                                     <p><i class="fa fa-envelope fenalope" aria-hidden="true"></i>{{Auth::user()->email}}
@@ -70,6 +71,16 @@
                 <?php
                 }
                 ?>
+                @if (session('message'))
+                    <div class="container">
+                        <div style="margin-left: 36px;">
+                            <div class="alert alert-success col-md-7" style="text-align: left;">
+                                <p style="margin-left: 5px;">{{session('message')}}></p>
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
+                @endif
                 <div class="padding-custom">
                     <ul class="tabs">
                         <li class="active" rel="tab3"><b>Mes Achats <br>passés</b></li>
@@ -109,7 +120,8 @@
                                                 <td data-label="Date">{{\Carbon\Carbon::parse($a->pivot->date_achat)->format('d M Y H:i')}}</td>
                                                 <td data-label="Quantité">{{$a->pivot->number}}</td>
                                                 <td data-label="pdf">
-                                                    <a href="{{url('/public/tickets/' . $a->pivot->ticket_pdf)}}" target="_blank">
+                                                    <a href="{{url('/public/tickets/' . $a->pivot->ticket_pdf)}}"
+                                                       target="_blank">
                                                         Télécharger le Fichier
                                                     </a>
                                                 </td>
@@ -152,7 +164,8 @@
                                             <td data-label="Date">{{\Carbon\Carbon::parse($a->pivot->date_achat)->format('d M Y H:i')}}</td>
                                             <td data-label="Quantité">{{$a->pivot->number}}</td>
                                             <td data-label="pdf">
-                                                <a href="{{url('/public/tickets/' . $a->pivot->ticket_pdf)}}" target="_blank">
+                                                <a href="{{url('/public/tickets/' . $a->pivot->ticket_pdf)}}"
+                                                   target="_blank">
                                                     Télécharger le Fichier
                                                 </a>
                                             </td>

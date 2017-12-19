@@ -23,20 +23,18 @@ class CheckoutController extends Controller
         $options = $req->input('options');
         $payement = Payement_mode::where('slug', '=', $options)->get()[0];
         // sending data to payment mode and waiting response
-        if($payement->slug =='orange'){
+        if ($payement->slug == 'orange') {
             $om = new OrangeMoney($req->input('amount'));
             $payementOrange = $om->getPaymentUrl();
-            Session::put('notif_token',$payementOrange->notif_token);
+            Session::put('notif_token', $payementOrange->notif_token);
             return redirect($payementOrange->payment_url);
         }
     }
 
     function saveOrange(Request $request)
     {
-
         $notifToken = Session::get('notif_token');
-
-        if($this->getStatus($notifToken)){
+        if ($this->getStatus($notifToken)) {
             $pdfName = time() . rand() . '.pdf';
             $tic = array();
 
@@ -48,7 +46,8 @@ class CheckoutController extends Controller
                 $date = date('Y-m-d H:i:s');
                 $nombre = $item->qty;
                 $ticket->users()->attach(array(Auth::user()->id => array('number' => $item->qty, 'date_achat' => $date,
-                    'payement_mode_id' => Payement_mode::where('slug','=','orange')->get()[0]->id, 'ticket_pdf' => $pdfName)));
+                    'payement_mode_id' => Payement_mode::where('slug', '=', 'orange')->get()[0]->id, 'ticket_pdf' => $pdfName
+                , 'status_payment' => 'SUCCESS')));
                 $tic[$j] = $ticket;
                 $tap = array();
                 for ($i = 0; $i < $nombre; $i++) {
@@ -68,7 +67,6 @@ class CheckoutController extends Controller
                     $writer->writeFile($tapakila->code_unique, 'public/qr_code/' . $image_name . '.png');
                     $tapakila->qr_code = $image_name . '.png';
                     $ticket->number = $ticket->number - 1;
-                    //$ticket->pivot->status_payment = 'SUCCESS';
                     $tapakila->save();
                     $tap[$i] = $tapakila;
                 }
@@ -93,10 +91,39 @@ class CheckoutController extends Controller
                 $message->cc('contact@leguichet.mg', 'Leguichet.mg')->subject('Leguichet payment');
                 $message->attach(Session::get('pdfDestinationPath'));
             });
-            Mail::send('emails.facture', ['data' => $data, 'user' => $user, 'payment_mode' => Payement_mode::where('slug','=','orange')->get()[0]], function ($message) {
+            Mail::send('emails.facture', ['data' => $data, 'user' => $user, 'payment_mode' => Payement_mode::where('slug', '=', 'orange')->get()[0]], function ($message) {
                 $message->to(Session::get('email_livraison'), Auth::user()->name)->subject('Leguichet');
                 $message->cc('contact@leguichet.mg', 'Leguichet.mg')->subject('Leguichet payment facture');
             });
+            return redirect(url('/home'));
+        } else {
+            $pdfName = time() . rand() . '.pdf';
+            $tic = array();
+
+            $data = array();
+            $j = 0;
+            $temp = array();
+            foreach (Cart::content() as $item) {
+                $ticket = Ticket::findOrFail($item->id);
+                $date = date('Y-m-d H:i:s');
+                $nombre = $item->qty;
+                $ticket->users()->attach(array(Auth::user()->id => array('number' => $item->qty, 'date_achat' => $date,
+                    'payement_mode_id' => Payement_mode::where('slug', '=', 'orange')->get()[0]->id, 'ticket_pdf' => $pdfName
+                , 'status_payment' => 'FAILED')));
+                $tic[$j] = $ticket;
+                $tap = array();
+                for ($i = 0; $i < $nombre; $i++) {
+                    $tapakila = $ticket->tapakila()->where('vendu', '=', '0')->get()->random(1)[0];
+                    $event = $ticket->events()->take(1)->get()[0];
+                    $tapakila->save();
+                    $tap[$i] = $tapakila;
+                }
+                $data[$j] = array('ticket' => $tic[$j], 'tapakila' => $tap);
+                $ticket->save();
+                $j++;
+            }
+            Cart::destroy();
+            session()->flash('status_payment', "Votre paiement n'est pas réussi.");
             return redirect(url('/home'));
         }
     }
@@ -180,18 +207,20 @@ class CheckoutController extends Controller
         return view('shopping.question_secret', compact('menus', 'sousmenus'));
     }
 
-    function NotifyOrange(Request $req){
-        $handle =fopen("Logs/".date('Y-m-d').'.txt', 'a+');
-        $data = json_encode(array('status'=>$req->input('status'),'notif_token'=>$req->input('notif_token'),'txnid'=>$req->input('txnid')));
-        fwrite($handle,$data."\n", 4096);
+    function NotifyOrange(Request $req)
+    {
+        $handle = fopen("Logs/" . date('Y-m-d') . '.txt', 'a+');
+        $data = json_encode(array('status' => $req->input('status'), 'notif_token' => $req->input('notif_token'), 'txnid' => $req->input('txnid')));
+        fwrite($handle, $data . "\n", 4096);
     }
 
-    function getStatus($token){
+    function getStatus($token)
+    {
         $myJson = array();
 
-        if ($file = fopen('Logs/'.date('Y-m-d').'.txt', "r")) {
+        if ($file = fopen('Logs/' . date('Y-m-d') . '.txt', "r")) {
             $i = 0;
-            while(!feof($file)) {
+            while (!feof($file)) {
                 $line = fgets($file);
                 $json = json_decode($line, false);
                 $myJson[$i] = $json;
@@ -200,9 +229,11 @@ class CheckoutController extends Controller
             fclose($file);
         }
 
-        foreach ($myJson as $j){
-            if($j->notif_token == $token){
-                return true;
+        foreach ($myJson as $j) {
+            if ($j->notif_token == $token) {
+                if (($j->status) == "SUCCESS")
+                    return true;
+                else return false;
             }
         }
 

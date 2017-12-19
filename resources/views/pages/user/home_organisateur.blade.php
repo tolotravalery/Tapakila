@@ -60,8 +60,16 @@
                 <?php
                 }
                 ?>
-
-
+                @if (session('message'))
+                    <div class="container">
+                        <div style="margin-left: 36px;">
+                            <div class="alert alert-success col-md-7" style="text-align: left;">
+                                <p style="margin-left: 5px;">{{session('message')}}></p>
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
+                @endif
                 <div class="padding-custom">
                     <ul class="tabs">
                         <li class="active" rel="tab1"><b>Mes Ventes<br> passés</b></li>
