@@ -1,31 +1,19 @@
 @extends("template")
 @section('content')
-    <section class="content-elite">
-        <!--/content goes here -->
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-md-offset-3">
-                    <div class="panel panel-login">
-                        <!-- menutab start -->
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-6">
-                                    <a href="#" id="login-form-link">Connexion</a>
-                                </div>
-                                <div class="col-xs-6">
-                                    <a href="#" class="active" id="register-form-link" class="">S'inscrire</a>
-                                </div>
-                            </div>
-                            <hr>
-                        </div>
-                        <!-- menutab end -->
+<div class="container custom-container">
 
-                        <!-- formulaire start -->
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <!-- connexion start -->
-                                    <form id="login-form" style="display: none;" role="form" method="POST"
+
+	<div class="row lof">
+		<div class="col-md-4 col-md-offset-4" style="background-color:white;">
+		
+ <ul id="myTabs" class="nav nav-pills nav-justified hii" role="tablist" data-tabs="tabs" style="background-color: #e6e6e6;margin-top: 15px;">
+    <li ><a href="#Commentary" data-toggle="tab">Connexion</a></li>
+    <li class="active"><a href="#Videos" data-toggle="tab">S'inscrire</a></li>
+  </ul>
+  <div class="tab-content" style="padding: 26px 19px 13px 19px;border: 2px solid #d70506;margin-bottom: 15px;">
+    <div role="tabpanel" class="tab-pane fade " id="Commentary">
+ <!-- connexion start -->
+                                    <form id="login-form" style="display: block;" role="form" method="POST"
                                           action="{{ route('login') }}">
                                         {{ csrf_field() }}
                                         <div class="form-group">
@@ -53,19 +41,17 @@
 
                                         <div class="form-group">
                                             <div class="row">
-                                            <div class="col-sm-3"></div>
-                                                <div class="col-sm-6 col-md-offset-0">
+                                                <div class="col-sm-6 col-md-offset-3">
                                                     <input name="login-submit" id="login-submit" tabindex="4"
                                                            class="form-control btn btn-login boutt" value="Se connecter"
                                                            type="submit">
                                                 </div>
-                                                <div class="col-sm-3"></div>
                                             </div>
                                         </div>
 
                                         <div class="form-group">
                                             <div class="row">
-                                                <div class="col-sm-6 col-xs-12">
+                                                <div class="col-sm-8">
                                                     <div class="checkbox-custom checkbox-inline checkbox-primary pull-left col-lg-12">
                                                         <input id="inputCheckbox" name="remember" type="checkbox">
                                                         <label for="inputCheckbox">Se souvenir de moi</label><br>
@@ -79,29 +65,28 @@
                                         </div>
                                         <!-- Connexion facebook start-->
                                         <div class="content-conexion">
-                                            <h5 class="facenookconexion"><strong> Se connecter avec votre compte
-                                                    facebook?</strong></h5>
+                                            <h5 class="facenookconexion"> .. se connecter avec </h5>
                                             <div class="row">
-                                                <div class="col-md-8 col-md-offset-2">
+                                                <div class="col-md-12 col-sm-12">
                                                     <a href="{{route('social.redirect',['provider' => 'facebook'])}}">
                                                         <button type="button" class="btn-facebooksign"><img
-                                                                    src="{{url('/img/fblogo.jpeg')}}">Connexion avec
-                                                            facebook
+                                                                    src="{{url('public/img/fblogo.jpeg')}}"> Facebook
                                                         </button>
                                                     </a>
                                                 </div>
                                             </div>
                                         </div>
-
-                                        <!-- connexion facebook end -->
                                     </form>
 
+	
+	
+	</div>
+    <div role="tabpanel" class="tab-pane fade in active" id="Videos">
+	
+	
+	 <!-- inscription start -->
 
-                                    <!-- connexion end -->
-
-                                    <!-- inscription start -->
-
-                                    {!! Form::open(['id' => 'register-form', 'route' => 'register','style' =>'display:block;', 'role' => 'form', 'method' => 'POST'] ) !!}
+                                    {!! Form::open(['id' => 'register-form', 'route' => 'register', 'role' => 'form', 'method' => 'POST'] ) !!}
                                     {{ csrf_field() }}
                                     <div class="form-group">
                                         <label for="email">Nom:</label>
@@ -126,8 +111,8 @@
                                         {!! Form::email('email', null, ['class' => 'form-control', 'id' => 'email', 'placeholder' => 'E-Mail', 'required','tabindex' => '1']) !!}
                                         @if ($errors->has('email'))
                                             <span class="red">
-                                                <strong>{{ $errors->first('email') }}</strong>
-                                            </span>
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
                                         @endif
                                     </div>
                                     <div class="form-group">
@@ -142,7 +127,6 @@
                                     <div class="form-group">
                                         {!! Form::password('password_confirmation', ['class' => 'form-control', 'id' => 'confirm-password', 'placeholder' => '*******', 'required']) !!}
                                     </div>
-
                                     <div class="form-group">
 
                                         {{--{!! Form::email('email', null, ['class' => 'form-control', 'id' => 'email', 'placeholder' => 'E-Mail', 'required','tabindex' => '1']) !!}--}}
@@ -156,13 +140,11 @@
                                     </div>
                                     <div class="form-group">
                                         <div class="row">
-                                        <div class="col-sm-3"></div>
-                                            <div class="col-sm-6 col-md-offset-0 ">
+                                            <div class="col-sm-6 col-md-offset-3 ">
                                                 <input name="register-submit" id="register-submit" tabindex="4"
                                                        class="form-control btn btn-register boutt" value="S'inscrire"
                                                        type="submit">
                                             </div>
-                                            <div class="col-sm-3"></div>
                                         </div>
                                     </div>
                                     </form>
@@ -171,46 +153,13 @@
                             </div>
                         </div>
                         <!-- formulaire end -->
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--/content goes here -->
-    </section>
+	
+	</div>
+  </div>
+		</div>
+	</div>	
+</div>
 @endsection
-@section('specificScript')
-    <script typae="text/javascript">
-        $('.dropdown-menu ul li a').click(function (event) {
-            event.stopPropagation();
-            $(this).parent().toggleClass('active').siblings().removeClass('active');
-            var target = $(this).attr('href');
-            $('ul li .tab-content ' + target).toggleClass(active);
-        });
-    </script>
-    <script typae="text/javascript">
-        $('.dropdown-menu ul li a').click(function (event) {
-            event.stopPropagation();
-            $(this).parent().toggleClass('active').siblings().removeClass('active');
-            var target = $(this).attr('href');
-            $('ul li .tab-content ' + target).toggleClass(active);
-        });
-    </script>
-    <script>
-        $(function () {
-            $('#register-form-link').click(function (e) {
-                $("#register-form").delay(100).fadeIn(100);
-                $("#login-form").fadeOut(100);
-                $('#login-form-link').removeClass('active');
-                $(this).addClass('active');
-                e.preventDefault();
-            });
-            $('#login-form-link').click(function (e) {
-                $("#login-form").delay(100).fadeIn(100);
-                $("#register-form").fadeOut(100);
-                $('#register-form-link').removeClass('active');
-                $(this).addClass('active');
-                e.preventDefault();
-            });
-        });
-    </script>
-@endsection
+
+
+
