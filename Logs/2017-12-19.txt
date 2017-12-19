@@ -1,1 +1,3 @@
-status : notif_token : status : notif_token : 
+{"status":null,"notif_token":null,"txnid":null}
+{"status":null,"notif_token":null,"txnid":null}
+{"status":null,"notif_token":null,"txnid":null}
