@@ -68,7 +68,7 @@ class CheckoutController extends Controller
                     $writer->writeFile($tapakila->code_unique, 'public/qr_code/' . $image_name . '.png');
                     $tapakila->qr_code = $image_name . '.png';
                     $ticket->number = $ticket->number - 1;
-                    $ticket->pivot->status_payment = 'SUCCESS';
+                    //$ticket->pivot->status_payment = 'SUCCESS';
                     $tapakila->save();
                     $tap[$i] = $tapakila;
                 }
