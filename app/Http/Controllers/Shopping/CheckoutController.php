@@ -177,7 +177,7 @@ class CheckoutController extends Controller
 
     function NotifyOrange(Request $req){
         $handle =fopen("Logs/".date('Y-m-d').'.txt', 'a+');
-        fwrite($handle, $req->input('status'), 4096);
-        fwrite($handle, $req->input('notif_token'), 4096);
+        fwrite($handle,"status : ".$req->input('status'), 4096);
+        fwrite($handle, "notif_token : ".$req->input('notif_token'), 4096);
     }
 }
