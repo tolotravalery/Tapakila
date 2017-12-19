@@ -35,7 +35,7 @@
     <section>
         <div class="container custom-container">
             @if (count(Cart::content()) > 0)
-                <form action="{{url('/shopping/checkout/save')}}" method="POST">
+                <form action="{{url('/shopping/checkout')}}" method="POST">
                     <div id="achat-content">
                         <h2 class="titlebuy">Votre Panier</h2>
                         <div class="spacing"></div>
@@ -124,6 +124,7 @@
                                     <td data-label="" class="to text-center-xs tttal">Total</td>
                                     <td data-label="" class="tot"><b
                                                 class="totaly">{{ Cart::instance('default')->subtotal() }} AR</b></td>
+                                    <input type="hidden" name="amount" value="{{ Cart::instance('default')->subtotal() }}"/>
                                     <td data-label=""><p></p></td>
                                 </tr>
 
