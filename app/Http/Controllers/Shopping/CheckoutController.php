@@ -20,48 +20,31 @@ class CheckoutController extends Controller
 {
     function index(Request $req)
     {
-        $ans = $req->input('__hidden_input_ans__');
-        $ev = $req->input('__hidden_input_ev__');
-        $data = array();
-        for ($i = 0; $i < count($ev); $i++) {
-            $data[$i] = array('ev' => $ev[$i], 'ans' => $ans[$i]);
-        }
-        $menus = Menus::orderBy('id', 'desc')->get();
-        $sousmenus = Sous_menus::orderBy('name', 'asc')->get();
-        $payement_mode = Payement_mode::get();
-        return view('shopping.checkout', compact('menus', 'sousmenus', 'payement_mode', 'data'));
-    }
-
-    function save(Request $request)
-    {
-        $options = $request->input('options');
-        $answer = $request->input('answer');
-        $events = $request->input('event');
-//        dd($answer);
+        $options = $req->input('options');
         $payement = Payement_mode::where('slug', '=', $options)->get()[0];
         // sending data to payment mode and waiting response
-        $om = new OrangeMoney();
-        dd($om->getAccessToken());
+        if($payement->slug =='orange'){
+            $om = new OrangeMoney($req->input('amount'));
+            return redirect($om->getPaymentUrl()->payment_url);
+        }
+    }
 
+    function saveOrange(Request $request)
+    {
         // if response is success
+
         $pdfName = time() . rand() . '.pdf';
         $tic = array();
 
         $data = array();
         $j = 0;
         $temp = array();
-        for ($p = 0; $p < count($events); $p++) {
-            $temp[$p] = array('ev' => $events[$p], 'rep' => $answer[$p]);
-        }
         foreach (Cart::content() as $item) {
             $ticket = Ticket::findOrFail($item->id);
-
             $date = date('Y-m-d H:i:s');
-
             $nombre = $item->qty;
-
             $ticket->users()->attach(array(Auth::user()->id => array('number' => $item->qty, 'date_achat' => $date,
-                'payement_mode_id' => $payement->id, 'ticket_pdf' => $pdfName)));
+                'payement_mode_id' => Payement_mode::where('slug','=','orange')->get()[0]->id, 'ticket_pdf' => $pdfName)));
             $tic[$j] = $ticket;
             $tap = array();
             for ($i = 0; $i < $nombre; $i++) {
@@ -72,7 +55,6 @@ class CheckoutController extends Controller
                         $tapakila->reponse = $t['rep'];
                     }
                 }
-                // if payment is success
                 $tapakila->vendu = 1;
                 $renderer = new \BaconQrCode\Renderer\Image\Png();
                 $renderer->setHeight(256);
@@ -82,7 +64,7 @@ class CheckoutController extends Controller
                 $writer->writeFile($tapakila->code_unique, 'public/qr_code/' . $image_name . '.png');
                 $tapakila->qr_code = $image_name . '.png';
                 $ticket->number = $ticket->number - 1;
-//                $ticket->pivot->status_payment = 'SUCCESS';
+                $ticket->pivot->status_payment = 'SUCCESS';
                 $tapakila->save();
                 $tap[$i] = $tapakila;
             }
@@ -107,7 +89,7 @@ class CheckoutController extends Controller
             $message->cc('contact@leguichet.mg', 'Leguichet.mg')->subject('Leguichet payment');
             $message->attach(Session::get('pdfDestinationPath'));
         });
-        Mail::send('emails.facture', ['data' => $data, 'user' => $user, 'payment_mode' => $payement], function ($message) {
+        Mail::send('emails.facture', ['data' => $data, 'user' => $user, 'payment_mode' => Payement_mode::where('slug','=','orange')->get()[0]], function ($message) {
             $message->to(Session::get('email_livraison'), Auth::user()->name)->subject('Leguichet');
             $message->cc('contact@leguichet.mg', 'Leguichet.mg')->subject('Leguichet payment facture');
         });
@@ -191,5 +173,11 @@ class CheckoutController extends Controller
         $menus = Menus::orderBy('id', 'desc')->get();
         $sousmenus = Sous_menus::orderBy('name', 'asc')->get();
         return view('shopping.question_secret', compact('menus', 'sousmenus'));
+    }
+
+    function NotifyOrange(Request $req){
+        $handle =fopen("Logs/".date('Y-m-d').'.txt', 'a+');
+        fwrite($handle, $req->input('status'), 4096);
+        fwrite($handle, $req->input('notif_token'), 4096);
     }
 }
