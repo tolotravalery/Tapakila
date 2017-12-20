@@ -247,9 +247,9 @@ class CheckoutController extends Controller
 
         foreach ($myJson as $j) {
             if ($j->notif_token == $token) {
-                if (($j->status) == "SUCCESS")
+                if (($j->status) == "SUCCESS"){
                     return true;
-                else return false;
+                }
             }
         }
 
