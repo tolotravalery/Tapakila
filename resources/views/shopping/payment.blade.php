@@ -35,7 +35,7 @@
                 <div class="spacing"></div>
                 @if(($ticket_to_pay[0]->pivot->number <= \App\Models\Ticket::find($ticket_to_pay[0]->id)->number))
                     <div class="custom-pg">
-                        <form action="{{url('/shopping/checkout/payment')}}" method="POST">
+                        <form action="{{url('/shopping/pay/one-ticket')}}" method="POST">
                             <table class="tabl-content">
                                 <thead>
                                 <tr>
@@ -94,6 +94,7 @@
                                 <div class="col-md-8 col-md-offset-5 Fraisservice ">
                                     <p><b class="tright">Frais de service :</b>0 AR </p>
                                     <p><b class="t2right">Somme Total à payer : </b>
+                                        <input type="hidden" name="amount" value="{{$somme}}">
                                         <label class="TT">{{$somme}} AR</label>
                                     </p>
                                 </div>
@@ -209,7 +210,7 @@
                         </p>
                     </div>
                     <div class="custom-pg">
-                        <form action="{{url('/shopping/checkout/payment')}}" method="POST">
+                        <form action="{{url('/shopping/pay/one-ticket')}}" method="POST">
                             <table class="tabl-content">
                                 <thead>
                                 <tr>

@@ -285,12 +285,12 @@
                                                 <td data-label="">
                                                     @if($a->pivot->status_payment=='FAILED')
                                                         <p>
-                                                            <a href="shopping/payment/{{Auth::user()->id}}/{{$a->pivot->id}}"
+                                                            <a href="shopping/pay/{{Auth::user()->id}}/{{$a->pivot->id}}"
                                                                alt="Edit"
                                                                style="color: #d70506;font-size: 30px !important;">Payer</a>
                                                         </p>
                                                         <p>
-                                                            <a href="shopping/annuler/{{Auth::user()->id}}/{{$a->pivot->id}}"
+                                                            <a href="shopping/cancel/{{Auth::user()->id}}/{{$a->pivot->id}}"
                                                                alt="Edit"
                                                                style="color: #d70506;font-size: 18px !important;">Annuler</a>
                                                         </p>

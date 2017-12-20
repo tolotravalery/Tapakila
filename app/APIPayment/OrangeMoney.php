@@ -33,13 +33,13 @@ class OrangeMoney
         return json_decode(curl_exec($ch))->access_token;
     }
 
-    public function getPaymentUrl()
+    public function getPaymentUrl($returnUrl)
     {
         $data = array("merchant_key" => $this->merchant_key,
             "currency" => "OUV",
             "order_id" => rand(1000,10000),
             "amount" => intval($this->amount),
-            "return_url" => url('/shopping/checkout/save'),
+            "return_url" => $returnUrl,
             "cancel_url" => url('/home'),
             "notif_url" => url('payments/notify/orange'),
             "lang" => "fr"

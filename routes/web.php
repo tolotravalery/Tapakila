@@ -124,13 +124,12 @@ Route::group(['middleware' => ['auth', 'activated', 'currentUser']], function ()
     Route::group(['prefix' => 'shopping'], function () {
         Route::post('checkout', 'Shopping\CheckoutController@index')->name('checkout_index');
         Route::get('checkout', 'Shopping\CheckoutController@index')->name('checkout_index');
-        Route::post('checkout/store', 'Shopping\CheckoutController@store');
-        Route::post('checkout/save', 'Shopping\CheckoutController@saveOrange');
-        Route::get('checkout/save', 'Shopping\CheckoutController@saveOrange');
-        Route::post('checkout/payment', 'Shopping\CheckoutController@savePayment');
-        Route::get('payment/{users_id}/{id}', 'Shopping\CheckoutController@pay');
+        Route::any('checkout/orange', 'Shopping\CheckoutController@saveOrange');
+        Route::any('checkout/pay/orange', 'Shopping\CheckoutController@savePaymentOrange');
+        Route::get('pay/{users_id}/{id}', 'Shopping\CheckoutController@pay');
+        Route::post('pay/one-ticket', 'Shopping\CheckoutController@checkoutOnePayment');
         Route::get('quiz', 'Shopping\CheckoutController@quiz');
-        Route::get('annuler/{users_id}/{id}', 'UserController@annulerCommande');
+        Route::get('cancel/{users_id}/{id}', 'UserController@annulerCommande');
         Route::resource('cart', 'Shopping\CartController');
         Route::delete('emptyCart', 'Shopping\CartController@emptyCart');
 
@@ -252,7 +251,6 @@ Route::group(['middleware' => ['auth', 'activated'], 'prefix' => 'organisateur']
     Route::get('event', 'EventController@showEventForm')->name('event');
     Route::post('event', 'EventController@store')->name('event');
     Route::post('event_siteweb', 'EventController@update_website')->name('event_siteweb');
-//    Route::get('index', 'OrganisateurController@index');
     Route::resource('ticket', 'TicketController');
     Route::resource(
         'event',
