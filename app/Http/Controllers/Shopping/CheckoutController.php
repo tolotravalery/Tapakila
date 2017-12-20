@@ -135,7 +135,8 @@ class CheckoutController extends Controller
         return view('shopping.payment', compact('users', 'id', 'sousmenus', 'menus', 'payement_mode', 'ticket_to_pay'));
     }
 
-    function checkoutOnePayment(Request $req){
+    function checkoutOnePayment(Request $req)
+    {
         $options = $req->input('options');
         $payement = Payement_mode::where('slug', '=', $options)->get()[0];
         if ($payement->slug == 'orange') {
@@ -144,7 +145,7 @@ class CheckoutController extends Controller
             Session::put('notif_token', $payementOrange->notif_token);
             Session::put('pay_id', $req->input('id'));
             Session::put('pay_number', $req->input('number'));
-            if($req->input('email_livraison'))
+            if ($req->input('email_livraison'))
                 Session::put('email_livraison', $req->input('email_livraison'));
             return redirect($payementOrange->payment_url);
         }
@@ -158,7 +159,7 @@ class CheckoutController extends Controller
         $payement = Payement_mode::where('slug', '=', 'orange')->get()[0];
         $date = date('Y-m-d H:i:s');
         $users = Auth::user();
-        if($this->getStatus($notifToken)){
+        if ($this->getStatus($notifToken)) {
             $pdfName = time() . rand() . '.pdf';
             $ticket_to_pay = $users->tickets()->wherePivot('id', '=', $id)->get()[0];
             $ticket_to_pay->pivot->number = $number;
@@ -209,7 +210,7 @@ class CheckoutController extends Controller
                 $message->cc('contact@leguichet.mg', 'Leguichet.mg')->subject('Leguichet payment');
             });
             return redirect(url('/home'));
-        }else{
+        } else {
             session()->flash('status_payment', "Votre paiement n'est pas réussi.");
             return redirect(url('/home'));
         }
@@ -247,9 +248,9 @@ class CheckoutController extends Controller
 
         foreach ($myJson as $j) {
             if ($j->notif_token == $token) {
-                if (($j->status) == "SUCCESS"){
+                if (($j->status) == "SUCCESS")
                     return true;
-                }
+                else return false;
             }
         }
 
