@@ -10,7 +10,7 @@
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <a href="#" class="active" id="login-form-link" style="color: #2ea7de;">Connexion administration</a>
+                                    <a href="#" class="active" id="login-form-link" style="color: white;">Connexion administration</a>
                                 </div>
 
                             </div>
@@ -54,7 +54,7 @@
                                                 <div class="col-sm-6 col-md-offset-0">
                                                     <input name="login-submit" id="login-submit" tabindex="4"
                                                            class="form-control btn btn-login" value="Se connecter"
-                                                           type="submit" style ="background-color: #2ea7de;">
+                                                           type="submit" style ="background-color: #5cb85c;">
                                                 </div>
                                                 <div class="col-sm-3 col-md-offset-0"></div>
                                             </div>
