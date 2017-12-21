@@ -12,8 +12,8 @@ namespace App\APIPayment;
 class OrangeMoney
 {
 
-    private $authorization_header = 'Basic emh5U0NxRlVoVVpyWHU0TzV2U0F2QkoxS0FBYmROUkY6ZHBkUU5raG1RUFd6bk1ndA==';
-    private $merchant_key = '9729fe79';
+    private $authorization_header = 'Basic bEt6dk5teGt2WUpHZ1UxR3ZsUlpBUzJhd2JCTFFHRWs6NVFxUERmSVdWQTFwMU5uVg==';
+    private $merchant_key = '28ee3a89';
     private $amount;
 
     public function __construct($amount)
@@ -36,9 +36,9 @@ class OrangeMoney
     public function getPaymentUrl($returnUrl)
     {
         $data = array("merchant_key" => $this->merchant_key,
-            "currency" => "OUV",
+            "currency" => "MGA",
             "order_id" => rand(1000,10000),
-            "amount" => intval($this->amount),
+            "amount" => $this->amount,
             "return_url" => $returnUrl,
             "cancel_url" => url('/home'),
             "notif_url" => url('payments/notify/orange'),
