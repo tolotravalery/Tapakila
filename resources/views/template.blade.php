@@ -55,11 +55,12 @@
             @if (Auth::guest())
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <div class="panier-header"><a href="{{url('/')}}/organisateur/event"
+                        <!--<div class="panier-header"><a href="{{url('/')}}/organisateur/event"
                                                       class="btn btn-success event"
                                                       role="button"><span class="ico"></span><span
                                         class="descr">AJOUTER<br/> VOTRE EVENEMENT</span></a></div>
-                    </li>
+                     -->
+		    </li>
                     <li>
                         <a href="{{ url('/shopping/cart') }}">Panier @if (!Auth::guest())
                                 ({{ Cart::instance('default')->count(false) }}) @endif</a>
