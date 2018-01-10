@@ -30,6 +30,7 @@ class OrangeMoney
         ));
         curl_setopt($ch, CURLOPT_POSTFIELDS, "grant_type=client_credentials");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+//        dd(curl_exec($ch));
         return json_decode(curl_exec($ch))->access_token;
     }
 
@@ -37,14 +38,14 @@ class OrangeMoney
     {
         $data = array("merchant_key" => $this->merchant_key,
             "currency" => "MGA",
-            "order_id" => rand(1000,10000),
+            "order_id" => rand(1,1000000),
             "amount" => $this->amount,
             "return_url" => $returnUrl,
             "cancel_url" => url('/home'),
             "notif_url" => url('payments/notify/orange'),
             "lang" => "fr"
         );
-        $ch = curl_init('https://api.orange.com/orange-money-webpay/dev/v1/webpayment');
+        $ch = curl_init('https://api.orange.com/orange-money-webpay/mg/v1/webpayment');
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
         curl_setopt($ch, CURLOPT_HTTPHEADER, array(
             'Authorization: Bearer ' . $this->getAccessToken(),
@@ -53,7 +54,6 @@ class OrangeMoney
         ));
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-//        dd(json_decode(curl_exec($ch)));
         return json_decode(curl_exec($ch));
 
     }
