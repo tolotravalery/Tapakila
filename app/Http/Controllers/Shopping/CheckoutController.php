@@ -39,7 +39,7 @@ class CheckoutController extends Controller
             $tic = array();
             $data = array();
             $j = 0;
-            $temp = array();
+            //$temp = array();
             foreach (Cart::content() as $item) {
                 $ticket = Ticket::findOrFail($item->id);
                 $date = date('Y-m-d H:i:s');
@@ -52,11 +52,11 @@ class CheckoutController extends Controller
                 for ($i = 0; $i < $nombre; $i++) {
                     $tapakila = $ticket->tapakila()->where('vendu', '=', '0')->get()->random(1)[0];
                     $event = $ticket->events()->take(1)->get()[0];
-                    foreach ($temp as $t) {
+                    /*foreach ($temp as $t) {
                         if ($t['ev'] == $event->id) {
                             $tapakila->reponse = $t['rep'];
                         }
-                    }
+                    }*/
                     $tapakila->vendu = 1;
                     $renderer = new \BaconQrCode\Renderer\Image\Png();
                     $renderer->setHeight(256);
