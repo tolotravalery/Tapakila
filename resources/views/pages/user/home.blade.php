@@ -97,7 +97,7 @@
                                     <th scope="col"><b class="bold">Tickets</b></th>
                                     <th scope="col"><b class="bold">Date Achat</b></th>
                                     <th scope="col"><b class="bold">Nombre</b></th>
-                                    <th scope="col"><b class="bold">PDF File</b></th>
+                                    {{--<th scope="col"><b class="bold">PDF File</b></th>--}}
                                     <th scope="col"><b class="bold"></b></th>
                                 </tr>
                                 </thead>
@@ -119,12 +119,12 @@
                                                 <td data-label="Tickets">{{$a->type}}</td>
                                                 <td data-label="Date">{{\Carbon\Carbon::parse($a->pivot->date_achat)->format('d M Y H:i')}}</td>
                                                 <td data-label="Quantité">{{$a->pivot->number}}</td>
-                                                <td data-label="pdf">
-                                                    <a href="{{url('/public/tickets/' . $a->pivot->ticket_pdf)}}"
-                                                       target="_blank">
-                                                        Télécharger le Fichier
-                                                    </a>
-                                                </td>
+                                                {{--<td data-label="pdf">--}}
+                                                {{--<a href="{{url('/public/tickets/' . $a->pivot->ticket_pdf)}}"--}}
+                                                {{--target="_blank">--}}
+                                                {{--Télécharger le Fichier--}}
+                                                {{--</a>--}}
+                                                {{--</td>--}}
                                             </tr>
                                         @endif
                                     @endif
@@ -142,7 +142,7 @@
                                     <th scope="col"><b class="bold">Tickets</b></th>
                                     <th scope="col"><b class="bold">Date Achat</b></th>
                                     <th scope="col"><b class="bold">Nombre</b></th>
-                                    <th scope="col"><b class="bold">PDF File</b></th>
+                                    {{--<th scope="col"><b class="bold">PDF File</b></th>--}}
                                     <th scope="col"><b class="bold"></b></th>
                                 </tr>
                                 </thead>
@@ -164,10 +164,11 @@
                                             <td data-label="Date">{{\Carbon\Carbon::parse($a->pivot->date_achat)->format('d M Y H:i')}}</td>
                                             <td data-label="Quantité">{{$a->pivot->number}}</td>
                                             <td data-label="pdf">
-                                                <a href="{{url('/public/tickets/' . $a->pivot->ticket_pdf)}}"
-                                                   target="_blank">
-                                                    Télécharger le Fichier
-                                                </a>
+                                                @foreach($d['tapakila'] as $tapakila)
+                                                    <img src="{{url('/public/qr_code/'.$tapakila->qr_code)}}"
+                                                         width="250px" height="250px"
+                                                         class="qt">
+                                                @endforeach
                                             </td>
                                             <td data-label="action">
                                                 @if($a->pivot->status_payment=='FAILED')
@@ -192,8 +193,8 @@
                         <!-- #tab4 -->
                     </div>
                 </div>
-
             </div>
+        </div>
     </section>
 @endsection
 @section("specificScript")

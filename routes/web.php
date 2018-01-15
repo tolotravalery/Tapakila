@@ -51,15 +51,15 @@ Route::group(['middleware' => 'web'], function () {
         Route::get('q', 'RechercheController@find');
         Route::get('filtered', 'RechercheController@filtered');
     });
-    Route::group(['prefix' => 'leguichet'], function () {
+	Route::group([],function () {
         Route::get('faq', 'AproposController@faq');
-        Route::get('about', 'AproposController@apropos');
-        Route::get('contact', 'AproposController@contact');
+        Route::get('about-us', 'AproposController@apropos');
+        Route::get('contact-us', 'AproposController@contact');
         Route::post('contact', 'AproposController@contactAction');
         Route::get('conditions-generales', 'AproposController@term');
-        Route::get('shop', 'AproposController@achat');
+        Route::get('achat', 'AproposController@achat');
         Route::get('vie-prive', 'AproposController@vieprive');
-        Route::get('shop/ticket', 'AproposController@achatBillet');
+        Route::get('achat-ticket', 'AproposController@achatBillet');
     });
 
 //    Route::get('code/qr/{text}', ['as' => 'qr_code', 'uses' => 'QRCodeController@generate']);

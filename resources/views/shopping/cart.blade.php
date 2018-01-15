@@ -134,17 +134,17 @@
                         <h2 class="titlebuy">Mode de paiement</h2>
                         <div class="spacing"></div>
                         <div class="custom-pg">
-                            @if(strpos(Auth::user()->email,'@test.com')!== false && strpos(Auth::user()->email,'missing') !== false)
-                                <p><b>Adresse e-mail de livraison des tickets :</b></p>
-                                <p><i>Nous vous enverrons les infos payment dans cet email</i></p>
-                                <input type="email" class="form-control" name="email_livraison">
-                                <br>
-                            @else
+                            {{--@if(strpos(Auth::user()->email,'@test.com')!== false && strpos(Auth::user()->email,'missing') !== false)--}}
+                                {{--<p><b>Adresse e-mail de livraison des tickets :</b></p>--}}
+                                {{--<p><i>Nous vous enverrons les infos payment dans cet email</i></p>--}}
+                                {{--<input type="email" class="form-control" name="email_livraison">--}}
+                                {{--<br>--}}
+                            {{--@else--}}
                                 <p><b>Adresse e-mail de livraison des tickets :</b> &nbsp {{Auth::user()->email}}&nbsp;&nbsp;&nbsp;<a
                                             href="{{url('/')}}/profile/{{Auth::user()->id}}/edit"
                                             style="color: #d70506">Modifier</a></p>
                                 <br>
-                            @endif
+                            {{--@endif--}}
                             <p><b>Méthode de payment <span style="color:red;">*</span> :</b></p>
                             <div class="modepaimenent">
                                 <div class="row">
@@ -183,10 +183,10 @@
                                         </div>
                                     </div>
 
-                                    <div class="resum">
+                                    <div class="resum" id="numPhone">
                                         <p><b>Numéro téléphone de payment :  <span style="color:red;">*</span>:</b>
                                         </p>
-                                        <input type="tel" class="form-control" name="num__phone" required>
+                                        <input type="tel" class="form-control" name="num__phone" id="num__phone" required>
                                         <br>
                                     </div>
 
@@ -295,6 +295,17 @@
     <script>
         (function () {
 
+            $('input[type=radio]').change(function(){
+                var value = $( 'input[name=options]:checked' ).val();
+                if(value=='orange'){
+                    $('#numPhone').hide();
+                    $('#num__phone').removeAttr('required');
+                }else{
+                    $('#numPhone').show();
+                    $('#num__phone').attr('required','required');
+                }
+            });
+
             $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -329,6 +340,5 @@
                 }
             });
         }
-
     </script>
 @endsection

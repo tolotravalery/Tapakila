@@ -35,7 +35,7 @@ class CheckoutController extends Controller
     {
         $notifToken = Session::get('notif_token');
         if ($this->getStatus($notifToken)) {
-            $pdfName = time() . rand() . '.pdf';
+            //$pdfName = time() . rand() . '.pdf';
             $tic = array();
             $data = array();
             $j = 0;
@@ -45,7 +45,7 @@ class CheckoutController extends Controller
                 $date = date('Y-m-d H:i:s');
                 $nombre = $item->qty;
                 $ticket->users()->attach(array(Auth::user()->id => array('number' => $item->qty, 'date_achat' => $date,
-                    'payement_mode_id' => Payement_mode::where('slug', '=', 'orange')->get()[0]->id, 'ticket_pdf' => $pdfName
+                    'payement_mode_id' => Payement_mode::where('slug', '=', 'orange')->get()[0]->id, 'ticket_pdf' => null
                 , 'status_payment' => 'SUCCESS')));
                 $tic[$j] = $ticket;
                 $tap = array();
@@ -58,13 +58,6 @@ class CheckoutController extends Controller
                         }
                     }*/
                     $tapakila->vendu = 1;
-                    $renderer = new \BaconQrCode\Renderer\Image\Png();
-                    $renderer->setHeight(256);
-                    $renderer->setWidth(256);
-                    $writer = new \BaconQrCode\Writer($renderer);
-                    $image_name = strtotime('now') . '' . rand();
-                    $writer->writeFile($tapakila->code_unique, 'public/qr_code/' . $image_name . '.png');
-                    $tapakila->qr_code = $image_name . '.png';
                     $ticket->number = $ticket->number - 1;
                     $tapakila->save();
                     $tap[$i] = $tapakila;
@@ -75,30 +68,29 @@ class CheckoutController extends Controller
             }
             Cart::destroy();
             $user = Auth::user();
-            $PdfDestinationPath = public_path('/tickets/' . $pdfName);
-            Session::put('pdfDestinationPath', $PdfDestinationPath);
-            $pdf = App::make('dompdf.wrapper');
-            $pdf->setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])->loadHTML(view('emails.ticket', compact('data', 'user'))->with(array('send' => 'pdf'))->render());
-            $pdf->save($PdfDestinationPath);
-            if ($request->input('email_livraison')) {
-                Session::put('email_livraison', $request->input('email_livraison'));
-            } else {
+            //$PdfDestinationPath = public_path('/tickets/' . $pdfName);
+            //Session::put('pdfDestinationPath', $PdfDestinationPath);
+            //$pdf = App::make('dompdf.wrapper');
+            //$pdf->setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])
+            //    ->loadHTML(view('emails.ticket', compact('data', 'user'))->with(array('send' => 'pdf'))->render());
+            //$pdf->save($PdfDestinationPath);
+//            if ($request->input('email_livraison')) {
+//                Session::put('email_livraison', $request->input('email_livraison'));
+//            } else {
                 Session::put('email_livraison', Auth::user()->email);
-            }
+//            }
             Mail::send('emails.ticket', ['data' => $data, 'user' => $user, 'send' => 'mail'], function ($message) {
                 $message->to(Session::get('email_livraison'), Auth::user()->name)->subject('Leguichet');
-                $message->cc('contact@leguichet.mg', 'Leguichet.mg')->subject('Leguichet payment');
-                $message->attach(Session::get('pdfDestinationPath'));
+                $message->cc('reservation@leguichet.mg', 'Leguichet.mg')->subject('Leguichet ticket');
+//                $message->attach(Session::get('pdfDestinationPath'));
             });
-            Mail::send('emails.facture', ['data' => $data, 'user' => $user, 'payment_mode' => Payement_mode::where('slug', '=', 'orange')->get()[0]], function ($message) {
-                $message->to(Session::get('email_livraison'), Auth::user()->name)->subject('Leguichet');
-                $message->cc('contact@leguichet.mg', 'Leguichet.mg')->subject('Leguichet payment facture');
-            });
+//            Mail::send('emails.facture', ['data' => $data, 'user' => $user, 'payment_mode' => Payement_mode::where('slug', '=', 'orange')->get()[0]], function ($message) {
+//                $message->to(Session::get('email_livraison'), Auth::user()->name)->subject('Leguichet');
+//                $message->cc('reservations@leguichet.mg', 'Leguichet.mg')->subject('Leguichet payment facture');
+//            });
             return redirect(url('/home'));
         } else {
-            $tic = array();
-            $data = array();
-            $j = 0;
+
             foreach (Cart::content() as $item) {
                 $ticket = Ticket::findOrFail($item->id);
                 $date = date('Y-m-d H:i:s');
@@ -106,16 +98,6 @@ class CheckoutController extends Controller
                 $ticket->users()->attach(array(Auth::user()->id => array('number' => $item->qty, 'date_achat' => $date,
                     'payement_mode_id' => Payement_mode::where('slug', '=', 'orange')->get()[0]->id, 'ticket_pdf' => null
                 , 'status_payment' => 'FAILED')));
-                $tic[$j] = $ticket;
-                $tap = array();
-                for ($i = 0; $i < $nombre; $i++) {
-                    $tapakila = $ticket->tapakila()->where('vendu', '=', '0')->get()->random(1)[0];
-                    $tapakila->save();
-                    $tap[$i] = $tapakila;
-                }
-                $data[$j] = array('ticket' => $tic[$j], 'tapakila' => $tap);
-                $ticket->save();
-                $j++;
             }
             Cart::destroy();
             session()->flash('status_payment', "Votre paiement n'est pas réussi.");
@@ -160,7 +142,7 @@ class CheckoutController extends Controller
         $date = date('Y-m-d H:i:s');
         $users = Auth::user();
         if ($this->getStatus($notifToken)) {
-            $pdfName = time() . rand() . '.pdf';
+            //$pdfName = time() . rand() . '.pdf';
             $ticket_to_pay = $users->tickets()->wherePivot('id', '=', $id)->get()[0];
             $ticket_to_pay->pivot->number = $number;
             $ticket_to_pay->pivot->date_achat = $date;
@@ -172,43 +154,36 @@ class CheckoutController extends Controller
                 $tapakila = $ticket_to_pay->tapakila()->where('vendu', '=', '0')->get()->random(1)[0];
                 $event = $ticket_to_pay->events()->take(1)->get()[0];
                 $tapakila->vendu = 1;
-                $renderer = new \BaconQrCode\Renderer\Image\Png();
-                $renderer->setHeight(256);
-                $renderer->setWidth(256);
-                $writer = new \BaconQrCode\Writer($renderer);
-                $image_name = strtotime('now') . '' . rand();
-                $writer->writeFile($tapakila->code_unique, 'public/qr_code/' . $image_name . '.png');
-                $tapakila->qr_code = $image_name . '.png';
                 $ticket_to_pay->number = $ticket_to_pay->number - 1;
                 $ticket_to_pay->pivot->status_payment = 'SUCCESS';
                 $tapakila->save();
                 $tap[$i] = $tapakila;
             }
-            $ticket_to_pay->pivot->ticket_pdf = $pdfName;
+            //$ticket_to_pay->pivot->ticket_pdf = $pdfName;
             $ticket_to_pay->pivot->save();
             $ticket_to_pay->save();
             $tic[0] = $ticket_to_pay;
             $data[0] = array('ticket' => $tic[0], 'tapakila' => $tap);
             $user = Auth::user();
-            $PdfDestinationPath = public_path('/tickets/' . $pdfName);
-            Session::put('pdfDestinationPath', $PdfDestinationPath);
-            $pdf = App::make('dompdf.wrapper');
-            $pdf->setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])->loadHTML(view('emails.ticket', compact('data', 'user'))->with(array('send' => 'pdf'))->render());
-            $pdf->save($PdfDestinationPath);
-            if (Session::get('email_livraison')) {
-                Session::put('email_livraison', Session::get('email_livraison'));
-            } else {
+            //$PdfDestinationPath = public_path('/tickets/' . $pdfName);
+            //Session::put('pdfDestinationPath', $PdfDestinationPath);
+            //$pdf = App::make('dompdf.wrapper');
+            //$pdf->setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])->loadHTML(view('emails.ticket', compact('data', 'user'))->with(array('send' => 'pdf'))->render());
+            //$pdf->save($PdfDestinationPath);
+//            if (Session::get('email_livraison')) {
+//                Session::put('email_livraison', Session::get('email_livraison'));
+//            } else {
                 Session::put('email_livraison', Auth::user()->email);
-            }
+//            }
             Mail::send('emails.ticket', ['data' => $data, 'user' => $user, 'send' => 'mail'], function ($message) {
                 $message->to(Session::get('email_livraison'), Auth::user()->name)->subject('Leguichet');
-                $message->cc('contact@leguichet.mg', 'Leguichet.mg')->subject('Leguichet payment');
-                $message->attach(Session::get('pdfDestinationPath'));
+                $message->cc('reservation@leguichet.mg', 'Leguichet.mg')->subject('Leguichet ticket');
+//                $message->attach(Session::get('pdfDestinationPath'));
             });
-            Mail::send('emails.facture', ['data' => $data, 'user' => $user, 'payment_mode' => $payement], function ($message) {
-                $message->to(Session::get('email_livraison'), Auth::user()->name)->subject('Leguichet');
-                $message->cc('contact@leguichet.mg', 'Leguichet.mg')->subject('Leguichet payment');
-            });
+//            Mail::send('emails.facture', ['data' => $data, 'user' => $user, 'payment_mode' => $payement], function ($message) {
+//                $message->to(Session::get('email_livraison'), Auth::user()->name)->subject('Leguichet');
+//                $message->cc('reservations@leguichet.mg', 'Leguichet.mg')->subject('Leguichet payment');
+//            });
             return redirect(url('/home'));
         } else {
             session()->flash('status_payment', "Votre paiement n'est pas réussi.");

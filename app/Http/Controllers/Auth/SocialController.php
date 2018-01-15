@@ -140,8 +140,8 @@ class SocialController extends Controller
 
         auth()->login($socialUser, true);
 
-        //return redirect('home');
-        return redirect('home')->with('success', trans('socials.registerSuccess'));
+        return redirect('welcome');
+        //return redirect('home')->with('success', trans('socials.registerSuccess'));
 
     }
 }

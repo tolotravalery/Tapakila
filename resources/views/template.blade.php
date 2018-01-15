@@ -188,16 +188,16 @@
                 <div class="col-sm-3 col-xs-6">
                     <p class="titled"><strong>Acheter des tickets</strong></p>
                     <ul class="list-unstyled">
-                        <li><a href="{{url('')}}/leguichet/shop">Comment acheter</a></li>
-                        <li><a href="{{url('')}}/leguichet/faq">Foire aux questions</a></li>
-                        <li><a href="{{url('')}}/leguichet/conditions-generales">Terms of service</a></li>
+                        <li><a href="{{url('')}}/achat">Comment acheter</a></li>
+                        <li><a href="{{url('')}}/faq">Foire aux questions</a></li>
+                        <li><a href="{{url('')}}/conditions-generales">Terms of service</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-3 col-xs-6">
                     <p class="titled"><strong>Organisateurs</strong></p>
                     <ul class="list-unstyled">
                         <li><a href="{{url('/')}}/organisateur/event">Ajouter événement</a></li>
-                        <li><a href="{{url('')}}/leguichet/contact">Nous contacter</a></li>
+                        <li><a href="{{url('')}}/contact-us">Nous contacter</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-2 col-xs-6 ">
@@ -221,13 +221,13 @@
     <div class="footer-bottom">
         <div class="container small custom-container">
             <ul>
-                <li><a href="{{url('')}}/leguichet/about">A propos de nous</a></li>
+                <li><a href="{{url('')}}/about-us">A propos de nous</a></li>
                 |
                 <li><a href="{{url('/')}}/organisateur/event">Ajouter votre evenement</a></li>
                 |
-                <li><a href="{{url('')}}/leguichet/faq">FAQ</a></li>
+                <li><a href="{{url('')}}/faq">FAQ</a></li>
                 |
-                <li><a href="{{url('')}}/leguichet/vie-prive">Vie privee</a></li>
+                <li><a href="{{url('')}}/vie-prive">Vie privee</a></li>
 
             </ul>
             <p>Copyright &copy Leguichet 2017</p>
