@@ -23,8 +23,6 @@
         padding-bottom: 2px;
     }
 
-    }
-
 </style>
 <body style="background-color:#eeeeee;">
 <table class="wrapper" width="100%" cellpadding="0" cellspacing="0">
@@ -67,7 +65,7 @@
                                                         <div style="font-size: 14px;color:#333;text-align: center;background-color: #cccccc; margin-top: 25px; padding: 15px;  margin-bottom: 20px;  border: 1px solid transparent; border-radius: 4px;">
                                                             <p>Vous avez des question? consultez notre <a
                                                                         style="text-decoration: none;color: #62b2eb;"
-                                                                        href="{{url('')}}/leguichet/faq">FAQ</a> dès
+                                                                        href="{{url('')}}/faq">FAQ</a> dès
                                                                 maintenant</p>
                                                             <p style="text-align:center;">Retourner vers <a
                                                                         href="https://leguichet.mg">leguichet.mg</a></p>

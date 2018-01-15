@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-status : notif_token : status : notif_token : 
-=======
 {"status":null,"notif_token":null,"txnid":null}
 {"status":null,"notif_token":null,"txnid":null}
 {"status":null,"notif_token":null,"txnid":null}
->>>>>>> b1f278075bd278298a60fc2458a5fe5b030949b3
