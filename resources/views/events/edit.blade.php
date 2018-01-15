@@ -95,7 +95,7 @@
                         </li>
                         {{-- <li><a id="a_commandes" onClick="changePage('div_commandes', 'a_commandes')">Commandes</a></li>--}}
                         {{-- <li><a id="a_valideTicket" onClick="changePage('div_valideTicket', 'a_valideTicket')">Tickets Validés</a></li>--}}
-                        <li class="categorimenu"><strong>Editer</strong></li>
+                        <li class="categorimenu"><strong>Modifier</strong></li>
                         <li><a id="a_details" @if(session('page')) @if(session('page') == 'details') class="select"
                                @endif @else class="select" @endif
                                onClick="changePage('div_details', 'a_details')">Détails</a></li>
@@ -111,7 +111,7 @@
                                 additioneles</a></li>
                         <li class="categorimenu hidden"><strong>Paramètre</strong></li>
                         <li class="hidden"><a id="a_paiement" onClick="changePage('div_paiement', 'a_paiement')">Méthodes de
-                                payements</a></li>
+                                payement</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-9 col-sm-9">
@@ -271,7 +271,7 @@
                                     </div>
                                     <div class="form-group form-group-translation et" id="message_comp">
                                         <p style="color:red;" id="message_after_comparaison">La date fin
-                                            de l' événement doit être supérieure à la date debut</p>
+                                            de l' événement doit être supérieure à la date début</p>
                                         <p style="color:red;" id="message_after_comparaison_date_now">La
                                             date début ou fin de l' événement doit être supérieure à la
                                             date actuelle</p>
