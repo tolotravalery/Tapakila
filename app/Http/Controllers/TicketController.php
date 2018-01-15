@@ -77,9 +77,16 @@ class TicketController extends Controller
         for ($i = 0; $i < $nombre; $i++) {
             //test code_unique tapakila
             $code_unique = $this->verifyCodeUnique($this->getUniqueCode(16));
+            $renderer = new \BaconQrCode\Renderer\Image\Png();
+            $renderer->setHeight(256);
+            $renderer->setWidth(256);
+            $writer = new \BaconQrCode\Writer($renderer);
+            $image_name = strtotime('now') . '' . rand();
+            $writer->writeFile($code_unique, 'public/qr_code/' . $image_name . '.png');
             Tapakila::create([
                 'code_unique' => $code_unique,
-                'ticket_id' => $ticket->id
+                'ticket_id' => $ticket->id,
+                'qr_code'=> $image_name . '.png'
             ]);
         }
         $message = " Opération réussie, Ticket ajouté avec succès";
