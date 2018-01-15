@@ -61,7 +61,7 @@
                                                 <label id="demo" class="hidden padd">
                                                     Acheter des billets sur Leguichet est très simple, il vous suffit de suivre les instructions ci-dessous:
                                                     <br>
-                                                    <br> 1 - Commencez par recherchez l'événement auquel vous souhaitez assister dans la barre de recherche où il est écrit: Chercher un événement...
+                                                    <br> 1 - Commencez par rechercher l'événement auquel vous souhaitez assister dans la barre de recherche où il est écrit: Chercher un événement...
                                                     <br>
                                                     <br> 2 - Cliquez sur la date que vous souhaitez
                                                     <br>
@@ -71,7 +71,7 @@
                                                     <br>
                                                     <br> 6 - Suivez les différentes étapes – vérifiez que votre adresse email, numéro de téléphone & adresse sont corrects
                                                     <br>
-                                                    <br> 7 - Verifiez les détails de votre commande pour vous assurez que tout vous convient
+                                                    <br> 7 - Vérifiez les détails de votre commande pour vous assurer que tout vous convient
                                                     <br>
                                                     <br> 8 - Achetez vos billets!
                                                     <br>
@@ -106,7 +106,7 @@
                                             <p onclick="accord4()"><span style="cursor: pointer">Puis-je acheter des billets personnalisé sur lesquels figure le nom de quelqu'un d'autre ?</span>
                                                 <br>
                                                 <label id="demo4" class="hidden padd">
-                                                    Oui, Leguichet autorise des vendeurs tiers, notamment des particulier, à mettre en ventedes billets sur sa plateforme. Il se peut que le nom de l'acheteur d'origine figure sur les billet, ces billets sont valables. Vous n'êtes pas obligé(e) de posséder un billet à votre nom pour accéder à l'événement.
+                                                    Oui, Leguichet autorise des vendeurs tiers, notamment des particulier, à mettre en vente des billets sur sa plateforme. Il se peut que le nom de l'acheteur d'origine figure sur les billet, ces billets sont valables. Vous n'êtes pas obligé(e) de posséder un billet à votre nom pour accéder à l'événement.
                                                 </label>
                                             </p>
                                         </div>
@@ -372,7 +372,7 @@
                                                     de Billets proposés sur notre Site sont gratuites. Cependant, l'utilisation d'autres Services, tels que l’achat effectif d’un Billet, 
                                                     est payante. Lorsque Vous mettez en vente un Billet, Vous avez la possibilité de passer en revue les taux de Commission tels qu’ils sont détaillés 
                                                     dans la rubrique « Quels frais de gestion sont déduits du prix de vente » des pages d’aide du Site disponibles à l’adresse URL suivante 
-                                                    http://www.Leguichet.com/service-clientele.html. Vous devez accepter ces tarifs pour mettre en ligne votre Offre de Vente. Sauf mention contraire, 
+                                                    http://www.Leguichet.com/faq. Vous devez accepter ces tarifs pour mettre en ligne votre Offre de Vente. Sauf mention contraire, 
                                                     les taux de Commission sont indiqués sous forme de pourcentage du Prix de Vente et sont facturés en AR (Ariary).
                                                     <br>
                                                     <br> 1.4 Garantie Leguichet : Lorsque Vous achetez des billets sur Leguichet, Leguichet vous garantit que vous recevrez 

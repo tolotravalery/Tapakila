@@ -56,9 +56,24 @@
                                             <input id="inputCheckbox" name="remember" type="checkbox">
                                             <label for="inputCheckbox">Se souvenir de moi</label><br>
                                         </div>
+<<<<<<< HEAD
+                                        <!-- Connexion facebook start-->
+                                        <div class="content-conexion">
+                                            <h5 class="facenookconexion"> ... se connecter avec </h5>
+                                            <div class="row">
+                                                <div class="col-md-12 col-sm-12">
+                                                    <a href="{{route('social.redirect',['provider' => 'facebook'])}}">
+                                                        <button type="button" class="btn-facebooksign"><img
+                                                                    src="{{url('public/img/fblogo.jpeg')}}"> Facebook
+                                                        </button>
+                                                    </a>
+                                                </div>
+                                            </div>
+=======
                                         <div class="col-lg-12 col-xs-12">
                                             <a href="{{ route('password.request') }}" tabindex="5"
                                                class="réitinitialiser le mots de passe">Mot de passe oublié&nbsp;?</a>
+>>>>>>> 3b4d24bbff079547a2a7237765fb58f96013e3db
                                         </div>
                                     </div>
                                 </div>
@@ -128,11 +143,20 @@
                         </div>
                         <div class="form-group">
 
+<<<<<<< HEAD
+                                        {{--{!! Form::email('email', null, ['class' => 'form-control', 'id' => 'email', 'placeholder' => 'E-Mail', 'required','tabindex' => '1']) !!}--}}
+                                        {!!  Form::checkbox('isOrganisateur', null, false) !!} <label>Je suis un
+                                            organisateur d'évènement</label>
+                                        @if ($errors->has('email'))
+                                        <br>
+                                            <span class="red">
+=======
                             {{--{!! Form::email('email', null, ['class' => 'form-control', 'id' => 'email', 'placeholder' => 'E-Mail', 'required','tabindex' => '1']) !!}--}}
                             {!!  Form::checkbox('isOrganisateur', null, false) !!} <label>Je suis un
                                 organisateur d'évènement</label>
                             @if ($errors->has('email'))
                                 <span class="red">
+>>>>>>> 3b4d24bbff079547a2a7237765fb58f96013e3db
                                                 <strong>{{ $errors->first('email') }}</strong>
                                             </span>
                             @endif

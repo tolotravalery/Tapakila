@@ -142,7 +142,7 @@
                             {{--@else--}}
                                 <p><b>Adresse e-mail de livraison des tickets :</b> &nbsp {{Auth::user()->email}}&nbsp;&nbsp;&nbsp;<a
                                             href="{{url('/')}}/profile/{{Auth::user()->id}}/edit"
-                                            style="color: #d70506">Edit</a></p>
+                                            style="color: #d70506">Modifier</a></p>
                                 <br>
                             {{--@endif--}}
                             <p><b>Méthode de payment <span style="color:red;">*</span> :</b></p>

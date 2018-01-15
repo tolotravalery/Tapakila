@@ -21,7 +21,7 @@ return [
     'clickInEmail'      => 'Si aucun message ne vous sera envoyé cliquer sur le bouton ci-dessous.',
     'anEmailWasSent'    => 'Pour terminer votre inscription. un message de confirmation sera envoyé à votre adresse e-mail.',
     'clickHereResend'   => 'Click here to resend the email.',
-    'successActivated'  => 'Success, your account has been activated.',
+    'successActivated'  => 'Votre compte a été activé avec succès.',
     'unsuccessful'      => 'Your account could not be activated; please try again.',
     'notCreated'        => 'Your account could not be created; please try again.',
     'tooManyEmails'     => 'Too many activation emails have been sent to :email. <br />Please try again in <span class="label label-danger">:hours hours</span>.',

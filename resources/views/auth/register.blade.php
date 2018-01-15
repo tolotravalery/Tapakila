@@ -65,7 +65,7 @@
                                         </div>
                                         <!-- Connexion facebook start-->
                                         <div class="content-conexion">
-                                            <h5 class="facenookconexion"> .. se connecter avec </h5>
+                                            <h5 class="facenookconexion"> ... se connecter avec </h5>
                                             <div class="row">
                                                 <div class="col-md-12 col-sm-12">
                                                     <a href="{{route('social.redirect',['provider' => 'facebook'])}}">
@@ -133,6 +133,7 @@
                                         {!!  Form::checkbox('isOrganisateur', null, false) !!} <label>Je suis un
                                             organisateur d'évènement</label>
                                         @if ($errors->has('email'))
+                                        <br>
                                             <span class="red">
                                                 <strong>{{ $errors->first('email') }}</strong>
                                             </span>
