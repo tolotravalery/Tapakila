@@ -12,10 +12,15 @@ class Tapakila extends Model
         'code_unique'
     ];
 
-    protected $fillable = ['code_unique', 'vendu', 'scanne', 'reponse', 'users_id', 'ticket_id','qr_code'];
+    protected $fillable = ['code_unique', 'vendu', 'scanne', 'reponse', 'users_id', 'ticket_id', 'qr_code'];
 
     public function tickets()
     {
         return $this->belongsTo('App\Models\Ticket');
+    }
+
+    public function achat()
+    {
+        return $this->belongsTo('App\Models\TicketUser');
     }
 }

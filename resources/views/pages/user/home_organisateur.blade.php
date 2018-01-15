@@ -229,11 +229,13 @@
                                                     <td data-label="Tickets">{{$a->type}}</td>
                                                     <td data-label="Date">{{\Carbon\Carbon::parse($a->pivot->date_achat)->format('d M Y H:i')}}</td>
                                                     <td data-label="Quantité">{{$a->pivot->number}}</td>
-                                                    {{--<td data-label="pdf" target="_blank">--}}
-                                                        {{--<a href="{{url('/public/tickets/' . $a->pivot->ticket_pdf)}}">--}}
-                                                            {{--Télécharger le Fichier--}}
-                                                        {{--</a>--}}
-                                                    {{--</td>--}}
+                                                    @php
+                                                        $billet_acheter = App\Models\TicketUser::find($a->pivot->id);
+                                                    @endphp
+                                                    @foreach($billet_acheter->tapakila as $billet)
+                                                        <img src="{{url('/public/qr_code/'.$billet->qr_code)}}"
+                                                             class="image_panier"><br/>
+                                                    @endforeach
                                                 </tr>
                                             @endif
                                         @endif
@@ -277,12 +279,16 @@
                                                 <td data-label="Tickets">{{$a->type}}</td>
                                                 <td data-label="Date">{{\Carbon\Carbon::parse($a->pivot->date_achat)->format('d M Y H:i')}}</td>
                                                 <td data-label="Quantité">{{$a->pivot->number}}</td>
-                                                {{--<td data-label="pdf">--}}
-                                                    {{--<a href="{{url('/public/tickets/' . $a->pivot->ticket_pdf)}}" target="_blank">--}}
-                                                        {{--Télécharger le Fichier--}}
-                                                    {{--</a>--}}
-                                                {{--</td>--}}
-                                                <td data-label="">
+                                                <td data-label="qr_code">
+                                                    @php
+                                                        $billet_acheter = App\Models\TicketUser::find($a->pivot->id);
+                                                    @endphp
+                                                    @foreach($billet_acheter->tapakila as $billet)
+                                                        <img src="{{url('/public/qr_code/'.$billet->qr_code)}}"
+                                                             class="image_panier"><br/>
+                                                    @endforeach
+                                                </td>
+                                                <td>
                                                     @if($a->pivot->status_payment=='FAILED')
                                                         <p>
                                                             <a href="shopping/pay/{{Auth::user()->id}}/{{$a->pivot->id}}"
