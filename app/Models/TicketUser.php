@@ -14,4 +14,9 @@ use Illuminate\Database\Eloquent\Model;
 class TicketUser extends Model
 {
     protected $table = 'ticket_user';
+
+    public function tapakila()
+    {
+        return $this->hasMany('App\Models\Tapakila');
+    }
 }

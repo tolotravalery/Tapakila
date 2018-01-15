@@ -119,12 +119,13 @@
                                                 <td data-label="Tickets">{{$a->type}}</td>
                                                 <td data-label="Date">{{\Carbon\Carbon::parse($a->pivot->date_achat)->format('d M Y H:i')}}</td>
                                                 <td data-label="Quantité">{{$a->pivot->number}}</td>
-                                                {{--<td data-label="pdf">--}}
-                                                {{--<a href="{{url('/public/tickets/' . $a->pivot->ticket_pdf)}}"--}}
-                                                {{--target="_blank">--}}
-                                                {{--Télécharger le Fichier--}}
-                                                {{--</a>--}}
-                                                {{--</td>--}}
+                                                @php
+                                                    $billet_acheter = App\Models\TicketUser::find($a->pivot->id);
+                                                @endphp
+                                                @foreach($billet_acheter->tapakila as $billet)
+                                                    <img src="{{url('/public/qr_code/'.$billet->qr_code)}}"
+                                                         class="image_panier"><br/>
+                                                @endforeach
                                             </tr>
                                         @endif
                                     @endif
@@ -164,10 +165,12 @@
                                             <td data-label="Date">{{\Carbon\Carbon::parse($a->pivot->date_achat)->format('d M Y H:i')}}</td>
                                             <td data-label="Quantité">{{$a->pivot->number}}</td>
                                             <td data-label="pdf">
-                                                @foreach($d['tapakila'] as $tapakila)
-                                                    <img src="{{url('/public/qr_code/'.$tapakila->qr_code)}}"
-                                                         width="250px" height="250px"
-                                                         class="qt">
+                                                @php
+                                                    $billet_acheter = App\Models\TicketUser::find($a->pivot->id);
+                                                @endphp
+                                                @foreach($billet_acheter->tapakila as $billet)
+                                                    <img src="{{url('/public/qr_code/'.$billet->qr_code)}}"
+                                                         class="image_panier"><br/>
                                                 @endforeach
                                             </td>
                                             <td data-label="action">
