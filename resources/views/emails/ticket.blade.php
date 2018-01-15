@@ -35,11 +35,11 @@
                                                         utiliser le qr
                                                         code (image) ci-dessus. Vous pouvez l'imprimer</p>
                                                 @endif
-                                                @if($send == 'mail')
-                                                    <p style="font-size: 14px;color:#333;">Ci joint le pdf contenant
-                                                        votre
-                                                        ticket</p>
-                                                @endif
+                                                {{--@if($send == 'mail')--}}
+                                                    {{--<p style="font-size: 14px;color:#333;">Ci joint le pdf contenant--}}
+                                                        {{--votre--}}
+                                                        {{--ticket</p>--}}
+                                                {{--@endif--}}
                                                 <h4>
                                                     <b style=" color:#333;margin-top: 20px; margin-bottom: 10px;font-size: 30px;word-wrap: break-word;font-weight: 700;">Vos
                                                         évènements</b></h4>
@@ -68,7 +68,7 @@
                                                                             <p style="text-align: center; margin: 5px 0; ">{{$d['ticket']->type}}</p>
                                                                             <p style="text-align: center">
                                                                                 <img src="{{url('/public/qr_code/'.$tapakila->qr_code)}}"
-                                                                                     width="100px" height="100px"
+                                                                                     width="250px" height="250px"
                                                                                      class="qt">
                                                                             </p>
                                                                         </td>

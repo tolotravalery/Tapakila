@@ -35,7 +35,7 @@ class CheckoutController extends Controller
     {
         $notifToken = Session::get('notif_token');
         if ($this->getStatus($notifToken)) {
-            $pdfName = time() . rand() . '.pdf';
+            //$pdfName = time() . rand() . '.pdf';
             $tic = array();
             $data = array();
             $j = 0;
@@ -45,7 +45,7 @@ class CheckoutController extends Controller
                 $date = date('Y-m-d H:i:s');
                 $nombre = $item->qty;
                 $ticket->users()->attach(array(Auth::user()->id => array('number' => $item->qty, 'date_achat' => $date,
-                    'payement_mode_id' => Payement_mode::where('slug', '=', 'orange')->get()[0]->id, 'ticket_pdf' => $pdfName
+                    'payement_mode_id' => Payement_mode::where('slug', '=', 'orange')->get()[0]->id, 'ticket_pdf' => null
                 , 'status_payment' => 'SUCCESS')));
                 $tic[$j] = $ticket;
                 $tap = array();
@@ -68,26 +68,26 @@ class CheckoutController extends Controller
             }
             Cart::destroy();
             $user = Auth::user();
-            $PdfDestinationPath = public_path('/tickets/' . $pdfName);
-            Session::put('pdfDestinationPath', $PdfDestinationPath);
-            $pdf = App::make('dompdf.wrapper');
-            $pdf->setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])
-                ->loadHTML(view('emails.ticket', compact('data', 'user'))->with(array('send' => 'pdf'))->render());
-            $pdf->save($PdfDestinationPath);
-            if ($request->input('email_livraison')) {
-                Session::put('email_livraison', $request->input('email_livraison'));
-            } else {
+            //$PdfDestinationPath = public_path('/tickets/' . $pdfName);
+            //Session::put('pdfDestinationPath', $PdfDestinationPath);
+            //$pdf = App::make('dompdf.wrapper');
+            //$pdf->setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])
+            //    ->loadHTML(view('emails.ticket', compact('data', 'user'))->with(array('send' => 'pdf'))->render());
+            //$pdf->save($PdfDestinationPath);
+//            if ($request->input('email_livraison')) {
+//                Session::put('email_livraison', $request->input('email_livraison'));
+//            } else {
                 Session::put('email_livraison', Auth::user()->email);
-            }
+//            }
             Mail::send('emails.ticket', ['data' => $data, 'user' => $user, 'send' => 'mail'], function ($message) {
                 $message->to(Session::get('email_livraison'), Auth::user()->name)->subject('Leguichet');
-                $message->cc('contact@leguichet.mg', 'Leguichet.mg')->subject('Leguichet payment');
-                $message->attach(Session::get('pdfDestinationPath'));
+                $message->cc('reservation@leguichet.mg', 'Leguichet.mg')->subject('Leguichet ticket');
+//                $message->attach(Session::get('pdfDestinationPath'));
             });
-            Mail::send('emails.facture', ['data' => $data, 'user' => $user, 'payment_mode' => Payement_mode::where('slug', '=', 'orange')->get()[0]], function ($message) {
-                $message->to(Session::get('email_livraison'), Auth::user()->name)->subject('Leguichet');
-                $message->cc('contact@leguichet.mg', 'Leguichet.mg')->subject('Leguichet payment facture');
-            });
+//            Mail::send('emails.facture', ['data' => $data, 'user' => $user, 'payment_mode' => Payement_mode::where('slug', '=', 'orange')->get()[0]], function ($message) {
+//                $message->to(Session::get('email_livraison'), Auth::user()->name)->subject('Leguichet');
+//                $message->cc('reservations@leguichet.mg', 'Leguichet.mg')->subject('Leguichet payment facture');
+//            });
             return redirect(url('/home'));
         } else {
 
@@ -142,7 +142,7 @@ class CheckoutController extends Controller
         $date = date('Y-m-d H:i:s');
         $users = Auth::user();
         if ($this->getStatus($notifToken)) {
-            $pdfName = time() . rand() . '.pdf';
+            //$pdfName = time() . rand() . '.pdf';
             $ticket_to_pay = $users->tickets()->wherePivot('id', '=', $id)->get()[0];
             $ticket_to_pay->pivot->number = $number;
             $ticket_to_pay->pivot->date_achat = $date;
@@ -159,31 +159,31 @@ class CheckoutController extends Controller
                 $tapakila->save();
                 $tap[$i] = $tapakila;
             }
-            $ticket_to_pay->pivot->ticket_pdf = $pdfName;
+            //$ticket_to_pay->pivot->ticket_pdf = $pdfName;
             $ticket_to_pay->pivot->save();
             $ticket_to_pay->save();
             $tic[0] = $ticket_to_pay;
             $data[0] = array('ticket' => $tic[0], 'tapakila' => $tap);
             $user = Auth::user();
-            $PdfDestinationPath = public_path('/tickets/' . $pdfName);
-            Session::put('pdfDestinationPath', $PdfDestinationPath);
-            $pdf = App::make('dompdf.wrapper');
-            $pdf->setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])->loadHTML(view('emails.ticket', compact('data', 'user'))->with(array('send' => 'pdf'))->render());
-            $pdf->save($PdfDestinationPath);
-            if (Session::get('email_livraison')) {
-                Session::put('email_livraison', Session::get('email_livraison'));
-            } else {
+            //$PdfDestinationPath = public_path('/tickets/' . $pdfName);
+            //Session::put('pdfDestinationPath', $PdfDestinationPath);
+            //$pdf = App::make('dompdf.wrapper');
+            //$pdf->setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])->loadHTML(view('emails.ticket', compact('data', 'user'))->with(array('send' => 'pdf'))->render());
+            //$pdf->save($PdfDestinationPath);
+//            if (Session::get('email_livraison')) {
+//                Session::put('email_livraison', Session::get('email_livraison'));
+//            } else {
                 Session::put('email_livraison', Auth::user()->email);
-            }
+//            }
             Mail::send('emails.ticket', ['data' => $data, 'user' => $user, 'send' => 'mail'], function ($message) {
                 $message->to(Session::get('email_livraison'), Auth::user()->name)->subject('Leguichet');
-                $message->cc('contact@leguichet.mg', 'Leguichet.mg')->subject('Leguichet payment');
-                $message->attach(Session::get('pdfDestinationPath'));
+                $message->cc('reservation@leguichet.mg', 'Leguichet.mg')->subject('Leguichet ticket');
+//                $message->attach(Session::get('pdfDestinationPath'));
             });
-            Mail::send('emails.facture', ['data' => $data, 'user' => $user, 'payment_mode' => $payement], function ($message) {
-                $message->to(Session::get('email_livraison'), Auth::user()->name)->subject('Leguichet');
-                $message->cc('contact@leguichet.mg', 'Leguichet.mg')->subject('Leguichet payment');
-            });
+//            Mail::send('emails.facture', ['data' => $data, 'user' => $user, 'payment_mode' => $payement], function ($message) {
+//                $message->to(Session::get('email_livraison'), Auth::user()->name)->subject('Leguichet');
+//                $message->cc('reservations@leguichet.mg', 'Leguichet.mg')->subject('Leguichet payment');
+//            });
             return redirect(url('/home'));
         } else {
             session()->flash('status_payment', "Votre paiement n'est pas réussi.");
