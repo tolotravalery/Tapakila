@@ -284,6 +284,7 @@
                                                         $billet_acheter = App\Models\TicketUser::find($a->pivot->id);
                                                     @endphp
                                                     @foreach($billet_acheter->tapakila as $billet)
+                                                        {{$billet->code_unique}}
                                                         <img src="{{url('/public/qr_code/'.$billet->qr_code)}}"
                                                              class="image_panier"><br/>
                                                     @endforeach
