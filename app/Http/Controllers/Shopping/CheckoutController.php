@@ -6,6 +6,7 @@ use App\APIPayment\OrangeMoney;
 use App\Models\Menus;
 use App\Models\Sous_menus;
 use App\Models\Ticket;
+use App\Models\TicketUser;
 use App\Models\User;
 use \Cart as Cart;
 use App\Models\Payement_mode;
@@ -44,9 +45,9 @@ class CheckoutController extends Controller
                 $ticket = Ticket::findOrFail($item->id);
                 $date = date('Y-m-d H:i:s');
                 $nombre = $item->qty;
-                $ticket->users()->attach(array(Auth::user()->id => array('number' => $item->qty, 'date_achat' => $date,
+                dd($ticket->users()->attach(array(Auth::user()->id => array('number' => $item->qty, 'date_achat' => $date,
                     'payement_mode_id' => Payement_mode::where('slug', '=', 'orange')->get()[0]->id, 'ticket_pdf' => null
-                , 'status_payment' => 'SUCCESS')));
+                , 'status_payment' => 'SUCCESS'))));
                 $tic[$j] = $ticket;
                 $tap = array();
                 for ($i = 0; $i < $nombre; $i++) {
@@ -59,6 +60,7 @@ class CheckoutController extends Controller
                     }*/
                     $tapakila->vendu = 1;
                     $ticket->number = $ticket->number - 1;
+                    $tapakila->achat =
                     $tapakila->save();
                     $tap[$i] = $tapakila;
                 }
