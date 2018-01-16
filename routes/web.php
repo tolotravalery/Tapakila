@@ -125,6 +125,7 @@ Route::group(['middleware' => ['auth', 'activated', 'currentUser']], function ()
         Route::post('checkout', 'Shopping\CheckoutController@index')->name('checkout_index');
         Route::get('checkout', 'Shopping\CheckoutController@index')->name('checkout_index');
         Route::any('checkout/orange', 'Shopping\CheckoutController@saveOrange');
+        Route::any('checkout/telma', 'Shopping\CheckoutController@saveTelma');
         Route::any('checkout/pay/orange', 'Shopping\CheckoutController@savePaymentOrange');
         Route::get('pay/{users_id}/{id}', 'Shopping\CheckoutController@pay');
         Route::post('pay/one-ticket', 'Shopping\CheckoutController@checkoutOnePayment');
@@ -278,4 +279,5 @@ Route::group(['middleware' => ['service'], 'prefix' => 'service'], function () {
 
 Route::group(['prefix' => 'payments/notify'], function () {
     Route::any('orange', 'Shopping\CheckoutController@NotifyOrange');
+    Route::any('telma', 'Shopping\CheckoutController@NotifyTelma');
 });

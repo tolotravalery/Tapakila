@@ -105,6 +105,12 @@ class CheckoutController extends Controller
         }
     }
 
+
+    function saveTelma(Request $request)
+    {
+
+    }
+
     function pay($users_id, $id)
     {
         if ($users_id != Auth::user()->id)
@@ -200,6 +206,13 @@ class CheckoutController extends Controller
     }
 
     function NotifyOrange(Request $req)
+    {
+        $handle = fopen("Logs/" . date('Y-m-d') . '.txt', 'a+');
+        $data = json_encode(array('status' => $req->input('status'), 'notif_token' => $req->input('notif_token'), 'txnid' => $req->input('txnid')));
+        fwrite($handle, $data . "\n", 4096);
+    }
+
+    function NotifyTelma(Request $req)
     {
         $handle = fopen("Logs/" . date('Y-m-d') . '.txt', 'a+');
         $data = json_encode(array('status' => $req->input('status'), 'notif_token' => $req->input('notif_token'), 'txnid' => $req->input('txnid')));
