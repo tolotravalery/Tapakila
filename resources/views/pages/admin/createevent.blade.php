@@ -237,7 +237,7 @@
                                         </div>
                                         <div class="form-group form-group-translation et" id="message_comp">
                                             <p style="color:red;" id="message_after_comparaison">La date fin
-                                                de l' événement doit être supérieure à la date debut</p>
+                                                de l' événement doit être supérieure à la date début</p>
                                             <p style="color:red;" id="message_after_comparaison_date_now">La
                                                 date début ou fin de l' évènement doit être supérieure à la
                                                 date actuelle</p>

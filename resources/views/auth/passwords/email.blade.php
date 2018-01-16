@@ -30,7 +30,7 @@
                                       action="{{ route('password.email') }}">
                                     {{ csrf_field() }}
                                     <div class="form-group">
-                                        <label for="email"><strong>Votre addresse email :</strong></label>
+                                        <label for="email"><strong>Votre adresse email :</strong></label>
                                         <input id="email" type="email" class="form-control e-mailR" name="email"
                                                value="{{ old('email') }}" placeholder="Adresse e-mail" required>
                                         @if ($errors->has('email'))

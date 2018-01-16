@@ -39,7 +39,7 @@
                                                     </span>
                         @endif
 
-                        <input type="hidden" name="changer" value="Votre infomation a été mis à jour.">
+                        <input type="hidden" name="changer" value="Vos infomations ont été mis à jour.">
                         <div class="row">
                             <div class="col-md-6 ">
                                 <div class="check">
@@ -170,7 +170,7 @@
                 $("#pw_status").html("Les mots de passe ne correspondent pas!");
             }
             else {
-                $("#pw_status").html("Les mots de passe correspondent!");
+                $("#pw_status").html("Les mots de passe correspondent pas!");
             }
         }
 

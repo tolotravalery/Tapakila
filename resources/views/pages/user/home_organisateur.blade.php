@@ -72,13 +72,13 @@
                 @endif
                 <div class="padding-custom">
                     <ul class="tabs">
-                        <li class="active" rel="tab1"><b>Mes Ventes<br> passés</b></li>
+                        <li class="active" rel="tab1"><b>Mes Ventes<br> passées</b></li>
                         <li rel="tab2"><b>Mes ventes <br> Actuelles</b></li>
                         <li rel="tab3"><b>Mes Achats <br>passés</b></li>
                         <li rel="tab4"><b>Mes Achats<br> Actuels </b></li>
                     </ul>
                     <div class="tab_container">
-                        <h3 class="d_active tab_drawer_heading" rel="tab1">Mes Ventes passés</h3>
+                        <h3 class="d_active tab_drawer_heading" rel="tab1">Mes Ventes passées</h3>
                         <div id="tab1" class="tab_content">
                             <table class="tabl-content table-custom">
                                 <thead>
