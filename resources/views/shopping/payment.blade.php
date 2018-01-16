@@ -130,7 +130,7 @@
                                                                      alt="">
                                                             @elseif($p->slug=='orange')
                                                                 <img class="logo"
-                                                                     src="{{url('/')}}/public/img/logmorange.png"
+                                                                     src="{{url('/')}}/public/img/logmorange.jpg"
                                                                      alt="">
                                                             @elseif($p->slug=='airtel')
                                                                 <img class="logo"
