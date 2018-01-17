@@ -54,7 +54,7 @@ class CheckoutController extends Controller
                     'user_id' => Auth::user()->id,
                     'payement_mode_id' => Payement_mode::where('slug', '=', 'orange')->get()[0]->id,
                     'achat_reference' => $achat_reference,
-                    'status_payement' => 'SUCCESS',
+                    'status_payment' => 'SUCCESS',
                     'ticket_pdf' => null
                 ]);
                 $tic[$j] = $ticket;
