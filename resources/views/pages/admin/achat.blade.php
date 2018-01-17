@@ -20,8 +20,6 @@
                                 <th class="hidden-xs">Utilisateur</th>
                                 <th>Mode de paiement</th>
                                 <th>Status</th>
-                                <th></th>
-                                <th></th>
                             </tr>
                             </thead>
                             <tbody>
