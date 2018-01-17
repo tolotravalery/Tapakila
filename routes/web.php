@@ -144,6 +144,12 @@ Route::group(['middleware' => ['auth', 'activated', 'currentUser']], function ()
 Route::group(['middleware' => ['auth', 'activated', 'role:admin'], 'prefix' => 'admin'], function () {
 
 
+    Route::resource('/shopping', 'AdminAchatController', [
+//        'only' => [
+//            'index', 'show', 'update', 'destroy',
+//        ]
+    ]);
+
     Route::resource('/users/deleted', 'SoftDeletesController', [
         'only' => [
             'index', 'show', 'update', 'destroy',

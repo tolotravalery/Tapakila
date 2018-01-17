@@ -59,8 +59,8 @@
                                      class="img-circle" alt="User Image">
 
                                 <p>
-                                    {{ Auth::user()->name }} - Web Developer
-                                    <small>Member since Nov. 2012</small>
+                                    {{ Auth::user()->name }} - Leguichet master
+                                    <small>Since november 2017</small>
                                 </p>
                             </li>
                             <!-- Menu Body -->
@@ -174,6 +174,13 @@
                 <li>
                     <a href="{{url('/')}}/admin/listevent">
                         <i class="fa fa-calendar"></i> <span>Events</span>
+                        <span class="pull-right-container">
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{url('/admin/shopping')}}">
+                        <i class="fa fa-cart-plus"></i> <span>Achat</span>
                         <span class="pull-right-container">
                         </span>
                     </a>

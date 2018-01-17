@@ -19,7 +19,7 @@ class Tapakila extends Model
         return $this->belongsTo('App\Models\Ticket');
     }
 
-    public function achat()
+    public function ticket_user()
     {
         return $this->belongsTo('App\Models\TicketUser');
     }

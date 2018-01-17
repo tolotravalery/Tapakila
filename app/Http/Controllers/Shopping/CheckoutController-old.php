@@ -17,26 +17,21 @@ use Illuminate\Support\Facades\Mail;
 use PDF;
 use Illuminate\Support\Facades\Session;
 
-class CheckoutController extends Controller
+class CheckoutControllerOld extends Controller
 {
     function index(Request $req)
     {
         $options = $req->input('options');
-        if($options){
-            $payement = Payement_mode::where('slug', '=', $options)->get()[0];
-            // sending data to payment mode and waiting response
-            if ($payement->slug == 'orange') {
-                $achat_reference = date('m').''.date('y').''.rand(1,10000);
-//            dd($achat_reference);
-                Session::put('$achat_reference', $achat_reference);
-                $om = new OrangeMoney($req->input('amount'),$achat_reference);
-                $payementOrange = $om->getPaymentUrl(url('/shopping/checkout/orange'));
-                Session::put('notif_token', $payementOrange->notif_token);
-                return redirect($payementOrange->payment_url);
-            }
+        $payement = Payement_mode::where('slug', '=', $options)->get()[0];
+        // sending data to payment mode and waiting response
+        if ($payement->slug == 'orange') {
+            $achat_reference = date('m').'/'.date('y').'/'.rand(1,10000);
+            Session::put('$achat_reference', $achat_reference);
+            $om = new OrangeMoney($req->input('amount'),$achat_reference);
+            $payementOrange = $om->getPaymentUrl(url('/shopping/checkout/orange'));
+            Session::put('notif_token', $payementOrange->notif_token);
+            return redirect($payementOrange->payment_url);
         }
-        return redirect('/');
-
     }
 
     function saveOrange(Request $request)
@@ -44,13 +39,18 @@ class CheckoutController extends Controller
         $notifToken = Session::get('notif_token');
         $achat_reference = Session::get('$achat_reference');
         if ($this->getStatus($notifToken)) {
+            //$pdfName = time() . rand() . '.pdf';
             $tic = array();
             $data = array();
             $j = 0;
+            //$temp = array();
             foreach (Cart::content() as $item) {
                 $ticket = Ticket::findOrFail($item->id);
                 $date = date('Y-m-d H:i:s');
                 $nombre = $item->qty;
+//                $ticket->users()->attach(array(Auth::user()->id => array('number' => $item->qty, 'date_achat' => $date,
+//                    'payement_mode_id' => Payement_mode::where('slug', '=', 'orange')->get()[0]->id, 'ticket_pdf' => null
+//                , 'status_payment' => 'SUCCESS')));
                 $ticket_user = TicketUser::create([
                     'number' => $item->qty,
                     'date_achat' => $date,
@@ -58,16 +58,22 @@ class CheckoutController extends Controller
                     'user_id' => Auth::user()->id,
                     'payement_mode_id' => Payement_mode::where('slug', '=', 'orange')->get()[0]->id,
                     'achat_reference' => $achat_reference,
-                    'status_payment' => 'SUCCESS',
+                    'status_payement' => 'SUCCESS',
                     'ticket_pdf' => null
                 ]);
                 $tic[$j] = $ticket;
                 $tap = array();
                 for ($i = 0; $i < $nombre; $i++) {
                     $tapakila = $ticket->tapakila()->where('vendu', '=', '0')->get()->random(1)[0];
+                    $event = $ticket->events()->take(1)->get()[0];
+                    /*foreach ($temp as $t) {
+                        if ($t['ev'] == $event->id) {
+                            $tapakila->reponse = $t['rep'];
+                        }
+                    }*/
                     $tapakila->vendu = 1;
                     $ticket->number = $ticket->number - 1;
-                    $tapakila->ticket_user()->associate($ticket_user);
+                    $tapakila->achat = $ticket_user;
                     $tapakila->save();
                     $tap[$i] = $tapakila;
                 }
@@ -77,10 +83,26 @@ class CheckoutController extends Controller
             }
             Cart::destroy();
             $user = Auth::user();
+            //$PdfDestinationPath = public_path('/tickets/' . $pdfName);
+            //Session::put('pdfDestinationPath', $PdfDestinationPath);
+            //$pdf = App::make('dompdf.wrapper');
+            //$pdf->setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])
+            //    ->loadHTML(view('emails.ticket', compact('data', 'user'))->with(array('send' => 'pdf'))->render());
+            //$pdf->save($PdfDestinationPath);
+//            if ($request->input('email_livraison')) {
+//                Session::put('email_livraison', $request->input('email_livraison'));
+//            } else {
+                Session::put('email_livraison', Auth::user()->email);
+//            }
             Mail::send('emails.ticket', ['data' => $data, 'user' => $user, 'send' => 'mail'], function ($message) {
-                $message->to(Auth::user()->email, Auth::user()->name)->subject('Leguichet');
+                $message->to(Session::get('email_livraison'), Auth::user()->name)->subject('Leguichet');
                 $message->cc('reservation@leguichet.mg', 'Leguichet.mg')->subject('Leguichet ticket');
+//                $message->attach(Session::get('pdfDestinationPath'));
             });
+//            Mail::send('emails.facture', ['data' => $data, 'user' => $user, 'payment_mode' => Payement_mode::where('slug', '=', 'orange')->get()[0]], function ($message) {
+//                $message->to(Session::get('email_livraison'), Auth::user()->name)->subject('Leguichet');
+//                $message->cc('reservations@leguichet.mg', 'Leguichet.mg')->subject('Leguichet payment facture');
+//            });
             session()->flash('status_payment', "Votre paiement est pas réussi.");
             return redirect(url('/home'));
         } else {
@@ -142,6 +164,7 @@ class CheckoutController extends Controller
         $date = date('Y-m-d H:i:s');
         $users = Auth::user();
         if ($this->getStatus($notifToken)) {
+            //$pdfName = time() . rand() . '.pdf';
             $ticket_to_pay = $users->tickets()->wherePivot('id', '=', $id)->get()[0];
             $ticket_to_pay->pivot->number = $number;
             $ticket_to_pay->pivot->date_achat = $date;
@@ -151,28 +174,51 @@ class CheckoutController extends Controller
             $data = array();
             for ($i = 0; $i < $number; $i++) {
                 $tapakila = $ticket_to_pay->tapakila()->where('vendu', '=', '0')->get()->random(1)[0];
+                $event = $ticket_to_pay->events()->take(1)->get()[0];
                 $tapakila->vendu = 1;
                 $ticket_to_pay->number = $ticket_to_pay->number - 1;
                 $ticket_to_pay->pivot->status_payment = 'SUCCESS';
                 $tapakila->save();
                 $tap[$i] = $tapakila;
             }
+            //$ticket_to_pay->pivot->ticket_pdf = $pdfName;
             $ticket_to_pay->pivot->save();
             $ticket_to_pay->save();
             $tic[0] = $ticket_to_pay;
             $data[0] = array('ticket' => $tic[0], 'tapakila' => $tap);
             $user = Auth::user();
+            //$PdfDestinationPath = public_path('/tickets/' . $pdfName);
+            //Session::put('pdfDestinationPath', $PdfDestinationPath);
+            //$pdf = App::make('dompdf.wrapper');
+            //$pdf->setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])->loadHTML(view('emails.ticket', compact('data', 'user'))->with(array('send' => 'pdf'))->render());
+            //$pdf->save($PdfDestinationPath);
+//            if (Session::get('email_livraison')) {
+//                Session::put('email_livraison', Session::get('email_livraison'));
+//            } else {
                 Session::put('email_livraison', Auth::user()->email);
+//            }
             Mail::send('emails.ticket', ['data' => $data, 'user' => $user, 'send' => 'mail'], function ($message) {
                 $message->to(Session::get('email_livraison'), Auth::user()->name)->subject('Leguichet');
                 $message->cc('reservation@leguichet.mg', 'Leguichet.mg')->subject('Leguichet ticket');
+//                $message->attach(Session::get('pdfDestinationPath'));
             });
+//            Mail::send('emails.facture', ['data' => $data, 'user' => $user, 'payment_mode' => $payement], function ($message) {
+//                $message->to(Session::get('email_livraison'), Auth::user()->name)->subject('Leguichet');
+//                $message->cc('reservations@leguichet.mg', 'Leguichet.mg')->subject('Leguichet payment');
+//            });
             return redirect(url('/home'));
         } else {
             session()->flash('status_payment', "Votre paiement n'est pas réussi.");
             return redirect(url('/home'));
         }
 
+    }
+
+    function quiz(Request $req)
+    {
+        $menus = Menus::orderBy('id', 'desc')->get();
+        $sousmenus = Sous_menus::orderBy('name', 'asc')->get();
+        return view('shopping.question_secret', compact('menus', 'sousmenus'));
     }
 
     function NotifyOrange(Request $req)
@@ -211,6 +257,7 @@ class CheckoutController extends Controller
                 else return false;
             }
         }
+
         return false;
     }
 }
