@@ -15,10 +15,12 @@ class OrangeMoney
     private $authorization_header = 'Basic bEt6dk5teGt2WUpHZ1UxR3ZsUlpBUzJhd2JCTFFHRWs6NVFxUERmSVdWQTFwMU5uVg==';
     private $merchant_key = '28ee3a89';
     private $amount;
+    private $order_id;
 
-    public function __construct($amount)
+    public function __construct($amount,$order_id)
     {
         $this->amount = $amount;
+        $this->order_id = $order_id;
     }
 
     public function getAccessToken()
@@ -38,7 +40,7 @@ class OrangeMoney
     {
         $data = array("merchant_key" => $this->merchant_key,
             "currency" => "MGA",
-            "order_id" => rand(1,1000000),
+            "order_id" => $this->order_id,
             "amount" => $this->amount,
             "return_url" => $returnUrl,
             "cancel_url" => url('/home'),

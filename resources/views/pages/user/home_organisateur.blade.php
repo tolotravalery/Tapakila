@@ -273,7 +273,6 @@
                                                             <img src="{{url('/')}}/public/img/{{$event->image}}"
                                                                  class="image_panier">
                                                         </a>
-
                                                     </div>
                                                 </td>
                                                 <td data-label="Tickets">{{$a->type}}</td>
@@ -282,10 +281,8 @@
                                                 <td data-label="qr_code">
                                                     @php
                                                         $billet_acheter = App\Models\TicketUser::find($a->pivot->id);
-                                                        dd($billet_acheter->tapakila)
                                                     @endphp
                                                     @foreach($billet_acheter->tapakila as $billet)
-                                                        {{$billet->code_unique}}
                                                         <img src="{{url('/public/qr_code/'.$billet->qr_code)}}"
                                                              class="image_panier"><br/>
                                                     @endforeach

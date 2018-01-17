@@ -15,6 +15,9 @@ class TicketUser extends Model
 {
     protected $table = 'ticket_user';
 
+    protected $fillable = ['number', 'date_achat', 'ticket_id', 'user_id', 'payement_mode_id', 'achat_reference', 'status_payement', 'ticket_pdf'];
+    public $timestamps = false;
+
     public function tapakila()
     {
         return $this->hasMany('App\Models\Tapakila');
