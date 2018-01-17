@@ -34,10 +34,10 @@
                                 <tr>
                                     <td>{{$achat->achat_reference}}</td>
                                     <td>{{$achat->date_achat}}</td>
-                                    <td>{{$event->title}}</td>
-                                    <td>{{$ticket->type}}</td>
+                                    <td class="hidden-xs">{{$event->title}}</td>
+                                    <td class="hidden-xs">{{$ticket->type}}</td>
                                     <td>{{$achat->number}}</td>
-                                    <td><a href="{{url('/admin/users/'.$user->id)}}">{{$user->name}}</a></td>
+                                    <td class="hidden-xs"><a href="{{url('/admin/users/'.$user->id)}}">{{$user->name}}</a></td>
                                     <td>{{$modePaiement->value}}</td>
                                     <td>{{$achat->status_payment}}</td>
                                 </tr>
