@@ -159,13 +159,14 @@
             </div>
         </div>
     </div>
-
+@endsection
+@section('footer')
+@endsection
+@section('specificScript')
     @include('modals.modal-delete')
     @if (count($users) > 10)
         @include('scripts.datatables')
     @endif
     @include('scripts.delete-modal-script')
     @include('scripts.save-modal-script')
-@endsection
-@section('footer')
 @endsection
