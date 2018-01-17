@@ -284,7 +284,7 @@
                                                     @endphp
                                                     @foreach($billet_acheter->tapakila as $billet)
                                                         <img src="{{url('/public/qr_code/'.$billet->qr_code)}}"
-                                                             class="image_panier"><br/>
+                                                             class="image_panier">
                                                     @endforeach
                                                 </td>
                                                 <td>

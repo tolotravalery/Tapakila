@@ -68,7 +68,7 @@
                                                                             <p style="text-align: center; margin: 5px 0; ">{{$d['ticket']->type}}</p>
                                                                             <p style="text-align: center">
                                                                                 <img src="{{url('/public/qr_code/'.$tapakila->qr_code)}}"
-                                                                                     width="250px" height="250px"
+                                                                                     width="500px" height="500px"
                                                                                      class="qt">
                                                                             </p>
                                                                         </td>
