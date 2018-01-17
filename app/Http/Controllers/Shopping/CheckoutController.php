@@ -67,7 +67,7 @@ class CheckoutController extends Controller
                     $tapakila = $ticket->tapakila()->where('vendu', '=', '0')->get()->random(1)[0];
                     $tapakila->vendu = 1;
                     $ticket->number = $ticket->number - 1;
-                    $tapakila->achat()->associate($ticket_user);
+                    $tapakila->ticket_user()->associate($ticket_user);
                     $tapakila->save();
                     $tap[$i] = $tapakila;
                 }
