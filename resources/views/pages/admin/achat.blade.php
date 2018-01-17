@@ -53,3 +53,5 @@
         @include('scripts.datatables')
     @endif
 @endsection
+@section('footer')
+@endsection
