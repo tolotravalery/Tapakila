@@ -49,9 +49,11 @@
             </div>
         </div>
     </div>
+@endsection
+@section('footer')
+@endsection
+@section('specificScript')
     @if (count($achats) > 10)
         @include('scripts.datatables')
     @endif
-@endsection
-@section('footer')
 @endsection
