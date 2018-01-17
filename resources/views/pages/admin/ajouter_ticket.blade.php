@@ -121,11 +121,6 @@
                         @else
                             {!! Form::hidden('date_ticket', \Carbon\Carbon::parse($event->date_debut_envent)->format('Y-m-d'), ['class' => 'form-control', 'id' => 'date','placeholder'=>'','required', 'autofocus']) !!}
                         @endif
-
-
-
-
-
                         <div class="form-group">
                             <label class="col-md-3 control-label">Nombre de billets<span style="color: red">*</span></label>
                             <div class="col-md-9">
