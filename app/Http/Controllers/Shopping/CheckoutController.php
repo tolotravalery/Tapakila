@@ -78,7 +78,7 @@ class CheckoutController extends Controller
             Cart::destroy();
             $user = Auth::user();
             Mail::send('emails.ticket', ['data' => $data, 'user' => $user, 'send' => 'mail'], function ($message) {
-                $message->to(Session::get('email_livraison'), Auth::user()->name)->subject('Leguichet');
+                $message->to(Auth::user()->email, Auth::user()->name)->subject('Leguichet');
                 $message->cc('reservation@leguichet.mg', 'Leguichet.mg')->subject('Leguichet ticket');
             });
             session()->flash('status_payment', "Votre paiement est pas réussi.");
