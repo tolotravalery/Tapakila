@@ -56,6 +56,7 @@ class OrangeMoney
         ));
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+//        dd(curl_exec($ch));
         return json_decode(curl_exec($ch));
 
     }

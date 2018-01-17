@@ -25,7 +25,8 @@ class CheckoutController extends Controller
         $payement = Payement_mode::where('slug', '=', $options)->get()[0];
         // sending data to payment mode and waiting response
         if ($payement->slug == 'orange') {
-            $achat_reference = date('m').'/'.date('y').'/'.rand(1,10000);
+            $achat_reference = date('m').''.date('y').''.rand(1,10000);
+//            dd($achat_reference);
             Session::put('$achat_reference', $achat_reference);
             $om = new OrangeMoney($req->input('amount'),$achat_reference);
             $payementOrange = $om->getPaymentUrl(url('/shopping/checkout/orange'));
