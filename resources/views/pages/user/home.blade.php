@@ -34,7 +34,11 @@
                     <div class="col-md-5">
                         <div class="row">
                             <div class="col-md-4 text-center-md text-center-lg text-center-xs text-center-sm ">
-                                <img src="{{url('/')}}/public/img/usercircle.png" id="sary" class="postion">
+                                @if(Auth::user()->profile_avatar)
+                                    <img src="{{Auth::user()->profile_avatar}}" id="sary" class="postion">
+                                @else
+                                    <img src="{{url('/')}}/public/img/usercircle.png" id="sary" class="postion">
+                                @endif
                             </div>
                             <div class="col-md-8 text-left-md text-left-lg text-center-xs text-center-sm">
                                 <label class="pseudoname">{{Auth::user()->name}}</label><br>
