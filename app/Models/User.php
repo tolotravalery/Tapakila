@@ -127,7 +127,6 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Models\Ticket')->withPivot('number')
             ->withPivot('date_achat')->withPivot('status_payment')
             ->withPivot('id')->withPivot('payement_mode_id')
-            ->withPivot('ticket_pdf')
             ->withPivot('achat_reference');
     }
 
