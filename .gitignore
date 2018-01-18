@@ -4,5 +4,7 @@
 vendor
 storage/*
 public/qr_code
+public/tickets
 public/slide
 composer.lock
+Logs/*

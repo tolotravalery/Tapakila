@@ -7,9 +7,11 @@ use App\Models\Tapakila;
 use App\Models\Ticket;
 use Faker\Provider\DateTime;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
 use App\Models\Alert;
+use PDF;
 
 class TicketController extends Controller
 {
@@ -81,12 +83,24 @@ class TicketController extends Controller
             $renderer->setHeight(256);
             $renderer->setWidth(256);
             $writer = new \BaconQrCode\Writer($renderer);
-            $image_name = strtotime('now') . '' . rand();
-            $writer->writeFile($code_unique, 'public/qr_code/' . $image_name . '.png');
+            $name = strtotime('now') . '' . rand();
+            $writer->writeFile($code_unique, 'public/qr_code/' . $name . '.png');
+            // PDF Generator
+            $PdfDestinationPath = public_path('/tickets/' . $name . '.pdf');
+            $pdf = App::make('dompdf.wrapper');
+
+            // event
+            $eventPdf = $ticket->events()->get()[0];
+
+            $pdf->setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])
+                ->loadHTML(view('pdf.ticket')->with(array('image' => $name,'event'=>$eventPdf))->render());
+            $pdf->setPaper('a5', 'portrait')->save($PdfDestinationPath);
+
             Tapakila::create([
                 'code_unique' => $code_unique,
                 'ticket_id' => $ticket->id,
-                'qr_code'=> $image_name . '.png'
+                'qr_code' => $name . '.png',
+                'pdf' => $name . '.pdf'
             ]);
         }
         $message = " Opération réussie, Ticket ajouté avec succès";
@@ -128,12 +142,23 @@ class TicketController extends Controller
             $renderer->setHeight(256);
             $renderer->setWidth(256);
             $writer = new \BaconQrCode\Writer($renderer);
-            $image_name = strtotime('now') . '' . rand();
-            $writer->writeFile($code_unique, 'public/qr_code/' . $image_name . '.png');
+            $name = strtotime('now') . '' . rand();
+            $writer->writeFile($code_unique, 'public/qr_code/' . $name . '.png');
+            // PDF Generator
+            $PdfDestinationPath = public_path('/tickets/' . $name . '.pdf');
+            $pdf = App::make('dompdf.wrapper');
+            // event
+            $eventPdf = $ticket->events()->get()[0];
+
+            $pdf->setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])
+                ->loadHTML(view('pdf.ticket')->with(array('image' => $name,'event'=>$eventPdf))->render());
+            $pdf->setPaper('a5', 'portrait')->save($PdfDestinationPath);
+
             Tapakila::create([
                 'code_unique' => $code_unique,
                 'ticket_id' => $ticket->id,
-                'qr_code'=> $image_name . '.png'
+                'qr_code' => $name . '.png',
+                'pdf' => $name . '.pdf'
             ]);
         }
         return redirect(url('admin/listevent'));
