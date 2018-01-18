@@ -22,14 +22,14 @@ class CheckoutController extends Controller
     function index(Request $req)
     {
         $options = $req->input('options');
-        if($options){
+        if ($options) {
             $payement = Payement_mode::where('slug', '=', $options)->get()[0];
             // sending data to payment mode and waiting response
             if ($payement->slug == 'orange') {
-                $achat_reference = date('m').''.date('y').''.rand(1,10000);
+                $achat_reference = date('m') . '' . date('y') . '' . rand(1, 10000);
 //            dd($achat_reference);
                 Session::put('$achat_reference', $achat_reference);
-                $om = new OrangeMoney($req->input('amount'),$achat_reference);
+                $om = new OrangeMoney($req->input('amount'), $achat_reference);
                 $payementOrange = $om->getPaymentUrl(url('/shopping/checkout/orange'));
                 Session::put('notif_token', $payementOrange->notif_token);
                 return redirect($payementOrange->payment_url);
@@ -58,8 +58,7 @@ class CheckoutController extends Controller
                     'user_id' => Auth::user()->id,
                     'payement_mode_id' => Payement_mode::where('slug', '=', 'orange')->get()[0]->id,
                     'achat_reference' => $achat_reference,
-                    'status_payment' => 'SUCCESS',
-                    'ticket_pdf' => null
+                    'status_payment' => 'SUCCESS'
                 ]);
                 $tic[$j] = $ticket;
                 $tap = array();
@@ -77,11 +76,17 @@ class CheckoutController extends Controller
             }
             Cart::destroy();
             $user = Auth::user();
-            Mail::send('emails.ticket', ['data' => $data, 'user' => $user, 'send' => 'mail'], function ($message) {
-                $message->to(Auth::user()->email, Auth::user()->name)->subject('Leguichet');
-                $message->cc('reservation@leguichet.mg', 'Leguichet.mg')->subject('Leguichet ticket');
+            Mail::send('emails.ticket', ['data' => $data, 'user' => $user, 'send' => 'mail'], function ($message) use ($data) {
+                $message->to(Auth::user()->email, Auth::user()->name);
+                $message->cc('reservations@leguichet.mg', 'Leguichet.mg')->subject('Leguichet ticket');
+                foreach ($data as $d) {
+                    foreach ($d['tapakila'] as $tapakila){
+                        $pdfAttachement = public_path('/tickets/' . $tapakila->pdf);
+                        $message->attach($pdfAttachement);
+                    }
+                }
             });
-            session()->flash('status_payment', "Votre paiement est pas réussi.");
+            session()->flash('status_payment', "Votre paiement est réussi.");
             return redirect(url('/home'));
         } else {
 
@@ -90,8 +95,7 @@ class CheckoutController extends Controller
                 $date = date('Y-m-d H:i:s');
                 $nombre = $item->qty;
                 $ticket->users()->attach(array(Auth::user()->id => array('number' => $item->qty, 'date_achat' => $date,
-                    'payement_mode_id' => Payement_mode::where('slug', '=', 'orange')->get()[0]->id, 'achat_reference'=>$achat_reference,'ticket_pdf' => null
-                , 'status_payment' => 'FAILED')));
+                    'payement_mode_id' => Payement_mode::where('slug', '=', 'orange')->get()[0]->id, 'achat_reference' => $achat_reference, 'status_payment' => 'FAILED')));
             }
             Cart::destroy();
             session()->flash('status_payment', "Votre paiement n'est pas réussi.");
@@ -162,10 +166,16 @@ class CheckoutController extends Controller
             $tic[0] = $ticket_to_pay;
             $data[0] = array('ticket' => $tic[0], 'tapakila' => $tap);
             $user = Auth::user();
-                Session::put('email_livraison', Auth::user()->email);
-            Mail::send('emails.ticket', ['data' => $data, 'user' => $user, 'send' => 'mail'], function ($message) {
-                $message->to(Session::get('email_livraison'), Auth::user()->name)->subject('Leguichet');
-                $message->cc('reservation@leguichet.mg', 'Leguichet.mg')->subject('Leguichet ticket');
+            Session::put('email_livraison', Auth::user()->email);
+            Mail::send('emails.ticket', ['data' => $data, 'user' => $user, 'send' => 'mail'], function ($message) use ($data) {
+                $message->to(Auth::user()->email, Auth::user()->name);
+                $message->cc('reservations@leguichet.mg', 'Leguichet.mg')->subject('Leguichet ticket');
+                foreach ($data as $d) {
+                    foreach ($d['tapakila'] as $tapakila){
+                        $pdfAttachement = public_path('/tickets/' . $tapakila->pdf);
+                        $message->attach($pdfAttachement);
+                    }
+                }
             });
             return redirect(url('/home'));
         } else {

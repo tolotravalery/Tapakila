@@ -15,7 +15,7 @@ class TicketUser extends Model
 {
     protected $table = 'ticket_user';
 
-    protected $fillable = ['number', 'date_achat', 'ticket_id', 'user_id', 'payement_mode_id', 'achat_reference', 'status_payment', 'ticket_pdf'];
+    protected $fillable = ['number', 'date_achat', 'ticket_id', 'user_id', 'payement_mode_id', 'achat_reference', 'status_payment'];
     public $timestamps = false;
 
     public function tapakila()
