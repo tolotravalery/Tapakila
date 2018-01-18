@@ -89,11 +89,18 @@ class TicketController extends Controller
             $PdfDestinationPath = public_path('/tickets/' . $name . '.pdf');
             $pdf = App::make('dompdf.wrapper');
 
-            // event
-            $eventPdf = $ticket->events()->get()[0];
+            $type = pathinfo(public_path('/qr_code/' . $name . '.png'), PATHINFO_EXTENSION);
+            $imageQr = file_get_contents(public_path('/qr_code/' . $name . '.png'));
+            $imageQrBase64 = 'data:image/' . $type . ';base64,' . base64_encode($imageQr);
 
+            $eventPdf = $ticket->events()->get()[0];
+            $eventImagePath = public_path('/img/'.$eventPdf->image);
+            $typeImageEvent = pathinfo($eventImagePath, PATHINFO_EXTENSION);
+            $imageEvent = file_get_contents($eventImagePath);
+            $imageEventBase64 = 'data:image/' . $typeImageEvent . ';base64,' . base64_encode($imageEvent);
+            
             $pdf->setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])
-                ->loadHTML(view('pdf.ticket')->with(array('image' => $name,'event'=>$eventPdf))->render());
+                ->loadHTML(view('pdf.ticket')->with(array('image' => $imageQrBase64,'eventImage'=>$imageEventBase64, 'event' => $eventPdf))->render());
             $pdf->setPaper('a5', 'portrait')->save($PdfDestinationPath);
 
             Tapakila::create([
@@ -147,11 +154,19 @@ class TicketController extends Controller
             // PDF Generator
             $PdfDestinationPath = public_path('/tickets/' . $name . '.pdf');
             $pdf = App::make('dompdf.wrapper');
-            // event
+
+            $type = pathinfo(public_path('/qr_code/' . $name . '.png'), PATHINFO_EXTENSION);
+            $imageQr = file_get_contents(public_path('/qr_code/' . $name . '.png'));
+            $imageQrBase64 = 'data:image/' . $type . ';base64,' . base64_encode($imageQr);
+
             $eventPdf = $ticket->events()->get()[0];
+            $eventImagePath = public_path('/img/'.$eventPdf->image);
+            $typeImageEvent = pathinfo($eventImagePath, PATHINFO_EXTENSION);
+            $imageEvent = file_get_contents($eventImagePath);
+            $imageEventBase64 = 'data:image/' . $typeImageEvent . ';base64,' . base64_encode($imageEvent);
 
             $pdf->setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])
-                ->loadHTML(view('pdf.ticket')->with(array('image' => $name,'event'=>$eventPdf))->render());
+                ->loadHTML(view('pdf.ticket')->with(array('image' => $imageQrBase64,'eventImage'=>$imageEventBase64, 'event' => $eventPdf))->render());
             $pdf->setPaper('a5', 'portrait')->save($PdfDestinationPath);
 
             Tapakila::create([
