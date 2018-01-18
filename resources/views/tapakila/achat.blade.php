@@ -45,7 +45,7 @@
                     <h4><strong>Comment se passe l'édition de mon billet électronique à la fin de ma commande ?</strong></h4>
                     <p>Vos E Tickets sont en pièces jointes de votre mail de confirmation de commande au format PDF.</p>
                     <p>Vous les trouverez également dans l'onglet mes commandes de votre compte.</p>
-                
+                    <p>Si vous n'avez pas de logiciel pour lire les pdf, cliquez <a href="http://www.01net.com/telecharger/windows/Internet/internet_utlitaire/fiches/14537.html">ici </a>pour telecharger adobe reader.</p>
                     <p>Ouvrez ce fichier, nous vous conseillons de le sauvegarder sur votre PC, puis de l'imprimer
                         (fichier sauvegardé en cas de problème d'impression).</p>
                     <br>
@@ -64,7 +64,7 @@
 
                     <!-- COMMENT S'EFFECTUE LE CONTRÔLE A L'ENTRÉE DE LA SALLE ? -->
                     <h4><strong>Comment s'effectue le contrôlle à l'entrée de la salle ?</strong></h4>
-                    <p>Chaque billet disposé d’un ou plusieur code, donnée unique d’un billet, qui est scanné par un contrôleur à l’entrée de la salle afin de vérifier si le billet est valide.</p>
+                    <p>Chaque billet possède un qrcode unique qui sera scanné par un contrôleur à l'entrée de la salle afin de vérifié s'il est valide ou non. </p>
                     <p> Seule la première copie de votre billet électronique présentée au lecteur de qrcode donnera accès à la salle. Toutes les autres copies du même billet seront refusées.</p>
                     
                     <br>
@@ -108,10 +108,10 @@
                     <p><strong>1</strong>	- Commencez par rechercher l'événement auquel vous souhaitez assister dans les menus ou la barre de recherche où il est écrit: Chercher un événement...</p>
                     <p><strong>2</strong>	- Cliquez sur l’évènement que vous souhaitez</p>
                     <p><strong>3</strong>	- Cliquez sur la date que vous souhaitez</p>
-                    <p><strong>4</strong>	- Sélectionez la quantité de billets désirée</p>
+                    <p><strong>4</strong>	- Sélectionnez la quantité de billets désirée</p>
                     <p><strong>5</strong>	- Choisissez vos billets parmi les listings disponibles</p>
                     <p><strong>6</strong>	- Suivez les différentes étapes –  vérifiez que votre adresse email est correcte </p>
-                    <p><strong>7</strong>	- Entrer votre réponse à la question sécrète s’il est mentionné, cette question sert à vous authentifier à l’entrée de la salle.</p>
+                    <p><strong>7</strong>	- Entrer votre réponse à la question sécrète si elle est mentionnée, cette question sert à vous authentifier à l’entrée de la salle.</p>
                     <p><strong>8</strong>	- Verifiez les détails de votre commande pour vous assurer que tout vous convient </p>
                     <p><strong>9</strong>	- Achetez vos billets! </p>
                     <p><strong>10</strong>	- Recevez votre e-billet nominatif par mail juste après votre achat.</p>
