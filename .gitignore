@@ -3,8 +3,8 @@
 .idea
 vendor
 storage/*
-public/qr_code
-public/tickets
+public/qr_code/*.png
+public/tickets/*.pdf
 public/slide
 composer.lock
 Logs/*
