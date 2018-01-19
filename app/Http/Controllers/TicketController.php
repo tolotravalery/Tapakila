@@ -154,6 +154,8 @@ class TicketController extends Controller
             // PDF Generator
             $PdfDestinationPath = public_path('/tickets/' . $name . '.pdf');
             $pdf = App::make('dompdf.wrapper');
+            //snappy
+            //$pdf = App::make('snappy.pdf');
 
             $type = pathinfo(public_path('/qr_code/' . $name . '.png'), PATHINFO_EXTENSION);
             $imageQr = file_get_contents(public_path('/qr_code/' . $name . '.png'));

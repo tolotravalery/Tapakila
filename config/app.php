@@ -164,6 +164,8 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
         Barryvdh\Cors\ServiceProvider::class,
+        Barryvdh\Snappy\ServiceProvider::class,
+        App\Providers\FacebookServiceProvider::class,
 //        Thujohn\Pdf\PdfServiceProvider::class,
         /*
          * Package Service Providers...
@@ -251,6 +253,8 @@ return [
         'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
 //        'PDF' => 'Thujohn\Pdf\PdfFacade',
+//        'PDF' => Barryvdh\Snappy\Facades\SnappyPdf::class,
+        'SnappyImage' => Barryvdh\Snappy\Facades\SnappyImage::class,
     ],
 
 ];
