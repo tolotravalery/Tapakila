@@ -32,8 +32,10 @@ class FacebookController extends Controller
         $fields = "id,cover,name,first_name,last_name,age_range,link,gender,locale,picture,timezone,updated_time,verified,email";
         $fb_user = $fb->get('/me?fields=' . $fields)->getGraphUser();
         $userCheck = User::where('facebook_id', '=', $fb_user['id'])->first();
+
         if (isset($fb_user['email'])) {
             $email = $fb_user['email'];
+            $userCheck = User::where('email', '=', $fb_user['email'])->first();
         } else {
             $email = 'missing' . str_random(10) . '@test.com';
         }
