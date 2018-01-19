@@ -167,7 +167,7 @@
             $.getScript('//connect.facebook.net/en_US/sdk.js', function () {
                 // initialize facebook sdk
                 FB.init({
-                    appId: '110002369661973', // replace this with your id
+                    appId: '391622511270857',
                     status: true,
                     cookie: true,
                     version: 'v2.8'
