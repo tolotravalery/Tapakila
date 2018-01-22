@@ -37,13 +37,13 @@
                             <div class="col-md-4 text-center-md text-center-lg text-center-xs text-center-sm ">
                                 <img src="{{url('/')}}/public/img/usercircle.png" id="sary" class="postion">
                             </div>
-                            <div class="col-md-8 text-left-md text-left-lg text-center-xs text-center-sm">
+                            <div class="col-md-8 text-left-md text-left-lg text-center-xs text-center-sm" >
                                 <label class="pseudoname">{{Auth::user()->name}}</label><br>
                                 <p><i class="fa fa-envelope fenalope" aria-hidden="true"></i>{{Auth::user()->email}}</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-7 text-right-md text-right-lg text-center-xs text-center-sm ">
+                    <div class="col-md-7 text-right-md text-right-lg text-center-xs text-center-sm " style="text-align:rihgt;">
                         <a class="modifinfo" href="{{url('/profile/'.Auth::user()->id.'/edit')}}">Modifier mes
                             Informations</a>
                     </div>

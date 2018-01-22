@@ -24,7 +24,7 @@
 
                                 @if ($errors->has('email'))
                                     <span class="red">
-                                                            <strong>{{ $errors->first('email') }}</strong>
+                                                            <strong style="color:#d70506 ;">{{ $errors->first('email') }}</strong>
                                                     </span>
                                 @endif
                             </div>

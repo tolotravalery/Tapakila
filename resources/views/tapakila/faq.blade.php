@@ -79,11 +79,11 @@
                                                 </label>
                                             </p>
 
-                                            <p onclick="accord1()"><span style="cursor: pointer">Les places seront-elles adjacents ?</span>
+                                            <p onclick="accord1()"><span style="cursor: pointer">Les places seront-elles adjacentes ?</span>
                                                 <br>
                                                 <label id="demo1" class="hidden padd">
 
-                                                    Oui, les billets achetés sur une même annonce seront consécutifs, sauf indication contraire transmise lors du processus d'achat.
+                                                    Oui, les billets achetés sur une même annonce seront consécutifs, sauf indication contraire transmis lors du processus d'achat.
                                                     <br>
                                                     <br> Les billets faisant partie de la catégorie « Place non réservée » n'ont pas d'emplacement spécifique. Les billets faisant partie de la catégorie « admission générale » correspondent généralement à des places debout.
                                                 </label>
@@ -103,10 +103,10 @@
                                                 </label>
                                             </p> -->
 
-                                            <p onclick="accord4()"><span style="cursor: pointer">Puis-je acheter des billets personnalisé sur lesquels figure le nom de quelqu'un d'autre ?</span>
+                                            <p onclick="accord4()"><span style="cursor: pointer">Puis-je acheter des billets personnalisés sur lesquels figure le nom de quelqu'un d'autre ?</span>
                                                 <br>
                                                 <label id="demo4" class="hidden padd">
-                                                    Oui, Leguichet autorise des vendeurs tiers, notamment des particulier, à mettre en vente des billets sur sa plateforme. Il se peut que le nom de l'acheteur d'origine figure sur les billet, ces billets sont valables. Vous n'êtes pas obligé(e) de posséder un billet à votre nom pour accéder à l'événement.
+                                                    Oui, Leguichet autorise des vendeurs tiers, notamment des particuliers, à mettre en vente des billets sur sa plateforme. Il se peut que le nom de l'acheteur d'origine figure sur les billets, ces billets sont valables. Vous n'êtes pas obligé(e) de posséder un billet à votre nom pour accéder à l'événement.
                                                 </label>
                                             </p>
                                         </div>
@@ -122,14 +122,14 @@
                                     <div id="collapse-1" role="tabpanel" aria-labelledby="header-1" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
                                         <div class="panel-body">
 
-                                            <p onclick="accord5()"><span style="cursor: pointer">Quand vais-je reçevoir mes billets ?</span>
+                                            <p onclick="accord5()"><span style="cursor: pointer">Quand vais-je recevoir mes billets ?</span>
                                                 <br>
                                                 <label id="demo5" class="hidden padd">
                                                     Vous devriez recevoir vos billets électroniques immédiatement après le paiement.
                                                     <br>
                                                     <br> Si vous avez acheté des billets en téléchargement immédiat, ils pourront être imprimés quasiment tout de suite.
                                                     <br>
-                                                    <br> Vous pouvez suivre le statut de votre commande dans la rubrique Achats.
+                                                    <br> Vous pouvez suivre le statut de votre commande sous la rubrique Achats.
                                                     <br>
                                                     <br> Veuillez vous assurer que le numéro de téléphone enregistré dans votre compte est correct afin que nous puissions vous contacter en cas de nécessité.
                                                     <br>
@@ -137,16 +137,16 @@
                                                 </label>
                                             </p>
 
-                                            <p onclick="accord6()"><span style="cursor: pointer">Comment télécharger mes billets éléctroniques ?</span>
+                                            <p onclick="accord6()"><span style="cursor: pointer">Comment télécharger mes billets électroniques ?</span>
                                                 <br>
                                                 <label id="demo6" class="hidden padd">
-                                                    Lorsque vos billets sont prêts à être téléchargés, vous recevez un e-mail de notre part avec un lien pour le téléchargement. En cliquant sur ce lien, vous pouvez voir et imprimer les billets ou les télécharger pour les sauvegarder en tant que fichier PDF. Merci de noter que seule une copie du code barre ne sera acceptée à l'événement. Vos billets seront également disponibles dans la section Achats de votre compte, il vous suffira de suivre les instructions pour les télécharger.
+                                                    Lorsque vos billets sont prêts à être téléchargés, vous recevez un e-mail de notre part avec un lien pour le téléchargement. En cliquant sur ce lien, vous pouvez voir et imprimer les billets ou les télécharger pour les sauvegarder en tant que fichier PDF. Merci de noter que seule une copie du QRCode ne sera pas accepté à l'événement. Vos billets seront également disponibles dans la section Achats de votre compte, il vous suffira de suivre les instructions pour les télécharger.
                                                 </label>
                                             </p>
 
                                            
 
-                                            <p onclick="accord8()"><span style="cursor: pointer">Puis-je retirer mes billets le jour de l'évènement ,plutôt que de les recevoir par courier ?</span>
+                                            <p onclick="accord8()"><span style="cursor: pointer">Puis-je retirer mes billets le jour de l'évènement ,plutôt que de les recevoir par courrier ?</span>
                                                 <br>
                                                 <label id="demo8" class="hidden padd">
                                                     Non, si un billet a été programmé pour être livré, il ne peut pas être retiré.
@@ -156,12 +156,12 @@
                                                 </label>
                                             </p>
 
-                                            <p onclick="accord9()"><span style="cursor: pointer">Pourquoi le prix imprimé sur le billets est-il different de celui que j'ai payé ?</span>
+                                            <p onclick="accord9()"><span style="cursor: pointer">Pourquoi le prix imprimé sur les billets est-il different de celui que j'ai payé ?</span>
                                                 <br><span id="demo9" class="hidden padd">
 
 											Le prix des billets mis en vente sur leguichet peut être identique, supérieur ou inférieur à la valeur faciale imprimée sur le billet.<br><br>
 
-											En raison d'une forte demande, le prix des billets pour les événements populaires peut être plus élevés que la valeur faciale. Cependant, de nombreux billet sur leguichet sont vendus à un prix inférieur à la valeur faciale.<br><br>
+											En raison d'une forte demande, le prix des billets pour les événements populaires peut être plus élevé que la valeur faciale. Cependant, de nombreux billets sur leguichet sont vendus à un prix inférieur à la valeur faciale.<br><br>
 
 											leguichet affiche toujours la valeur faciale du billet pour un événement dans la rubrique « Informations importantes » ou sur la « Page d'informations relatives au billet ».<br><br>
 												</span> </p>
@@ -182,19 +182,19 @@
                                             <p onclick="accord11()"><span style="cursor: pointer">Puis-je annuler ou modifier mon achat ?</span>
                                                 <br>
                                                 <label id="demo11" class="hidden padd">
-                                                    Il n'est pas possible d'annuler ou d'échanger les billets une fois l'achat finalisé car les commandes sont considérées comme définitives.
+                                                    Il n'est pas possible d'annuler ou d'échanger les billets une fois l'achat finalisé car les commandes sont considérés comme définitifs.
 
                                                 </label>
                                             </p>
 
-                                            <p onclick="accord12()"><span style="cursor: pointer">Mon événement a été annulé ou reprogrammé - Que dois-je faire? ?</span>
+                                            <p onclick="accord12()"><span style="cursor: pointer">Mon événement a été annulé ou reprogrammé - Que dois-je faire? </span>
                                                 <br>
                                                 <label id="demo12" class="hidden padd">
-                                                    Dans l'eventualité où votre événement serait annulé ou reporté, soyez assuré(e) que nous vous recontacterons dans les plus brefs délais avec les instructions nécéssaires concernant vos billets. En règle générale;
+                                                    Dans l'éventualité où votre événement serait annulé ou reporté, soyez assuré(e) que nous vous recontacterons dans les plus brefs délais avec les instructions nécessaires concernant vos billets. En règle générale;
                                                     <br>
                                                     <br> En cas d'annulation – nous vous demanderons de nous retourner les billets et un remboursement intégral de votre transaction sera effectué après réception de ceux-ci.
                                                     <br>
-                                                    <br> En cas de reprogrammation – Les billets restent valides pour la nouvelle date. Veuillez consulter régulièrement vos emails et assurez-vous de vérifier également votre dossier de courrier indésirable ou ''spam''. L'email qui vous sera envoyé sera spécifique à votre événement, et contiendra toutes les informations nécéssaires.
+                                                    <br> En cas de reprogrammation – Les billets restent valides pour la nouvelle date. Veuillez consulter régulièrement vos emails et assurez-vous de vérifier également votre dossier de courrier indésirable ou ''spam''. L'email qui vous sera envoyé sera spécifique à votre événement, et contiendra toutes les informations nécessaires.
                                                     <br>
                                                     <br>
 
@@ -214,7 +214,7 @@
                                     <div id="collapse-3" role="tabpanel" aria-labelledby="header-3" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
                                         <div class="panel-body">
 
-                                            <p onclick="accord13()"><span style="cursor: pointer">Quelles sont les méthodes de paiement acceptées ? ?</span>
+                                            <p onclick="accord13()"><span style="cursor: pointer">Quelles sont les méthodes de paiement acceptées ?</span>
                                                 <br>
                                                 <label id="demo13" class="hidden padd">
                                                     leguichet accepte la plupart des paiements mobiles comme Mvola, Orange Money. 
@@ -287,9 +287,9 @@
                                             <p onclick="accord20()"><span style="cursor: pointer">Qu'est-ce que leguichet ?</span>
                                                 <br>
                                                 <label id="demo20" class="hidden padd">
-                                                    leguichet est une plate-forme en ligne à Madagascar pour les billets d'événements sportifs, musicaux, et de divertissement en direct. leguichet vise à fournir aux acheteurs de billets la plus grande sélection de billets possible pour des événements à Madagascar, et aide les vendeurs de billets, des personnes détenant un billet supplémentaire aux grandes organisations événementielles, à atteindre un large public.
+                                                    leguichet est une plate-forme en ligne à Madagascar pour les billets d'événements sportifs, musicaux, et de divertissement en direct. leguichet vise à fournir aux acheteurs de billets la plus grande sélection de billets possibles pour des événements à Madagascar, et aide les vendeurs de billets, des personnes détenant un billet supplémentaire aux grandes organisations événementielles, à atteindre un large public.
                                                     <br>
-                                                    <br> leguichet est en partenariat avec un grand nombres des personnes les plus éminentes dans le sport et le divertissement, et a aidé des clients venant de presque tous à Madagascar à avoir accès à des billets dans la langue, devise, et depuis l'appareil de leur choix.
+                                                    <br> leguichet est en partenariat avec un grand nombre des personnes les plus éminentes dans le sport et le divertissement, et a aidé des clients venant de presque tous à Madagascar à avoir accès à des billets dans la langue, devise, et depuis l'appareil de leur choix.
                                                     <br>
                                                     <br> Pour toute demande client, merci de visiter la section Aide du site internet leguichet.
                                                 </label>
@@ -332,20 +332,20 @@
                                                     <br>
                                                     <br> Conditions Générales d’Utilisation ou Accord : désigne les présentes conditions générales d’utilisation.
                                                     <br>
-                                                    <br> Plateforme Leguichet : désigne la structure fonctionnelle et organisationnelle mise en place par Leguichet sur le Site permettant la 
+                                                    <br> Plateforme Leguichet : désigne la structure fonctionnelle et organisationnelle mise en place par Leguichet sur le site permettant la 
                                                     mise en relation de Vendeurs et d'Acheteurs de Billets.
                                                     <br>
-                                                    <br> Billet(s) : désigne les billets de spectacle ou d’événements sportifs en Madagascar ou à l’étranger, susceptibles de faire l'objet d'une mise 
+                                                    <br> Billet(s) : désigne les billets de spectacle ou d’événements sportifs à Madagascar ou à l’étranger, susceptibles de faire l'objet d'une mise 
                                                     en relation par le biais de la Plateforme Leguichet.
                                                     <br>
                                                     <br> Billet(s) Interdit(s) : désigne les billets de spectacle ou d’événements sportifs dont la vente ne serait pas autorisée en vertu de dispositions 
-                                                    législatives, réglementaires ou contractuelles. Il s'agit notamment des Billets qui constitueraient des Billets contrefaisants au sens du Code de la
+                                                    législatives, réglementaires ou contractuelles. Il s'agit notamment des Billets qui constitueraient des billets contrefaisants au sens du Code de la
                                                      propriété intellectuelle ou qui seraient vendus en violation de réseaux de distribution sélective ou exclusive, notamment les Billets vendus en violation 
-                                                     de l’article 313-6-2 du Code pénal.
+                                                     de l’article 313-6-2 du code pénal.
                                                     <br>
-                                                    <br> Vendeur(s) : désigne un Membre mettant en vente un Billet sur la Plateforme Leguichet, et éditant à cet effet une Offre de Vente sur le Site, dans le respect des conditions définies à l’article 3.1 des présentes Conditions Générales d’Utilisation.
+                                                    <br> Vendeur(s) : désigne un Membre mettant en vente un billet sur la Plateforme Leguichet, et éditant à cet effet une Offre de Vente sur le Site, dans le respect des conditions définies à l’article 3.1 des présentes Conditions Générales d’Utilisation.
                                                     <br>
-                                                    <br> Acheteur(s) : désigne un Membre ayant accepté l'offre d'un Vendeur.
+                                                    <br> Acheteur(s) : désigne un membre ayant accepté l'offre d'un Vendeur.
                                                     <br>
                                                     <br> Membre(s) ou Vous : désigne toute personne, Vendeur ou Acheteur, susceptible de faire usage de la Plateforme Leguichet après acceptation des présentes Conditions Générales d’Utilisation. Tout Membre s'engage à fournir des informations exactes quant à son identité, adresse et autres données nécessaires à l'accès à la Plateforme Leguichet et à mettre à jour toute modification concernant ces informations.
                                                     <br>
@@ -369,9 +369,9 @@
                                                     <br>
                                                     
                                                     <br> 1.3 Commissions et Services : L'inscription, la mise en vente d’un Billet et l'action de se porter acquéreur 
-                                                    de Billets proposés sur notre Site sont gratuites. Cependant, l'utilisation d'autres Services, tels que l’achat effectif d’un Billet, 
+                                                    de Billets proposés sur notre Site sont gratuit. Cependant, l'utilisation d'autres Services, tels que l’achat effectif d’un Billet, 
                                                     est payante. Lorsque Vous mettez en vente un Billet, Vous avez la possibilité de passer en revue les taux de Commission tels qu’ils sont détaillés 
-                                                    dans la rubrique « Quels frais de gestion sont déduits du prix de vente » des pages d’aide du Site disponibles à l’adresse URL suivante 
+                                                    dans la rubrique « Quels frais de gestion sont déduits du prix de vente » des pages d’aide du Site disponibles à l’adresse URL suivant 
                                                     http://www.Leguichet.com/faq. Vous devez accepter ces tarifs pour mettre en ligne votre Offre de Vente. Sauf mention contraire, 
                                                     les taux de Commission sont indiqués sous forme de pourcentage du Prix de Vente et sont facturés en AR (Ariary).
                                                     <br>
@@ -531,12 +531,12 @@
 
                                                     Cliquez sur le bouton « Ajout votre événenement » en haut à droite de la page d'accueil.
                                                     Recherchez l'événement pour lequel vous souhaitez vendre des billets. Si vous ne trouvez pas votre événement, indiquez-le en cliquant ici, et nous l'ajouterons à notre site web
-                                                    Suivez les étapes de saisie des informations relatives à votre billet. Important : indiquez la manière dont vous souhaitez être payé(e) une fois que les billets auront été vendus.
+                                                    Suivez les étapes de saisie des informations relatives à votre billet. Important : indiquez la manière dont vous souhaitez être payés(e) une fois que les billets auront été vendus.
                                                     Vérifiez et confirmez votre annonce afin qu'elle puisse être mise à la disposition de millions d'acheteurs potentiels dans le monde entier.<br><br>
 
                                                     Choses importantes à savoir lors de la mise en vente de vos billets :<br><br>
 
-                                                    Donnez à vos acheteurs potentiels le plus d'informations possibles concernant l'emplacement en indiquant le bloc, la rangée et le numéro de la place.
+                                                    Donnez à vos acheteurs potentiels le plus d'informations possible concernant l'emplacement en indiquant le bloc, la rangée et le numéro de la place.
                                                     Si des billets en place assise sont mis en vente dans une seule annonce, ces places doivent être consécutives.
                                                     Toute mention spéciale, comme par exemple « billet enfant » ou « vue restreinte » doit figurer clairement.
                                                     Vérifiez régulièrement les prix auxquels vous avez listé vos billets pour vous assurer qu’ils soient compétitifs.
@@ -629,11 +629,11 @@
 
                                     <div id="collapse-9" role="tabpanel" aria-labelledby="header-9" id="accordion" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
                                         <div class="panel-body">
-                                            <p onclick="accord35()"><span style="cursor: pointer">Puis-je annuler ou modifier mon vente ?</span>
+                                            <p onclick="accord35()"><span style="cursor: pointer">Puis-je annuler ou modifier ma vente ?</span>
                                                 <br>
                                                 <label id="demo35" class="hidden padd">
                                                     Non, une fois que vos billets ont été vendus, vous ne pouvez pas annuler la vente car l'acheteur attend les billets. <br><br>
-                                                    Si vous n'êtes plus en mesure d'envoyer les billets que vous avez vendus, leguichet se réserve le droit de facturer des frais de pénalité liés au remplacement des billets pour l'acheteurs
+                                                    Si vous n'êtes plus en mesure d'envoyer les billets que vous avez vendus, leguichet se réserve le droit de facturer des frais de pénalité liés au remplacement des billets pour l'acheteur
                                                 </label>
                                             </p>
                                         </div>
