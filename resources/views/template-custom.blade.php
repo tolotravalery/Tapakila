@@ -14,8 +14,6 @@
     <link rel="icon" href="{{ url('/') }}/public/img/favicon.ico"/>
     <script type="text/javascript" src="{{ url('/') }}/public/js/jquery.min.js"></script>
     <script type="text/javascript" src="{{ url('/') }}/public/js/bootstrap.min.js"></script>
-    <script src="{{ url('/') }}/public/js/datepicker.js"></script>
-    <script src="{{ url('/') }}/public/js/clockpicker.js"></script>
     <script src="{{ url('/') }}/public/js/Tapakila.js"></script>
 
 </head>

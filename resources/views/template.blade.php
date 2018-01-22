@@ -10,7 +10,6 @@
     @yield('specificMeta')
     <title>Le Guichet | Reservations de billets electronique</title>
     <link rel="stylesheet" href="{{ url('/') }}/public/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ url('/') }}/public/css/style.css">
     <link rel="stylesheet" href="{{ url('/') }}/public/css/mediaqueries.css">
     @yield('specificCss')
     <link rel="stylesheet" href="{{ url('/') }}/public/css/animate.css">
@@ -20,9 +19,6 @@
     <link rel="icon" href="{{ url('/') }}/public/img/favicon.ico"/>
     <script type="text/javascript" src="{{ url('/') }}/public/js/jquery.min.js"></script>
     <script type="text/javascript" src="{{ url('/') }}/public/js/bootstrap.min.js"></script>
-    <script src="{{ url('/') }}/public/js/datepicker.js"></script>
-    <script src="{{ url('/') }}/public/js/clockpicker.js"></script>
-    <script src="{{ url('/') }}/public/js/Tapakila.js"></script>
    <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-57119037-2"></script>
 <script>
