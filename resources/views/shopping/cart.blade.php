@@ -152,7 +152,7 @@
                                     <div id="ticket-radio2">
                                         <div class="btn-group" data-toggle="buttons">
                                             @foreach($payement_mode as $p)
-                                                <div class="col-md-4">
+                                                <div class="col-md-6">
                                                     <div class="radio">
                                                         <label class="button">
                                                             @if($p->slug=='telma')
