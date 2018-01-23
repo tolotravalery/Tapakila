@@ -126,6 +126,7 @@ Route::group(['middleware' => ['auth', 'activated', 'currentUser']], function ()
         Route::post('checkout', 'Shopping\CheckoutController@index')->name('checkout_index');
         Route::get('checkout', 'Shopping\CheckoutController@index')->name('checkout_index');
         Route::any('checkout/orange', 'Shopping\CheckoutController@saveOrange');
+        Route::any('payment/orange', 'Shopping\CheckoutController@proxyOrange');
         Route::any('checkout/telma', 'Shopping\CheckoutController@saveTelma');
         Route::any('checkout/pay/orange', 'Shopping\CheckoutController@savePaymentOrange');
         Route::get('pay/{users_id}/{id}', 'Shopping\CheckoutController@pay');
