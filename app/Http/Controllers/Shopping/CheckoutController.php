@@ -33,6 +33,55 @@ class CheckoutController extends Controller
                 $payementOrange = $om->getPaymentUrl(url('/shopping/checkout/orange'));
                 Session::put('notif_token', $payementOrange->notif_token);
                 return redirect($payementOrange->payment_url);
+            } elseif ($payement->slug == 'telma') {
+//                // Section de configuration TELMA
+//                $MPGW_BASEURL = "https://www.telma.net/mpw/v2";
+//                $MPGW_WS_URL = $MPGW_BASEURL . "/ws/MPGwApi/v2";
+//                $MPGW_TRANSACTION_URL = $MPGW_BASEURL . "/transaction/";
+//                $APIVersion = "2.0.0";
+//                // Fin de la section de configuration TELMA
+//                $loginws = "contact@leguichet.mg"; // Login pour le web service configuré par le marchand
+//                $pwdws = "123456"; // pwd pour le web service configuré par le marchand
+//                $hash = "f1abc94372523a256021af99d5ec96e3433a0dd87ba9b62639f3f2561bd6240f"; // Signature pour le web service configuré par le marchand
+//
+//                $parameters = new \stdClass();
+//                $parameters->Login_WS = $loginws;
+//                $parameters->Password_WS = $pwdws;
+//                $parameters->HashCode_WS = $hash;
+//                $parameters->ShopTransactionAmount = 10;
+//                $parameters->ShopTransactionID = date('YmdHis');
+//                $parameters->ShopTransactionLabel = 'Le Guichet';
+//                $parameters->ShopShippingName = 'Koera';
+//                $parameters->ShopShippingAddress = '';
+//                $parameters->UserField1 = "";
+//                $parameters->UserField2 = "";
+//                $parameters->UserField3 = "";
+//
+//                /*$parameters = array(
+//                    new SOAP_Value(0, 'string', $loginws),
+//                    new SOAP_Value(1, 'string', $pwdws),
+//                    new SOAP_Value(2, 'string', $hash),
+//                    new SOAP_Value(3, 'int', 10),
+//                    new SOAP_Value(4, 'string', date('Ymdhis')),
+//                    new SOAP_Value(5, 'string', 'Le Guichet '),
+//                    new SOAP_Value(6, 'string', 'Koera'),
+//                    new SOAP_Value(6, 'string', ''),
+//                );*/
+//
+//                $ws = new \SoapClient($MPGW_WS_URL);
+//                $retour = $ws->WS_MPGw_PaymentRequest($APIVersion, $parameters);
+//
+//                if ($retour->APIVersion != $APIVersion) {
+//                    echo "incorrect API Version";
+//                    die();
+//                } elseif ($retour->ResponseCode != 0) {
+//                    echo "ERROR : " . $retour->ResponseCodeDescription;
+//                    die();
+//                } else {
+//                    // Appel OK, redirection sur la page de paiement de la plateforme
+//                    $MPGw_Token = $retour->MPGw_TokenID;
+//                    header('Location: ' . $MPGW_TRANSACTION_URL . $MPGw_Token);
+//                }
             }
         }
         return redirect('/');
@@ -80,7 +129,7 @@ class CheckoutController extends Controller
                 $message->to(Auth::user()->email, Auth::user()->name);
                 $message->cc('reservations@leguichet.mg', 'Leguichet.mg')->subject('Leguichet ticket');
                 foreach ($data as $d) {
-                    foreach ($d['tapakila'] as $tapakila){
+                    foreach ($d['tapakila'] as $tapakila) {
                         $pdfAttachement = public_path('/tickets/' . $tapakila->pdf);
                         $message->attach($pdfAttachement);
                     }
@@ -101,6 +150,10 @@ class CheckoutController extends Controller
             session()->flash('status_payment', "Votre paiement n'est pas réussi.");
             return redirect(url('/home'));
         }
+    }
+    
+    function proxyOrange(){
+        
     }
 
 
@@ -171,7 +224,7 @@ class CheckoutController extends Controller
                 $message->to(Auth::user()->email, Auth::user()->name);
                 $message->cc('reservations@leguichet.mg', 'Leguichet.mg')->subject('Leguichet ticket');
                 foreach ($data as $d) {
-                    foreach ($d['tapakila'] as $tapakila){
+                    foreach ($d['tapakila'] as $tapakila) {
                         $pdfAttachement = public_path('/tickets/' . $tapakila->pdf);
                         $message->attach($pdfAttachement);
                     }
