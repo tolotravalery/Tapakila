@@ -13,9 +13,9 @@
     <link rel="stylesheet" href="{{ url('/') }}/public/css/mediaqueries.css">
     @yield('specificCss')
     <link rel="stylesheet" href="{{ url('/') }}/public/css/animate.css">
-    <link rel="stylesheet" href="{{ url('/') }}/public/css/font-awesome.css">
-    <link href="{{ url('/') }}/public/css/datepicker.css" rel="stylesheet">
-    <link href="{{ url('/') }}/public/css/clockpiker.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="{{ url('/') }}/public/css/font-awesome.css"> -->
+    <!-- <link href="{{ url('/') }}/public/css/datepicker.css" rel="stylesheet">
+    <link href="{{ url('/') }}/public/css/clockpiker.css" rel="stylesheet"> -->
     <link rel="icon" href="{{ url('/') }}/public/img/favicon.ico"/>
     <script type="text/javascript" src="{{ url('/') }}/public/js/jquery.min.js"></script>
     <script type="text/javascript" src="{{ url('/') }}/public/js/bootstrap.min.js"></script>
