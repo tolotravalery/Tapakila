@@ -30,10 +30,10 @@
         <div class="bgcontact">
             <h1 class="contactpg">Nous Contacter</h1>
             <p class="text-center text1 hidden-xs">Vous n'avez pas trouvé la reponse à votre question dans notre <a
-                        href="{{url('')}}/leguichet/faq">FAQ ?</a><br>N'hesitez pas à nous écrire ou à nous contactez !</p>
+                        href="{{url('')}}/faq">FAQ ?</a><br>N'hesitez pas à nous écrire ou à nous contactez !</p>
             <p class="text-center text1 hidden-lg hidden-md hidden-sm">Ecrivez-vous !</p>
             <div class="row spac">
-                <form action="{{url('/')}}/leguichet/contact" method="post">
+                <form action="{{url('/')}}/contact" method="post">
                     {!! csrf_field() !!}
                     <div class="col-md-6 text-center-lg text-center-md text-center-sm text-center-lg-xs">
                             @if (session('message'))

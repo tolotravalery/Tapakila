@@ -68,6 +68,6 @@ class AproposController extends Controller
             $message->to('contact@leguichet.mg', 'Leguichet.mg')->subject('Leguichet contact');
         });
         session()->flash('message', "SUCCES! votre message a été bien envoyée");
-        return redirect('leguichet/contact');
+        return redirect('contact-us');
     }
 }
