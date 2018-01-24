@@ -470,7 +470,7 @@
 
                                                                         {!! Form::button('<i class="fa fa-fw fa-trash" aria-hidden="true"></i> Supprimer',
                                                                                 array(
-                                                                                    'class' 			=> 'btn  btn-deleted',
+                                                                                    'class' 			=> 'btn-deleted',
                                                                                     'id' 				=> 'delete_ticket_trigger',
                                                                                     'type' 				=> 'button',
                                                                                     'data-toggle' 		=> 'modal',
