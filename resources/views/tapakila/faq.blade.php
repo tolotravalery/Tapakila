@@ -65,9 +65,9 @@
                                                     <br>
                                                     <br> 2 - Cliquez sur la date que vous souhaitez
                                                     <br>
-                                                    <br> 3 - Selectionez la quantité de billets désirée
+                                                    <br> 3 - Selectionez la quantité de billet désirée
                                                     <br>
-                                                    <br> 4 - Choisissez vos billets parmi les listings disponibles
+                                                    <br> 4 - Choisissez vos billets parmi les listes disponibles
                                                     <br>
                                                     <br> 6 - Suivez les différentes étapes – vérifiez que votre adresse email, numéro de téléphone & adresse sont corrects
                                                     <br>
@@ -88,20 +88,6 @@
                                                     <br> Les billets faisant partie de la catégorie « Place non réservée » n'ont pas d'emplacement spécifique. Les billets faisant partie de la catégorie « admission générale » correspondent généralement à des places debout.
                                                 </label>
                                             </p>
-<!-- 
-                                            <p onclick="accord3()"><span style="cursor: pointer">Où mes places sereont-elles situés ?</span>
-                                                <br>
-                                                <label id="demo3" class="hidden padd">
-
-                                                    Les informations relatives au bloc et à la rangée figurant sur le billet sont indiquées sur la page de l'événement, lors de l'achat et sous Mon compte. La carte interactive figurant sur la page de l'événement vous aidera à déterminer votre emplacement.
-                                                    <br>
-                                                    <br> leguichet autorise des vendeurs tiers à vendre des billets sur sa plateforme, et transmet les informations relatives à l'emplacement telles que fournies par les vendeurs.
-                                                    <br>
-                                                    <br> N'oubliez pas que vous disposerez de places adjacentes si vous achetez des billets vendus sur une seule annonce, sauf indication contraire transmise lors du processus d'achat.
-                                                    <br>
-                                                    <br>
-                                                </label>
-                                            </p> -->
 
                                             <p onclick="accord4()"><span style="cursor: pointer">Puis-je acheter des billets personnalisés sur lesquels figure le nom de quelqu'un d'autre ?</span>
                                                 <br>
@@ -149,23 +135,11 @@
                                             <p onclick="accord8()"><span style="cursor: pointer">Puis-je retirer mes billets le jour de l'évènement ,plutôt que de les recevoir par courrier ?</span>
                                                 <br>
                                                 <label id="demo8" class="hidden padd">
-                                                    Non, si un billet a été programmé pour être livré, il ne peut pas être retiré.
-                                                    <br> Les organisateurs émettant le plus souvent les billets électroniques immédiatement.
+                                                    Non, vous ne le pouvez pas.L'envoi d'un billet est programmé automatiquement et il est unique
                                                     <br>
                                                     
                                                 </label>
                                             </p>
-
-                                            <p onclick="accord9()"><span style="cursor: pointer">Pourquoi le prix imprimé sur les billets est-il different de celui que j'ai payé ?</span>
-                                                <br><span id="demo9" class="hidden padd">
-
-											Le prix des billets mis en vente sur leguichet peut être identique, supérieur ou inférieur à la valeur faciale imprimée sur le billet.<br><br>
-
-											En raison d'une forte demande, le prix des billets pour les événements populaires peut être plus élevé que la valeur faciale. Cependant, de nombreux billets sur leguichet sont vendus à un prix inférieur à la valeur faciale.<br><br>
-
-											leguichet affiche toujours la valeur faciale du billet pour un événement dans la rubrique « Informations importantes » ou sur la « Page d'informations relatives au billet ».<br><br>
-												</span> </p>
-
                                         
                                         </div>
                                     </div>
