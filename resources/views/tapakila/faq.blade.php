@@ -92,7 +92,7 @@
                                             <p onclick="accord4()"><span style="cursor: pointer">Puis-je acheter des billets personnalisés sur lesquels figure le nom de quelqu'un d'autre ?</span>
                                                 <br>
                                                 <label id="demo4" class="hidden padd">
-                                                    Oui, Leguichet autorise des vendeurs tiers, notamment des particuliers, à mettre en vente des billets sur sa plateforme. Il se peut que le nom de l'acheteur d'origine figure sur les billets, ces billets sont valables. Vous n'êtes pas obligé(e) de posséder un billet à votre nom pour accéder à l'événement.
+                                                    Oui, leguichet autorise des vendeurs tiers, notamment des particuliers, à mettre en vente des billets sur sa plateforme. Il se peut que le nom de l'acheteur d'origine figure sur les billets, ces billets sont valables. Vous n'êtes pas obligé(e) de posséder un billet à votre nom pour accéder à l'événement.
                                                 </label>
                                             </p>
                                         </div>
@@ -222,17 +222,11 @@
 
                                     <div id="collapse-4" role="tabpanel" aria-labelledby="header-4" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
                                         <div class="panel-body">
-                                            <p onclick="accord15()"><span style="cursor: pointer">J'ai saisi une adresse e-mail incorrecte lors de l'inscription, comment puis-je la modifier ?</span>
-                                                <br>
-                                                <label id="demo15" class="hidden padd">
-                                                Consultez sur << <a href="{{url('/home')}}">mon compte</a> >>puis cliquez sur << modifier mes information>> au haut à droite
-                                                </label>
-                                            </p>
 
                                             <p onclick="accord16()"><span style="cursor: pointer">Comment modifier l'adresse e-mail de mon compte ?</span>
                                                 <br>
                                                 <label id="demo16" class="hidden padd">
-                                                    Consultez sur << <a href="{{url('/home')}}">mon compte</a> >>puis cliquez sur << modifier mes information>> au haut à droite.
+                                                    Consultez sur << <a href="{{url('/home')}}">mon compte</a> >>puis cliquez sur << modifier mes information>> en haut à droite.
                                                 </label>
                                             </p>
 
@@ -261,11 +255,11 @@
                                             <p onclick="accord20()"><span style="cursor: pointer">Qu'est-ce que leguichet ?</span>
                                                 <br>
                                                 <label id="demo20" class="hidden padd">
-                                                    leguichet est une plate-forme en ligne à Madagascar pour les billets d'événements sportifs, musicaux, et de divertissement en direct. leguichet vise à fournir aux acheteurs de billets la plus grande sélection de billets possibles pour des événements à Madagascar, et aide les vendeurs de billets, des personnes détenant un billet supplémentaire aux grandes organisations événementielles, à atteindre un large public.
+                                                    Leguichet est une plateforme en ligne à Madagascar pour les billets d'événements sportifs, musicaux, et de divertissement en direct. Leguichet vise à fournir aux acheteurs de billets la plus grande sélection de billets possibles pour des événements à Madagascar, et aide les vendeurs de billets, des personnes détenant un billet supplémentaire aux grandes organisations événementielles, à atteindre un large public.
                                                     <br>
-                                                    <br> leguichet est en partenariat avec un grand nombre des personnes les plus éminentes dans le sport et le divertissement, et a aidé des clients venant de presque tous à Madagascar à avoir accès à des billets dans la langue, devise, et depuis l'appareil de leur choix.
+                                                    <br> Leguichet est en partenariat avec un grand nombre de personnes les plus éminentes dans le sport et le divertissement, et a aidé des clients venant de presque tous à Madagascar à avoir accès à des billets dans la langue, devise, et depuis l'appareil de leur choix.
                                                     <br>
-                                                    <br> Pour toute demande client, merci de visiter la section Aide du site internet leguichet.
+                                                    <br> Pour toute demande client, merci de visiter la section Aide du site Internet leguichet.
                                                 </label>
                                             </p>
 

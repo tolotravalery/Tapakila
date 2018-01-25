@@ -35,8 +35,8 @@
                     <br>
                     <p style="text-align: justify;">En accédant et/ou en utilisant ce site Web, vous acceptez de vous conformer et d'être lié par les Conditions d'Utilisation figurant ci-dessous. Ces Conditions d'Utilisation peuvent faire 
                     l'objet de modifications et nous vous invitons dès lors à vérifier régulièrement leur contenu afin de prendre connaissance des modifications éventuelles. </p>
-                    <p style="text-align: justify;"><b>Editeur du site Web.</b>Le présent site Web est édité par leguichet.mg, dont le siège social est à Mahamasina. </p>
-                    <p style="text-align: justify;"><b>Contenu de ce site Web.</b>. Ce site Web fournit principalement des informations sur des sujets liés aux évènements se passés au coin du monde:
+                    <p style="text-align: justify;"><b>Editeur du site Web.</b> Le présent site Web est édité par leguichet.mg, dont le siège social est à Mahamasina. </p>
+                    <p style="text-align: justify;"><b>Contenu de ce site Web.</b>. Ce site Web fournit principalement des informations sur des sujets liés aux évènements se passant au coin du monde,
                         liés à la :</p><br>
                     <p style="text-align: justify;"><b>Conditions générales d'utilisation du site Web par les
                             utilisateurs.</b>L'utilisateur s'engage à ne pas utiliser ce site Web ou l'un des services associés dans un but commercial sans 

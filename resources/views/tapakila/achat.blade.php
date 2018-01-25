@@ -77,7 +77,7 @@
                     <br>
 
                     <!-- Y-A-T-IL DES FRAIS DE E-TICKETS ? -->
-                    <h4><strong>Y-a-t-il des frais de billet électronique?</strong></h4>
+                    <h4><strong>Y-a-t-il des frais de billets électroniques?</strong></h4>
                     <p>Oui, les frais associés spécifiquement aux billets électroniques sont mentionnés à chaque évènement.</p>
                     <br>
 
