@@ -279,7 +279,7 @@
                                     </div>
                                     <div class="form-group form-group-translation et">
                                         <label class="control-label">
-                                            <span>Notes additionnel sur l'heure</span>
+                                            <span>Notes additionnelle sur l'heure</span>
                                         </label>
                                         <textarea class="form-control" style=" word-wrap: break-word; resize: horizontal;
                                         height: 54px;" name="note_time">{{$event->additional_note_time}}</textarea>
@@ -1005,7 +1005,7 @@
 
                                 </div>
                                 <div class="form-group">
-                                    <label for="usr">La description</label>
+                                    <label for="usr">Description</label>
                                     <input type="text" name="description" class="form-control"/>
                                     <span class="help-block">
                                         <i>Par exemple : "Préparez-vous à montrer votre carte étudiante"</i>
@@ -1037,7 +1037,7 @@
                                     @if($i > 1)
                                         <label>Date du ticket <span style="color:red">*</span></label>
                                         <span class="help-block">
-                                            <i>Votre événement a @php echo $i @endphp jours. Vous
+                                            <i>Votre événement dure @php echo $i @endphp jours. Vous
                                                 devriez entrer la date de ce ticket et créer à nouveau un ticket pour les autres dates</i>
                                         </span>
                                         {!! Form::text('date',\Carbon\Carbon::parse($event->date_debut_envent)->format('Y-m-d') , ['class' => 'form-control', 'id' => 'date','placeholder'=>'','required', 'autofocus']) !!}
@@ -1045,9 +1045,7 @@
                                             <i>Ou simplement:</i>
                                         </span>
                                         <input type="checkbox" name="isValable"/>
-                                        <i>Ce ticket est valable dans tous les
-                                            jours de
-                                            l'événement.</i>
+                                        <i>Ce ticket est toujours valable</i>
                                     @else
                                         {!! Form::hidden('date', \Carbon\Carbon::parse($event->date_debut_envent)->format('Y-m-d'), ['class' => 'form-control', 'id' => 'date','placeholder'=>'','required', 'autofocus']) !!}
                                     @endif
@@ -1071,9 +1069,9 @@
                                 </div>
                             </div>
                             <br/>
-                            <label>Disponible entre les dates, y compris <span style="color:red">*</span> :</label>
+                            <label>Disponible entre les dates <span style="color:red">*</span> :</label>
                             <span class="help-block">
-                                <i>Date debut et date fin vente de ce ticket</i>
+                                <i>Ticket</i>
                             </span>
                             <div class="row" id="event-duration">
                                 <div class="row">
@@ -1081,7 +1079,7 @@
                                         <div class="form-group">
                                             <div class="input-group">
                                                 <div class="input-group-addon">
-                                                    <i class="fa fa-calendar"></i>
+                                                    <i>Du</i>
                                                 </div>
                                                 {!! Form::text('date_debut_vente', null, ['class' => 'form-control', 'id' => 'date','placeholder'=>'DD/MM/YYYY','required', 'autofocus']) !!}
                                             </div>
@@ -1091,7 +1089,7 @@
                                         <div class="form-group">
                                             <div class="input-group">
                                                 <div class="input-group-addon">
-                                                    <i>à</i>
+                                                    <i>Au</i>
                                                 </div>
                                                 {!! Form::text('date_fin_vente', null, ['class' => 'form-control', 'id' => 'date','placeholder'=>'DD/MM/YYYY','required', 'autofocus']) !!}
                                             </div>

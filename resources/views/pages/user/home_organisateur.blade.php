@@ -72,7 +72,7 @@
                 @endif
                 <div class="padding-custom">
                     <ul class="tabs">
-                        <li class="active" rel="tab1"><b>Mes Ventes<br> passés</b></li>
+                        <li class="active" rel="tab1"><b>Mes Ventes<br> passées</b></li>
                         <li rel="tab2"><b>Mes ventes <br> Actuelles</b></li>
                         <li rel="tab3"><b>Mes Achats <br>passés</b></li>
                         <li rel="tab4"><b>Mes Achats<br> Actuels </b></li>
