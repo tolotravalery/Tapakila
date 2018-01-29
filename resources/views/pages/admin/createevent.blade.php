@@ -143,7 +143,7 @@
                                             <span class="input-group-btn">
 												<button type="button" class="btn btn-default image-preview-clear"
                                                         style="display:none; ">
-													<span class="glyphicon  glyphicon-remove"></span> Suprimmer
+													<span class="glyphicon  glyphicon-remove"></span> Supprimmer
                                         </button>
                                         <div class="btn btn-default image-preview-input">
                                             <span class="glyphicon gly-icon2 glyphicon-folder-open"></span>
@@ -245,7 +245,7 @@
                                         </div>
                                         <div class="form-group form-group-translation et">
                                             <label class="control-label">
-                                                <span>Notes additionnel sur l'heure</span>
+                                                <span>Note additionnelle sur l'heure</span>
                                             </label>
                                             <textarea class="form-control"
                                                       style=" word-wrap: break-word; resize: horizontal; height: 54px;"

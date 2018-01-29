@@ -32,8 +32,7 @@
                 <div class="about-bg">
                     <!-- QU'EST-CE QU'UN E-TICKET ? -->
                     <h4><strong>Qu'est-ce qu'un billet électronique ?</strong></h4>
-                    <p>Le billet électronique est disponible sur certains événements réservés sur internet. À la différence du billet traditionnel, le billet électronique est un billet imprimable chez soi en couleur ou en noir et blanc à partir de votre imprimante reliée à votre ordinateur. Il utilise un code unique et différent pour chaque billet. Chaque billet électronique est scanné à l’entrée de la salle et sa validité est contrôlée. 
-                    Donc, si vous achetez deux billets électroniques, vous imprimerez deux billets sur du papier format A4 blancs et vierge recto-verso.</p><br>
+                    <p> Un billet éléctronique (ou numerique) est un billet consutable via un ordinateur ou un smartphone.Il contient un QRCode(image codée) unique et ce dernier ne peut être scanné qu'avec un appareil ou un lecteur spécial . Vous pouvez imprimer le billet sur un papier blanc vierge ou le scanné directement dans votre smartphone</p><br>
                     <img src="{{url('/')}}/public/img/guide.png"><br>
 
                     <!-- QUEL EST L'AVANTAGE PRINCIPAL DU E-TICKET ? -->
