@@ -495,12 +495,9 @@
                                                 <br>
                                                 <label id="demo24" class="hidden padd">
 
-                                                    leguichet autorise la mise en vente de billets sur sa plateforme. Pour vendre vos billets en trop :<br><br>
+                                                    leguichet autorise la mise en vente de billets sur sa plateforme.<br><br>
 
-                                                    Cliquez sur le bouton « Ajout votre événenement » en haut à droite de la page d'accueil.
-                                                    Recherchez l'événement pour lequel vous souhaitez vendre des billets. Si vous ne trouvez pas votre événement, indiquez-le en cliquant ici, et nous l'ajouterons à notre site web
-                                                    Suivez les étapes de saisie des informations relatives à votre billet. Important : indiquez la manière dont vous souhaitez être payés(e) une fois que les billets auront été vendus.
-                                                    Vérifiez et confirmez votre annonce afin qu'elle puisse être mise à la disposition de millions d'acheteurs potentiels dans le monde entier.<br><br>
+                                                   Cliquez sur le bouton "Ajouter votre événement" en haut, à droite de la page d'accueil puis suivez scrupuleusement les étapes indiquées dans le site en suite vérifiez et confirmer votre annonce pour le mettre en ligne.  <br><br>
 
                                                     Choses importantes à savoir lors de la mise en vente de vos billets :<br><br>
 

@@ -71,7 +71,7 @@ return [
     'emailRequired'     => 'L\'email est requis',
     'emailInvalid'      => 'L\'email est invalide',
     'passwordRequired'  => 'Mot de passe requis',
-    'PasswordMin'       => 'Le mot de passe doit avoir au moins 6 caractères',
+    'PasswordMin'       => 'Le mot de passe doit contenir au moins 6 caractères',
     'PasswordMax'       => 'La longueur maximale du mot de passe est de 20 caractères',
     'captchaRequire'    => 'Captcha est requis',
     'CaptchaWrong'      => 'Mauvais captcha, veuillez réessayer.',

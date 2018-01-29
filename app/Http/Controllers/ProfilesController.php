@@ -274,7 +274,7 @@ class ProfilesController extends Controller
         }
         $niova = $request->input('changer');
         session()->flash('niova', $niova);
-        session()->flash('message', "SUCCES! Votre infomation a été mis à jour.");
+        session()->flash('message', "SUCCES! Vos infomations ont été  mises à jour avec succès!");
         return redirect(url('profile/'.$user->id.'/edit'));
 
     }

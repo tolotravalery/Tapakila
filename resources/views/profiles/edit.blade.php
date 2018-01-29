@@ -25,7 +25,7 @@
                         {!! Form::text('first_name', old('first_name'), array('id' => 'disabledInput', 'class' => 'form-control form-text', 'placeholder' => 'First name')) !!}
                         <label for="usr">Adresse e-mail :</label>
                         {!! Form::text('email', old('email'), array('id' => 'email', 'class' => 'form-control form-text', 'placeholder' => 'user\'s mail')) !!}
-                        <label for="usr">Mots de passe :</label>
+                        <label for="usr">Mot de passe :</label>
                         {!! Form::password('password', array('id' => 'password', 'class' => 'form-control form-text-1', 'placeholder' => '***********', 'autocomplete' => 'new-password')) !!}
                         @if ($errors->has('password'))
                             <span class="help-block">
@@ -39,7 +39,7 @@
                                                     </span>
                         @endif
 
-                        <input type="hidden" name="changer" value="Votre infomation a été mis à jour.">
+                        <input type="hidden" name="changer" value="Vos infomations ont été mises à jour avec succès!">
                         <div class="row">
                             <div class="col-md-6 ">
                                 <div class="check">
