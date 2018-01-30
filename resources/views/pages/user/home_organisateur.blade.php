@@ -186,7 +186,7 @@
                                             @endif
                                         </td>
                                         <td data-label=""><p><a href="organisateur/event/{{$e->id}}/edit" alt="Edit"
-                                                                class="rapport">Editer</a></p>
+                                                                class="rapport">Modifier</a></p>
                                         </td>
                                         <td data-label="">
                                             <p><a href="organisateur/rapport/{{$e->id}}" alt="Edit" class="rapport">Rapport</a>
