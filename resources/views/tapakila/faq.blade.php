@@ -257,7 +257,7 @@
                                                 <label id="demo20" class="hidden padd">
                                                     Leguichet est une plateforme en ligne à Madagascar pour les billets d'événements sportifs, musicaux, et de divertissement en direct. Leguichet vise à fournir aux acheteurs de billets la plus grande sélection de billets possibles pour des événements à Madagascar, et aide les vendeurs de billets, des personnes détenant un billet supplémentaire aux grandes organisations événementielles, à atteindre un large public.
                                                     <br>
-                                                    <br> Leguichet est en partenariat avec un grand nombre de personnes les plus éminentes dans le sport et le divertissement, et a aidé des clients venant de presque tous à Madagascar à avoir accès à des billets dans la langue, devise, et depuis l'appareil de leur choix.
+                                                    <br> Leguichet est en partenariat avec un grand nombre de personnes les plus éminentes dans le sport et le divertissement, et a aidé des clients dans tous à Madagascar à avoir accès à des billets dans la langue, devise, et depuis l'appareil de leur choix.
                                                     <br>
                                                     <br> Pour toute demande client, merci de visiter la section Aide du site Internet leguichet.
                                                 </label>
