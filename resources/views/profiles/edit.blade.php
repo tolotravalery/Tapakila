@@ -39,7 +39,7 @@
                                                     </span>
                         @endif
 
-                        <input type="hidden" name="changer" value="Vos infomations ont été mises à jour avec succès!">
+                        <input type="hidden" name="changer" value="Votre infomation a été mis à jour avec succè!">
                         <div class="row">
                             <div class="col-md-6 ">
                                 <div class="check">
