@@ -257,7 +257,7 @@
                                                 <label id="demo20" class="hidden padd">
                                                     Leguichet est une plateforme en ligne à Madagascar pour les billets d'événements sportifs, musicaux, et de divertissement en direct. Leguichet vise à fournir aux acheteurs de billets la plus grande sélection de billets possibles pour des événements à Madagascar, et aide les vendeurs de billets, des personnes détenant un billet supplémentaire aux grandes organisations événementielles, à atteindre un large public.
                                                     <br>
-                                                    <br> Leguichet est en partenariat avec un grand nombre de personnes les plus éminentes dans le sport et le divertissement, et a aidé des clients dans tous à Madagascar à avoir accès à des billets dans la langue, devise, et depuis l'appareil de leur choix.
+                                                    <br> Leguichet est en partenariat avec un grand nombre de personnes les plus éminentes dans le sport et le divertissement, et a aidé des clients dans tous Madagascar à avoir accès à des billets dans la langue, devise, et depuis l'appareil de leur choix.
                                                     <br>
                                                     <br> Pour toute demande client, merci de visiter la section Aide du site Internet leguichet.
                                                 </label>
@@ -561,23 +561,12 @@
 
                                 <div class="panel panel-default">
                                     <div role="tab" id="header-8" class="panel-heading">
-                                        <h4 class="panel-title"><a aria-controls="collapse-8" aria-expanded="false" data-parent="#1" data-toggle="collapse" href="#collapse-8" role="button" class="collapsed">Recevez votre paiement</a></h4>
+                                        <h4 class="panel-title"><a aria-controls="collapse-8" aria-expanded="false" data-parent="#1" data-toggle="collapse" href="#collapse-8" role="button" class="collapsed">Méthode de paiement</a></h4>
                                     </div>
 
                                     <div id="collapse-8" role="tabpanel" aria-labelledby="header-8" id="accordion" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
                                         <div class="panel-body">
-                                            <p onclick="accord33()"><span style="cursor: pointer">Quand vais-je recevoir un paiement pour ma vente ?</span>
-                                                <br>
-                                                <label id="demo33" class="hidden padd">
-
-                                                    Vous pouvez modifier votre méthode de paiement à tout moment jusqu'à la réception du paiement. Rendez-vous à la section Méthodes de paiement pour modifier les informations.  <br><br>
-                                                    Si vous avez ajouté une nouvelle méthode de paiement, n'oubliez pas de cliquer sur l'icône « étoile » pour que cette méthode de paiement soit définie par défaut.
-
-                                                    <br><br>
-                                                </label>
-                                            </p>
-
-                                            <p onclick="accord34()"><span style="cursor: pointer">Comment modifier la méthode de paiement choisie pour la réception des paiements ?</span>
+                                            <p onclick="accord34()"><span style="cursor: pointer">Comment modifier la méthode de paiement choisit pour la réception des paiements ?</span>
                                                 <br>
                                                 <label id="demo34" class="hidden padd">
                                                     Vous pouvez modifier votre méthode de paiement à tout moment jusqu'à la réception du paiement. Rendez-vous à la section Méthodes de paiement pour modifier les informations. <br><br>
@@ -622,37 +611,12 @@
                                                 </label>
                                             </p>
 
-                                            <p onclick="accord16()"><span style="cursor: pointer">Comment modifier l'adresse e-mail de mon compte ?</span>
-                                            <br>
-                                            <label id="demo16" class="hidden padd">
-                                                Consultez <a href="{{url('/home')}}">mon compte</a> puis cliquez sur << modifier mes information>> au haut à droite.
-                                            </label>
-                                        </p>
-
                                             <p onclick="accord38()"><span style="cursor: pointer">Comment réinitialiser mon mot de passe ?</span>
                                                 <br>
                                                 <label id="demo38" class="hidden padd">
-                                                    Cliquez <a href="{{ route('password.request') }}">ici</a> pour réinitialiser votre mot de passe.
+                                                    Cliquez sur le lien <a href="{{ route('password.request') }}">"Modifier mes informations"</a> 
                                                 </label>
                                             </p>
-
-                                            
-                                            <p onclick="accord40()"><span style="cursor: pointer">Pourquoi est-ce que je ne peux pas voir ma commande ou vente dans mon compte ?</span>
-                                                <br>
-                                                <label id="demo40" class="hidden padd">
-                                                    Les deux principales raisons pour lesquelles les clients ne voient pas leur commande ou leur vente sont: <br><br>
-                                                    Il se peut que vous soyez connecté sur le mauvais compte
-                                                    est probable que vous ayez effectué votre achat en étant connecté depuis un deuxième compte à l'aide de l'une de vos autres adresses email, ou par le bais de Facebook. <br><br>
-                                                    Vous avez fait une faute de frappe dans votre adresse email en utilisant la procédure de paiement pour invité
-                                                    Lorsque vous payez en tant qu'invité, l'adresse email que vous entrez deviend l'adresse email de votre compte et celle grâce à laquelle vous pourrez trouver votre commande. <br><br>
-                                                    Afin de résoudre ceci:<br><br>
-                                                    1 - Consultez vos Paramètres de Compte et prenez note de l'adresse email de ce compte.<br><br>
-                                                    2 - Déconnectez-vous et tentez de vous reconnecter à l'aide d'une autre adresse email que vous pouvez avoir, ou bien à l'aide de Facebook, afin de voir si vous possédez un deuxième compte sur lequel votre commande pourrait se trouver.<br><br>
-                                                    3 - Si vous ne parvenez toujours pas à trouver votre commande ou vente, rendez-vous sur notre page mot de passe oublié / aide à la connection.<br><br>
-                                                </label>
-                                            </p>
-
-
                                         </div>
                                     </div>
                                 </div>
