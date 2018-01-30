@@ -497,7 +497,7 @@
 
                                                     leguichet autorise la mise en vente de billets sur sa plateforme.<br><br>
 
-                                                   Cliquez sur le bouton "Ajouter votre événement" en haut, à droite de la page d'accueil puis suivez scrupuleusement les étapes indiquées dans le site en suite vérifiez et confirmer votre annonce pour le mettre en ligne.  <br><br>
+                                                   Cliquez sur le bouton "Ajouter votre événement" en haut, à droite de la page d'accueil puis suivez scrupuleusement les étapes indiquées dans le site ensuite vérifiez et confirmer votre annonce pour le mettre en ligne.  <br><br>
 
                                                     Choses importantes à savoir lors de la mise en vente de vos billets :<br><br>
 
