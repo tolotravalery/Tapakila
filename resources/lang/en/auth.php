@@ -13,13 +13,13 @@ return [
     |
     */
 
-    'failed' => 'Ces informations ne correspondent pas à nos enregistrements..',
+    'failed' => 'Ces informations ne correspondent pas à nos enregistrements.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
 
     // Activation items
     'sentEmail'         => 'We have sent an email to :email.',
-    'clickInEmail'      => 'Si aucun message ne vous sera envoyé cliquer sur le bouton ci-dessous.',
-    'anEmailWasSent'    => 'Pour terminer votre inscription. un message de confirmation sera envoyé à votre adresse e-mail.',
+    'clickInEmail'      => 'Si vous n\'avez reçu aucun message, cliquez sur le boutton ci-dessous.',
+    'anEmailWasSent'    => 'veulliez ouvrir votre boite email,un message de confirmation y est envoyé.',
     'clickHereResend'   => 'Click here to resend the email.',
     'successActivated'  => 'Votre compte a été activé avec succès.',
     'unsuccessful'      => 'Your account could not be activated; please try again.',
