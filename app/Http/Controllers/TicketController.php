@@ -98,9 +98,9 @@ class TicketController extends Controller
             $typeImageEvent = pathinfo($eventImagePath, PATHINFO_EXTENSION);
             $imageEvent = file_get_contents($eventImagePath);
             $imageEventBase64 = 'data:image/' . $typeImageEvent . ';base64,' . base64_encode($imageEvent);
-            
+            $price=$ticket->price;
             $pdf->setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])
-                ->loadHTML(view('pdf.ticket')->with(array('image' => $imageQrBase64,'eventImage'=>$imageEventBase64, 'event' => $eventPdf))->render());
+                ->loadHTML(view('pdf.ticket')->with(array('image' => $imageQrBase64,'eventImage'=>$imageEventBase64, 'event' => $eventPdf,'price'=>$price))->render());
             $pdf->setPaper('a5', 'portrait')->save($PdfDestinationPath);
 
             Tapakila::create([
