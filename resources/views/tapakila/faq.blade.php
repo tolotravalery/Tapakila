@@ -223,19 +223,14 @@
                                     <div id="collapse-4" role="tabpanel" aria-labelledby="header-4" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
                                         <div class="panel-body">
 
-                                            <p onclick="accord16()"><span style="cursor: pointer">Comment modifier l'adresse e-mail de mon compte ?</span>
+                                            <p onclick="accord16()"><span style="cursor: pointer">Comment modifier les informations de mon compte</span>
                                                 <br>
                                                 <label id="demo16" class="hidden padd">
-                                                    Consultez sur << <a href="{{url('/home')}}">mon compte</a> >>puis cliquez sur << modifier mes information>> en haut à droite.
+                                                    En haut à droite de votre page cliquer sur "<a href="{{url('/home')}}"> mon compte </a>" pius allez sur "modifier mes informations" ensuite cliquer sur le bouton " Modifier " pour valider vos modifications.
+
                                                 </label>
                                             </p>
 
-                                            <p onclick="accord17()"><span style="cursor: pointer">Comment réinitialiser mon mot de passe ?</span>
-                                                <br>
-                                                <label id="demo17" class="hidden padd">
-                                                    Cliquez <a href="{{ route('password.request') }}">ici</a> pour réinitialiser votre mot de passe.
-                                                </label>
-                                            </p>
 
                                            
 
