@@ -89,7 +89,7 @@
                                                         <div class="col-md-9 col-xs-9 ">
                                                             {{--<a>--}}
                                                             <div class="prixfx">
-                                                                @if($event->tickets()->count() > 0)
+                                                                @if($event->tickets->where('date_debut_vente','<=',date('Y-m-d H:i:s'))->where('date_fin_vente','>',date('Y-m-d H:i:s'))->count() > 0)
                                                                     <i class="fa fa-tag prices"></i>A
                                                                     partir de <b
                                                                             class="prx">{{ (int) $event->tickets()->orderBy('price','asc')->take(1)->get()[0]->price  }}</b>
@@ -99,7 +99,6 @@
                                                                     disponible
                                                                 @endif
                                                             </div>
-                                                            {{--</a>--}}
                                                             <a href="{{url('event/show',[$event->id])}}">
                                                                 <div class="price"><i
                                                                             class="glyphicon glyphicon-time time"></i>{{ \Carbon\Carbon::parse($event->date_debut_envent)->format('H:i')}}
@@ -107,7 +106,7 @@
                                                             </a>
                                                             <a href="{{url('event/show',[$event->id])}}">
                                                                 <div class="date"><i
-                                                                            class="glyphicon glyphicon-map-marker position"></i>{{ $event->localisation_adresse }}
+                                                                            class="glyphicon glyphicon-map-marker position"></i>{{ str_limit($event->localisation_adresse, $limit = 15, $end = ' ...')}}
                                                                 </div>
                                                             </a>
                                                         </div>

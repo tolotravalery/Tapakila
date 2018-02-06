@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Shopping;
 
+use App\APIPayment\MVola;
 use App\APIPayment\OrangeMoney;
 use App\Models\Menus;
 use App\Models\Sous_menus;
@@ -34,58 +35,20 @@ class CheckoutController extends Controller
                 Session::put('notif_token', $payementOrange->notif_token);
                 return redirect($payementOrange->payment_url);
             } elseif ($payement->slug == 'telma') {
-//                // Section de configuration TELMA
-//                $MPGW_BASEURL = "https://www.telma.net/mpw/v2";
-//                $MPGW_WS_URL = $MPGW_BASEURL . "/ws/MPGwApi/v2";
-//                $MPGW_TRANSACTION_URL = $MPGW_BASEURL . "/transaction/";
-//                $APIVersion = "2.0.0";
-//                // Fin de la section de configuration TELMA
-//                $loginws = "contact@leguichet.mg"; // Login pour le web service configuré par le marchand
-//                $pwdws = "123456"; // pwd pour le web service configuré par le marchand
-//                $hash = "f1abc94372523a256021af99d5ec96e3433a0dd87ba9b62639f3f2561bd6240f"; // Signature pour le web service configuré par le marchand
-//
-//                $parameters = new \stdClass();
-//                $parameters->Login_WS = $loginws;
-//                $parameters->Password_WS = $pwdws;
-//                $parameters->HashCode_WS = $hash;
-//                $parameters->ShopTransactionAmount = 10;
-//                $parameters->ShopTransactionID = date('YmdHis');
-//                $parameters->ShopTransactionLabel = 'Le Guichet';
-//                $parameters->ShopShippingName = 'Koera';
-//                $parameters->ShopShippingAddress = '';
-//                $parameters->UserField1 = "";
-//                $parameters->UserField2 = "";
-//                $parameters->UserField3 = "";
-//
-//                /*$parameters = array(
-//                    new SOAP_Value(0, 'string', $loginws),
-//                    new SOAP_Value(1, 'string', $pwdws),
-//                    new SOAP_Value(2, 'string', $hash),
-//                    new SOAP_Value(3, 'int', 10),
-//                    new SOAP_Value(4, 'string', date('Ymdhis')),
-//                    new SOAP_Value(5, 'string', 'Le Guichet '),
-//                    new SOAP_Value(6, 'string', 'Koera'),
-//                    new SOAP_Value(6, 'string', ''),
-//                );*/
-//
-//                $ws = new \SoapClient($MPGW_WS_URL);
-//                $retour = $ws->WS_MPGw_PaymentRequest($APIVersion, $parameters);
-//
-//                if ($retour->APIVersion != $APIVersion) {
-//                    echo "incorrect API Version";
-//                    die();
-//                } elseif ($retour->ResponseCode != 0) {
-//                    echo "ERROR : " . $retour->ResponseCodeDescription;
-//                    die();
-//                } else {
-//                    // Appel OK, redirection sur la page de paiement de la plateforme
-//                    $MPGw_Token = $retour->MPGw_TokenID;
-//                    header('Location: ' . $MPGW_TRANSACTION_URL . $MPGw_Token);
-//                }
+                $achat_reference = date('m') . '' . date('y') . '' . rand(1, 10000);
+                Session::put('$achat_reference', $achat_reference);
+                $mvola = new MVola($req->input('amount'), $achat_reference, Auth::user());
+                $check = $mvola->getPaymentUrl();
+                if ($check['status']) {
+                    Session::put('MPGwToken', $check['token']);
+                    return redirect($check['message']);
+                } else {
+                    echo $check['message'];
+                    die();
+                }
             }
         }
         return redirect('/');
-
     }
 
     function saveOrange(Request $request)
@@ -151,15 +114,18 @@ class CheckoutController extends Controller
             return redirect(url('/home'));
         }
     }
-    
-    function proxyOrange(){
-        
+
+    function proxyOrange()
+    {
+
     }
 
 
     function saveTelma(Request $request)
     {
-
+        //check status
+        $mvola = new MVola();
+        dd($mvola->getNotification(Session::get('MPGwToken')));
     }
 
     function pay($users_id, $id)
@@ -230,6 +196,7 @@ class CheckoutController extends Controller
                     }
                 }
             });
+            session()->flash('status_payment', "Votre paiement est réussi.");
             return redirect(url('/home'));
         } else {
             session()->flash('status_payment', "Votre paiement n'est pas réussi.");
@@ -240,15 +207,15 @@ class CheckoutController extends Controller
 
     function NotifyOrange(Request $req)
     {
-        $handle = fopen("Logs/" . date('Y-m-d') . '.txt', 'a+');
+        $handle = fopen("Logs/orange_" . date('Y-m-d') . '.txt', 'a+');
         $data = json_encode(array('status' => $req->input('status'), 'notif_token' => $req->input('notif_token'), 'txnid' => $req->input('txnid')));
         fwrite($handle, $data . "\n", 4096);
     }
 
     function NotifyTelma(Request $req)
     {
-        $handle = fopen("Logs/" . date('Y-m-d') . '.txt', 'a+');
-        $data = json_encode(array('status' => $req->input('status'), 'notif_token' => $req->input('notif_token'), 'txnid' => $req->input('txnid')));
+        $handle = fopen("Logs/telma_" . date('Y-m-d') . '.txt', 'a+');
+        $data = json_encode(array('Shop_TransactionID' => $req->input('Shop_TransactionID')));
         fwrite($handle, $data . "\n", 4096);
     }
 
