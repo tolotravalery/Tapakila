@@ -70,6 +70,16 @@
                     </div>
                     <br/>
                 @endif
+                @if (session('status_payment'))
+                    <div class="container">
+                        <div style="margin-left: 36px;">
+                            <div class="alert alert-success col-md-7" style="text-align: left;">
+                                <p style="margin-left: 5px;">{{session('status_payment')}}></p>
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
+                @endif
                 <div class="padding-custom">
                     <ul class="tabs">
                         <li class="active" rel="tab1"><b>Mes Ventes<br> passées</b></li>
@@ -207,7 +217,7 @@
                                     <th scope="col"><b class="bold">Tickets</b></th>
                                     <th scope="col"><b class="bold">Date Achat</b></th>
                                     <th scope="col"><b class="bold">Nombre</b></th>
-                                    {{--<th scope="col"><b class="bold">PDF File</b></th>--}}
+                                    <th scope="col"><b class="bold">QR code</b></th>
                                 </tr>
                                 </thead>
 
@@ -217,7 +227,7 @@
                                         @php
                                             $event = $a->events[0];
                                         @endphp
-                                        @if(date($event->date_debut_envent) < date('now'))
+                                        @if($event->date_fin_event < date('Y-m-d H:i:s'))
                                             @if($a->pivot->status_payment!='FAILED')
                                                 <tr>
                                                     <td data-label="">
@@ -229,13 +239,15 @@
                                                     <td data-label="Tickets">{{$a->type}}</td>
                                                     <td data-label="Date">{{\Carbon\Carbon::parse($a->pivot->date_achat)->format('d M Y H:i')}}</td>
                                                     <td data-label="Quantité">{{$a->pivot->number}}</td>
-                                                    @php
-                                                        $billet_acheter = App\Models\TicketUser::find($a->pivot->id);
-                                                    @endphp
-                                                    @foreach($billet_acheter->tapakila as $billet)
-                                                        <img src="{{url('/public/qr_code/'.$billet->qr_code)}}"
-                                                             class="image_panier"><br/>
-                                                    @endforeach
+                                                    <td data-label="Qrcode">
+                                                        @php
+                                                            $billet_acheter = App\Models\TicketUser::find($a->pivot->id);
+                                                        @endphp
+                                                        @foreach($billet_acheter->tapakila as $billet)
+                                                            <img src="{{url('/public/qr_code/'.$billet->qr_code)}}"
+                                                                 class="image_panier"><br/>
+                                                        @endforeach
+                                                    </td>
                                                 </tr>
                                             @endif
                                         @endif
@@ -255,6 +267,7 @@
                                     <th scope="col"><b class="bold">Date Achat</b></th>
                                     <th scope="col"><b class="bold">Nombre</b></th>
                                     {{--<th scope="col"><b class="bold">PDF File</b></th>--}}
+                                    <th scope="col"><b class="bold">QR code</b></th>
                                     <th scope="col"><b class="bold"></b></th>
                                 </tr>
                                 </thead>
@@ -265,7 +278,7 @@
                                         @php
                                             $event = $a->events[0];
                                         @endphp
-                                        @if(date($event->date_debut_envent) >= date('now'))
+                                        @if($event->date_fin_event >= date('Y-m-d H:i:s'))
                                             <tr>
                                                 <td data-label="">
                                                     <div class="thumbnail imgpaiment">

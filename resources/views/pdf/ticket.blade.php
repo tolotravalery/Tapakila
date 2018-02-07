@@ -1,14 +1,14 @@
 <table class="wrapper" width="100%" cellpadding="0" cellspacing="0" >
     <tr>
         <td style="background-color: #d70506;padding: 6px -6px 6px 6px;">
-            <img src="{{ url('/') }}/public/img/logo.png" style="padding-left: -5px;">
+            <img src="{!! $logo !!}" style="padding-left: -5px;">
         </td>
     </tr>
 </table>
 <table class="wrapper" width="100%" style="margin-top:-20px;margin-left:18px; ">
     <tr>
         <td>
-            <h3 style="font-size: 30px; font-family:sans-serif;color:#333;"><b>{{strtoupper($event->title)}}</b></h3>
+            <h3 style="font-size: 30px; font-family:sans-serif;color:#333;"><b>{{str_limit(strtoupper($event->title),$limit=15,$end=' ...')}}</b></h3>
             <p style="font-family:sans-serif;font-size: 18px;color: #d70506;padding-top: -34px;margin: 0 0 10px;">{{$event->localisation_nom }} {{$event->localisation_adresse}}</p>
         </td>
     </tr>
@@ -35,15 +35,16 @@
 <table class="wrapper" width="100%" cellpadding="0" cellspacing="0"style="margin-top:-20px">
     <tr>
         <td align="center">
-            <img src="{!! $image !!}" width="200px" height="200px">
+            <img src="{!! $image !!}" width="300px" height="300px">
         </td>
     </tr>
 </table>
+<br/>
 <div class="container">
     <div class="row ">
         <div class="col-lg-offset-3 col-lg-6">
             <div>
-                <img src="{!! $eventImage !!}" style="width: 100%; height: 200px">
+                <img src="{!! $eventImage !!}" style="width: 100%; height: 100px">
             </div>
         </div>
     </div>
