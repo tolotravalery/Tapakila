@@ -29,7 +29,7 @@ class MVola
         $this->user = $user;
     }
 
-    public function getPaymentUrl()
+    public function getPaymentUrl($userField)
     {
         $parameters = new \stdClass();
         $parameters->Login_WS = $this->loginws;
@@ -40,7 +40,7 @@ class MVola
         $parameters->ShopTransactionLabel = "Ticket de Le Guichet";
         $parameters->ShopShippingName = $this->user->name;
 //        $parameters->ShopShippingAddress = $this->user->email;
-        $parameters->UserField1 = "";
+        $parameters->UserField1 = $userField;
         $parameters->UserField2 = "";
         $parameters->UserField3 = "";
         $ws = new \SoapClient($this->MPGW_WS_URL);
@@ -80,7 +80,7 @@ class MVola
             echo "ERROR : " . $retour->ResponseCodeDescription;
             die();
         } else {
-            return $retour->TransactionStatusCode;
+            return array('status'=>$retour->TransactionStatusCode,'user_field'=>$retour->UserField1);
         }
 
     }
