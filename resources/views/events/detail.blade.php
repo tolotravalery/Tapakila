@@ -493,7 +493,7 @@
             });
         }
         $(document).ready(function () {
-            $('#acheter').prop('disabled', true);
+            $('#acheter').prop('disabled', false);
         });
 
     </script>
