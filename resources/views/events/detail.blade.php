@@ -191,7 +191,7 @@
                                                                         </li>
                                                                         <li>
                                                                             <input class="form-control text-center ui tests "
-                                                                                   readonly value="1" type="text"
+                                                                                   readonly @if($ticket->number > 0) value="1" @else  value="0" @endif type="text"
                                                                                    name="nombre[]"></li>
                                                                         <li>
 																	<span class="input-group-btn">
@@ -209,11 +209,23 @@
                                                             <b id="prix{{$d}}{{$count_id_price}}">{{(int)$ticket->price}}</b>
                                                             Ar
                                                         </td>
-                                                        <td><b id="prixUnit{{$d}}{{$count_id_price}}">{{(int)$ticket->price}}</b> Ar</td>
+                                                        @if($ticket->number > 0)
+                                                            <td><b id="prixUnit{{$d}}{{$count_id_price}}">{{(int)$ticket->price}}</b> Ar</td>
+                                                        @else
+                                                            <td><b id="prixUnit{{$d}}{{$count_id_price}}">0</b> Ar</td>
+                                                        @endif
                                                     </tr>
-                                                    @php $count_id_price++;
-                                                    $totaliko+=$ticket->price;
-                                                    @endphp
+                                                    @if($ticket->number > 0)
+                                                        @php
+                                                            $count_id_price++;
+                                                            $totaliko+=$ticket->price;
+                                                        @endphp
+                                                    @else
+                                                        @php
+                                                            $count_id_price++;
+                                                            $totaliko+=0;
+                                                        @endphp
+                                                    @endif
                                                 @endforeach
                                             @endif
                                             <tr>
@@ -315,7 +327,7 @@
                                                                         </li>
                                                                         <li>
                                                                             <input class="form-control text-center ui tests "
-                                                                                   readonly value="1" type="text"
+                                                                                   readonly @if($ticket->number > 0) value="1" @else  value="0" @endif type="text"
                                                                                    name="nombre[]"></li>
                                                                         <li>
 																	<span class="input-group-btn">
@@ -330,11 +342,23 @@
                                                             </div>
                                                         </td>
                                                         <td><b>{{(int)$ticket->price}}</b> Ar</td>
-                                                        <td><b id="prixUnit{{$count_id_price}}">{{(int)$ticket->price}}</b> Ar</td>
+                                                        @if($ticket->number > 0)
+                                                            <td><b id="prixUnit{{$d}}{{$count_id_price}}">{{(int)$ticket->price}}</b> Ar</td>
+                                                        @else
+                                                            <td><b id="prixUnit{{$d}}{{$count_id_price}}">0</b> Ar</td>
+                                                        @endif
                                                     </tr>
-                                                    @php $count_id_price++;
-                                                    $totaliko+=$ticket->price;
-                                                    @endphp
+                                                    @if($ticket->number > 0)
+                                                        @php
+                                                            $count_id_price++;
+                                                            $totaliko+=$ticket->price;
+                                                        @endphp
+                                                    @else
+                                                        @php
+                                                            $count_id_price++;
+                                                            $totaliko+=0;
+                                                        @endphp
+                                                    @endif
                                                 @endforeach
                                             @endif
                                             <tr>
