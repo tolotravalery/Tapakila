@@ -409,9 +409,10 @@
                                         </div>
                                         <div class="col-md-9 col-xs-9 ">
                                             <div class="prixfx">
-                                                @if($ev->tickets()->count() > 0)
-                                                    <i class="fa fa-tag prices"></i>A partir de
-                                                    <b class="prx">{{ (int) $ev->tickets()->orderBy('price','asc')->take(1)->get()[0]->price  }}</b>
+                                                @if($ev->tickets->where('date_debut_vente','<=',date('Y-m-d H:i:s'))->where('date_fin_vente','>',date('Y-m-d H:i:s'))->count() > 0)
+                                                    <i class="fa fa-tag prices"></i>A
+                                                    partir de <b
+                                                            class="prx">{{ (int) $ev->tickets()->orderBy('price','asc')->take(1)->get()[0]->price  }}</b>
                                                     AR
                                                 @else
                                                     <i class="fa fa-tag prices"></i>Non
@@ -420,18 +421,18 @@
                                             </div>
                                             <a href="{{url('event/show',[$ev->id])}}">
                                                 <div class="price"><i
-                                                            class="glyphicon glyphicon-time time"></i>{{ \Carbon\Carbon::parse($ev->date_debut_envent)->format('H:i')}}
+                                                            class="glyphicon glyphicon-time time"></i>{{ \Carbon\Carbon::parse($event->date_debut_envent)->format('H:i')}}
                                                 </div>
                                             </a>
                                             <a href="{{url('event/show',[$ev->id])}}">
                                                 <div class="date"><i
-                                                            class="glyphicon glyphicon-map-marker position"></i>{{ $ev->localisation_adresse }}
+                                                            class="glyphicon glyphicon-map-marker position"></i>{{ str_limit($event->localisation_adresse, $limit = 15, $end = ' ...')}}
                                                 </div>
                                             </a>
                                         </div>
                                     </div>
                                     <div style="text-align:center;">
-                                        <a style="color:white !important;" href="{{url('event/show',[$event->id])}}"
+                                        <a style="color:white !important;" href="{{url('event/show',[$ev->id])}}"
                                            class="btn btn-danger btn_reset">Réserver</a>
                                     </div>
                                 </a>
