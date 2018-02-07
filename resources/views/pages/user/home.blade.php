@@ -76,24 +76,18 @@
                 }
                 ?>
                 @if (session('message'))
-                    <div class="container">
-                        <div style="margin-left: 36px;">
-                            <div class="alert alert-success col-md-7" style="text-align: left;">
-                                <p style="margin-left: 5px;">{{session('message')}}></p>
-                            </div>
-                        </div>
+                    <div class="alert alert1 alert-success">
+                        <span class="glyphicon glyphicon-ok"></span>
+                        <strong>{!! session('message') !!} </strong>
+                        <hr class="message-inner-separator">
                     </div>
-                    <br/>
                 @endif
                 @if (session('status_payment'))
-                    <div class="container">
-                        <div style="margin-left: 36px;">
-                            <div class="alert alert-success col-md-7" style="text-align: left;">
-                                <p style="margin-left: 5px;">{{session('status_payment')}}></p>
-                            </div>
-                        </div>
+                    <div class="alert alert1 alert-success">
+                        <span class="glyphicon glyphicon-ok"></span>
+                        <strong>{!! session('status_payment') !!} </strong>
+                        <hr class="message-inner-separator">
                     </div>
-                    <br/>
                 @endif
                 <div class="padding-custom">
                     <ul class="tabs">
