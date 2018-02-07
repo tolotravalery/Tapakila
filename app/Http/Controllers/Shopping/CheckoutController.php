@@ -126,7 +126,6 @@ class CheckoutController extends Controller
         //check status
         $mv = new MVola();
         $mvola_status = $mv->getNotification(Session::get('MPGwToken'));
-        echo "<script>console.log( 'Debug Objects mvola status: " . $mvola_status . "' );</script>";
         $achat_reference = Session::get('$achat_reference');
         if ($mvola_status['user_field'] == 1) {
             if ($mvola_status['status'] == 4) {
