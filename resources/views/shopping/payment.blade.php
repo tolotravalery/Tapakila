@@ -152,12 +152,12 @@
                                         </div>
                                     </div>
 
-                                    <div class="resum">
-                                        <p><b>Numéro téléphone de payment :  <span style="color:red;">*</span>:</b>
-                                        </p>
-                                        <input type="tel" class="form-control" name="num__phone" required>
-                                        <br>
-                                    </div>
+                                    {{--<div class="resum">--}}
+                                        {{--<p><b>Numéro téléphone de payment :  <span style="color:red;">*</span>:</b>--}}
+                                        {{--</p>--}}
+                                        {{--<input type="tel" class="form-control" name="num__phone" required>--}}
+                                        {{--<br>--}}
+                                    {{--</div>--}}
 
                                     <div class="row">
                                         <div class="col-md-12">

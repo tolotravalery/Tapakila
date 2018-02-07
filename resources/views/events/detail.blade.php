@@ -309,7 +309,7 @@
                                                                         </li>
                                                                         <li>
                                                                             <input class="form-control text-center ui tests "
-                                                                                   readonly value="0" type="text"
+                                                                                   readonly value="1" type="text"
                                                                                    name="nombre[]"></li>
                                                                         <li>
 																	<span class="input-group-btn">
