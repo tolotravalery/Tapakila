@@ -198,8 +198,6 @@ class TicketController extends Controller
 
     public function delete($id, $event_id)
     {
-        dd($event_id,$id);
-        exit;
         $event = Events::findOrFail($event_id);
         if ($event->user_id == Auth::user()->id) {
             $ticket = Ticket::findOrFail($id);
