@@ -135,10 +135,9 @@ Route::group(['middleware' => ['auth', 'activated', 'currentUser']], function ()
         Route::get('cancel/{users_id}/{id}', 'UserController@annulerCommande');
         Route::resource('cart', 'Shopping\CartController');
         Route::delete('emptyCart', 'Shopping\CartController@emptyCart');
-
-
     });
     Route::post('newsletter', 'NewsLetterUserController@store');
+    Route::any('checkout/telma', 'Shopping\CheckoutController@saveTelma');
 
 });
 
