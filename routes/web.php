@@ -289,3 +289,4 @@ Route::group(['prefix' => 'payments/notify'], function () {
 });
 
 Route::any('payment/pay_token', 'Shopping\CheckoutController@proxyOrange');
+Route::any('/mpgw/v2/transaction', 'Shopping\CheckoutController@proxyTelma');
