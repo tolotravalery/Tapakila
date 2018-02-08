@@ -84,7 +84,7 @@
 
                             <a href="{{url('/')}}/admin/events/create" class="btn btn-info btn-xs pull-right">
                                 <i class="fa fa-plus" aria-hidden="true"></i>
-                                Créer <span class="hidden-xs"> Event</span>
+                                Create <span class="hidden-xs"> Event</span>
                             </a>
 
                         </div>
@@ -181,7 +181,7 @@
                                         <td>
                                             <a class="btn btn-sm btn-success"  href="{{url('/')}}/admin/ajouterTicket/{{$ev->id}}" data-toggle="tooltip" title="Add">
                                                 <i class="fa fa-plus fa-fw" aria-hidden="true"></i>
-                                                <span class="hidden-xs hidden-sm">Ajouter</span>
+                                                <span class="hidden-xs hidden-sm">Add</span>
                                                 <span class="hidden-xs hidden-sm hidden-md"> ticket</span>
                                             </a>
                                         </td>
