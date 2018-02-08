@@ -125,7 +125,7 @@
                                             <p onclick="accord6()"><span style="cursor: pointer">Comment télécharger mes billets électroniques ?</span>
                                                 <br>
                                                 <label id="demo6" class="hidden padd">
-                                                    La pièce jointe attachée à votre email de confirmation de votre achat est tout de suite téléchargeable à partir d'un bouton.Si vous n'avez pas de logiciel pour lire le PDF <a href="https://get.adobe.com/fr/reader/">clicquez ici</a>
+                                                    La pièce jointe attachée à votre email de confirmation de votre achat est tout de suite téléchargeable à partir d'un bouton.Si vous n'avez pas de logiciel pour lire le PDF <a href="https://get.adobe.com/fr/reader/" target="_blank">cliquez ici</a>
                                                 </label>
                                             </p>
 
@@ -190,7 +190,7 @@
                                             <p onclick="accord13()"><span style="cursor: pointer">Quelles sont les méthodes de paiement acceptées ?</span>
                                                 <br>
                                                 <label id="demo13" class="hidden padd">
-                                                    leguichet accepte la plupart des paiements mobiles comme Mvola, Orange Money. 
+                                                    Les paiements se fait par Mvola et Orange money .
                                                     <br>
                                                     <br> Les options de paiement disponibles seront indiquées lors du processus de paiement.
                                                 </label>
@@ -200,9 +200,9 @@
                                                 <br>
                                                 <label id="demo14" class="hidden padd">
 
-                                                    Si votre paiement est refusé, nous vous suggérons de procéder aux vérifications suivantes:
+                                                    Si votre paiement a été refusé, nous vous suggérons de procéder aux vérifications suivantes:
                                                     <br>
-                                                        Vérifier votre numéro de téléphone et le numéro de transaction.
+                                                        Vérifiez votre numéro de téléphone et le numéro de transaction.
                                                     <br>
                                                    
 
