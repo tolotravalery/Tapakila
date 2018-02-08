@@ -111,9 +111,8 @@
                                             <p onclick="accord5()"><span style="cursor: pointer">Quand vais-je recevoir mes billets ?</span>
                                                 <br>
                                                 <label id="demo5" class="hidden padd">
-                                                    Vous devriez recevoir vos billets électroniques immédiatement après le paiement.
-                                                    <br>
-                                                    <br> Si vous avez acheté des billets en téléchargement immédiat, ils pourront être imprimés quasiment tout de suite.
+                                                    Vous devriez recevoir vos billets électroniques immédiatement après le paiement via email.
+
                                                     <br>
                                                     <br> Vous pouvez suivre le statut de votre commande sous la rubrique Achats.
                                                     <br>
@@ -126,7 +125,7 @@
                                             <p onclick="accord6()"><span style="cursor: pointer">Comment télécharger mes billets électroniques ?</span>
                                                 <br>
                                                 <label id="demo6" class="hidden padd">
-                                                    Lorsque vos billets sont prêts à être téléchargés, vous recevez un e-mail de notre part avec un lien pour le téléchargement. En cliquant sur ce lien, vous pouvez voir et imprimer les billets ou les télécharger pour les sauvegarder en tant que fichier PDF. Merci de noter que seule une copie du QRCode ne sera pas accepté à l'événement. Vos billets seront également disponibles dans la section Achats de votre compte, il vous suffira de suivre les instructions pour les télécharger.
+                                                    La pièce jointe attachée à votre email de confirmation de votre achat est tout de suite téléchargeable à partir d'un bouton.Si vous n'avez pas de logiciel pour lire le PDF clicquez ici
                                                 </label>
                                             </p>
 
