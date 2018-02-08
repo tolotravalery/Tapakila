@@ -190,7 +190,7 @@
                                             <p onclick="accord13()"><span style="cursor: pointer">Quelles sont les méthodes de paiement acceptées ?</span>
                                                 <br>
                                                 <label id="demo13" class="hidden padd">
-                                                    leguichet accepte la plupart des paiements mobiles comme Mvola, Orange Money. 
+                                                    Les paiements se fait par Mvola et Orange money .
                                                     <br>
                                                     <br> Les options de paiement disponibles seront indiquées lors du processus de paiement.
                                                 </label>
@@ -200,9 +200,9 @@
                                                 <br>
                                                 <label id="demo14" class="hidden padd">
 
-                                                    Si votre paiement est refusé, nous vous suggérons de procéder aux vérifications suivantes:
+                                                    Si votre paiement a été refusé, nous vous suggérons de procéder aux vérifications suivantes:
                                                     <br>
-                                                        Vérifier votre numéro de téléphone et le numéro de transaction.
+                                                        Vérifiez votre numéro de téléphone et le numéro de transaction.
                                                     <br>
                                                    
 
