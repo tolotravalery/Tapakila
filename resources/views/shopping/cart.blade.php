@@ -244,8 +244,7 @@
                                             @endif--}}
                                             {{--<form action="{{url('shopping/checkout')}}" method="post">--}}
                                             {{--                                                {!! csrf_field() !!}--}}
-                                            <button type="submit" class="btn bt_panier">Payer
-                                            </button>
+                                            <button type="submit" class="btn btn_paye">Payer</button>
                                             {{--</form>--}}
                                         </div>
                                     </div>
