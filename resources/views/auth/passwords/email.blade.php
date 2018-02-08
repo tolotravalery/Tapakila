@@ -5,13 +5,13 @@
             <div class="row">
                 @if (session('status'))
                     <div class="col-md-12">
-                        <h2 class="initialize" style="text-align: center;">Réinitialiser le mot de passe</h2>
+                        <h2 class="initialize" style="text-align: center;">Réinitialiser votre mot de passe</h2>
                         <div class="row">
                             <div class="col-md-3"></div>
                             <div class="col-md-6">
                                 <div id="reinitial">
                                     <div class="alert alert-info information">
-                                        Nous vous envérons un lien de réinitialisation de mot de passe par
+                                        Nous vous enverons un lien de réinitialisation de mot de passe par
                                         <strong>e-mail.</strong><br/>
                                         Retour à l'<a href="{{url('/')}}" class="information"><b><u>Acceuil</u></b></a>
                                     </div>

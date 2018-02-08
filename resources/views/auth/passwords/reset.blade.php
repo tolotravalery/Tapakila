@@ -4,7 +4,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
-                    <h1 class="initialize">Réinitialiser le mot de passe</h1>
+                    <h1 class="initialize">Réinitialiser votre mot de passe</h1>
                     <form class="form-horizontal" id="bg-reset" role="form" method="POST"
                           action="{{ route('password.request') }}">
                         {{ csrf_field() }}
