@@ -162,9 +162,9 @@
                     </p>
                 </div>
                 <div class="col-sm-3 col-xs-6">
-                    <p class="titled"><strong>Acheter des tickets</strong></p>
+                    <p class="titled"><strong>Informations</strong></p>
                     <ul class="list-unstyled">
-                        <li><a href="{{url('')}}/achat">Comment acheter</a></li>
+                        <li><a href="{{url('')}}/info_billet">Billets électroniques</a></li>
                         <li><a href="{{url('')}}/faq">Foire aux questions</a></li>
                         <li><a href="{{url('')}}/conditions-generales">Terms of service</a></li>
                     </ul>
