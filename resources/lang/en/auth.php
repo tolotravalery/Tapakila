@@ -55,7 +55,7 @@ return [
 
     // User flash messages
     'sendResetLink'     => 'Send Password Reset Link',
-    'resetPassword'     => 'Reset Password',
+    'resetPassword'     => 'Reinitialiser mot de passe',
     'loggedIn'          => 'You are logged in!',
 
     // email links
