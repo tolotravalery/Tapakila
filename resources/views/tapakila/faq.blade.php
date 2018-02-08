@@ -409,7 +409,7 @@
                                             <p onclick="accord36()"><span style="cursor: pointer">J'ai saisi une adresse e-mail incorrecte lors de l'inscription, comment puis-je la modifier ?</span>
                                                 <br>
                                                 <label id="demo36" class="hidden padd">
-                                                    Consultez la rubrique Configuration du compte en vous connectant à l'aide de l'e-mail « incorrect » utilisé lors de la première inscription. Cliquez sur le lien « Modifier » situé à côté de l'adresse e-mail.
+                                                    En haut à droite de votre page cliquer sur "<a href="{{url('/home')}}"> mon compte </a>" pius allez sur "modifier mes informations" ensuite cliquer sur le bouton " Modifier " pour valider vos modifications.
                                                 </label>
                                             </p>
 
