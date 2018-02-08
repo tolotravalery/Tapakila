@@ -118,6 +118,9 @@ class CheckoutController extends Controller
     function proxyOrange()
     {
 
+    }function proxyTelma()
+    {
+
     }
 
 
