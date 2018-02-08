@@ -26,13 +26,18 @@
 
                         <div class="well">
                             <div class="row">
-                                <div class="col-sm-6">
-                                    <img src="@if ($user->profile && $user->profile->avatar_status == 1) {{ $user->profile->avatar }} @else {{ Gravatar::get($user->email) }} @endif"
+                                <div class="col-sm-3">
+                                    {{--<img src="@if ($user->profile && $user->profile->avatar_status == 1) {{ $user->profile->avatar }} @else {{ Gravatar::get($user->email) }} @endif"
                                          alt="{{ $user->name }}" id=""
-                                         class="img-circle center-block margin-bottom-2 margin-top-1 user-image">
+                                         class="img-circle center-block margin-bottom-2 margin-top-1 user-image">--}}
+                                    @if($user->profile_avatar)
+                                        <img src="{{$user->profile_avatar}}" style="width: 150px;height: 150px;" id="sary" class="postion">
+                                    @else
+                                        <img src="{{url('/')}}/public/img/usercircle.png" style="width: 150px;height: 150px;" id="sary" class="postion">
+                                    @endif
                                 </div>
 
-                                <div class="col-sm-6">
+                                <div class="col-sm-9">
                                     <h4 class="text-muted margin-top-sm-1 text-center text-left-tablet">
                                         {{ $user->name }}
                                     </h4>
@@ -397,7 +402,7 @@
                                             <td>{{ \Carbon\Carbon::parse($event->date_debut_envent)->format('d M Y')}}</td>
                                             <td>{{ \Carbon\Carbon::parse($event->date_debut_envent)->format('H:i')}}</td>
                                             <td>{{$event->localisation_nom}} {{$event->localisation_adresse}}</td>
-                                            <td><img src="{{ url('img/'.$event->image) }}" class="detail_picture1"></td>
+                                            <td><img class="img-circle" style="height:50px; width:50px;" src="{{ url('public/img/'.$event->image) }}" class="detail_picture1"></td>
                                             <td>{{$event->title}}</td>
                                             <td>
                                                 @if(\Carbon\Carbon::parse($event->date_debut_envent)->isFuture() )

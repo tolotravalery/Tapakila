@@ -151,7 +151,9 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            @php $count_id_price = 0; @endphp
+                                            @php $count_id_price = 0;
+                                            $totaliko=0;
+                                            @endphp
                                             @if($event->tickets->where('date_debut_vente','<=',date('Y-m-d'))->where('date_fin_vente','>=',date('Y-m-d'))->count() > 0)
                                                 @foreach($event->tickets()->where('date_debut_vente','<=',date('Y-m-d'))->where('date_fin_vente','>=',date('Y-m-d'))->wherePivot('date',\Carbon\Carbon::parse($date)->format('Y-m-d'))->get() as $ticket)
                                                     {!! csrf_field() !!}
@@ -165,7 +167,7 @@
                                                         @if($ticket->number > 0)
                                                             <td class="unlock"><i class="fa fa-unlock fa-2x"
                                                                                   aria-hidden="true"></i>
-                                                                <p id="tickets{{$d}}{{$count_id_price}}">{{$ticket->number}}</p>
+                                                                <p id="tickets{{$d}}{{$count_id_price}}">{{$ticket->number-1}}</p>
                                                                 tickets
                                                             </td>
                                                         @else
@@ -189,7 +191,7 @@
                                                                         </li>
                                                                         <li>
                                                                             <input class="form-control text-center ui tests "
-                                                                                   readonly value="0" type="text"
+                                                                                   readonly @if($ticket->number > 0) value="1" @else  value="0" @endif type="text"
                                                                                    name="nombre[]"></li>
                                                                         <li>
 																	<span class="input-group-btn">
@@ -207,9 +209,23 @@
                                                             <b id="prix{{$d}}{{$count_id_price}}">{{(int)$ticket->price}}</b>
                                                             Ar
                                                         </td>
-                                                        <td><b id="prixUnit{{$d}}{{$count_id_price}}">0</b> Ar</td>
+                                                        @if($ticket->number > 0)
+                                                            <td><b id="prixUnit{{$d}}{{$count_id_price}}">{{(int)$ticket->price}}</b> Ar</td>
+                                                        @else
+                                                            <td><b id="prixUnit{{$d}}{{$count_id_price}}">0</b> Ar</td>
+                                                        @endif
                                                     </tr>
-                                                    @php $count_id_price++; @endphp
+                                                    @if($ticket->number > 0)
+                                                        @php
+                                                            $count_id_price++;
+                                                            $totaliko+=$ticket->price;
+                                                        @endphp
+                                                    @else
+                                                        @php
+                                                            $count_id_price++;
+                                                            $totaliko+=0;
+                                                        @endphp
+                                                    @endif
                                                 @endforeach
                                             @endif
                                             <tr>
@@ -217,7 +233,7 @@
                                                 <td class="td_detail"></td>
                                                 <td class="td_detail"></td>
                                                 <td><strong>Total</strong></td>
-                                                <td><b id="total{{$d}}">0</b> Ar <?php $totaly = 0; ?></td>
+                                                <td><b id="total{{$d}}">{{(int)$totaliko}}</b> Ar <?php $totaly = 0; ?></td>
                                             </tr>
 
                                             <tr>
@@ -269,7 +285,9 @@
                                         <tbody>
                                         <form action="{{ url('shopping/cart') }}" method="POST"
                                               class="side-by-side">
-                                            @php $count_id_price = 0; @endphp
+                                            @php $count_id_price = 0;
+                                            $totaliko=0;
+                                            @endphp
                                             @if($event->tickets->where('date_debut_vente','<=',date('Y-m-d'))->where('date_fin_vente','>=',date('Y-m-d'))->count() > 0)
                                                 @foreach($event->tickets()->wherePivot('date',\Carbon\Carbon::parse($date)->format('Y-m-d'))->get() as $ticket)
                                                     {!! csrf_field() !!}
@@ -283,7 +301,7 @@
                                                         @if($ticket->number > 0)
                                                             <td class="unlock"><i class="fa fa-unlock fa-2x"
                                                                                   aria-hidden="true"></i>
-                                                                <p id="tickets{{$count_id_price}}">{{$ticket->number}}</p>
+                                                                <p id="tickets{{$count_id_price}}">{{$ticket->number-1}}</p>
                                                                 tickets
                                                             </td>
                                                         @else
@@ -309,7 +327,7 @@
                                                                         </li>
                                                                         <li>
                                                                             <input class="form-control text-center ui tests "
-                                                                                   readonly value="0" type="text"
+                                                                                   readonly @if($ticket->number > 0) value="1" @else  value="0" @endif type="text"
                                                                                    name="nombre[]"></li>
                                                                         <li>
 																	<span class="input-group-btn">
@@ -324,9 +342,23 @@
                                                             </div>
                                                         </td>
                                                         <td><b>{{(int)$ticket->price}}</b> Ar</td>
-                                                        <td><b id="prixUnit{{$count_id_price}}">0</b> Ar</td>
+                                                        @if($ticket->number > 0)
+                                                            <td><b id="prixUnit{{$d}}{{$count_id_price}}">{{(int)$ticket->price}}</b> Ar</td>
+                                                        @else
+                                                            <td><b id="prixUnit{{$d}}{{$count_id_price}}">0</b> Ar</td>
+                                                        @endif
                                                     </tr>
-                                                    @php $count_id_price++; @endphp
+                                                    @if($ticket->number > 0)
+                                                        @php
+                                                            $count_id_price++;
+                                                            $totaliko+=$ticket->price;
+                                                        @endphp
+                                                    @else
+                                                        @php
+                                                            $count_id_price++;
+                                                            $totaliko+=0;
+                                                        @endphp
+                                                    @endif
                                                 @endforeach
                                             @endif
                                             <tr>
@@ -334,7 +366,7 @@
                                                 <td class="td_detail"></td>
                                                 <td class="td_detail"></td>
                                                 <td><strong>Total</strong></td>
-                                                <td><b id="total">0</b> Ar</td>
+                                                <td><b id="total">{{(int)$totaliko}}</b> Ar</td>
                                             </tr>
                                             <tr>
                                                 <td></td>
@@ -409,9 +441,10 @@
                                         </div>
                                         <div class="col-md-9 col-xs-9 ">
                                             <div class="prixfx">
-                                                @if($ev->tickets()->count() > 0)
-                                                    <i class="fa fa-tag prices"></i>A partir de
-                                                    <b class="prx">{{ (int) $ev->tickets()->orderBy('price','asc')->take(1)->get()[0]->price  }}</b>
+                                                @if($ev->tickets->where('date_debut_vente','<=',date('Y-m-d H:i:s'))->where('date_fin_vente','>',date('Y-m-d H:i:s'))->count() > 0)
+                                                    <i class="fa fa-tag prices"></i>A
+                                                    partir de <b
+                                                            class="prx">{{ (int) $ev->tickets()->orderBy('price','asc')->take(1)->get()[0]->price  }}</b>
                                                     AR
                                                 @else
                                                     <i class="fa fa-tag prices"></i>Non
@@ -420,18 +453,18 @@
                                             </div>
                                             <a href="{{url('event/show',[$ev->id])}}">
                                                 <div class="price"><i
-                                                            class="glyphicon glyphicon-time time"></i>{{ \Carbon\Carbon::parse($ev->date_debut_envent)->format('H:i')}}
+                                                            class="glyphicon glyphicon-time time"></i>{{ \Carbon\Carbon::parse($event->date_debut_envent)->format('H:i')}}
                                                 </div>
                                             </a>
                                             <a href="{{url('event/show',[$ev->id])}}">
                                                 <div class="date"><i
-                                                            class="glyphicon glyphicon-map-marker position"></i>{{ $ev->localisation_adresse }}
+                                                            class="glyphicon glyphicon-map-marker position"></i>{{ str_limit($event->localisation_adresse, $limit = 15, $end = ' ...')}}
                                                 </div>
                                             </a>
                                         </div>
                                     </div>
                                     <div style="text-align:center;">
-                                        <a style="color:white !important;" href="{{url('event/show',[$event->id])}}"
+                                        <a style="color:white !important;" href="{{url('event/show',[$ev->id])}}"
                                            class="btn btn-danger btn_reset">Réserver</a>
                                     </div>
                                 </a>
@@ -460,7 +493,7 @@
             });
         }
         $(document).ready(function () {
-            $('#acheter').prop('disabled', true);
+            $('#acheter').prop('disabled', false);
         });
 
     </script>
@@ -477,17 +510,24 @@
     <script>
         var newticket = new Array();
     </script>
+
     @for($i=0;$i<$event->tickets()->count();$i++)
         @for($u=0;$u<$d;$u++)
+
             <script>
 
-                newticket[[{{$i}}]] = {{$event->tickets[$i]->number}};
+                newticket[[{{$i}}]] = {{$event->tickets[$i]->number-1}};
                 $(document).on('click', '.number-spinner{{$u}}{{$i}} button', function () {
+                    var total = 0;
+                    /*for (var j = 0; j < $('#nombre_id{{$u}}').val(); j++) {
+                        total += parseInt($('#prixUnit{{$u}}' + j).html());
+                    }*/
                     var btn = $(this),
                         oldValue = btn.closest('.number-spinner{{$u}}{{$i}}').find('input').val().trim(),
                         newVal = 0;
                     console.log(oldValue);
                     if (btn.attr('data-dir') == 'up') {
+                        console.log("up");
                         $('#acheter').prop('disabled', false);
                         if (oldValue < {{$event->tickets[$i]->number}}) {
                             newVal = parseInt(oldValue) + 1;
@@ -499,7 +539,7 @@
                             $('#prixUnit{{$u}}{{$i}}').html(0 + prixUnit1);
 
                             btn.closest('.number-spinner{{$u}}{{$i}}').find('input').val(newVal);
-                            var total = 0;
+
                             var u ={{$u}};
                             for (var j = 0; j < $('#nombre_id{{$u}}').val(); j++) {
                                 total += parseInt($('#prixUnit{{$u}}' + j).html());
@@ -511,7 +551,7 @@
                             $('.clock{{$i}}').removeClass('fa-unlock');
                             $('.clock{{$i}}').addClass('fa-lock');
                             $('#btn-up{{$u}}{{$i}}').attr('disabled', 'true');
-                            var total = 0;
+
                             for (var j = 0; j < $('#nombre_id{{$u}}').val(); j++) {
                                 //total += parseInt($('#prixUnit' + j).html());
                                 total += parseInt($('#prixUnit{{$u}}' + j).html());
@@ -531,7 +571,7 @@
                             $('.clock{{$i}}').removeClass('fa-lock');
                             $('.clock{{$i}}').addClass('fa-unlock');
                             btn.closest('.number-spinner{{$u}}{{$i}}').find('input').val(newVal);
-                            var total = 0;
+
                             for (var j = 0; j < $('#nombre_id{{$u}}').val(); j++) {
                                 total += parseInt($('#prixUnit{{$u}}' + j).html());
                             }

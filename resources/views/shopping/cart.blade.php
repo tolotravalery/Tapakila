@@ -183,12 +183,12 @@
                                         </div>
                                     </div>
 
-                                    <div class="resum" id="numPhone">
-                                        <p><b>Numéro téléphone de payment :  <span style="color:red;">*</span>:</b>
-                                        </p>
-                                        <input type="tel" class="form-control" name="num__phone" id="num__phone" required>
-                                        <br>
-                                    </div>
+                                    {{--<div class="resum hidden" id="numPhone">--}}
+                                        {{--<p><b>Numéro téléphone de payment :  <span style="color:red;">*</span>:</b>--}}
+                                        {{--</p>--}}
+                                        {{--<input type="tel" class="form-control hidden" name="num__phone" id="num__phone">--}}
+                                        {{--<br>--}}
+                                    {{--</div>--}}
 
                                     <div class="row">
                                         <div class="col-md-12">
@@ -244,8 +244,7 @@
                                             @endif--}}
                                             {{--<form action="{{url('shopping/checkout')}}" method="post">--}}
                                             {{--                                                {!! csrf_field() !!}--}}
-                                            <button type="submit" class="btn bt_panier">Payer
-                                            </button>
+                                            <button type="submit" class="btn btn_paye">Payer</button>
                                             {{--</form>--}}
                                         </div>
                                     </div>

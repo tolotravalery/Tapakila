@@ -58,7 +58,7 @@ Route::group(['middleware' => 'web'], function () {
         Route::get('contact-us', 'AproposController@contact');
         Route::post('contact', 'AproposController@contactAction');
         Route::get('conditions-generales', 'AproposController@term');
-        Route::get('achat', 'AproposController@achat');
+        Route::get('info_billet', 'AproposController@achat');
         Route::get('vie-prive', 'AproposController@vieprive');
         Route::get('achat-ticket', 'AproposController@achatBillet');
     });
@@ -135,10 +135,9 @@ Route::group(['middleware' => ['auth', 'activated', 'currentUser']], function ()
         Route::get('cancel/{users_id}/{id}', 'UserController@annulerCommande');
         Route::resource('cart', 'Shopping\CartController');
         Route::delete('emptyCart', 'Shopping\CartController@emptyCart');
-
-
     });
     Route::post('newsletter', 'NewsLetterUserController@store');
+    Route::any('checkout/telma', 'Shopping\CheckoutController@saveTelma');
 
 });
 

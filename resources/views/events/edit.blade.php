@@ -449,7 +449,9 @@
                                     <div class="panel-body border-bottom">
                                         <h2>Type des tickets</h2>
                                         @if(isset($event))
-                                            @php $id=0; @endphp
+                                            @php $id=0;
+                                            $i=0;
+                                            @endphp
                                             @foreach($event->tickets as $ticket)
                                                 @if($ticket->id != $id)
                                                     @php
@@ -474,13 +476,13 @@
                                                                                     'id' 				=> 'delete_ticket_trigger',
                                                                                     'type' 				=> 'button',
                                                                                     'data-toggle' 		=> 'modal',
-                                                                                    'data-target' 		=> '#confirmDelete'
+                                                                                    'data-target' 		=> '#confirmDelete'.$i,
                                                                                 )
                                                                         ) !!}
                                                                     </div>
                                                                 </h2>
                                                                 <div class="modal fade modal-danger"
-                                                                     id="confirmDelete"
+                                                                     id="confirmDelete{{$i}}"
                                                                      role="dialog"
                                                                      aria-labelledby="confirmDeleteLabel"
                                                                      aria-hidden="true">
@@ -512,6 +514,9 @@
                                                         </div>
                                                         <p>Nombre de billets: {{$ticket->tapakila()->count()}}</p>
                                                     </div>
+                                                    @php
+                                                        $i+=1;
+                                                    @endphp
                                                 @endif
                                             @endforeach
                                         @endif

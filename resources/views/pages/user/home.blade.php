@@ -76,14 +76,18 @@
                 }
                 ?>
                 @if (session('message'))
-                    <div class="container">
-                        <div style="margin-left: 36px;">
-                            <div class="alert alert-success col-md-7" style="text-align: left;">
-                                <p style="margin-left: 5px;">{{session('message')}}></p>
-                            </div>
-                        </div>
+                    <div class="alert alert1 alert-success">
+                        <span class="glyphicon glyphicon-ok"></span>
+                        <strong>{!! session('message') !!} </strong>
+                        <hr class="message-inner-separator">
                     </div>
-                    <br/>
+                @endif
+                @if (session('status_payment'))
+                    <div class="alert alert1 alert-success">
+                        <span class="glyphicon glyphicon-ok"></span>
+                        <strong>{!! session('status_payment') !!} </strong>
+                        <hr class="message-inner-separator">
+                    </div>
                 @endif
                 <div class="padding-custom">
                     <ul class="tabs">
@@ -102,7 +106,7 @@
                                     <th scope="col"><b class="bold">Date Achat</b></th>
                                     <th scope="col"><b class="bold">Nombre</b></th>
                                     {{--<th scope="col"><b class="bold">PDF File</b></th>--}}
-                                    <th scope="col"><b class="bold"></b></th>
+                                    <th scope="col"><b class="bold">QR code</b></th>
                                 </tr>
                                 </thead>
 
@@ -111,7 +115,7 @@
                                     @php
                                         $event = $a->events[0];
                                     @endphp
-                                    @if(date($event->date_fin_event) < date('now'))
+                                    @if($event->date_fin_event < date('Y-m-d H:i:s'))
                                         @if($a->pivot->status_payment!='FAILED')
                                             <tr>
                                                 <td data-label="">
@@ -123,13 +127,15 @@
                                                 <td data-label="Tickets">{{$a->type}}</td>
                                                 <td data-label="Date">{{\Carbon\Carbon::parse($a->pivot->date_achat)->format('d M Y H:i')}}</td>
                                                 <td data-label="Quantité">{{$a->pivot->number}}</td>
-                                                @php
-                                                    $billet_acheter = App\Models\TicketUser::find($a->pivot->id);
-                                                @endphp
-                                                @foreach($billet_acheter->tapakila as $billet)
-                                                    <img src="{{url('/public/qr_code/'.$billet->qr_code)}}"
-                                                         class="image_panier"><br/>
-                                                @endforeach
+                                                <td data-label="QR code">
+                                                    @php
+                                                        $billet_acheter = App\Models\TicketUser::find($a->pivot->id);
+                                                    @endphp
+                                                    @foreach($billet_acheter->tapakila as $billet)
+                                                        <img src="{{url('/public/qr_code/'.$billet->qr_code)}}"
+                                                             class="image_panier"><br/>
+                                                    @endforeach
+                                                </td>
                                             </tr>
                                         @endif
                                     @endif
@@ -148,6 +154,7 @@
                                     <th scope="col"><b class="bold">Date Achat</b></th>
                                     <th scope="col"><b class="bold">Nombre</b></th>
                                     {{--<th scope="col"><b class="bold">PDF File</b></th>--}}
+                                    <th scope="col"><b class="bold">QR code</b></th>
                                     <th scope="col"><b class="bold"></b></th>
                                 </tr>
                                 </thead>
@@ -157,7 +164,7 @@
                                     @php
                                         $event = $a->events[0];
                                     @endphp
-                                    @if(date($event->date_debut_envent) > date('now'))
+                                    @if($event->date_fin_event >= date('Y-m-d H:i:s'))
                                         <tr>
                                             <td data-label="">
                                                 <div class="thumbnail imgpaiment">
@@ -168,7 +175,7 @@
                                             <td data-label="Tickets">{{$a->type}}</td>
                                             <td data-label="Date">{{\Carbon\Carbon::parse($a->pivot->date_achat)->format('d M Y H:i')}}</td>
                                             <td data-label="Quantité">{{$a->pivot->number}}</td>
-                                            <td data-label="pdf">
+                                            <td data-label="QR code">
                                                 @php
                                                     $billet_acheter = App\Models\TicketUser::find($a->pivot->id);
                                                 @endphp
