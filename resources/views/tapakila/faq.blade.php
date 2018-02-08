@@ -257,7 +257,7 @@
                                                 </label>
                                             </p>
 
-                                            <p onclick="accord21()"><span style="cursor: pointer">Que garantie leguichet ?</span>
+                                            <p onclick="accord21()"><span style="cursor: pointer"> Que garantie leguichet?</span>
                                                 <br>
                                                 <label id="demo21" class="hidden padd">
                                                    Les acheteurs recevront immédiatement leurs billets. En cas de problème, leguichiet interviendra.
