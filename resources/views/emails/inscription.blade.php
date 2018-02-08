@@ -1,4 +1,3 @@
-
 <style>
     @media only screen and (max-width: 600px) {
         .inner-body {
@@ -9,63 +8,54 @@
             width: 100% !important;
         }
     }
-#globcontent {
-background-color: white;
-margin-top: 84px;
-padding: 20px 30px 20px 30px;
-overflow: hidden;
-margin-bottom: 83px;
-border-radius: 3px;
-    }
-.mim{
-    border-bottom: 1px solid black;
-    padding-bottom: 2px;
-    }
-}
 
 </style>
 <body style="background-color:#eeeeee;">
 <table class="wrapper" width="100%" cellpadding="0" cellspacing="0">
     <tr>
-        <td align="center">
-            <table class="content" width="100%" cellpadding="0" cellspacing="0">
-
-                <tr>
-                    <td class="body" width="100%" cellpadding="0" cellspacing="0">
-                        <table class="inner-body" align="center" width="900" cellpadding="0" cellspacing="0">
-
-                            <tr>
-                                <td class="content-cell">
-                                <div class="row">
-                                <div class="col-md-10 col-md-offset-1">
-                                    <div style="background-color: white;margin-top: 84px;padding: 20px 30px 20px 30px;overflow: hidden;margin-bottom: 83px;border-radius: 3px;">
-                                            <div class="row">
-                                                    <div class="col-md-10 col-md-offset-1">
-                                                        <!-- <div style=" border-bottom: 1px solid black; padding-bottom: 2px;"><img class="logoactivate" src="{{url('/')}}/public/img/logo.png" title="Leguichet"></div>
-                                         -->
-                                        
-                                        <h2><b style="font-size: 26px;color:#333;">Bonjour {{$user->name}},</b></h2><br>
-                                        <p style="font-size: 14px;color:#333;">Votre inscription est réussi. </p>
-                                        <p style="font-size: 14px;color:#333;">Merci d'avoir choisi Leguichet! Vous pouvez maintenant utiliser tous nos services.</p><br>
-                                        
-                                        <p style="font-size: 14px;color:#333;"> Veuiller consulter votre <a style="text-decoration: none;color: #62b2eb;"href="{{url('/home')}}"> Compte</a>.</p><br>
-                                        <div style="font-size: 14px;color:#333;text-align: center;background-color: #cccccc; margin-top: 25px; padding: 15px;  margin-bottom: 20px;  border: 1px solid transparent; border-radius: 4px;">
-                                            <p>Vous avez des questions? consultez notre <a style="text-decoration: none;color: #62b2eb;"href="{{url('')}}/leguichet/faq">FAQ</a> dès maintenant</p>
-                                            <p style="text-align:center;">Retourner vers <a href="https://leguichet.mg">leguichet.mg</a></p>
-                                        </div>
-                                        </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-            </table>
+        <td style="background-color: #d70506;padding: 2px">
+            <img src="{{url('/')}}/public/img/logo.png" style="padding-left: -5px;">
         </td>
     </tr>
 </table>
+<table class="wrapper" width="100%" style="margin-top:-20px;margin-left:18px; ">
+    <tr>
+        <td>
+            <h3 style="font-size: 30px; font-family:sans-serif;color:#333;"><b></b></h3>
+            <p style="font-family:sans-serif;font-size: 18px;color: #d70506;padding-top: -34px;margin: 0 0 10px;"></p>
+        </td>
+    </tr>
+</table>
+
+<table class="wrapper" width="100%" cellpadding="0" cellspacing="0" style="margin-top:-20px">
+    <tr>
+        <td align="center">
+            <h2>
+                <br/><b style=" color:#333;margin-top: 35px; margin-bottom: 10px;font-size: 30px;word-wrap: break-word;font-weight: 700;font-family:Lucida Console;">Bonjour {{$user->name}},</b>
+            </h2>
+            <p style="font-size: 14px;color:#333;">Nous vous remerçions de votre inscription et somme heureux de vous compter parmi nos utilisateurs.</p>
+            <p style="font-size: 14px;color:#333;">Pensez a conserver l'adresse mail que vous avez saisie afin de trouver aisément votre mot de passe. </p>
+			<p style="font-size: 14px;color:#333;"><b>Cliquez sur "Activer" pour confirmer votre inscription</b></p><br>
+			<div style="  text-align: center;position: relative;min-height: 1px;margin-left: auto; margin-right: auto;width: 33.33333333%;">
+				<a href="{{$actionUrl}}" style=" display:block;text-decoration: none;background-color: black; color: white;padding: 10px 16px;font-size: 18px; line-height: 1.3333333;border-radius: 6px; "> {{$actionText}} </a>
+			</div>
+
+        </td>
+    </tr>
+</table>
+<br/>
+<div class="container">
+    <div class="row ">
+
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-offset-3 col-lg-6">
+            <div style=" color: white;text-align: center;background-color: #d70506;font-size: 16px;padding: 1px;font-family:sans-serif;">
+                <p><strong><a style="text-decoration:none;color:white !important" href="www.leguichet.mg">www.leguichet.mg</a> </strong></p>
+            </div>
+        </div>
+    </div>
+</div>
 </body>

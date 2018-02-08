@@ -10,40 +10,37 @@
     }
 
 </style>
+<body style="background-color:#eeeeee;">
 <table class="wrapper" width="100%" cellpadding="0" cellspacing="0">
     <tr>
-        <td align="center">
-            <table class="content" width="100%" cellpadding="0" cellspacing="0">
+        <td style="background-color: #d70506;padding: 2px">
+            <img src="{{url('/')}}/public/img/logo.png" style="padding-left: -5px;">
+        </td>
+    </tr>
+</table>
+<table class="wrapper" width="100%" style="margin-top:-20px;margin-left:18px; ">
+    <tr>
+        <td>
+            <h3 style="font-size: 30px; font-family:sans-serif;color:#333;"><b></b></h3>
+            <p style="font-family:sans-serif;font-size: 18px;color: #d70506;padding-top: -34px;margin: 0 0 10px;"></p>
+        </td>
+    </tr>
+</table>
 
-                <tr>
-                    <td class="body" width="100%" cellpadding="0" cellspacing="0">
-                        <table class="inner-body" align="center" width="100%" cellpadding="0" cellspacing="0"
-                               style="margin-right: 50px;">
-                            <tr>
-                                <td class="content-cell">
-                                    <div class="row">
-                                        <div class="col-lg-6 col-lg-offset-3">
-                                            <div style="background-color: white; margin-top: 30px; padding: 20px 25px 20px 25px;">
-                                            <!-- <img class="logoactivate" src="{{url('/')}}/public/img/logo.png"
-                                                     title="Leguichet">
-                                                <hr class="border-logo"> -->
-                                                @if($send == 'mail')
-                                                    <h2>
-                                                        <b style="color:#333;margin-top: 20px; margin-bottom: 10px;font-size: 30px;word-wrap: break-word;font-weight: 700;">Merci {{$user->name}}
-                                                            , Voici vos billets!</b></h2>
-                                                    <p style="font-size: 14px;color:#333;">Lorsque vous participez,
-                                                        utiliser le qr
-                                                        code (image) ci-dessus. Vous pouvez l'imprimer</p>
-                                                @endif
-                                                {{--@if($send == 'mail')--}}
-                                                {{--<p style="font-size: 14px;color:#333;">Ci joint le pdf contenant--}}
-                                                {{--votre--}}
-                                                {{--ticket</p>--}}
-                                                {{--@endif--}}
-                                                <h4>
-                                                    <b style=" color:#333;margin-top: 20px; margin-bottom: 10px;font-size: 30px;word-wrap: break-word;font-weight: 700;">Vos
-                                                        évènements</b></h4>
-                                                <ul>
+<table class="wrapper" width="100%" cellpadding="0" cellspacing="0" style="margin-top:-20px">
+    <tr>
+        <td align="center">
+            <h2>
+                <br/><b style=" color:#333;margin-top: 35px; margin-bottom: 10px;font-size: 30px;word-wrap: break-word;font-weight: 700;font-family:Lucida Console;">Bonjour {{$user->name}},</b>
+            </h2>
+            <p style="font-size: 14px;color:#333;">Nous vous remerçions pour votre achat. <br>Ce QrCode peut être scanné directement via votre smartphone ou bien téléchargez et imprimez le PDF pour pouvoir le présenter au guichet.</p><br>
+
+        </td>
+    </tr>
+	<tr>
+		<td align="center">
+			<table>
+				<ul>
                                                     @foreach($data as $d)
                                                         @php
                                                             $event = $d['ticket']->events[0];
@@ -123,33 +120,24 @@
                                                         </table>
                                                     @endforeach
                                                 </ul>
-                                                @if($send == 'mail')
-                                                    <br>
-                                                    <p style="font-size: 14px;color:#333;text-align: center;background-color: #cccccc; margin-top: 25px; padding: 15px;  margin-bottom: 20px;  border: 1px solid transparent; border-radius: 4px;">
-                                                        Vous avez des questions? consultez notre <a
-                                                                style="text-decoration: none;color: #62b2eb;"
-                                                                href="{{url('')}}/faq">FAQ</a> dès maintenant
-                                                    </p>
-                                                    <p style="text-align: center">L'équipe Leguichet.mg</p>
-                                                @endif
-                                            </div>
-                                            <div style="background-color: white; bottom: 0; position: absolute; padding: 20px 25px 20px 25px; text-align: center;">
-                                                <img src="{{url('')}}/public/tickets/guide.png" width="700px"
-                                                     height="120px">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr width="100%" cellpadding="0" cellspacing="0">
-
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-
-            </table>
-        </td>
-    </tr>
-
+			</table>
+		</td>
+	</tr>
+	<tr align="center">
+		<div style="background-color: white; bottom: 0; padding: 20px 25px 20px 25px; text-align: center;">
+				<img src="{{url('/')}}/public/tickets/guide.png" width="700px"
+					 height="120px">
+			</div>
+	</tr>
 </table>
+<br/>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-offset-3 col-lg-6">
+            <div style=" color: white;text-align: center;background-color: #d70506;font-size: 16px;padding: 1px;font-family:sans-serif;">
+                <p><strong><a style="text-decoration:none;color:white !important" href="www.leguichet.mg">www.leguichet.mg</a> </strong></p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
