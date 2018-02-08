@@ -1,9 +1,9 @@
 @extends("template-admin")
 
 @section('specificCss')
-   {{-- <link rel="stylesheet" href="{{url('/')}}/public/css/bootstrap.min.css">
+   {{-- <link rel="stylesheet" href="{{url('/')}}/public/css/bootstrap.min.css">--}}
     <script src="{{url('/')}}/public/js/jquery.min.js"></script>
-    <script src="{{url('/')}}/public/js/bootstrap.min.js"></script>--}}
+    <script src="{{url('/')}}/public/js/bootstrap.min.js"></script>
 @endsection
 
 @section('content')
