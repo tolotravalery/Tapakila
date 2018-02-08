@@ -125,7 +125,7 @@
                                             <p onclick="accord6()"><span style="cursor: pointer">Comment télécharger mes billets électroniques ?</span>
                                                 <br>
                                                 <label id="demo6" class="hidden padd">
-                                                    La pièce jointe attachée à votre email de confirmation de votre achat est tout de suite téléchargeable à partir d'un bouton.Si vous n'avez pas de logiciel pour lire le PDF <a href="https://get.adobe.com/fr/reader/">clicquez ici</a>
+                                                    La pièce jointe attachée à votre email de confirmation de votre achat est tout de suite téléchargeable à partir d'un bouton.Si vous n'avez pas de logiciel pour lire le PDF <a href="https://get.adobe.com/fr/reader/" target="_blank">cliquez ici</a>
                                                 </label>
                                             </p>
 
