@@ -121,7 +121,7 @@
                                     <div id="ticket-radio2">
                                         <div class="btn-group" data-toggle="buttons">
                                             @foreach($payement_mode as $p)
-                                                <div class="col-md-4">
+                                                <div class="col-md-6">
                                                     <div class="radio">
                                                         <label class="button">
                                                             @if($p->slug=='telma')
@@ -138,7 +138,7 @@
                                                                      alt="">
                                                             @endif
                                                             <b class="operateur">{{$p->slug}}</b>
-                                                            <label class="btn btn-customs  btn-success pull-right">
+                                                            <label class="btn btn-customs   pull-right">
                                                                 <input type="radio" name="options" id="option2"
                                                                        autocomplete="off" style="display: none;"
                                                                        value="{{$p->slug}}" required>
@@ -183,10 +183,7 @@
                                                 </div>
 
                                                 <div class="col-md-3 payee col-xs-3">
-                                                    <input value="Payer" class="button ticket"
-                                                           name="submit_ticket_order"
-                                                           id="place-order-button"
-                                                           type="submit" @php if($i == 0) echo "disabled"; @endphp>
+                                                    <input value="Payer" class="btn btn_paye" name="submit_ticket_order" id="place-order-button" type="submit" @php if($i == 0) echo "disabled"; @endphp>
                                                 </div>
                                             </div>
                                         </div>
