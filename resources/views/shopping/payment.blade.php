@@ -354,10 +354,7 @@
                                                 </div>
 
                                                 <div class="col-md-3 payee col-xs-3">
-                                                    <input value="Payer" class="button ticket"
-                                                           name="submit_ticket_order"
-                                                           id="place-order-button"
-                                                           type="submit" @php if($i == 0) echo "disabled"; @endphp>
+                                                    <input value="Payer" class="btn btn_paye" name="submit_ticket_order" id="place-order-button" type="submit" @php if($i == 0) echo "disabled"; @endphp>
                                                 </div>
                                             </div>
                                         </div>
