@@ -195,10 +195,9 @@
                                             <div class="check">
                                                 <div class="checkbox">
                                                     <label>
-                                                        <input type="checkbox" value="" name="accept" required>
-                                                        <b>Cochez cette case pour confirmer que vous avez lu et
-                                                            accepté nos terms de
-                                                            contrat.</b>
+                                                        <input type="checkbox" value="" name="accept" required >
+                                                        <b style="left: 5px">Cochez cette case pour confirmer que vous avez lu et
+                                                            accepté nos <a href="http://localhost/leguichet/conditions-generales">Conditions générales</a>.</b>
                                                     </label>
                                                 </div>
                                             </div>
