@@ -121,7 +121,7 @@ class EventController extends Controller
             // send mail for all members of news letter
             $newsLetter = Newsletter::findOrFail(1);
             foreach ($newsLetter->users as $user){
-                Session::put('news_letter_user_email',$user->emai);
+                Session::put('news_letter_user_email',$user->email);
                 Session::put('news_letter_user_name',$user->name);
                 Mail::send('emails.newsletter', ['user' => Auth::user(), 'event' => $ev], function ($message) {
                     $message->to(Session::get('news_letter_user_email'), Session::get('news_letter_user_name'));
@@ -231,12 +231,25 @@ class EventController extends Controller
         });
         return redirect(url('organisateur/event/' . $event->id . '/edit'))->with(compact('message'));
     }
-
+    protected function validator_edit(array $data)
+    {
+        return Validator::make($data,
+            [
+                'title' => 'max:255',
+                'image' => 'image|mimes:jpeg,png,jpg,gif,svg',
+                'additional_note' => 'max:250',
+                'localisation_nom'=>'max:180',
+                'localisation_adresse'=>'max:180',
+                'description'=>'max:500',
+            ]
+        );
+    }
     public function updateadmin(Request $request)
     {
+
         $event = Events::find($request->input('id'));
         $user=User::find($event->user_id);
-        $this->validator($request->all())->validate();
+        $this->validator_edit($request->all())->validate();
         $event->title = $request->input('title');
         $event->sous_menus_id = $request->input('sousmenu');
         //dd($request->input('date_debut') . " " . $request->input('heure_debut'));
@@ -276,19 +289,29 @@ class EventController extends Controller
             $event->image = $input['image'];
         }
         $event->publie_organisateur = $value;
+        $old_publie = $event->publie;
         $event->publie = $value1;
         $event->save();
-
         $message = " Opération réussie";
         session()->flash('message', $message);
 
-
-        Mail::send('emails.modifierevenement', ['user' => Auth::user(), 'event' => $event], function ($message){
-            $message->to(Auth::user()->email, Auth::user()->name)->subject('Leguichet');
-            $message->cc('reservations@leguichet.mg','Leguichet.mg')->subject('Leguichet update event from Admin');
+        if($event->publie ==1 && $old_publie==0){
+            $newsLetter = Newsletter::findOrFail(1);
+            foreach ($newsLetter->users as $user1){
+                Session::put('news_letter_user_email',$user1->email);
+                Session::put('news_letter_user_name',$user1->name);
+                Mail::send('emails.newsletter', ['user' => $user1, 'event' => $event], function ($message) {
+                    $message->to(Session::get('news_letter_user_email'), Session::get('news_letter_user_name'));
+                    $message->cc('reservations@leguichet.mg','Leguichet.mg')->subject('Leguichet Newsletter');
+                });
+            }
+        }
+        /*echo Auth::user()->email." ".Auth::user()->name;exit;*/
+        Mail::send('emails.modifierevenement', ['user'=>Auth::user(), 'event' => $event], function ($message){
+            $message->to('contact@trustylabs.mg','Leguichet.mg')->subject('Leguichet update event from Admin');
+            $message->cc('reservations@leguichet.mg', 'Leguichet.mg')->subject('Leguichet update event from Admin');
         });
-
-        return redirect(url('admin/listevent'))->with(compact('message'));;
+        return redirect(url('admin/listevent'))->with(compact('message'));
     }
 
 
