@@ -297,11 +297,9 @@ class EventController extends Controller
 
         if($event->publie ==1 && $old_publie==0){
             $newsLetter = Newsletter::findOrFail(1);
-            foreach ($newsLetter->users as $user1){
-                Session::put('news_letter_user_email',$user1->email);
-                Session::put('news_letter_user_name',$user1->name);
-                Mail::send('emails.newsletter', ['user' => $user1, 'event' => $event], function ($message) {
-                    $message->to(Session::get('news_letter_user_email'), Session::get('news_letter_user_name'));
+            foreach ($newsLetter->users()->wherePivot('activated','=',1)->get() as $user1){
+                Mail::send('emails.newsletter', ['user' => $user1, 'event' => $event], function ($message) use($user1) {
+                    $message->to($user1->email, $user1->name);
                     $message->cc('reservations@leguichet.mg','Leguichet.mg')->subject('Leguichet Newsletter');
                 });
             }

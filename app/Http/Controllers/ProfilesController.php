@@ -267,10 +267,13 @@ class ProfilesController extends Controller
         $user->save();
         $checked = $request->input('checked');
         $news_letter = Newsletter::findOrFail(1);
-        if($checked){
-            $news_letter->users()->sync(array($user->id=>array('activated'=>'1')));
-        }else{
-            $news_letter->users()->sync([]);
+        if ($checked) {
+            if (!$news_letter->users()->allRelatedIds()->contains($user->id))
+                $news_letter->users()->attach(array($user->id => array('activated' => '1')));
+            else
+                $news_letter->users()->updateExistingPivot($user->id, array('activated' => '1'));
+        } else {
+            $news_letter->users()->updateExistingPivot($user->id, array('activated' => '0'));
         }
         $niova = $request->input('changer');
         session()->flash('niova', $niova);
