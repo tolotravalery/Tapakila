@@ -268,11 +268,10 @@
             var df = new Date(datefin + " " + $('#heuref').val());
             var now = new Date();
             console.log(now+"/////"+dd+"/////"+df);
-            if (dd < now || df < now) {
+            /*if (dd < now || df < now) {
                 $('#message_after_comparaison_date_now').show();
-                //alert("La date fin de l' évenement doit être supérieure à la date debut");
                 return false;
-            }
+            }*/
             if (df <= dd) {
                 $('#message_after_comparaison').show();
                 //alert("La date fin de l' évenement doit être supérieure à la date debut");
