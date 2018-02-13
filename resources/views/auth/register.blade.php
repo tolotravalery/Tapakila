@@ -1,5 +1,10 @@
 @extends("template")
 @section('content')
+    <style>
+        .red{
+            color:red;
+        }
+    </style>
     <div class="container custom-container">
 
 
@@ -131,12 +136,6 @@
                             {{--{!! Form::email('email', null, ['class' => 'form-control', 'id' => 'email', 'placeholder' => 'E-Mail', 'required','tabindex' => '1']) !!}--}}
                             {!!  Form::checkbox('isOrganisateur', null, false) !!} <label>Je suis un
                                 organisateur d'évènement</label>
-                            @if ($errors->has('email'))
-                                <br>
-                                <span class="red">
-                                                <strong>{{ $errors->first('email') }}</strong>
-                                            </span>
-                            @endif
                         </div>
                         <div class="form-group">
                             <div class="row">

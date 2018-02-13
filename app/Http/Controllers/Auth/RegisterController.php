@@ -67,7 +67,7 @@ class RegisterController extends Controller
         return Validator::make($data,
             [
                 'name' => 'required|max:255',
-                'first_name' => '',
+                'first_name' => 'required|max:255',
                 'last_name' => '',
                 'email' => 'required|email|max:255|unique:users',
                 'password' => 'required|min:6|max:20|confirmed',
@@ -100,8 +100,6 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-
-
         $ipAddress = new CaptureIpTrait;
         $role = Role::where('slug', '=', 'unverified')->first();
         $isOrganisateur = false;

@@ -31,7 +31,7 @@
     <tr>
         <td align="center">
             <h2>
-                <br/><b style=" color:#333;margin-top: 35px; margin-bottom: 10px;font-size: 30px;word-wrap: break-word;font-weight: 700;font-family:Lucida Console;">Bonjour {{$user->name}},</b>
+                <br/><b style=" color:#333;margin-top: 35px; margin-bottom: 10px;font-size: 30px;word-wrap: break-word;font-weight: 700;font-family:Lucida Console;">Bonjour,</b>
             </h2>
             <p style="font-size: 14px;color:#333;">Nous vous remerçions de votre inscription et somme heureux de vous compter parmi nos utilisateurs.</p>
             <p style="font-size: 14px;color:#333;">Pensez a conserver l'adresse mail que vous avez saisie afin de trouver aisément votre mot de passe. </p>
