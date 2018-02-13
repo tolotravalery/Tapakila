@@ -1,13 +1,18 @@
 @extends("template")
 @section('content')
+    <style>
+        .red{
+            color:red;
+        }
+    </style>
     <div class="container custom-container">
         <div class="row lof">
             <div class="col-md-4 col-md-offset-4" style="background-color:white;">
 
                 <ul id="myTabs" class="nav nav-pills nav-justified hii" role="tablist" data-tabs="tabs"
                     style="background-color: #e6e6e6;margin-top: 15px;">
-                    <li class="active"><a href="#Commentary" data-toggle="tab">Connexion</a></li>
-                    <li><a href="#Videos" data-toggle="tab">S'inscrire</a></li>
+                    <li id="li1" class="active"><a href="#Commentary" data-toggle="tab">Connexion</a></li>
+                    <li id="li2"><a href="#Videos" data-toggle="tab">S'inscrire</a></li>
                 </ul>
                 <div class="tab-content"
                      style="padding: 26px 19px 13px 19px;border: 2px solid #d70506;margin-bottom: 15px;">
@@ -132,11 +137,6 @@
                             {{--{!! Form::email('email', null, ['class' => 'form-control', 'id' => 'email', 'placeholder' => 'E-Mail', 'required','tabindex' => '1']) !!}--}}
                             {!!  Form::checkbox('isOrganisateur', null, false) !!} <label>Je suis un
                                 organisateur d'évènement</label>
-                            @if ($errors->has('email'))
-                                <span class="red">
-                                                <strong>{{ $errors->first('email') }}</strong>
-                                            </span>
-                            @endif
                         </div>
                         <div class="form-group">
                             <div class="row">
@@ -158,6 +158,24 @@
     </div>
 @endsection
 @section('specificScript')
+    @if ($errors->has('name') || $errors->has('first_name') || $errors->has('email') || $errors->has('password'))
+        <script>
+            $(document).ready(function () {
+                $("#Videos").addClass("in active");
+                $("#Commentary").removeClass("in active");
+                $("#li2").addClass("active");
+                $("#li1").removeClass("active");
+            });
+        </script>
+    @endif
+    <script>
+        $('#register-submit').click(function () {
+            $("#Videos").addClass("in active");
+            $("#Commentary").removeClass("in active");
+            $("#li2").addClass("active");
+            $("#li1").removeClass("active");
+        });
+    </script>
     <script>
         $(document).ready(function () {
             $.ajaxSetup({cache: true}); // since I am using jquery as well in my app
