@@ -1,62 +1,111 @@
-<style>
-    @media only screen and (max-width: 600px) {
-        .inner-body {
-            width: 100% !important;
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <style>
+        @media only screen and (max-width: 600px) {
+            .inner-body {
+                width: 100% !important;
+            }
+
+            .footer {
+                width: 100% !important;
+            }
         }
 
-        .footer {
-            width: 100% !important;
+        #globcontent {
+            background-color: white;
+            margin-top: 84px;
+            padding: 20px 30px 20px 30px;
+            overflow: hidden;
+            margin-bottom: 83px;
+            border-radius: 3px;
         }
-    }
 
-</style>
-<body style="background-color:#eeeeee;">
-<table class="wrapper" width="100%" cellpadding="0" cellspacing="0">
-    <tr>
-        <td style="background-color: #d70506;padding: 2px">
-            <img src="{{url('/')}}/public/img/logo.png" style="padding-left: -5px;">
-        </td>
-    </tr>
-</table>
-<table class="wrapper" width="100%" style="margin-top:-20px;margin-left:18px; ">
-    <tr>
-        <td>
-            <h3 style="font-size: 30px; font-family:sans-serif;color:#333;"><b></b></h3>
-            <p style="font-family:sans-serif;font-size: 18px;color: #d70506;padding-top: -34px;margin: 0 0 10px;"></p>
-        </td>
-    </tr>
-</table>
+        .mim {
+            border-bottom: 1px solid black;
+            padding-bottom: 2px;
+        }
+        #reinitalise{
+            position:relative;
+            width: 300px;
+            margin:auto;
+            border-radius:5px;
+            height: 50px;
+        }
+        #textmotdepass
+        {
+            position: relative;
+            margin: auto;
+            text-align: center;
+            text-decoration:none;
+            color:white;
+            top:10px;
+            font-size:16px;
+            padding-left:40px;
 
-<table class="wrapper" width="100%" cellpadding="0" cellspacing="0" style="margin-top:-20px">
-    <tr>
-        <td align="center">
-            <h2>
-                <br/><b style=" color:#333;margin-top: 35px; margin-bottom: 10px;font-size: 30px;word-wrap: break-word;font-weight: 700;font-family:Lucida Console;">Bonjour,</b>
-            </h2>
-            <p style="font-size: 14px;color:#333;">Nous avons reçu une demande de réinitialisation du mot de passe pour
-                votre compte.</p>
-            <p style="font-size: 14px;color:#333;">Veuillez cliquer sur reinitialiser mot de passe. </p><br>
-            <div style="  text-align: center;position: relative;min-height: 1px;margin-left: auto; margin-right: auto;width: 33.33333333%;">
-                <a href="{{$actionUrl}}"
-                   style=" display:block;text-decoration: none;background-color: black; color: white;padding: 10px 16px;font-size: 18px; line-height: 1.3333333;border-radius: 6px; ">
-                    Reinitialiser mot de passe </a>
-            </div>
-        </td>
-    </tr>
-</table>
-<br/>
-<div class="container">
-    <div class="row ">
+        }
+        .button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 5px 12px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius:5px;
+        }
+        .textheader {
+            position:relative;
+            width:400px;
+            margin:auto;
+            font-size:18px;
+            padding-top:40px;
+            text-align: center;
+            text-decoration:none;
+            color:white;
+        }
+    </style>
 
+</head>
+<body>
+<div id="cp">
+    <div id="header" style="width:100%;height:100px;background:#d70506;color:white;">
+        <div class="textheader"> <a style="text-decoration:none;color:white;" href="https://leguichet.mg">www.leguichet.mg</a></div>
     </div>
-</div>
-<div class="container">
-    <div class="row">
-        <div class="col-lg-offset-3 col-lg-6">
-            <div style=" color: white;text-align: center;background-color: #d70506;font-size: 16px;padding: 1px;font-family:sans-serif;">
-                <p><strong><a style="text-decoration: none;" href="www.leguichet.mg">www.leguichet.mg</a> </strong></p>
+
+    <div id="section" style="width:100%;height:400px;background:white;">
+        <div id="message" style="position:relative;margin:auto;background:white; width:100%;height:40px;top:5px;"> <p style=" text-align:center; color:black;font-size:30px;font-style:bold; padding-top:3px;text-decoration: underline"> Mot de passe oublié </p></div>
+        <div id="section-text" style="position:relative;padding-left:50px;padding-right:50px">
+
+
+            <div id="row1" style="padding-top:30px;">
+
+                <p style="text-align:justify;position:relative;width:auto;margin:auto;">Vous avez demandé à changer le mot de passe de votre compte leguichet ? Pour créer un nouveau mot de passe cliquez sur le lien ci-dessous :</p>
+
+
+            </div></br>
+
+            <div id="row2" style="padding-top:10px; width:100%;height:auto;">
+
+                <div id="reinitalise" > <button class="button">Réinitialiser votre mot de passe</button></div>
+
+
+            </div></br>
+
+            <div id="row3" style="padding-top:130px;">
+
+                Pour consulter votre événement <strong style="font-style:italic; color:red;"><a href="https://leguichet.mg/event/show/'.$event->id" style="text-decoration:none;color:#d70506;">cliquez ici</a></strong>
             </div>
+
         </div>
+
+
     </div>
+
+    <div id="footer" style="width:100%;height:100px;background:#d70506;top:500px;">
+
+        <div id="textfooter" style="position:relative; width:400px; margin:auto; color:white; font-size:14px; padding-top:30px;text-align: center;">Pour toutes questions, consultez <a style="text-decoration:none;color:white;" href="https://leguichet.mg/faq">faq</a></div>
+    </div>
+
 </div>
-</body>
