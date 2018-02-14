@@ -63,7 +63,7 @@ class RegisterController extends Controller
         if (!config('settings.reCaptchStatus')) {
             $data['captcha'] = true;
         }*/
-
+        session()->flash('cache', "register");
         return Validator::make($data,
             [
                 'name' => 'required|max:255',
