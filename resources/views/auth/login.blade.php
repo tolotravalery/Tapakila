@@ -153,28 +153,22 @@
                 </div>
             </div>
             <!-- formulaire end -->
-
         </div>
     </div>
 @endsection
 @section('specificScript')
-    @if ($errors->has('name') || $errors->has('first_name') || $errors->has('email') || $errors->has('password'))
-        <script>
-            $(document).ready(function () {
-                $("#Videos").addClass("in active");
-                $("#Commentary").removeClass("in active");
-                $("#li2").addClass("active");
-                $("#li1").removeClass("active");
-            });
-        </script>
-    @endif
     <script>
-        $('#register-submit').click(function () {
-            $("#Videos").addClass("in active");
-            $("#Commentary").removeClass("in active");
-            $("#li2").addClass("active");
-            $("#li1").removeClass("active");
-        });
+        @if(session('cache') == 'register')
+            @if ($errors->has('name') || $errors->has('first_name') || $errors->has('email') || $errors->has('password'))
+                $(document).ready(function () {
+                    console.log($('#cacher').html());
+                    $("#Videos").addClass("in active");
+                    $("#Commentary").removeClass("in active");
+                    $("#li2").addClass("active");
+                    $("#li1").removeClass("active");
+                });
+            @endif
+        @endif
     </script>
     <script>
         $(document).ready(function () {

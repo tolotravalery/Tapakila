@@ -46,7 +46,14 @@
                                 <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nom*" name="contacter_name" required>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Mail*" name="contacter_mail" required>
+                                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Mail*" name="contacter_mail"
+                                @if (!Auth::guest())
+                                    @if(strpos(Auth::user()->email,'@test.com')!== false && strpos(Auth::user()->email,'missing') !== false)
+                                        value=""
+                                    @else
+                                       value="{{ Auth::user()->email }}"
+                                    @endif
+                                @endif required>
                             </div>
                             <div class="form-group">
                                 <select class="form-control border">
