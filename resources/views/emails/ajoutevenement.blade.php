@@ -9,7 +9,7 @@
             <img src="{{url('/')}}/public/img/logo.png">
         </div>
         <div class="titre" style="position:absolute;width:80%;height:80px;float:right; left:20%;top:2px;">
-            <a href="{{url('/')}}" style="position:absolute;text-decoration:underline;color:white; left:150px;padding-top:20px;" ><b>www.leguichet.mg</b></a>
+            <a href="{{url('/')}}" style="position:absolute;text-decoration:underline;color:white; left:165px;padding-top:20px;" ><b>www.leguichet.mg</b></a>
 
         </div>
     </div>
@@ -25,7 +25,7 @@
     </div>
 
     <div class="footer" style="position:relative;width:100%;height:60px;margin:auto;background:#d70506;">
-        <a href="{{url('/')}}" style="position:absolute;width:auto;text-decoration:underline;color:white;padding-top:18px;text-align:center;left:300px;" ><b>www.leguichet.mg</b></a>
+        <p style="position:absolute;width:auto;text-decoration:none;color:white;padding-top:10px;text-align:center;left:280px;">Pour toutes questions, consultez<a style="text-decoration:underline;color:white;" href="{{url('/')}}"  > faq</a></p>
     </div>
 
 </div>
