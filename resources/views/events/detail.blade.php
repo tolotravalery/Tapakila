@@ -139,7 +139,7 @@
                             @foreach($daterange as $date)
                                 <div class="tab-pane tabulation  fade @php if($d == 0)  echo "active in "; else echo "hidden"; @endphp"
                                      id="date{{$d}}">
-                                    <div class="table-responsive tableau_detail">
+                                    <div class="table-responsive tableau_detail" id="table_event_1_day">
                                         <table class="table table-hover">
                                             <thead>
                                             <tr>
@@ -191,7 +191,9 @@
                                                                         </li>
                                                                         <li>
                                                                             <input class="form-control text-center ui tests "
-                                                                                   readonly @if($ticket->number > 0) value="1" @else  value="0" @endif type="text"
+                                                                                   readonly
+                                                                                   @if($ticket->number > 0) value="1"
+                                                                                   @else  value="0" @endif type="text"
                                                                                    name="nombre[]"></li>
                                                                         <li>
 																	<span class="input-group-btn">
@@ -210,7 +212,10 @@
                                                             Ar
                                                         </td>
                                                         @if($ticket->number > 0)
-                                                            <td><b id="prixUnit{{$d}}{{$count_id_price}}">{{(int)$ticket->price}}</b> Ar</td>
+                                                            <td>
+                                                                <b id="prixUnit{{$d}}{{$count_id_price}}">{{(int)$ticket->price}}</b>
+                                                                Ar
+                                                            </td>
                                                         @else
                                                             <td><b id="prixUnit{{$d}}{{$count_id_price}}">0</b> Ar</td>
                                                         @endif
@@ -233,7 +238,8 @@
                                                 <td class="td_detail"></td>
                                                 <td class="td_detail"></td>
                                                 <td><strong>Total</strong></td>
-                                                <td><b id="total{{$d}}">{{(int)$totaliko}}</b> Ar <?php $totaly = 0; ?></td>
+                                                <td><b id="total{{$d}}">{{(int)$totaliko}}</b> Ar <?php $totaly = 0; ?>
+                                                </td>
                                             </tr>
 
                                             <tr>
@@ -243,7 +249,7 @@
                                             </tr>
                                             <input type="hidden" id="nombre_id{{$d}}" value="{{$count_id_price}}"/>
                                             </tbody>
-                                            @if($event->tickets()->wherePivot('date',\Carbon\Carbon::parse($date)->format('Y-m-d'))->get()->count() == 0)
+                                            @if($event->tickets->where('date_debut_vente','<=',date('Y-m-d'))->where('date_fin_vente','>=',date('Y-m-d'))->count() == 0)
                                                 <p>(*) Les tickets de cette évènements ne sont pas encore disponible</p>
                                             @endif
                                         </table>
@@ -260,7 +266,7 @@
                                     </button>
                                 </div>
                                 <div class="col-md-2 col-sm-2 col-xs-5">
-                                    <button type="submit" class=" btn btn-success btn_acheterr " id="acheter">Acheter
+                                    <button type="submit" class=" btn btn-success btn_acheterr " id="acheter_ticket_1_day">Acheter
                                     </button>
                                 </div>
                             </div>
@@ -271,7 +277,7 @@
                             <div class="tab-pane tabulation  fade active in"
                                  id="date">
                                 <div class="table-responsive tableau_detail">
-                                    <table class="table table-hover">
+                                    <table class="table table-hover" id="table_event_many_day">
                                         <thead>
                                         <tr>
                                             <th>Type de ticket</th>
@@ -327,7 +333,9 @@
                                                                         </li>
                                                                         <li>
                                                                             <input class="form-control text-center ui tests "
-                                                                                   readonly @if($ticket->number > 0) value="1" @else  value="0" @endif type="text"
+                                                                                   readonly
+                                                                                   @if($ticket->number > 0) value="1"
+                                                                                   @else  value="0" @endif type="text"
                                                                                    name="nombre[]"></li>
                                                                         <li>
 																	<span class="input-group-btn">
@@ -343,7 +351,10 @@
                                                         </td>
                                                         <td><b>{{(int)$ticket->price}}</b> Ar</td>
                                                         @if($ticket->number > 0)
-                                                            <td><b id="prixUnit{{$d}}{{$count_id_price}}">{{(int)$ticket->price}}</b> Ar</td>
+                                                            <td>
+                                                                <b id="prixUnit{{$d}}{{$count_id_price}}">{{(int)$ticket->price}}</b>
+                                                                Ar
+                                                            </td>
                                                         @else
                                                             <td><b id="prixUnit{{$d}}{{$count_id_price}}">0</b> Ar</td>
                                                         @endif
@@ -378,7 +389,7 @@
                                                     </button>
                                                 </td>
                                                 <td>
-                                                    <button type="submit" class=" btn btn-success btn_acheterr">
+                                                    <button type="submit" class=" btn btn-success btn_acheterr" id="acheter_ticket_many_day">
                                                         Acheter
                                                     </button>
                                                 </td>
@@ -482,7 +493,6 @@
 @section('specificScript')
     <script>
         var i = 0;
-        console.log(i);
         var nbre =<?php echo $d;?>;
 
         for (i = 0; i < nbre; i++) {
@@ -493,7 +503,11 @@
             });
         }
         $(document).ready(function () {
-            $('#acheter').prop('disabled', false);
+            console.log('ready');
+            if ($('#table_event_1_day tbody tr').length < 3)
+                $('#acheter_ticket_1_day').prop('disabled', true);
+            if ($('#table_event_many_day tbody tr').length < 3)
+                $('#acheter_ticket_many_day').prop('disabled', true);
         });
 
     </script>
@@ -502,6 +516,7 @@
             $('#' + title + '').css('color', '#d70506');
             $('#' + element + '').css('background', '#d70506');
         }
+
         function mouseleave(element, title) {
             $('#' + title + '').css('color', '#000');
             $('#' + element + '').css('background', '#5cb85c');
@@ -585,11 +600,13 @@
                         }
                     }
                 });
+
                 function hideThis(id) {
                     console.log('hideThis');
                     $('.tab-pane').addClass('hidden');
                     $('#' + id).removeClass('hidden');
                 }
+
                 function resetPage() {
                     window.location = '{{url()->current()}}'
                 }

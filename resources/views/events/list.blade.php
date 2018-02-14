@@ -109,6 +109,7 @@
                                         else
                                             $objects = $evenement->get();
                                     @endphp
+                                    @php($c=0)
                                     @foreach($objects as $event)
                                         @php
                                             $ev = $event->publie == true && \Carbon\Carbon::parse($event->date_debut_envent)->isFuture();
@@ -180,6 +181,14 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            @php($c++)
+                                            @if($c==$objects->count())
+                                                <div class="col-sm-6 col-md-4">
+                                                    <a href="{{url('/')}}/organisateur/event" class="thumbnail">
+                                                        <img class="hut" src="{{ url('') }}/public/img/create_events.png">
+                                                    </a>
+                                                </div>
+                                            @endif
                                             @php $count_id++ @endphp
                                         @endif
                                     @endforeach

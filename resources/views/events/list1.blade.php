@@ -112,20 +112,30 @@
                                                         </div>
                                                     </div>
                                                     <div style="text-align:center;">
-                                                    <a  style="color:white !important;" href="{{url('event/show',[$event->id])}}" class="btn btn-danger btn_reset">Réserver</a>
-                                                            </div>
+                                                        <a style="color:white !important;"
+                                                           href="{{url('event/show',[$event->id])}}"
+                                                           class="btn btn-danger btn_reset">Réserver</a>
+                                                    </div>
                                                 </a>
                                             </div>
                                         </div>
                                     </div>
                                     @php $count_id++ @endphp
                                 @endforeach
+                                @if($events->count() < 9)
+                                    <div class="col-sm-6 col-md-4">
+                                        <a href="{{url('/')}}/organisateur/event" class="thumbnail">
+                                            <img class="hut" src="{{ url('') }}/public/img/create_events.png">
+                                        </a>
+                                    </div>
+                                @endif
                             @endif
                         @else
                             <div class="bg-custom">
                                 <h2 class="text-center"><strong>Pas d'événement ajoutés récements</strong></h2>
                                 @if (Auth::guest())
-                                    <p class="text-center"><strong>Inscrivez-vous dès maintenant, pour ne pas rater les prochaines
+                                    <p class="text-center"><strong>Inscrivez-vous dès maintenant, pour ne pas rater les
+                                            prochaines
                                             Evénements</strong></p>
                                     <div class="sinscrire">
                                         <div class="row">
@@ -139,7 +149,9 @@
                                                     <div class="col-md-8 col-xs-10 col-md-offset-2 col-xs-offset-1">
                                                         <div class="row">
                                                             <div class="col-md-10 col-md-offset-1">
-                                                                <a type="button" class="btn btn-sinscrire btn-lg btn-block" href="{{url('')}}/register">
+                                                                <a type="button"
+                                                                   class="btn btn-sinscrire btn-lg btn-block"
+                                                                   href="{{url('')}}/register">
                                                                     S'inscrire
                                                                 </a>
                                                             </div>
@@ -183,7 +195,8 @@
                                     <form action="{{url('/event/list/categorie/'.$sous_menu_event->name.'',[$sous_menu_event->id])}}"
                                           method="get">
                                         <input type="hidden" name="page" value="{{$page+1}}">
-                                        <button type="submit" class="linkButton"><i><b class="next-prevs"> Suivant >></b></i></button>
+                                        <button type="submit" class="linkButton"><i><b class="next-prevs"> Suivant
+                                                    >></b></i></button>
                                     </form>
                                 </div>
                             @endif
@@ -192,7 +205,8 @@
                                     <form action="{{url('/event/list/categorie/'.$sous_menu_event->name.'',[$sous_menu_event->id])}}"
                                           method="get">
                                         <input type="hidden" name="page" value="{{$page-1}}">
-                                        <button type="submit" class="linkButton"><i><b class="next-prevs" ><< Précédent</b></i></button>
+                                        <button type="submit" class="linkButton"><i><b class="next-prevs"><<
+                                                    Précédent</b></i></button>
                                     </form>
                                 </div>
                             @endif
@@ -220,6 +234,7 @@
             $('#' + title + '').css('color', '#d70506');
             $('#' + element + '').css('background', '#d70506');
         }
+
         function mouseleave(element, title) {
             $('#' + title + '').css('color', '#000');
             $('#' + element + '').css('background', '#5cb85c');
