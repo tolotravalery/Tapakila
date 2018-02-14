@@ -103,7 +103,7 @@
                         </div>
                         <div class="form-group">
                             <label for="pwd">Prénom:</label>
-                            {!! Form::text('first_name', null, ['class' => 'form-control', 'placeholder' => 'Prénoms', 'id' => 'username','tabindex' => '1']) !!}
+                            {!! Form::text('first_name', null, ['class' => 'form-control', 'placeholder' => 'Prénoms', 'id' => 'username','required','tabindex' => '1']) !!}
                             @if ($errors->has('first_name'))
                                 <span class="red">
                                         <strong>{{ $errors->first('first_name') }}</strong>
