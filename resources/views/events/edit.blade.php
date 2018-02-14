@@ -11,7 +11,7 @@
     <section id="sectioncategorie" class="clearfix">
         <div class="container custom-container">
             <ul class="clearfix">
-                <li><a href="{{url('/')}}">TOUS</a></li>
+                <li><a href="{{url('/')}}">accueil</a></li>
                 @foreach($menus as $menu)
                     <li><a href="{{url('/event/list/categorie',[$menu->id])}}">{{strtoupper($menu->name)}}</a></li>
                 @endforeach
