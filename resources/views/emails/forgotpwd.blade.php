@@ -66,8 +66,8 @@
     </br>
     <div class="row">
         <div class="col-lg-offset-3 col-lg-6">
-            <div style="; color: white;text-align: center;background-color: #d70506;font-size: 16px;padding: 1px;font-family:sans-serif;">
-                <p><b style="text-decoration:none;color:white !important;">Mot de passe oublié</b> </p>
+            <div style="; color: white;text-align: center;font-size: 16px;padding: 1px;font-family:sans-serif;">
+                <p><b style="text-decoration:none;color:black !important;">Mot de passe oublié</b> </p>
             </div>
         </div>
     </div>
@@ -87,8 +87,8 @@
     <tr>
         <td align="center">
 
-            <p style="font-size: 14px;color:#333;padding-left:50px;padding-top:20px;">Bonjour.</p>
-            <p style="font-size: 14px;color:#333;padding-left:50px;padding-top:0px;">Vous avez demandé à changer le mot de passe de votre compte leguichet ? Pour créer un nouveau mot de passe cliquez sur le lien ci-dessous :</p>
+            <p style="font-size: 14px;color:#333;padding-top:20px;">Bonjour.</p>
+            <p style="font-size: 14px;color:#333;padding-top:0px;">Vous avez demandé à changer le mot de passe de votre compte leguichet ? Pour créer un nouveau mot de passe cliquez sur le lien ci-dessous :</p>
 
             <div style="  text-align: center;position: relative;min-height: 1px;margin-left: auto; margin-right: auto;width: 30%;">
                 <a href="{{$actionUrl}}" style=" display:block;text-decoration: none;background-color: black; color: white;padding: 10px 16px;font-size: 18px; line-height: 1.3333333;border-radius: 6px; "> Réinitialiser votre mot de passe </a>

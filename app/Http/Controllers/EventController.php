@@ -227,7 +227,7 @@ class EventController extends Controller
         // Send mail to organisateur
         Mail::send('emails.ajoutevenement', ['user' => Auth::user(), 'event' => $event], function ($message) {
             $message->to(Auth::user()->email, Auth::user()->name)->subject('Leguichet');
-            $message->cc('reservations@leguichet.mg','Leguichet.mg')->subject('Leguichet new event');
+            $message->cc('reservations@leguichet.mg','Leguichet.mg')->subject('Leguichet: nouvel évènement');
         });
         return redirect(url('organisateur/event/' . $event->id . '/edit'))->with(compact('message'));
     }
@@ -300,14 +300,14 @@ class EventController extends Controller
             foreach ($newsLetter->users()->wherePivot('activated','=',1)->get() as $user1){
                 Mail::send('emails.newsletter', ['user' => $user1, 'event' => $event], function ($message) use($user1) {
                     $message->to($user1->email, $user1->name);
-                    $message->cc('reservations@leguichet.mg','Leguichet.mg')->subject('Leguichet Newsletter');
+                    $message->cc('reservations@leguichet.mg','Leguichet.mg')->subject('Leguichet: Newsletter');
                 });
             }
         }
         /*echo Auth::user()->email." ".Auth::user()->name;exit;*/
         Mail::send('emails.modifierevenement', ['user'=>Auth::user(), 'event' => $event], function ($message){
             $message->to('contact@trustylabs.mg','Leguichet.mg')->subject('Leguichet update event from Admin');
-            $message->cc('reservations@leguichet.mg', 'Leguichet.mg')->subject('Leguichet update event from Admin');
+            $message->cc('reservations@leguichet.mg', 'Leguichet.mg')->subject('Leguichet: mise à jour de l\' évènement');
         });
         return redirect(url('admin/listevent'))->with(compact('message'));
     }
@@ -365,7 +365,7 @@ class EventController extends Controller
         // Send mail to organisateur
         Mail::send('emails.ajoutevenement', ['user' => Auth::user(), 'event' => $event], function ($message) {
             $message->to(Auth::user()->email, Auth::user()->name)->subject('Leguichet');
-            $message->cc('reservations@leguichet.mg','Leguichet.mg')->subject('Leguichet new event from Admin');
+            $message->cc('reservations@leguichet.mg','Leguichet.mg')->subject('Leguichet: nouvel évènement');
         });
         return redirect(url('admin/events/update/' . $event->id));
     }
@@ -413,7 +413,7 @@ class EventController extends Controller
         session()->flash('page', "details");
         Mail::send('emails.modifierevenement', ['user' => Auth::user(), 'event' => $event], function ($message) {
             $message->to(Auth::user()->email, Auth::user()->name)->subject('Leguichet');
-            $message->cc('reservations@leguichet.mg','Leguichet.mg')->subject('Leguichet update event');
+            $message->cc('reservations@leguichet.mg','Leguichet.mg')->subject('Leguichet: mise à jour de l\' évènement');
         });
         return redirect(url('organisateur/event/' . $event->id . '/edit'))->with(compact('message'));;
     }
