@@ -32,13 +32,12 @@
     </br>
     <div class="row">
         <div class="col-lg-offset-3 col-lg-6">
-            <div style="; color: white;text-align: center;background-color: #d70506;font-size: 16px;padding: 1px;font-family:sans-serif;">
-                <p><b style="text-decoration:none;color:white !important;">NEWSLETTER</b> </p>
+            <div style="; color: white;text-align: center;font-size: 16px;padding: 1px;background-color:#5cb85c;font-family:sans-serif;">
+                <p><b style="text-decoration:none;color:white !important;">NEWSLETTER </b> </p>
             </div>
         </div>
     </div>
 </div>
-
 
 <table class="wrapper" width="100%" style="margin-top:-20px;margin-left:18px; ">
     <tr>
@@ -53,9 +52,9 @@
     <tr>
         <td align="center">
 
-            <p style="font-size: 14px;color:#333;padding-left:20px;padding-top:20px;">Bonjour {{$user->name}}!</p>
-            <p style="font-size: 14px;color:#333;padding-left:20px;padding-top:0px;">Ne ratez pas les événements importants sur leguichet.mg. Venez visiter le site web .</p>
-            <p style="font-size: 14px;color:#333;padding-left:20px;padding-top:0px;"><a style="color:#d70506" href="{{url('/')}}"> www.leguichet.mg</a></p>
+            <p style="font-size: 14px;color:#333;padding-top:20px;">Bonjour {{$user->name}}!</p>
+            <p style="font-size: 14px;color:#333;padding-top:0px;">Ne ratez pas les événements importants sur leguichet.mg. Venez visiter le site web .</p>
+            <p style="font-size: 14px;color:#333;padding-top:0px;"><a style="color:#d70506" href="{{url('/')}}"> www.leguichet.mg</a></p>
 
             <p>
                 <div class="container">
@@ -70,11 +69,11 @@
                 </div>
 
             </p>
-            <p style="font-size: 14px;color:#333;padding-left:20px;padding-top:0px;">Nom de l’évenement :{{$event->title}}</p>
-            <p style="font-size: 14px;color:#333;padding-left:20px;padding-top:0px;">Description : {{$event->additional_note}}.</p>
-            <p style="font-size: 14px;color:#333;padding-left:20px;padding-top:0px;">Lieu : {{$event->localisation_nom}} {{$event->localisation_adresse}}</p>
-            <p style="font-size: 14px;color:#333;padding-left:20px;padding-top:0px;">Date : le {{$event->date_debut_envent->format('d M Y H:i:s')}} à {{$event->date_fin_event->format('d M Y H:i:s')}}</p>
-
+            <p style="font-size: 14px;color:#333;padding-top:0px;">Nom de l’évenement :{{$event->title}}</p>
+            <p style="font-size: 14px;color:#333;padding-top:0px;">Description : {{$event->additional_note}}.</p>
+            <p style="font-size: 14px;color:#333;padding-top:0px;">Lieu : {{$event->localisation_nom}} {{$event->localisation_adresse}}</p>
+            <p style="font-size: 14px;color:#333;padding-top:0px;">Date : le {{$event->date_debut_envent->format('d M Y H:i:s')}} à {{$event->date_fin_event->format('d M Y H:i:s')}}</p>
+            <p>Vous recevez cet email car vous êtes abonné au newsletter de <a href="{{url('/')}}" style="text-decoration:underline;color:#d70506">www.leguichet.mg</a></p></div>
         </td>
     </tr>
 </table>

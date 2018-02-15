@@ -66,8 +66,8 @@
     </br>
     <div class="row">
         <div class="col-lg-offset-3 col-lg-6">
-            <div style="; color: white;text-align: center;background-color: #d70506;font-size: 16px;padding: 1px;font-family:sans-serif;">
-                <p><b style="text-decoration:none;color:white !important;">SUCCES</b> </p>
+            <div style="; color: white;text-align: center;background-color: #5cb85c;font-size: 16px;padding: 1px;font-family:sans-serif;">
+                <p><b style="text-decoration:none;color:white !important;">SUCCES</b> <img src="{{url('/')}}/public/img/successb.png" style="width:15px;height:15px"></p>
             </div>
         </div>
     </div>
@@ -87,8 +87,8 @@
     <tr>
         <td align="center">
 
-            <p style="font-size: 14px;color:#333;padding-left:20px;padding-top:20px;">Bonjour {{$user->name}}!</p>
-            <p style="font-size: 14px;color:#333;padding-left:20px;padding-top:0px;width:auto;">Votre événement a été ajouté avec <strong style="color:#d70506"> SUCCES</strong>.Nous vous remercions de votre confiance.</p>
+            <p style="font-size: 14px;color:#333;padding-top:20px;">Bonjour {{$user->name}}!</p>
+            <p style="font-size: 14px;color:#333;padding-top:0px;width:auto;">Votre événement a été ajouté avec <strong style="color:#d70506"> SUCCES</strong>.Nous vous remercions de votre confiance.</p>
 
             <p>
                 <div class="container">
@@ -103,7 +103,7 @@
                 </div>
 
             </p>
-            <p style="font-size: 14px;color:#333;padding-left:20px;padding-top:0px;width:auto;">Pour consulter votre événement   <a style="color:#d70506" href="{{url('event/show',[$event->id])}}"> cliquez ici</a></p>
+            <p style="font-size: 14px;color:#333;padding-top:0px;width:auto;">Pour consulter votre événement   <a style="color:#d70506" href="{{url('event/show',[$event->id])}}"> cliquez ici</a></p>
 
         </td>
     </tr>
