@@ -88,7 +88,7 @@
         <td align="center">
 
             <p style="font-size: 14px;color:#333;padding-left:20px;padding-top:20px;">Bonjour {{$user->name}}.</p>
-            <p style="font-size: 14px;color:#333;padding-top:0px;width:auto;">La mise à jour de votre événement est réussie.</p>
+            <p style="font-size: 14px;color:#333;padding-top:0px;width:auto;">La mise à jour de votre événement a été réussie.</p>
 
             <p>
                 <div class="container">
