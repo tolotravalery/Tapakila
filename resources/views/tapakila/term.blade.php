@@ -31,7 +31,7 @@
         <div class="row performe">
             <div class="col-md-12">
                 <div class="about-bg">
-                    <h3>CONDITION GENERALES</h3>
+                    <h3>CONDITIONS DE SERVICE</h3>
                     <br>
                     <p style="text-align: justify;">En utilisant nos services, vous acceptez les conditions ci-après, merci de les lire attentivement. </p>
                     <p style="text-align: justify;">Les services dans ce magasin de billet électronique sont fournis par Leguichet, emplacement Mahamasina,
