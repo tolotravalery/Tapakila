@@ -186,7 +186,7 @@
                     <ul class="list-unstyled">
                         <li><a href="{{url('')}}/infos-billets">Billets électroniques</a></li>
                         <li><a href="{{url('')}}/faq">Foire aux questions</a></li>
-                        <li><a href="{{url('')}}/conditions-generales">Conditions générales</a></li>
+                        <li><a href="{{url('')}}/conditions-generales">Conditions de service</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-3 col-xs-6">
