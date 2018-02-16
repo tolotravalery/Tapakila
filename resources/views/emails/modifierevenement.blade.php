@@ -49,7 +49,7 @@
     <div class="row">
         <div class="col-lg-offset-3 col-lg-6">
             <div style="height: 0px; color: white;text-align: center;background-color: #d70506;font-size: 16px;padding: 2px;font-family:sans-serif;">
-                <p><a style="text-decoration:none;color:white !important;" href="{{url('/')}}">www.leguichet.mg</a> </p>
+                <p><a style="text-decoration:none;color:white !important;" href="{{url('/')}}">Le Guichet</a> </p>
             </div>
         </div>
     </div>
@@ -103,6 +103,10 @@
                 </div>
 
             </p>
+            <p style="font-size: 14px;color:#333;padding-top:0px;">Nom de l’évenement :{{$event->title}}</p>
+            <p style="font-size: 14px;color:#333;padding-top:0px;">Description : {{$event->additional_note}}.</p>
+            <p style="font-size: 14px;color:#333;padding-top:0px;">Lieu : {{$event->localisation_nom}} {{$event->localisation_adresse}}</p>
+            <p style="font-size: 14px;color:#333;padding-top:0px;">Date : le {{$event->date_debut_envent->format('d M Y H:i')}} à {{$event->date_fin_event->format('d M Y H:i')}}</p>
             <p style="font-size: 14px;color:#333;padding-top:0px;width:auto;">Pour consulter votre événement  <a style="color:#d70506" href="{{url('event/show',[$event->id])}}"> cliquez ici</a></p>
 
         </td>

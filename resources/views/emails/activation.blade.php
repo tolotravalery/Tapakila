@@ -15,7 +15,7 @@
     <div class="row">
         <div class="col-lg-offset-3 col-lg-6">
             <div style="height: 0px; color: white;text-align: center;background-color: #d70506;font-size: 16px;padding: 2px;font-family:sans-serif;">
-                <p><a style="text-decoration:none;color:white !important;" href="www.leguichet.mg">www.leguichet.mg</a> </p>
+                <p><a style="text-decoration:none;color:white !important;" href="{{url('/')}}">Le Guichet</a> </p>
             </div>
         </div>
     </div>
