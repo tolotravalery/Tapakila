@@ -58,8 +58,7 @@
                             <div class="form-group">
                                 <select class="form-control border">
                                     <option>Organisateur</option>
-                                    <option>Acheteur</option>
-                                    <option>Vendeur</option>
+                                    <option selected="">Acheteur</option>
                                 </select>
                             </div>
                             <div class="form-group ">
