@@ -13,7 +13,16 @@ Leguichet, vente des billets electroniques à Madagascar, des listes d'événeme
     <link rel="stylesheet" href="{{ url('/') }}/public/css/animate.css">
     <script type="text/javascript" src="{{ url('/') }}/public/js/jquery.min.js"></script>
     <script type="text/javascript" src="{{ url('/') }}/public/js/bootstrap.min.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114299765-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
+        gtag('config', 'UA-114299765-1');
+    </script>
 
 </head>
 <body>
