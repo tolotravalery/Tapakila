@@ -163,11 +163,9 @@
                                             <p onclick="accord12()"><span style="cursor: pointer">Mon événement a été annulé ou reprogrammé - Que dois-je faire? </span>
                                                 <br>
                                                 <label id="demo12" class="hidden padd">
-                                                    Dans l'éventualité où votre événement serait annulé ou reporté, soyez assuré(e) que nous vous recontacterons dans les plus brefs délais avec les instructions nécessaires concernant vos billets. En règle générale;
+                                                    Dans l'éventualité où votre événement serait annulé ou reporté, soyez assuré(e) que nous vous recontacterons dans les plus brefs délais avec les instructions données par les organisateurs.
                                                     <br>
-                                                    <br> En cas d'annulation – nous vous demanderons de nous retourner les billets et un remboursement intégral de votre transaction sera effectué après réception de ceux-ci.
-                                                    <br>
-                                                    <br> En cas de reprogrammation – Les billets restent valides pour la nouvelle date. Veuillez consulter régulièrement vos emails et assurez-vous de vérifier également votre dossier de courrier indésirable ou ''spam''. L'email qui vous sera envoyé sera spécifique à votre événement, et contiendra toutes les informations nécessaires.
+
                                                     <br>
                                                     <br>
 
@@ -216,7 +214,7 @@
                                 <div class="panel panel-default">
                                     <div role="tab" id="header-4" class="panel-heading">
                                         <h4 class="panel-title">
-                                            <a aria-controls="collapse-4" aria-expanded="false" data-parent="#1" data-toggle="collapse" href="#collapse-4" role="button" class="collapsed">Gérer mon groupe</a></h4>
+                                            <a aria-controls="collapse-4" aria-expanded="false" data-parent="#1" data-toggle="collapse" href="#collapse-4" role="button" class="collapsed">Gérer mon Compte</a></h4>
                                     </div>
 
                                     <div id="collapse-4" role="tabpanel" aria-labelledby="header-4" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
@@ -273,7 +271,7 @@
                                                 <label id="demo22" class="hidden padd">
                                                     Acheteur : leguichet facture des frais de service venant s'ajouter au prix du billet. Ces frais sont indiqués clairement au cours du processus de paiement et ils servent à couvrir les frais de gestion de la plate-forme Leguichet, du service client et d'envoi des billets.
                                                     <br>
-                                                    <br> Vendeurs : leguichet facture des frais de service sur la vente de vos billets. Ces frais sont indiqués clairement au cours du processus de vente et ils servent à couvrir les frais de marketing permettant de mettre vos billets à disposition de millions d'acheteurs potentiels dans le monde entier. Ces frais seront déduits de votre paiement.
+                                                    <br> Vendeurs : leguichet facture des frais de service sur la vente de vos billets. Ces frais sont indiqués clairement au cours du processus de vente et ils servent à couvrir les frais de marketing permettant de mettre vos billets à disposition de millions d'acheteurs potentiels dans tout Madagascar. Ces frais seront déduits de votre paiement.
                                                     <br>
                                                     <br> Veuillez noter que le montant des frais de service peut varier selon l'événement et sont assujettis à la TVA.
                                                 </label>
