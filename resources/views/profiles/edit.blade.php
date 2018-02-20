@@ -1,4 +1,7 @@
 @extends("template")
+@section('title')
+    <title>Le Guichet | Profile</title>
+@endsection
 @section('content')
     <section>
         <div class="container custom-container">

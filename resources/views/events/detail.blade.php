@@ -1,4 +1,7 @@
 @extends('template')
+@section('title')
+    <title>{{$event->title}}</title>
+@endsection
 @section('specificMeta')
     <meta property="og:url"
           content="{{url('event/show/'.$event->id)}}"/>
