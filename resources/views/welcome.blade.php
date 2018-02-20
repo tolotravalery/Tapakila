@@ -1,4 +1,7 @@
 @extends('template')
+@section('title')
+    <title>Le Guichet | Réservation de billet éléctronique</title>
+@endsection
 @section('content')
     <section id="sectioncategorie" class="clearfix">
         <div class="container custom-container">

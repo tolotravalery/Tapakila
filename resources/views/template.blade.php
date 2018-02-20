@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="description" content="Leguichet, vente des billets electroniques à Madagascar, des listes d'événements, musicaux, et de divertissement en direct, des guides, des petites annonces, des critiques, et plus encore.">
     @yield('specificMeta')
-    <title>Le Guichet | Reservations de billets electronique</title>
+    @yield('title')
     <link rel="stylesheet" href="{{ url('/') }}/public/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ url('/') }}/public/css/mediaqueries.css">
     @yield('specificCss')

@@ -1,4 +1,7 @@
 @extends('template')
+@section('title')
+    <title>Le Guichet | Evénement {{$menu_event->name}}</title>
+@endsection
 @section('content')
     <section id="sectioncategorie" class="clearfix">
         <div class="container custom-container">
@@ -9,7 +12,7 @@
                 @endforeach
 
             </ul>
-            <a href="#" class="menupull" id="pull"><strong>Catégories  &nbsp <label class="test">&darr;</label></strong></a>
+            <a href="#" class="menupull" id="pull"><strong>Catégories &nbsp <label class="test">&darr;</label></strong></a>
         </div>
     </section>
 
@@ -44,7 +47,8 @@
                     <div class="bg-custom">
                         <h2 class="text-center"><strong>Pas d'évènement ajoutés récements</strong></h2>
                         @if (Auth::guest())
-                            <p class="text-center"><strong>Inscrivez-vous dès maintenant, pour ne pas rater les prochaines
+                            <p class="text-center"><strong>Inscrivez-vous dès maintenant, pour ne pas rater les
+                                    prochaines
                                     Evènements</strong></p>
                             <div class="sinscrire">
                                 <div class="row">
@@ -58,7 +62,8 @@
                                             <div class="col-md-8 col-xs-10 col-md-offset-2 col-xs-offset-1">
                                                 <div class="row">
                                                     <div class="col-md-10 col-md-offset-1">
-                                                        <a type="button" class="btn btn-sinscrire btn-lg btn-block" href="{{url('')}}/register">
+                                                        <a type="button" class="btn btn-sinscrire btn-lg btn-block"
+                                                           href="{{url('')}}/register">
                                                             S'inscrire
                                                         </a>
                                                     </div>
@@ -175,7 +180,9 @@
                                                                 </div>
                                                             </div>
                                                             <div style="text-align:center;">
-                                                            <a  style="color:white !important;" href="{{url('event/show',[$event->id])}}" class="btn btn-danger btn_reset">Réserver</a>
+                                                                <a style="color:white !important;"
+                                                                   href="{{url('event/show',[$event->id])}}"
+                                                                   class="btn btn-danger btn_reset">Réserver</a>
                                                             </div>
                                                         </a>
                                                     </div>
@@ -185,7 +192,8 @@
                                             @if($c==$objects->count())
                                                 <div class="col-sm-6 col-md-4">
                                                     <a href="{{url('/')}}/organisateur/event" class="thumbnail">
-                                                        <img class="hut" src="{{ url('') }}/public/img/create_events.png">
+                                                        <img class="hut"
+                                                             src="{{ url('') }}/public/img/create_events.png">
                                                     </a>
                                                 </div>
                                             @endif
@@ -214,7 +222,8 @@
                         <div class="bg-custom">
                             <h2 class="text-center"><strong>Pas d'évènement ajoutés récements</strong></h2>
                             @if (Auth::guest())
-                                <p class="text-center"><strong>Inscrivez-vous dès maintenant, pour ne pas rater les prochaines
+                                <p class="text-center"><strong>Inscrivez-vous dès maintenant, pour ne pas rater les
+                                        prochaines
                                         Evènements</strong></p>
                                 <div class="sinscrire">
                                     <div class="row">
@@ -228,7 +237,8 @@
                                                 <div class="col-md-8 col-xs-10 col-md-offset-2 col-xs-offset-1">
                                                     <div class="row">
                                                         <div class="col-md-10 col-md-offset-1">
-                                                            <a type="button" class="btn btn-sinscrire btn-lg btn-block" href="{{url('')}}/register">
+                                                            <a type="button" class="btn btn-sinscrire btn-lg btn-block"
+                                                               href="{{url('')}}/register">
                                                                 S'inscrire
                                                             </a>
                                                         </div>
