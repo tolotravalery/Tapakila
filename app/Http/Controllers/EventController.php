@@ -309,6 +309,8 @@ class EventController extends Controller
             $message->to('contact@trustylabs.mg','Leguichet.mg')->subject('Leguichet update event from Admin');
             $message->cc('reservations@leguichet.mg', 'Leguichet.mg')->subject('Leguichet: mise à jour de l\' évènement');
         });
+
+        app('App\Http\Controllers\SitemapController')->generate_sitemap();
         return redirect(url('admin/listevent'))->with(compact('message'));
     }
 

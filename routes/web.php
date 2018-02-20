@@ -12,6 +12,7 @@
 | Middleware options can be located in `app/Http/Kernel.php`
 |
 */
+Route::get('sitemap', 'SitemapController@generate_sitemap');
 
 Route::get('admin', 'Auth\LoginController@showLoginAdminForm')->name('admin');
 Route::post('admin', 'Auth\LoginController@loginAdmin');

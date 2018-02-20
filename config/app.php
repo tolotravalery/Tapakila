@@ -193,7 +193,8 @@ return [
         App\Providers\LocalEnvironmentServiceProvider::class,
         Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
         jeremykenedy\laravelexceptionnotifier\LaravelExceptionNotifier::class,
-        Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class
+        Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
+        Roumen\Sitemap\SitemapServiceProvider::class,
 
     ],
 
