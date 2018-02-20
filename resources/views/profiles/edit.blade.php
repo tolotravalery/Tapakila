@@ -54,7 +54,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-6 ">
-                                @if(count($user->newsletter) == 0)
+                                @if(count($user->newsletter()->where('activated','=',1)->get()) == 0)
                                     <div class="checkbox">
                                         <label>
                                             <input type="checkbox" name="checked"> <i>S'abonner à notre NewsLetter</i>

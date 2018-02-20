@@ -56,6 +56,7 @@ class SendActivationEmail extends Notification implements ShouldQueue
 
 
       $message->view('emails.activation')
+       ->subject("Leguichet: activation de compte")
        ->action('Activer', route('authenticated.activate', ['token' => $this->token]));
 
         return ($message);

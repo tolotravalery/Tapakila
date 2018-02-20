@@ -31,44 +31,53 @@
         <div class="row performe">
             <div class="col-md-12">
                 <div class="about-bg">
-                    <h3>CONDITION GENERALES</h3>
+                    <h3>CONDITIONS DE SERVICE</h3>
                     <br>
-                    <p style="text-align: justify;">En accédant et/ou en utilisant ce site Web, vous acceptez de vous conformer et d'être lié par les Conditions d'Utilisation figurant ci-dessous. Ces Conditions d'Utilisation peuvent faire 
-                    l'objet de modifications et nous vous invitons dès lors à vérifier régulièrement leur contenu afin de prendre connaissance des modifications éventuelles. </p>
-                    <p style="text-align: justify;"><b>Editeur du site Web.</b> Le présent site Web est édité par leguichet.mg, dont le siège social est à Mahamasina. </p>
-                    <p style="text-align: justify;"><b>Contenu de ce site Web.</b>. Ce site Web fournit principalement des informations sur des sujets liés aux évènements se passant au coin du monde,
-                        liés à la :</p><br>
-                    <p style="text-align: justify;"><b>Conditions générales d'utilisation du site Web par les
-                            utilisateurs.</b>L'utilisateur s'engage à ne pas utiliser ce site Web ou l'un des services associés dans un but commercial sans 
-                            l'autorisation préalable et écrite de leguichet.mg. Egalement, il s'engage à ne pas collecter, ni recueillir des données à caractère personnel sur
-                             tout autre utilisateur du site Web ou de tout service associé, telles que leurs adresses emails, sans avoir obtenu leur consentement préalable.
-                              Par ailleurs, il est interdit de télécharger ou de réutiliser des parties substantielles du site Web, ou d'en télécharger ou d'en réutiliser 
-                              systématiquement ou régulièrement des parties moins substantielles. Egalement, il est interdit de diffuser des
-                             virus ou toute autre technologie susceptible de porter préjudice au bon fonctionnement de ce site Web ainsi qu'aux intérêts des autres utilisateurs. </p><br>
-                    <p style="text-align: justify;"><b>Informations publiées par des utilisateurs. </b>
-                    L’organisateur qui est également l'auteur d'un contenu qu'il a décidé de diffuser sur ce site Web dans la rubrique
-                     " Ajouter un évènement " (que ce soit notamment sous forme de texte, de photographies et/ou de vidéos) (ci-après le " Contenu de Tiers ")
-                      est seul responsable de ce qu'il décide de publier. Il s'engage à respecter strictement toutes les lois et réglementations applicables et, 
-                      par conséquent, s'interdit de publier, de manière non exhaustive, des propos diffamatoires, injurieux, insultants, racistes, obscènes, 
-                      ou tout autre contenu préjudiciable aux droits de tiers (en ce compris les droits de propriété intellectuelle s'il ne dispose pas des autorisations 
-                      nécessaires des titulaires de droits correspondants), etc. 
-                    Il s'engage, plus particulièrement, à ce que chaque personne représentée ait donné son accord pour l'utilisation et la diffusion de son image. </p><br>
-                    <p style="text-align: justify;">Le Contenu de Tiers qui est ainsi publié sur ce site Web n'appartient qu'à son auteur et sa présence sur ce site Web n'implique en aucune façon une approbation ou une garantie de qualité de la part de legucihet.mg. Legucihet.mg n'acquiert donc aucun droit de propriété sur ce Contenu de Tiers mais les utilisateurs respectifs lui concèdent le droit non exclusif, cessible (y compris le droit de concéder des licences), à titre gratuit et pour le monde entier, d'utiliser, de reproduire, de distribuer, de représenter et d'exécuter ce Contenu de Tiers dans le cadre de ses activités et d'en créer des œuvres dérivées, y compris, et sans limitation, pour la promotion et la redistribution de tout ou partie du présent site Web, dans tout format et sur tout support. Tout utilisateur auteur du Contenu de Tiers est par ailleurs parfaitement informé que compte tenu des 
-                    caractéristiques intrinsèques d'Internet, le contenu qu'il décide de diffuser n'est pas protégé contre les risques de détournement et/ou de piratage. </p><br>
-                    <p style="text-align: justify;">En ce qui concerne plus particulièrement le Contenu de Tiers diffusé sur support vidéo, chaque utilisateur du site Web s'engage à ne le consulter qu'à des fins personnelles et non commerciales, et uniquement à des fins de streaming, c'est-à-dire de manière à ce que ce Contenu de Tiers soit visualisé en temps réel et non à être téléchargé, copié et/ou redistribué. </p>
-                    <br>
+                    <p style="text-align: justify;">En utilisant nos services, vous acceptez les conditions ci-après, merci de les lire attentivement. </p>
+                    <p style="text-align: justify;">Les services dans ce magasin de billet électronique sont fournis par Leguichet, emplacement Mahamasina,
+                        e-mail <strong style="color:#d70506">contact@leguichet.mg</strong>. Nous vous invitons à cliquer sur ce lien : A propos de nous pour comprendre ce que nous faisons. </p>
+                    <p style="text-align: justify;">Leguichet n'agit pas en tant qu'organisateur d'un événement. Leguichet vend des billets sur demande et au nom
+                        des organisateurs et n'a pas le droit de fixer ou de modifier le prix et les conditions de vente des billets, notamment la détermination des places,
+                        l'échange ou le remboursement des billets perdus, détruits, volés ou endommagés et d'autres objets liés aux événements.</p><br>
+
                     <p style="text-align: justify;">
-                    Enfin, leguichet.mg se réserve, à tout moment, le droit de publier ou non, le Contenu de Tiers, en tout ou en partie. En sa qualité d'hébergeur, leguichet.mg retirera tout contenu manifestement illicite dès que celui-ci aura été porté à sa connaissance et le compte de l'utilisateur correspondant pourra être désactivé, sans autres formalités préalables.
-                     </p><br>
-                    <p style="text-align: justify;"><b>Fonctionnement de ce site Web.</b> Leguichet.mg ne donne aucune garantie concernant la disponibilité et le bon fonctionnement de ce site Web et ne peut être tenue pour responsable de toute interruption de disponibilité ou défaut dans son fonctionnement, quelle qu'en soit la cause (par exemple en cas de virus ou de contamination informatique quelconque). Par ailleurs, à tout moment et sans aucune motivation, Leguichet.mg a le droit de cesser de mettre ce site Web à disposition, que ce soit de manière temporaire ou permanente.</p><br>
-                    
-                    <p style="text-align: justify;">En cas de contestation relative aux communications électroniques touchant à l'utilisation de ce site Web (telles que l'entrée en communication avec ce site Web, etc.) les données techniques de leguichet.mg auront une force probante supérieure.</p> <br>
-                    <p style="text-align: justify;"><b>Droits de propriété intellectuelle.</b>Ce site Web et son contenu, en ce compris et de façon non limitative, les textes, graphiques, images, vidéos, sons, logos et icônes, sont protégés par le droit d'auteur et/ou d'autres droits de propriété intellectuelle (marques, bases de données, etc.) et ne peuvent pas être copiés, reproduits, distribués, utilisés, adaptés et/ou traduits, en tout ou en partie, sauf autorisation écrite et préalable de legucht.mg et/ou de l'auteur respectif en cas de Contenu de Tiers. et ce sans préjudice de la possibilité de télécharger et d'imprimer des éléments de ce site Web à des fins purement informatives, éducatives ou scientifiques et non commerciales, pour autant cependant que le contenu ne soit pas modifié et que les notices de droits d'auteur, marques et des autres droits de propriété intellectuelle soient conservées. Toute utilisation contraire à ces conditions est expressément interdite. </p>
+                        Les droits et obligations liés au billet sont fixés et informés par l'Organisateur de l'événement et
+                        Leguichet n'est pas responsable du contenu ou de l'exécution ou de la modification de ces droits et obligations.
+                    </p><br>
+                    <p style="text-align: justify;">Leguichet n'agit pas en tant que représentant de l'Organisateur de l'événement, de l'artiste
+                        ou de toute autre personne responsable du contenu, de la qualité, des informations ou des publicités de l'événement. </p><br>
+
+
+                    <p style="text-align: justify;">Le client reçoit les billets commandés au format PDF par e-mail immédiatement après le paiement. </p><br>
+
+                    <p style="text-align: justify;">Leguichet décline toute responsabilité pour le retard de livraison des billets qui a été causé par des données inexactes ou des instructions
+                        fournies par l'utilisateur de la billetterie, par l'action de toute tierce partie et par d'autres circonstances indépendantes de Leguichet. </p>
                     <br>
-                    <p style="text-align: justify;"><b>Hyperliens vers des sites web de tiers.</b> Les sites web vers lesquels des hyperliens peuvent avoir lieu depuis ce site Web ne sont pas contrôlés par leguichet.mg et leguichet.mg ne peut pas être tenue responsable du contenu illégal sur ces sites web ni des hyperliens renvoyant eux-mêmes vers d'autres sites web. La présence d'un hyperlien vers les sites web de tiers sur ce site Web n'implique en aucune façon une approbation ou une garantie de qualité de la part de leguichet.mg.<br>
-                    <p style="text-align: justify;"><b>Droit applicable et juridictions compétentes.</b> Ce site Web, son exploitation et son usage sont régis par le droit malgache. Sauf disposition légale contraire impérative, les tribunaux de Tananarive sont seuls compétents pour toute dispute liée à l'accès et/ou à l'utilisation de ce site Web.</p><br>
-                    <p style="text-align: justify;">Si vous avez des questions concernant nos Conditions d'Utilisation ou notre politique de protection de la Vie Privée, n'hésitez pas à nous contacter par e-mail à contact@leguichet.mg. </p><br>
-                    <p style="text-align: justify;">Dernière mise à jour: Novembre 2017.</p>
+
+                    <p style="text-align: justify;">
+                        Dans le cas où l'événement est annulé, reporté ou son emplacement est modifié, Leguichet n'est pas obligé d'échanger ou de rembourser le billet.
+                        Les échanges et/ou les remboursements sont définis et gérés par l'organisateur.
+                    </p><br>
+
+                    <p style="text-align: justify;">
+                        La violation des Conditions d'utilisation donne à Leguichet le droit de bloquer l'accès et/ou d'annuler une commande de billets sur n'importe quel utilisateur.</p><br>
+                    
+                    <p style="text-align: justify;">En agissant sur ce site Web, l'utilisateur accepte d'avoir au moins 18 ans, c’est-à-dire une personne entièrement responsable.</p> <br>
+
+                    <p style="text-align: justify;">Leguichet utilise les données personnelles de ses clients uniquement pour traiter les commandes de vente de billets électroniques. Leguichet ne partagera pas les données
+                        personnelles avec des tiers, sauf avec l'organisateur et lorsque cela est nécessaire pour le traitement de la transaction ou requis par la loi.</p>
+                    <br>
+                    <p style="text-align: justify;">Leguichet ne vérifie pas le droit de l'utilisateur d'acheter des billets avec réduction.
+                        L'achat d'un billet avec remise ne garantit pas l'entrée à un événement, l'entrée à ces occasions est vérifiée sur le site.</p><br>
+
+                    <p style="text-align: justify;">
+                        Leguichet se réserve le droit de modifier les conditions de service sans préavis, les modifications sont mises en œuvre par leur publication sur le site Web.
+                    </p><br>
+                    <p style="text-align: justify;">Tout désaccord découlant de l'utilisation du site est traité par le tribunal d’Antananarivo conformément aux présentes conditions d'utilisation. </p><br>
+                    <p style="text-align: justify;">Si vous avez des questions concernant nos Conditions d'Utilisation ou notre politique de protection
+                        de la Vie Privée, n'hésitez pas à nous contacter par e-mail <strong style="color:#d70506">contact@leguichet.mg</strong>.</p>
+
+                    <p style="text-align: justify;">Dernière mise à jour: Février 2018.</p>
                 </div>
             </div>
 

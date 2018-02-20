@@ -187,9 +187,8 @@ class ActivateController extends Controller
         $user->signup_confirmation_ip_address = $ipAddress->getClientIp();
         $user->profile()->save($profile);
         $user->save();
-
         Mail::send('emails.inscription',['user'=>Auth::user()], function ($message) {
-            $message->to(Auth::user()->email, Auth::user()->name)->subject('Leguichet');
+            $message->to(Auth::user()->email, Auth::user()->name)->subject('Leguichet: activation compte effectué');
         });
         $allActivations = Activation::where('user_id', $user->id)->get();
         foreach ($allActivations as $anActivation) {
@@ -199,7 +198,7 @@ class ActivateController extends Controller
         Log::info('Registered user successfully activated. ' . $currentRoute . '. ', [$user]);
 
         if ($user->isAdmin()) {
-            return redirect()->route(self::$getAdminHomeRoute())
+            return redirect()->route(self::getAdminHomeRoute())
                 ->with('status', 'success')
                 ->with('message', trans('auth.successActivated'));
         }
