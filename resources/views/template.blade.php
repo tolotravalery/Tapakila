@@ -232,7 +232,7 @@
                 |
                 <li><a href="{{url('')}}/faq">FAQ</a></li>
                 |
-                <li><a href="{{url('')}}/vie-prive">Vie privee</a></li>
+                <li><a href="{{url('')}}/vie-prive">Vie privée</a></li>
 
             </ul>
             <p>Copyright &copy Leguichet 2017</p>
