@@ -65,11 +65,11 @@
                                                     <br>
                                                     <br> 2 - Cliquez sur la date que vous souhaitez
                                                     <br>
-                                                    <br> 3 - Selectionez la quantité de billet désirée
+                                                    <br> 3 - Sélectionez la quantité de billet désirée
                                                     <br>
                                                     <br> 4 - Choisissez vos billets parmi les listes disponibles
                                                     <br>
-                                                    <br> 6 - Suivez les différentes étapes – vérifiez que votre adresse email, numéro de téléphone & adresse sont corrects
+                                                    <br> 6 - Suivez les différentes étapes – vérifiez que votre adresse email, numéro de téléphone sont corrects
                                                     <br>
                                                     <br> 7 - Vérifiez les détails de votre commande pour vous assurer que tout vous convient
                                                     <br>
@@ -125,16 +125,16 @@
                                             <p onclick="accord6()"><span style="cursor: pointer">Comment télécharger mes billets électroniques ?</span>
                                                 <br>
                                                 <label id="demo6" class="hidden padd">
-                                                    La pièce jointe attachée à votre email de confirmation de votre achat est tout de suite téléchargeable à partir d'un bouton.Si vous n'avez pas de logiciel pour lire le PDF <a href="https://get.adobe.com/fr/reader/" target="_blank">cliquez ici</a>
+                                                    La pièce jointe attachée à votre email de confirmation de votre achat est tout de suite téléchargeable à partir en appuyant sur un bouton.Si vous n'avez pas de logiciel pour lire le PDF <a href="https://get.adobe.com/fr/reader/" target="_blank" style="color:#d70506">cliquez ici</a>
                                                 </label>
                                             </p>
 
                                            
 
-                                            <p onclick="accord8()"><span style="cursor: pointer">Puis-je retirer mes billets le jour de l'évènement ,plutôt que de les recevoir par courrier ?</span>
+                                            <p onclick="accord8()"><span style="cursor: pointer">Puis-je retirer mes billets le jour de l'évènement plutôt que de les recevoir par courrier ?</span>
                                                 <br>
                                                 <label id="demo8" class="hidden padd">
-                                                    Non, vous ne le pouvez pas.L'envoi d'un billet est programmé automatiquement et il est unique
+                                                    Non, vous ne le pouvez pas. L'envoi d'un billet est programmé automatiquement et il est unique
                                                     <br>
                                                     
                                                 </label>
@@ -223,7 +223,7 @@
                                             <p onclick="accord16()"><span style="cursor: pointer">Comment modifier les informations de mon compte</span>
                                                 <br>
                                                 <label id="demo16" class="hidden padd">
-                                                    En haut à droite de votre page cliquer sur "<a href="{{url('/home')}}"> mon compte </a>" pius allez sur "modifier mes informations" ensuite cliquer sur le bouton " Modifier " pour valider vos modifications.
+                                                    En haut à droite de votre page cliquer sur "<a href="{{url('/home')}}" style="color:#d70506"> mon compte </a>" pius allez sur "modifier mes informations" ensuite cliquer sur le bouton " Modifier " pour valider vos modifications.
 
                                                 </label>
                                             </p>
