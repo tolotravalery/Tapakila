@@ -59,7 +59,7 @@
                     <!-- COMMENT S'EFFECTUE LE CONTRÔLE A L'ENTRÉE DE LA SALLE ? -->
                     <h4><strong>Comment s'effectue le contrôlle à l'entrée de la salle ?</strong></h4>
                     <p>Chaque billet possède un QRCode unique qui sera scanné par un contrôleur à l'entrée de la salle afin de vérifié s'il est valide ou non. </p>
-                    <p> Seule la première copie de votre billet.</p>
+                    <p> Seule la première copie de votre billet est valide.</p>
                     
                     <br>
 

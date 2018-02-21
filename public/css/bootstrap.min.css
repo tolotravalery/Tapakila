@@ -6220,6 +6220,7 @@ div.calendar p {
 }
 #sectioncategorie a#pull {
     display: none;
+    margin: 0px;
 }
 @media screen and (min-width:500px) and (max-width:1200px) {
     #sectioncategorie {
@@ -6264,6 +6265,7 @@ div.calendar p {
     width: 100%;
     position: relative;
     background-color: #f8f8f8;
+    margin: 0px;
 }
 #sectioncategorie a#pull:after {
     content: "";
@@ -8652,6 +8654,7 @@ ul.nav-customs li {
     width: 100%;
     position: relative;
     background-color: #fff;
+    margin: 0px;
 }
 #sectioncategorie a#pull:after {
     content: "";
@@ -8662,6 +8665,7 @@ ul.nav-customs li {
     position: absolute;
     right: 15px;
     top: 10px;
+
 }
 .menupull {
     color: #000;

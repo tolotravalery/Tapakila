@@ -18,6 +18,7 @@
     <link href="{{ url('/') }}/public/css/clockpiker.css" rel="stylesheet"> -->
     <link rel="icon" href="{{ url('/') }}/public/img/favicon.ico"/>
     <script type="text/javascript" src="{{ url('/') }}/public/js/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ url('/') }}/public/js/Tapakila.js"></script>
     <script type="text/javascript" src="{{ url('/') }}/public/js/bootstrap.min.js"></script>
    <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-57119037-2"></script>
