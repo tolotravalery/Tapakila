@@ -199,7 +199,7 @@
                                                     <label id="label">
                                                         <input type="checkbox" value="" name="accept" id="case">
                                                         <b style="left: 5px">Cochez cette case pour confirmer que vous avez lu et
-                                                            accepté nos <a href="{{url('/')}}/conditions-generales">conditions de service</a>.</b>
+                                                            accepté nos <a href="{{url('/')}}/conditions-generales" style="color:#0b70b6">conditions de service</a>.</b>
                                                     </label>
                                                 </div>
                                             </div>
