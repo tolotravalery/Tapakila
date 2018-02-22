@@ -17,7 +17,7 @@
     </section>
 
     <section id="sectionevenement" role="navigation">
-        <div class="container custom-container">
+        <div class="container custom-container" >
             <ul>
                 @foreach($sousmenus as $sousmenu)
                     <li>
