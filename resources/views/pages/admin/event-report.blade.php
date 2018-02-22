@@ -1,9 +1,13 @@
 @extends("template-admin")
+ @php($montant=0)
+    @foreach($event->tickets as $t)
+        @php($montant += count($t->tapakila()->where('vendu','=',1)->get()) * $t->price)
+    @endforeach
 @section('content')
     <section class="content">
         <!-- Small boxes (Stat box) -->
         <div class="row">
-            <div class="col-lg-3 col-xs-6">
+            <div class="col-lg-4 col-xs-4">
                 <!-- small box -->
                 <div class="small-box bg-aqua">
                     <div class="inner">
@@ -12,13 +16,12 @@
                         <p>Achats</p>
                     </div>
                     <div class="icon">
-                        <i class="ion ion-bag"></i>
+                        <i class="fa fa-shopping-cart"></i>
                     </div>
-                    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
             <!-- ./col -->
-            <div class="col-lg-3 col-xs-6">
+            <div class="col-lg-4 col-xs-4">
                 <!-- small box -->
                 <div class="small-box bg-green">
                     <div class="inner">
@@ -29,228 +32,170 @@
                     <div class="icon">
                         <i class="ion ion-stats-bars"></i>
                     </div>
-                    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
-            <!-- ./col -->
-            <div class="col-lg-3 col-xs-6">
+            <div class="col-lg-4 col-xs-4">
                 <!-- small box -->
-                <div class="small-box bg-yellow">
+                <div class="small-box bg-green">
                     <div class="inner">
-                        <h3>44</h3>
+                        <h3>{{$montant}}</h3>
 
-                        <p>User Registrations</p>
+                        <p>ARIARY</p>
                     </div>
                     <div class="icon">
-                        <i class="ion ion-person-add"></i>
+                        <i class="fa fa-dollar"></i>
                     </div>
-                    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
-            <!-- ./col -->
-            <div class="col-lg-3 col-xs-6">
-                <!-- small box -->
-                <div class="small-box bg-red">
-                    <div class="inner">
-                        <h3>65</h3>
-
-                        <p>Unique Visitors</p>
-                    </div>
-                    <div class="icon">
-                        <i class="ion ion-pie-graph"></i>
-                    </div>
-                    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-                </div>
-            </div>
-            <!-- ./col -->
         </div>
         <!-- /.row -->
         <!-- Main row -->
         <div class="row">
             <!-- Left col -->
-            <section class="col-lg-7 connectedSortable ui-sortable">
+            <section class="col-lg-6 connectedSortable ui-sortable">
+
+                <div class="box box-widget widget-user">
+                    <!-- Add the bg color to the header using any of the bg-* classes -->
+                    <div class="widget-user-header bg-black"
+                         style="background: url('{{url('/public/img/'.$event->image)}}') center center;">
+                        <h3 class="widget-user-username">{{str_limit($event->title,25,'...')}}</h3>
+                        <h5 class="widget-user-desc">{{str_limit($event->additional_note,50,'...')}}</h5>
+                    </div>
+                    <div class="widget-user-image">
+                        @if(\App\Models\User::find($event->user_id)->profile_avatar)
+                            <img class="img-circle" src="{{Auth::user()->profile_avatar}}" alt="User Avatar">
+                        @else
+                            <img class="img-circle" src="{{url('/')}}/public/img/usercircle.png" alt="User Avatar">
+                        @endif
+
+                    </div>
+                    <div class="box-footer">
+                        <div class="row">
+                            <div class="col-sm-4 border-right">
+                                <div class="description-block">
+                                    <h5 class="description-header">{{count($event->tickets)}}</h5>
+                                    <span class="description-text">TYPE DE TICKET</span>
+                                </div>
+                                <!-- /.description-block -->
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-sm-4 border-right">
+                                <div class="description-block">
+                                    <h5 class="description-header">{{$ticket_genere}}</h5>
+                                    <span class="description-text">TICKET GENERE</span>
+                                </div>
+                                <!-- /.description-block -->
+                            </div>
+                            <!-- /.col -->
+                            <!-- /.col -->
+                            <div class="col-sm-4 border-right">
+                                <div class="description-block">
+                                    <h5 class="description-header">{{$montant}}</h5>
+                                    <span class="description-text">ARIARY</span>
+                                </div>
+                                <!-- /.description-block -->
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                </div>
+
+                @php($j = 0)
+                <div class="row">
+                    @foreach($event->tickets as $t)
+                        <div class="col-md-6">
+                            <!-- Widget: user widget style 1 -->
+                            <div class="box box-widget widget-user-2">
+                                <!-- Add the bg color to the header using any of the bg-* classes -->
+                                <div class="widget-user-header bg-aqua-active">
+                                    <!-- /.widget-user-image -->
+                                    <h3 class="widget-user-username">{{$t->type}}</h3>
+                                    <h5 class="widget-user-desc">{{$t->description}}</h5>
+                                </div>
+                                <div class="box-footer no-padding">
+                                    <ul class="nav nav-stacked">
+                                        <li><a href="#">Billet générer : <span
+                                                        class="pull-right badge bg-blue">{{count($t->tapakila)}}</span></a>
+                                        </li>
+                                        <li><a href="#">Billet vendu : <span class="pull-right badge bg-aqua">{{count($t->tapakila()->where('vendu','=',1)->get())}}</span></a>
+                                        </li>
+                                        <li><a href="#">Montant reçu : <span
+                                                        class="pull-right badge bg-green">{{count($t->tapakila()->where('vendu','=',1)->get()) * $t->price}} Ariary</span></a></li>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- /.widget-user -->
+                        </div>
+                    @endforeach
+                </div>
+
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title">Data Table With Full Features</h3>
+                        <h3 class="box-title">Overview de tous les achats</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
-                        <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="dataTables_length" id="example1_length"><label>Show <select
-                                                    name="example1_length" aria-controls="example1"
-                                                    class="form-control input-sm">
-                                                <option value="10">10</option>
-                                                <option value="25">25</option>
-                                                <option value="50">50</option>
-                                                <option value="100">100</option>
-                                            </select> entries</label></div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div id="example1_filter" class="dataTables_filter"><label>Search:<input
-                                                    type="search" class="form-control input-sm" placeholder=""
-                                                    aria-controls="example1"></label></div>
-                                </div>
-                            </div>
+                        <div id="example1_wrapper"
+                             class="table table-bordered table-striped table-responsive dataTable">
                             <div class="row">
                                 <div class="col-sm-12">
                                     <table id="example1" class="table table-bordered table-striped dataTable"
                                            role="grid" aria-describedby="example1_info">
                                         <thead>
                                         <tr role="row">
-                                            <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1"
-                                                colspan="1" aria-sort="ascending"
-                                                aria-label="Rendering engine: activate to sort column descending"
-                                                style="width: 154px;">Rendering engine
+                                            <th class="hidden-xs hidden-sm">
+                                                Référence
                                             </th>
-                                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
-                                                colspan="1" aria-label="Browser: activate to sort column ascending"
-                                                style="width: 191px;">Browser
+                                            <th class="hidden-xs hidden-sm">
+                                                Date achat
                                             </th>
-                                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
-                                                colspan="1" aria-label="Platform(s): activate to sort column ascending"
-                                                style="width: 169px;">Platform(s)
+                                            <th>
+                                                Nombre
                                             </th>
-                                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
-                                                colspan="1"
-                                                aria-label="Engine version: activate to sort column ascending"
-                                                style="width: 131px;">Engine version
+                                            <th>
+                                                Type ticket
                                             </th>
-                                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
-                                                colspan="1" aria-label="CSS grade: activate to sort column ascending"
-                                                style="width: 93px;">CSS grade
+                                            <th class="hidden-xs hidden-sm">
+                                                Client
+                                            </th>
+                                            <th class="hidden-xs hidden-sm">
+                                                Mode de paiement
+                                            </th>
+                                            <th>
+                                                Status
                                             </th>
                                         </tr>
                                         </thead>
                                         <tbody>
-
-
-                                        <tr role="row" class="odd">
-                                            <td class="sorting_1">Gecko</td>
-                                            <td>Firefox 1.0</td>
-                                            <td>Win 98+ / OSX.2+</td>
-                                            <td>1.7</td>
-                                            <td>A</td>
-                                        </tr>
-                                        <tr role="row" class="even">
-                                            <td class="sorting_1">Gecko</td>
-                                            <td>Firefox 1.5</td>
-                                            <td>Win 98+ / OSX.2+</td>
-                                            <td>1.8</td>
-                                            <td>A</td>
-                                        </tr>
-                                        <tr role="row" class="odd">
-                                            <td class="sorting_1">Gecko</td>
-                                            <td>Firefox 2.0</td>
-                                            <td>Win 98+ / OSX.2+</td>
-                                            <td>1.8</td>
-                                            <td>A</td>
-                                        </tr>
-                                        <tr role="row" class="even">
-                                            <td class="sorting_1">Gecko</td>
-                                            <td>Firefox 3.0</td>
-                                            <td>Win 2k+ / OSX.3+</td>
-                                            <td>1.9</td>
-                                            <td>A</td>
-                                        </tr>
-                                        <tr role="row" class="odd">
-                                            <td class="sorting_1">Gecko</td>
-                                            <td>Camino 1.0</td>
-                                            <td>OSX.2+</td>
-                                            <td>1.8</td>
-                                            <td>A</td>
-                                        </tr>
-                                        <tr role="row" class="even">
-                                            <td class="sorting_1">Gecko</td>
-                                            <td>Camino 1.5</td>
-                                            <td>OSX.3+</td>
-                                            <td>1.8</td>
-                                            <td>A</td>
-                                        </tr>
-                                        <tr role="row" class="odd">
-                                            <td class="sorting_1">Gecko</td>
-                                            <td>Netscape 7.2</td>
-                                            <td>Win 95+ / Mac OS 8.6-9.2</td>
-                                            <td>1.7</td>
-                                            <td>A</td>
-                                        </tr>
-                                        <tr role="row" class="even">
-                                            <td class="sorting_1">Gecko</td>
-                                            <td>Netscape Browser 8</td>
-                                            <td>Win 98SE+</td>
-                                            <td>1.7</td>
-                                            <td>A</td>
-                                        </tr>
-                                        <tr role="row" class="odd">
-                                            <td class="sorting_1">Gecko</td>
-                                            <td>Netscape Navigator 9</td>
-                                            <td>Win 98+ / OSX.2+</td>
-                                            <td>1.8</td>
-                                            <td>A</td>
-                                        </tr>
-                                        <tr role="row" class="even">
-                                            <td class="sorting_1">Gecko</td>
-                                            <td>Mozilla 1.0</td>
-                                            <td>Win 95+ / OSX.1+</td>
-                                            <td>1</td>
-                                            <td>A</td>
-                                        </tr>
+                                        @foreach($achats as $ac)
+                                            @foreach($ac as $a)
+                                                <tr role="row" class="odd">
+                                                    <td class="hidden-xs hidden-sm">{{$a->achat_reference}}</td>
+                                                    <td class="hidden-xs hidden-sm">{{$a->date_achat}}</td>
+                                                    <td>{{$a->number}}</td>
+                                                    <td>{{\App\Models\Ticket::find($a->ticket_id)->type}}</td>
+                                                    <td class="hidden-xs hidden-sm">{{\App\Models\User::find($a->user_id)->name}}</td>
+                                                    <td class="hidden-xs hidden-sm">{{\App\Models\Payement_mode::find($a->payement_mode_id)->value}}</td>
+                                                    <td>{{$a->status_payment}}</td>
+                                                </tr>
+                                            @endforeach
+                                        @endforeach
                                         </tbody>
-                                        <tfoot>
-                                        <tr>
-                                            <th rowspan="1" colspan="1">Rendering engine</th>
-                                            <th rowspan="1" colspan="1">Browser</th>
-                                            <th rowspan="1" colspan="1">Platform(s)</th>
-                                            <th rowspan="1" colspan="1">Engine version</th>
-                                            <th rowspan="1" colspan="1">CSS grade</th>
-                                        </tr>
-                                        </tfoot>
                                     </table>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-5">
-                                    <div class="dataTables_info" id="example1_info" role="status" aria-live="polite">
-                                        Showing 1 to 10 of 57 entries
-                                    </div>
-                                </div>
-                                <div class="col-sm-7">
-                                    <div class="dataTables_paginate paging_simple_numbers" id="example1_paginate">
-                                        <ul class="pagination">
-                                            <li class="paginate_button previous disabled" id="example1_previous"><a
-                                                        href="#" aria-controls="example1" data-dt-idx="0" tabindex="0">Previous</a>
-                                            </li>
-                                            <li class="paginate_button active"><a href="#" aria-controls="example1"
-                                                                                  data-dt-idx="1" tabindex="0">1</a>
-                                            </li>
-                                            <li class="paginate_button "><a href="#" aria-controls="example1"
-                                                                            data-dt-idx="2" tabindex="0">2</a></li>
-                                            <li class="paginate_button "><a href="#" aria-controls="example1"
-                                                                            data-dt-idx="3" tabindex="0">3</a></li>
-                                            <li class="paginate_button "><a href="#" aria-controls="example1"
-                                                                            data-dt-idx="4" tabindex="0">4</a></li>
-                                            <li class="paginate_button "><a href="#" aria-controls="example1"
-                                                                            data-dt-idx="5" tabindex="0">5</a></li>
-                                            <li class="paginate_button "><a href="#" aria-controls="example1"
-                                                                            data-dt-idx="6" tabindex="0">6</a></li>
-                                            <li class="paginate_button next" id="example1_next"><a href="#"
-                                                                                                   aria-controls="example1"
-                                                                                                   data-dt-idx="7"
-                                                                                                   tabindex="0">Next</a>
-                                            </li>
-                                        </ul>
-                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!-- /.box-body -->
                 </div>
+
+
             </section>
             <!-- /.Left col -->
             <!-- right col (We are only adding the ID to make the widgets sortable)-->
-            <section class="col-lg-5 connectedSortable ui-sortable">
+            <section class="col-lg-6 connectedSortable ui-sortable">
                 <div class="box box-default">
                     <div class="box-header with-border">
                         <h3 class="box-title">{{str_limit($event->title,25,'...')}}</h3>
@@ -278,7 +223,20 @@
                     </div>
                     <!-- /.box-body -->
                     <div class="box-footer">
-                        Nombre total des tickets vendu : {{$nombreAchat}}
+                        <div class="row">
+                            <center>
+                                <div class="col-md-6 col-xs-6">
+                                    Nombre total des tickets généré: {{$ticket_genere}}
+                                </div>
+                                <div class="col-md-6 col-xs-6">
+                                    @php($ticket_vendu = 0)
+                                    @foreach($data_achat as $data)
+                                        @php($ticket_vendu += $data['nombreVendu'])
+                                    @endforeach
+                                    Nombre total des tickets vendu : {{$ticket_vendu}}
+                                </div>
+                            </center>
+                        </div>
                     </div>
                     <!-- /.footer -->
                 </div>
@@ -375,5 +333,21 @@
             maintainAspectRatio: false,
         };
         pieChart.Doughnut(PieData, pieOptions);
+    </script>
+    <!-- DataTables -->
+    <script src="{{url('/')}}/public/admin-assets/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="{{url('/')}}/public/admin-assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script>
+        $(function () {
+            $('#example1').DataTable()
+            $('#example2').DataTable({
+                'paging': true,
+                'lengthChange': false,
+                'searching': false,
+                'ordering': true,
+                'info': true,
+                'autoWidth': false
+            })
+        })
     </script>
 @endsection

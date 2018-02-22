@@ -123,15 +123,16 @@ class EventController extends Controller
         $data_achat = array();
         $couleur = ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'];
         $code_couleur = 0;
+        $array_achats = array();
         foreach ($event->tickets as $ticket) {
             $nombreAchatParTicket = 0;
             //achat
             $achat = TicketUser::where('ticket_id', '=', $ticket->id)->get();
+            $array_achats[] = $achat;
             if (count($achat) != 0) {
                 foreach ($achat as $a) {
+                    $nombreAchat += $a->number;
                     if ($a->status_payment != 'FAILED') {
-
-                        $nombreAchat += $a->number;
                         $nombreAchatParTicket += $a->number;
                     }
                 }
@@ -145,8 +146,10 @@ class EventController extends Controller
             $code_couleur++;
         }
         $revenu = ($total_ticket_vendu * 100) / ($total_ticket_genere != 0 ? $total_ticket_genere : 1);
+//        dd($array_achats);
         return view('pages.admin.event-report', compact('event', 'alert'))
-            ->with(array('nombreAchat' => $nombreAchat, 'revenu' => $revenu, 'data_achat' => $data_achat));
+            ->with(array('nombreAchat' => $nombreAchat, 'revenu' => $revenu, 'data_achat' => $data_achat, 'achats' => $array_achats,
+                'ticket_genere' => $total_ticket_genere));
     }
 
     public

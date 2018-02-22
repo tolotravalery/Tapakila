@@ -338,7 +338,7 @@
                 $("#bouton").attr("data-modalClass", "modal-danger");
                 $('#bouton').click();
 
-                return false;
+
             }
             else{
                 $("#bouton").removeAttr("data-toggle", "modal");
