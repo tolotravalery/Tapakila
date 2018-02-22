@@ -325,6 +325,13 @@
 
 @section('specificScript')
     <script>
+        $('.close').click(function(){
+            $('body').removeClass("modal-open");
+            $('#confirmForm').removeClass('in');
+            $('#confirmForm').hide();
+
+            //$('body').removeCss('padding-right', '17px');
+        });
         $('#bouton').click(function () {
             if($('#case').prop('checked') == false){
                 //alert('tsy cocher');
@@ -332,19 +339,18 @@
                 $('#label').css('border','1px solid red');
                 $('#label').css('padding','10px 33px');
 
-                $("#bouton").attr("data-toggle", "modal");
-                $("#bouton").attr("data-submit", "Modifier");
-                $("#bouton").attr("data-target", "#confirmForm");
-                $("#bouton").attr("data-modalClass", "modal-danger");
-                $('#bouton').click();
-
+                $('body').addClass("modal-open");
+                $('body').css('padding-right', '17px');
+                $('#confirmForm').addClass('in');
+                $('#confirmForm').show();
                 return false;
             }
             else{
-                $("#bouton").removeAttr("data-toggle", "modal");
+                /*$("#bouton").removeAttr("data-toggle", "modal");
                 $("#bouton").removeAttr("data-submit", "Modifier");
                 $("#bouton").removeAttr("data-target", "#confirmForm");
                 $("#bouton").removeAttr("data-modalClass", "modal-danger");
+                return false;*/
             }
         });
         (function () {
