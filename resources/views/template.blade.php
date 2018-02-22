@@ -18,6 +18,7 @@
     <link href="{{ url('/') }}/public/css/clockpiker.css" rel="stylesheet"> -->
     <link rel="icon" href="{{ url('/') }}/public/img/favicon.ico"/>
     <script type="text/javascript" src="{{ url('/') }}/public/js/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ url('/') }}/public/js/Tapakila.js"></script>
     <script type="text/javascript" src="{{ url('/') }}/public/js/bootstrap.min.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -232,7 +233,7 @@
                 |
                 <li><a href="{{url('')}}/faq">FAQ</a></li>
                 |
-                <li><a href="{{url('')}}/vie-prive">Vie privee</a></li>
+                <li><a href="{{url('')}}/vie-prive">Vie privée</a></li>
 
             </ul>
             <p>Copyright &copy Leguichet 2017</p>

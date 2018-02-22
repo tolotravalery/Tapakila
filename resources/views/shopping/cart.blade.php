@@ -199,7 +199,7 @@
                                                     <label id="label">
                                                         <input type="checkbox" value="" name="accept" id="case">
                                                         <b style="left: 5px">Cochez cette case pour confirmer que vous avez lu et
-                                                            accepté nos <a href="{{url('/')}}/conditions-generales">conditions de service</a>.</b>
+                                                            accepté nos <a href="{{url('/')}}/conditions-generales" style="color:#0b70b6">conditions de service</a>.</b>
                                                     </label>
                                                 </div>
                                             </div>
@@ -325,26 +325,31 @@
 
 @section('specificScript')
     <script>
+        $('.close').click(function(){
+            $('body').removeClass("modal-open");
+            $('#confirmForm').removeClass('in');
+            $('#confirmForm').hide();
+
+            //$('body').removeCss('padding-right', '17px');
+        });
         $('#bouton').click(function () {
             if($('#case').prop('checked') == false){
                 //alert('tsy cocher');
                 $('#label').css('border-radius','5px');
                 $('#label').css('border','1px solid red');
                 $('#label').css('padding','10px 33px');
-
-                $("#bouton").attr("data-toggle", "modal");
-                $("#bouton").attr("data-submit", "Modifier");
-                $("#bouton").attr("data-target", "#confirmForm");
-                $("#bouton").attr("data-modalClass", "modal-danger");
-                $('#bouton').click();
-
-
+                $('body').addClass("modal-open");
+                $('body').css('padding-right', '17px');
+                $('#confirmForm').addClass('in');
+                $('#confirmForm').show();
+                return false;
             }
             else{
-                $("#bouton").removeAttr("data-toggle", "modal");
+                /*$("#bouton").removeAttr("data-toggle", "modal");
                 $("#bouton").removeAttr("data-submit", "Modifier");
                 $("#bouton").removeAttr("data-target", "#confirmForm");
                 $("#bouton").removeAttr("data-modalClass", "modal-danger");
+                return false;*/
             }
         });
         (function () {
