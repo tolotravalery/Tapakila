@@ -137,15 +137,15 @@
                         <div class="spacing"></div>
                         <div class="custom-pg">
                             {{--@if(strpos(Auth::user()->email,'@test.com')!== false && strpos(Auth::user()->email,'missing') !== false)--}}
-                                {{--<p><b>Adresse e-mail de livraison des tickets :</b></p>--}}
-                                {{--<p><i>Nous vous enverrons les infos payment dans cet email</i></p>--}}
-                                {{--<input type="email" class="form-control" name="email_livraison">--}}
-                                {{--<br>--}}
+                            {{--<p><b>Adresse e-mail de livraison des tickets :</b></p>--}}
+                            {{--<p><i>Nous vous enverrons les infos payment dans cet email</i></p>--}}
+                            {{--<input type="email" class="form-control" name="email_livraison">--}}
+                            {{--<br>--}}
                             {{--@else--}}
-                                <p><b>Adresse e-mail de livraison des tickets :</b> &nbsp {{Auth::user()->email}}&nbsp;&nbsp;&nbsp;<a
-                                            href="{{url('/')}}/profile/{{Auth::user()->id}}/edit"
-                                            style="color: #d70506">Modifier</a></p>
-                                <br>
+                            <p><b>Adresse e-mail de livraison des tickets :</b> &nbsp {{Auth::user()->email}}&nbsp;&nbsp;&nbsp;<a
+                                        href="{{url('/')}}/profile/{{Auth::user()->id}}/edit"
+                                        style="color: #d70506">Modifier</a></p>
+                            <br>
                             {{--@endif--}}
                             <p><b>Méthode de payment <span style="color:red;">*</span> :</b></p>
                             <div class="modepaimenent">
@@ -186,20 +186,20 @@
                                     </div>
 
                                     {{--<div class="resum hidden" id="numPhone">--}}
-                                        {{--<p><b>Numéro téléphone de payment :  <span style="color:red;">*</span>:</b>--}}
-                                        {{--</p>--}}
-                                        {{--<input type="tel" class="form-control hidden" name="num__phone" id="num__phone">--}}
-                                        {{--<br>--}}
+                                    {{--<p><b>Numéro téléphone de payment :  <span style="color:red;">*</span>:</b>--}}
+                                    {{--</p>--}}
+                                    {{--<input type="tel" class="form-control hidden" name="num__phone" id="num__phone">--}}
+                                    {{--<br>--}}
                                     {{--</div>--}}
 
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="check">
                                                 <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox" value="" name="accept" required >
+                                                    <label id="label">
+                                                        <input type="checkbox" value="" name="accept" id="case">
                                                         <b style="left: 5px">Cochez cette case pour confirmer que vous avez lu et
-                                                            accepté nos <a href="http://localhost/leguichet/conditions-generales">Conditions générales</a>.</b>
+                                                            accepté nos <a href="{{url('/')}}/conditions-generales">conditions de service</a>.</b>
                                                     </label>
                                                 </div>
                                             </div>
@@ -245,7 +245,17 @@
                                             @endif--}}
                                             {{--<form action="{{url('shopping/checkout')}}" method="post">--}}
                                             {{--                                                {!! csrf_field() !!}--}}
-                                            <button type="submit" class="btn btn_paye">Payer</button>
+                                            <button type="submit" class="btn btn_paye" id="bouton">Payer</button>
+                                            {{--{!! Form::button('Payer1',array(
+                                                        'class' 			=> 'btn btn_paye',
+                                                        'id' 				=> 'delete_account_trigger1',
+                                                        'type' 				=> 'submit',
+                                                        'data-toggle' 		=> 'modal',
+                                                        'data-submit'       => 'Modifier',
+                                                        'data-target' 		=> '#confirmForm',
+                                                        'data-modalClass' 	=> 'modal-danger',
+                                                    )
+                                            ) !!}--}}
                                             {{--</form>--}}
                                         </div>
                                     </div>
@@ -288,11 +298,61 @@
             {!! csrf_field() !!}
             <input type="hidden" name="_method" value="DELETE">
         </form>
+
+        <div class="modal fade" id="confirmForm" role="dialog" aria-labelledby="confirmFormLabel"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content" style="text-align: center;">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"
+                                aria-label="Close"><span
+                                    aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">
+                            <i class="glyphicon glyphicon-alert" style="color:#d70506;font-size: 44px;"></i>
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            Veuillez cochez la case pour confirmer que vous accepter nos conditions de services
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </section>
 @endsection
 
 @section('specificScript')
     <script>
+        $('.close').click(function(){
+            $('body').removeClass("modal-open");
+            $('#confirmForm').removeClass('in');
+            $('#confirmForm').hide();
+
+            //$('body').removeCss('padding-right', '17px');
+        });
+        $('#bouton').click(function () {
+            if($('#case').prop('checked') == false){
+                //alert('tsy cocher');
+                $('#label').css('border-radius','5px');
+                $('#label').css('border','1px solid red');
+                $('#label').css('padding','10px 33px');
+
+                $('body').addClass("modal-open");
+                $('body').css('padding-right', '17px');
+                $('#confirmForm').addClass('in');
+                $('#confirmForm').show();
+                return false;
+            }
+            else{
+                /*$("#bouton").removeAttr("data-toggle", "modal");
+                $("#bouton").removeAttr("data-submit", "Modifier");
+                $("#bouton").removeAttr("data-target", "#confirmForm");
+                $("#bouton").removeAttr("data-modalClass", "modal-danger");
+                return false;*/
+            }
+        });
         (function () {
 
             $('input[type=radio]').change(function(){
@@ -327,7 +387,7 @@
             });
 
             $('#btnEmptyCart').on('click', function () {
-               $('#formEmptyCart').submit();
+                $('#formEmptyCart').submit();
             })
         })();
 
