@@ -7,6 +7,7 @@ use Faker\Provider\DateTime;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\URL;
+use Roumen\Sitemap\Sitemap;
 
 class SitemapController extends Controller
 {
@@ -32,7 +33,7 @@ class SitemapController extends Controller
         // counters
         $counter = 0;
         $sitemapCounter = 0;
-
+        $i=0;
         // add every product to multiple sitemaps with one sitemap index
         foreach ($events as $e) {
             if ($e->publie) {
@@ -43,22 +44,23 @@ class SitemapController extends Controller
                     $counter = 0;
                     $sitemapCounter++;
                 }
-                $images[] = array(
-                    'url' => url('/public/img/'.$e->image),
+                $images[$counter][] = array(
+                    'url' => url('/public/img/' . $e->image),
                     'title' => $e->title,
                     'caption' => $e->title
                 );
-                $sitemap->add(url('/event/show/' . $e->id), $e->updated_at, '0.8', 'monthly', $images);
+                $sitemap->add(url('/event/show/' . $e->id), $e->updated_at, '0.8', 'monthly',$images[$i]);
                 $counter++;
+                $i++;
             }
         }
-
+        //dd($images);
         // you need to check for unused items
         if (!empty($sitemap->model->getItems())) {
             // generate sitemap with last items
             $sitemap->store('xml', 'sitemap-' . $sitemapCounter);
             // add sitemap to sitemaps array
-            $sitemap->addSitemap(secure_url('sitemap-' . $sitemapCounter . '.xml'));
+            $sitemap->addSitemap(secure_url('public/sitemap-' . $sitemapCounter . '.xml'));
             // reset items array
             $sitemap->model->resetItems();
         }
