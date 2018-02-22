@@ -7,9 +7,9 @@
     <meta name="google-site-verification" content="bagVV1tUOWsM9782R2w0ztB9Ba0o1-S703zy9kkJrAk"/>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="description" content="Leguichet, vente des billets electroniques à Madagascar, des listes d'événements, musicaux, et de divertissement en direct, des guides, des petites annonces, des critiques, et plus encore.">
-    <title>Le Guichet | Reservations de billets electronique</title>
     <link rel="stylesheet" href="{{ url('/') }}/public/css/bootstrap.min.css">
     @yield('specificCss')
+    @yield('title')
     <link rel="stylesheet" href="{{ url('/') }}/public/css/animate.css">
     <link rel="icon" href="{{ url('/') }}/public/img/favicon.ico"/>
     <script type="text/javascript" src="{{ url('/') }}/public/js/jquery.min.js"></script>

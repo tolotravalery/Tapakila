@@ -1,4 +1,7 @@
 @extends('template')
+@section('title')
+    <title>Le Guichet | FAQ</title>
+@endsection
 @section('specificCss')
     <link rel="stylesheet" href="{{ url('/') }}/public/css/styles.css">
 @endsection
@@ -65,15 +68,17 @@
                                                     <br>
                                                     <br> 2 - Cliquez sur la date que vous souhaitez
                                                     <br>
-                                                    <br> 3 - Selectionez la quantité de billet désirée
+                                                    <br> 3 - Sélectionez la quantité de billet désirée
                                                     <br>
                                                     <br> 4 - Choisissez vos billets parmi les listes disponibles
                                                     <br>
-                                                    <br> 6 - Suivez les différentes étapes – vérifiez que votre adresse email, numéro de téléphone & adresse sont corrects
+                                                    <br> 6 - Suivez les différentes étapes – vérifiez que votre adresse email, numéro de téléphone sont corrects
                                                     <br>
                                                     <br> 7 - Vérifiez les détails de votre commande pour vous assurer que tout vous convient
                                                     <br>
-                                                    <br> 8 - Achetez vos billets!
+                                                    <br> 8 - Choisissez un mode de payement, mvola ou orange money
+                                                    <br>
+                                                    <br> 9 - Achetez vos billets!
                                                     <br>
 
                                                 </label>
@@ -85,14 +90,21 @@
 
                                                     Oui, les billets achetés sur une même annonce seront consécutifs, sauf indication contraire transmis lors du processus d'achat.
                                                     <br>
-                                                    <br> Les billets faisant partie de la catégorie « Place non réservée » n'ont pas d'emplacement spécifique. Les billets faisant partie de la catégorie « admission générale » correspondent généralement à des places debout.
+                                                    <br> Les billets faisant partie de la catégorie « Place non réservée » n'ont pas d'emplacement spécifique.
+                                                    Les billets faisant partie de la catégorie « admission générale » correspondent généralement à des places debout.
+                                                    </br>
+                                                    </br>
+                                                    Les billets vendus ne correspondent pas aux numéros de place dans l’évènement.
                                                 </label>
                                             </p>
 
                                             <p onclick="accord4()"><span style="cursor: pointer">Puis-je acheter des billets personnalisés sur lesquels figure le nom de quelqu'un d'autre ?</span>
                                                 <br>
                                                 <label id="demo4" class="hidden padd">
-                                                    Oui, leguichet autorise des vendeurs tiers, notamment des particuliers, à mettre en vente des billets sur sa plateforme. Il se peut que le nom de l'acheteur d'origine figure sur les billets, ces billets sont valables. Vous n'êtes pas obligé(e) de posséder un billet à votre nom pour accéder à l'événement.
+                                                    Oui, leguichet autorise des vendeurs tiers, notamment des particuliers, à mettre en vente des billets sur sa plateforme.
+                                                    Il se peut que le nom de l'acheteur d'origine figure sur les billets, ces billets sont valables. Vous n'êtes pas obligé(e) de posséder un billet à votre nom pour accéder à l'événement.
+                                                    </br>
+                                                    </br>Oui, vous êtes autoriser à acheter des billets au nom de quelqu'un d'autre, néanmoins, seul la personne détenteur du billet sera admis à l'évènement..
                                                 </label>
                                             </p>
                                         </div>
@@ -125,16 +137,16 @@
                                             <p onclick="accord6()"><span style="cursor: pointer">Comment télécharger mes billets électroniques ?</span>
                                                 <br>
                                                 <label id="demo6" class="hidden padd">
-                                                    La pièce jointe attachée à votre email de confirmation de votre achat est tout de suite téléchargeable à partir d'un bouton.Si vous n'avez pas de logiciel pour lire le PDF <a href="https://get.adobe.com/fr/reader/" target="_blank">cliquez ici</a>
+                                                    La pièce jointe attachée à votre email de confirmation de votre achat est tout de suite téléchargeable à partir en appuyant sur un bouton.Si vous n'avez pas de logiciel pour lire le PDF <a href="https://get.adobe.com/fr/reader/" target="_blank" style="color:#d70506">cliquez ici</a>
                                                 </label>
                                             </p>
 
                                            
 
-                                            <p onclick="accord8()"><span style="cursor: pointer">Puis-je retirer mes billets le jour de l'évènement ,plutôt que de les recevoir par courrier ?</span>
+                                            <p onclick="accord8()"><span style="cursor: pointer">Puis-je retirer mes billets le jour de l'évènement plutôt que de les recevoir par courrier ?</span>
                                                 <br>
                                                 <label id="demo8" class="hidden padd">
-                                                    Non, vous ne le pouvez pas.L'envoi d'un billet est programmé automatiquement et il est unique
+                                                    Non, vous ne le pouvez pas. L'envoi d'un billet est programmé automatiquement et il est unique
                                                     <br>
                                                     
                                                 </label>
@@ -163,11 +175,9 @@
                                             <p onclick="accord12()"><span style="cursor: pointer">Mon événement a été annulé ou reprogrammé - Que dois-je faire? </span>
                                                 <br>
                                                 <label id="demo12" class="hidden padd">
-                                                    Dans l'éventualité où votre événement serait annulé ou reporté, soyez assuré(e) que nous vous recontacterons dans les plus brefs délais avec les instructions nécessaires concernant vos billets. En règle générale;
+                                                    Dans l'éventualité où votre événement serait annulé ou reporté, soyez assuré(e) que nous vous recontacterons dans les plus brefs délais avec les instructions données par les organisateurs.
                                                     <br>
-                                                    <br> En cas d'annulation – nous vous demanderons de nous retourner les billets et un remboursement intégral de votre transaction sera effectué après réception de ceux-ci.
-                                                    <br>
-                                                    <br> En cas de reprogrammation – Les billets restent valides pour la nouvelle date. Veuillez consulter régulièrement vos emails et assurez-vous de vérifier également votre dossier de courrier indésirable ou ''spam''. L'email qui vous sera envoyé sera spécifique à votre événement, et contiendra toutes les informations nécessaires.
+
                                                     <br>
                                                     <br>
 
@@ -216,7 +226,7 @@
                                 <div class="panel panel-default">
                                     <div role="tab" id="header-4" class="panel-heading">
                                         <h4 class="panel-title">
-                                            <a aria-controls="collapse-4" aria-expanded="false" data-parent="#1" data-toggle="collapse" href="#collapse-4" role="button" class="collapsed">Gérer mon groupe</a></h4>
+                                            <a aria-controls="collapse-4" aria-expanded="false" data-parent="#1" data-toggle="collapse" href="#collapse-4" role="button" class="collapsed">Gérer mon Compte</a></h4>
                                     </div>
 
                                     <div id="collapse-4" role="tabpanel" aria-labelledby="header-4" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
@@ -225,7 +235,7 @@
                                             <p onclick="accord16()"><span style="cursor: pointer">Comment modifier les informations de mon compte</span>
                                                 <br>
                                                 <label id="demo16" class="hidden padd">
-                                                    En haut à droite de votre page cliquer sur "<a href="{{url('/home')}}"> mon compte </a>" pius allez sur "modifier mes informations" ensuite cliquer sur le bouton " Modifier " pour valider vos modifications.
+                                                    En haut à droite de votre page cliquer sur "<a href="{{url('/home')}}" style="color:#d70506"> mon compte </a>" pius allez sur "modifier mes informations" ensuite cliquer sur le bouton " Modifier " pour valider vos modifications.
 
                                                 </label>
                                             </p>
@@ -273,7 +283,7 @@
                                                 <label id="demo22" class="hidden padd">
                                                     Acheteur : leguichet facture des frais de service venant s'ajouter au prix du billet. Ces frais sont indiqués clairement au cours du processus de paiement et ils servent à couvrir les frais de gestion de la plate-forme Leguichet, du service client et d'envoi des billets.
                                                     <br>
-                                                    <br> Vendeurs : leguichet facture des frais de service sur la vente de vos billets. Ces frais sont indiqués clairement au cours du processus de vente et ils servent à couvrir les frais de marketing permettant de mettre vos billets à disposition de millions d'acheteurs potentiels dans le monde entier. Ces frais seront déduits de votre paiement.
+                                                    <br> Vendeurs : leguichet facture des frais de service sur la vente de vos billets. Ces frais sont indiqués clairement au cours du processus de vente et ils servent à couvrir les frais de marketing permettant de mettre vos billets à disposition de millions d'acheteurs potentiels dans tout Madagascar. Ces frais seront déduits de votre paiement.
                                                     <br>
                                                     <br> Veuillez noter que le montant des frais de service peut varier selon l'événement et sont assujettis à la TVA.
                                                 </label>

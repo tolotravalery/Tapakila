@@ -1,4 +1,7 @@
 @extends("template")
+@section('title')
+    <title>Le Guichet | Réinitialiser mot de passe</title>
+@endsection
 @section('content')
     <section id="reset-mail">
         <div class="container">

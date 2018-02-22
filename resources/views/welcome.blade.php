@@ -1,4 +1,7 @@
 @extends('template')
+@section('title')
+    <title>Le Guichet | Réservation de billet éléctronique</title>
+@endsection
 @section('content')
     <section id="sectioncategorie" class="clearfix">
         <div class="container custom-container">
@@ -14,7 +17,7 @@
     </section>
 
     <section id="sectionevenement" role="navigation">
-        <div class="container custom-container">
+        <div class="container custom-container" >
             <ul>
                 @foreach($sousmenus as $sousmenu)
                     <li>

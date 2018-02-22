@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="description" content="Leguichet, vente des billets electroniques à Madagascar, des listes d'événements, musicaux, et de divertissement en direct, des guides, des petites annonces, des critiques, et plus encore.">
     @yield('specificMeta')
-    <title>Le Guichet | Reservations de billets electronique</title>
+    @yield('title')
     <link rel="stylesheet" href="{{ url('/') }}/public/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ url('/') }}/public/css/mediaqueries.css">
     @yield('specificCss')
@@ -18,6 +18,7 @@
     <link href="{{ url('/') }}/public/css/clockpiker.css" rel="stylesheet"> -->
     <link rel="icon" href="{{ url('/') }}/public/img/favicon.ico"/>
     <script type="text/javascript" src="{{ url('/') }}/public/js/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ url('/') }}/public/js/Tapakila.js"></script>
     <script type="text/javascript" src="{{ url('/') }}/public/js/bootstrap.min.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -232,7 +233,7 @@
                 |
                 <li><a href="{{url('')}}/faq">FAQ</a></li>
                 |
-                <li><a href="{{url('')}}/vie-prive">Vie privee</a></li>
+                <li><a href="{{url('')}}/vie-prive">Vie privée</a></li>
 
             </ul>
             <p>Copyright &copy Leguichet 2017</p>

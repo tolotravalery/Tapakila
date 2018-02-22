@@ -1,5 +1,7 @@
 @extends('template')
-
+@section('title')
+    <title>Le Guichet | Terms</title>
+@endsection
 @section('content')
     <section id="sectioncategorie" class="clearfix">
         <div class="container custom-container">
@@ -62,7 +64,7 @@
                     <p style="text-align: justify;">
                         La violation des Conditions d'utilisation donne à Leguichet le droit de bloquer l'accès et/ou d'annuler une commande de billets sur n'importe quel utilisateur.</p><br>
                     
-                    <p style="text-align: justify;">En agissant sur ce site Web, l'utilisateur accepte d'avoir au moins 18 ans, c’est-à-dire une personne entièrement responsable.</p> <br>
+                    <p style="text-align: justify;">En agissant sur ce site Web, l'utilisateur accepte d'avoir au moins 18 ans, c’est-à-dire une personne légalement  responsable.</p> <br>
 
                     <p style="text-align: justify;">Leguichet utilise les données personnelles de ses clients uniquement pour traiter les commandes de vente de billets électroniques. Leguichet ne partagera pas les données
                         personnelles avec des tiers, sauf avec l'organisateur et lorsque cela est nécessaire pour le traitement de la transaction ou requis par la loi.</p>
