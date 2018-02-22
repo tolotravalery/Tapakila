@@ -73,7 +73,9 @@
                                                     <br>
                                                     <br> 7 - Vérifiez les détails de votre commande pour vous assurer que tout vous convient
                                                     <br>
-                                                    <br> 8 - Achetez vos billets!
+                                                    <br> 8 - Choisissez un mode de payement, mvola ou orange money
+                                                    <br>
+                                                    <br> 9 - Achetez vos billets!
                                                     <br>
 
                                                 </label>
@@ -85,14 +87,21 @@
 
                                                     Oui, les billets achetés sur une même annonce seront consécutifs, sauf indication contraire transmis lors du processus d'achat.
                                                     <br>
-                                                    <br> Les billets faisant partie de la catégorie « Place non réservée » n'ont pas d'emplacement spécifique. Les billets faisant partie de la catégorie « admission générale » correspondent généralement à des places debout.
+                                                    <br> Les billets faisant partie de la catégorie « Place non réservée » n'ont pas d'emplacement spécifique.
+                                                    Les billets faisant partie de la catégorie « admission générale » correspondent généralement à des places debout.
+                                                    </br>
+                                                    </br>
+                                                    Les billets vendus ne correspondent pas aux numéros de place dans l’évènement.
                                                 </label>
                                             </p>
 
                                             <p onclick="accord4()"><span style="cursor: pointer">Puis-je acheter des billets personnalisés sur lesquels figure le nom de quelqu'un d'autre ?</span>
                                                 <br>
                                                 <label id="demo4" class="hidden padd">
-                                                    Oui, leguichet autorise des vendeurs tiers, notamment des particuliers, à mettre en vente des billets sur sa plateforme. Il se peut que le nom de l'acheteur d'origine figure sur les billets, ces billets sont valables. Vous n'êtes pas obligé(e) de posséder un billet à votre nom pour accéder à l'événement.
+                                                    Oui, leguichet autorise des vendeurs tiers, notamment des particuliers, à mettre en vente des billets sur sa plateforme.
+                                                    Il se peut que le nom de l'acheteur d'origine figure sur les billets, ces billets sont valables. Vous n'êtes pas obligé(e) de posséder un billet à votre nom pour accéder à l'événement.
+                                                    </br>
+                                                    </br>Oui, vous êtes autoriser à acheter des billets au nom de quelqu'un d'autre, néanmoins, seul la personne détenteur du billet sera admis à l'évènement..
                                                 </label>
                                             </p>
                                         </div>
