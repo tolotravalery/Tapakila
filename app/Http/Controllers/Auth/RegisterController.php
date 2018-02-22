@@ -72,6 +72,7 @@ class RegisterController extends Controller
                 'email' => 'required|email|max:255|unique:users',
                 'password' => 'required|min:6|max:20|confirmed',
                 'password_confirmation' => 'required|same:password',
+                'numero'=>'min:10|max:10|alpha_num',
                 //'g-recaptcha-response'  => '',
                 //'captcha'               => 'required|min:1'
             ],
@@ -85,6 +86,9 @@ class RegisterController extends Controller
                 'password.required' => trans('auth.passwordRequired'),
                 'password.min' => trans('auth.PasswordMin'),
                 'password.max' => trans('auth.PasswordMax'),
+                'numero.min'=>trans('auth.NumeroMax'),
+                'numero.max'=>trans('auth.NumeroMax'),
+                'numero.alpha_num'=>trans('auth.NumeroNum'),
                 //'g-recaptcha-response.required' => trans('auth.captchaRequire'),
                 //'captcha.min'                   => trans('auth.CaptchaWrong')
             ]
@@ -113,7 +117,8 @@ class RegisterController extends Controller
             'isOrganisateur' => $isOrganisateur,
             'token' => str_random(64),
             'signup_ip_address' => $ipAddress->getClientIp(),
-            'activated' => !config('settings.activation')
+            'activated' => !config('settings.activation'),
+            'numero' =>$data['numero'],
         ]);
 
         $user->attachRole($role);
