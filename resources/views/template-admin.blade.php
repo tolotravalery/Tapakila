@@ -154,8 +154,10 @@
                     </a>
                     <ul class="treeview-menu">
                         <li><a href="{{url('/admin/users')}}"><i class="fa fa-users"></i> Liste users</a></li>
-                        <li><a href="{{url('/')}}/admin/users/create"><i class="fa fa-user-plus"></i>Nouveau user</a></li>
-                        <li><a href="{{url('/')}}/admin/users/deleted"><i class="fa fa-user-md"></i>Users supprimés</a></li>
+                        <li><a href="{{url('/')}}/admin/users/create"><i class="fa fa-user-plus"></i>Nouveau user</a>
+                        </li>
+                        <li><a href="{{url('/')}}/admin/users/deleted"><i class="fa fa-user-md"></i>Users supprimés</a>
+                        </li>
                     </ul>
                 </li>
                 <li class="treeview">
@@ -171,12 +173,18 @@
                         <li><a href="{{url('/')}}/admin/sousmenus"><i class="fa fa-folder"></i> Sous catégorie</a></li>
                     </ul>
                 </li>
-                <li>
-                    <a href="{{url('/')}}/admin/listevent">
-                        <i class="fa fa-calendar"></i> <span>Events</span>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-calendar"></i>
+                        <span>Events</span>
                         <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
                         </span>
                     </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{url('/admin/events/past')}}"><i class="fa fa-folder"></i> Passés</a></li>
+                        <li><a href="{{url('/')}}/admin/events/en-cours"><i class="fa fa-folder"></i>En cours</a></li>
+                    </ul>
                 </li>
                 <li>
                     <a href="{{url('/admin/shopping')}}">
@@ -572,19 +580,10 @@
 <script src="{{url('/')}}/public/admin-assets/bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="{{url('/')}}/public/admin-assets/dist/js/adminlte.min.js"></script>
-<!-- Sparkline -->
-<script src="{{url('/')}}/public/admin-assets/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
-<!-- jvectormap  -->
-<script src="{{url('/')}}/public/admin-assets/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
-<script src="{{url('/')}}/public/admin-assets/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
 <!-- SlimScroll -->
 <script src="{{url('/')}}/public/admin-assets/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 <!-- ChartJS -->
-<script src="{{url('/')}}/public/admin-assets/bower_components/Chart.js/Chart.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{url('/')}}/public/admin-assets/dist/js/pages/dashboard2.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="{{url('/')}}/public/admin-assets/dist/js/demo.js"></script>
+<script src="{{url('/')}}/public/admin-assets/bower_components/chart.js/Chart.js"></script>
 @yield('specificScript')
 </body>
 </html>

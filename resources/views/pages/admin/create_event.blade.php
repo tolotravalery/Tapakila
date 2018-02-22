@@ -41,7 +41,7 @@
 
                     Edit Event
 
-                    <a href="{{url('/')}}/admin/listevent" class="btn btn-info btn-xs pull-right">
+                    <a href="{{url('/')}}/admin/events/en-cours" class="btn btn-info btn-xs pull-right">
                         <i class="fa fa-fw fa-mail-reply" aria-hidden="true"></i>
                         Back <span class="hidden-xs">to</span><span class="hidden-xs"> list</span>
                     </a>

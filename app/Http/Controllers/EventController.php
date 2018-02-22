@@ -1,11 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Newsletter;
 use App\Models\Ticket;
 use App\Models\Alert;
 use App\Models\Menus;
 use App\Models\Sous_menus;
+use App\Models\TicketUser;
 use App\Models\User;
 use Auth;
 use App\Data;
@@ -52,9 +54,9 @@ class EventController extends Controller
                 'title' => 'required|max:255',
                 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
                 'additional_note' => 'max:250',
-                'localisation_nom'=>'max:180',
-                'localisation_adresse'=>'max:180',
-                'description'=>'max:500',
+                'localisation_nom' => 'max:180',
+                'localisation_adresse' => 'max:180',
+                'description' => 'max:500',
             ]
         );
 
@@ -78,14 +80,16 @@ class EventController extends Controller
         $user = User::find(Auth::user()->id);
         if (!$user->hasRole('organisateur')) {
             return redirect(url('/home'));
-           // return redirect(url('errors/' . md5('event') . '/' . md5('403')));
+            // return redirect(url('errors/' . md5('event') . '/' . md5('403')));
         }
         $menus = Menus::orderBy('id', 'desc')->get();
         $sousmenus = Sous_menus::orderBy('id', 'desc')->get();
 //        $event = Events::orderBy('id', 'desc')->take(1)->get();
         return view('pages.admin.createevent', compact('menus', 'sousmenus', 'event'));
     }
-    public function showAjouterTicket($id){
+
+    public function showAjouterTicket($id)
+    {
 
         $alert = Alert::where('vu', '=', '0')->get();
         $event = Events::find($id);
@@ -95,12 +99,58 @@ class EventController extends Controller
 
     public function listEvent()
     {
-        $events = Events::all();
+        $events = Events::where('date_fin_event', '>=', date('Y-m-d'))->get();
         $alert = Alert::where('vu', '=', '0')->get();
-        return view('pages.admin.listeevent1', compact('events', 'alert'));
+        return view('pages.admin.event-passed', compact('events', 'alert'));
     }
 
-    public function updatePublie(Request $request)
+    public function encours()
+    {
+        $events = Events::where('date_fin_event', '<', date('Y-m-d'))->get();
+        $alert = Alert::where('vu', '=', '0')->get();
+        return view('pages.admin.event-en-cours', compact('events', 'alert'));
+    }
+
+    public function report($event_id)
+    {
+        $event = Events::findOrFail($event_id);
+        $alert = Alert::where('vu', '=', '0')->get();
+        $nombreAchat = 0;
+        $nombreAchatParTicket = 0;
+        $total_ticket_genere = 0;
+        $total_ticket_vendu = 0;
+        $revenu = 0.00;
+        $data_achat = array();
+        $couleur = ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'];
+        $code_couleur = 0;
+        foreach ($event->tickets as $ticket) {
+            $nombreAchatParTicket = 0;
+            //achat
+            $achat = TicketUser::where('ticket_id', '=', $ticket->id)->get();
+            if (count($achat) != 0) {
+                foreach ($achat as $a) {
+                    if ($a->status_payment != 'FAILED') {
+
+                        $nombreAchat += $a->number;
+                        $nombreAchatParTicket += $a->number;
+                    }
+                }
+            }
+            if ($code_couleur == count($couleur))
+                $code_couleur = 0;
+            $data_achat[] = array('ticket' => $ticket, 'nombreVendu' => $nombreAchatParTicket, 'couleur' => $couleur[$code_couleur]);
+            //revenu
+            $total_ticket_genere += count($ticket->tapakila);
+            $total_ticket_vendu += count($ticket->tapakila()->where('vendu', '=', 1)->get());
+            $code_couleur++;
+        }
+        $revenu = ($total_ticket_vendu * 100) / ($total_ticket_genere != 0 ? $total_ticket_genere : 1);
+        return view('pages.admin.event-report', compact('event', 'alert'))
+            ->with(array('nombreAchat' => $nombreAchat, 'revenu' => $revenu, 'data_achat' => $data_achat));
+    }
+
+    public
+    function updatePublie(Request $request)
     {
         $ev = Events::find($request->input('id'));
         $rep = $request->input('active');
@@ -113,19 +163,20 @@ class EventController extends Controller
         return redirect(url('admin/listevent'));
     }
 
-    public function updatePublieAll(Request $request)
+    public
+    function updatePublieAll(Request $request)
     {
         $ev = Events::find($request->input('id'));
         $old_publie = $ev->publie;
-        if($old_publie == $request->input('active')){
+        if ($old_publie == $request->input('active')) {
             // send mail for all members of news letter
             $newsLetter = Newsletter::findOrFail(1);
-            foreach ($newsLetter->users as $user){
-                Session::put('news_letter_user_email',$user->email);
-                Session::put('news_letter_user_name',$user->name);
+            foreach ($newsLetter->users as $user) {
+                Session::put('news_letter_user_email', $user->email);
+                Session::put('news_letter_user_name', $user->name);
                 Mail::send('emails.newsletter', ['user' => Auth::user(), 'event' => $ev], function ($message) {
                     $message->to(Session::get('news_letter_user_email'), Session::get('news_letter_user_name'));
-                    $message->cc('reservations@leguichet.mg','Leguichet.mg')->subject('Leguichet new event');
+                    $message->cc('reservations@leguichet.mg', 'Leguichet.mg')->subject('Leguichet new event');
                 });
             }
         }
@@ -134,7 +185,8 @@ class EventController extends Controller
         return "update " . $request->input('id') . " to " . $request->input('active') . " finished";
     }
 
-    public function edit_admin($id)
+    public
+    function edit_admin($id)
     {
         $event = Events::findOrFail($id);
         $alert = Alert::where('vu', '=', '0')->get();
@@ -142,7 +194,8 @@ class EventController extends Controller
         return view('pages.admin.edit-event', compact('event', 'sousmenus', 'alert'));
     }
 
-    public function edit($id)
+    public
+    function edit($id)
     {
         $user = User::find(Auth::user()->id);
         if (!$user->hasRole('organisateur')) {
@@ -158,7 +211,8 @@ class EventController extends Controller
         return view('events.edit', compact('event', 'menus', 'sousmenus'));
     }
 
-    public function update_website(Request $request)
+    public
+    function update_website(Request $request)
     {
         $ev = Events::find(Crypt::decryptString($request->input('id')));
         $ev->siteweb = $request->input('slug');
@@ -176,7 +230,8 @@ class EventController extends Controller
         return redirect(url('organisateur/event/' . $ev->id . '/edit'));
     }
 
-    public function store(Request $request)
+    public
+    function store(Request $request)
     {
 
         $user = User::find(Auth::user()->id);
@@ -227,28 +282,32 @@ class EventController extends Controller
         // Send mail to organisateur
         Mail::send('emails.ajoutevenement', ['user' => Auth::user(), 'event' => $event], function ($message) {
             $message->to(Auth::user()->email, Auth::user()->name)->subject('Leguichet');
-            $message->cc('reservations@leguichet.mg','Leguichet.mg')->subject('Leguichet: nouvel évènement');
+            $message->cc('reservations@leguichet.mg', 'Leguichet.mg')->subject('Leguichet: nouvel évènement');
         });
         return redirect(url('organisateur/event/' . $event->id . '/edit'))->with(compact('message'));
     }
-    protected function validator_edit(array $data)
+
+    protected
+    function validator_edit(array $data)
     {
         return Validator::make($data,
             [
                 'title' => 'max:255',
                 'image' => 'image|mimes:jpeg,png,jpg,gif,svg',
                 'additional_note' => 'max:250',
-                'localisation_nom'=>'max:180',
-                'localisation_adresse'=>'max:180',
-                'description'=>'max:500',
+                'localisation_nom' => 'max:180',
+                'localisation_adresse' => 'max:180',
+                'description' => 'max:500',
             ]
         );
     }
-    public function updateadmin(Request $request)
+
+    public
+    function updateadmin(Request $request)
     {
 
         $event = Events::find($request->input('id'));
-        $user=User::find($event->user_id);
+        $user = User::find($event->user_id);
         $this->validator_edit($request->all())->validate();
         $event->title = $request->input('title');
         $event->sous_menus_id = $request->input('sousmenu');
@@ -295,18 +354,18 @@ class EventController extends Controller
         $message = " Opération réussie";
         session()->flash('message', $message);
 
-        if($event->publie ==1 && $old_publie==0){
+        if ($event->publie == 1 && $old_publie == 0) {
             $newsLetter = Newsletter::findOrFail(1);
-            foreach ($newsLetter->users()->wherePivot('activated','=',1)->get() as $user1){
-                Mail::send('emails.newsletter', ['user' => $user1, 'event' => $event], function ($message) use($user1) {
+            foreach ($newsLetter->users()->wherePivot('activated', '=', 1)->get() as $user1) {
+                Mail::send('emails.newsletter', ['user' => $user1, 'event' => $event], function ($message) use ($user1) {
                     $message->to($user1->email, $user1->name);
-                    $message->cc('reservations@leguichet.mg','Leguichet.mg')->subject('Leguichet: Newsletter');
+                    $message->cc('reservations@leguichet.mg', 'Leguichet.mg')->subject('Leguichet: Newsletter');
                 });
             }
         }
         /*echo Auth::user()->email." ".Auth::user()->name;exit;*/
-        Mail::send('emails.modifierevenement', ['user'=>Auth::user(), 'event' => $event], function ($message){
-            $message->to('contact@trustylabs.mg','Leguichet.mg')->subject('Leguichet update event from Admin');
+        Mail::send('emails.modifierevenement', ['user' => Auth::user(), 'event' => $event], function ($message) {
+            $message->to('contact@trustylabs.mg', 'Leguichet.mg')->subject('Leguichet update event from Admin');
             $message->cc('reservations@leguichet.mg', 'Leguichet.mg')->subject('Leguichet: mise à jour de l\' évènement');
         });
 
@@ -315,14 +374,16 @@ class EventController extends Controller
     }
 
 
-    public function create_admin()
+    public
+    function create_admin()
     {
         $alert = Alert::where('vu', '=', '0')->get();
         $sousmenus = Sous_menus::all();
         return view('pages.admin.create_event', compact('alert', 'sousmenus'));
     }
 
-    public function stroreAdmin(Request $request)
+    public
+    function stroreAdmin(Request $request)
     {
         $user = User::find(Auth::user()->id);
         $isPublie = $request->input('publie');
@@ -367,12 +428,13 @@ class EventController extends Controller
         // Send mail to organisateur
         Mail::send('emails.ajoutevenement', ['user' => Auth::user(), 'event' => $event], function ($message) {
             $message->to(Auth::user()->email, Auth::user()->name)->subject('Leguichet');
-            $message->cc('reservations@leguichet.mg','Leguichet.mg')->subject('Leguichet: nouvel évènement');
+            $message->cc('reservations@leguichet.mg', 'Leguichet.mg')->subject('Leguichet: nouvel évènement');
         });
         return redirect(url('admin/events/update/' . $event->id));
     }
 
-    public function update(Request $request)
+    public
+    function update(Request $request)
     {
 
         $code = Crypt::decryptString($request->input('id'));
@@ -415,12 +477,13 @@ class EventController extends Controller
         session()->flash('page', "details");
         Mail::send('emails.modifierevenement', ['user' => Auth::user(), 'event' => $event], function ($message) {
             $message->to(Auth::user()->email, Auth::user()->name)->subject('Leguichet');
-            $message->cc('reservations@leguichet.mg','Leguichet.mg')->subject('Leguichet: mise à jour de l\' évènement');
+            $message->cc('reservations@leguichet.mg', 'Leguichet.mg')->subject('Leguichet: mise à jour de l\' évènement');
         });
         return redirect(url('organisateur/event/' . $event->id . '/edit'))->with(compact('message'));;
     }
 
-    public function question_secret(Request $req)
+    public
+    function question_secret(Request $req)
     {
         $code = Crypt::decryptString($req->input('events_id'));
         $event = Events::find($code);
@@ -429,7 +492,8 @@ class EventController extends Controller
         return redirect(url('organisateur/event/' . $event->id . '/edit'));
     }
 
-    public function destroy($id)
+    public
+    function destroy($id)
     {
         $event = Events::find($id);
         $event->delete();
@@ -441,7 +505,9 @@ class EventController extends Controller
         return redirect(url('admin/listevent'));
     }
 
-    public function rapport_vue($id){
+    public
+    function rapport_vue($id)
+    {
         session()->flash('page', "rapport");
         return redirect(url('organisateur/event/' . $id . '/edit'));;
     }
