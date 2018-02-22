@@ -140,7 +140,22 @@
                             <div class="border-bottom"></div>
 
                         @endif
+                        @if ($user->numero)
 
+                            <div class="col-sm-5 col-xs-6 text-larger">
+                                <strong>
+                                    Numero
+                                </strong>
+                            </div>
+
+                            <div class="col-sm-7">
+                                {{ $user->numero}}
+                            </div>
+
+                            <div class="clearfix"></div>
+                            <div class="border-bottom"></div>
+
+                        @endif
                         <div class="col-sm-5 col-xs-6 text-larger">
                             <strong>
                                 {{ trans('usersmanagement.labelRole') }}

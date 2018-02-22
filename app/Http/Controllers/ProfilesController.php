@@ -219,12 +219,14 @@ class ProfilesController extends Controller
             'name' => 'required|max:255',
             'password' => 'required|min:6|max:20|confirmed',
             'password_confirmation' => 'required|same:password',
+            'numero'=>'min:10|max:10|alpha_num',
         ],
             [
                 [
                     'password.required' => trans('auth.passwordRequired'),
                     'password.min' => trans('auth.PasswordMin'),
                     'password.max' => trans('auth.PasswordMax'),
+                    'numero.max'=>trans('auth.NumeroMax'),
                 ]
             ]);
 
@@ -248,6 +250,7 @@ class ProfilesController extends Controller
         $user->name = $request->input('name');
         $user->first_name = $request->input('first_name');
         $user->last_name = $request->input('last_name');
+        $user->numero = $request->input('numero');
         $user->isOrganisateur = $isOrganisateur;
 
         if ($isOrganisateur == false) {
