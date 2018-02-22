@@ -1,4 +1,7 @@
 @extends('template')
+@section('title')
+    <title>Le Guichet | Evénement {{$sous_menu_event->name}}</title>
+@endsection
 @section('content')
     <section id="sectioncategorie" class="clearfix">
         <div class="container custom-container">

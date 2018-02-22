@@ -1,4 +1,7 @@
 @extends('template')
+@section('title')
+    <title>Le Guichet | Paiement</title>
+@endsection
 @section('specificCss')
     <link rel="stylesheet" href="{{ url('/') }}/css/mediaqueries_sample.css">
 @endsection

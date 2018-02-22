@@ -1,5 +1,7 @@
 @extends("template-custom")
-
+@section('title')
+    <title>Le Guichet | Activer votre compte</title>
+@endsection
 @section('content')
 
 

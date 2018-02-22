@@ -1,4 +1,7 @@
 @extends('template')
+@section('title')
+    <title>Le Guichet | Contact</title>
+@endsection
 @section('content')
     <section id="sectioncategorie" class="clearfix">
         <div class="container custom-container">
@@ -58,8 +61,7 @@
                             <div class="form-group">
                                 <select class="form-control border">
                                     <option>Organisateur</option>
-                                    <option>Acheteur</option>
-                                    <option>Vendeur</option>
+                                    <option selected="">Acheteur</option>
                                 </select>
                             </div>
                             <div class="form-group ">

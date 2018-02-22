@@ -7,6 +7,9 @@
 @section('head')
 @endsection--}}
 @extends("template")
+@section('title')
+    <title>{{$event->title}}</title>
+@endsection
 @section('content')
     <section id="sectioncategorie" class="clearfix">
         <div class="container custom-container">

@@ -1,4 +1,7 @@
 @extends("template")
+@section('title')
+    <title>Le Guichet | Authentification</title>
+@endsection
 @section('content')
     <style>
         .red{

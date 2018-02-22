@@ -1,4 +1,3 @@
-{{--
 <style>
     @media only screen and (max-width: 600px) {
         .inner-body {
@@ -10,109 +9,86 @@
         }
     }
 
-    #globcontent {
-        background-color: white;
-        margin-top: 84px;
-        padding: 20px 30px 20px 30px;
-        overflow: hidden;
-        margin-bottom: 83px;
-        border-radius: 3px;
-    }
-
-    .mim {
-        border-bottom: 1px solid black;
-        padding-bottom: 2px;
-    }
 </style>
-<body style="background-color:#eeeeee;">
+<body style="background-color:white;">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-offset-3 col-lg-6">
+            <div style="height: 0px; color: white;text-align: center;background-color: #d70506;font-size: 16px;padding: 2px;font-family:sans-serif;">
+                <p><a style="text-decoration:none;color:white !important;" href="{{url('/')}}">Le Guichet</a> </p>
+            </div>
+        </div>
+    </div>
+</div>
 <table class="wrapper" width="100%" cellpadding="0" cellspacing="0">
     <tr>
-        <td align="center">
-            <table class="content" width="100%" cellpadding="0" cellspacing="0">
-                <tr>
-                    <td class="body" width="100%" cellpadding="0" cellspacing="0">
-                        <table class="inner-body" align="center" width="900" cellpadding="0" cellspacing="0">
-
-                            <tr>
-                                <td class="content-cell">
-                                    <div class="row">
-                                        <div class="col-md-10 col-md-offset-1">
-                                            <div style="background-color: white;margin-top: 84px;padding: 20px 30px 20px 30px;overflow: hidden;margin-bottom: 83px;border-radius: 3px;">
-                                                <div class="row">
-                                                    <div class="col-md-10 col-md-offset-1">
-                                                        <h2>
-                                                            <b style="font-size: 26px;color:#333;">Bonjour {{$user->name}}
-                                                                ,</b></h2>
-                                                        <p style="font-size: 14px;color:#333;">Ne ratez pas les événements sur <a href="www.leguichet.mg">leguichet.mg</a> </p>
-                                                        <p style="font-size: 14px;color:#333;">
-                                                            <img src="{{url('/')}}/public/img/{{$event->image}}">
-                                                        </p>
-                                                        <p style="font-size: 14px;color:#333;">{{$event->title}}</p>
-                                                        <p style="font-size: 14px;color:#333;">{{$event->additional_note}}</p>
-                                                        <p style="font-size: 14px;color:#333;"><b>Programme
-                                                                : </b> {{$event->additional_note_time}} </p>
-                                                        <p style="font-size: 14px;color:#333;"><b>Localisation
-                                                                : </b>{{$event->localisation_nom}} {{$event->localisation_adresse}}
-                                                        </p>
-                                                        <p style="font-size: 14px;color:#333;"><b>Date
-                                                                : </b>le {{$event->date_debut_envent->format('d M Y H:i:s')}}
-                                                            à {{$event->date_fin_event->format('d M Y H:i:s')}} </p><br>
-                                                        <p style="font-size: 14px;color:#333;"> Veuiller consulter votre
-                                                            <a style="text-decoration: none;color: #62b2eb;"
-                                                               href="{{url('/home')}}"> Compte</a></p><br>
-                                                        <div style="font-size: 14px;color:#333;text-align: center;background-color: #cccccc; margin-top: 25px; padding: 15px;  margin-bottom: 20px;  border: 1px solid transparent; border-radius: 4px;">
-                                                            <p><a style="text-decoration: none;color: #62b2eb;"
-                                                                        href="{{url('')}}/event/show/{{$event->id}}">Résérver maintenant</a>
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-            </table>
+        <td style="background-color: #d70506;padding: 2px">
+            <img src="{{url('/')}}/public/img/logo.png" style="padding-left: -5px;">
         </td>
     </tr>
 </table>
-</body>--}}
-        <!DOCTYPE html>
-<html lang="fr">
-<head>
-</head>
-<body>
-<body width="800px">
-<div class="cp" style="position:relative;width:800px;margin:auto;height:auto;">
-    <div class="header" style="position:relative;width:100%;height:60px;margin:auto;background:#d70506">
-        <div class="logo" style="position:absolute;width:15%;height:80px;top:5px;left:10px;">
-            <img src="{{url('/')}}/public/img/logo.png">
+<br/>
+<div class="container">
+    </br>
+    <div class="row">
+        <div class="col-lg-offset-3 col-lg-6">
+            <div style="; color: white;text-align: center;font-size: 16px;padding: 1px;background-color:#5cb85c;font-family:sans-serif;">
+                <p><b style="text-decoration:none;color:white !important;">NEWSLETTER </b> </p>
+            </div>
         </div>
-        <div class="titre" style="position:absolute;width:80%;height:80px;float:right; left:20%;top:2px;">
-            <a href="{{url('/')}}" style="position:absolute;text-decoration:underline;color:white; left:150px;padding-top:20px;" ><b>www.leguichet.mg</b></a>
+    </div>
+</div>
 
-        </div>
-    </div>
-    <div class="section" style="position:relative;width:100%;height:400px;margin:auto;margin:50px;">
-        <p>Bonjour {{$user->name}},</p>
-        <p>Ne ratez pas les événements importants sur leguichet.mg. Venez visiter le site web</br>
-            <a href="{{url('/')}}" style="text-decoration:underline;color:#d70506">www.leguichet.mg</a></p>
-        <div class="image" style="position:relative;width:500px;height:220px;border:solid grey 1px;"><img style="width:500px;height:220px;" src="{{url('/')}}/public/img/{{$event->image}}"></div>
-        <div style="width:500px;">
-            <p>Nom de l’évenement :{{$event->title}}</p>
-            <p>Description :{{$event->additional_note}}</p>
-            <p>Lieu : {{$event->localisation_nom}} {{$event->localisation_adresse}}</p>
-            <p>Date : le {{$event->date_debut_envent->format('d M Y H:i:s')}} à {{$event->date_fin_event->format('d M Y H:i:s')}}</p>
-            <p>Vous recevez cet email car vous êtes abonné au newsletter de <a href="{{url('/')}}" style="text-decoration:underline;color:#d70506">www.leguichet.mg</a></p>
-        </div>
-    </div>
-    <div class="footer" style="position:relative;width:100%;height:60px;margin:auto;background:#d70506;">
-        <a href="{{url('/')}}" style="position:absolute;width:auto;text-decoration:underline;color:white;padding-top:18px;text-align:center;left:300px;" ><b>www.leguichet.mg</b></a>
-    </div>
+<table class="wrapper" width="100%" style="margin-top:-20px;margin-left:18px; ">
+    <tr>
+        <td>
+            <h3 style="font-size: 30px; font-family:sans-serif;color:#333;"><b></b></h3>
+            <p style="font-family:sans-serif;font-size: 18px;color: #d70506;padding-top: -34px;margin: 0 0 10px;"></p>
+        </td>
+    </tr>
+</table>
 
+<table class="wrapper" width="100%" cellpadding="0" cellspacing="0" style="margin-top:-20px">
+    <tr>
+        <td align="center">
+
+            <p style="font-size: 14px;color:#333;padding-top:20px;">Bonjour {{$user->name}}!</p>
+            <p style="font-size: 14px;color:#333;padding-top:0px;">Ne ratez pas les événements importants sur Le Guichet. Venez visiter notre site web: <a style="color:#d70506" href="{{url('/')}}"> www.leguichet.mg</a></p>
+
+            <p>
+                <div class="container">
+                    </br>
+                    <div class="row">
+                        <div class="col-lg-offset-3 col-lg-6">
+                            <div style="; color: white;text-align: center;font-size: 16px;padding: 0px;font-family:sans-serif;">
+                                <div class="image" style="position:relative;width:auto;height:auto;"><img style="width:auto;height:auto;" src="{{url('/')}}/public/img/{{$event->image}}"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </p>
+            <p style="font-size: 14px;color:#333;padding-top:0px;">Nom de l’évenement :{{$event->title}}</p>
+            <p style="font-size: 14px;color:#333;padding-top:0px;">Description : {{$event->additional_note}}.</p>
+            <p style="font-size: 14px;color:#333;padding-top:0px;">Lieu : {{$event->localisation_nom}} {{$event->localisation_adresse}}</p>
+            <p style="font-size: 14px;color:#333;padding-top:0px;">Date : le {{$event->date_debut_envent->format('d M Y H:i:s')}} à {{$event->date_fin_event->format('d M Y H:i:s')}}</p>
+            <p style="font-size: 14px;color:#333;padding-top:0px;">Vous recevez cet email car vous êtes abonné au newsletter de <a href="{{url('/')}}" style="text-decoration:underline;color:#d70506">www.leguichet.mg</a></p></div>
+        </td>
+    </tr>
+</table>
+<br/>
+<div class="container">
+    <div class="row ">
+
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-offset-3 col-lg-6">
+            <div style=" color: white;text-align: center;background-color: #d70506;font-size: 16px;padding: 1px;font-family:sans-serif;">
+                <p>Pour toutes questions, consultez <a style="text-decoration:underline;color:white !important" href="{{url('/')}}/faq">faq</a> </p>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
-</html>

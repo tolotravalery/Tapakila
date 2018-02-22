@@ -1,4 +1,7 @@
 @extends('template')
+@section('title')
+    <title>Le Guichet | 404 </title>
+@endsection
 @section('content')
     <section>
         <div class="container custom-container">

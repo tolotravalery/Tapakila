@@ -1,4 +1,7 @@
 @extends("template-custom")
+@section('title')
+    <title>Le Guichet | Réinitialiser mot de passe</title>
+@endsection
 @section('content')
     <section id="content">
         <div class="container">

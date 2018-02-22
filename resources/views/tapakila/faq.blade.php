@@ -1,4 +1,7 @@
 @extends('template')
+@section('title')
+    <title>Le Guichet | FAQ</title>
+@endsection
 @section('specificCss')
     <link rel="stylesheet" href="{{ url('/') }}/public/css/styles.css">
 @endsection

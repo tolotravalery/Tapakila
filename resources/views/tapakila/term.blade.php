@@ -1,5 +1,7 @@
 @extends('template')
-
+@section('title')
+    <title>Le Guichet | Terms</title>
+@endsection
 @section('content')
     <section id="sectioncategorie" class="clearfix">
         <div class="container custom-container">
