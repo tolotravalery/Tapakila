@@ -72,7 +72,7 @@ class RegisterController extends Controller
                 'email' => 'required|email|max:255|unique:users',
                 'password' => 'required|min:6|max:20|confirmed',
                 'password_confirmation' => 'required|same:password',
-                'numero'=>'min:10|max:10|alpha_num',
+                'numero'=>'numeric|max:0349999999|min:0320000000',
                 //'g-recaptcha-response'  => '',
                 //'captcha'               => 'required|min:1'
             ],
@@ -86,9 +86,9 @@ class RegisterController extends Controller
                 'password.required' => trans('auth.passwordRequired'),
                 'password.min' => trans('auth.PasswordMin'),
                 'password.max' => trans('auth.PasswordMax'),
-                'numero.min'=>trans('auth.NumeroMax'),
                 'numero.max'=>trans('auth.NumeroMax'),
-                'numero.alpha_num'=>trans('auth.NumeroNum'),
+                'numero.min'=>trans('auth.NumeroMin'),
+                'numero.numeric'=>trans('auth.NumeroNum'),
                 //'g-recaptcha-response.required' => trans('auth.captchaRequire'),
                 //'captcha.min'                   => trans('auth.CaptchaWrong')
             ]
