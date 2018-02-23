@@ -179,8 +179,8 @@
                 <div class="col-sm-2 col-xs-6 ">
 
                     <a class="fb-link-icon" href="https://www.facebook.com/leguichetmg-1194557627312755/"
-                       target="_blank"><i
-                                class="fa fa-facebook-square facebookico" aria-hidden="true"></i></a>
+                       target="_blank">{{--<i
+                                class="fa fa-facebook-square facebookico" aria-hidden="true"></i>--}}<img src="{{url('/')}}/public/img/facebook-icon.png" style="width: 30px;margin-top: 20px;"></a>
 
                     <div id="fb-root"></div>
                     <div class="fb-like" data-href="https://www.facebook.com/leguichetmg-1194557627312755/"
