@@ -105,7 +105,7 @@
                     <div class="div_style">
                         <strong class="couleur_mot zav"> Partagez sur :</strong>
                         <a href="https://www.facebook.com/sharer/sharer.php?u={{url()->current()}}" target="_blank"><img
-                                    src="{{url('/')}}/public/img/facebook.png" style="width: 22px;"></a>
+                                    src="{{url('/')}}/public/img/partage_fb.JPG"></a>
                     </div>
                 </div>
             </div>
