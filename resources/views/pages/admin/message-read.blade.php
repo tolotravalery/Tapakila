@@ -1,17 +1,16 @@
 @extends("template-admin")
 
 @section('message')
-    @if(count($alerts) > 0)
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <i class="fa fa-envelope-o"></i>
-            <span class="label label-success">{{count($alerts)}}</span>
+            <span class="label label-success">{{count($alert)}}</span>
         </a>
         <ul class="dropdown-menu">
-            <li class="header">You have {{count($alerts)}} messages</li>
+            <li class="header">You have {{count($alert)}} messages</li>
             <li>
                 <!-- inner menu: contains the actual data -->
                 <ul class="menu">
-                    @foreach($alerts as $a)
+                    @foreach($alert as $a)
                         <li><!-- start message -->
                             <a href="{{url('admin/message/read',[$a->id])}}">
                                 <div class="pull-left">
@@ -29,9 +28,8 @@
                     @endforeach
                 </ul>
             </li>
-            {{--<li class="footer"><a href="#">See All Messages</a></li>--}}
+            <li class="footer"><a href="{{url('/admin/clear-alert')}}">Tous marqués lu</a></li>
         </ul>
-    @endif
 @endsection
 @section("content")
     <br/><br/>

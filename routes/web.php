@@ -144,6 +144,7 @@ Route::group(['middleware' => ['auth', 'activated', 'currentUser']], function ()
 // Registered, activated, and is admin routes.
 Route::group(['middleware' => ['auth', 'activated', 'role:admin'], 'prefix' => 'admin'], function () {
 
+    Route::get('/clear-alert','AlertController@clearAll');
 
     Route::resource('/shopping', 'AdminAchatController', [
 //        'only' => [
