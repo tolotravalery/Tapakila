@@ -3,8 +3,7 @@
     <link rel='stylesheet' href='{{url('/')}}/public/admin-assets/fullcalendar/fullcalendar.css'/>
 @endsection
 @section('message')
-    @if(count($alert) > 0)
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <i class="fa fa-envelope-o"></i>
             <span class="label label-success">{{count($alert)}}</span>
         </a>
@@ -31,9 +30,8 @@
                     @endforeach
                 </ul>
             </li>
-            {{--<li class="footer"><a href="#">See All Messages</a></li>--}}
+            <li class="footer"><a href="{{url('/admin/clear-alert')}}">Tous marqués lu</a></li>
         </ul>
-    @endif
 @endsection
 @section("content")
     <!-- Content Header (Page header) -->
