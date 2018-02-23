@@ -157,7 +157,7 @@
                                                                 <div class="col-md-9 col-xs-9 ">
                                                                     {{--<a>--}}
                                                                     <div class="prixfx">
-                                                                        @if($event->tickets->where('date_debut_vente','<=',date('Y-m-d H:i:s'))->where('date_fin_vente','>',date('Y-m-d H:i:s'))->count() > 0)
+                                                                        @if($event->tickets->where('date_debut_vente','<=',date('Y-m-d'))->where('date_fin_vente','>=',date('Y-m-d'))->count() > 0)
                                                                             <i class="fa fa-tag prices"></i>A
                                                                             partir de <b
                                                                                     class="prx">{{ (int) $event->tickets()->orderBy('price','asc')->take(1)->get()[0]->price  }}</b>
