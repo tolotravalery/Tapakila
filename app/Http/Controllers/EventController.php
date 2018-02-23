@@ -99,14 +99,14 @@ class EventController extends Controller
 
     public function listEvent()
     {
-        $events = Events::where('date_fin_event', '>=', date('Y-m-d'))->get();
+        $events = Events::where('date_fin_event', '<', date('Y-m-d'))->get();
         $alert = Alert::where('vu', '=', '0')->get();
         return view('pages.admin.event-passed', compact('events', 'alert'));
     }
 
     public function encours()
     {
-        $events = Events::where('date_fin_event', '<', date('Y-m-d'))->get();
+        $events = Events::where('date_fin_event', '>=', date('Y-m-d'))->get();
         $alert = Alert::where('vu', '=', '0')->get();
         return view('pages.admin.event-en-cours', compact('events', 'alert'));
     }
@@ -373,7 +373,7 @@ class EventController extends Controller
         });
 
         app('App\Http\Controllers\SitemapController')->generate_sitemap();
-        return redirect(url('admin/listevent'))->with(compact('message'));
+        return redirect(url('admin/events/en-cours'))->with(compact('message'));
     }
 
 
