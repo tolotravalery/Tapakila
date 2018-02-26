@@ -157,7 +157,7 @@
                                             @php $count_id_price = 0;
                                             $totaliko=0;
                                             @endphp
-                                            @if($event->tickets->where('date_debut_vente','<=',date('Y-m-d'))->where('date_fin_vente','>=',date('Y-m-d'))->count() > 0)
+                                            @if($event->tickets()->where('date_debut_vente','<=',date('Y-m-d'))->where('date_fin_vente','>=',date('Y-m-d'))->count() > 0)
                                                 @foreach($event->tickets()->where('date_debut_vente','<=',date('Y-m-d'))->where('date_fin_vente','>=',date('Y-m-d'))->wherePivot('date',\Carbon\Carbon::parse($date)->format('Y-m-d'))->get() as $ticket)
                                                     {!! csrf_field() !!}
                                                     <input type="hidden" name="id[]" value="{{ $ticket->id }}">
@@ -252,7 +252,7 @@
                                             </tr>
                                             <input type="hidden" id="nombre_id{{$d}}" value="{{$count_id_price}}"/>
                                             </tbody>
-                                            @if($event->tickets->where('date_debut_vente','<=',date('Y-m-d'))->where('date_fin_vente','>=',date('Y-m-d'))->count() == 0)
+                                            @if($event->tickets()->where('date_debut_vente','<=',date('Y-m-d'))->where('date_fin_vente','>=',date('Y-m-d'))->count() == 0)
                                                 <p>(*) Les tickets de cette évènements ne sont pas encore disponible</p>
                                             @endif
                                         </table>
@@ -297,7 +297,7 @@
                                             @php $count_id_price = 0;
                                             $totaliko=0;
                                             @endphp
-                                            @if($event->tickets->where('date_debut_vente','<=',date('Y-m-d'))->where('date_fin_vente','>=',date('Y-m-d'))->count() > 0)
+                                            @if($event->tickets()->where('date_debut_vente','<=',date('Y-m-d'))->where('date_fin_vente','>=',date('Y-m-d'))->count() > 0)
                                                 @foreach($event->tickets()->wherePivot('date',\Carbon\Carbon::parse($date)->format('Y-m-d'))->get() as $ticket)
                                                     {!! csrf_field() !!}
                                                     <input type="hidden" name="id[]" value="{{ $ticket->id }}">
@@ -455,7 +455,7 @@
                                         </div>
                                         <div class="col-md-9 col-xs-9 ">
                                             <div class="prixfx">
-                                                @if($ev->tickets->where('date_debut_vente','<=',date('Y-m-d H:i:s'))->where('date_fin_vente','>',date('Y-m-d H:i:s'))->count() > 0)
+                                                @if($ev->tickets()->where('date_debut_vente','<=',date('Y-m-d H:i:s'))->where('date_fin_vente','>',date('Y-m-d H:i:s'))->count() > 0)
                                                     <i class="fa fa-tag prices"></i>A
                                                     partir de <b
                                                             class="prx">{{ (int) $ev->tickets()->orderBy('price','asc')->take(1)->get()[0]->price  }}</b>
