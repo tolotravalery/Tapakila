@@ -9,8 +9,7 @@
 @extends("template-admin")
 
 @section('message')
-    @if(count($alert) > 0)
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <i class="fa fa-envelope-o"></i>
             <span class="label label-success">{{count($alert)}}</span>
         </a>
@@ -37,9 +36,8 @@
                     @endforeach
                 </ul>
             </li>
-            {{--<li class="footer"><a href="#">See All Messages</a></li>--}}
+            <li class="footer"><a href="{{url('/admin/clear-alert')}}">Tous marqués lu</a></li>
         </ul>
-    @endif
 @endsection
 @section('content')
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css">
@@ -103,7 +101,7 @@
                                     <th class="hidden-sm hidden-xs hidden-md">Localisation</th>
                                     <th class="hidden-sm hidden-xs hidden-md">Publié par l'organisateur</th>
                                     <th class="hidden-sm hidden-xs hidden-md">Activé</th>
-                                    <th class="hidden-sm hidden-xs hidden-md">Billets</th>
+                                    {{--<th class="hidden-sm hidden-xs hidden-md">Billets</th>--}}
                                     <th>Actions</th>
                                     <th></th>
                                     <th></th>
@@ -132,57 +130,17 @@
                                             @endif
                                         </td>
                                         @if($ev->publie == true)
-                                            <td><input type="checkbox" name="active" id="checkbox{{$j}}"
+                                            <td class="hidden-sm hidden-xs hidden-md"><input type="checkbox" name="active" id="checkbox{{$j}}"
                                                        value-item="{{$ev->id}}" checked></td>
                                         @else
-                                            <td><input type="checkbox" id="checkbox{{$j}}" value-item="{{$ev->id}}"
+                                            <td class="hidden-sm hidden-xs hidden-md"><input type="checkbox" id="checkbox{{$j}}" value-item="{{$ev->id}}"
                                                        name="active"></td>
                                         @endif
-                                        <td class="hidden-sm hidden-xs hidden-md">
-                                            <?php
-                                            $number = 0;
-                                            ?>
-                                            @if($ev->tickets()->count() > 0)
-                                                @php
-                                                    for ($counter = 0; $counter < $ev->tickets()->count(); $counter++) {
-                                                        $number = $number + $ev->tickets[$counter]->number;
-                                                    }
-                                                    if ($number > 0) {
-                                                        echo "Disponible";
-                                                    } else {
-                                                        echo "Epuisé";
-                                                    }
-                                                @endphp
-                                            @elseif($ev->tickets()->count()== 0)
-                                                Non disponible
-                                            @endif
-                                        </td>
-                                        {{--<td>
-                                            <button class="btn btn-sm btn-success btn-block" data-toggle="tooltip"
+
+                                        <td>
+                                            <a href="{{url('/admin/events/repport/'.$ev->id)}}" class="btn btn-sm btn-success btn-block" data-toggle="tooltip"
                                                     title="Show">
-                                                <span class="hidden-xs hidden-sm">Update</span>
-                                            </button>
-                                        </td>--}}
-                                        <td>
-                                            {!! Form::open(array('url' => 'admin/events/' . $ev->id, 'class' => '', 'data-toggle' => 'tooltip', 'title' => 'Delete')) !!}
-                                            {!! Form::hidden('_method', 'DELETE') !!}
-                                            {!! Form::button('<i class="fa fa-trash-o fa-fw" aria-hidden="true"></i> <span class="hidden-xs hidden-sm">Delete</span><span class="hidden-xs hidden-sm hidden-md"> event</span>', array('class' => 'btn btn-danger btn-sm','type' => 'button', 'style' =>'width: 100%;' ,'data-toggle' => 'modal', 'data-target' => '#confirmDelete', 'data-title' => 'Delete Event', 'data-message' => 'Are you sure you want to delete this event ?')) !!}
-                                            {!! Form::close() !!}
-                                        </td>
-                                        <td>
-                                            <a class="btn btn-sm btn-info btn-block"
-                                               href="{{ URL::to('admin/events/update/' . $ev->id ) }}"
-                                               data-toggle="tooltip" title="Edit">
-                                                <i class="fa fa-pencil fa-fw" aria-hidden="true"></i> <span
-                                                        class="hidden-xs hidden-sm">Edit</span><span
-                                                        class="hidden-xs hidden-sm hidden-md"> event</span>
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <a class="btn btn-sm btn-success"  href="{{url('/')}}/admin/ajouterTicket/{{$ev->id}}" data-toggle="tooltip" title="Add">
-                                                <i class="fa fa-plus fa-fw" aria-hidden="true"></i>
-                                                <span class="hidden-xs hidden-sm">Add</span>
-                                                <span class="hidden-xs hidden-sm hidden-md"> ticket</span>
+                                                <span>View</span>
                                             </a>
                                         </td>
                                         @php

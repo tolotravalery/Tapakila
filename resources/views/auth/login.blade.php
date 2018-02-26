@@ -114,6 +114,15 @@
                             @endif
                         </div>
                         <div class="form-group">
+                            <label for="pwd">Numéro Mvola ou OrangeMoney:</label>
+                            {!! Form::text('numero', null, ['class' => 'form-control', 'placeholder' => '03* ** *** **', 'id' => 'numero','tabindex' => '1']) !!}
+                            @if ($errors->has('numero'))
+                                <span class="red">
+                                        <strong>{{ $errors->first('numero') }}</strong>
+                                    </span>
+                            @endif
+                        </div>
+                        <div class="form-group">
                             <label for="pwd"> Adresse e-mail:</label>
                             {!! Form::email('email', null, ['class' => 'form-control', 'id' => 'email', 'placeholder' => 'E-Mail', 'required','tabindex' => '1']) !!}
                             @if ($errors->has('email'))
@@ -162,7 +171,7 @@
 @section('specificScript')
     <script>
         @if(session('cache') == 'register')
-            @if ($errors->has('name') || $errors->has('first_name') || $errors->has('email') || $errors->has('password'))
+            @if ($errors->has('name') || $errors->has('first_name') || $errors->has('email') || $errors->has('password') || $errors->has('numero'))
                 $(document).ready(function () {
                     console.log($('#cacher').html());
                     $("#Videos").addClass("in active");

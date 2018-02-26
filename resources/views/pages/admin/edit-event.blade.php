@@ -1,7 +1,6 @@
 @extends("template-admin")
 @section('message')
-    @if(count($alert) > 0)
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <i class="fa fa-envelope-o"></i>
             <span class="label label-success">{{count($alert)}}</span>
         </a>
@@ -28,9 +27,8 @@
                     @endforeach
                 </ul>
             </li>
-            {{--<li class="footer"><a href="#">See All Messages</a></li>--}}
+            <li class="footer"><a href="{{url('/admin/clear-alert')}}">Tous marqués lu</a></li>
         </ul>
-    @endif
 @endsection
 @section('content')
     <br><br>
@@ -125,7 +123,7 @@
                                     <i class="fa fa-clock-o"></i>
                                 </div>
                                 {{--<input type="text" class="form-control timepicker">--}}
-                                <input type="text" id="heured" name="heure_debut" value="{{\Carbon\Carbon::parse($event->date_debut_envent)->format('h:i')}}" class="form-control" data-inputmask="&quot;mask&quot;: &quot;99:99&quot;" data-mask  >
+                                <input type="text" id="heured" name="heure_debut" value="{{\Carbon\Carbon::parse($event->date_debut_envent)->format('H:i')}}" class="form-control" data-inputmask="&quot;mask&quot;: &quot;99:99&quot;" data-mask  >
 
                             </div>
                         </div>
@@ -153,7 +151,7 @@
                                     <i class="fa fa-clock-o"></i>
                                 </div>
                                 {{--<input type="text" class="form-control timepicker">--}}
-                                <input type="text" id="heuref" name="heure_fin" class="form-control" value="{{\Carbon\Carbon::parse($event->date_fin_event)->format('h:i')}}" data-inputmask="&quot;mask&quot;: &quot;99:99&quot;" data-mask  >
+                                <input type="text" id="heuref" name="heure_fin" class="form-control" value="{{\Carbon\Carbon::parse($event->date_fin_event)->format('H:i')}}" data-inputmask="&quot;mask&quot;: &quot;99:99&quot;" data-mask  >
 
                             </div>
                         </div>

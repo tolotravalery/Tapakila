@@ -144,6 +144,7 @@ Route::group(['middleware' => ['auth', 'activated', 'currentUser']], function ()
 // Registered, activated, and is admin routes.
 Route::group(['middleware' => ['auth', 'activated', 'role:admin'], 'prefix' => 'admin'], function () {
 
+    Route::get('/clear-alert','AlertController@clearAll');
 
     Route::resource('/shopping', 'AdminAchatController', [
 //        'only' => [
@@ -194,7 +195,9 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin'], 'prefix' => '
     Route::get('/sousmenus', 'SousmenuController@index')->name('sousmenus');
     Route::post('sousmenu', 'SousmenuController@store');
 
-    Route::get('listevent', 'EventController@listEvent')->name('listevent');
+    Route::get('events/past', 'EventController@listEvent')->name('listevent');
+    Route::get('events/en-cours', 'EventController@encours')->name('encours');
+    Route::get('events/repport/{event_id}', 'EventController@report')->name('report');
     Route::get('ajouterTicket/{id}', 'EventController@showAjouterTicket')->name('ajouterTicket');
     Route::post('updatePublie', 'EventController@updatePublie')->name('updatePublie');
     Route::get('updatePublieAll', 'EventController@updatePublieAll')->name('updatePublieAll');

@@ -338,7 +338,6 @@
                 $('#label').css('border-radius','5px');
                 $('#label').css('border','1px solid red');
                 $('#label').css('padding','10px 33px');
-
                 $('body').addClass("modal-open");
                 $('body').css('padding-right', '17px');
                 $('#confirmForm').addClass('in');

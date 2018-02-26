@@ -81,7 +81,8 @@
                 <div class="row">
                     <div class="col-lg-11 col-sm-10"></div>
                     <div class="col-lg-1 col-sm-2" style="text-align: center;">
-                        <a href="{{url('/home')}}" style="text-align: center;color: #428bca !important;font-size: 16px;">Retour</a>
+                        <a href="{{url('/home')}}"
+                           style="text-align: center;color: #428bca !important;font-size: 16px;">Retour</a>
                     </div>
                 </div>
 
@@ -110,10 +111,12 @@
                                 du site</a>
                         </li>
                         <li class="hidden"><a id="a_pdf" onClick="changePage('div_pdf', 'a_pdf')">PDF</a></li>
-                        <li class="hidden"><a id="a_cpersonalize" onClick="changePage('div_cpersonalize', 'a_cpersonalize')">Champs
+                        <li class="hidden"><a id="a_cpersonalize"
+                                              onClick="changePage('div_cpersonalize', 'a_cpersonalize')">Champs
                                 additioneles</a></li>
                         <li class="categorimenu hidden"><strong>Paramètre</strong></li>
-                        <li class="hidden"><a id="a_paiement" onClick="changePage('div_paiement', 'a_paiement')">Méthodes de
+                        <li class="hidden"><a id="a_paiement" onClick="changePage('div_paiement', 'a_paiement')">Méthodes
+                                de
                                 payement</a></li>
                     </ul>
                 </div>
@@ -235,7 +238,7 @@
 															<span class="glyphicon glyphicon-time"></span>
 															</span>
                                                         <input type="text" class="form-control"
-                                                               value="{{\Carbon\Carbon::parse($event->date_debut_envent)->format('h:i:s')}}"
+                                                               value="{{\Carbon\Carbon::parse($event->date_debut_envent)->format('H:i:s')}}"
                                                                name="heure_debut" id="heured">
                                                     </div>
                                                 </div>
@@ -263,7 +266,7 @@
 															<span class="glyphicon glyphicon-time"></span>
 															</span>
                                                         <input type="text" class="form-control"
-                                                               value="{{ \Carbon\Carbon::parse($event->date_fin_event)->format('h:i:s')}}"
+                                                               value="{{ \Carbon\Carbon::parse($event->date_fin_event)->format('H:i:s')}}"
                                                                name="heure_fin" id="heuref">
 
                                                     </div>
@@ -472,7 +475,16 @@
                                                             <div class="col-lg-4">
                                                                 <h2>
                                                                     <div class="btn-group pull-right">
-
+                                                                        {!! Form::button('<i class="fa fa-fw fa-eye" aria-hidden="true"></i> Aperçu ',
+                                                                                array(
+                                                                                    'class' 			=> 'btn btn-default',
+                                                                                    'id' 				=> 'preview_ticket_trigger',
+                                                                                    'type' 				=> 'button',
+                                                                                    'data-toggle' 		=> 'modal',
+                                                                                    'data-target' 		=> '#previewTicket'.$i,
+                                                                                    'style'             =>  'margin: 5px !important;'
+                                                                                )
+                                                                        ) !!}<br>
                                                                         {!! Form::button('<i class="fa fa-fw fa-trash" aria-hidden="true"></i> Supprimer',
                                                                                 array(
                                                                                     'class' 			=> 'btn-deleted',
@@ -501,11 +513,13 @@
                                                                                     suppression</h4>
                                                                             </div>
                                                                             <div class="modal-body">
-                                                                                <p>Voulez vous vraiment supprimer ce ticket?</p>
+                                                                                <p>Voulez vous vraiment supprimer ce
+                                                                                    ticket?</p>
                                                                             </div>
                                                                             <div class="modal-footer">
                                                                                 {!! Form::button('<i class="fa fa-fw fa-close" aria-hidden="true"></i>Annuler', array('class' => 'btn  pull-left btn-flat btn-annulation iko', 'type' => 'button', 'data-dismiss' => 'modal' )) !!}
-                                                                                <a id="confirm" class="btn btn-supr  pull-right btn-flat"
+                                                                                <a id="confirm"
+                                                                                   class="btn btn-supr  pull-right btn-flat"
                                                                                    href="{{ url("organisateur/event/ticket/delete/".$ticket->id."/".$event->id) }}">
                                                                                         <span class="fa fa-fw fa-trash-o"
                                                                                               aria-hidden="true"></span>Supprimer</a>
@@ -513,6 +527,89 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
+
+
+                                                                <div class="modal fade modal-default"
+                                                                     id="previewTicket{{$i}}"
+                                                                     role="dialog"
+                                                                     aria-labelledby="previewTicketLabel"
+                                                                     aria-hidden="true">
+                                                                    <div class="modal-dialog">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <button type="button" class="close"
+                                                                                        data-dismiss="modal"
+                                                                                        aria-label="Close"><span
+                                                                                            aria-hidden="true">&times;</span>
+                                                                                </button>
+                                                                                <h4 class="modal-title">Aperçu de votre
+                                                                                    ticket</h4>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                                <table width="100%" cellpadding="0" cellspacing="0" >
+                                                                                    <tr>
+                                                                                        <td style="background-color: #d70506;padding: 6px -6px 6px 6px;">
+                                                                                            <img src="{{ url('/public/img/logo.png') }}" style="padding-left: -5px;">
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                                <table width="100%" style="margin-top:-10px;margin-left:18px; ">
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <h3 style="font-size: 20px; font-family:sans-serif;color:#333;"><b>{{str_limit(strtoupper($event->title),$limit=15,$end=' ...')}}</b></h3>
+                                                                                            <p style="font-family:sans-serif;font-size: 18px;color: #d70506;padding-top: -20px;margin: 0 0 10px;">{{$event->localisation_nom }} {{$event->localisation_adresse}}</p>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                                <table width="100%" cellpadding="0" cellspacing="0" style="margin-top:15px;margin-left:21px;">
+                                                                                    <tr>
+                                                                                        <th><p style="font-size: 12px;font-family:sans-serif;color:#333;font-weight: 300; width:33,3%">PRIX</p></th>
+                                                                                        <th><p style="font-size: 12px;font-family:sans-serif;color:#333;font-weight: 300; width:33,3%">DATE</p></th>
+                                                                                        <th><p style="font-size: 12px;font-family:sans-serif;color:#333;font-weight: 300;width:33,3%">HEURE</p></th>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <th style="padding-top:-42px;font-family:sans-serif;color:#333;width:33,3%"><h4><strong>{{$ticket->price}} Ar</strong></h4></th>
+                                                                                        <th style="padding-top:-42px;font-family:sans-serif;color:#333;width:33,3%"><h4><strong>{{ \Carbon\Carbon::parse($event->date_debut_envent)->format('d/M/Y')}}</strong></h4></th>
+                                                                                        <th style="padding-top:-42px;font-family:sans-serif;color:#333;width:33,3%"><h4><strong>{{ \Carbon\Carbon::parse($event->date_debut_envent)->format('H:i')}}</strong></h4></th>
+                                                                                    </tr>
+                                                                                </table>
+                                                                                {{--<table class="wrapper" width="100%" cellpadding="0" cellspacing="0" style="margin-top:-40px;margin-left:15px;">
+                                                                                    <tr>
+                                                                                        <th><h4><strong>3 000 AR</strong></h4></th>
+                                                                                        <th><h4><strong>12-28-20</strong></h4></th>
+                                                                                        <th><h4><strong>20:20</strong></h4></th>
+                                                                                    </tr>
+                                                                                </table>--}}
+                                                                                <table width="100%" cellpadding="0" cellspacing="0"style="margin-top:20px">
+                                                                                    <tr>
+                                                                                        <td align="center">
+                                                                                            <img src="{{url('/public/qr_code/'.$ticket->tapakila()->first()->qr_code)}}" width="200px" height="200px">
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                                <br/>
+                                                                                <table width="100%" cellpadding="0" cellspacing="0"style="margin-top:20px">
+                                                                                    <tr>
+                                                                                        <td align="center">
+                                                                                            <img src="{{url('/public/img/'.$event->image)}}" width="100%" height="100px">
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td align="center">
+                                                                                            <div  style="height:50px;color: white;text-align: center;background-color: #d70506;font-size: 16px;">
+                                                                                                <p style="padding-top: 10px;"><strong>www.leguichet.mg</strong></p>
+                                                                                            </div>
+                                                                                        </td>
+                                                                                    </tr>
+
+                                                                                </table>
+                                                                            </div>
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+
                                                             </div>
                                                         </div>
                                                         <p>Nombre de billets: {{$ticket->tapakila()->count()}}</p>
@@ -1021,9 +1118,6 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Prix unitaire du ticket <span style="color:red">*</span></label>
-                                    <span class="help-block">
-                                        <i>Prix en nombre (sans espace)</i>
-                                    </span>
                                     <div class="input-group group">
                                         {!! Form::number('price', null, ['class' => 'form-control', 'id' => 'ticket_price','placeholder'=>'','step'=>'1','required', 'autofocus']) !!}
                                         <span class="input-group-addon">AR</span>
@@ -1280,14 +1374,17 @@
             input.className = "hide";
             output.className = "show";
         };
+
         function mouseOverFunction() {
             if (output.className == "show") {
                 button.className = "show";
             }
         }
+
         function mouseOutFunction() {
             button.className = "hide";
         }
+
         function buttonClick() {
             $('#mot').removeClass('hide');
             input.value = null;
@@ -1307,14 +1404,17 @@
             input1.className = "hide";
             output1.className = "show";
         };
+
         function mouse1OverFunction() {
             if (output1.className == "show") {
                 button1.className = "show";
             }
         }
+
         function mouse1OutFunction() {
             button1.className = "hide";
         }
+
         function button1Click() {
             $('#mot1').removeClass('hide');
             input1.value = null;

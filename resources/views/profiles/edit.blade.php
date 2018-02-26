@@ -26,6 +26,8 @@
                         {!! Form::text('name', old('name'), array('id' => 'disabledInput', 'class' => 'form-control form-text', 'placeholder' => 'Name')) !!}
                         <label for="usr">Prénom :</label>
                         {!! Form::text('first_name', old('first_name'), array('id' => 'disabledInput', 'class' => 'form-control form-text', 'placeholder' => 'First name')) !!}
+                        <label for="usr">Numéro :</label>
+                        {!! Form::text('numero', old('numero'), array('id' => 'disabledInput', 'class' => 'form-control form-text', 'placeholder' => '03* ** *** **')) !!}
                         <label for="usr">Adresse e-mail :</label>
                         {!! Form::text('email', old('email'), array('id' => 'email', 'class' => 'form-control form-text', 'placeholder' => 'user\'s mail')) !!}
                         <label for="usr">Mot de passe :</label>
