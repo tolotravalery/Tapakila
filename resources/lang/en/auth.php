@@ -77,6 +77,7 @@ return [
     'CaptchaWrong'      => 'Mauvais captcha, veuillez réessayer.',
     'roleRequired'      => 'Le rôle de l\'utilisateur est requis.',
     'NumeroMax'         => 'Le numero doit contenir 10 caractères',
+    'NumeroMin'         => 'Le numero doit contenir 10 caractères',
     'NumeroNum'         => 'Le numero doit contenir des chiffres'
 
 ];

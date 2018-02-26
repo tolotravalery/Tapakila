@@ -238,7 +238,7 @@
 															<span class="glyphicon glyphicon-time"></span>
 															</span>
                                                         <input type="text" class="form-control"
-                                                               value="{{\Carbon\Carbon::parse($event->date_debut_envent)->format('h:i:s')}}"
+                                                               value="{{\Carbon\Carbon::parse($event->date_debut_envent)->format('H:i:s')}}"
                                                                name="heure_debut" id="heured">
                                                     </div>
                                                 </div>
@@ -266,7 +266,7 @@
 															<span class="glyphicon glyphicon-time"></span>
 															</span>
                                                         <input type="text" class="form-control"
-                                                               value="{{ \Carbon\Carbon::parse($event->date_fin_event)->format('h:i:s')}}"
+                                                               value="{{ \Carbon\Carbon::parse($event->date_fin_event)->format('H:i:s')}}"
                                                                name="heure_fin" id="heuref">
 
                                                     </div>

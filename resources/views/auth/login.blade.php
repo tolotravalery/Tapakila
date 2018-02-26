@@ -171,7 +171,7 @@
 @section('specificScript')
     <script>
         @if(session('cache') == 'register')
-            @if ($errors->has('name') || $errors->has('first_name') || $errors->has('email') || $errors->has('password'))
+            @if ($errors->has('name') || $errors->has('first_name') || $errors->has('email') || $errors->has('password') || $errors->has('numero'))
                 $(document).ready(function () {
                     console.log($('#cacher').html());
                     $("#Videos").addClass("in active");
