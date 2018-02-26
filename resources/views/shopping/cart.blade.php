@@ -41,7 +41,7 @@
                     <div id="achat-content">
                         <h2 class="titlebuy">Votre Panier</h2>
                         <div class="spacing"></div>
-                        <div class="custom-pg">
+                        <div class="table-responsive tableau_detail">
                             <table class="tabl-content">
                                 <thead>
                                 <tr>
