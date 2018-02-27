@@ -459,6 +459,20 @@
                                         </div>
 
                                     </div>
+                                    <div class="box">
+                                        <div class="box-header with-border" style="padding-top: 20px;">
+                                            <h3 class="box-title">Paiement</h3>
+                                        </div>
+                                        <div class="box-body table-responsive no-padding">
+                                            @if(count($event->payevents) > 0)
+                                                <input type="checkbox" checked data-toggle="toggle"> Payer le {{ $event->payevents()->first()->date_payment }} 
+                                                (Transaction numéro : {{$event->payevents()->first()->reference_transaction}})
+                                            @else
+                                                En attente <br/>
+                                                contacter l'administrateur : <a href="mailto:contact@leguichet.mg" class="foot">contact@leguichet.mg</a>
+                                            @endif
+                                        </div>
+                                    </div>
                                     {{--<table class="table table-striped table-condensed data-table">
                                         <thead>
                                         <tr>

@@ -257,7 +257,7 @@ class EventController extends Controller
     {
         return Validator::make($data,
             [
-                'pourcentage' => 'numeric|max:100',
+                'pourcentage' => 'numeric|min:0.00|max:100.00',
             ],
             [
                 'pourcentage.numeric'=>trans('auth.Pourcentage'),

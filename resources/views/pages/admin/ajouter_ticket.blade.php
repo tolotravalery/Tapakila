@@ -1,4 +1,7 @@
 @extends("template-admin")
+@section('specificCss')
+<link rel="stylesheet" href="{{url('/')}}/public/admin-assets/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+@endsection
 @section('message')
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <i class="fa fa-envelope-o"></i>
@@ -103,16 +106,15 @@
                                             <i>Votre évènement a @php echo $i @endphp jours. Vous
                                                 devriez entrer la date de ce ticket et créer à nouveau un ticket pour les autres dates</i>
                                         </span>
-                                <label class="col-md-3 control-label"></label>
                                 <div class="col-md-9">
                                     <div class="input-group">
                                         {!! Form::text('date_ticket',\Carbon\Carbon::parse($event->date_debut_envent)->format('Y-m-d') , ['class' => 'form-control', 'id' => 'datepicker','placeholder'=>'','required', 'autofocus']) !!}
                                     </div>
                                 </div>
-                                <br/><br/>
+                            </div>
+                            <div class="form-group">
                                 <label class="col-md-3 control-label"></label>
                                 <span class="help-block"><i>Ou simplement:</i></span>
-                                <label class="col-md-3 control-label"></label>
                                 <input type="checkbox" name="isValable"/> <i>Ce ticket est valable dans tous les jours de l'évènement.</i>
                             </div>
 
@@ -251,6 +253,7 @@
     @endif
     @include('scripts.delete-modal-script')
     @include('scripts.save-modal-script')
+    <script src="{{url('/')}}/public/admin-assets/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
     <script>
         $(document).ready(function () {
             $('#message_after_comparaison').hide();
@@ -286,40 +289,10 @@
 
         });
     </script>
-    <script src="{{url('/')}}/public/js/select2.full.min.js"></script>
-    <script src="{{url('/')}}/public/js/jquery.inputmask.js"></script>
-    <script src="{{url('/')}}/public/js/jquery.inputmask.date.extensions.js"></script>
-    <script src="{{url('/')}}/public/js/jquery.inputmask.extensions.js"></script>
-    <script src="{{url('/')}}/public/js/moment.min.js"></script>
-    <script src="{{url('/')}}/public/js/daterangepicker.js"></script>
-    <script src="{{url('/')}}/public/js/bootstrap-datepicker.js"></script>
-    <!-- bootstrap color picker -->
-    <script src="{{url('/')}}/public/js/bootstrap-colorpicker.min.js"></script>
-    <!-- bootstrap time picker -->
-    <script src="{{url('/')}}/public/js/bootstrap-timepicker.min.js"></script>
+    
     <script>
         $(function () {
-            //Initialize Select2 Elements
-            $(".select2").select2();
-
-            //Datemask dd/mm/yyyy
-            $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
-            //Datemask2 mm/dd/yyyy
-            $("#datemask2").inputmask("mm/dd/yyyy", {"placeholder": "mm/dd/yyyy"});
-            //Money Euro
-            $("[data-mask]").inputmask();
-
-            //Date range picker
-            $('#reservation').daterangepicker();
-            //Date range picker with time picker
-            $('#reservationtime').daterangepicker({
-                timePicker: true,
-                timePickerIncrement: 30,
-                format: 'MM/DD/YYYY h:mm A'
-            });
-            //Date range as a button
-
-
+            
             //Date picker
             $('#datepicker').datepicker({
                 format: 'dd-mm-yyyy',
@@ -336,31 +309,7 @@
                 todayHighlight: true,
                 autoclose: true,
             });
-            //iCheck for checkbox and radio inputs
-            $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
-                checkboxClass: 'icheckbox_minimal-blue',
-                radioClass: 'iradio_minimal-blue'
-            });
-            //Red color scheme for iCheck
-            $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
-                checkboxClass: 'icheckbox_minimal-red',
-                radioClass: 'iradio_minimal-red'
-            });
-            //Flat red color scheme for iCheck
-            $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
-                checkboxClass: 'icheckbox_flat-green',
-                radioClass: 'iradio_flat-green'
-            });
-
-            //Colorpicker
-            $(".my-colorpicker1").colorpicker();
-            //color picker with addon
-            $(".my-colorpicker2").colorpicker();
-
-            //Timepicker
-            $(".timepicker").timepicker({
-                showInputs: false
-            });
+                
         });
     </script>
 @endsection

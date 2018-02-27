@@ -258,6 +258,7 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin'], 'prefix' => '
     Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
     Route::get('php', 'AdminDetailsController@listPHPInfo');
     Route::get('routes', 'AdminDetailsController@listRoutes');
+    Route::resource('payment','PayeventController');
 
 });// Organisateur
 Route::group(['middleware' => ['auth', 'activated'], 'prefix' => 'organisateur'], function () {

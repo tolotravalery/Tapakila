@@ -201,6 +201,13 @@
                     </a>
                 </li>
                 <li>
+                    <a href="{{url('/admin/payment')}}">
+                        <i class="fa fa-credit-card"></i> <span>Paiement</span>
+                        <span class="pull-right-container">
+                        </span>
+                    </a>
+                </li>
+                <li>
                     <a href="{{url('/admin/frais')}}">
                         <i class="fa fa-cog"></i> <span>Paramètre</span>
                         <span class="pull-right-container">
