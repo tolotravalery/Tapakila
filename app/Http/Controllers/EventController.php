@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Frais;
 use App\Models\Newsletter;
 use App\Models\Ticket;
 use App\Models\Alert;
@@ -197,23 +198,81 @@ class EventController extends Controller
         return view('pages.admin.edit-event', compact('event', 'sousmenus', 'alert'));
     }
 
-    public
-    function edit($id)
+    public function edit($id)
     {
+        $frais=Frais::find(1);
         $user = User::find(Auth::user()->id);
         if (!$user->hasRole('organisateur')) {
             return redirect(url('errors/' . md5('event') . '/' . md5('403')));
         }
         $menus = Menus::all();
         $sousmenus = Sous_menus::all();
-        $event = Events::find($id);
+        //$event = Events::find($id);
+        /*eto*/
+        $event = Events::findOrFail($id);
+        $nombreAchat = 0;
+        $nombreAchatParTicket = 0;
+        $total_ticket_genere = 0;
+        $total_ticket_vendu = 0;
+        $revenu = 0.00;
+        $data_achat = array();
+        $array_achats = array();
+        foreach ($event->tickets as $ticket) {
+            $nombreAchatParTicket = 0;
+            //achat
+            $achat = TicketUser::where('ticket_id', '=', $ticket->id)->get();
+            $array_achats[] = $achat;
+            if (count($achat) != 0) {
+                foreach ($achat as $a) {
+                    $nombreAchat += $a->number;
+                    if ($a->status_payment != 'FAILED') {
+                        $nombreAchatParTicket += $a->number;
+                    }
+                }
+            }
+            $data_achat[] = array('ticket' => $ticket, 'nombreVendu' => $nombreAchatParTicket);
+            //revenu
+            $total_ticket_genere += count($ticket->tapakila);
+            $total_ticket_vendu += count($ticket->tapakila()->where('vendu', '=', 1)->get());
+        }
+        $revenu = ($total_ticket_vendu * 100) / ($total_ticket_genere != 0 ? $total_ticket_genere : 1);
+        $frais_pourcentage=$frais->pourcentage;
+//        dd($array_achats);
         if ($event->user_id != Auth::user()->id) {
             //return redirect(url('errors/' . md5('event-form-update') . '/' . md5('500')));
             return redirect(url('/home'));
         }
-        return view('events.edit', compact('event', 'menus', 'sousmenus'));
-    }
+        return view('events.edit', compact('event', 'menus', 'sousmenus'))
+            ->with(array('pourcentage'=>$frais_pourcentage,'nombreAchat' => $nombreAchat, 'revenu' => $revenu, 'data_achat' => $data_achat, 'achats' => $array_achats,
+                'ticket_genere' => $total_ticket_genere));
+        /*eto*/
 
+    }
+    public function afficher_frais(){
+        $frais = Frais::find(1);
+        $alert = Alert::where('vu', '=', '0')->get();
+        return View('/pages.admin.listesfrais', compact('frais', 'alert'));
+    }
+    protected function validator_frais(array $data)
+    {
+        return Validator::make($data,
+            [
+                'pourcentage' => 'numeric|max:100',
+            ],
+            [
+                'pourcentage.numeric'=>trans('auth.Pourcentage'),
+                'pourcentage.max'=>trans('auth.PourcentageMax'),
+            ]
+        );
+    }
+    public function update_frais(Request $request){
+        $this->validator_frais($request->all())->validate();
+        $pourcentage=$request->input('pourcentage');
+        $frais=Frais::find(1);
+        $frais->pourcentage=$request->input('pourcentage');
+        $frais->save();
+        return redirect(url('admin/frais'));
+    }
     public
     function update_website(Request $request)
     {

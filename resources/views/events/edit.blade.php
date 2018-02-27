@@ -387,18 +387,86 @@
 
                     <div id="div_rapport" @if(session('page')) @if(session('page')=='rapport') class="show"
                          @elseif(session('page') == 'tickets') class="hide" @endif @else class="hide" @endif >
-                        <div id="rapport">
+                        <div id="rapport" style="padding-top:30px;">
                             <div class="com_contenu_type">
                                 <div class="table-responsive users-table">
-                                    <table class="table table-striped table-condensed data-table">
+                                    <div class="box">
+                                        <div class="box-header with-border">
+                                            <h2 class="box-title">Rapports</h2>
+                                        </div>
+                                        <div class="box-body">
+                                            <table class="table table-bordered">
+                                                <tr>
+                                                    <th style="width: 16%">Type de ticket</th>
+                                                    <th style="width: 16%">Prix</th>
+                                                    <th style="width: 16%">Nombres</th>
+                                                    <th style="width: 17%">Ticket vendu</th>
+                                                    <th style="width: 17%">Ticket scanné</th>
+                                                    <th style="width: 16%">Montant reçu</th>
+                                                </tr>
+                                                @php $id=0; @endphp
+                                                @foreach($event->tickets as $ticket)
+                                                    @if($ticket->id != $id)
+                                                        @php
+                                                            $id = $ticket->id;
+                                                        @endphp
+                                                        <tr>
+                                                            <td>{{$ticket->type}}</td>
+                                                            <td>{{$ticket->price}} Ariary</td>
+                                                            <td>{{count($ticket->tapakila)}}</td>
+                                                            <td>{{count($ticket->tapakila()->where('vendu','=',1)->get())}}</td>
+                                                            <td>{{count($ticket->tapakila()->where('scanne','=',1)->get())}}</td>
+                                                            <td>{{count($ticket->tapakila()->where('vendu','=',1)->get()) * $ticket->price}} Ariary</td>
+                                                        </tr>
+                                                    @endif
+                                                @endforeach
+                                            </table>
+                                        </div>
+                                        <div class="box-header with-border" style="padding-top: 20px;">
+                                            <h3 class="box-title">Total</h3>
+                                        </div>
+                                        <div class="box-body table-responsive no-padding">
+                                            <table class="table table-hover">
+                                                <tr>
+                                                    <th>Revenu</th>
+                                                    <th>Nombres</th>
+                                                    <th>Ticket vendu </th>
+                                                    <th>Montant</th>
+                                                    <th>Frais</th>
+                                                    <th>Transfert</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>{{$revenu}}%</td>
+                                                    <td>{{$ticket_genere}}</td>
+                                                    @php($ticket_vendu = 0)
+                                                    @foreach($data_achat as $data)
+                                                        @php($ticket_vendu += $data['nombreVendu'])
+                                                    @endforeach
+                                                    <td>{{$ticket_vendu}}</td>
+                                                    @php($montant=0)
+                                                    @foreach($event->tickets as $t)
+                                                        @php($montant += count($t->tapakila()->where('vendu','=',1)->get()) * $t->price)
+                                                    @endforeach
+                                                    <td>{{$montant}} Ariary</td>
+                                                    <td>{{$pourcentage}} %</td>
+                                                    <?php
+                                                    $frais=($pourcentage*$montant)/100;
+                                                    $transfert=$montant-$frais;
+                                                    ?>
+                                                    <td>{{$transfert}} Ariary</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+
+                                    </div>
+                                    {{--<table class="table table-striped table-condensed data-table">
                                         <thead>
                                         <tr>
                                             <th>Type de ticket</th>
-                                            <th>Nombre total</th>
-                                            <th>Ticket vendu</th>
-                                            <th>Ticket non vendu</th>
-                                            <th>Ticket payé</th>
-
+                                            <th>Nombre</th>
+                                            <th>Billet vendu</th>
+                                            <th>Billet scanné</th>
+                                            <th>Montant reçu</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -410,34 +478,49 @@
                                                 @endphp
                                                 <tr>
                                                     <td>{{$ticket->type}}</td>
-                                                    <td>{{$ticket->tapakila()->count()}}</td>
-                                                    @php
-                                                        $tapakilas=$ticket->tapakila();
-                                                        $tapakila_vendu = $ticket->tapakila()->where('vendu', '=', '1')->get();
-                                                        $tapakila_non_vendu = $ticket->tapakila()->where('vendu', '=', '0')->get();
-                                                        $nbre_vendu=$tapakila_vendu->count();
-                                                        $nbre_non_vendu=$tapakila_non_vendu->count();
-                                                        $nbre_paye=0;
-                                                        $users=$ticket->users()->wherePivot('ticket_id', '=', $ticket->id)->get();
-                                                    @endphp
-                                                    @foreach($users as $user)
-                                                        @php
-                                                            $ticket_users=$user->tickets()->wherePivot('ticket_id', '=',$ticket->id )->wherePivot('status_payment', '=',"SUCCESS")->get();;
-                                                            $nbre_paye=$ticket_users->count();
-                                                        @endphp
-                                                    @endforeach
-
-                                                    <td>{{ $nbre_vendu}}</td>
-                                                    <td>{{ $nbre_non_vendu}}</td>
-
-                                                    <td>{{$nbre_paye}}</td>
+                                                    <td>{{count($ticket->tapakila)}}</td>
+                                                    <td>{{count($ticket->tapakila()->where('vendu','=',1)->get())}}</td>
+                                                    <td>{{count($ticket->tapakila()->where('scanne','=',1)->get())}}</td>
+                                                    <td>{{count($ticket->tapakila()->where('vendu','=',1)->get()) * $ticket->price}} Ariary</td>
                                                 </tr>
                                             @endif
                                         @endforeach
                                         </tbody>
                                     </table>
-
-
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            Revenu total:
+                                        </div>
+                                        <div class="col-md-6">
+                                            {{$revenu}}%
+                                        </div>
+                                        <div class="col-md-6">
+                                            Nombre total des tickets généré:
+                                        </div>
+                                        <div class="col-md-6">
+                                            {{$ticket_genere}}
+                                        </div>
+                                        @php($ticket_vendu = 0)
+                                        @foreach($data_achat as $data)
+                                            @php($ticket_vendu += $data['nombreVendu'])
+                                        @endforeach
+                                        <div class="col-md-6">
+                                            Nombre total des tickets vendu :
+                                        </div>
+                                        <div class="col-md-6">
+                                            {{$ticket_vendu}}
+                                        </div>
+                                        <div class="col-md-6">
+                                            Montant total :
+                                        </div>
+                                        <div class="col-md-6">
+                                            @php($montant=0)
+                                            @foreach($event->tickets as $t)
+                                                @php($montant += count($t->tapakila()->where('vendu','=',1)->get()) * $t->price)
+                                            @endforeach
+                                            {{$montant}} Ariary
+                                        </div>
+                                    </div>--}}
                                 </div>
                             </div>
                         </div>
