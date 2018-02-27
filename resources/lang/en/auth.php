@@ -78,6 +78,8 @@ return [
     'roleRequired'      => 'Le rôle de l\'utilisateur est requis.',
     'NumeroMax'         => 'Le numero doit contenir 10 caractères',
     'NumeroMin'         => 'Le numero doit contenir 10 caractères',
-    'NumeroNum'         => 'Le numero doit contenir des chiffres'
+    'NumeroNum'         => 'Le numero doit contenir des chiffres',
+    'Pourcentage'       => 'Le pourcentage doit contenir que des chiffres',
+    'PourcentageMax'       => 'Le pourcentage doit inférieure ou égal à 100'
 
 ];

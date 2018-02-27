@@ -45,5 +45,9 @@ class Events extends Model
         return $this->belongsTo('App\Models\User');
     }
 
+    public function payevents(){
+        return $this->hasMany('App\Models\PayEvent');
+    }
+
     //public function
 }

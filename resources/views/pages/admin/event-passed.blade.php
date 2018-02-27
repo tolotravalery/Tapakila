@@ -153,9 +153,7 @@
                                 </tbody>
                             </table>
                             <input type="hidden" id="isanCheckbox" value="{{$j}}">
-                            <div class="Confirme">
-                                <button type="button" id="buttonUpdate" class="btn btn-default">Update all</button>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
