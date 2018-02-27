@@ -178,6 +178,7 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin'], 'prefix' => '
 
     Route::get('home', 'UserController@index')->name('/admin/home');
     Route::put('events', 'EventController@updateadmin')->name('event');
+    Route::put('frais', 'EventController@update_frais')->name('frais');
 
     /*-------------------*/
     /*----slideshow------*/
@@ -186,6 +187,7 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin'], 'prefix' => '
     $this->post('slide', 'SlideController@store');
     Route::post('updateActive', 'SlideController@updateActive')->name('updateActive');
     /*----slideshow------*/
+    Route::get('frais', 'EventController@afficher_frais')->name('frais');
 
     Route::get('menu', 'MenuController@showMenuForm')->name('menu');
     Route::get('/menus', 'MenuController@index')->name('menus');
