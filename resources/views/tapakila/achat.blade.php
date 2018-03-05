@@ -36,13 +36,13 @@
                     <!-- QU'EST-CE QU'UN E-TICKET ? -->
                     <h4><strong>Qu'est-ce qu'un billet électronique ?</strong></h4>
                     <p> Un billet éléctronique (ou numerique) est un billet consultable via un ordinateur ou un smartphone.
-                        Il contient un QRCode(image codée) unique et ce dernier ne peut être scanné qu'avec un appareil ou un lecteur spécial.
+                        Il contient un QRCode (image codée) unique et ce dernier ne peut être scanné qu'avec un lecteur QRCode pour leguichet.
                         Vous pouvez imprimer le billet sur un papier blanc vierge ou le laisser dans votre email et le présenter au guichet via votre smartphone le moment venu.</p><br>
                     <img src="{{url('/')}}/public/img/guide.png"><br>
 
                     <!-- QUEL EST L'AVANTAGE PRINCIPAL DU E-TICKET ? -->
                     <h4><strong>Quel est l'avantage principal du billet électronique?</strong></h4>
-                    <p>Vous pouvez achetter vos billets n'importe où,  il vous faut juste un smartphone et connexion et faire quelques clics. Vous recevez vos billets quelques secondes après validation de votre achat.</p>
+                    <p>Vous pouvez acheter vos billets n'importe où,  il vous faut juste un smartphone et connexion et faire quelques clics. Vous recevez vos billets quelques secondes après validation de votre achat.</p>
                     <br>
 
 
@@ -73,7 +73,7 @@
                     <!-- QUELLES SONT LES CONDITIONS D'IMPRESSION ET DE VALIDITÉ DU E-TICKET ? -->
                     <h4><strong>Quelles sont les conditions d'impression et de validité du billet électronique?</strong></h4>
                     <p>
-                        Le billet doit être imprimé sur papier blanc et vierge pour que le QrCode soit bien visible et lisible par le lecteur de QrCode.
+                        Le billet doit être imprimé avec le lecteur de QRCode.
                     </p>
                     <br>
 
