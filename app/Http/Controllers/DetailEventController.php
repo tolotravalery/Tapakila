@@ -9,8 +9,9 @@ use Illuminate\Http\Request;
 
 class DetailEventController extends Controller
 {
-    public function show($events_id)
+    public function show($category_name,$events_date_title_id)
     {
+        explode("_",$events_date_title_id)[2]  != null ? $events_id = explode("_",$events_date_title_id)[2] : $events_id =1 ;
         if (Events::find($events_id) == null) {
             return redirect(url('errors/' . md5('event-detail') . '/' . md5('500')));
         }

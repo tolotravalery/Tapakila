@@ -103,11 +103,14 @@
                 </div>
 
             </p>
+            @php
+                $string_url_detail = $event->sous_menus->name ."/".date('Y-m-d',strtotime($event->date_debut_envent)) . "_".  str_replace(' ','-',$event->title)."_".$event->id;
+            @endphp
             <p style="font-size: 14px;color:#333;padding-top:0px;">Nom de l’évenement :{{$event->title}}</p>
             <p style="font-size: 14px;color:#333;padding-top:0px;">Description : {{$event->additional_note}}.</p>
             <p style="font-size: 14px;color:#333;padding-top:0px;">Lieu : {{$event->localisation_nom}} {{$event->localisation_adresse}}</p>
             <p style="font-size: 14px;color:#333;padding-top:0px;">Date : le {{$event->date_debut_envent->format('d M Y H:i')}} à {{$event->date_fin_event->format('d M Y H:i')}}</p>
-            <p style="font-size: 14px;color:#333;padding-top:0px;width:auto;">Pour consulter votre événement   <a style="color:#d70506" href="{{url('event/show',[$event->id])}}"> cliquez ici</a></p>
+            <p style="font-size: 14px;color:#333;padding-top:0px;width:auto;">Pour consulter votre événement   <a style="color:#d70506" href="{{url($string_url_detail)}}"> cliquez ici</a></p>
 
         </td>
     </tr>

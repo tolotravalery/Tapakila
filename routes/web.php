@@ -41,13 +41,13 @@ Route::group(['middleware' => 'web'], function () {
     // Route to for user to reactivate their user deleted account.
     Route::get('/re-activate/{token}', ['as' => 'user.reactivate', 'uses' => 'RestoreUserController@userReActivate']);
 
+    // details event
+    Route::get('{categorie_name}/{event_title}', 'DetailEventController@show')->name('detail-event');
+
     Route::group(['prefix' => 'event'], function () {
-        Route::get('show/{events_id}', 'DetailEventController@show');
         Route::get('list/categorie/{menu}', 'DetailEventController@listEventMenu');
         Route::get('list/categorie/{sous_menu_name}/{sous_menu}', 'DetailEventController@listEventSousMenu');
         Route::get('{event_name}', 'DetailEventController@show_par_name');
-
-
     });
     Route::group(['prefix' => 'find'], function () {
         Route::get('q', 'RechercheController@find');

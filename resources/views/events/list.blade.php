@@ -117,6 +117,7 @@
                                     @php($c=0)
                                     @foreach($objects as $event)
                                         @php
+                                            $string_url_detail = $event->sous_menus->name ."/".date('Y-m-d',strtotime($event->date_debut_envent)) . "_".  str_replace(' ','-',$event->title)."_".$event->id;
                                             $ev = $event->publie == true && \Carbon\Carbon::parse($event->date_debut_envent)->isFuture();
                                         @endphp
                                         @if($ev)
@@ -124,21 +125,21 @@
                                                 <div class="thumbnail"
                                                      onmouseover="mouseover('month{{$count_id}}','title{{$count_id}}')"
                                                      onmouseleave="mouseleave('month{{$count_id}}','title{{$count_id}}')">
-                                                    <a href="{{url('event/show',[$event->id])}}">
+                                                    <a href="{{url($string_url_detail)}}">
                                                         <div class="mg-image">
                                                             <img src="{{ url('public/img/'.$event->image.'') }}">
                                                         </div>
                                                     </a>
                                                     <div class="caption taille">
-                                                        <a href="{{url('event/show',[$event->id])}}">
+                                                        <a href="{{url($string_url_detail)}}">
                                                             <div class="limitelengh">
                                                                 <h3>
-                                                                    <a href="{{url('event/show',[$event->id])}}"
+                                                                    <a href="{{url($string_url_detail)}}"
                                                                        id="title{{$count_id}}">{{ucfirst(strtolower(str_limit($event->title,$limit=40, $end = ' ...')))}}</a>
                                                                 </h3>
                                                             </div>
                                                             <div class="limite">
-                                                                <a href="{{url('event/show',[$event->id])}}">
+                                                                <a href="{{url($string_url_detail)}}">
                                                                     <?php  if ($event->additional_note == null) {
                                                                         echo "<br/>";
                                                                     }?>
@@ -167,12 +168,12 @@
                                                                             disponible
                                                                         @endif
                                                                     </div>
-                                                                    <a href="{{url('event/show',[$event->id])}}">
+                                                                    <a href="{{url($string_url_detail)}}">
                                                                         <div class="price"><i
                                                                                     class="glyphicon glyphicon-time time"></i>{{ \Carbon\Carbon::parse($event->date_debut_envent)->format('H:i')}}
                                                                         </div>
                                                                     </a>
-                                                                    <a href="{{url('event/show',[$event->id])}}">
+                                                                    <a href="{{url($string_url_detail)}}">
                                                                         <div class="date"><i
                                                                                     class="glyphicon glyphicon-map-marker position"></i>{{ str_limit($event->localisation_adresse, $limit = 15, $end = ' ...')}}
                                                                         </div>
@@ -181,7 +182,7 @@
                                                             </div>
                                                             <div style="text-align:center;">
                                                                 <a style="color:white !important;"
-                                                                   href="{{url('event/show',[$event->id])}}"
+                                                                   href="{{url($string_url_detail)}}"
                                                                    class="btn btn-danger btn_reset">Réserver</a>
                                                             </div>
                                                         </a>

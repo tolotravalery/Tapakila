@@ -117,6 +117,7 @@
                                 @foreach($achats as $a)
                                     @php
                                         $event = $a->events[0];
+                                        $string_url_detail = $event->sous_menus->name ."/".date('Y-m-d',strtotime($event->date_debut_envent)) . "_".  str_replace(' ','-',$event->title)."_".$event->id;
                                     @endphp
                                     @if($event->date_fin_event < date('Y-m-d H:i:s'))
                                         @if($a->pivot->status_payment!='FAILED')
@@ -166,6 +167,7 @@
                                 @foreach($achats as $a)
                                     @php
                                         $event = $a->events[0];
+                                        $string_url_detail = $event->sous_menus->name ."/".date('Y-m-d',strtotime($event->date_debut_envent)) . "_".  str_replace(' ','-',$event->title)."_".$event->id;
                                     @endphp
                                     @if($event->date_fin_event >= date('Y-m-d H:i:s'))
                                         <tr>

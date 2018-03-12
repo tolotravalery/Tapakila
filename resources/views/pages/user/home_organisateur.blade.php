@@ -171,10 +171,13 @@
                                 </thead>
                                 <tbody>
                                 @foreach($events_futur as $e)
+                                @php
+                                    $string_url_detail = $e->sous_menus->name ."/".date('Y-m-d',strtotime($e->date_debut_envent)) . "_".  str_replace(' ','-',$e->title)."_".$e->id;
+                                @endphp
                                     <tr>
                                         <td data-label="">
                                             <div class="thumbnail imgpaiment">
-                                                <a href="event/show/{{$e->id}}">
+                                            <a href="{{url($string_url_detail)}}">
                                                     <img src="{{url('/')}}/public/img/{{$e->image}}"
                                                          class="image_panier">
                                                 </a>
@@ -287,11 +290,14 @@
                                         @php
                                             $event = $a->events[0];
                                         @endphp
+                                        @php
+                                            $string_url_detail = $event->sous_menus->name ."/".date('Y-m-d',strtotime($event->date_debut_envent)) . "_".  str_replace(' ','-',$event->title)."_".$event->id;
+                                        @endphp
                                         @if($event->date_fin_event >= date('Y-m-d H:i:s'))
                                             <tr>
                                                 <td data-label="">
                                                     <div class="thumbnail imgpaiment">
-                                                        <a href="event/show/{{$event->id}}">
+                                                    <a href="{{url($string_url_detail)}}">
                                                             <img src="{{url('/')}}/public/img/{{$event->image}}"
                                                                  class="image_panier">
                                                         </a>
