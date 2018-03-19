@@ -80,15 +80,15 @@
                                 <li><a href="#"><img src="{{url('/public/img/items1.png')}}"></a>
                                     <p class="ctgori"><strong><a href="#">Concert</a></strong></p></li>
                                 <li><a href="#"><img src="{{url('/public/img/items2.png')}}"></a>
-                                    <p class="ctgori"><strong><a href="#">Kabaret</a></strong></p></li>
+                                    <p class="ctgori"><strong><a href="#">Cabaret</a></strong></p></li>
                                 <li><a href="#"><img src="{{url('/public/img/items3.png')}}"></a>
                                     <p class="ctgori"><strong><a href="#">Sport</a></strong></p></li>
                                 <li><a href="#"><img src="{{url('/public/img/items4.png')}}"></a>
-                                    <p class="ctgori"><strong><a href="#">Soiré</a></strong></p></li>
+                                    <p class="ctgori"><strong><a href="#">Soirée</a></strong></p></li>
                                 <li><a href="#"><img src="{{url('/public/img/items5.png')}}"></a>
                                     <p class="ctgori"><strong><a href="#">Danse</a></strong></p></li>
                                 <li><a href="#"><img src="{{url('/public/img/items6.png')}}"></a>
-                                    <p class="ctgori"><strong><a href="#">Cinema</a></strong></p></li>
+                                    <p class="ctgori"><strong><a href="#">Cinéma</a></strong></p></li>
                                 <li><a href="#"><img src="{{url('/public/img/items7.png')}}"></a>
                                     <p class="ctgori"><strong><a href="#">Festivals</a></strong></p></li>
                                 <li><a href="#"><img src="{{url('/public/img/items8.png')}}"></a>
