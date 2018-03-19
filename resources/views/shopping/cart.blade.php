@@ -62,6 +62,7 @@
                                     @php
                                         $ticket = \App\Models\Ticket::findOrFail($item->id);
                                         $event = $ticket->events()->take(1)->get()[0];
+                                        $string_url_detail = $event->sous_menus->name ."/".date('Y-m-d',strtotime($event->date_debut_envent)) . "_".  str_replace(' ','-',$event->title)."_".$event->id;
                                         if($event->question_secret != null)
                                             $question[$i] =$event->question_secret;
                                         $i++;
@@ -74,7 +75,7 @@
                                                     <div class="row">
                                                         <div class="col-lg-7 ">
                                                             <div class="thumbnail imgpaiment">
-                                                                <a href="{{url('event/show',[$event->id])}}">
+                                                                <a href="{{url($string_url_detail)}}">
                                                                     <img src="{{url('/public/img/'.$event->image)}}"
                                                                          class="image_panier">
                                                                 </a>
