@@ -51,6 +51,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                {{-- }}
                                 <div class="row row_recherche">
                                     <div class="col-lg-4 mot_recherche">
                                         <label for="usr">Type d'événément</label>
@@ -71,11 +72,12 @@
                                             {{--</div>--}}
                                         {{--</div>--}}
                                     {{--</div>--}}
-                                </div>
+                                {{-- </div> --}}
+                                
                                 <div class="row_recherche">
                                     <div class="row">
                                         <div class="col-lg-4 mot_recherche">
-                                            <label for="usr">Cochez la ou le catégories</label>
+                                            <label for="usr">Cochez la ou les catégories</label>
                                         </div>
                                         <div class="col-lg-8 col_recherche">
                                             <div class="row select_recherche">

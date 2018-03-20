@@ -143,7 +143,7 @@
                                                 Indisponible
                                             @endif
                                         </td>
-                                        <td data-label=""><p><a href="organisateur/event/{{$e->id}}/edit" alt="Edit"
+                                        <td data-label=""><p><a href="organisateur/evenement/{{$e->id}}/edit" alt="Edit"
                                                                 class="rapport">Modifier</a></p>
                                         </td>
                                         <td data-label="">
@@ -208,7 +208,7 @@
                                                 Indisponible
                                             @endif
                                         </td>
-                                        <td data-label=""><p><a href="organisateur/event/{{$e->id}}/edit" alt="Edit"
+                                        <td data-label=""><p><a href="organisateur/evenement/{{$e->id}}/edit" alt="Edit"
                                                                 class="rapport">Modifier</a></p>
                                         </td>
                                         <td data-label="">

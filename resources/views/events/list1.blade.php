@@ -132,7 +132,7 @@
                                 @endforeach
                                 @if($events->count() < 9)
                                     <div class="col-sm-6 col-md-4">
-                                        <a href="{{url('/')}}/organisateur/event" class="thumbnail">
+                                        <a href="{{url('/')}}/organisateur/evenement/ajouter" class="thumbnail">
                                             <img class="hut" src="{{ url('') }}/public/img/create_events.png">
                                         </a>
                                     </div>

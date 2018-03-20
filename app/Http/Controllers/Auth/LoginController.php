@@ -26,11 +26,18 @@ class LoginController extends Controller
     use AuthenticatesUsers;
 
     /**
-     * Where to redirect users after login.
+     * Where to redirect users after logout.
      *
      * @var string
      */
     protected $redirectAfterLogout = '/';
+    
+    /**
+     * Where to redirect users after login.
+     *
+     * @var string
+     */
+    protected $redirectTo = '/acceuil';
 
     //protected $redirectTo = "/profile.edit";
 
