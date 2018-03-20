@@ -72,7 +72,6 @@
                     </div>
                 </div>
             </div>
-
             <!-- detail end -->
             <div class="row">
                 <div class="col-lg-3 col-sm-3 creat">
