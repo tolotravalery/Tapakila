@@ -66,7 +66,7 @@
                                     @php
                                         $ticket = \App\Models\Ticket::findOrFail($item->id);
                                         $event = $ticket->events()->take(1)->get()[0];
-                                        $string_url_detail = $event->sous_menus->name ."/".date('Y-m-d',strtotime($event->date_debut_envent)) . "_".  str_replace(' ','-',$event->title)."_".$event->id;
+                                        $string_url_detail = "/evenement/".$event->sous_menus->name ."/".date('Y-m-d',strtotime($event->date_debut_envent)) . "_".  str_slug($event->title)."_".$event->id;
                                         if($event->question_secret != null)
                                             $question[$i] =$event->question_secret;
                                         $i++;
