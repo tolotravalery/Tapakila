@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\URL;
 use Roumen\Sitemap\Sitemap;
+use App\Models\Events;
 
 class SitemapController extends Controller
 {
@@ -28,7 +29,8 @@ class SitemapController extends Controller
         $sitemap->add(URL::to('/vie-prive'), date('Y-m-d H:i:s'), '0.9', 'never');
 
         // get all products from db (or wherever you store them)
-        $events = DB::table('events')->orderBy('created_at', 'desc')->get();
+        //$events = DB::table('events')->orderBy('created_at', 'desc')->get();
+        $events = Events::orderBy('created_at', 'desc')->get();
 
         // counters
         $counter = 0;
@@ -49,7 +51,8 @@ class SitemapController extends Controller
                     'title' => $e->title,
                     'caption' => $e->title
                 );
-                $sitemap->add(url('/event/show/' . $e->id), $e->updated_at, '0.8', 'monthly',$images[$i]);
+                $string_url_detail = "/evenement/".$e->sous_menus->name ."/".date('Y-m-d',strtotime($e->date_debut_envent)) . "_".  str_slug($e->title)."_".$e->id;
+                $sitemap->add(url($string_url_detail), $e->updated_at, '0.8', 'monthly',$images[$i]);
                 $counter++;
                 $i++;
             }

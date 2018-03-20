@@ -1,6 +1,7 @@
 @extends('template')
 @section('title')
     <title>{{$event->title}}</title>
+    <meta name="description" content="{{$event->additional_note}}"/> 
 @endsection
 @section('specificMeta')
     <meta property="og:url"
@@ -16,9 +17,9 @@
     <section id="sectioncategorie" class="clearfix">
         <div class="container custom-container">
             <ul class="clearfix">
-                <li><a href="{{url('/')}}">TOUS</a></li>
+                <li><a href="{{url('/')}}">accueil</a></li>
                 @foreach($menus as $menu)
-                    <li><a href="{{url('/event/list/categorie',[$menu->id])}}">{{strtoupper($menu->name)}}</a></li>
+                    <li><a href="{{url('/evenement/'.$menu->name)}}">{{strtoupper($menu->name)}}</a></li>
                 @endforeach
 
             </ul>
@@ -27,11 +28,11 @@
     </section>
 
     <section id="sectionevenement" role="navigation">
-        <div class="container custom-container">
+        <div class="container custom-container" >
             <ul>
                 @foreach($sousmenus as $sousmenu)
                     <li>
-                        <a href="{{url('/event/list/categorie/'.$sousmenu->name.'',[$sousmenu->id])}}">{{ucfirst(strtolower($sousmenu->name))}}</a>
+                        <a href="{{url('/tags/'.$sousmenu->name)}}">{{ucfirst(strtolower($sousmenu->name))}}</a>
                     </li>
                 @endforeach
             </ul>
@@ -417,7 +418,7 @@
                 @php $count_id = 0 @endphp
                 @foreach($interested as $ev)
                 @php
-                    $string_url_detail = $ev->sous_menus->name ."/".date('Y-m-d',strtotime($ev->date_debut_envent)) . "_".  str_replace(' ','-',$ev->title)."_".$ev->id;
+                    $string_url_detail = "/evenement/".$ev->sous_menus->name ."/".date('Y-m-d',strtotime($ev->date_debut_envent)) . "_".  str_slug($ev->title)."_".$ev->id;
                 @endphp
                     <div class="col-sm-6 col-md-4">
                         <div class="thumbnail"

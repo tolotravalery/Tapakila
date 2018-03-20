@@ -1,6 +1,8 @@
 @extends('template')
 @section('title')
     <title>Le Guichet | Infos billets</title>
+    <meta name="description" content="Leguichet, vente des billets electroniques à Madagascar, des listes d'événements, musicaux, et de divertissement en direct, des guides, des petites annonces, des critiques, et plus encore.">
+    
 @endsection
 @section('content')
     <section id="sectioncategorie" class="clearfix">
@@ -8,7 +10,7 @@
             <ul class="clearfix">
                 <li><a href="{{url('/')}}">accueil</a></li>
                 @foreach($menus as $menu)
-                    <li><a href="{{url('/event/list/categorie',[$menu->id])}}">{{strtoupper($menu->name)}}</a></li>
+                    <li><a href="{{url('/evenement/'.$menu->name)}}">{{strtoupper($menu->name)}}</a></li>
                 @endforeach
 
             </ul>
@@ -17,14 +19,13 @@
     </section>
 
     <section id="sectionevenement" role="navigation">
-        <div class="container custom-container">
+        <div class="container custom-container" >
             <ul>
                 @foreach($sousmenus as $sousmenu)
                     <li>
-                        <a href="{{url('/event/list/categorie/'.$sousmenu->name.'',[$sousmenu->id])}}">{{ucfirst(strtolower($sousmenu->name))}}</a>
+                        <a href="{{url('/tags/'.$sousmenu->name)}}">{{ucfirst(strtolower($sousmenu->name))}}</a>
                     </li>
                 @endforeach
-
             </ul>
         </div>
     </section>
