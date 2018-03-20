@@ -80,7 +80,7 @@
                 <div class="row">
                     <div class="col-lg-11 col-sm-10"></div>
                     <div class="col-lg-1 col-sm-2" style="text-align: center;">
-                        <a href="{{url('/home')}}"
+                        <a href="{{url('/acceuil')}}"
                            style="text-align: center;color: #428bca !important;font-size: 16px;">Retour</a>
                     </div>
                 </div>
@@ -616,7 +616,7 @@
                                                                                 {!! Form::button('<i class="fa fa-fw fa-close" aria-hidden="true"></i>Annuler', array('class' => 'btn  pull-left btn-flat btn-annulation iko', 'type' => 'button', 'data-dismiss' => 'modal' )) !!}
                                                                                 <a id="confirm"
                                                                                    class="btn btn-supr  pull-right btn-flat"
-                                                                                   href="{{ url("organisateur/event/ticket/delete/".$ticket->id."/".$event->id) }}">
+                                                                                   href="{{ url("organisateur/evenement/ticket/delete/".$ticket->id."/".$event->id) }}">
                                                                                         <span class="fa fa-fw fa-trash-o"
                                                                                               aria-hidden="true"></span>Supprimer</a>
                                                                             </div>

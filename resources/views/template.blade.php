@@ -60,7 +60,7 @@
             @if (Auth::guest())
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <!--<div class="panier-header"><a href="{{url('/')}}/organisateur/event"
+                        <!--<div class="panier-header"><a href="{{url('/')}}/organisateur/evenement/ajouter"
                                                       class="btn btn-success event"
                                                       role="button"><span class="ico"></span><span
                                         class="descr">AJOUTER<br/> VOTRE EVENEMENT</span></a></div>
@@ -104,7 +104,7 @@
             @else
                 <ul class="nav navbar-nav navbar-right nav-customs ">
                     <li>
-                        <div class="panier-header"><a href="{{url('/')}}/organisateur/event"
+                        <div class="panier-header"><a href="{{url('/')}}/organisateur/evenement/ajouter"
                                                       class="btn btn-success event" role="button"><span
                                         class="ico"></span><span class="descr">AJOUTER<br/> VOTRE EVENEMENT</span></a>
                         </div>
@@ -132,7 +132,7 @@
                             {{ trans('profile.editAccountTitle') }}-->
 								</li>--}}
                             <li>
-                                <a href="{{url('/home')}}">Mon compte</a>
+                                <a href="{{url('/acceuil')}}">Mon compte</a>
                             </li>
 
                             <li>
@@ -201,7 +201,7 @@
                 <div class="col-sm-3 col-xs-6">
                     <p class="titled"><strong>Organisateurs</strong></p>
                     <ul class="list-unstyled">
-                        <li><a href="{{url('/')}}/organisateur/event">Ajouter événement</a></li>
+                        <li><a href="{{url('/')}}/organisateur/evenement/ajouter">Ajouter événement</a></li>
                         <li><a href="{{url('')}}/contact-us">Nous contacter</a></li>
                     </ul>
                 </div>
@@ -228,7 +228,7 @@
             <ul>
                 <li><a href="{{url('')}}/about-us">A propos de nous</a></li>
                 |
-                <li><a href="{{url('/')}}/organisateur/event">Ajouter votre evenement</a></li>
+                <li><a href="{{url('/')}}/organisateur/evenement/ajouter">Ajouter votre evenement</a></li>
                 |
                 <li><a href="{{url('')}}/faq">FAQ</a></li>
                 |

@@ -143,12 +143,12 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin'], 'prefix' => '
 /* organisateur */
 
 Route::group(['middleware' => ['auth', 'activated'], 'prefix' => 'organisateur'], function () {
-    Route::get('event', 'EventController@showEventForm')->name('event');
+    Route::get('evenement/ajouter', 'EventController@showEventForm')->name('event');
     Route::post('event', 'EventController@store')->name('event');
     Route::post('event_siteweb', 'EventController@update_website')->name('event_siteweb');
     Route::resource('ticket', 'TicketController');
     Route::resource(
-        'event',
+        'evenement',
         'EventController', [
             'only' => [
                 'edit'
@@ -157,7 +157,7 @@ Route::group(['middleware' => ['auth', 'activated'], 'prefix' => 'organisateur']
     );
     Route::post('question', 'EventController@question_secret')->name('question');
     Route::put('event', 'EventController@update')->name('event');
-    Route::get('event/ticket/delete/{id}/{event_id}', 'TicketController@delete');
+    Route::get('evenement/ticket/delete/{id}/{event_id}', 'TicketController@delete');
     Route::get('rapport/{id}', 'EventController@rapport_vue');
 });
 
@@ -248,7 +248,7 @@ Route::group(['middleware' => ['auth', 'activated']], function () {
     Route::get('/logout', ['uses' => 'Auth\LoginController@logout'])->name('logout');
 
     //  Homepage Route - Redirect based on user role is in controller.
-    Route::get('/home', ['as' => 'public.home', 'uses' => 'UserController@index']);
+    Route::get('/acceuil', ['as' => 'public.home', 'uses' => 'UserController@index']);
 
     // Show users profile - viewable by other users.
     Route::get('profile/{username}', [
