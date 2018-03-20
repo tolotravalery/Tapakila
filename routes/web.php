@@ -12,47 +12,216 @@
 | Middleware options can be located in `app/Http/Kernel.php`
 |
 */
-Route::get('sitemap', 'SitemapController@generate_sitemap');
 
+/* Admin route */
+
+/* authentification */
 Route::get('admin', 'Auth\LoginController@showLoginAdminForm')->name('admin');
 Route::post('admin', 'Auth\LoginController@loginAdmin');
+/* end authentification */
 
-// Homepage Route;
-Route::get('/', 'WelcomeController@welcome')->name('welcome');
+/* action */
+Route::group(['middleware' => ['auth', 'activated', 'role:admin'], 'prefix' => 'admin'], function () {
 
-// Authentication Routes
-Auth::routes();
+    Route::get('/clear-alert','AlertController@clearAll');
 
-// Public Routes
+    Route::resource('/shopping', 'AdminAchatController', [
+    ]);
+
+    Route::resource('/users/deleted', 'SoftDeletesController', [
+        'only' => [
+            'index', 'show', 'update', 'destroy',
+        ]
+    ]);
+
+    Route::resource('users', 'UsersManagementController', [
+        'names' => [
+            'index' => 'users',
+            'destroy' => 'user.destroy'
+        ],
+        'except' => [
+            'deleted'
+        ]
+    ]);
+
+    Route::resource('themes', 'ThemesManagementController', [
+        'names' => [
+            'index' => 'themes',
+            'destroy' => 'themes.destroy'
+        ]
+    ]);
+
+
+    Route::get('home', 'UserController@index')->name('/admin/home');
+    Route::put('events', 'EventController@updateadmin')->name('event');
+    Route::put('frais', 'EventController@update_frais')->name('frais');
+
+    /*----slideshow------*/
+    Route::get('slide', 'SlideController@showSlideForm')->name('slide');
+    Route::get('slides', 'SlideController@index')->name('slides');
+    $this->post('slide', 'SlideController@store');
+    Route::post('updateActive', 'SlideController@updateActive')->name('updateActive');
+    Route::resource('slides', 'SlideController', [
+        'names' => [
+            'index' => 'slides',
+            'destroy' => 'slide.destroy'
+        ],
+        'except' => [
+            'deleted'
+        ]
+    ]);
+    /*----slideshow------*/
+
+    Route::get('frais', 'EventController@afficher_frais')->name('frais');
+
+    Route::get('menu', 'MenuController@showMenuForm')->name('menu');
+    Route::get('/menus', 'MenuController@index')->name('menus');
+    $this->post('menu', 'MenuController@store');
+
+    Route::get('sousmenu', 'SousmenuController@showSousmenuForm')->name('sousmenu');
+    Route::get('/sousmenus', 'SousmenuController@index')->name('sousmenus');
+    Route::post('sousmenu', 'SousmenuController@store');
+
+    Route::get('events/past', 'EventController@listEvent')->name('listevent');
+    Route::get('events/en-cours', 'EventController@encours')->name('encours');
+    Route::get('events/repport/{event_id}', 'EventController@report')->name('report');
+    Route::get('ajouterTicket/{id}', 'EventController@showAjouterTicket')->name('ajouterTicket');
+    Route::post('updatePublie', 'EventController@updatePublie')->name('updatePublie');
+    Route::get('updatePublieAll', 'EventController@updatePublieAll')->name('updatePublieAll');
+
+    
+    Route::resource('menus', 'MenuController', [
+        'names' => [
+            'index' => 'menus',
+            'destroy' => 'menu.destroy'
+        ],
+        'except' => [
+            'deleted'
+        ]
+    ]);
+
+    Route::resource('sousmenus', 'SousmenuController', [
+        'names' => [
+            'index' => 'sousmenus',
+            'destroy' => 'sousmenu.destroy'
+        ],
+        'except' => [
+            'deleted'
+        ]
+    ]);
+    Route::resource(
+        'events',
+        'EventController', [
+        'names' => [
+            'destroy' => 'event.destroy',
+            'edit' => 'event.edit_admin',
+        ],
+        'except' => [
+            'deleted'
+        ]
+    ]);
+
+    Route::delete('ticket/delete/{id}/{event_id}', 'TicketController@delete_admin')->name('ticket/delete');
+    Route::get('tickets/update/{id}/{event_id}', 'TicketController@edit_admin');
+    Route::put('tickets', 'TicketController@update_admin')->name('ticket');
+    Route::get('events/update/{id}', 'EventController@edit_admin');
+    Route::get('events/create', 'EventController@create_admin');
+    Route::post('events/create', 'EventController@stroreAdmin')->name('admin_event_create');
+    Route::post('events/create_ticket', 'TicketController@storeTicket')->name('admin_ticket_create');
+
+    Route::get('message', 'AdminDetailsController@message');
+    Route::get('message/read/{message_id}', 'AdminDetailsController@read_message');
+    Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
+    Route::get('php', 'AdminDetailsController@listPHPInfo');
+    Route::get('routes', 'AdminDetailsController@listRoutes');
+    Route::resource('payment','PayeventController');
+
+});
+
+/* end action */
+
+/* organisateur */
+
+Route::group(['middleware' => ['auth', 'activated'], 'prefix' => 'organisateur'], function () {
+    Route::get('event', 'EventController@showEventForm')->name('event');
+    Route::post('event', 'EventController@store')->name('event');
+    Route::post('event_siteweb', 'EventController@update_website')->name('event_siteweb');
+    Route::resource('ticket', 'TicketController');
+    Route::resource(
+        'event',
+        'EventController', [
+            'only' => [
+                'edit'
+            ]
+        ]
+    );
+    Route::post('question', 'EventController@question_secret')->name('question');
+    Route::put('event', 'EventController@update')->name('event');
+    Route::get('event/ticket/delete/{id}/{event_id}', 'TicketController@delete');
+    Route::get('rapport/{id}', 'EventController@rapport_vue');
+});
+
+/* end organisateur */
+
+/* service */
+
+Route::group(['middleware' => ['service'], 'prefix' => 'service'], function () {
+    Route::get('login', 'Services\LoginController@index');
+    Route::get('event', 'Services\EventController@index');
+    Route::get('ticket', 'Services\TicketController@index');
+    Route::get('tapakila', 'Services\TapakilaController@scan');
+    Route::get('tapakila/load', 'Services\TapakilaController@load');
+    Route::get('tapakila/export', 'Services\TapakilaController@getDataFromMobile');
+});
+
+/* end service */
+
+/* payment */
+
+/* notification */
+Route::group(['prefix' => 'payments/notify'], function () {
+    Route::any('orange', 'Shopping\CheckoutController@NotifyOrange');
+    Route::any('telma', 'Shopping\CheckoutController@NotifyTelma');
+});
+/*end notification */
+
+/* proxy */
+Route::any('payment/pay_token', 'Shopping\CheckoutController@proxyOrange');
+Route::any('/mpgw/v2/transaction', 'Shopping\CheckoutController@proxyTelma');
+/* end proxy */
+
+/* end payment */
+
+
+/* public routes */
 Route::group(['middleware' => 'web'], function () {
 
     // Activation Routes
     Route::get('/activate', ['as' => 'activate', 'uses' => 'Auth\ActivateController@initial']);
-
     Route::get('/activate/{token}', ['as' => 'authenticated.activate', 'uses' => 'Auth\ActivateController@activate']);
     Route::get('/activation', ['as' => 'authenticated.activation-resend', 'uses' => 'Auth\ActivateController@resend']);
     Route::get('/exceeded', ['as' => 'exceeded', 'uses' => 'Auth\ActivateController@exceeded']);
 
     // Socialite Register Routes
     Route::post('/register/facebook/post-data','Auth\FacebookController@postData');
-//    Route::get('/social/redirect/{provider}', ['as' => 'social.redirect', 'uses' => 'Auth\SocialController@getSocialRedirect']);
-//    Route::get('/social/handle/{provider}', ['as' => 'social.handle', 'uses' => 'Auth\SocialController@getSocialHandle']);
     
     // Route to for user to reactivate their user deleted account.
     Route::get('/re-activate/{token}', ['as' => 'user.reactivate', 'uses' => 'RestoreUserController@userReActivate']);
 
-    // details event
-    Route::get('{categorie_name}/{event_title}', 'DetailEventController@show')->name('detail-event');
-
-    Route::group(['prefix' => 'event'], function () {
-        Route::get('list/categorie/{menu}', 'DetailEventController@listEventMenu');
-        Route::get('list/categorie/{sous_menu_name}/{sous_menu}', 'DetailEventController@listEventSousMenu');
-        Route::get('{event_name}', 'DetailEventController@show_par_name');
+    /* evenement */
+    Route::group(['prefix' => 'evenement'],function () {
+        Route::get('{categorie_name}/{event_title}', 'DetailEventController@show')->name('detail-event');
+        Route::get('{menu}', 'DetailEventController@listEventMenu');
+        //Route::get('{event_name}', 'DetailEventController@show_par_name'); 
     });
+    Route::get('tags/{sous_menu}', 'DetailEventController@listEventSousMenu'); 
     Route::group(['prefix' => 'find'], function () {
         Route::get('q', 'RechercheController@find');
         Route::get('filtered', 'RechercheController@filtered');
     });
+    /* end evenement */
+
+
 	Route::group([],function () {
         Route::get('faq', 'AproposController@faq');
         Route::get('about-us', 'AproposController@apropos');
@@ -62,11 +231,12 @@ Route::group(['middleware' => 'web'], function () {
         Route::get('infos-billets', 'AproposController@achat');
         Route::get('vie-prive', 'AproposController@vieprive');
         Route::get('achat-ticket', 'AproposController@achatBillet');
+        Route::post('newsletter', 'NewsLetterUserController@store');
     });
 
-//    Route::get('code/qr/{text}', ['as' => 'qr_code', 'uses' => 'QRCodeController@generate']);
+    // qr code generator
     Route::get('code/pdf/{text}/{event_id}', 'QRCodeController@getPdf');
-
+    // error handler
     Route::get('errors/{from}/{code}', 'ErrorsController@show');
 });
 
@@ -123,6 +293,7 @@ Route::group(['middleware' => ['auth', 'activated', 'currentUser']], function ()
     // Route to upload user avatar.
     Route::post('avatar/upload', ['as' => 'avatar.upload', 'uses' => 'ProfilesController@upload']);
 
+    /* achat */
     Route::group(['prefix' => 'shopping'], function () {
         Route::post('checkout', 'Shopping\CheckoutController@index')->name('checkout_index');
         Route::get('checkout', 'Shopping\CheckoutController@index')->name('checkout_index');
@@ -133,167 +304,26 @@ Route::group(['middleware' => ['auth', 'activated', 'currentUser']], function ()
         Route::post('pay/one-ticket', 'Shopping\CheckoutController@checkoutOnePayment');
         Route::get('quiz', 'Shopping\CheckoutController@quiz');
         Route::get('cancel/{users_id}/{id}', 'UserController@annulerCommande');
-        Route::resource('cart', 'Shopping\CartController');
+        Route::resource('cart', 'Shopping\CartController', [
+            'as' => 'cart'
+        ]);
         Route::delete('emptyCart', 'Shopping\CartController@emptyCart');
     });
-    Route::post('newsletter', 'NewsLetterUserController@store');
     Route::any('checkout/telma', 'Shopping\CheckoutController@saveTelma');
+    /* end achat */
+    
 
 });
 
-// Registered, activated, and is admin routes.
-Route::group(['middleware' => ['auth', 'activated', 'role:admin'], 'prefix' => 'admin'], function () {
-
-    Route::get('/clear-alert','AlertController@clearAll');
-
-    Route::resource('/shopping', 'AdminAchatController', [
-//        'only' => [
-//            'index', 'show', 'update', 'destroy',
-//        ]
-    ]);
-
-    Route::resource('/users/deleted', 'SoftDeletesController', [
-        'only' => [
-            'index', 'show', 'update', 'destroy',
-        ]
-    ]);
-
-    Route::resource('users', 'UsersManagementController', [
-        'names' => [
-            'index' => 'users',
-            'destroy' => 'user.destroy'
-        ],
-        'except' => [
-            'deleted'
-        ]
-    ]);
-
-    Route::resource('themes', 'ThemesManagementController', [
-        'names' => [
-            'index' => 'themes',
-            'destroy' => 'themes.destroy'
-        ]
-    ]);
+/* end public routes */
 
 
-    Route::get('home', 'UserController@index')->name('/admin/home');
-    Route::put('events', 'EventController@updateadmin')->name('event');
-    Route::put('frais', 'EventController@update_frais')->name('frais');
+/* site map generator */
+Route::get('sitemap', 'SitemapController@generate_sitemap');
+/* end sitemap */
 
-    /*-------------------*/
-    /*----slideshow------*/
-    Route::get('slide', 'SlideController@showSlideForm')->name('slide');
-    Route::get('slides', 'SlideController@index')->name('slides');
-    $this->post('slide', 'SlideController@store');
-    Route::post('updateActive', 'SlideController@updateActive')->name('updateActive');
-    /*----slideshow------*/
-    Route::get('frais', 'EventController@afficher_frais')->name('frais');
+// Homepage Route;
+Route::get('/', 'WelcomeController@welcome')->name('welcome');
 
-    Route::get('menu', 'MenuController@showMenuForm')->name('menu');
-    Route::get('/menus', 'MenuController@index')->name('menus');
-    $this->post('menu', 'MenuController@store');
-
-    Route::get('sousmenu', 'SousmenuController@showSousmenuForm')->name('sousmenu');
-    Route::get('/sousmenus', 'SousmenuController@index')->name('sousmenus');
-    Route::post('sousmenu', 'SousmenuController@store');
-
-    Route::get('events/past', 'EventController@listEvent')->name('listevent');
-    Route::get('events/en-cours', 'EventController@encours')->name('encours');
-    Route::get('events/repport/{event_id}', 'EventController@report')->name('report');
-    Route::get('ajouterTicket/{id}', 'EventController@showAjouterTicket')->name('ajouterTicket');
-    Route::post('updatePublie', 'EventController@updatePublie')->name('updatePublie');
-    Route::get('updatePublieAll', 'EventController@updatePublieAll')->name('updatePublieAll');
-
-    Route::resource('slides', 'SlideController', [
-        'names' => [
-            'index' => 'slides',
-            'destroy' => 'slide.destroy'
-        ],
-        'except' => [
-            'deleted'
-        ]
-    ]);
-    Route::resource('menus', 'MenuController', [
-        'names' => [
-            'index' => 'menus',
-            'destroy' => 'menu.destroy'
-        ],
-        'except' => [
-            'deleted'
-        ]
-    ]);
-
-    Route::resource('sousmenus', 'SousmenuController', [
-        'names' => [
-            'index' => 'sousmenus',
-            'destroy' => 'sousmenu.destroy'
-        ],
-        'except' => [
-            'deleted'
-        ]
-    ]);
-    Route::resource(
-        'events',
-        'EventController', [
-        'names' => [
-            'destroy' => 'event.destroy',
-            'edit' => 'event.edit_admin',
-        ],
-        'except' => [
-            'deleted'
-        ]
-    ]);
-
-    Route::delete('ticket/delete/{id}/{event_id}', 'TicketController@delete_admin')->name('ticket/delete');
-    Route::get('tickets/update/{id}/{event_id}', 'TicketController@edit_admin');
-    Route::put('tickets', 'TicketController@update_admin')->name('ticket');
-    Route::get('events/update/{id}', 'EventController@edit_admin');
-    Route::get('events/create', 'EventController@create_admin');
-    Route::post('events/create', 'EventController@stroreAdmin')->name('admin_event_create');
-    Route::post('events/create_ticket', 'TicketController@storeTicket')->name('admin_ticket_create');
-
-    /*-------------------*/
-    Route::get('message', 'AdminDetailsController@message');
-    Route::get('message/read/{message_id}', 'AdminDetailsController@read_message');
-    Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
-    Route::get('php', 'AdminDetailsController@listPHPInfo');
-    Route::get('routes', 'AdminDetailsController@listRoutes');
-    Route::resource('payment','PayeventController');
-
-});// Organisateur
-Route::group(['middleware' => ['auth', 'activated'], 'prefix' => 'organisateur'], function () {
-    Route::get('event', 'EventController@showEventForm')->name('event');
-    Route::post('event', 'EventController@store')->name('event');
-    Route::post('event_siteweb', 'EventController@update_website')->name('event_siteweb');
-    Route::resource('ticket', 'TicketController');
-    Route::resource(
-        'event',
-        'EventController', [
-            'only' => [
-                'edit'
-            ]
-        ]
-    );
-    Route::post('question', 'EventController@question_secret')->name('question');
-    Route::put('event', 'EventController@update')->name('event');
-    Route::get('event/ticket/delete/{id}/{event_id}', 'TicketController@delete');
-    Route::get('rapport/{id}', 'EventController@rapport_vue');
-});
-
-Route::group(['middleware' => ['service'], 'prefix' => 'service'], function () {
-    Route::get('login', 'Services\LoginController@index');
-    Route::get('event', 'Services\EventController@index');
-    Route::get('ticket', 'Services\TicketController@index');
-    Route::get('tapakila', 'Services\TapakilaController@scan');
-    Route::get('tapakila/load', 'Services\TapakilaController@load');
-    Route::get('tapakila/export', 'Services\TapakilaController@getDataFromMobile');
-});
-
-
-Route::group(['prefix' => 'payments/notify'], function () {
-    Route::any('orange', 'Shopping\CheckoutController@NotifyOrange');
-    Route::any('telma', 'Shopping\CheckoutController@NotifyTelma');
-});
-
-Route::any('payment/pay_token', 'Shopping\CheckoutController@proxyOrange');
-Route::any('/mpgw/v2/transaction', 'Shopping\CheckoutController@proxyTelma');
+// Authentication Routes
+Auth::routes();

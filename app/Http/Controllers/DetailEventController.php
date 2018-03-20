@@ -12,7 +12,7 @@ class DetailEventController extends Controller
     public function show($category_name,$events_date_title_id)
     {
         explode("_",$events_date_title_id)[2]  != null ? $events_id = explode("_",$events_date_title_id)[2] : $events_id =1 ;
-        if (Events::find($events_id) == null) {
+        if (Events::findOrFail($events_id) == null) {
             return redirect(url('errors/' . md5('event-detail') . '/' . md5('500')));
         }
         $menus = Menus::orderBy('id', 'desc')->get();
@@ -37,15 +37,18 @@ class DetailEventController extends Controller
 
     public function listEventMenu($menu)
     {
-        $menu_id = Menus::find($menu);
+        if (Menus::where('name',$menu)->first() == null) {
+            return redirect(url('errors/' . md5('event-detail') . '/' . md5('500')));
+        }
+        $menu_id = Menus::where('name',$menu)->first();
         $menus = Menus::orderBy('id', 'desc')->get();
         $sousmenus = Sous_menus::orderBy('name', 'asc')->get();
         return view('events.list')->with(array('menu_event' => $menu_id, 'menus' => $menus, 'sousmenus' => $sousmenus));
     }
 
-    public function listEventSousMenu(Request $req, $sous_menu_name, $sous_menu)
+    public function listEventSousMenu(Request $req,$sous_menu)
     {
-        if (Sous_menus::find($sous_menu) == null) {
+        if (Sous_menus::where('name',$sous_menu)->first() == null) {
             return redirect(url('errors/' . md5('event-detail') . '/' . md5('500')));
         }
         $debut = 1;
@@ -62,11 +65,11 @@ class DetailEventController extends Controller
             $end = $end * $page;
             $debut = ($end - 9);
         }
-        $sous_menu_id = Sous_menus::find($sous_menu);
+        $sous_menu_id = Sous_menus::where('name',$sous_menu)->first();
         $menus = Menus::orderBy('id', 'desc')->get();
         $sousmenus = Sous_menus::orderBy('name', 'asc')->get();
         $date_now = date('Y-m-d H:i:s');
-        $events = Events::where('sous_menus_id', '=', $sous_menu)
+        $events = Events::where('sous_menus_id', '=', $sous_menu_id->id)
             ->where('publie', '=', '1')
             ->where('date_debut_envent', '>', $date_now)
             ->offset($debut)

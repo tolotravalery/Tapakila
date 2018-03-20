@@ -1,6 +1,7 @@
 @extends('template')
 @section('title')
     <title>Le Guichet | Réservation de billet éléctronique</title>
+    <meta name="description" content="Leguichet, vente des billets electroniques à Madagascar, des listes d'événements, musicaux, et de divertissement en direct, des guides, des petites annonces, des critiques, et plus encore.">
 @endsection
 @section('content')
     <section id="sectioncategorie" class="clearfix">
@@ -8,7 +9,7 @@
             <ul class="clearfix">
                 <li><a href="{{url('/')}}">accueil</a></li>
                 @foreach($menus as $menu)
-                    <li><a href="{{url('/event/list/categorie',[$menu->id])}}">{{strtoupper($menu->name)}}</a></li>
+                    <li><a href="{{url('/evenement/'.$menu->name)}}">{{strtoupper($menu->name)}}</a></li>
                 @endforeach
 
             </ul>
@@ -21,7 +22,7 @@
             <ul>
                 @foreach($sousmenus as $sousmenu)
                     <li>
-                        <a href="{{url('/event/list/categorie/'.$sousmenu->name.'',[$sousmenu->id])}}">{{ucfirst(strtolower($sousmenu->name))}}</a>
+                        <a href="{{url('/tags/'.$sousmenu->name)}}">{{ucfirst(strtolower($sousmenu->name))}}</a>
                     </li>
                 @endforeach
             </ul>
@@ -91,7 +92,7 @@
                             @php($c=0)
                             @foreach($objects as $event)
                                 @php
-                                    $string_url_detail = $event->sous_menus->name ."/".date('Y-m-d',strtotime($event->date_debut_envent)) . "_".  str_replace(' ','-',$event->title)."_".$event->id;
+                                    $string_url_detail = "/evenement/".$event->sous_menus->name ."/".date('Y-m-d',strtotime($event->date_debut_envent)) . "_".  str_slug($event->title)."_".$event->id;
                                 @endphp
                                 <div class="col-sm-6 col-md-4">
                                     <div class="thumbnail"
@@ -179,7 +180,7 @@
                     <div class="row">
                         <div class="col-lg-12 pull-right">
                             <div class="pull-right">
-                                <a class="pagination" href="{{url('/event/list/categorie/'.$sm->name.'',[$sm->id])}}">
+                                <a class="pagination" href="{{url('/tags/'.$sm->name)}}">
                                     <i><b>Plus d'événement >> </b></i>
                                 </a>
                             </div>

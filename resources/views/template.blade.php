@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="google-site-verification" content="bagVV1tUOWsM9782R2w0ztB9Ba0o1-S703zy9kkJrAk"/>
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="description" content=" Leguichet.mg est un service de réservation indépendante proposant un accès exclusif aux meilleures manifestations culturelles ou sportives à Madagascar. Ressentir le public, vibrer avant les premières notes, vivre intensément un moment unique, il y a tout ceci et plus dans un évènement live. Mais tout commence avec l’achat d’un billet et malheureusement, cette étape est bien trop souvent synonyme de frustration pour le consommateur. La recette est simple : une équipe de passionnés et un service client aux petits soins. Tous nos billets sont authentiques, garantuit, et expédiés en temps réel. Vous pouvez enfin assister aux évènements qui comptent pour vous, en toute sérénité.">
     @yield('specificMeta')
     @yield('title')
     <link rel="stylesheet" href="{{ url('/') }}/public/css/bootstrap.min.css">
