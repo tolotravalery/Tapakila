@@ -4,8 +4,11 @@
     <meta name="description" content="{{$event->additional_note}}"/> 
 @endsection
 @section('specificMeta')
+    @php
+        $string_url = "/evenement/".$event->sous_menus->name ."/".date('Y-m-d',strtotime($event->date_debut_envent)) . "_".  str_slug($event->title)."_".$event->id;
+    @endphp
     <meta property="og:url"
-          content="{{url('event/show/'.$event->id)}}"/>
+          content="{{url($string_url)}}"/>
     <meta property="og:type" content="article"/>
     <meta property="og:title" content="{{$event->title}}"/>
     <meta property="og:description" content="{{$event->additional_note}}"/>

@@ -2,7 +2,6 @@
 @section('title')
     <title>Le Guichet | Evénement {{$sous_menu_event->name}}</title>
     <meta name="description" content="Leguichet, vente des billets electroniques à Madagascar, des listes d'événements, musicaux, et de divertissement en direct, des guides, des petites annonces, des critiques, et plus encore.">
-    
 @endsection
 @section('content')
     <section id="sectioncategorie" class="clearfix">
@@ -200,7 +199,7 @@
                             @php($page==null? $page=1 : $page=$page)
                             @if($events->count() >= 9)
                                 <div class="pull-right">
-                                    <form action="{{url('/event/list/categorie/'.$sous_menu_event->name.'',[$sous_menu_event->id])}}"
+                                    <form action="{{url('/tags/'.$sous_menu_event->name)}}"
                                           method="get">
                                         <input type="hidden" name="page" value="{{$page+1}}">
                                         <button type="submit" class="linkButton"><i><b class="next-prevs"> Suivant
@@ -210,7 +209,7 @@
                             @endif
                             @if($page>1)
                                 <div class="pull-left">
-                                    <form action="{{url('/event/list/categorie/'.$sous_menu_event->name.'',[$sous_menu_event->id])}}"
+                                    <form action="{{url('/tags/'.$sous_menu_event->name)}}"
                                           method="get">
                                         <input type="hidden" name="page" value="{{$page-1}}">
                                         <button type="submit" class="linkButton"><i><b class="next-prevs"><<
