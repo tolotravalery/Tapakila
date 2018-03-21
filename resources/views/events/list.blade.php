@@ -210,7 +210,7 @@
                             <div class="row">
                                 <div class="col-lg-12 pull-right">
                                     <div class="pull-right">
-                                        <a class="pagination" href="{{url('/tags/'.$sm->name)}}"
+                                        <a class="pagination" href="{{url('/tags/'.$sousMenu->name)}}"
                                            style="color: #5cb85c;">
                                             <i><b>Plus d'évènement >> </b></i>
                                         </a>
