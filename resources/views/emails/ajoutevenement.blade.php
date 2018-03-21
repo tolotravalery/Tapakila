@@ -104,7 +104,7 @@
 
             </p>
             @php
-                $string_url_detail = $event->sous_menus->name ."/".date('Y-m-d',strtotime($event->date_debut_envent)) . "_".  str_replace(' ','-',$event->title)."_".$event->id;
+                $string_url_detail = "/evenement/".$event->sous_menus->name ."/".$event->date_debut_envent->format('Y-m-d') . "_".  str_slug($event->title)."_".$event->id;
             @endphp
             <p style="font-size: 14px;color:#333;padding-top:0px;">Nom de l’évenement :{{$event->title}}</p>
             <p style="font-size: 14px;color:#333;padding-top:0px;">Description : {{$event->additional_note}}.</p>

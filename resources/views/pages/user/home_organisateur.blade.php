@@ -147,7 +147,7 @@
                                                                 class="rapport">Modifier</a></p>
                                         </td>
                                         <td data-label="">
-                                            <p><a href="organisateur/rapport/{{$e->id}}" alt="Edit" class="rapport">Rapport</a>
+                                            <p><a href="organisateur/evenement/rapport/{{$e->id}}" alt="Edit" class="rapport">Rapport</a>
                                             </p>
                                         </td>
 
@@ -212,7 +212,7 @@
                                                                 class="rapport">Modifier</a></p>
                                         </td>
                                         <td data-label="">
-                                            <p><a href="organisateur/rapport/{{$e->id}}" alt="Edit" class="rapport">Rapport</a>
+                                            <p><a href="organisateur/evenement/rapport/{{$e->id}}" alt="Edit" class="rapport">Rapport</a>
                                             </p>
                                         </td>
                                     </tr>
