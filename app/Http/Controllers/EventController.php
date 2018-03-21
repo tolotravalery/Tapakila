@@ -289,7 +289,7 @@ class EventController extends Controller
             $ev->image_background = $input['image'];
         }
         $ev->save();
-        return redirect(url('organisateur/event/' . $ev->id . '/edit'));
+        return redirect(url('organisateur/evenement/' . $ev->id . '/edit'));
     }
 
     public
@@ -346,7 +346,7 @@ class EventController extends Controller
             $message->to(Auth::user()->email, Auth::user()->name)->subject('Leguichet');
             $message->cc('reservations@leguichet.mg', 'Leguichet.mg')->subject('Leguichet: nouvel évènement');
         });
-        return redirect(url('organisateur/event/' . $event->id . '/edit'))->with(compact('message'));
+        return redirect(url('organisateur/evenement/' . $event->id . '/edit'))->with(compact('message'));
     }
 
     protected
@@ -495,12 +495,10 @@ class EventController extends Controller
         return redirect(url('admin/events/update/' . $event->id));
     }
 
-    public
-    function update(Request $request)
+    public function update(Request $request)
     {
-
         $code = Crypt::decryptString($request->input('id'));
-        $event = Events::find($code);
+        $event = Events::findOrFail($code);
         if ($event == null) {
             return redirect(url('errors/' . md5('event-update') . '/' . md5('500')));
         }
@@ -541,7 +539,8 @@ class EventController extends Controller
             $message->to(Auth::user()->email, Auth::user()->name)->subject('Leguichet');
             $message->cc('reservations@leguichet.mg', 'Leguichet.mg')->subject('Leguichet: mise à jour de l\' évènement');
         });
-        return redirect(url('organisateur/event/' . $event->id . '/edit'))->with(compact('message'));;
+        session()->flash('page', "details");
+        return redirect(url('organisateur/evenement/' . $event->id . '/edit'))->with(compact('message'));;
     }
 
     public
@@ -551,7 +550,7 @@ class EventController extends Controller
         $event = Events::find($code);
         $event->question_secret = $req->input('question');
         $event->save();
-        return redirect(url('organisateur/event/' . $event->id . '/edit'));
+        return redirect(url('organisateur/evenement/' . $event->id . '/edit'));
     }
 
     public
@@ -571,6 +570,6 @@ class EventController extends Controller
     function rapport_vue($id)
     {
         session()->flash('page', "rapport");
-        return redirect(url('organisateur/event/' . $id . '/edit'));;
+        return redirect(url('organisateur/evenement/' . $id . '/edit'));;
     }
 }

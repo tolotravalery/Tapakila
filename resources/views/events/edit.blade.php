@@ -344,48 +344,11 @@
                             </form>
                         </div>
                     </div>
-                    <!------------------------------------Commandes--------------------------------------------------------------------------->
-
-                {{--<div id="div_commandes" class="hide">
-                    <div id="commande">
-                        <div class="com_contenu">
-                            <h2>Commandes</h2>
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                    <tr>
-                                        <th class="num">ID</th>
-                                        <th>Date</th>
-                                        <th>Client</th>
-                                        <th>Totale</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td><input type="text" class="form-control" id="usr"></td>
-                                        <td><input type="text" class="form-control" id="usr"></td>
-                                        <td><input type="text" class="form-control" id="usr"></td>
-                                        <td><select class="form-control">
-                                                <option>Terminé</option>
-                                                <option>En attendant</option>
-                                                <option>Expiré</option>
-                                                <option>Annulé</option>
-                                                <option>Remboursé</option>
-                                            </select></td>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>--}}
-
-                <!------------------------------------Commande-end--------------------------------------------------------------------------->
 
                     <!-------------------------------------rapport------------------------------------------------------------------------->
 
                     <div id="div_rapport" @if(session('page')) @if(session('page')=='rapport') class="show"
-                         @elseif(session('page') == 'tickets') class="hide" @endif @else class="hide" @endif >
+                         @elseif(session('page') == 'tickets') class="hide"  @elseif(session('page') == 'details') class="hide" @endif @else class="hide" @endif >
                         <div id="rapport" style="padding-top:30px;">
                             <div class="com_contenu_type">
                                 <div class="table-responsive users-table">
