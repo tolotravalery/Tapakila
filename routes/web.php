@@ -224,8 +224,8 @@ Route::group(['middleware' => 'web'], function () {
 
 	Route::group([],function () {
         Route::get('faq', 'AproposController@faq');
-        Route::get('about-us', 'AproposController@apropos');
-        Route::get('contact-us', 'AproposController@contact');
+        Route::get('a-propos', 'AproposController@apropos');
+        Route::get('contact', 'AproposController@contact');
         Route::post('contact', 'AproposController@contactAction');
         Route::get('conditions-generales', 'AproposController@term');
         Route::get('infos-billets', 'AproposController@achat');
