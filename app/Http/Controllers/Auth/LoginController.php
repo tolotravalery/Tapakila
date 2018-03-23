@@ -37,7 +37,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/acceuil';
+    protected $redirectTo = '/accueil';
 
     //protected $redirectTo = "/profile.edit";
 
