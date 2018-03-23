@@ -20,7 +20,7 @@ class SitemapController extends Controller
         $sitemap->add(URL::to('/'), date('Y-m-d H:i:s'), '1.0', 'daily');
         $sitemap->add(URL::to('/login'), date('Y-m-d H:i:s'), '1.0', 'never');
         $sitemap->add(URL::to('/register'), date('Y-m-d H:i:s'), '1.0', 'never');
-        $sitemap->add(URL::to('/organisateur/event'), date('Y-m-d H:i:s'), '1.0', 'never');
+        $sitemap->add(URL::to('/organisateur/evenement/ajouter'), date('Y-m-d H:i:s'), '1.0', 'never');
         $sitemap->add(URL::to('/about-us'), date('Y-m-d H:i:s'), '0.9', 'never');
         $sitemap->add(URL::to('/faq'), date('Y-m-d H:i:s'), '0.9', 'never');
         $sitemap->add(URL::to('/conditions-generales'), date('Y-m-d H:i:s'), '0.9', 'never');
