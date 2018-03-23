@@ -21,11 +21,11 @@ class SitemapController extends Controller
         $sitemap->add(URL::to('/login'), date('Y-m-d H:i:s'), '1.0', 'never');
         $sitemap->add(URL::to('/register'), date('Y-m-d H:i:s'), '1.0', 'never');
         $sitemap->add(URL::to('/organisateur/evenement/ajouter'), date('Y-m-d H:i:s'), '1.0', 'never');
-        $sitemap->add(URL::to('/about-us'), date('Y-m-d H:i:s'), '0.9', 'never');
+        $sitemap->add(URL::to('/a-propos'), date('Y-m-d H:i:s'), '0.9', 'never');
         $sitemap->add(URL::to('/faq'), date('Y-m-d H:i:s'), '0.9', 'never');
         $sitemap->add(URL::to('/conditions-generales'), date('Y-m-d H:i:s'), '0.9', 'never');
         $sitemap->add(URL::to('/infos-billets'), date('Y-m-d H:i:s'), '0.9', 'never');
-        $sitemap->add(URL::to('/contact-us'), date('Y-m-d H:i:s'), '0.9', 'never');
+        $sitemap->add(URL::to('/contact'), date('Y-m-d H:i:s'), '0.9', 'never');
         $sitemap->add(URL::to('/vie-prive'), date('Y-m-d H:i:s'), '0.9', 'never');
 
         // get all products from db (or wherever you store them)

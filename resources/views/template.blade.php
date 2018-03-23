@@ -202,7 +202,7 @@
                     <p class="titled"><strong>Organisateurs</strong></p>
                     <ul class="list-unstyled">
                         <li><a href="{{url('/')}}/organisateur/evenement/ajouter">Ajouter événement</a></li>
-                        <li><a href="{{url('')}}/contact-us">Nous contacter</a></li>
+                        <li><a href="{{url('')}}/contact">Nous contacter</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-2 col-xs-6 ">
@@ -226,7 +226,7 @@
     <div class="footer-bottom">
         <div class="container small custom-container">
             <ul>
-                <li><a href="{{url('')}}/about-us">A propos de nous</a></li>
+                <li><a href="{{url('')}}/a-propos">A propos de nous</a></li>
                 |
                 <li><a href="{{url('/')}}/organisateur/evenement/ajouter">Ajouter votre evenement</a></li>
                 |
