@@ -132,7 +132,7 @@
                             {{ trans('profile.editAccountTitle') }}-->
 								</li>--}}
                             <li>
-                                <a href="{{url('/acceuil')}}">Mon compte</a>
+                                <a href="{{url('/accueil')}}">Mon compte</a>
                             </li>
 
                             <li>

@@ -77,7 +77,7 @@
                         </div>
                         <div class="col-md-6  text-right-md  text-right-lg text-center-xs text-center-sm  ">
                             <div class="col-md-6 col-xs-12" style="margin-top: 20px;">
-                                <a href="{{url('/acceuil')}}" class="a_color">Annuler</a>
+                                <a href="{{url('/accueil')}}" class="a_color">Annuler</a>
                             </div>
                             <div class="col-md-6 col-xs-12">
                                 {{--<button id="modif_info" type="submit" class="btn bt_modif">Modifier</button>--}}
