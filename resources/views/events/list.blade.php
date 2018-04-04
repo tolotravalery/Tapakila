@@ -112,7 +112,7 @@
                                     @php
                                         $objects= null;
                                         if($evenement->count() > 3 )
-                                            $objects = $evenement->get()->random(3);
+                                            $objects = $evenement->get()->random(2);
                                         else
                                             $objects = $evenement->get();
                                     @endphp

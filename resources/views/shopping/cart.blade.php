@@ -85,14 +85,11 @@
                                                                 </a>
                                                             </div>
                                                         </div>
-                                                        <div class="col-lg-5 ">
-                                                            <p class="sor"><b>{{$item->name}}</b></p>
-                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </td>
-                                        <td data-label="Tickets">VIP</td>
+                                        <td data-label="Tickets"><p class="sor"><b>{{$item->name}}</b></p></td>
                                         <td data-label="Quantité">
                                             <div class="row">
                                                 <div class=" col-xs-12 pull-left">

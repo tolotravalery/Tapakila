@@ -80,7 +80,7 @@ class EventController extends Controller
     {
         $user = User::find(Auth::user()->id);
         if (!$user->hasRole('organisateur')) {
-            return redirect(url('/acceuil'));
+            return redirect(url('/accueil'));
             // return redirect(url('errors/' . md5('event') . '/' . md5('403')));
         }
         $menus = Menus::orderBy('id', 'desc')->get();
@@ -240,7 +240,7 @@ class EventController extends Controller
 //        dd($array_achats);
         if ($event->user_id != Auth::user()->id) {
             //return redirect(url('errors/' . md5('event-form-update') . '/' . md5('500')));
-            return redirect(url('/acceuil'));
+            return redirect(url('/accueil'));
         }
         return view('events.edit', compact('event', 'menus', 'sousmenus'))
             ->with(array('pourcentage'=>$frais_pourcentage,'nombreAchat' => $nombreAchat, 'revenu' => $revenu, 'data_achat' => $data_achat, 'achats' => $array_achats,

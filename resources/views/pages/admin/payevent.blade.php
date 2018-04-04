@@ -73,7 +73,7 @@
                                   <td>{{ $p->date_payment }}</td>
                                   <td>{{ $p->reference_transaction }}</td>
                                   <td>
-                                    <a href="{{url('/admin/events/update/'.$p->event->id)}}">{{ str_limit($p->event->title,25,'...')}}</a>
+                                    <a href="{{url('/admin/events/update/'.$p->events->id)}}">{{ str_limit($p->events->title,25,'...')}}</a>
                                   </td>
                                 </tr>
                                 @endforeach

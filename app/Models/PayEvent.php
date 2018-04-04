@@ -11,7 +11,7 @@ class PayEvent extends Model
     protected $guarded = ['id'];
 
 
-    public function event()
+    public function events()
     {
     	return $this->belongsTo('App\Models\Events');
     }

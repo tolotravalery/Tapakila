@@ -99,7 +99,7 @@ class CheckoutController extends Controller
                 }
             });
             session()->flash('status_payment', "Votre paiement est réussi.");
-            return redirect(url('/home'));
+            return redirect(url('/accueil'));
         } else {
 
             foreach (Cart::content() as $item) {
@@ -111,7 +111,7 @@ class CheckoutController extends Controller
             }
             Cart::destroy();
             session()->flash('status_payment', "Votre paiement n'est pas réussi.");
-            return redirect(url('/home'));
+            return redirect(url('/accueil'));
         }
     }
 
@@ -175,7 +175,7 @@ class CheckoutController extends Controller
                     }
                 });
                 session()->flash('status_payment', "Votre paiement est réussi.");
-                return redirect(url('/home'));
+                return redirect(url('/accueil'));
             } else {
                 foreach (Cart::content() as $item) {
                     $ticket = Ticket::findOrFail($item->id);
@@ -186,7 +186,7 @@ class CheckoutController extends Controller
                 }
                 Cart::destroy();
                 session()->flash('status_payment', "Votre paiement n'est pas réussi.");
-                return redirect(url('/home'));
+                return redirect(url('/accueil'));
             }
         } elseif ($mvola_status['user_field'] == 2) {
             $id = Session::get('pay_id');
@@ -227,10 +227,10 @@ class CheckoutController extends Controller
                     }
                 });
                 session()->flash('status_payment', "Votre paiement est réussi.");
-                return redirect(url('/home'));
+                return redirect(url('/accueil'));
             } else {
                 session()->flash('status_payment', "Votre paiement n'est pas réussi.");
-                return redirect(url('/home'));
+                return redirect(url('/accueil'));
             }
         }
     }
@@ -318,10 +318,10 @@ class CheckoutController extends Controller
                 }
             });
             session()->flash('status_payment', "Votre paiement est réussi.");
-            return redirect(url('/home'));
+            return redirect(url('/accueil'));
         } else {
             session()->flash('status_payment', "Votre paiement n'est pas réussi.");
-            return redirect(url('/home'));
+            return redirect(url('/accueil'));
         }
 
     }
