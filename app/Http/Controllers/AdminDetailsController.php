@@ -51,10 +51,10 @@ class AdminDetailsController extends Controller
     public function read_message($message_id)
     {
         $alerts = Alert::where('vu', '=', '0')->get();
-        $alert = Alert::find($message_id);
-        $alert->vu = true;
-        $alert->save();
-        return view('pages.admin.message-read', compact('alert', 'alerts'));
+        $alrt = Alert::find($message_id);
+        $alrt->vu = true;
+        $alrt->save();
+        return view('pages.admin.message-read', compact('alrt', 'alerts'));
     }
 
 }
