@@ -666,7 +666,10 @@
 
                                                             </div>
                                                         </div>
-                                                        <p>Nombre de billets: {{$ticket->tapakila()->count()}}</p>
+                                                        @php
+                                                            $div_id = "nombre-ticket".$ticket->id;
+                                                        @endphp
+                                                        <p id="{{$div_id}}">Nombre de billets: {{$ticket->tapakila()->count()}} (sur {{$ticket->number}})</p>
                                                     </div>
                                                     @php
                                                         $i+=1;
@@ -1337,6 +1340,25 @@
                 console.log(valeur);
                 document.getElementById("huhu").value = valeur;
             });
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            
+            setInterval(function(){ 
+                @foreach($event->tickets as $ticket)
+                    $.ajax({
+                        type: "GET",
+                        url: '{{ url("organisateur/tickets/nombre-instant") }}' + '/' + {{$ticket->id}},
+                        success: function (data) {
+                            console.log('data',data);
+                            $('#nombre-ticket'+{{$ticket->id}}).html("Nombre de billets: "+data+ " (sur "+{{$ticket->number}}+")");
+                        }
+                    });
+                @endforeach
+            }, 3500);
 
         });
     </script>

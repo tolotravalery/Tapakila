@@ -195,4 +195,8 @@ class TicketController extends Controller
 
         return redirect(url('admin/ajouterTicket/' . $event->id))->with(compact('message'));
     }
+
+    public function getNombreTicketGenerer($ticket){
+        return Ticket::FindOrFail($ticket)->tapakila()->count();
+    }
 }
