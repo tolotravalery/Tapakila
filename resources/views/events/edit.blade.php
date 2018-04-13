@@ -632,17 +632,12 @@
                                                                                         <th style="padding-top:-42px;font-family:sans-serif;color:#333;width:33,3%"><h4><strong>{{ \Carbon\Carbon::parse($event->date_debut_envent)->format('H:i')}}</strong></h4></th>
                                                                                     </tr>
                                                                                 </table>
-                                                                                {{--<table class="wrapper" width="100%" cellpadding="0" cellspacing="0" style="margin-top:-40px;margin-left:15px;">
-                                                                                    <tr>
-                                                                                        <th><h4><strong>3 000 AR</strong></h4></th>
-                                                                                        <th><h4><strong>12-28-20</strong></h4></th>
-                                                                                        <th><h4><strong>20:20</strong></h4></th>
-                                                                                    </tr>
-                                                                                </table>--}}
                                                                                 <table width="100%" cellpadding="0" cellspacing="0"style="margin-top:20px">
                                                                                     <tr>
                                                                                         <td align="center">
+                                                                                            @if(!is_null($ticket->tapakila()->first()))
                                                                                             <img src="{{url('/public/qr_code/'.$ticket->tapakila()->first()->qr_code)}}" width="200px" height="200px">
+                                                                                            @endif
                                                                                         </td>
                                                                                     </tr>
                                                                                 </table>
@@ -671,7 +666,10 @@
 
                                                             </div>
                                                         </div>
-                                                        <p>Nombre de billets: {{$ticket->tapakila()->count()}}</p>
+                                                        @php
+                                                            $div_id = "nombre-ticket".$ticket->id;
+                                                        @endphp
+                                                        <p id="{{$div_id}}">Nombre de billets: {{$ticket->tapakila()->count()}} (sur {{$ticket->number}})</p>
                                                     </div>
                                                     @php
                                                         $i+=1;
@@ -1342,6 +1340,25 @@
                 console.log(valeur);
                 document.getElementById("huhu").value = valeur;
             });
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            
+            setInterval(function(){ 
+                @foreach($event->tickets as $ticket)
+                    $.ajax({
+                        type: "GET",
+                        url: '{{ url("organisateur/tickets/nombre-instant") }}' + '/' + {{$ticket->id}},
+                        success: function (data) {
+                            console.log('data',data);
+                            $('#nombre-ticket'+{{$ticket->id}}).html("Nombre de billets: "+data+ " (sur "+{{$ticket->number}}+")");
+                        }
+                    });
+                @endforeach
+            }, 3500);
 
         });
     </script>

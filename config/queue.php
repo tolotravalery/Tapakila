@@ -64,6 +64,13 @@ return [
             'retry_after' => 90,
         ],
 
+        'emails' => [
+            'driver' => 'redis',
+            'connection' => 'default',
+            'queue' => 'emails',
+            'retry_after' => 90,
+        ],
+        
         'social' => [
             'driver' => 'redis',
             'connection' => 'default',
