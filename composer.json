@@ -23,15 +23,14 @@
         "laravel/socialite": "^3.0",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.4",
-        "predis/predis": "^1.1",
         "rap2hpoutre/laravel-log-viewer": "^0.8.1",
-        "roumen/sitemap": "2.6.*",
         "socialiteproviders/37signals": "^3.0",
         "socialiteproviders/generators": "^2.0",
         "socialiteproviders/instagram": "^3.0",
         "socialiteproviders/twitch": "^3.0",
         "socialiteproviders/youtube": "^3.0",
-        "webpatser/laravel-uuid": "^2.0"
+        "webpatser/laravel-uuid": "^2.0",
+        "roumen/sitemap": "2.6.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
