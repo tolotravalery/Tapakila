@@ -147,6 +147,7 @@ Route::group(['middleware' => ['auth', 'activated'], 'prefix' => 'organisateur']
     Route::post('event', 'EventController@store')->name('event');
     Route::post('event_siteweb', 'EventController@update_website')->name('event_siteweb');
     Route::resource('ticket', 'TicketController');
+    Route::get('tickets/nombre-instant/{ticket_id}','TicketController@getInstant');
     Route::resource(
         'evenement',
         'EventController', [

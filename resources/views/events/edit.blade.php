@@ -641,9 +641,11 @@
                                                                                 </table>--}}
                                                                                 <table width="100%" cellpadding="0" cellspacing="0"style="margin-top:20px">
                                                                                     <tr>
+                                                                                        @if(!is_null($ticket->tapakila()->first()))
                                                                                         <td align="center">
                                                                                             <img src="{{url('/public/qr_code/'.$ticket->tapakila()->first()->qr_code)}}" width="200px" height="200px">
                                                                                         </td>
+                                                                                        @endif
                                                                                     </tr>
                                                                                 </table>
                                                                                 <br/>
@@ -671,7 +673,10 @@
 
                                                             </div>
                                                         </div>
-                                                        <p>Nombre de billets: {{$ticket->tapakila()->count()}}</p>
+                                                        @php
+                                                            $div_id = "nombre-ticket".$ticket->id;
+                                                        @endphp
+                                                        <p id="{{$div_id}}">Nombre de billets: {{$ticket->tapakila()->count()}} (sur {{$ticket->number}})</p>
                                                     </div>
                                                     @php
                                                         $i+=1;
@@ -1405,6 +1410,24 @@
                 todayHighlight: true,
                 autoclose: true,
             });
+            
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            
+            setInterval(function(){ 
+                @foreach($event->tickets as $ticket)
+                    $.ajax({
+                        type: "GET",
+                        url: '{{ url("organisateur/tickets/nombre-instant") }}' + '/' + {{$ticket->id}},
+                        success: function (data) {
+                            $('#nombre-ticket'+{{$ticket->id}}).html("Nombre de billets: "+data+ " (sur "+{{$ticket->number}}+")");
+                        }
+                    });
+                @endforeach
+            }, 3500);
 
         })
 
