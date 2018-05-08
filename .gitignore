@@ -1,5 +1,6 @@
 .env
 ./Logs/*
+.vscode
 .idea
 vendor
 storage/*

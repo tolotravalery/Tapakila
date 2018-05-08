@@ -73,6 +73,9 @@
             </div>
         </section>
     @endif
+    @php
+        $count_event = 0;
+    @endphp
     <section id="categorie-concert">
         <div class="container custom-container">
             @php $count_id = 0 @endphp
@@ -175,6 +178,9 @@
                             @endforeach
                         </div>
                     </div>
+                    @php
+                        $count_event++;
+                    @endphp
                 @endif
                 @if($evenement->count() >= 3)
                     <div class="row">
@@ -189,6 +195,63 @@
                     <br/>
                 @endif
             @endforeach
+            @if($count_event == 0)
+                <br/>
+                <div class="container custom-container">
+                    <div class="bg-custom">
+                        <h2 class="text-center"><strong>Pas d'évènement ajoutés récements</strong></h2>
+                        @if (Auth::guest())
+                            <p class="text-center"><strong>Inscrivez-vous dès maintenant, pour ne pas rater les
+                                    prochaines
+                                    Evènements</strong></p>
+                            <div class="sinscrire">
+                                <div class="row">
+                                    <div class="col-md-8 col-md-offset-2">
+                                        <div class="infopers">
+                                            <h1 class="inscriptioin"><strong>S'inscrire</strong></h1>
+                                            <label><strong>Une mise à jour mensuel des évènements à
+                                                    Madagascar</strong></label>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-8 col-xs-10 col-md-offset-2 col-xs-offset-1">
+                                                <div class="row">
+                                                    <div class="col-md-10 col-md-offset-1">
+                                                        <a type="button" class="btn btn-sinscrire btn-lg btn-block"
+                                                           href="{{url('')}}/register">
+                                                            S'inscrire
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+                        <hr class="couvert">
+                        <div class="replik">
+                            <ul>
+                                <li><a href="#"><img src="{{url('/public/img/items1.png')}}"></a>
+                                    <p class="ctgori"><strong><a href="#">Concert</a></strong></p></li>
+                                <li><a href="#"><img src="{{url('/public/img/items2.png')}}"></a>
+                                    <p class="ctgori"><strong><a href="#">Cabaret</a></strong></p></li>
+                                <li><a href="#"><img src="{{url('/public/img/items3.png')}}"></a>
+                                    <p class="ctgori"><strong><a href="#">Sport</a></strong></p></li>
+                                <li><a href="#"><img src="{{url('/public/img/items4.png')}}"></a>
+                                    <p class="ctgori"><strong><a href="#">Soirée</a></strong></p></li>
+                                <li><a href="#"><img src="{{url('/public/img/items5.png')}}"></a>
+                                    <p class="ctgori"><strong><a href="#">Danse</a></strong></p></li>
+                                <li><a href="#"><img src="{{url('/public/img/items6.png')}}"></a>
+                                    <p class="ctgori"><strong><a href="#">Cinéma</a></strong></p></li>
+                                <li><a href="#"><img src="{{url('/public/img/items7.png')}}"></a>
+                                    <p class="ctgori"><strong><a href="#">Festivals</a></strong></p></li>
+                                <li><a href="#"><img src="{{url('/public/img/items8.png')}}"></a>
+                                    <p class="ctgori"><strong><a href="#">Dj</a></strong></p></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            @endif
         </div>
     </section>
 @endsection

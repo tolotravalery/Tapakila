@@ -51,6 +51,7 @@ class User extends Authenticatable
         'updated_ip_address',
         'deleted_ip_address',
         'numero',
+        'client_key'
     ];
 
     /**
