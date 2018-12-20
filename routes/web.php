@@ -256,6 +256,8 @@ Route::group(['middleware' => ['auth', 'activated']], function () {
         'as' => '{username}',
         'uses' => 'ProfilesController@show'
     ]);
+
+    Route::get('/check-status-payment','Shopping\CheckoutController@checkStatusInstant')->name('check-payment');
 });
 
 // Registered, activated, and is current user routes.

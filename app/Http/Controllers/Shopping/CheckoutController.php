@@ -25,17 +25,19 @@ class CheckoutController extends Controller
         $options = $req->input('options');
         if ($options) {
             $payement = Payement_mode::where('slug', '=', $options)->get()[0];
-            // sending data to payment mode and waiting response
+            // create order here
+            $achat_reference = date('m') . '' . date('y') . '' . rand(1, 10000);
+            $order = new OrderCreator(Auth::user()->id,$achat_reference,$options);
+            $dataOrder = $order->createOrder();
+            Session::put('$dataOrder', $dataOrder);
+            // send customer to payment
             if ($payement->slug == 'orange') {
-                $achat_reference = date('m') . '' . date('y') . '' . rand(1, 10000);
-//            dd($achat_reference);
                 Session::put('$achat_reference', $achat_reference);
                 $om = new OrangeMoney($req->input('amount'), $achat_reference);
                 $payementOrange = $om->getPaymentUrl(url('/shopping/checkout/orange'));
                 Session::put('notif_token', $payementOrange->notif_token);
                 return redirect($payementOrange->payment_url);
             } elseif ($payement->slug == 'telma') {
-                $achat_reference = date('m') . '' . date('y') . '' . rand(1, 10000);
                 Session::put('$achat_reference', $achat_reference);
                 $mvola = new MVola($req->input('amount'), $achat_reference, Auth::user());
                 $check = $mvola->getPaymentUrl(1);
@@ -51,74 +53,80 @@ class CheckoutController extends Controller
         return redirect('/');
     }
 
+
+    function checkStatusInstant(Request $request){
+        if(Session::has('$achat_reference')){
+            //check status payment
+            $data = Session::get('$dataOrder');
+            if(!is_null(Session::get('notif_token'))){
+                $notifToken =  Session::get('notif_token');
+                if ($this->getStatus($notifToken)) {
+
+                    // update paymentstatus
+
+                    $user = Auth::user();
+                    $ticket = $user->tickets()->wherePivot('achat_reference', '=',Session::get('$achat_reference'))->get()[0];
+                    $ticket->pivot->status_payment = 'SUCCESS';
+
+                    $ticket->pivot->save();
+
+                    $user = Auth::user();
+                    Mail::send('emails.ticket', ['data' => $data, 'user' => $user, 'send' => 'mail'], function ($message) use ($data) {
+                        $message->to(Auth::user()->email, Auth::user()->name);
+                        $message->cc('reservations@leguichet.mg', 'Leguichet.mg')->subject('Leguichet ticket');
+                        foreach ($data as $d) {
+                            foreach ($d['tapakila'] as $tapakila) {
+                                $pdfAttachement = public_path('/tickets/' . $tapakila->pdf);
+                                $message->attach($pdfAttachement);
+                            }
+                        }
+                    });
+                    $request->session()->flash('status_payment', "Votre paiement est réussi.");
+                    Session::forget('$achat_reference');
+                    return redirect(url('/accueil'));
+                }
+            }elseif(!is_null(Session::get('MPGwToken'))){
+                $mv = new MVola();
+                $mvola_status = $mv->getNotification(Session::get('MPGwToken'));
+                if ($mvola_status['status'] == 4) {
+
+                    // update paymentstatus
+
+                    $user = Auth::user();
+                    $ticket = $user->tickets()->wherePivot('achat_reference', '=',Session::get('$achat_reference'))->get()[0];
+                    $ticket->pivot->status_payment = 'SUCCESS';
+
+                    $ticket->pivot->save();
+
+                    Mail::send('emails.ticket', ['data' => $data, 'user' => $user, 'send' => 'mail'], function ($message) use ($data) {
+                        $message->to(Auth::user()->email, Auth::user()->name);
+                        $message->cc('reservations@leguichet.mg', 'Leguichet.mg')->subject('Leguichet ticket');
+                        foreach ($data as $d) {
+                            foreach ($d['tapakila'] as $tapakila) {
+                                $pdfAttachement = public_path('/tickets/' . $tapakila->pdf);
+                                $message->attach($pdfAttachement);
+                            }
+                        }
+                    });
+                    $request->session()->flash('status_payment', "Votre paiement est réussi.");
+                    Session::forget('$achat_reference');
+                    return redirect(url('/accueil'));
+                }
+            }
+        }
+    }
+
     function saveOrange(Request $request)
     {
-        $notifToken = Session::get('notif_token');
-        $achat_reference = Session::get('$achat_reference');
-        if ($this->getStatus($notifToken)) {
-            $tic = array();
-            $data = array();
-            $j = 0;
-            foreach (Cart::content() as $item) {
-                $ticket = Ticket::findOrFail($item->id);
-                $date = date('Y-m-d H:i:s');
-                $nombre = $item->qty;
-                $ticket_user = TicketUser::create([
-                    'number' => $item->qty,
-                    'date_achat' => $date,
-                    'ticket_id' => $ticket->id,
-                    'user_id' => Auth::user()->id,
-                    'payement_mode_id' => Payement_mode::where('slug', '=', 'orange')->get()[0]->id,
-                    'achat_reference' => $achat_reference,
-                    'status_payment' => 'SUCCESS'
-                ]);
-                $tic[$j] = $ticket;
-                $tap = array();
-                for ($i = 0; $i < $nombre; $i++) {
-                    $tapakila = $ticket->tapakila()->where('vendu', '=', '0')->get()->random(1)[0];
-                    $tapakila->vendu = 1;
-                    $ticket->number = $ticket->number - 1;
-                    $tapakila->ticket_user()->associate($ticket_user);
-                    $tapakila->save();
-                    $tap[$i] = $tapakila;
-                }
-                $data[$j] = array('ticket' => $tic[$j], 'tapakila' => $tap);
-                $ticket->save();
-                $j++;
-            }
-            Cart::destroy();
-            $user = Auth::user();
-            Mail::send('emails.ticket', ['data' => $data, 'user' => $user, 'send' => 'mail'], function ($message) use ($data) {
-                $message->to(Auth::user()->email, Auth::user()->name);
-                $message->cc('reservations@leguichet.mg', 'Leguichet.mg')->subject('Leguichet ticket');
-                foreach ($data as $d) {
-                    foreach ($d['tapakila'] as $tapakila) {
-                        $pdfAttachement = public_path('/tickets/' . $tapakila->pdf);
-                        $message->attach($pdfAttachement);
-                    }
-                }
-            });
-            session()->flash('status_payment', "Votre paiement est réussi.");
-            return redirect(url('/accueil'));
-        } else {
-
-            foreach (Cart::content() as $item) {
-                $ticket = Ticket::findOrFail($item->id);
-                $date = date('Y-m-d H:i:s');
-                $nombre = $item->qty;
-                $ticket->users()->attach(array(Auth::user()->id => array('number' => $item->qty, 'date_achat' => $date,
-                    'payement_mode_id' => Payement_mode::where('slug', '=', 'orange')->get()[0]->id, 'achat_reference' => $achat_reference, 'status_payment' => 'FAILED')));
-            }
-            Cart::destroy();
-            session()->flash('status_payment', "Votre paiement n'est pas réussi.");
-            return redirect(url('/accueil'));
-        }
+        return redirect(url('/accueil'));
     }
 
     function proxyOrange()
     {
 
-    }function proxyTelma()
+    }
+
+    function proxyTelma()
     {
 
     }
@@ -126,66 +134,12 @@ class CheckoutController extends Controller
 
     function saveTelma(Request $request)
     {
+
         //check status
         $mv = new MVola();
         $mvola_status = $mv->getNotification(Session::get('MPGwToken'));
-        $achat_reference = Session::get('$achat_reference');
         if ($mvola_status['user_field'] == 1) {
             if ($mvola_status['status'] == 4) {
-                $tic = array();
-                $data = array();
-                $j = 0;
-                foreach (Cart::content() as $item) {
-                    $ticket = Ticket::findOrFail($item->id);
-                    $date = date('Y-m-d H:i:s');
-                    $nombre = $item->qty;
-                    $ticket_user = TicketUser::create([
-                        'number' => $item->qty,
-                        'date_achat' => $date,
-                        'ticket_id' => $ticket->id,
-                        'user_id' => Auth::user()->id,
-                        'payement_mode_id' => Payement_mode::where('slug', '=', 'telma')->get()[0]->id,
-                        'achat_reference' => $achat_reference,
-                        'status_payment' => 'SUCCESS'
-                    ]);
-                    $tic[$j] = $ticket;
-                    $tap = array();
-                    for ($i = 0; $i < $nombre; $i++) {
-                        $tapakila = $ticket->tapakila()->where('vendu', '=', '0')->get()->random(1)[0];
-                        $tapakila->vendu = 1;
-                        $ticket->number = $ticket->number - 1;
-                        $tapakila->ticket_user()->associate($ticket_user);
-                        $tapakila->save();
-                        $tap[$i] = $tapakila;
-                    }
-                    $data[$j] = array('ticket' => $tic[$j], 'tapakila' => $tap);
-                    $ticket->save();
-                    $j++;
-                }
-                Cart::destroy();
-                $user = Auth::user();
-                Mail::send('emails.ticket', ['data' => $data, 'user' => $user, 'send' => 'mail'], function ($message) use ($data) {
-                    $message->to(Auth::user()->email, Auth::user()->name);
-                    $message->cc('reservations@leguichet.mg', 'Leguichet.mg')->subject('Leguichet ticket');
-                    foreach ($data as $d) {
-                        foreach ($d['tapakila'] as $tapakila) {
-                            $pdfAttachement = public_path('/tickets/' . $tapakila->pdf);
-                            $message->attach($pdfAttachement);
-                        }
-                    }
-                });
-                session()->flash('status_payment', "Votre paiement est réussi.");
-                return redirect(url('/accueil'));
-            } else {
-                foreach (Cart::content() as $item) {
-                    $ticket = Ticket::findOrFail($item->id);
-                    $date = date('Y-m-d H:i:s');
-                    $nombre = $item->qty;
-                    $ticket->users()->attach(array(Auth::user()->id => array('number' => $item->qty, 'date_achat' => $date,
-                        'payement_mode_id' => Payement_mode::where('slug', '=', 'telma')->get()[0]->id, 'achat_reference' => $achat_reference, 'status_payment' => 'FAILED')));
-                }
-                Cart::destroy();
-                session()->flash('status_payment', "Votre paiement n'est pas réussi.");
                 return redirect(url('/accueil'));
             }
         } elseif ($mvola_status['user_field'] == 2) {
@@ -227,9 +181,6 @@ class CheckoutController extends Controller
                     }
                 });
                 session()->flash('status_payment', "Votre paiement est réussi.");
-                return redirect(url('/accueil'));
-            } else {
-                session()->flash('status_payment', "Votre paiement n'est pas réussi.");
                 return redirect(url('/accueil'));
             }
         }
