@@ -10,6 +10,7 @@ use App\Traits\CaptchaTrait;
 use App\Traits\CaptureIpTrait;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Controllers\Tokken\RandomToken;
 
 use jeremykenedy\LaravelRoles\Models\Role;
 
@@ -119,6 +120,7 @@ class RegisterController extends Controller
             'signup_ip_address' => $ipAddress->getClientIp(),
             'activated' => !config('settings.activation'),
             'numero' =>$data['numero'],
+            'client_key' => RandomToken::random(32)
         ]);
 
         $user->attachRole($role);

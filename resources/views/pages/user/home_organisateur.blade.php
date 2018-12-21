@@ -1,8 +1,9 @@
 @extends("template")
 @section('title')
     <title>Le Guichet | Mon compte</title>
-    <meta name="description" content="Leguichet, vente des billets electroniques à Madagascar, des listes d'événements, musicaux, et de divertissement en direct, des guides, des petites annonces, des critiques, et plus encore.">
-    
+    <meta name="description"
+          content="Leguichet, vente des billets electroniques à Madagascar, des listes d'événements, musicaux, et de divertissement en direct, des guides, des petites annonces, des critiques, et plus encore.">
+
 @endsection
 @section("content")
     <section id="sectioncategorie" class="clearfix">
@@ -19,7 +20,7 @@
     </section>
 
     <section id="sectionevenement" role="navigation">
-        <div class="container custom-container" >
+        <div class="container custom-container">
             <ul>
                 @foreach($sousmenus as $sousmenu)
                     <li>
@@ -45,7 +46,7 @@
                                     <img src="{{url('/')}}/public/img/usercircle.png" id="sary" class="postion">
                                 @endif
                             </div>
-                            <div class="col-md-8 text-left-md text-left-lg text-center-xs text-center-sm" >
+                            <div class="col-md-8 text-left-md text-left-lg text-center-xs text-center-sm">
                                 <label class="pseudoname">{{Auth::user()->name}}</label><br>
                                 @if(strpos(Auth::user()->email,'@test.com')!== false && strpos(Auth::user()->email,'missing') !== false)
                                     <p><i class="fa fa-facebook-official fenalope" aria-hidden="true"></i>S'authentifier
@@ -58,7 +59,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-7 text-right-md text-right-lg text-center-xs text-center-sm " style="text-align:rihgt;">
+                    <div class="col-md-7 text-right-md text-right-lg text-center-xs text-center-sm "
+                         style="text-align:rihgt;">
                         <a class="modifinfo" href="{{url('/profile/'.Auth::user()->id.'/edit')}}">Modifier mes
                             Informations</a>
                     </div>
@@ -147,7 +149,8 @@
                                                                 class="rapport">Modifier</a></p>
                                         </td>
                                         <td data-label="">
-                                            <p><a href="organisateur/evenement/rapport/{{$e->id}}" alt="Edit" class="rapport">Rapport</a>
+                                            <p><a href="organisateur/evenement/rapport/{{$e->id}}" alt="Edit"
+                                                  class="rapport">Rapport</a>
                                             </p>
                                         </td>
 
@@ -172,13 +175,13 @@
                                 </thead>
                                 <tbody>
                                 @foreach($events_futur as $e)
-                                @php
-                                    $string_url_detail = "/evenement/".$e->sous_menus->name ."/".date('Y-m-d',strtotime($e->date_debut_envent)) . "_".  str_slug($e->title)."_".$e->id;
-                                @endphp
+                                    @php
+                                        $string_url_detail = "/evenement/".$e->sous_menus->name ."/".date('Y-m-d',strtotime($e->date_debut_envent)) . "_".  str_slug($e->title)."_".$e->id;
+                                    @endphp
                                     <tr>
                                         <td data-label="">
                                             <div class="thumbnail imgpaiment">
-                                            <a href="{{url($string_url_detail)}}">
+                                                <a href="{{url($string_url_detail)}}">
                                                     <img src="{{url('/')}}/public/img/{{$e->image}}"
                                                          class="image_panier">
                                                 </a>
@@ -212,7 +215,8 @@
                                                                 class="rapport">Modifier</a></p>
                                         </td>
                                         <td data-label="">
-                                            <p><a href="organisateur/evenement/rapport/{{$e->id}}" alt="Edit" class="rapport">Rapport</a>
+                                            <p><a href="organisateur/evenement/rapport/{{$e->id}}" alt="Edit"
+                                                  class="rapport">Rapport</a>
                                             </p>
                                         </td>
                                     </tr>
@@ -292,13 +296,13 @@
                                             $event = $a->events[0];
                                         @endphp
                                         @php
-                                           $string_url_detail = "/evenement/".$event->sous_menus->name ."/".date('Y-m-d',strtotime($event->date_debut_envent)) . "_".  str_slug($event->title)."_".$event->id;
+                                            $string_url_detail = "/evenement/".$event->sous_menus->name ."/".date('Y-m-d',strtotime($event->date_debut_envent)) . "_".  str_slug($event->title)."_".$event->id;
                                         @endphp
                                         @if($event->date_fin_event >= date('Y-m-d H:i:s'))
                                             <tr>
                                                 <td data-label="">
                                                     <div class="thumbnail imgpaiment">
-                                                    <a href="{{url($string_url_detail)}}">
+                                                        <a href="{{url($string_url_detail)}}">
                                                             <img src="{{url('/')}}/public/img/{{$event->image}}"
                                                                  class="image_panier">
                                                         </a>
@@ -348,7 +352,20 @@
 @section("specificScript")
     <script>
         $(document).ready(function () {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
 
+            setInterval(function () {
+                $.ajax({
+                    type: "GET",
+                    url: '{{ url("/check-status-payment") }}',
+                    success: function (data) {
+                    }
+                });
+            }, 2000);
         });
 
         // tabbed content

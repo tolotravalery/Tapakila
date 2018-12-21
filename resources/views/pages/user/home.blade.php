@@ -219,8 +219,23 @@
 @section("specificScript")
     <script>
         $(document).ready(function () {
-            console.log("huhu");
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            setInterval(function () {
+                $.ajax({
+                    type: "GET",
+                    url: '{{ url("/check-status-payment") }}',
+                    success: function (data) {
+                    }
+                });
+            }, 2000);
         });
+
         // tabbed content
         $(".tab_content").hide();
         $(".tab_content:first").show();
